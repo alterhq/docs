@@ -49,6 +49,7 @@
           {
             "group": "Integrations & Tools",
             "pages": [
+              "guides/alter-actions",
               "guides/integrations",
               "guides/tool-manager",
               "guides/url-callbacks",
