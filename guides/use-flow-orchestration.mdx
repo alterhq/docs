@@ -1,0 +1,292 @@
+---
+title: "Use Flow for Tool Orchestration"
+description: "Let Flow automatically select and orchestrate your tools to reduce context usage and improve performance"
+---
+
+<Info>
+  **Flow** is Alter's built-in tool orchestrator. Instead of loading all your enabled tools into every request, Flow acts as a single tool that intelligently routes your requests to the right tools.
+</Info>
+
+<Warning>
+  **Enable Tools First** — Flow can only use tools you've already enabled in Tool Manager. It doesn't automatically enable disabled tools. Make sure the tools you need are toggled on before using Flow.
+</Warning>
+
+## Why Use Flow?
+
+<CardGroup cols={3}>
+  <Card title="Save Context Space" icon="compress">
+    Flow loads as a single tool instead of all enabled tools, freeing up your context window for actual content
+  </Card>
+  <Card title="Faster Performance" icon="bolt">
+    Smaller payloads process faster and reduce latency on every request
+  </Card>
+  <Card title="Save Fair Use Budget" icon="scale-balanced">
+    Fewer tokens per request means less usage against your fair use policy budget
+  </Card>
+</CardGroup>
+
+Every tool you enable consumes space in your context window. When you have 10+ tools enabled, this significantly impacts performance. Flow solves this by acting as a single tool that orchestrates all others.
+
+---
+
+## Enable Flow
+
+<Steps>
+  <Step title="Open Settings">
+    Press **⌘ ,** (Command + Comma) or click **Settings** in the menu
+  </Step>
+  <Step title="Go to Tool Manager">
+    Navigate to the **Tool Manager** tab
+  </Step>
+  <Step title="Enable Flow">
+    Under **Local Tools > Alter**, toggle **Flow** on
+  </Step>
+</Steps>
+
+<Note>
+  Remember: Flow can only orchestrate tools that are already enabled. Enable the specific tools you need (Calendar, Gmail, Slack, etc.) in addition to Flow itself.
+</Note>
+
+---
+
+## How Flow Works
+
+When you send a request with Flow enabled, it follows this process:
+
+<Steps>
+  <Step title="Analyze">
+    Flow analyzes your request to understand what you're trying to accomplish
+  </Step>
+  <Step title="Select">
+    From your enabled tools, Flow selects the appropriate tool(s) for the task
+  </Step>
+  <Step title="Execute">
+    Flow executes the tool calls in sequence, passing data between steps as needed
+  </Step>
+  <Step title="Summarize">
+    Results are condensed into a concise response with key data points preserved
+  </Step>
+</Steps>
+
+---
+
+## Examples
+
+<Tabs>
+  <Tab title="Single Tool">
+    **Request:** "What meetings do I have today?"
+    
+    Flow automatically:
+    1. Recognizes you need calendar information
+    2. Selects the Calendar tool
+    3. Retrieves your meetings
+    
+    No need to manually select the Calendar tool — Flow handles it.
+  </Tab>
+  
+  <Tab title="Multi-Tool Chain">
+    **Request:** "Cancel my 3pm meeting and send an email to the attendees explaining I'm sick"
+    
+    Flow automatically:
+    1. Uses the **Calendar** tool to find your 3pm meeting
+    2. Identifies the attendees from the meeting
+    3. Uses the **Gmail** tool to compose an email
+    4. Sends the cancellation and explanation
+    
+    All in one natural language request.
+  </Tab>
+  
+  <Tab title="With Transformation">
+    **Request:** "Scrape the Alter documentation and extract the key features"
+    
+    Flow automatically:
+    1. Uses a web tool to fetch the documentation content
+    2. Transforms the raw HTML using `$1:Extract the key features and format as bullet points`
+    3. Returns a formatted list of features
+    
+    The transformation step extracts only relevant information.
+  </Tab>
+</Tabs>
+
+---
+
+## When to Use Flow vs Specific Tools
+
+<CardGroup cols={2}>
+  <Card title="Use Flow" icon="wand-magic-sparkles">
+    <ul>
+      <li>You're not sure which tool to use</li>
+      <li>You want simple, natural language requests</li>
+      <li>You have many tools enabled</li>
+      <li>You're doing complex multi-step tasks</li>
+    </ul>
+  </Card>
+  <Card title="Use Specific Tool Actions" icon="bullseye">
+    <ul>
+      <li>You know exactly which tool you need</li>
+      <li>You want the fastest possible execution</li>
+      <li>You're building repeatable workflows</li>
+      <li>You need predictable, consistent behavior</li>
+    </ul>
+  </Card>
+</CardGroup>
+
+<Note>
+  **90% Rule:** For 90% of tasks, Flow is the best choice. Create specific tool actions only when you need optimized, repeatable workflows.
+</Note>
+
+---
+
+## Best Practice: Configure "Ask Anything"
+
+The **Ask Anything** action is Alter's default — it's used when you type in the prompt box without selecting a specific action.
+
+<Steps>
+  <Step title="Open Action Editor">
+    Go to **Settings > Actions**
+  </Step>
+  <Step title="Find Ask Anything">
+    Look for the **"Ask Anything"** action
+  </Step>
+  <Step title="Click Advanced">
+    Expand the **Advanced** section
+  </Step>
+  <Step title="Select Only Flow">
+    In the **Tools** section, select only **Flow** (deselect all other tools)
+  </Step>
+  <Step title="Save">
+    Save your changes
+  </Step>
+</Steps>
+
+Now your default interactions will use Flow's orchestration instead of loading all enabled tools into every request.
+
+---
+
+<AccordionGroup>
+  <Accordion icon="link" title="Advanced: Tool Chaining with Instructions">
+    Flow automatically chains tools together when a task requires multiple steps. The output of one tool can be referenced in subsequent calls using the `$N` syntax.
+
+    ### Reference Syntax
+
+    | Syntax | Description |
+    |--------|-------------|
+    | `$1` | Raw output from step 1 |
+    | `$2` | Raw output from step 2 |
+    | `$N:instruction` | Transform step N's output using an instruction |
+
+    ### Example with Transformation
+
+    When scraping a website and formatting the results:
+
+    1. Flow uses a web tool to fetch content
+    2. Applies transformation: `$1:Extract the key frameworks and format as bullet points`
+    3. The LLM processes the raw content before passing to the next tool
+
+    This allows Flow to:
+    - Extract only relevant information from large outputs
+    - Format data appropriately for the next tool
+    - Reduce noise in subsequent steps
+  </Accordion>
+
+  <Accordion icon="memory" title="Advanced: Smart Context Management">
+    Flow includes a built-in summarization step that optimizes how results are returned to your conversation.
+
+    ### What Summarization Does
+
+    After executing tools, Flow:
+
+    1. **Condenses the output** — Compresses verbose tool outputs
+    2. **Preserves important data** — Keeps IDs, URLs, references, and data points
+    3. **Surfaces key insights** — Highlights links, ideas, and findings for follow-up
+    4. **Provides source citations** — Uses [Step N] notation for traceability
+
+    ### Why This Matters
+
+    Without summarization, complex workflows would bloat your context window. By turn 5 or 6, you'd hit token limits.
+
+    Flow's summarization ensures:
+    - **Efficient context** — Only essential information is kept
+    - **Actionable replies** — Important data points are preserved
+    - **Better performance** — Less context = faster responses
+    - **Traceability** — [Step N] citations verify information sources
+
+    ### Example Output
+
+    ```
+    Task completed successfully.
+
+    Key artifacts for next actions:
+    - Meeting ID: 12345 [Step 1]
+    - Attendees: alice@example.com, bob@example.com [Step 1]
+    - Draft email prepared [Step 2]
+
+    Important findings:
+    - Meeting conflicts with another event at 3pm [Step 1]
+    - Alice has an out-of-office message active [Step 2]
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Tips for Best Results
+
+<CardGroup cols={3}>
+  <Card title="Be Specific" icon="pencil">
+    <p><strong>Good:</strong> "Send a Slack message to the engineering channel"</p>
+    <p><strong>Vague:</strong> "Message the team"</p>
+    <p>Specific requests help Flow select the right tool.</p>
+  </Card>
+  <Card title="Chain Naturally" icon="link">
+    Flow handles multi-step tasks well. Don't break complex requests into multiple prompts — let Flow orchestrate the chain.
+  </Card>
+  <Card title="Review Results" icon="eye">
+    Flow shows which tools it's using. If it selects the wrong one, rephrase your request with more detail.
+  </Card>
+</CardGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="xmark" title="Flow Selected the Wrong Tool">
+    Rephrase your request with more specific details:
+    
+    - **Instead of:** "Check my messages"
+    - **Try:** "Check my unread Slack messages in the general channel"
+    
+    The more specific you are, the better Flow can match your intent to the right tool.
+  </Accordion>
+  
+  <Accordion icon="question" title="Flow Can't Find a Tool">
+    Make sure the tool is:
+    - **Enabled** in Tool Manager (Flow can't use disabled tools)
+    - **Properly configured** (e.g., authenticated with Gmail)
+    - **Not restricted** by your action settings
+  </Accordion>
+  
+  <Accordion icon="gauge-high" title="Performance Still Slow">
+    Even with Flow, very large requests can be slow. Try:
+    - Breaking very complex tasks into 2-3 steps
+    - Using specific tool actions for frequently repeated tasks
+    - Enabling only essential tools in Tool Manager
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Docs
+
+<CardGroup cols={3}>
+  <Card title="Tool Manager Guide" icon="toolbox" href="/guides/tool-manager">
+    Learn how to connect and manage your tools
+  </Card>
+  <Card title="Tools Not Working" icon="wrench" href="/common-issues/tool-not-working">
+    Fix common integration issues
+  </Card>
+  <Card title="Alter Actions" icon="play" href="/guides/core-features#alter-actions-workflows">
+    Build custom tool workflows
+  </Card>
+</CardGroup>

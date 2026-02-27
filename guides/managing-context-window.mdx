@@ -1,0 +1,249 @@
+---
+title: "Managing Context Window"
+description: "Optimize your AI interactions by understanding and managing context window usage"
+---
+
+<Info>
+  The **context window** is the amount of text an AI model can process in a single conversation. Think of it as the model's working memory — it includes your messages, file contents, tool definitions, and the AI's responses.
+</Info>
+
+## Why Context Window Matters
+
+Every interaction with AI consumes context space. When your context window fills up:
+
+<CardGroup cols={3}>
+  <Card title="Performance Slows Down" icon="gauge">
+    Larger payloads take longer to process, increasing response times
+  </Card>
+  <Card title="Fair Use Budget Depletes" icon="scale-balanced">
+    More tokens per request consumes your fair use policy budget faster
+  </Card>
+  <Card title="Context Gets Truncated" icon="scissors">
+    Older messages may be dropped, causing the AI to "forget" earlier parts of the conversation
+  </Card>
+</CardGroup>
+
+Understanding how to manage your context window helps you get better performance and more value from Alter.
+
+---
+
+## What Consumes Context Space
+
+### 1. Conversation History
+
+Every message you send and every response you receive stays in context. Long conversations naturally consume more space.
+
+### 2. File Contents
+
+When you attach files or folders, their entire contents are injected into the context:
+
+- **Text files** — Full content is included
+- **Code files** — Entire file contents are sent
+- **Documents** — Parsed text is included
+- **Images** — Descriptions or OCR text is added
+
+### 3. Tool Definitions
+
+Every enabled tool consumes context space. A tool definition includes:
+
+- Tool name and description
+- Required and optional parameters
+- Parameter descriptions and types
+
+<Warning>
+  **Tools are the silent context consumer.** Enabling 10+ tools can easily consume 30-50% of your context window before you even start typing.
+</Warning>
+
+### 4. System Instructions
+
+Background prompts, grounding documents, and system instructions all consume space.
+
+---
+
+## How Tools Consume Context
+
+Here's a real example of how tools impact your context:
+
+| Tools Enabled | Approximate Context Used | Remaining for Your Content |
+|--------------|-------------------------|---------------------------|
+| 0 tools | ~5% | ~95% |
+| 5 tools | ~15% | ~85% |
+| 10 tools | ~30% | ~70% |
+| 20 tools | ~50% | ~50% |
+| 30+ tools | ~70%+ | ~30% |
+
+<Note>
+  These are approximate values. Actual usage varies based on tool complexity and description length.
+</Note>
+
+---
+
+## Strategies for Managing Context
+
+### 1. Use Flow for Tool Orchestration (Recommended)
+
+The most effective way to reduce tool-related context consumption is to use **Flow** — Alter's built-in tool orchestrator.
+
+<Card title="Flow loads as a single tool" icon="wand-magic-sparkles" href="/guides/use-flow-orchestration">
+  Instead of loading all your enabled tools into every request, Flow acts as one tool that intelligently selects and orchestrates the right tools for each task.
+  
+  **Benefits:**
+  - Reduces context usage by 60-80%
+  - Improves response times
+  - Automatically handles multi-step tasks
+  - Saves fair use budget
+</Card>
+
+**Best Practice:** Configure your default "Ask Anything" action to use only Flow instead of all enabled tools.
+
+### 2. Disable Unused Tools
+
+Only enable tools you actively use:
+
+<Steps>
+  <Step title="Review your tools">
+    Go to **Settings > Tool Manager** and see what's enabled
+  </Step>
+  <Step title="Disable unused tools">
+    Toggle off tools you haven't used in the past week
+  </Step>
+  <Step title="Re-enable when needed">
+    You can always re-enable tools — they remember your authentication
+  </Step>
+</Steps>
+
+### 3. Customize Tool Sets for Actions
+
+Every action can be configured with its own specific tools. This is a powerful way to control context usage:
+
+#### Ask Anything Action
+
+The **Ask Anything** action is the default used when you type in the prompt box without selecting a specific action. It runs everywhere in Alter — minimize your tool selection here for maximum impact.
+
+<Steps>
+  <Step title="Open Action Editor">
+    Go to **Settings > Actions**
+  </Step>
+  <Step title="Find Ask Anything">
+    Select the "Ask Anything" action
+  </Step>
+  <Step title="Click Advanced">
+    Expand the Advanced section
+  </Step>
+  <Step title="Limit Tools">
+    Select only the tools you absolutely need (or just Flow)
+  </Step>
+</Steps>
+
+#### Custom Actions
+
+When creating custom actions, think carefully about which tools are actually needed:
+
+<CardGroup cols={2}>
+  <Card title="Learn from Defaults" icon="book-open">
+    Most built-in Alter actions have tools disabled by default. For example, "Correct Grammar" doesn't need any tools — it's a pure text transformation.
+  </Card>
+  <Card title="Be Minimal" icon="filter">
+    Only enable tools your specific workflow requires. If your action just formats text, you probably don't need any tools.
+  </Card>
+</CardGroup>
+
+#### Flow vs Specific Tools
+
+<Info>
+  **Use Flow** when you want flexibility and don't know which specific tools you'll need. It handles tool selection automatically.
+</Info>
+
+<Info>
+  **Use specific tools** when you know exactly which tools your workflow needs. This gives better performance and fewer back-and-forth turns with the AI.
+</Info>
+
+**Example:** If you're building an action that just creates calendar events, enable only the Calendar tool rather than Flow. This eliminates the tool selection step and executes faster.
+
+### 4. Use Workspaces for Large Files
+
+Instead of attaching large files to every conversation:
+
+- Create a **workspace** for projects with large files
+- Reference the workspace when needed
+- Clear workspace context when switching tasks
+
+<Card title="Learn about Workspaces" icon="folder-open" href="/guides/core-features#workspaces">
+  Workspaces help organize files and manage context more efficiently
+</Card>
+
+### 4. Clear Context Regularly
+
+Use **⌘ K** (Command + K) to clear all contexts when:
+
+- Starting a new, unrelated task
+- Previous context is no longer relevant
+- Responses are getting slow
+
+### 5. Summarize Long Conversations
+
+For very long conversations:
+
+- Export the conversation to a file
+- Start a new conversation with a summary
+- Reference the exported file if needed
+
+### 6. Be Selective with File Attachments
+
+Instead of attaching entire folders:
+
+- Attach only the specific files you need
+- Remove files from context when done with them
+
+---
+
+## Monitoring Context Usage
+
+While Alter doesn't show a real-time context meter, you can monitor usage indirectly:
+
+<CardGroup cols={2}>
+  <Card title="Watch Response Times" icon="clock">
+    Slower responses often indicate high context usage
+  </Card>
+  <Card title="Check Tool Count" icon="toolbox">
+    More enabled tools = more context consumed. Review Tool Manager regularly.
+  </Card>
+</CardGroup>
+
+---
+
+## Quick Wins Checklist
+
+<Steps>
+  <Step title="Enable Flow" icon="check">
+    Configure "Ask Anything" to use only Flow instead of all tools
+  </Step>
+  <Step title="Customize Actions" icon="check">
+    Set specific tools for custom actions — disable tools you don't need
+  </Step>
+  <Step title="Audit Tools" icon="check">
+    Disable tools you haven't used recently
+  </Step>
+  <Step title="Use Workspaces" icon="check">
+    Organize large projects in workspaces instead of attaching files ad-hoc
+  </Step>
+  <Step title="Clear Context" icon="check">
+    Press **⌘ K** when starting new tasks
+  </Step>
+</Steps>
+
+---
+
+## Related Docs
+
+<CardGroup cols={3}>
+  <Card title="Use Flow for Tool Orchestration" icon="wand-magic-sparkles" href="/guides/use-flow-orchestration">
+    The best way to reduce tool-related context usage
+  </Card>
+  <Card title="Tool Manager Guide" icon="toolbox" href="/guides/tool-manager">
+    Learn how to manage your tool integrations
+  </Card>
+  <Card title="Workspaces" icon="folder-open" href="/guides/core-features#workspaces">
+    Organize files and manage context efficiently
+  </Card>
+</CardGroup>

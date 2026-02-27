@@ -26,6 +26,9 @@ You ask Alter to do something like "Send a message to John" or "Add a calendar e
   <Card title="Wrong Prompt Format" icon="message">
     The AI needs clear instructions about what tool to use and how
   </Card>
+  <Card title="Global Tools Toggle Off" icon="toggle-off">
+    All tools are disabled via the global toggle in Active Tools
+  </Card>
 </CardGroup>
 
 ## Step-by-step fix
@@ -41,11 +44,20 @@ You ask Alter to do something like "Send a message to John" or "Add a calendar e
     Press `/` in the prompt box to switch models.
   </Step>
   
-  <Step title="Enable the right tools">
+  <Step title="Check the global tools toggle">
+    In the Tools Manager, there's a master switch that can disable **all** tools at once:
     1. Click the **three dots** in Alter → **Tools Manager**
-    2. Find the tool you want (Messages, Calendar, etc.)
-    3. Toggle it **on**
-    4. Check if it needs additional setup (like signing in)
+    2. Look for the global toggle in the **Active Tools** section
+    3. Make sure it's turned **on** (enabled)
+    
+    If this is off, none of your individual tools will work even if they're enabled.
+  </Step>
+
+  <Step title="Enable the right tools">
+    Once the global toggle is on, enable specific tools:
+    1. In the Tools Manager, find the tool you want (Messages, Calendar, etc.)
+    2. Toggle it **on**
+    3. Check if it needs additional setup (like signing in)
   </Step>
   
   <Step title="Be explicit in your request">
@@ -76,6 +88,10 @@ Try this simple test:
 
 <Tip>
   **Start simple:** Test with basic tools like System Notification before trying complex integrations. This helps identify if it's a general tool issue or specific to one integration.
+</Tip>
+
+<Tip>
+  **Try Flow:** If you're unsure which tool to use or having trouble with tool selection, enable [Flow](/guides/use-flow-orchestration) - Alter's tool orchestrator that automatically selects the right tool for you.
 </Tip>
 
 ## Still not working?

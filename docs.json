@@ -54,6 +54,13 @@
               "guides/url-callbacks",
               "guides/workspaces-actions"
             ]
+          },
+          {
+            "group": "Best Practices",
+            "pages": [
+              "guides/managing-context-window",
+              "guides/use-flow-orchestration"
+            ]
           }
         ]
       },

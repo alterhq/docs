@@ -15,6 +15,21 @@ Connect and manage integrations safely with clear troubleshooting steps.
 4. Create a simple test prompt to verify expected behavior.
 5. If failures occur, review provider auth and retry.
 
+## Managing Many Tools
+
+Enabling many tools increases context window usage and impacts performance. For most workflows, use **Flow** - Alter's tool orchestrator that automatically selects the right tool for each request.
+
+<Card title="Use Flow for Tool Orchestration" icon="wand-magic-sparkles" href="/guides/use-flow-orchestration">
+  Flow reduces context usage by acting as a single tool that routes requests to the appropriate integration automatically.
+</Card>
+
+Instead of loading all tools into every request, Flow:
+- Analyzes your request and selects the right tool
+- Handles multi-step orchestration across tools
+- Reduces context window usage and improves performance
+
+Enable Flow in Tool Manager under **Local Tools > Alter**.
+
 ## Troubleshooting
 
 - Re-authenticate provider connection.
@@ -23,4 +38,5 @@ Connect and manage integrations safely with clear troubleshooting steps.
 
 ## Related Docs
 
+- [Use Flow for Tool Orchestration](/guides/use-flow-orchestration)
 - [Tools Not Working](/common-issues/tool-not-working)
