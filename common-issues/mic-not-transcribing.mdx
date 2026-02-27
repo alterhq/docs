@@ -26,6 +26,9 @@ You're holding the microphone button or pressing your voice hotkey, but:
   <Card title="Language Mismatch" icon="language">
     Automatic language detection isn't working for your accent
   </Card>
+  <Card title="Wrong Input Device" icon="speaker">
+    Alter is using the wrong microphone or system default isn't working
+  </Card>
 </CardGroup>
 
 ## How to fix it
@@ -37,7 +40,20 @@ You're holding the microphone button or pressing your voice hotkey, but:
     3. Make sure **Alter** is enabled in the list
     4. If it's already on, try toggling it off and back on
   </Step>
-  
+
+  <Step title="Select the Right Input Device">
+    By default, Alter uses your system default microphone, but macOS doesn't always handle this correctly:
+    1. Look for the **control block** in Alter's interface (or check the menu bar)
+    2. Click to open the device selector
+    3. Choose your specific microphone from the list
+    4. Try speaking again
+
+    This fixes issues like:
+    - Alter not picking up any audio despite permissions being granted
+    - Meeting recordings capturing only the other participant and not you
+    - Low quality or intermittent audio input
+  </Step>
+
   <Step title="Verify Voice Processor Settings">
     1. In Alter, open **Settings** (`Cmd + ,`)
     2. Go to the **Dictation** tab
