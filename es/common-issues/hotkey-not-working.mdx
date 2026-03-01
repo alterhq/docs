@@ -1,0 +1,71 @@
+---
+title: "El método abreviado de teclado no funciona"
+description: "Solucione problemas con las teclas de acceso rápido cuando Alt+Espacio o su acceso directo personalizado no se abre Alter"
+---
+
+<Note>
+**Primero, verifique lo básico:** ¿Alter realmente se está ejecutando? Busque el ícono Alter en la barra de menú en la parte superior de la pantalla.
+</Note>
+
+## ¿Lo que está sucediendo?
+
+Presionas tu método abreviado de teclado (el valor predeterminado es `Alt + Space`), pero:
+- No pasa nada en absoluto
+- No aparece el menú rápido
+- Funciona en algunas aplicaciones pero no en otras.
+
+<AccordionGroup>
+  <Accordion icon="gear" title="Problema: se cambió el acceso directo">
+**Solución:** Compruebe cuál está realmente configurado su acceso directo
+    
+    1. Abra Alter (haga clic en el icono de la barra de menú si es necesario)
+    2. Presione `Cmd + ,` para abrir Configuración
+    3. Vaya a la pestaña **Valores predeterminados**
+    4. Mire **Abrir combinación de teclas con muesca**: esto muestra su acceso directo actual
+    5. Presione `Alt + Space` (o su combo preferido) para configurarlo
+  </Accordion>
+  
+  <Accordion icon="xmark" title="Problema: otra aplicación está usando el mismo acceso directo">
+**Solución:** Encuentre el conflicto y cámbielo
+    
+Aplicaciones comunes que usan `Alt + Space`:
+    - Alfredo
+    - Raycast
+    - Foco (a veces)
+    - Cambiadores de idiomas
+    
+**Prueba con un atajo diferente:**
+    - `Cmd + Shift + A`
+    - `Ctrl + Option + Space`
+    - `Fn + F12`
+    
+Elija algo que pueda recordar fácilmente y que ninguna otra aplicación utilice.
+  </Accordion>
+  
+  <Accordion icon="lock" title="Problema: problema de permisos">
+**Solución:** Verifique los permisos de accesibilidad
+    
+Alter necesita permiso de Accesibilidad para detectar teclas de acceso rápido globales:
+    
+    1. Abra **Configuración del sistema** → **Privacidad y seguridad** → **Accesibilidad**
+    2. Asegúrese de que **Alter** esté en la lista y habilitado
+    3. Si está atenuado, haga clic en el ícono de candado e ingrese su contraseña
+    4. Desactiva Alter y luego vuelve a activarlo
+  </Accordion>
+</AccordionGroup>
+
+## prueba rápida
+
+Después de realizar cambios:
+1. Haga clic en cualquier aplicación (como Safari o Notas)
+2. Presione su acceso directo (`Alt + Space` o lo que establezca)
+3. **Éxito:** La muesca/panel rápido Alter debería aparecer inmediatamente
+
+<Tip>
+**Consejo profesional:** También puedes abrir Alter colocando el mouse sobre la muesca en la parte superior de la pantalla. ¡Esto evita por completo los atajos de teclado!
+</Tip>
+
+## Ayuda relacionada
+
+- [Todos los atajos de teclado](/references/shortcuts)
+- [Cómo cambiar tu tecla de acceso rápido](/how-to/change-hotkey)

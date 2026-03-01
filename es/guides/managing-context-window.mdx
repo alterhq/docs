@@ -1,0 +1,249 @@
+---
+title: "Administrar la ventana de contexto"
+description: "Optimice sus interacciones con IA comprendiendo y gestionando el uso de la ventana de contexto"
+---
+
+<Info>
+La **ventana de contexto** es la cantidad de texto que un modelo de IA puede procesar en una sola conversación. Piense en ello como la memoria de trabajo del modelo: incluye sus mensajes, contenidos de archivos, definiciones de Tools y las respuestas de la IA.
+</Info>
+
+## Por qué es importante la ventana de contexto
+
+Cada interacción con la IA consume espacio contextual. Cuando su ventana de contexto se llene:
+
+<CardGroup cols={3}>
+  <Card title="El rendimiento se ralentiza" icon="gauge">
+Las cargas útiles más grandes tardan más en procesarse, lo que aumenta los tiempos de respuesta
+  </Card>
+  <Card title="El presupuesto de uso legítimo se agota" icon="scale-balanced">
+Más tokens por solicitud consumen más rápido el presupuesto de su política de uso legítimo
+  </Card>
+  <Card title="El contexto se trunca" icon="scissors">
+Los mensajes más antiguos pueden descartarse, lo que hace que la IA "olvide" partes anteriores de la conversación.
+  </Card>
+</CardGroup>
+
+Comprender cómo administrar su ventana de contexto le ayudará a obtener un mejor rendimiento y más valor de Alter.
+
+---
+
+## Qué consume espacio contextual
+
+### 1. Historial de conversaciones
+
+Cada mensaje que envía y cada respuesta que recibe permanece en contexto. Las conversaciones largas naturalmente consumen más espacio.
+
+### 2. Contenido del archivo
+
+Cuando adjunta archivos o carpetas, todo su contenido se inyecta en el contexto:
+
+- **Archivos de texto**: se incluye el contenido completo
+- **Archivos de código**: se envía el contenido completo del archivo
+- **Documentos**: se incluye texto analizado
+- **Imágenes**: se agregan descripciones o texto OCR
+
+### 3. Tool Definiciones
+
+Cada Tool habilitada consume espacio de contexto. Una definición de Tool incluye:
+
+- Tool nombre y descripción
+- Parámetros requeridos y opcionales
+- Descripciones y tipos de parámetros
+
+<Warning>
+**Tools son el consumidor de contexto silencioso.** Habilitar más de 10 Tools puede consumir fácilmente entre el 30 y el 50 % de su ventana de contexto incluso antes de comenzar a escribir.
+</Warning>
+
+### 4. Instrucciones del sistema
+
+Las indicaciones en segundo plano, los documentos de conexión a tierra y las instrucciones del sistema consumen espacio.
+
+---
+
+## Cómo Tools consume contexto
+
+Aquí hay un ejemplo real de cómo las Tools impactan su contexto:
+
+| Tools Habilitado | Contexto aproximado utilizado | Restante para su contenido |
+|--------------|-------------------------|---------------------------|
+| 0 Tools | ~5% | ~95% |
+| 5 Tools | ~15% | ~85% |
+| 10 Tools | ~30% | ~70% |
+| 20 Tools | ~50% | ~50% |
+| Más de 30 Tools | ~70%+ | ~30% |
+
+<Note>
+Estos son valores aproximados. El uso real varía según la complejidad de la Tool y la longitud de la descripción.
+</Note>
+
+---
+
+## Estrategias para gestionar el contexto
+
+### 1. Utilice Flow para la orquestación Tool (recomendado)
+
+La forma más eficaz de reducir el consumo de contexto relacionado con las Tools es utilizar **Flow**, el orquestador de Tools integrado de Alter.
+
+<Card title="Flow se carga como una sola Tool" icon="wand-magic-sparkles" href="/guides/use-flow-orchestration">
+En lugar de cargar todas las Tools habilitadas en cada solicitud, Flow actúa como una Tool que selecciona y organiza de forma inteligente las Tools adecuadas para cada tarea.
+  
+**Beneficios:**
+  - Reduce el uso del contexto entre un 60 y un 80 %.
+  - Mejora los tiempos de respuesta
+  - Maneja automáticamente tareas de varios pasos
+  - Ahorra presupuesto de uso legítimo
+</Card>
+
+**Mejor práctica:** Configure su acción predeterminada "Preguntar cualquier cosa" para usar solo Flow en lugar de todas las Tools habilitadas.
+
+### 2. Deshabilitar Tools no utilizado
+
+Habilite únicamente las Tools que utilice activamente:
+
+<Steps>
+  <Step title="Revisa tus Tools">
+Vaya a **Configuración > Tool Administrador** y vea qué está habilitado
+  </Step>
+  <Step title="Deshabilitar Tools no utilizadas">
+Desactiva las Tools que no has utilizado la semana pasada
+  </Step>
+  <Step title="Vuelva a habilitar cuando sea necesario">
+Siempre puedes volver a habilitar las Tools: recuerdan tu autenticación
+  </Step>
+</Steps>
+
+### 3. Personalizar Tool conjuntos de acciones
+
+Cada acción se puede configurar con sus propias Tools específicas. Esta es una forma poderosa de controlar el uso del contexto:
+
+#### Preguntar cualquier acción
+
+La acción **Preguntar cualquier cosa** es la acción predeterminada que se utiliza cuando escribe en el cuadro de diálogo sin seleccionar una acción específica. Se ejecuta en todas partes en Alter: minimice su selección de Tools aquí para obtener el máximo impacto.
+
+<Steps>
+  <Step title="Abrir editor de acciones">
+Vaya a **Configuración > Acciones**
+  </Step>
+  <Step title="Buscar Preguntar cualquier cosa">
+Seleccione la acción "Preguntar cualquier cosa"
+  </Step>
+  <Step title="Haga clic en Avanzado">
+Expandir la sección Avanzado
+  </Step>
+  <Step title="Límite Tools">
+Seleccione solo las Tools que absolutamente necesita (o simplemente Flow)
+  </Step>
+</Steps>
+
+#### Acciones personalizadas
+
+Al crear acciones personalizadas, piense detenidamente qué Tools son realmente necesarias:
+
+<CardGroup cols={2}>
+  <Card title="Aprenda de los valores predeterminados" icon="book-open">
+La mayoría de las acciones Alter integradas tienen Tools deshabilitadas de forma predeterminada. Por ejemplo, "Gramática correcta" no necesita ninguna Tool: es una transformación de texto pura.
+  </Card>
+  <Card title="Sea mínimo" icon="filter">
+Habilite únicamente las Tools que su flujo de trabajo específico requiera. Si su acción solo da formato al texto, probablemente no necesite ninguna Tool.
+  </Card>
+</CardGroup>
+
+#### Flow frente a Tools específico
+
+<Info>
+**Utilice Flow** cuando desee flexibilidad y no sepa qué Tools específicas necesitará. Maneja la selección de Tools automáticamente.
+</Info>
+
+<Info>
+**Utilice Tools específicas** cuando sepa exactamente qué Tools necesita su flujo de trabajo. Esto proporciona un mejor rendimiento y menos giros de ida y vuelta con la IA.
+</Info>
+
+**Ejemplo:** Si está creando una acción que solo crea eventos de calendario, habilite solo la Tool Calendario en lugar de Flow. Esto elimina el paso de selección de Tools y se ejecuta más rápido.
+
+### 4. Utilice Workspaces para archivos grandes
+
+En lugar de adjuntar archivos grandes a cada conversación:
+
+- Cree un **espacio de trabajo** para proyectos con archivos grandes
+- Haga referencia al espacio de trabajo cuando sea necesario
+- Borrar el contexto del espacio de trabajo al cambiar de tarea
+
+<Card title="Más información sobre Workspaces" icon="folder-open" href="/guides/core-features#workspaces">
+Workspaces ayuda a organizar archivos y administrar el contexto de manera más eficiente
+</Card>
+
+### 4. Limpiar el contexto con regularidad
+
+Utilice **⌘ K** (Comando + K) para borrar todos los contextos cuando:
+
+- Iniciar una tarea nueva y no relacionada
+- El contexto anterior ya no es relevante
+- Las respuestas son cada vez más lentas.
+
+### 5. Resumir conversaciones largas
+
+Para conversaciones muy largas:
+
+- Exportar la conversación a un archivo
+- Iniciar una nueva conversación con un resumen
+- Haga referencia al archivo exportado si es necesario
+
+### 6. Sea selectivo con los archivos adjuntos
+
+En lugar de adjuntar carpetas enteras:
+
+- Adjunte sólo los archivos específicos que necesita
+- Eliminar archivos del contexto cuando haya terminado con ellos
+
+---
+
+## Monitoreo del uso del contexto
+
+Si bien Alter no muestra un medidor de contexto en tiempo real, puedes monitorear el uso indirectamente:
+
+<CardGroup cols={2}>
+  <Card title="Ver tiempos de respuesta" icon="clock">
+Las respuestas más lentas a menudo indican un uso elevado del contexto
+  </Card>
+  <Card title="Verificar Tool Recuento" icon="toolbox">
+Más Tools habilitadas = más contexto consumido. Revise Tool Manager periódicamente.
+  </Card>
+</CardGroup>
+
+---
+
+## Lista de verificación de ganancias rápidas
+
+<Steps>
+  <Step title="Habilitar Flow" icon="check">
+Configure "Preguntar cualquier cosa" para usar solo Flow en lugar de todas las Tools
+  </Step>
+  <Step title="Personalizar acciones" icon="check">
+Configure Tools específicas para acciones personalizadas: desactive las Tools que no necesita
+  </Step>
+  <Step title="Auditoría Tools" icon="check">
+Desactiva Tools que no hayas usado recientemente
+  </Step>
+  <Step title="Utilice Workspaces" icon="check">
+Organice proyectos grandes en espacios de trabajo en lugar de adjuntar archivos ad hoc
+  </Step>
+  <Step title="Contexto claro" icon="check">
+Presione **⌘ K** al iniciar nuevas tareas
+  </Step>
+</Steps>
+
+---
+
+## Documentos relacionados
+
+<CardGroup cols={3}>
+  <Card title="Utilice Flow para la orquestación Tool" icon="wand-magic-sparkles" href="/guides/use-flow-orchestration">
+La mejor manera de reducir el uso del contexto relacionado con Tools
+  </Card>
+  <Card title="Tool Guía del administrador" icon="toolbox" href="/guides/tool-manager">
+Aprenda a gestionar las integraciones de sus Tools
+  </Card>
+  <Card title="Workspaces" icon="folder-open" href="/guides/core-features#workspaces">
+Organice archivos y administre el contexto de manera eficiente
+  </Card>
+</CardGroup>

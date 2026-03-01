@@ -1,0 +1,87 @@
+---
+title: "API Router Descripción general"
+description: "Descripción general del servicio Alter API Router y del punto final compatible con OpenAI"
+---
+
+Alter API Router es una puerta de enlace API compatible con OpenAI que proporciona acceso unificado a más de 92 modelos de IA de más de 10 proveedores a través de un único punto final.
+
+## ¿Qué es el API Router?
+
+API Router es un servicio centralizado que elimina la necesidad de administrar múltiples claves API y cuentas de facturación entre diferentes proveedores de IA. En lugar de mantener cuentas separadas con OpenAI, Anthropic, Google y otros, puede usar Alter como punto de entrada único para todo el acceso a los modelos de IA.
+
+### Beneficios clave
+
+- **Clave API única** para todos los proveedores
+- **Facturación centralizada** a través de tu cuenta Alter
+- **92+ modelos** de más de 10 proveedores
+- **El terminal compatible con OpenAI** funciona con Tools y SDK existentes.
+- **Fácil cambio de modelo** sin cambios de código
+
+## Inicio rápido
+
+### 1. Genere una clave API
+
+1. Abra **Configuración** (**⌘,**)
+2. Vaya a la pestaña **Enrutador**
+3. En "Alter Claves API", haga clic en **Agregar nueva clave**
+4. Copie su clave (comienza con `sk-`)
+
+### 2. Obtenga el punto final
+
+```
+https://alterhq.com/api
+```
+
+Para la mayoría de las Tools, utilice:
+```
+https://alterhq.com/api/v1
+```
+
+### 3. Listar modelos disponibles
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Formato de denominación del modelo
+
+Los modelos utilizan el formato: `Provider#Model-name`
+
+Ejemplos:
+- `OpenAI#gpt-5` - Último GPT-5
+- `OpenAI#gpt-5-mini` - Ligero GPT-5
+- `Claude#claude-sonnet-4-6` - Último Claude
+- `Gemini#gemini-2.5-pro` - Último Gemini
+
+## Ejemplo de uso
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[
+        {"role": "user", "content": "What is machine learning?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+## Límites de uso
+
+- **Límite diario**: 200 solicitudes por día bajo uso justo
+- **Aceleración**: después de 200 solicitudes, se limita a 1 cada 10 minutos.
+- **Recarga de presupuesto**: disponible para un acceso constante más allá del uso justo
+
+## Próximos pasos
+
+- [Guía de API Gateway](/guides/api-gateway) - Documentación de uso completa
+- [Referencia de nomenclatura de modelo](/references/api-model-names) - Lista completa de modelos
+- Referencia de OpenAPI: documentación de API interactiva

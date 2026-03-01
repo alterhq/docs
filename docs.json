@@ -314,6 +314,158 @@
             "openapi": "openapi.json"
           }
         ]
+      },
+      {
+        "language": "es",
+        "tabs": [
+          {
+            "tab": "Primeros pasos",
+            "pages": [
+              "es/index",
+              "es/quickstart",
+              "es/getting-started/open-alter",
+              "es/getting-started/your-workspace",
+              "es/getting-started/first-workflows"
+            ]
+          },
+          {
+            "tab": "Guías",
+            "pages": [
+              "es/guides/index"
+            ],
+            "groups": [
+              {
+                "group": "Empieza aquí",
+                "pages": [
+                  "es/guides/core-features",
+                  "es/guides/alter-window",
+                  "es/guides/dictation",
+                  "es/guides/meetings",
+                  "es/guides/getting-started"
+                ]
+              },
+              {
+                "group": "Mejores resultados (haz esto pronto)",
+                "pages": [
+                  "es/guides/use-flow-orchestration",
+                  "es/guides/managing-context-window"
+                ]
+              },
+              {
+                "group": "Flujos de trabajo diarios",
+                "pages": [
+                  "es/guides/workspaces-actions"
+                ]
+              },
+              {
+                "group": "Automatizaciones y Tools",
+                "pages": [
+                  "es/guides/alter-actions",
+                  "es/guides/integrations",
+                  "es/guides/tool-manager",
+                  "es/guides/url-callbacks"
+                ]
+              },
+              {
+                "group": "Ajustes y personalización",
+                "pages": [
+                  "es/guides/alter-settings",
+                  "es/guides/manage-settings",
+                  "es/guides/settings"
+                ]
+              },
+              {
+                "group": "Modelos",
+                "pages": [
+                  "es/guides/choosing-generative-model"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Cómo hacerlo",
+            "groups": [
+              {
+                "group": "Tareas rápidas",
+                "pages": [
+                  "es/how-to/open-alter",
+                  "es/how-to/add-context",
+                  "es/how-to/change-hotkey",
+                  "es/how-to/choose-language",
+                  "es/how-to/use-byok",
+                  "es/how-to/settings"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Casos de uso",
+            "groups": [
+              {
+                "group": "Escenarios",
+                "pages": [
+                  "es/use-cases/meeting-workflow",
+                  "es/use-cases/local-model-privacy"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Resolución de problemas",
+            "groups": [
+              {
+                "group": "Problemas comunes",
+                "pages": [
+                  "es/common-issues/mic-not-transcribing",
+                  "es/common-issues/hotkey-not-working",
+                  "es/common-issues/tool-not-working",
+                  "es/common-issues/custom-provider-not-showing",
+                  "es/common-issues/models-not-listed-in-api-gateway"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Referencia",
+            "groups": [
+              {
+                "group": "Referencia rápida",
+                "pages": [
+                  "es/references/faq-core",
+                  "es/references/general-faq",
+                  "es/references/pricing-faq",
+                  "es/references/shortcuts",
+                  "es/references/docs-map"
+                ]
+              },
+              {
+                "group": "Recursos",
+                "pages": [
+                  "es/references/image-library"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Router",
+            "groups": [
+              {
+                "group": "Primeros pasos",
+                "pages": [
+                  "es/references/api-router-overview",
+                  "es/guides/api-gateway"
+                ]
+              },
+              {
+                "group": "Referencia",
+                "pages": [
+                  "es/references/api-model-names"
+                ]
+              }
+            ],
+            "openapi": "openapi.json"
+          }
+        ]
       }
     ],
     "global": {

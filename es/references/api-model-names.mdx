@@ -1,0 +1,120 @@
+---
+title: "Referencia del modelo API"
+description: "Lista completa de modelos de IA disponibles a través de Alter API Router"
+---
+
+Esta referencia enumera todos los modelos de IA disponibles a través de Alter API Router. Utilice estos nombres de modelo al realizar solicitudes de API.
+
+## Formato de denominación del modelo
+
+Todos los modelos siguen el formato: `Provider#Model-name`
+
+Por ejemplo: `OpenAI#gpt-5`, `Claude#claude-sonnet-4-6`
+
+## OpenAI Modelos
+
+| Nombre del modelo | Descripción | Ventana contextual |
+|------------|-------------|----------------|
+| `OpenAI#gpt-5` | Último modelo GPT-5 | 128K |
+| `OpenAI#gpt-5-mini` | Ligero GPT-5 | 128K |
+| `OpenAI#gpt-5-nano` | Variante GPT-5 más rápida | 128K |
+| `OpenAI#o3` | Razonamiento avanzado | 200K |
+| `OpenAI#o4-mini` | Razonamiento eficiente | 200K |
+
+## Claude Modelos (antrópicos)
+
+| Nombre del modelo | Descripción | Ventana contextual |
+|------------|-------------|----------------|
+| `Claude#claude-sonnet-4-6` | Último Claude Soneto | 200K |
+| `Claude#claude-opus-4-6` | Más capaz Claude | 200K |
+| `Claude#claude-haiku-4-6` | Variante rápida Claude | 200K |
+
+## Gemini (Google) Modelos
+
+| Nombre del modelo | Descripción | Ventana contextual |
+|------------|-------------|----------------|
+| `Gemini#gemini-2.5-pro` | Más capaz Gemini | 1 millón |
+| `Gemini#gemini-2.5-flash` | Rápido Gemini | 1 millón |
+| `Gemini#gemini-2.5-flash-lite` | Ligero Gemini | 1 millón |
+
+## Modelos Mistral
+
+| Nombre del modelo | Descripción | Ventana contextual |
+|------------|-------------|----------------|
+| `Mistral#mistral-large-latest` | Mistral más capaz | 128K |
+| `Mistral#mistral-small-latest` | Mistral eficiente | 128K |
+| `Mistral#codestral-2501` | Especialista en código | 32K |
+| `Mistral#pixtral-large-latest` | Visión capaz | 128K |
+
+## Perplexity Modelos
+
+| Nombre del modelo | Descripción | Ventana contextual |
+|------------|-------------|----------------|
+| `Perplexity#sonar` | Modelo compatible con la web | 128K |
+| `Perplexity#sonar-pro` | Búsqueda web avanzada | 128K |
+| `Perplexity#sonar-reasoning` | Razonamiento con web | 128K |
+
+## Alter Modelos
+
+| Nombre del modelo | Descripción |
+|------------|-------------|
+| `Alter#best` | Selecciona automáticamente el mejor modelo |
+| `Alter#fair` | Opción rentable |
+| `Alter#light` | Respuesta más rápida |
+
+## Ejemplos de uso
+
+### Pitón
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+# Use GPT-5
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[{"role": "user", "content": "Hello!"}]
+)
+```
+
+### rizo
+```bash
+curl https://alterhq.com/api/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "OpenAI#gpt-5",
+    "messages": [{"role": "user", "content": "Hello!"}]
+  }'
+```
+
+## Consejos para la selección del modelo
+
+**Para velocidad**
+- `Alter#light`
+- `OpenAI#gpt-5-nano`
+- `Gemini#gemini-2.5-flash-lite`
+
+**Por calidad**
+- `Alter#best`
+- `OpenAI#gpt-5`
+- `Claude#claude-opus-4-6`
+- `Gemini#gemini-2.5-pro`
+
+**Para codificar**
+- `OpenAI#gpt-5`
+- `Mistral#codestral-2501`
+- `Claude#claude-sonnet-4-6`
+
+**Para la visión**
+- `OpenAI#gpt-5`
+- `Gemini#gemini-2.5-pro`
+- `Mistral#pixtral-large-latest`
+
+**Por costo**
+- `Alter#fair`
+- `Alter#light`
+- `OpenAI#gpt-5-nano`

@@ -1,0 +1,106 @@
+---
+title: "Tools No funciona"
+description: "Corrija las integraciones cuando Alter no use sus Tools y aplicaciones conectadas"
+---
+
+<Note>
+**Comprobación rápida:** ¿El modelo de IA elegido admite Tools? Algunos modelos más pequeños no tienen capacidades de llamada de Tools.
+</Note>
+
+## ¿Lo que está sucediendo?
+
+Le pides a Alter que haga algo como "Enviar un mensaje a John" o "Agregar un evento de calendario", pero:
+- La IA responde con texto en lugar de actuar
+- No sucede nada en la aplicación de destino.
+- Obtienes "No tengo acceso a eso" o respuestas similares.
+
+## ¿Por qué sucede esto?
+
+<CardGroup cols={2}>
+  <Card title="El modelo no es compatible con Tools" icon="brain">
+Algunos modelos de IA no pueden llamar a Tools: solo generan texto
+  </Card>
+  <Card title="Tool No habilitado" icon="toggle-off">
+La Tool está disponible pero no activada en Tools Manager
+  </Card>
+  <Card title="Formato de mensaje incorrecto" icon="message">
+La IA necesita instrucciones claras sobre qué Tool utilizar y cómo
+  </Card>
+  <Card title="Global Tools Desactivar" icon="toggle-off">
+Todas las Tools se desactivan mediante la palanca global en Active Tools
+  </Card>
+</CardGroup>
+
+## Solución paso a paso
+
+<Steps>
+  <Step title="Cambiar a un modelo compatible con Tools">
+No todos los modelos pueden utilizar Tools. Pruebe uno de estos:
+    - **Alter Mejor** (nuestro enrutador inteligente)
+    - **Gemini 2.0 Flash**
+    - **Claude Soneto**
+    - **GPT-5**
+    
+Presione `/` en el cuadro de mensaje para cambiar de modelo.
+  </Step>
+  
+  <Step title="Verifique la palanca de Tools globales">
+En Tools Manager, hay un interruptor maestro que puede desactivar **todas** las Tools a la vez:
+    1. Haga clic en los **tres puntos** en Alter → **Tools Manager**
+    2. Busque el interruptor global en la sección **Active Tools**
+    3. Asegúrate de que esté activado **(habilitado)
+    
+Si esto está desactivado, ninguna de sus Tools individuales funcionará incluso si están habilitadas.
+  </Step>
+
+  <Step title="Habilite las Tools adecuadas">
+Una vez que la palanca global esté activada, habilite Tools específicas:
+    1. En el Tools Manager, busca la Tool que deseas (Mensajes, Calendario, etc.)
+    2. Actívalo **activado**
+    3. Compruebe si necesita configuración adicional (como iniciar sesión)
+  </Step>
+  
+  <Step title="Sea explícito en su solicitud">
+En lugar de: *"Dile a John que llego tarde"*
+    
+Pruebe: *"Envíe un mensaje a John Smith diciendo 'Llego 10 minutos tarde' usando la Tool Mensajes"*
+    
+Cuanto más específico sea, mejor lo entenderá la IA.
+  </Step>
+  
+  <Step title="Para atajos de Apple">
+Si usa atajos de Apple:
+    1. Abre la aplicación **Atajos**
+    2. Edita tu atajo
+    3. Agregue "Recibir información de" y configúrelo para aceptar texto.
+    4. Guardar el acceso directo
+    5. Inténtalo de nuevo en Alter
+  </Step>
+</Steps>
+
+## Pruébalo
+
+Pruebe esta sencilla prueba:
+1. Asegúrate de estar utilizando un modelo compatible con Tools
+2. Habilite la Tool **Notificación del sistema**
+3. Diga: "Enviar una notificación del sistema que diga 'Prueba exitosa'".
+4. **Éxito:** ¡Deberías ver aparecer una notificación de macOS!
+
+<Tip>
+**Empiece de forma sencilla:** Pruebe con Tools básicas como Notificación del sistema antes de intentar integraciones complejas. Esto ayuda a identificar si se trata de un problema general de la Tool o específico de una integración.
+</Tip>
+
+<Tip>
+**Pruebe Flow:** Si no está seguro de qué Tool usar o tiene problemas con la selección de Tools, habilite [Flow](/guides/use-flow-orchestration) - el orquestador de Tools de Alter que selecciona automáticamente la Tool adecuada para usted.
+</Tip>
+
+## ¿Aún no funciona?
+
+Algunos modelos son mejores con las Tools que otros. Si un modelo no funciona bien con las Tools:
+1. Cambie a **Alter Óptimo** (selecciona automáticamente los modelos compatibles)
+2. O prueba **Gemini 2.0 Flash** o **Claude Sonnet**
+
+## Ayuda relacionada
+
+- [Tool Guía del administrador](/guides/tool-manager)
+- [Descripción general de integraciones](/guides/integrations)

@@ -1,0 +1,175 @@
+---
+title: "Mantenga sus datos privados con IA local"
+description: "Cómo ejecutar modelos de IA en su propia Mac para documentos confidenciales y trabajo confidencial"
+---
+
+<Info>
+**Perfecto para:** Abogados, médicos, investigadores de seguridad o cualquier persona que trabaje con datos confidenciales y no quiera que salgan de su computadora.
+</Info>
+
+## La preocupación
+
+Estás trabajando con:
+- Información confidencial del cliente.
+- Registros médicos
+- Datos comerciales propietarios
+- Documentos financieros personales
+- investigación de seguridad
+
+Y le preocupa enviar estos datos a servicios de inteligencia artificial en la nube como OpenAI o Google, incluso si afirman que son privados.
+
+**La buena noticia:** No es necesario. Puede ejecutar modelos de IA directamente en su Mac.
+
+## Cómo funcionan los modelos locales
+
+En lugar de enviar sus datos a Internet, descarga un modelo de IA en su Mac (como descargar una aplicación grande) y lo ejecuta localmente. Tus datos nunca salen de tu computadora.
+
+<CardGroup cols={2}>
+  <Card title="100% Privado" icon="shield-check">
+Nada enviado a la nube. Tus datos permanecen en tu Mac.
+  </Card>
+  <Card title="Funciona sin conexión" icon="wifi-slash">
+Utilice la IA en aviones, en instalaciones seguras o en cualquier lugar sin Internet.
+  </Card>
+  <Card title="Sin costos de API" icon="money-bill">
+Una vez descargado, no hay tarifas por uso. Analiza miles de documentos gratis.
+  </Card>
+  <Card title="Más rápido para archivos grandes" icon="bolt">
+Sin tiempo de carga/descarga. Ideal para documentos grandes.
+  </Card>
+</CardGroup>
+
+## Configuración: dos opciones sencillas
+
+### Opción 1: Ollama (Recomendado para principiantes)
+
+Ollama hace que ejecutar modelos locales sea tan simple como instalar una aplicación.
+
+<Steps>
+  <Step title="Instalar Ollama">
+    1. Descargar desde [ollama.com](https://ollama.com)
+    2. Instálalo como cualquier aplicación de Mac
+    3. Se ejecuta en tu barra de menú.
+  </Step>
+  
+  <Step title="Descargar un modelo">
+Abra Terminal y ejecute:
+    ```bash
+    ollama pull llama3.1
+    ```
+    
+Esto descarga el modelo Llama 3.1 de Meta (~4,7 GB). Otras buenas opciones:
+    - `ollama pull mistral` (más rápido, más pequeño)
+    - `ollama pull codellama` (excelente para código)
+    - `ollama pull mixtral` (más capaz, más grande)
+  </Step>
+  
+  <Step title="Conéctese a Alter">
+    1. Abra Alter → Configuración (`Cmd + ,`)
+    2. Vaya a la pestaña **Claves API**
+    3. En **Proveedor personalizado**, seleccione **Ollama**
+    4. Asegúrate de que Ollama se esté ejecutando (revisa tu barra de menú)
+    5. Activar **Habilitar proveedor personalizado**
+  </Step>
+  
+  <Step title="Empieza a usarlo">
+    1. Presione `/` en el cuadro de aviso de Alter
+    2. Busque la sección **Personalizado**
+    3. Seleccione su modelo local (por ejemplo, "llama3.1")
+    4. Pregunte cualquier cosa: ¡se ejecuta completamente en su Mac!
+  </Step>
+</Steps>
+
+### Opción 2: LM Studio (Más control)
+
+LM Studio te ofrece una interfaz gráfica para gestionar modelos.
+
+<Steps>
+  <Step title="Instalar LM Studio">
+Descárguelo desde [lmstudio.ai](https://lmstudio.ai) e instálelo.
+  </Step>
+  
+  <Step title="Descargar un modelo">
+    1. Abrir LM Studio
+    2. Explora el catálogo de modelos
+    3. Descarga uno que se ajuste a tus necesidades y a las especificaciones de Mac
+    4. Inicie el servidor local (botón grande "Iniciar servidor")
+  </Step>
+  
+  <Step title="Conéctese a Alter">
+    1. En Alter Configuración → **Claves API**
+    2. Seleccione **LM Studio** como proveedor
+    3. LM Studio se ejecuta en `localhost:1234` de forma predeterminada
+    4. Activar **Habilitar proveedor personalizado**
+  </Step>
+</Steps>
+
+## Ejemplo del mundo real
+
+**Dr. Chen, médico:**
+> "Necesito analizar las notas de los pacientes para realizar investigaciones, pero no puedo usar la IA en la nube debido a HIPAA. Con un modelo local, puedo preguntar '¿Qué patrones ves en estos síntomas?' y obtener asistencia de IA mientras mantengo todo en mi computadora portátil segura".
+
+**Alex, investigador de seguridad:**
+> "Analizo informes de malware y no puedo cargarlos en ningún lugar. Ejecutar un modelo local significa que puedo preguntar '¿Qué indicadores de compromiso se mencionan?' sin riesgo de exposición de datos."
+
+## Compensaciones que debe conocer
+
+<AccordionGroup>
+  <Accordion icon="gauge" title="Velocidad versus privacidad">
+**Modelos en la nube:** Más rápido, más capaz
+**Modelos locales:** Más lento, pero completamente privado.
+    
+Una MacBook Pro con 16 GB de RAM puede ejecutar modelos pequeños sin problemas. Para modelos más grandes, querrás más de 32 GB de RAM.
+  </Accordion>
+  
+  <Accordion icon="brain" title="Diferencias de capacidad">
+Los modelos locales mejoran cada mes, pero los modelos en la nube (GPT-4, Claude) son aún más capaces de realizar razonamientos complejos.
+    
+**Mejor enfoque:** Utilice modelos locales para datos confidenciales y modelos en la nube para tareas complejas menos confidenciales.
+  </Accordion>
+  
+  <Accordion icon="hard-drive" title="Requisitos de almacenamiento">
+Los modelos van desde 4 GB hasta 70 GB+. Asegúrese de tener suficiente espacio en disco.
+    
+**Buenos modelos iniciales:**
+    - Llama 3.1 8B (~4,7 GB): calidad rápida y decente
+    - Mistral 7B (~4,1 GB) – Buen equilibrio
+    - Mixtral 8x7B (~26GB): mayor calidad, necesita más RAM
+  </Accordion>
+</AccordionGroup>
+
+## Mejores prácticas para flujos de trabajo privados
+
+<Tip>
+**Utilice acciones específicas para tareas confidenciales:** Cree Alter acciones configuradas para usar siempre su modelo local. De esa manera, nunca utilizará accidentalmente un modelo en la nube para trabajos delicados.
+</Tip>
+
+<Tip>
+**Configure un espacio de trabajo privado:** Cree un espacio de trabajo solo para documentos confidenciales. Esto los mantiene organizados y le recuerda que debe utilizar modelos locales.
+</Tip>
+
+<Tip>
+**Verifique que esté funcionando:** Después de la configuración, desconéctese de WiFi e intente usar Alter. Si todavía funciona con su modelo local, sabrá que es verdaderamente local.
+</Tip>
+
+## cuando usar que
+
+| Escenario | Recomendación |
+|----------|---------------|
+| Registros médicos | Modelo local (Ollama/LM Studio) |
+| Documentos legales | Modelo local |
+| Investigación de seguridad | Modelo local |
+| Análisis financiero | Modelo local o Alter Cloud con plan Pro |
+| Escritura creativa | Modelos en la nube (mejor creatividad) |
+| Preguntas generales | Modelos en la nube (más rápidos) |
+| Asistencia de código | Cualquiera funciona bien |
+
+## Recursos relacionados
+
+- [Cómo utilizar su propia clave API](/how-to/use-byok) – Guía de configuración paso a paso
+- [Elección de modelos de IA](/guides/choosing-generative-model) – Comparar opciones locales versus opciones en la nube
+- [Configuración de claves API](/guides/settings#external-api-keys) – Configuración detallada
+
+---
+
+**¿Listo para pasar a ser privado?** Comience con Ollama y el modelo Llama 3.1. ¡Es gratis, fácil de configurar y tendrás asistencia de IA que nunca sale de tu Mac!

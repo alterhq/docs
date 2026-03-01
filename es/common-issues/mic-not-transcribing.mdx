@@ -1,0 +1,95 @@
+---
+title: "El micrófono no funciona"
+description: "Solucione problemas de entrada de voz y dictado cuando Alter no transcribe su discurso"
+---
+
+<Note>
+**Comprobación rápida:** ¿El micrófono de tu Mac funciona en otras aplicaciones como Notas de voz? De lo contrario, se trata de un problema del sistema, no de Alter.
+</Note>
+
+## ¿Lo que está sucediendo?
+
+Estás manteniendo presionado el botón del micrófono o presionando la tecla de acceso rápido de voz, pero:
+- No pasa nada cuando hablas
+- El dictado comienza pero no aparece ningún texto.
+- El indicador de grabación se muestra pero permanece en blanco.
+
+## Causas comunes
+
+<CardGroup cols={2}>
+  <Card title="Permisos faltantes" icon="shield">
+Alter no tiene permiso para acceder a su micrófono
+  </Card>
+  <Card title="Procesador de voz incorrecto" icon="microphone">
+Los modelos de voz locales no se descargan ni configuran
+  </Card>
+  <Card title="Discrepancia de idioma" icon="language">
+La detección automática de idioma no funciona para tu acento
+  </Card>
+  <Card title="Dispositivo de entrada incorrecto" icon="speaker">
+Alter está usando el micrófono incorrecto o el sistema predeterminado no funciona
+  </Card>
+</CardGroup>
+
+## como solucionarlo
+
+<Steps>
+  <Step title="Verifique los permisos del micrófono">
+    1. Abre **Configuración del sistema** en tu Mac
+    2. Vaya a **Privacidad y seguridad** → **Micrófono**
+    3. Asegúrese de que **Alter** esté habilitado en la lista
+    4. Si ya está activado, intenta desactivarlo y volver a activarlo.
+  </Step>
+
+  <Step title="Seleccione el dispositivo de entrada correcto">
+De forma predeterminada, Alter usa el micrófono predeterminado de su sistema, pero macOS no siempre lo maneja correctamente:
+    1. Busque el **bloque de control** en la interfaz de Alter (o consulte la barra de menú)
+    2. Haga clic para abrir el selector de dispositivos
+    3. Elija su micrófono específico de la lista
+    4. Intenta hablar de nuevo
+
+Esto soluciona problemas como:
+    - Alter no capta ningún audio a pesar de que se han concedido los permisos
+    - Grabaciones de reuniones que capturan solo al otro participante y no a usted
+    - Entrada de audio intermitente o de baja calidad
+  </Step>
+
+  <Step title="Verificar la configuración del procesador de voz">
+    1. En Alter, abra **Configuración** (`Cmd + ,`)
+    2. Vaya a la pestaña **Dictado**
+    3. Compruebe que **Procesador de voz** esté configurado en:
+       - **Nube** (para mayor precisión)
+       - **Local (Apple)** (para privacidad)
+       - O descargue un modelo de Whisper si desea procesarlo sin conexión
+  </Step>
+  
+  <Step title="Establecer idioma explícitamente">
+Si la detección automática no funciona:
+    1. En **Configuración** → **Dictado**
+    2. Cambie **Idioma de dictado** de "Automático" a su idioma específico
+    3. Intente dictar nuevamente
+  </Step>
+  
+  <Step title="Pruebe ambos modos">
+Pruebe ambas formas de entrada de voz:
+    - **Mantén presionado para hablar**: Mantén presionado `Fn` (o tu tecla de acceso rápido de voz), habla y luego suelta
+    - **Haga clic para dictar**: haga clic en el ícono del micrófono una vez para comenzar, haga clic nuevamente para finalizar
+  </Step>
+</Steps>
+
+## ¿Funcionó?
+
+Pruebe esta prueba rápida:
+1. Mantenga presionada la tecla de acceso rápido de voz (el valor predeterminado es `Fn`)
+2. Di "Hola, esto es una prueba".
+3. Suelta la llave
+4. **Éxito:** Deberías ver "Hola, esto es una prueba" en el cuadro de diálogo.
+
+<Tip>
+**¿Aún tienes problemas?** Intente reiniciar Alter después de otorgar permisos. A veces, macOS necesita un nuevo comienzo para reconocer nuevos permisos.
+</Tip>
+
+## Ayuda relacionada
+
+- [Configuración de dictado](/guides/settings#dictation)
+- [Cómo cambiar la tecla de acceso rápido de voz](/how-to/change-hotkey)
