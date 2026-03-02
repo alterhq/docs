@@ -1,0 +1,160 @@
+---
+title: "Bringen Sie Ihr Team mit Alter auf den neuesten Stand"
+description: "Wie man neue Teammitglieder mit gemeinsamen Workspaces und konsistenten KI-Workflows einführt"
+---
+
+<Info>
+  **Perfekt für:** Teamleiter, Manager und Organisationen, in denen mehrere Personen Alter konsistent nutzen müssen.
+</Info>
+
+## Die Herausforderung
+
+Sie haben eine großartige Alter-Konfiguration:
+- Benutzerdefinierte Aktionen für die Workflows Ihres Teams
+- Sorgfältig konfigurierte Einstellungen
+- Gemeinsame Workspaces mit wichtigen Dateien
+- Spezifische Modelle, die am besten für Ihre Aufgaben geeignet sind
+
+Aber jedes Mal, wenn jemand neu hinzukommt, muss er alles von Grund auf neu herausfinden. Sie:
+- Verwenden die falschen Modelle
+- Wissen nichts über Ihre benutzerdefinierten Aktionen
+- Stellen Arbeiten nach, die Sie bereits erledigt haben
+- Erzeugen inkonsistente Ausgaben
+
+## Die Lösung: Teilen Sie Ihre Konfiguration
+
+Alter erleichtert das Teilen von Konfigurationen, sodass neue Teammitglieder am ersten Tag produktiv sein können.
+
+## Schritt-für-Schritt-Team-Einarbeitung
+
+<Steps>
+  <Step title="Erstellen Sie eine Basis-Konfiguration">
+    Dokumentieren Sie die Standard-Einstellungen Ihres Teams:
+    - **Empfohlenes Modell** (z. B. "Verwenden Sie Claude für Code-Überprüfungen, Gemini für kreative Aufgaben")
+    - **Standard-Temperatur** (z. B. 0.7 für ausgewogene Kreativität)
+    - **Voice-Hotkey** (einheitlich auf `Fn` oder eine benutzerdefinierte Taste)
+    - **Dateibenennungsrichtlinien** für Workspaces
+  </Step>
+  
+  <Step title="Starter-Workspaces erstellen">
+    Erstellen Sie gemeinsame Workspaces mit gemeinsamem Kontext:
+    - **Codebasis-Workspace:** Fügen Sie die Hauptprojektordner hinzu
+    - **Dokumentations-Workspace:** Fügen Sie Spezifikationen, Anforderungen, Styleguides hinzu
+    - **Wissensdatenbank-Workspace:** Fügen Sie frühere Entscheidungen, häufig gestellte Fragen, Wikis hinzu
+    
+    <Tip>
+      Workspaces werden in `~/Library/Application Support/Alter/Workspaces/` gespeichert. Sie können die `.alterworkspace`-Dateien direkt teilen oder dokumentieren, wie man sie erstellt.
+    </Tip>
+  </Step>
+  
+  <Step title="Benutzerdefinierte Aktionen teilen">
+    Exportieren Sie die nützlichsten Aktionen Ihres Teams:
+    1. Öffnen Sie den **Aktions-Editor** (aus der Menüleiste)
+    2. Wählen Sie eine Aktion aus
+    3. Klicken Sie auf **Exportieren** (oder drücken Sie `Cmd + E`)
+    4. Speichern Sie die `.json`-Datei
+    5. Teilen Sie sie mit Ihrem Team
+    
+    Neue Mitglieder können diese mit `Cmd + O` im Aktions-Editor importieren.
+  </Step>
+  
+  <Step title="Erstellen Sie eine Teamprofil-Vorlage">
+    Teilen Sie eine Vorlage für die Profilbeschreibung, die neue Mitglieder in Einstellungen > Profil einfügen können:
+    
+    ```
+    Rolle: [Berufsbezeichnung]
+    Team: [Teamname]
+    Kommunikationsstil: [Direkt/locker/formell]
+    
+    Häufig verwendete Tools:
+    - GitHub-Repo: [URL]
+    - Projektmanagement: [Linear/Asana/Jira]
+    - Dokumentation: [Notion/Confluence]
+    
+    Technischer Kontext:
+    - Primäre Sprache: [Python/JavaScript/usw.]
+    - Framework: [React/Django/usw.]
+    - Wichtige Abhängigkeiten: [Liste der wichtigsten Bibliotheken]
+    ```
+  </Step>
+</Steps>
+
+## Beispiel: Wie ein Entwicklerteam das nutzt
+
+**Die Konfiguration:**
+- **Standardmodell:** Claude Sonnet für die meisten Aufgaben
+- **Code-Review-Aktion:** Vorab konfiguriert zur Überprüfung auf Sicherheitsprobleme, Tests und Dokumentation
+- **Gemeinsamer Workspace:** Haupt-Codebasis + API-Dokumentation + Bereitstellungsanleitungen
+- **Teamprofil:** Jeder umfasst die Struktur des GitHub-Repos und wichtige Abhängigkeiten
+
+**Das Ergebnis:**
+Wenn ein neuer Entwickler hinzukommt:
+1. Installieren sie Alter
+2. Importieren die Aktionen des Teams (5 Minuten)
+3. Klonen den gemeinsamen Workspace (2 Minuten)  
+4. Fügen die Profilvorlage ein (1 Minute)
+5. Sie sind sofort produktiv – sie können fragen "Wie funktioniert das Authentifizierungssystem?" und erhalten kontextbezogene Antworten
+
+## Nachhaltigkeit sichern
+
+<AccordionGroup>
+  <Accordion icon="refresh" title="Wöchentliche Verfeinerungssitzungen">
+    Verbringen Sie jede Woche 15 Minuten mit der Überprüfung:
+    - Welche Aktionen nutzen die Leute?
+    - Welche Aufforderungen funktionieren am besten?
+    - Was verwirrt neue Mitglieder?
+    
+    Aktualisieren Sie Ihre gemeinsamen Ressourcen basierend auf Feedback.
+  </Accordion>
+  
+  <Accordion icon="users" title="Erstellen Sie einen Team-Chat-Kanal">
+    Richten Sie einen speziellen Kanal (Slack/Discord) ein für:
+    - Teilen nützlicher Aufforderungen
+    - Posten neuer Aktionen
+    - Fragen zu "Wie mache ich...?"
+    - Feiern von Erfolgen ("Alter hat mir gerade 2 Stunden gespart!")
+  </Accordion>
+  
+  <Accordion icon="book" title="Pflegen Sie ein Team-Handbuch">
+    Dokumentieren Sie Ihre Alter-Konfiguration in Ihrem Team-Wiki:
+    - Verlinken Sie exportierte Aktionen
+    - Anleitungen zur Einrichtung von Workspaces
+    - Best Practices für Ihren Bereich
+    - Häufige Fehler, die vermieden werden sollten
+  </Accordion>
+</AccordionGroup>
+
+## Schnelle Erfolge für verschiedene Teams
+
+<CardGroup cols={2}>
+  <Card title="Engineering Teams" icon="code">
+    - Code-Review-Aktionen
+    - Debug-Helfer mit Ihrem Tech-Stack
+    - Dokumentationsgenerator
+  </Card>
+  <Card title="Marketing Teams" icon="megaphone">
+    - Markenstimmungsprüfer
+    - Kampagnenbrief-Analysator
+    - Inhalt-Kalender-Helfer
+  </Card>
+  <Card title="Support Teams" icon="headset">
+    - Ticket-Antwortvorlagen
+    - Wissensdatenbank-Sucher
+    - Eskalationsvorhersager
+  </Card>
+  <Card title="Product Teams" icon="box">
+    - Benutzerfeedback-Analysator
+    - Anforderungs-Klärungshelfer
+    - Release-Notiz-Generator
+  </Card>
+</CardGroup>
+
+## Verwandte Ressourcen
+
+- [Workspaces-Handbuch](/de/guides/workspaces-actions) – Wie man Workspaces erstellt und verwaltet
+- [Aktions-Editor-Handbuch](/de/guides/alter-settings) – Erstellen und Teilen von benutzerdefinierten Aktionen
+- [Das richtige Modell auswählen](/de/guides/choosing-generative-model) – Modellempfehlungen nach Anwendungsfall
+
+---
+
+**Fangen Sie klein an:** Wählen Sie eine Aktion oder einen Workspace, den Sie diese Woche teilen möchten. Sehen Sie, wie Ihr Team reagiert, und entwickeln Sie von dort aus weiter!

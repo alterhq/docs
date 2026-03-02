@@ -1,0 +1,106 @@
+---
+title: 'Mitwirken an der Dokumentation'
+description: 'Vorschau und Mitwirken an der Alter-Dokumentation lokal'
+---
+
+<Info>
+  **Voraussetzungen**:
+  - Node.js Version 19 oder höher
+  - Git
+</Info>
+
+Befolge diese Schritte, um die Alter-Dokumentation lokal anzuzeigen und Änderungen beizutragen.
+
+<Steps>
+<Step title="Klone das Repository">
+
+```bash
+git clone https://github.com/wearedevx/alter-docs.git
+cd alter-docs/docs
+```
+</Step>
+
+<Step title="Installiere die Mintlify CLI">
+
+```bash
+npm i -g mint
+```
+</Step>
+
+<Step title="Vorschau lokal anzeigen">
+
+Führe den folgenden Befehl im docs-Verzeichnis aus:
+
+```bash
+mint dev
+```
+
+Eine lokale Vorschau der Dokumentation ist verfügbar unter `http://localhost:3000`.
+
+</Step>
+</Steps>
+
+## Benutzerdefinierte Ports
+
+Standardmäßig verwendet Mintlify Port 3000. Du kannst den Port mit dem `--port`-Flag anpassen:
+
+```bash
+mint dev --port 3333
+```
+
+## Links validieren
+
+Überprüfe auf defekte Links, bevor du Änderungen einreichst:
+
+```bash
+mint broken-links
+```
+
+## KI-gestütztes Schreiben
+
+Richte dein KI-Coding-Tool ein, um mit Mintlify zu arbeiten:
+
+```bash
+npx skills add https://mintlify.com/docs
+```
+
+Dies installiert die Dokumentationsfähigkeit von Mintlify für KI-Tools wie Claude Code, Cursor und Windsurf.
+
+## Bereitstellung
+
+Änderungen werden automatisch bereitgestellt, wenn sie über die GitHub-Integration in den Hauptbranch zusammengeführt werden.
+
+<Frame>
+  <img src="/images/checks-passed.png" alt="Screenshot einer Bereitstellung Bestätigungsnachricht, die besagt, dass alle Prüfungen bestanden wurden." style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+## Mitwirkungsrichtlinien
+
+Bitte lies vor dem Mitwirken:
+- [ALTER.md](/ALTER) - Regeln für die Mitwirkung von KI-Agenten
+- [AGENTS.md](/AGENTS) - Projektanweisungen für Agenten
+
+Wichtige Punkte:
+- Verwende das MDX-Format mit YAML-Frontmatter
+- Befolge die vorhandene Inhaltsstruktur
+- Verwende lokale `/images/`-Pfade für Assets
+- Führe `mint broken-links` aus, bevor du einreichst
+
+## Fehlersuche
+
+<AccordionGroup>
+  <Accordion title='Fehler: Konnte das "sharp"-Modul mit der darwin-arm64-Laufzeit nicht laden'>
+
+    Dies kann auf eine veraltete Version von Node zurückzuführen sein. Versuche Folgendes:
+    1. Entferne die derzeit installierte Version der CLI: `npm remove -g mint`
+    2. Aktualisiere auf Node v19 oder höher.
+    3. Installiere die CLI neu: `npm i -g mint`
+  </Accordion>
+
+  <Accordion title="Problem: Unerkannten Fehler begegnen">
+  
+    Lösung: Gehe zum Stammverzeichnis deines Geräts und lösche den Ordner `~/.mintlify`. Führe dann `mint dev` erneut aus.
+  </Accordion>
+</AccordionGroup>
+
+Neugierig, was sich in der neuesten CLI-Version geändert hat? Schau dir das [CLI-Änderungsprotokoll](https://www.npmjs.com/package/mintlify?activeTab=versions) an.

@@ -1,0 +1,71 @@
+---
+title: "Tastenkombination funktioniert nicht"
+description: "Beheben Sie Hotkey-Probleme, wenn Alt+Space oder Ihre benutzerdefinierte Tastenkombination Alter nicht öffnet"
+---
+
+<Note>
+  **Überprüfen Sie zuerst die Grundlagen:** Läuft Alter tatsächlich? Suchen Sie das Alter-Symbol in Ihrer Menüleiste oben auf Ihrem Bildschirm.
+</Note>
+
+## Was passiert?
+
+Sie drücken Ihre Tastenkombination (der Standard ist `Alt + Space`), aber:
+- Es passiert gar nichts
+- Das schnelle Menü erscheint nicht
+- Es funktioniert in einigen Apps, aber nicht in anderen
+
+<AccordionGroup>
+  <Accordion icon="gear" title="Problem: Tastenkombination wurde geändert">
+    **Lösung:** Überprüfen Sie, was Ihre Tastenkombination tatsächlich eingestellt ist
+    
+    1. Öffnen Sie Alter (klicken Sie auf das Menüleiste-Symbol, falls erforderlich)
+    2. Drücken Sie `Cmd + ,`, um die Einstellungen zu öffnen
+    3. Gehen Sie zum Tab **Defaults**
+    4. Schauen Sie sich **Open notch keybinding** an – dies zeigt Ihre aktuelle Tastenkombination
+    5. Drücken Sie `Alt + Space` (oder Ihre bevorzugte Kombination), um sie festzulegen
+  </Accordion>
+  
+  <Accordion icon="xmark" title="Problem: Eine andere App verwendet dieselbe Tastenkombination">
+    **Lösung:** Finden Sie den Konflikt und ändern Sie ihn
+    
+    Häufige Apps, die `Alt + Space` verwenden:
+    - Alfred
+    - Raycast
+    - Spotlight (manchmal)
+    - Sprachumschalter
+    
+    **Versuchen Sie eine andere Tastenkombination:**
+    - `Cmd + Shift + A`
+    - `Ctrl + Option + Space`
+    - `Fn + F12`
+    
+    Wählen Sie etwas, das Sie sich leicht merken können und das keine andere App verwendet.
+  </Accordion>
+  
+  <Accordion icon="lock" title="Problem: Berechtigungsproblem">
+    **Lösung:** Überprüfen Sie die Berechtigungen für die Barrierefreiheit
+    
+    Alter benötigt Berechtigungen für die Barrierefreiheit, um globale Hotkeys zu erkennen:
+    
+    1. Öffnen Sie **Systemeinstellungen** → **Datenschutz & Sicherheit** → **Barrierefreiheit**
+    2. Stellen Sie sicher, dass **Alter** in der Liste steht und aktiviert ist
+    3. Wenn es ausgegraut ist, klicken Sie auf das Schlosssymbol und geben Sie Ihr Passwort ein
+    4. Deaktivieren Sie Alter und aktivieren Sie es dann wieder
+  </Accordion>
+</AccordionGroup>
+
+## Schnelltaste
+
+Nach Änderungen:
+1. Klicken Sie in eine beliebige App (wie Safari oder Notizen)
+2. Drücken Sie Ihre Tastenkombination (`Alt + Space` oder was immer Sie eingestellt haben)
+3. **Erfolg:** Das Alter Notch/Schnellpanel sollte sofort erscheinen
+
+<Tip>
+  **Pro-Tipp:** Sie können Alter auch öffnen, indem Sie Ihre Maus über die Notch oben auf Ihrem Bildschirm bewegen. Dies umgeht die Tastenkombinationen komplett!
+</Tip>
+
+## Verwandte Hilfe
+
+- [Alle Tastenkombinationen](/de/references/shortcuts)
+- [So ändern Sie Ihre Hotkey](/de/how-to/change-hotkey)

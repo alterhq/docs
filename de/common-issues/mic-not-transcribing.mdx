@@ -1,0 +1,95 @@
+---
+title: "Mikrofon funktioniert nicht"
+description: "Beheben von Sprach- und Diktatproblemen, wenn Alter Ihre Sprache nicht transkribiert"
+---
+
+<Note>
+  **Schnellüberprüfung:** Funktioniert das Mikrofon Ihres Mac in anderen Apps wie Sprachmemos? Wenn nicht, ist dies ein Systemproblem und kein Problem mit Alter.
+</Note>
+
+## Was passiert?
+
+Sie halten die Mikrofontaste oder drücken Ihre Sprach-Hotkey, aber:
+- Es passiert nichts, wenn Sie sprechen
+- Das Diktat beginnt, aber es erscheint kein Text
+- Der Aufnahmeindikator zeigt an, bleibt aber leer
+
+## Häufige Ursachen
+
+<CardGroup cols={2}>
+  <Card title="Fehlende Berechtigungen" icon="shield">
+    Alter hat keine Berechtigung, auf Ihr Mikrofon zuzugreifen
+  </Card>
+  <Card title="Falscher Sprachprozessor" icon="microphone">
+    Lokale Sprachmodelle sind nicht heruntergeladen oder konfiguriert
+  </Card>
+  <Card title="Sprachunterschiede" icon="language">
+    Die automatische Spracherkennung funktioniert nicht für Ihren Akzent
+  </Card>
+  <Card title="Falsches Eingabegerät" icon="speaker">
+    Alter verwendet das falsche Mikrofon oder der Systemeinstellungen funktioniert nicht
+  </Card>
+</CardGroup>
+
+## So beheben Sie es
+
+<Steps>
+  <Step title="Mikrofonberechtigungen überprüfen">
+    1. Öffnen Sie **Systemeinstellungen** auf Ihrem Mac
+    2. Gehen Sie zu **Datenschutz & Sicherheit** → **Mikrofon**
+    3. Stellen Sie sicher, dass **Alter** in der Liste aktiviert ist
+    4. Wenn es bereits aktiviert ist, versuchen Sie, es aus- und wieder einzuschalten
+  </Step>
+
+  <Step title="Wählen Sie das richtige Eingabegerät aus">
+    Standardmäßig verwendet Alter Ihr Systemstandardmikrofon, aber macOS behandelt dies nicht immer korrekt:
+    1. Suchen Sie den **Steuerblock** in Alters Benutzeroberfläche (oder überprüfen Sie die Menüleiste)
+    2. Klicken Sie, um den Geräteselection zu öffnen
+    3. Wählen Sie Ihr spezifisches Mikrofon aus der Liste
+    4. Versuchen Sie erneut zu sprechen
+
+    Dies behebt Probleme wie:
+    - Alter erfasst keinen Audio trotz erteilter Berechtigungen
+    - Aufnahmemitschnitte erfassen nur den anderen Teilnehmer und nicht Sie
+    - Geringe Qualität oder intermittierender Audioeingang
+  </Step>
+
+  <Step title="Überprüfen Sie die Einstellungen des Sprachprozessors">
+    1. Öffnen Sie in Alter **Einstellungen** (`Cmd + ,`)
+    2. Gehen Sie zum **Diktat**-Tab
+    3. Überprüfen Sie, dass der **Sprachprozessor** auf Folgendes eingestellt ist:
+       - **Cloud** (für beste Genauigkeit)
+       - **Local (Apple)** (für Datenschutz)
+       - Oder laden Sie ein Whisper-Modell herunter, wenn Sie die Offline-Verarbeitung wünschen
+  </Step>
+  
+  <Step title="Sprache explizit einstellen">
+    Wenn die automatische Erkennung nicht funktioniert:
+    1. Gehen Sie zu **Einstellungen** → **Diktat**
+    2. Ändern Sie die **Diktatsprache** von "Automatisch" auf Ihre spezifische Sprache
+    3. Versuchen Sie erneut zu diktieren
+  </Step>
+  
+  <Step title="Testen Sie beide Modi">
+    Probieren Sie beide Arten der Spracherfassung aus:
+    - **Halten, um zu sprechen**: Halten Sie `Fn` (oder Ihren Sprach-Hotkey), sprechen Sie, und lassen Sie dann los
+    - **Klicken, um zu diktieren**: Klicken Sie einmal auf das Mikrofonsymbol, um zu beginnen, und klicken Sie erneut, um zu beenden
+  </Step>
+</Steps>
+
+## Hat es funktioniert?
+
+Versuchen Sie diesen kurzen Test:
+1. Halten Sie Ihren Sprach-Hotkey (Standard ist `Fn`)
+2. Sagen Sie: "Hallo, das ist ein Test"
+3. Lassen Sie die Taste los
+4. **Erfolg:** Sie sollten sehen, dass "Hallo, das ist ein Test" im Eingabefeld erscheint
+
+<Tip>
+  **Haben Sie weiterhin Probleme?** Versuchen Sie, Alter neu zu starten, nachdem Sie die Berechtigungen erteilt haben. Manchmal benötigt macOS einen frischen Start, um neue Berechtigungen zu erkennen.
+</Tip>
+
+## Verwandte Hilfe
+
+- [Diktateinstellungen](/de/guides/settings#dictation)
+- [Wie man den Sprach-Hotkey ändert](/de/how-to/change-hotkey)

@@ -1,0 +1,175 @@
+---
+title: "Halten Sie Ihre Daten mit Local AI Privat"
+description: "Wie Sie KI-Modelle auf Ihrem eigenen Mac für sensible Dokumente und vertrauliche Arbeiten ausführen"
+---
+
+<Info>
+  **Perfekt für:** Anwälte, Ärzte, Sicherheitsforscher oder jeden, der mit sensiblen Daten arbeitet und nicht möchte, dass diese seinen Computer verlassen.
+</Info>
+
+## Die Sorge
+
+Sie arbeiten mit:
+- Vertraulichen Informationen von Mandanten
+- Medizinischen Aufzeichnungen
+- Proprietären Geschäftsdaten
+- Persönlichen Finanzdokumenten
+- Sicherheitsforschung
+
+Und Sie sind besorgt, diese Daten an Cloud-KI-Dienste wie OpenAI oder Google zu senden, selbst wenn sie behaupten, dass es privat ist.
+
+**Die gute Nachricht:** Sie müssen das nicht. Sie können KI-Modelle direkt auf Ihrem Mac ausführen.
+
+## Wie lokale Modelle funktionieren
+
+Anstatt Ihre Daten ins Internet zu senden, laden Sie ein KI-Modell auf Ihren Mac herunter (wie das Herunterladen einer großen App) und führen es lokal aus. Ihre Daten verlassen nie Ihren Computer.
+
+<CardGroup cols={2}>
+  <Card title="100% Privat" icon="shield-check">
+    Nichts wird in die Cloud gesendet. Ihre Daten bleiben auf Ihrem Mac.
+  </Card>
+  <Card title="Funktioniert Offline" icon="wifi-slash">
+    Verwenden Sie KI in Flugzeugen, in sicheren Einrichtungen oder überall ohne Internet.
+  </Card>
+  <Card title="Keine API-Kosten" icon="money-bill">
+    Nach dem Herunterladen fallen keine Nutzungsgebühren an. Analysieren Sie tausende von Dokumenten kostenlos.
+  </Card>
+  <Card title="Schneller bei großen Dateien" icon="bolt">
+    Keine Upload-/Download-Zeit. Großartig für große Dokumente.
+  </Card>
+</CardGroup>
+
+## Einrichtung: Zwei einfache Optionen
+
+### Option 1: Ollama (Empfohlen für Anfänger)
+
+Ollama macht das Ausführen lokaler Modelle so einfach wie die Installation einer App.
+
+<Steps>
+  <Step title="Installieren Sie Ollama">
+    1. Laden Sie von [ollama.com](https://ollama.com) herunter
+    2. Installieren Sie es wie jede Mac-App
+    3. Es läuft in Ihrer Menüleiste
+  </Step>
+  
+  <Step title="Laden Sie ein Modell herunter">
+    Öffnen Sie das Terminal und führen Sie aus:
+    ```bash
+    ollama pull llama3.1
+    ```
+    
+    Dies lädt das Llama 3.1 Modell von Meta (~4,7 GB) herunter. Andere gute Optionen:
+    - `ollama pull mistral` (schneller, kleiner)
+    - `ollama pull codellama` (großartig für Code)
+    - `ollama pull mixtral` (leistungsfähiger, größer)
+  </Step>
+  
+  <Step title="Verbinden Sie sich mit Alter">
+    1. Öffnen Sie Alter → Einstellungen (`Cmd + ,`)
+    2. Gehen Sie zum Tab **API-Schlüssel**
+    3. Wählen Sie unter **Benutzerdefinierter Anbieter** **Ollama**
+    4. Stellen Sie sicher, dass Ollama läuft (prüfen Sie Ihre Menüleiste)
+    5. Schalten Sie **Benutzerdefinierten Anbieter aktivieren** ein
+  </Step>
+  
+  <Step title="Beginnen Sie mit der Nutzung">
+    1. Drücken Sie `/` im Eingabefeld von Alter
+    2. Suchen Sie den Abschnitt **Benutzerdefiniert**
+    3. Wählen Sie Ihr lokales Modell (z.B. "llama3.1")
+    4. Fragen Sie alles – es läuft vollständig auf Ihrem Mac!
+  </Step>
+</Steps>
+
+### Option 2: LM Studio (Mehr Kontrolle)
+
+LM Studio bietet Ihnen eine grafische Benutzeroberfläche zur Verwaltung von Modellen.
+
+<Steps>
+  <Step title="Installieren Sie LM Studio">
+    Laden Sie von [lmstudio.ai](https://lmstudio.ai) herunter und installieren Sie es.
+  </Step>
+  
+  <Step title="Laden Sie ein Modell herunter">
+    1. Öffnen Sie LM Studio
+    2. Stöbern Sie im Modulkatalog
+    3. Laden Sie eines herunter, das Ihren Anforderungen und den Spezifikationen Ihres Macs entspricht
+    4. Starten Sie den lokalen Server (großer "Server starten"-Button)
+  </Step>
+  
+  <Step title="Verbinden Sie sich mit Alter">
+    1. In den Alter-Einstellungen → **API-Schlüssel**
+    2. Wählen Sie **LM Studio** als Anbieter
+    3. LM Studio läuft standardmäßig auf `localhost:1234`
+    4. Schalten Sie **Benutzerdefinierten Anbieter aktivieren** ein
+  </Step>
+</Steps>
+
+## Beispiel aus der Praxis
+
+**Dr. Chen, Arzt:**
+> "Ich muss Patientennotizen für die Forschung analysieren, aber ich kann Cloud-KIs wegen HIPAA nicht nutzen. Mit einem lokalen Modell kann ich fragen: 'Welche Muster sehen Sie in diesen Symptomen?' und bekomme KI-Unterstützung, während ich alles auf meinem sicheren Laptop behalte."
+
+**Alex, Sicherheitsforscher:**
+> "Ich analysiere Malware-Berichte und kann sie nirgendwo hochladen. Das Ausführen eines lokalen Modells bedeutet, dass ich fragen kann: 'Welche Anzeichen einer Kompromittierung werden erwähnt?' ohne das Risiko einer Datenoffenlegung."
+
+## Zu beachtende Kompromisse
+
+<AccordionGroup>
+  <Accordion icon="gauge" title="Geschwindigkeit vs. Privatsphäre">
+    **Cloud-Modelle:** Schneller, leistungsfähiger
+    **Lokale Modelle:** Langsamer, aber vollständig privat
+    
+    Ein MacBook Pro mit 16 GB RAM kann kleine Modelle reibungslos ausführen. Für größere Modelle benötigen Sie mindestens 32 GB RAM.
+  </Accordion>
+  
+  <Accordion icon="brain" title="Unterschiede in der Leistungsfähigkeit">
+    Lokale Modelle werden jeden Monat besser, aber Cloud-Modelle (GPT-4, Claude) sind für komplexes Denken immer noch leistungsfähiger. 
+    
+    **Bester Ansatz:** Verwenden Sie lokale Modelle für sensible Daten, Cloud-Modelle für weniger empfindliche komplexe Aufgaben.
+  </Accordion>
+  
+  <Accordion icon="hard-drive" title="Speicheranforderungen">
+    Modelle reichen von 4 GB bis 70 GB+. Stellen Sie sicher, dass Sie genügend Speicherplatz haben.
+    
+    **Gute Starter-Modelle:**
+    - Llama 3.1 8B (~4,7 GB) – Schnell, angemessene Qualität
+    - Mistral 7B (~4,1 GB) – Gute Balance
+    - Mixtral 8x7B (~26 GB) – Höhere Qualität, benötigt mehr RAM
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices für private Workflows
+
+<Tip>
+  **Verwenden Sie spezifische Aktionen für sensible Aufgaben:** Erstellen Sie Alter-Aktionen, die immer Ihr lokales Modell verwenden. So verwenden Sie niemals versehentlich ein Cloud-Modell für sensible Arbeiten.
+</Tip>
+
+<Tip>
+  **Richten Sie einen Datenschutz-Workspace ein:** Erstellen Sie einen Workspace nur für sensible Dokumente. Dies hält sie organisiert und erinnert Sie daran, lokale Modelle zu verwenden.
+</Tip>
+
+<Tip>
+  **Überprüfen Sie, ob es funktioniert:** Trennen Sie sich nach der Einrichtung vom WiFi und versuchen Sie, Alter zu verwenden. Wenn es weiterhin mit Ihrem lokalen Modell funktioniert, wissen Sie, dass es wirklich lokal ist.
+</Tip>
+
+## Wann was verwenden
+
+| Szenario | Empfehlung |
+|----------|---------------|
+| Medizinische Unterlagen | Lokales Modell (Ollama/LM Studio) |
+| Rechtliche Dokumente | Lokales Modell |
+| Sicherheitsforschung | Lokales Modell |
+| Finanzanalyse | Lokales Modell oder Alter Cloud mit Pro-Plan |
+| Kreatives Schreiben | Cloud-Modelle (bessere Kreativität) |
+| Allgemeine Fragen | Cloud-Modelle (schneller) |
+| Code-Hilfe | Beide funktionieren gut |
+
+## Verwandte Ressourcen
+
+- [Wie Sie Ihren eigenen API-Schlüssel verwenden](/de/how-to/use-byok) – Schritt-für-Schritt-Einrichtungsanleitung
+- [Auswahl von KI-Modellen](/de/guides/choosing-generative-model) – Vergleich von lokalen und Cloud-Optionen
+- [Einstellungen von API-Schlüsseln](/de/guides/settings#external-api-keys) – Detaillierte Konfiguration
+
+---
+
+**Bereit, privat zu werden?** Beginnen Sie mit Ollama und dem Llama 3.1 Modell. Es ist kostenlos, einfach einzurichten und Sie haben KI-Unterstützung, die Ihren Mac niemals verlässt!

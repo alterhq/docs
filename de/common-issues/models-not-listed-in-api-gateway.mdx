@@ -1,0 +1,81 @@
+---
+title: "API-Gateway listet keine Modelle auf"
+description: "Behebe leere Modelllisten beim Verbinden externer Apps mit Alters API"
+---
+
+<Note>
+  **Benutzt du das API-Gateway?** Damit kannst du Alters Modelle in anderen Apps wie SillyTavern, NovelCrafter oder deinem eigenen Code verwenden.
+</Note>
+
+## Was passiert hier?
+
+Du versuchst, eine andere App mit Alters API zu verbinden, aber:
+- Die App verbindet sich, zeigt aber keine verfügbaren Modelle an
+- Du musst die Modellnamen manuell eingeben
+- Modellanfragen schlagen fehl, es sei denn, du gibst den genauen Namen an
+
+## Warum passiert das?
+
+Viele KI-Apps erwarten OpenAIs einfaches Modellformat (wie `gpt-5`), aber Alter unterstützt mehrere Anbieter. Daher verwenden wir ein spezielles Format, um zu identifizieren, von welchem Anbieter jedes Modell stammt.
+
+## Die Lösung
+
+<Card title="Modellformat: Anbieter#Modellname" icon="hashtag">
+  Anstelle von nur `gpt-5`, verwende: `OpenAI#gpt-5`
+  
+  Das Format ist immer: **Anbietername** + **#** + **Modellname**
+</Card>
+
+## Einrichtungsanweisungen
+
+<Steps>
+  <Step title="Holen Sie sich Ihre API-Anmeldeinformationen">
+    1. Öffne Alter → Einstellungen (`Cmd + ,`)
+    2. Gehe zum Tab **Router**
+    3. Klicke auf **Neuen Schlüssel hinzufügen**, um einen API-Schlüssel zu generieren
+    4. Kopiere den Schlüssel (beginnt mit `sk-...`)
+    5. Merke dir den Endpunkt: `https://alterhq.com/api`
+  </Step>
+  
+  <Step title="Konfiguriere deine externe App">
+    In der App, die du verbindest:
+    - **Basis-URL:** `https://alterhq.com/api` (oder versuche `https://alterhq.com/api/v1`)
+    - **API-Schlüssel:** Dein generierter Schlüssel aus Schritt 1
+  </Step>
+  
+  <Step title="Modell manuell festlegen">
+    Da die automatische Auflistung möglicherweise nicht funktioniert, gib ein Modell manuell ein:
+    
+    | Anbieter | Modellname | Vollständige ID |
+    |----------|-----------|----------------|
+    | OpenAI | GPT-5 | `OpenAI#gpt-5` |
+    | OpenAI | GPT-5 Nano | `OpenAI#gpt-5-nano` |
+    | Claude | Sonett 4 | `Claude#claude-sonnet-4-6` |
+    | Gemini | 2.5 Pro | `Gemini#gemini-2.5-pro` |
+    | Mistral | Large | `Mistral#mistral-large-latest` |
+    | Alter | Bester Router | `Alter#best` |
+  </Step>
+</Steps>
+
+## Teste die Verbindung
+
+Versuche diesen einfachen Test:
+1. Sende eine Chat-Vervollständigungsanfrage mit dem Modell `OpenAI#gpt-5-nano`
+2. **Erfolg:** Du solltest eine Antwort über Alter zurückerhalten
+
+Wenn es mit einem Modell funktioniert, wird es mit allen funktionieren – ändere einfach die Modell-ID!
+
+<Tip>
+  **Pro-Tipp:** Die Alter API funktioniert genau wie die API von OpenAI. Wenn deine App "OpenAI-kompatible" Endpunkte unterstützt, funktioniert sie mit Alter.
+</Tip>
+
+## Hast du weiterhin Probleme?
+
+- Stelle sicher, dass du einen gültigen Alter API-Schlüssel verwendest (nicht den Schlüssel deines Anbieters)
+- Versuche beide Endpunkte: `/api` und `/api/v1`
+- Einige Apps cachen die Modellliste – versuche, die App nach der Einrichtung neu zu starten
+
+## Verwandte Hilfe
+
+- [Vollständiger Leitfaden zum API-Gateway](/de/guides/api-gateway)
+- [Liste aller verfügbaren Modelle](/de/guides/choosing-generative-model)

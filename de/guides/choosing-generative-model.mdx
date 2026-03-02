@@ -1,0 +1,131 @@
+---
+title: "Die Auswahl Ihres generativen Modells"
+description: "So wählen und konfigurieren Sie KI-Modelle in Alter"
+---
+
+Standardmäßig bietet Alter eine Vielzahl von Modellen an, die alphabetisch nach ihrem Hosting-Anbieter aufgelistet sind.
+
+Sie können auch Ihren [API-Schlüssel](#via-your-api-key) verwenden oder [Ihr lokales Modell](#locally-via-ollama-or-studiolm) nutzen.
+
+### Auswahl Ihres Modells 
+
+Öffnen Sie Alter und geben Sie einfach `/` ein, um die verfügbaren Modelle anzuzeigen und das Modell auszuwählen, das Sie verwenden möchten.
+
+#### Auswahl eines bevorzugten Modells
+
+Wählen Sie das Sternsymbol neben einem Modell mit der Maus aus, um das Modell als Ihr Favorit zu markieren.  
+![Favoritisieren eines Modells](/images/models/favorite-model.webp)
+
+Wenn Sie Ihren API-Schlüssel oder ein lokales Modell verwenden, erscheinen diese oben unter **Custom**.  
+Alle anderen Interaktionen laufen über Alter Cloud.
+
+### Verwendung von Alter Cloud
+
+Standardmäßig ist Alter mit `/best` eingerichtet, unserem internen Modellrouter, der das beste Modell basierend auf Ihrer Abfrage auswählt.
+
+![Router und Modellbeispiel](/images/settings/router.png)
+
+Sie können das Standardmodell in **Einstellungen > Voreinstellungen > Modell** ändern.  
+
+#### Liste der Modelle über Alter Cloud
+
+Alter bietet Zugriff auf **92+ Modelle von 10 Anbietern** über seinen einheitlichen Router. Verwenden Sie den `/models`-Endpunkt, um die aktuellen Modelle aufzulisten, oder sehen Sie sich den **[API Gateway Guide](/de/guides/api-gateway)** für detaillierte Modellinformationen an.
+
+**Anbieterübersicht (Stand Beta 71):**
+
+| Anbieter | Modellanzahl | Beispielmodelle |
+|----------|--------------|-----------------|
+| **Alter** | 4 | `best`, `fair`, `fast`, `light` |
+| **Claude** (Anthropic) | 4 | `claude-sonnet-4-6`, `claude-sonnet-4-20250514` |
+| **OpenAI** | 17 | `gpt-4o`, `gpt-4o-mini`, `gpt-5`, `o3`, `o4-mini` |
+| **Gemini** (Google) | 10 | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-3-pro-preview` |
+| **Mistral** | 9 | `mistral-small-latest`, `codestral-2501`, `pixtral-large-latest` |
+| **Groq** | 7 | Llama, Qwen und andere optimierte Modelle |
+| **Together** | 26 | DeepSeek, Llama, Qwen und Spezialvarianten |
+| **xAI** | 8 | `grok-3-latest`, `grok-4` Serie |
+| **Cerebras** | 5 | Llama, Qwen und DeepSeek-Varianten |
+| **Perplexity** | 2 | `sonar`, `sonar-pro` (websuchfähig) |
+
+**Wichtige Modellmerkmale:**
+
+| Merkmal | Modelle | Kontext |
+|---------|---------|---------|
+| **Vision Fähig** | GPT-4O, Gemini 2.5+, Claude, Mistral Pixtral | Analysieren von Bildern/Videos |
+| **Höchster Kontext** | Alter Modelle, Gemini | 1M+ Tokens |
+| **Schnellste** | Alter `light`, GPT-4O mini, Gemini Flash | Niedrige Latenz |
+| **Fähigsten** | GPT-4O, Gemini 2.5 Pro, Claude Sonnet | Komplexes Denken |
+| **Websuche** | Perplexity Sonar | Echtzeitinformationen |
+| **Code Spezialist** | Mistral Codestral | Code-Generierung |
+
+**Für die vollständige aktuelle Liste aller 92+ Modelle**, überprüfen Sie die verfügbaren Modelle direkt über die API:
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+Oder sehen Sie den **[API Gateway Guide](/de/guides/api-gateway)** für detaillierte Informationen zur Modellauswahl und -verwendung.
+
+### Verwendung Ihres API-Schlüssels
+
+![Custom Local](/images/models/custom-api-keys.webp)
+
+Sie können Ihren eigenen API-Schlüssel verwenden, um sich direkt mit dem Endpunkt Ihres Anbieters zu verbinden:  
+1. Gehen Sie zu **Einstellungen > API-Schlüssel > Benutzerdefinierter Anbieter**.  
+2. Aktivieren Sie Benutzerdefinierter Anbieter
+3. Wählen Sie Ihren Anbieter aus der Liste aus
+
+> Sobald Sie verbunden sind, erscheint ein Häkchen neben **Custom Endpoint**.  
+
+Die Modelle Ihres Anbieters werden im Abschnitt **Custom** aufgeführt.
+
+> Wir unterstützen nur OpenAI-kompatible Endpunkte, was bedeutet, dass Sie Ihre Anthropic API-Schlüssel nicht verwenden können.
+
+Hier ist eine Liste der unterstützten Plattformen für benutzerdefinierte Schlüssel, basierend auf dem bereitgestellten Bild:
+
+1. Azure
+2. Gemini
+3. LM Studio
+4. Mistral
+5. Ollama
+6. OpenAI
+7. Open Router
+8. Benutzerdefiniert (Jeder OpenAI-kompatible Endpunkt)
+
+#### Einrichten eines Azure-Endpunkts in Alter
+
+1. **Benutzerdefinierten Anbieter aktivieren:** Aktivieren Sie in den Einstellungen von Alter die Option "Benutzerdefinierter Anbieter".
+2. **Wählen Sie Azure:** Wählen Sie Azure als Ihren Anbieter.
+3. **Geben Sie die vollständige URL des Chat Completion Endpunkts ein:** Geben Sie die vollständige URL des Chat Completion Endpunkts ein, einschließlich des `api-version` Parameters und des Modellnamens in der URL. Zum Beispiel: `https://yourinstance.openai.azure.com/openai/deployments/your-model-name/chat/completions?api-version=2024-02-15-preview`
+4. **Geben Sie Ihren API-Schlüssel ein:** Geben Sie Ihren Azure OpenAI API-Schlüssel ein.
+
+Wichtige Überlegungen
+
+* **Vollständiger Endpunkt erforderlich:** Stellen Sie sicher, dass Sie den *vollständigen* Chat Completion Endpunkt verwenden, da Alter den Modellnamen aus der URL extrahiert.
+* **Modellname in der URL:** Der Modellbereitstellungsname *muss* im URL-Pfad enthalten sein.
+* **API-Version:** Die URL *muss* den Parameter `api-version` enthalten.
+
+#### Wo Sie Ihre API-Schlüssel finden
+
+| Anbieter | URL zum Erstellen eines API-Schlüssels | 
+| -------- | -------- | 
+| Google (Gemini)     | https://aistudio.google.com/app/apikey   | [Link](https://ai.google.dev/api/compatibility)
+| Mistral     | https://console.mistral.ai/api-keys/  
+| OpenAI     | https://platform.openai.com/api-keys |[Link]
+
+### Lokal mit Ollama oder LM Studio verwenden
+
+![Custom Local](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/a3cb944c-7379-49a6-9349-c829bcda071b/image.png?t=1740499713)
+
+Um Alter mit lokalen Modellen (über Ollama oder LM Studio) zu verwenden:  
+1. Gehen Sie zu **Einstellungen > API-Schlüssel > Benutzerdefinierter Anbieter**.  
+2. Aktivieren Sie den benutzerdefinierten Anbieter
+3. Wählen Sie Ollama oder LM Studio in der Liste der Anbieter
+
+> Sobald Sie verbunden sind, erscheint ein Häkchen neben **Custom Endpoint**.  
+
+![image alt](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/4a22f3fb-ad9e-4f50-8184-1e5cc5238118/Alter_Settings_API_key_custom_provider_on.png?t=1740500360)
+
+Ihre lokalen Modelle werden im Abschnitt **Custom** aufgeführt.
+
+![Custom model](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/c3a9bef5-ff23-4a35-99b6-aedc7bc38972/Alter_Main_Custom_Models.png?t=1740502675)

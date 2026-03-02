@@ -1,0 +1,292 @@
+---
+title: "Flow zur Orchestrierung von Tools verwenden"
+description: "Lassen Sie Flow automatisch Ihre Tools auswählen und orchestrieren, um den Kontextverbrauch zu reduzieren und die Leistung zu verbessern."
+---
+
+<Info>
+  **Flow** ist Alters integrierter Orchestrator für Tools. Anstatt alle aktivierten Tools in jede Anfrage zu laden, fungiert Flow als ein einzelnes Tool, das Ihre Anfragen intelligent an die richtigen Tools weiterleitet.
+</Info>
+
+<Warning>
+  **Zuerst Tools aktivieren** — Flow kann nur die Tools verwenden, die Sie bereits im Tool Manager aktiviert haben. Es aktiviert nicht automatisch deaktivierte Tools. Stellen Sie sicher, dass die benötigten Tools vor der Verwendung von Flow aktiviert sind.
+</Warning>
+
+## Warum Flow verwenden?
+
+<CardGroup cols={3}>
+  <Card title="Kontextplatz sparen" icon="compress">
+    Flow lädt sich selbst als einzelnes Tool, anstatt alle aktivierten Tools zu laden, und gibt Ihnen somit mehr Platz im Kontextfenster für den tatsächlichen Inhalt.
+  </Card>
+  <Card title="Schnellere Leistung" icon="bolt">
+    Kleinere Payloads werden schneller verarbeitet und reduzieren die Latenz bei jeder Anfrage.
+  </Card>
+  <Card title="Fair Use Budget sparen" icon="scale-balanced">
+    Weniger Tokens pro Anfrage bedeutet weniger Nutzung Ihres Fair-Use-Politik-Budgets.
+  </Card>
+</CardGroup>
+
+Jedes aktivierte Tool verbraucht Platz in Ihrem Kontextfenster. Wenn Sie 10+ Tools aktiviert haben, wirkt sich das erheblich auf die Leistung aus. Flow löst dies, indem es als ein einzelnes Tool fungiert, das alle anderen orchestriert.
+
+---
+
+## Flow aktivieren
+
+<Steps>
+  <Step title="Einstellungen öffnen">
+    Drücken Sie **⌘ ,** (Befehl + Komma) oder klicken Sie auf **Einstellungen** im Menü.
+  </Step>
+  <Step title="Zum Tool Manager gehen">
+    Navigieren Sie zum Tab **Tool Manager**.
+  </Step>
+  <Step title="Flow aktivieren">
+    Unter **Local Tools > Alter** aktivieren Sie **Flow**.
+  </Step>
+</Steps>
+
+<Note>
+  Denken Sie daran: Flow kann nur Tools orchestrieren, die bereits aktiviert sind. Aktivieren Sie die spezifischen Tools, die Sie benötigen (Kalender, Gmail, Slack usw.), zusätzlich zu Flow selbst.
+</Note>
+
+---
+
+## Wie Flow funktioniert
+
+Wenn Sie eine Anfrage mit aktivem Flow senden, folgt es diesem Prozess:
+
+<Steps>
+  <Step title="Analysieren">
+    Flow analysiert Ihre Anfrage, um zu verstehen, was Sie erreichen möchten.
+  </Step>
+  <Step title="Auswählen">
+    Aus Ihren aktivierten Tools wählt Flow das/die passende(n) Tool(s) für die Aufgabe aus.
+  </Step>
+  <Step title="Ausführen">
+    Flow führt die Tool-Aufrufe der Reihe nach aus und übergibt Daten zwischen den Schritten, wenn nötig.
+  </Step>
+  <Step title="Zusammenfassen">
+    Die Ergebnisse werden in eine prägnante Antwort zusammengefasst, wobei wichtige Datenpunkte erhalten bleiben.
+  </Step>
+</Steps>
+
+---
+
+## Beispiele
+
+<Tabs>
+  <Tab title="Einzeltool">
+    **Anfrage:** "Welche Meetings habe ich heute?"
+    
+    Flow erkennt automatisch:
+    1. Dass Sie Kalendersinformationen benötigen
+    2. Wählt das Kalender-Tool aus
+    3. Ruft Ihre Meetings ab
+    
+    Es ist nicht erforderlich, das Kalender-Tool manuell auszuwählen — Flow kümmert sich darum.
+  </Tab>
+  
+  <Tab title="Multi-Tool-Kette">
+    **Anfrage:** "Stornieren Sie mein Meeting um 15 Uhr und senden Sie eine E-Mail an die Teilnehmer, in der erklärt wird, dass ich krank bin."
+    
+    Flow erkennt automatisch:
+    1. Verwendet das **Kalender**-Tool, um Ihr Meeting um 15 Uhr zu finden
+    2. Identifiziert die Teilnehmer des Meetings
+    3. Verwendet das **Gmail**-Tool, um eine E-Mail zu verfassen
+    4. Sendet die Stornierung und Erklärung
+    
+    Alles in einer natürlichen Sprach Anfrage.
+  </Tab>
+  
+  <Tab title="Mit Transformation">
+    **Anfrage:** "Scrape die Alter-Dokumentation und extrahiere die Hauptmerkmale."
+    
+    Flow erkennt automatisch:
+    1. Verwendet ein Web-Tool, um den Dokumentationsinhalt abzurufen
+    2. Transformiert das rohe HTML mit `$1:Extrahiere die Hauptmerkmale und formatiere sie als Aufzählungspunkte`
+    3. Gibt eine formatierte Liste von Merkmalen zurück
+    
+    Der Transformation Schritt extrahiert nur relevante Informationen.
+  </Tab>
+</Tabs>
+
+---
+
+## Wann Flow vs spezifische Toolaktionen verwenden
+
+<CardGroup cols={2}>
+  <Card title="Flow verwenden" icon="wand-magic-sparkles">
+    <ul>
+      <li>Sie sind sich nicht sicher, welches Tool Sie verwenden sollen</li>
+      <li>Sie möchten einfache, natürliche Sprach-Anfragen</li>
+      <li>Sie haben viele Tools aktiviert</li>
+      <li>Sie führen komplexe mehrstufige Aufgaben aus</li>
+    </ul>
+  </Card>
+  <Card title="Konkrete Toolaktionen verwenden" icon="bullseye">
+    <ul>
+      <li>Sie wissen genau, welches Tool Sie benötigen</li>
+      <li>Sie möchten die schnellste mögliche Ausführung</li>
+      <li>Sie bauen wiederholbare Workflows auf</li>
+      <li>Sie benötigen vorhersehbares, konsistentes Verhalten</li>
+    </ul>
+  </Card>
+</CardGroup>
+
+<Note>
+  **90%-Regel:** Für 90% der Aufgaben ist Flow die beste Wahl. Erstellen Sie konkrete Toolaktionen nur, wenn Sie optimierte, wiederholbare Workflows benötigen.
+</Note>
+
+---
+
+## Best Practice: "Frage alles" konfigurieren
+
+Die Aktion **Frage alles** ist Alters Standard — sie wird verwendet, wenn Sie in das Eingabefeld tippen, ohne eine spezifische Aktion auszuwählen.
+
+<Steps>
+  <Step title="Aktionen-Editor öffnen">
+    Gehen Sie zu **Einstellungen > Aktionen**
+  </Step>
+  <Step title="Frage alles finden">
+    Suchen Sie nach der Aktion **"Frage alles"**
+  </Step>
+  <Step title="Erweiterte Optionen klicken">
+    Erweitern Sie den Bereich **Erweiterte Optionen**
+  </Step>
+  <Step title="Nur Flow auswählen">
+    Wählen Sie im Abschnitt **Tools** nur **Flow** aus (alle anderen Tools abwählen).
+  </Step>
+  <Step title="Speichern">
+    Speichern Sie Ihre Änderungen.
+  </Step>
+</Steps>
+
+Jetzt verwenden Ihre Standardinteraktionen die Orchestrierung von Flow, anstatt alle aktivierten Tools in jede Anfrage zu laden.
+
+---
+
+<AccordionGroup>
+  <Accordion icon="link" title="Erweitert: Tool-Ketten mit Anweisungen">
+    Flow verknüpft automatisch Tools, wenn eine Aufgabe mehrere Schritte erfordert. Die Ausgabe eines Tools kann in nachfolgenden Aufrufen mit der `$N`-Syntax referenziert werden.
+
+    ### Referenzsyntax
+
+    | Syntax | Beschreibung |
+    |--------|-------------|
+    | `$1` | Rohausgabe von Schritt 1 |
+    | `$2` | Rohausgabe von Schritt 2 |
+    | `$N:Anweisung` | Transformiere die Ausgabe von Schritt N mit einer Anweisung |
+
+    ### Beispiel mit Transformation
+
+    Beim Scraping einer Webseite und Formatierung der Ergebnisse:
+
+    1. Flow verwendet ein Web-Tool, um Inhalte abzurufen
+    2. Wendet Transformation an: `$1:Extrahiere die wichtigsten Frameworks und formatiere sie als Aufzählungspunkte`
+    3. Das LLM verarbeitet den rohen Inhalt, bevor es an das nächste Tool übergeben wird
+
+    Dadurch kann Flow:
+    - Nur relevante Informationen aus großen Ausgaben extrahieren
+    - Daten angemessen für das nächste Tool formatieren
+    - Rauschen in nachfolgenden Schritten reduzieren
+  </Accordion>
+
+  <Accordion icon="memory" title="Erweitert: Intelligentes Kontextmanagement">
+    Flow enthält einen integrierten Zusammenfassungs Schritt, der optimiert, wie Ergebnisse in Ihr Gespräch zurückgegeben werden.
+
+    ### Was die Zusammenfassung tut
+
+    Nach der Ausführung von Tools:
+
+    1. **Kondensiert die Ausgabe** — Komprimiert ausführliche Tool-Ausgaben
+    2. **Bewahrt wichtige Daten** — Beibehaltung von IDs, URLs, Referenzen und Datenpunkten
+    3. **Oberflächliche wichtige Erkenntnisse** — Hebt Links, Ideen und Erkenntnisse für Nachverfolgung hervor
+    4. **Bietet Quellenangaben** — Verwendet [Schritt N]-Notation für Nachvollziehbarkeit
+
+    ### Warum das wichtig ist
+
+    Ohne Zusammenfassung würden komplexe Workflows Ihr Kontextfenster überladen. Bei Runde 5 oder 6 würden Sie die Token-Grenzen überschreiten.
+
+    Die Zusammenfassung von Flow stellt sicher:
+    - **Effizienter Kontext** — Nur essentielle Informationen werden beibehalten
+    - **Handlungsfähige Antworten** — Wichtige Datenpunkte werden bewahrt
+    - **Bessere Leistung** — Weniger Kontext = schnellere Antworten
+    - **Nachvollziehbarkeit** — [Schritt N]-Zitationen überprüfen Informationsquellen
+
+    ### Beispielausgabe
+
+    ```
+    Aufgabe erfolgreich abgeschlossen.
+
+    Wichtigste Artefakte für die nächsten Schritte:
+    - Meeting-ID: 12345 [Schritt 1]
+    - Teilnehmer: alice@example.com, bob@example.com [Schritt 1]
+    - Entwurf der E-Mail vorbereitet [Schritt 2]
+
+    Wichtige Erkenntnisse:
+    - Meeting kollidiert mit einer anderen Veranstaltung um 15 Uhr [Schritt 1]
+    - Alice hat eine automatische Abwesenheitsbenachrichtigung aktiviert [Schritt 2]
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Tipps für die besten Ergebnisse
+
+<CardGroup cols={3}>
+  <Card title="Seien Sie spezifisch" icon="pencil">
+    <p><strong>Gut:</strong> "Sende eine Slack-Nachricht an den Engineering-Kanal"</p>
+    <p><strong>Vage:</strong> "Nachricht an das Team"</p>
+    <p>Spezifische Anfragen helfen Flow, das richtige Tool auszuwählen.</p>
+  </Card>
+  <Card title="Natürlich verknüpfen" icon="link">
+    Flow bearbeitet mehrstufige Aufgaben gut. Zerlegen Sie komplexe Anfragen nicht in mehrere Eingaben – lassen Sie Flow die Kette orchestrieren.
+  </Card>
+  <Card title="Ergebnisse überprüfen" icon="eye">
+    Flow zeigt, welche Tools es verwendet. Wenn es das falsche auswählt, formulieren Sie Ihre Anfrage mit mehr Details um.
+  </Card>
+</CardGroup>
+
+---
+
+## Fehlersuche
+
+<AccordionGroup>
+  <Accordion icon="xmark" title="Flow hat das falsche Tool ausgewählt">
+    Formulieren Sie Ihre Anfrage mit spezifischeren Details um:
+    
+    - **Statt:** "Überprüfen Sie meine Nachrichten"
+    - **Versuchen Sie:** "Überprüfen Sie meine ungelesenen Slack-Nachrichten im allgemeinen Kanal"
+    
+    Je spezifischer Sie sind, desto besser kann Flow Ihre Absicht mit dem richtigen Tool abgleichen.
+  </Accordion>
+  
+  <Accordion icon="question" title="Flow kann ein Tool nicht finden">
+    Stellen Sie sicher, dass das Tool:
+    - **Aktiviert** im Tool Manager ist (Flow kann deaktivierte Tools nicht verwenden)
+    - **Richtig konfiguriert** ist (z.B. authentifiziert mit Gmail)
+    - **Nicht eingeschränkt** durch Ihre Aktionseinstellungen ist
+  </Accordion>
+  
+  <Accordion icon="gauge-high" title="Leistung ist immer noch langsam">
+    Selbst mit Flow können sehr große Anfragen langsam sein. Versuchen Sie:
+    - Sehr komplexe Aufgaben in 2-3 Schritte zu unterteilen
+    - Spezifische Toolaktionen für häufig wiederholte Aufgaben zu verwenden
+    - Nur essentielle Tools im Tool Manager zu aktivieren
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Verwandte Dokumente
+
+<CardGroup cols={3}>
+  <Card title="Tool Manager Anleitung" icon="toolbox" href="/de/guides/tool-manager">
+    Erfahren Sie, wie Sie Ihre Tools verbinden und verwalten.
+  </Card>
+  <Card title="Tools funktionieren nicht" icon="wrench" href="/de/common-issues/tool-not-working">
+    Beheben Sie häufige Integrationsprobleme.
+  </Card>
+  <Card title="Alter Aktionen" icon="play" href="/de/guides/core-features#alter-actions-workflows">
+    Erstellen Sie benutzerdefinierte Tool-Workflows.
+  </Card>
+</CardGroup>

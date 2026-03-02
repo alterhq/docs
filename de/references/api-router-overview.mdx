@@ -1,0 +1,87 @@
+---
+title: "API Router Übersicht"
+description: "Übersicht über den Alter API Router Dienst und OpenAI-kompatiblen Endpunkt"
+---
+
+Der Alter API Router ist ein OpenAI-kompatibles API-Gateway, das einen einheitlichen Zugriff auf über 92 KI-Modelle von mehr als 10 Anbietern über einen einzelnen Endpunkt bietet.
+
+## Was ist der API Router?
+
+Der API Router ist ein zentralisierter Dienst, der die Notwendigkeit beseitigt, mehrere API-Schlüssel und Abrechnungskonten bei verschiedenen KI-Anbietern zu verwalten. Anstatt separate Konten bei OpenAI, Anthropic, Google und anderen zu führen, können Sie Alter als Ihren einzigen Zugangspunkt für den Zugriff auf alle KI-Modelle nutzen.
+
+### Hauptvorteile
+
+- **Einzelner API-Schlüssel** für alle Anbieter
+- **Zentrale Abrechnung** über Ihr Alter-Konto
+- **Über 92 Modelle** von mehr als 10 Anbietern
+- **OpenAI-kompatibler Endpunkt**, der mit bestehenden Tools und SDKs funktioniert
+- **Einfacher Modellwechsel** ohne Codeänderungen
+
+## Schnellstart
+
+### 1. Generieren Sie einen API-Schlüssel
+
+1. Öffnen Sie **Einstellungen** (**⌘ ,**)
+2. Gehen Sie zum Tab **Router**
+3. Klicken Sie unter "Alter API Keys" auf **Neuen Schlüssel hinzufügen**
+4. Kopieren Sie Ihren Schlüssel (beginnt mit `sk-`)
+
+### 2. Holen Sie sich den Endpunkt
+
+```
+https://alterhq.com/api
+```
+
+Für die meisten Tools verwenden Sie:
+```
+https://alterhq.com/api/v1
+```
+
+### 3. Verfügbare Modelle auflisten
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Modellbenennungsformat
+
+Modelle verwenden das Format: `Provider#Model-name`
+
+Beispiele:
+- `OpenAI#gpt-5` - Neuester GPT-5
+- `OpenAI#gpt-5-mini` - Leichtgewichtiger GPT-5
+- `Claude#claude-sonnet-4-6` - Neuester Claude
+- `Gemini#gemini-2.5-pro` - Neuester Gemini
+
+## Anwendungsbeispiel
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[
+        {"role": "user", "content": "Was ist maschinelles Lernen?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+## Nutzungslimits
+
+- **Tägliches Limit**: 200 Anfragen pro Tag unter fairer Nutzung
+- **Drosselung**: Nach 200 Anfragen auf 1 pro 10 Minuten gedrosselt
+- **Budgetaufladung**: Verfügbar für konsistenten Zugriff über faire Nutzung hinaus
+
+## Nächste Schritte
+
+- [API Gateway Anleitung](/de/guides/api-gateway) - Vollständige Nutzungsdokumentation
+- [Modellbenennungsreferenz](/de/references/api-model-names) - Vollständige Modellsammlung
+- OpenAPI Referenz - Interaktive API-Dokumentation

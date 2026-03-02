@@ -1,0 +1,106 @@
+---
+title: "Tools funktionieren nicht"
+description: "Beheben Sie Integrationen, wenn Alter Ihre verbundenen Tools und Apps nicht verwenden kann"
+---
+
+<Note>
+  **Schnellüberprüfung:** Unterstützt Ihr gewähltes KI-Modell Tools? Einige kleinere Modelle haben keine Tool-Call-Funktionalität.
+</Note>
+
+## Was passiert?
+
+Sie bitten Alter, etwas zu tun wie "Sende eine Nachricht an John" oder "Füge ein Kalenderevent hinzu", aber:
+- Die KI antwortet mit Text statt zu handeln
+- Es passiert nichts in der Ziel-App
+- Sie erhalten "Ich habe keinen Zugriff darauf" oder ähnliche Antworten
+
+## Warum das passiert
+
+<CardGroup cols={2}>
+  <Card title="Modell unterstützt keine Tools" icon="brain">
+    Einige KI-Modelle können keine Tools aufrufen – sie generieren nur Text
+  </Card>
+  <Card title="Tool nicht aktiviert" icon="toggle-off">
+    Das Tool ist verfügbar, aber im Tools Manager nicht aktiviert
+  </Card>
+  <Card title="Falsches Eingabeformat" icon="message">
+    Die KI benötigt klare Anweisungen, welches Tool zu verwenden ist und wie
+  </Card>
+  <Card title="Globales Tools umschalten aus" icon="toggle-off">
+    Alle Tools sind über den globalen Schalter in Active Tools deaktiviert
+  </Card>
+</CardGroup>
+
+## Schritt-für-Schritt-Lösung
+
+<Steps>
+  <Step title="Wechseln Sie zu einem Tool-fähigen Modell">
+    Nicht alle Modelle können Tools verwenden. Probieren Sie eines dieser:
+    - **Alter Best** (unser intelligenter Router)
+    - **Gemini 2.0 Flash**
+    - **Claude Sonnet**
+    - **GPT-5**
+    
+    Drücken Sie `/` im Eingabefeld, um die Modelle zu wechseln.
+  </Step>
+  
+  <Step title="Überprüfen Sie den globalen Tools-Schalter">
+    Im Tools Manager gibt es einen Hauptschalter, der **alle** Tools auf einmal deaktivieren kann:
+    1. Klicken Sie auf die **drei Punkte** in Alter → **Tools Manager**
+    2. Suchen Sie den globalen Schalter im Abschnitt **Active Tools**
+    3. Stellen Sie sicher, dass er **ein** (aktiviert) ist
+    
+    Wenn dies deaktiviert ist, funktionieren Ihre einzelnen Tools nicht, auch wenn sie aktiviert sind.
+  </Step>
+
+  <Step title="Aktivieren Sie die richtigen Tools">
+    Sobald der globale Schalter aktiv ist, aktivieren Sie spezifische Tools:
+    1. Finden Sie im Tools Manager das Tool, das Sie möchten (Nachrichten, Kalender usw.)
+    2. Schalten Sie es **ein**
+    3. Überprüfen Sie, ob es zusätzliche Einstellungen benötigt (wie sich anmelden)
+  </Step>
+  
+  <Step title="Seien Sie eindeutig in Ihrer Anfrage">
+    Statt: *"Sag John, ich komme zu spät"*
+    
+    Versuchen Sie: *"Sende eine Nachricht an John Smith mit dem Inhalt 'Ich komme 10 Minuten zu spät' über das Nachrichten-Tool"*
+    
+    Je spezifischer Sie sind, desto besser versteht die KI.
+  </Step>
+  
+  <Step title="Für Apple Shortcuts">
+    Wenn Sie Apple Shortcuts verwenden:
+    1. Öffnen Sie die **Shortcuts**-App
+    2. Bearbeiten Sie Ihren Shortcut
+    3. Fügen Sie "Eingang empfangen von" hinzu und stellen Sie ein, dass er Text akzeptiert
+    4. Speichern Sie den Shortcut
+    5. Versuchen Sie es erneut in Alter
+  </Step>
+</Steps>
+
+## Testen Sie es
+
+Versuchen Sie diesen einfachen Test:
+1. Stellen Sie sicher, dass Sie ein Tool-fähiges Modell verwenden
+2. Aktivieren Sie das **System Notification**-Tool
+3. Sagen Sie: "Sende eine Systembenachrichtigung mit dem Text 'Test erfolgreich'"
+4. **Erfolg:** Sie sollten eine macOS-Benachrichtigung sehen!
+
+<Tip>
+  **Einfach anfangen:** Testen Sie mit grundlegenden Tools wie System Notification, bevor Sie komplexe Integrationen ausprobieren. Das hilft dabei festzustellen, ob es sich um ein allgemeines Toolproblem oder um etwas Spezifisches handelt.
+</Tip>
+
+<Tip>
+  **Probieren Sie Flow:** Wenn Sie sich unsicher sind, welches Tool zu verwenden ist oder Probleme bei der Tool-Auswahl haben, aktivieren Sie [Flow](/de/guides/use-flow-orchestration) – Alters Tool-Orchestrator, der automatisch das richtige Tool für Sie auswählt.
+</Tip>
+
+## Funktioniert immer noch nicht?
+
+Einige Modelle sind besser bei Tools als andere. Wenn ein Modell nicht gut mit Tools funktioniert:
+1. Wechseln Sie zu **Alter Best** (es wählt automatisch fähige Modelle aus)
+2. Oder probieren Sie **Gemini 2.0 Flash** oder **Claude Sonnet**
+
+## Verwandte Hilfe
+
+- [Tool Manager Guide](/de/guides/tool-manager)
+- [Integrationsübersicht](/de/guides/integrations)

@@ -1,0 +1,94 @@
+---
+title: "Benutzerdefinierte Modelle werden nicht angezeigt"
+description: "Beheben Sie das Problem fehlender OpenAI-, Mistral- oder lokaler Modelle im Modellauswahlauswahl"
+---
+
+<Note>
+  **Wichtig:** Sie benötigen einen API-Schlüssel von Ihrem Anbieter (OpenAI, Mistral usw.), bevor sie in Alter angezeigt werden.
+</Note>
+
+## Was passiert?
+
+Sie haben Ihren API-Schlüssel hinzugefügt, aber wenn Sie `/` drücken, um Modelle zu sehen:
+- Der Abschnitt **Benutzerdefiniert** ist leer
+- Sie sehen die Modelle Ihres Anbieters nicht
+- Sie sehen nur Alter Cloud-Modelle
+
+## Häufige Einrichtungsfehler
+
+<AccordionGroup>
+  <Accordion icon="toggle-off" title="Benutzerdefinierter Anbieter ist deaktiviert">
+    Selbst mit einem eingegebenen API-Schlüssel müssen Sie benutzerdefinierte Anbieter aktivieren:
+    
+    1. Öffnen Sie die Alter-Einstellungen (`Cmd + ,`)
+    2. Gehen Sie zum Tab **API-Schlüssel**
+    3. Suchen Sie den Abschnitt **Benutzerdefinierter Anbieter**
+    4. Schalten Sie **Benutzerdefinierten Anbieter aktivieren** auf EIN
+    5. Sie sollten ein ✓ neben "Benutzerdefinierter Endpunkt" sehen
+  </Accordion>
+  
+  <Accordion icon="link" title="Falsches Endpunktformat (insbesondere für Azure)">
+    **Für die meisten Anbieter:** Fügen Sie einfach Ihren API-Schlüssel ein – der Endpunkt ist automatisch
+    
+    **Für Azure speziell** benötigen Sie die vollständige URL:
+    ```
+    https://your-instance.openai.azure.com/openai/deployments/your-model-name/chat/completions?api-version=2024-02-15-preview
+    ```
+    
+    Stellen Sie sicher, dass Ihre URL Folgendes enthält:
+    - Ihren Instanznamen
+    - Den Deployment-Namen
+    - Den Parameter api-version
+  </Accordion>
+  
+  <Accordion icon="key" title="Ungültiger oder abgelaufener API-Schlüssel">
+    Schnelle Überprüfungen:
+    - Haben Sie den vollständigen Schlüssel kopiert? (Erscheint normalerweise mit `sk-`)
+    - Ist der Schlüssel abgelaufen?
+    - Haben Sie die Abrechnung mit dem Anbieter eingerichtet?
+    - Haben Sie versehentlich zusätzliche Leerzeichen hinzugefügt?
+    
+    Versuchen Sie, einen neuen Schlüssel im Dashboard Ihres Anbieters zu generieren.
+  </Accordion>
+</AccordionGroup>
+
+## Schnelleinrichtungsanleitung
+
+<Steps>
+  <Step title="Holen Sie sich Ihren API-Schlüssel">
+    - **OpenAI:** https://platform.openai.com/api-keys
+    - **Mistral:** https://console.mistral.ai/api-keys/
+    - **Gemini:** https://aistudio.google.com/app/apikey
+  </Step>
+  
+  <Step title="Geben Sie ihn in Alter ein">
+    1. Einstellungen (`Cmd + ,`) → **API-Schlüssel**
+    2. Wählen Sie Ihren Anbieter aus dem Dropdown-Menü
+    3. Fügen Sie Ihren Schlüssel ein
+    4. Schalten Sie **Benutzerdefinierten Anbieter aktivieren** EIN
+  </Step>
+  
+  <Step title="Überprüfen Sie die Modellauswahl">
+    1. Drücken Sie `/` im Eingabefeld von Alter
+    2. Suchen Sie den Abschnitt **Benutzerdefiniert**
+    3. Sie sollten die Modelle Ihres Anbieters aufgelistet sehen
+  </Step>
+</Steps>
+
+## Überprüfen Sie, ob es funktioniert
+
+Nach der Einrichtung:
+1. Drücken Sie `/`, um den Modellauswähler zu öffnen
+2. Suchen Sie die Kategorie **Benutzerdefiniert**
+3. Wählen Sie eines Ihrer benutzerdefinierten Modelle aus
+4. Senden Sie eine Testnachricht
+5. **Erfolg:** Das Modell antwortet mit Ihrem eigenen API-Schlüssel!
+
+<Tip>
+  **Budgettipp:** Die Verwendung Ihres eigenen API-Schlüssels bedeutet, dass Sie direkt vom Anbieter abgerechnet werden. Überwachen Sie Ihre Nutzung im Dashboard, um Überraschungen zu vermeiden!
+</Tip>
+
+## Verwandte Hilfe
+
+- [Wie Sie Ihren eigenen API-Schlüssel verwenden](/de/how-to/use-byok)
+- [Auswahl von KI-Modellen](/de/guides/choosing-generative-model)
