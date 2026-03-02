@@ -1,0 +1,119 @@
+---
+title: "API模型参考"
+description: "通过 Alter API 路由器可用的 AI 模型的完整列表"
+---
+此参考列出了通过 Alter API 路由器可用的所有 AI 模型。发出 API 请求时使用这些模型名称。
+
+## 型号命名格式
+
+所有型号均遵循格式：`Provider#Model-name`
+
+例如：`OpenAI#gpt-5`、`Claude#claude-sonnet-4-6`
+
+## OpenAI 型号
+
+|型号名称 |描述 |上下文窗口 |
+|------------|-------------|----------------|
+| `OpenAI#gpt-5` |最新GPT-5型号| 128K |
+| `OpenAI#gpt-5-mini` |轻量级GPT-5 | 128K |
+| `OpenAI#gpt-5-nano` |最快的 GPT-5 变体 | 128K |
+| `OpenAI#o3` |高级推理| 20万|
+| `OpenAI#o4-mini` |高效推理| 20万|
+
+## Claude（人择）模型
+
+|型号名称 |描述 |上下文窗口 |
+|------------|-------------|----------------|
+| `Claude#claude-sonnet-4-6` |最新Claude十四行诗| 20万|
+| `Claude#claude-opus-4-6` |最有能力Claude | 20万|
+| `Claude#claude-haiku-4-6` |快速 Claude 变体 | 20万|
+
+## Gemini (Google) 型号
+
+|型号名称 |描述 |上下文窗口 |
+|------------|-------------|----------------|
+| `Gemini#gemini-2.5-pro` |最有能力Gemini | 1M |
+| `Gemini#gemini-2.5-flash` |快速Gemini | 1M |
+| `Gemini#gemini-2.5-flash-lite` |轻量级Gemini | 1M |
+
+## 米斯特拉尔模型
+
+|型号名称 |描述 |上下文窗口 |
+|------------|-------------|----------------|
+| `Mistral#mistral-large-latest` |最有能力的米斯特拉尔| 128K |
+| `Mistral#mistral-small-latest` |高效的米斯特拉尔| 128K |
+| `Mistral#codestral-2501` |代码专家 | 32K |
+| `Mistral#pixtral-large-latest` |视力能力| 128K |
+
+## Perplexity 型号
+
+|型号名称 |描述 |上下文窗口 |
+|------------|-------------|----------------|
+| `Perplexity#sonar` |网络感知模型 | 128K |
+| `Perplexity#sonar-pro` |高级网络搜索 | 128K |
+| `Perplexity#sonar-reasoning` |用网络推理 | 128K |
+
+## Alter 型号
+
+|型号名称 |描述 |
+|------------|-------------|
+| `Alter#best` |自动选择最佳模型|
+| `Alter#fair` |性价比高的选择|
+| `Alter#light` |最快响应 |
+
+## 用法示例
+
+###Python
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+# Use GPT-5
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[{"role": "user", "content": "Hello!"}]
+)
+```
+
+### 卷曲
+```bash
+curl https://alterhq.com/api/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "OpenAI#gpt-5",
+    "messages": [{"role": "user", "content": "Hello!"}]
+  }'
+```
+
+## 型号选择技巧
+
+**为了速度**
+- `Alter#light`
+- `OpenAI#gpt-5-nano`
+- `Gemini#gemini-2.5-flash-lite`
+
+**为了质量**
+- `Alter#best`
+- `OpenAI#gpt-5`
+- `Claude#claude-opus-4-6`
+- `Gemini#gemini-2.5-pro`
+
+**用于编码**
+- `OpenAI#gpt-5`
+- `Mistral#codestral-2501`
+- `Claude#claude-sonnet-4-6`
+
+**为了视觉**
+- `OpenAI#gpt-5`
+- `Gemini#gemini-2.5-pro`
+- `Mistral#pixtral-large-latest`
+
+**对于成本**
+- `Alter#fair`
+- `Alter#light`
+- `OpenAI#gpt-5-nano`

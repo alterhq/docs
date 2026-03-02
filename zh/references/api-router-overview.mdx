@@ -1,0 +1,86 @@
+---
+title: "API 路由器概述"
+description: "Alter API 路由器服务和 OpenAI 兼容端点概述"
+---
+Alter API 路由器是兼容 OpenAI 的 API 网关，可通过单个端点对来自 10 多个提供商的 92 多个 AI 模型进行统一访问。
+
+## 什么是 API 路由器？
+
+API 路由器是一项集中式服务，无需管理不同 AI 提供商的多个 API 密钥和计费帐户。您可以使用 Alter 作为所有 AI 模型访问的单一入口点，而不是在 OpenAI、Anthropic、Google 等维护单独的帐户。
+
+### 主要优点
+
+- **单一 API 密钥** 适用于所有提供商
+- **通过您的 Alter 帐户进行集中计费**
+- **来自 10 多个提供商的 92 多个模型**
+- **OpenAI 兼容端点** 可与现有Tools和 SDK 配合使用
+- **轻松切换模型**，无需更改代码
+
+## 快速入门
+
+### 1. 生成 API 密钥
+
+1. 打开**设置** (**⌘,**)
+2. 转到**路由器**选项卡
+3. 在“Alter API 密钥”下，单击“**添加新密钥**”
+4. 复制您的密钥（以 `sk-` 开头）
+
+### 2. 获取端点
+
+```
+https://alterhq.com/api
+```
+
+对于大多数Tools，请使用：
+```
+https://alterhq.com/api/v1
+```
+
+### 3. 列出可用型号
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## 型号命名格式
+
+模型使用格式：`Provider#Model-name`
+
+示例：
+- `OpenAI#gpt-5` - 最新 GPT-5
+- `OpenAI#gpt-5-mini` - 轻量级 GPT-5
+- `Claude#claude-sonnet-4-6` - 最新 Claude
+- `Gemini#gemini-2.5-pro` - 最新 Gemini
+
+## 使用示例
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[
+        {"role": "user", "content": "What is machine learning?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+## 使用限制
+
+- **每日限制**：合理使用情况下每天 200 个请求
+- **限制**：200 个请求后，限制为每 10 分钟 1 个
+- **预算充值**：可用于超出合理使用范围的一致访问
+
+## 后续步骤
+
+- [API网关指南](/guides/api-gateway) - 完整的使用文档
+- [型号命名参考](/references/api-model-names) - 完整型号列表
+- OpenAPI 参考 - 交互式 API 文档

@@ -1,0 +1,105 @@
+---
+title: "为文档做出贡献"
+description: "在本地预览并贡献 Alter 文档"
+---
+<Info>
+  **先决条件**：
+  - Node.js 版本 19 或更高版本
+  - git
+</Info>
+
+按照以下步骤在本地预览 Alter 文档并贡献更改。
+
+<Steps>
+<Step title="克隆存储库">
+
+```bash
+git clone https://github.com/wearedevx/alter-docs.git
+cd alter-docs/docs
+```
+</Step>
+
+<Step title="安装 Mintlify CLI">
+
+```bash
+npm i -g mint
+```
+</Step>
+
+<Step title="本地预览">
+
+在 docs 目录中运行以下命令：
+
+```bash
+mint dev
+```
+
+文档的本地预览将在 `http://localhost:3000` 上提供。
+
+</Step>
+</Steps>
+
+## 自定义端口
+
+默认情况下，Mintlify 使用端口 3000。您可以使用 `--port` 标志自定义端口：
+
+```bash
+mint dev --port 3333
+```
+
+## 验证链接
+
+在提交更改之前检查损坏的链接：
+
+```bash
+mint broken-links
+```
+
+## AI辅助写作
+
+设置您的 AI 编码Tools以与 Mintlify 配合使用：
+
+```bash
+npx skills add https://mintlify.com/docs
+```
+
+这会安装 Mintlify 针对 Claude Code、Cursor 和 Windsurf 等 AI Tools的文档技能。
+
+## 部署
+
+通过 GitHub 集成合并到主分支时，更改会自动部署。
+
+<Frame>
+  <img src="/images/checks-passed.png" alt="Screenshot of a deployment confirmation message that says All checks have passed." style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+## 贡献指南
+
+贡献之前，请阅读：
+- [更改.md](/ALTER) - AI智能体贡献规则
+- [代理.md](/AGENTS) - 代理商项目说明
+
+要点：
+- 使用 MDX 格式和 YAML frontmatter
+- 遵循现有的内容结构
+- 使用本地 `/images/` 路径作为资源
+- 提交前运行 `mint broken-links`
+
+## 故障排除
+
+<AccordionGroup>
+  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
+
+    这可能是由于节点版本过时造成的。请尝试以下操作：
+    1. 删除当前安装的 CLI 版本：`npm remove -g mint`
+    2. 升级到节点 v19 或更高版本。
+    3. 重新安装 CLI：`npm i -g mint`
+  </Accordion>
+
+  <Accordion title="问题：遇到未知错误">
+  
+    解决方案：转到设备的根目录并删除 `~/.mintlify` 文件夹。然后再次运行 `mint dev` 。
+  </Accordion>
+</AccordionGroup>
+
+想知道最新 CLI 版本中发生了什么变化吗？查看[CLI 变更日志](https://www.npmjs.com/package/mintlify?activeTab=versions)。

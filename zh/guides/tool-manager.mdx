@@ -1,0 +1,41 @@
+---
+title: "Tool Manager 指南"
+description: "通过清晰的故障排除步骤安全地连接和管理集成"
+---
+## 目标
+
+通过清晰的故障排除步骤安全地连接和管理集成。
+
+## 步骤
+
+1. 打开 Alter 设置并转到集成或Tool Manager。
+2. 一次连接一个集成并立即进行测试。
+3. 确认所需的权限和帐户范围。
+4. 创建一个简单的测试提示来验证预期的行为。
+5. 如果发生失败，请检查提供商身份验证并重试。
+
+## 管理多个 Tools
+
+启用许多Tools会增加上下文窗口的使用并影响性能。对于大多数工作流程，请使用 **Flow** - Alter 的Tools编排器，它会自动为每个请求选择正确的Tools。
+
+<Card title="使用 Flow 进行 Tool 编排" icon="wand-magic-sparkles" href="/guides/use-flow-orchestration">
+  Flow 通过充当单个Tools自动将请求路由到适当的集成来减少上下文使用。
+</Card>
+
+Flow 不是将所有Tools加载到每个请求中：
+- 分析您的请求并选择正确的Tools
+- 跨Tools处理多步骤编排
+- 减少上下文窗口的使用并提高性能
+
+在 **Local Tools > Alter** 下的 Tool Manager 中启用 Flow。
+
+## 故障排除
+
+- 重新验证提供商连接。
+- 确认本地/网络权限。
+- 检查特定于集成的限制和配额。
+
+## 相关文档
+
+- [使用 Flow 进行 Tool 编排](/guides/use-flow-orchestration)
+- [Tools 不工作](/common-issues/tool-not-working)

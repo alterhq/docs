@@ -1,0 +1,93 @@
+---
+title: "自定义模型未显示"
+description: "修复模型选择器中缺失的 OpenAI、Mistral 或本地模型"
+---
+<Note>
+  **重要提示：** 您需要从提供商（OpenAI、Mistral 等）获得 API 密钥，然后它们才会出现在 Alter 中。
+</Note>
+
+##发生了什么事？
+
+您已添加 API 密钥，但当您按 `/` 查看模型时：
+- **自定义**部分为空
+- 您看不到提供商的型号
+- 您只能看到 Alter 云模型
+
+## 常见的设置错误
+
+<AccordionGroup>
+  <Accordion icon="toggle-off" title="自定义提供程序已关闭">
+    即使输入了 API 密钥，您也需要启用自定义提供程序：
+    
+    1. 打开Alter设置(`Cmd + ,`)
+    2. 转到 **API 密钥** 选项卡
+    3.找到**自定义提供商**部分
+    4. 将 **启用自定义提供程序** 切换为开
+    5. 您应该在“自定义端点”旁边看到一个 ✓
+  </Accordion>
+  
+  <Accordion icon="link" title="端点格式错误（尤其是对于 Azure）">
+    **对于大多数提供商：** 只需粘贴您的 API 密钥 – 端点是自动的
+    
+    **特别是对于 Azure**，您需要完整的 URL：
+    ```
+    https://your-instance.openai.azure.com/openai/deployments/your-model-name/chat/completions?api-version=2024-02-15-preview
+    ```
+    
+    确保您的网址包括：
+    - 您的实例名称
+    - 部署名称
+    - api版本参数
+  </Accordion>
+  
+  <Accordion icon="key" title="API 密钥无效或过期">
+    快速检查：
+    - 你复制了完整的密钥吗？ （它们通常以 `sk-` 开头）
+    - 密钥是否已过期？
+    - 您是否与提供商设置了账单？
+    - 您是否不小心包含了额外的空格？
+    
+    尝试从提供商的仪表板生成新密钥。
+  </Accordion>
+</AccordionGroup>
+
+## 快速设置指南
+
+<Steps>
+  <Step title="获取您的 API 密钥">
+    - **OpenAI：** https://platform.openai.com/api-keys
+    - **米斯特拉尔：** https://console.mistral.ai/api-keys/
+    - **Gemini：** https://aistudio.google.com/app/apikey
+  </Step>
+  
+  <Step title="将其输入 Alter">
+    1. 设置 (`Cmd + ,`) → **API 密钥**
+    2. 从下拉列表中选择您的提供商
+    3.粘贴您的密钥
+    4. 将 **启用自定义提供程序** 打开
+  </Step>
+  
+  <Step title="检查型号选择器">
+    1、在Alter提示框中按`/`
+    2. 查找 **自定义** 部分
+    3. 您应该会看到列出的提供商的型号
+  </Step>
+</Steps>
+
+## 验证它是否正常工作
+
+设置后：
+1. 按`/` 打开模型选择器
+2. 查找 **自定义** 类别
+3. 选择您的定制型号之一
+4. 发送测试消息
+5. **成功：** 模型使用您自己的 API 密钥进行响应！
+
+<Tip>
+  **预算提示：** 使用您自己的 API 密钥意味着提供商将直接向您计费。在他们的仪表板上监控您的使用情况以避免意外！
+</Tip>
+
+## 相关帮助
+
+- [如何使用您自己的 API 密钥](/how-to/use-byok)
+- [选择人工智能模型](/guides/choosing-generative-model)

@@ -1,0 +1,80 @@
+---
+title: "API网关不会列出模型"
+description: "修复将外部应用连接到 Alter 的 API 时模型列表为空的问题"
+---
+<Note>
+  **使用 API 网关？** 这允许您在其他应用程序（如 SillyTavern、NovelCrafter）或您自己的代码中使用 Alter 的模型。
+</Note>
+
+##发生了什么事？
+
+您正在尝试将另一个应用程序连接到 Alter 的 API，但是：
+- 应用程序已连接但显示没有可用型号
+- 您必须手动输入型号名称
+- 除非您指定确切的名称，否则模型请求将失败
+
+## 为什么会发生这种情况
+
+许多 AI 应用程序期望 OpenAI 的简单模型格式（如 `gpt-5`），但 Alter 支持多个提供程序。因此我们使用一种特殊的格式来标识每个模型来自哪个提供商。
+
+## 解决方案
+
+<Card title="模型格式：提供商#模型名称" icon="hashtag">
+  不要仅使用 `gpt-5`，而是使用： `OpenAI#gpt-5`
+  
+  格式始终为：**提供商名称** + **#** + **型号名称**
+</Card>
+
+## 设置步骤
+
+<Steps>
+  <Step title="获取您的 API 凭证">
+    1. 打开Alter → 设置（`Cmd + ,`）
+    2. 转到**路由器**选项卡
+    3.点击**添加新密钥**生成API密钥
+    4.复制密钥（以`sk-...`开头）
+    5.记下端点：`https://alterhq.com/api`
+  </Step>
+  
+  <Step title="配置您的外部应用程序">
+    在您正在连接的应用程序中：
+    - **基本 URL：** `https://alterhq.com/api` （或尝试 `https://alterhq.com/api/v1`）
+    - **API 密钥：** 您在步骤 1 中生成的密钥
+  </Step>
+  
+  <Step title="手动设置模型">
+    由于自动列出可能不起作用，请手动输入模型：
+    
+    |供应商|型号名称 |完整身份证件 |
+    |----------|------------|---------|
+    | OpenAI | GPT-5 | `OpenAI#gpt-5` |
+    | OpenAI | GPT-5纳米| `OpenAI#gpt-5-nano` |
+    | Claude |十四行诗 4 | `Claude#claude-sonnet-4-6` |
+    | Gemini | 2.5 专业版 | `Gemini#gemini-2.5-pro` |
+    |米斯特拉尔|大| `Mistral#mistral-large-latest` |
+    | Alter |最佳路由器| `Alter#best` |
+  </Step>
+</Steps>
+
+## 测试连接
+
+尝试这个简单的测试：
+1. 发送型号为`OpenAI#gpt-5-nano`的聊天完成请求
+2. **成功：** 您应该通过 Alter 得到回复
+
+如果它适用于一种型号，那么它也适用于所有型号 - 只需更改型号 ID！
+
+<Tip>
+  **专业提示：** Alter API 的工作方式与 OpenAI 的 API 完全相同。如果您的应用程序支持“OpenAI兼容”端点，它将与Alter一起使用。
+</Tip>
+
+## 还有问题吗？
+
+- 确保您使用有效的 Alter API 密钥（不是您的提供商的密钥）
+- 尝试两个端点：`/api` 和 `/api/v1`
+- 某些应用程序会缓存型号列表 - 尝试在设置后重新启动应用程序
+
+## 相关帮助
+
+- [API网关完整指南](/guides/api-gateway)
+- [所有可用型号的列表](/guides/choosing-generative-model)

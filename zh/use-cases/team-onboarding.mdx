@@ -1,0 +1,159 @@
+---
+title: "让您的团队跟上 Alter 的步伐"
+description: "如何通过共享Workspaces和一致的 AI 工作流程让新团队成员入职"
+---
+<Info>
+  **非常适合：** 团队领导、经理和多人需要一致使用 Alter 的组织。
+</Info>
+
+## 挑战
+
+你有一个很棒的 Alter 设置：
+- 适合您团队工作流程的自定义操作
+- 精心配置的设置
+- 包含重要文件的共享Workspaces
+- 最适合您任务的特定模型
+
+但每次有新人加入时，他们都必须从头开始解决一切问题。他们：
+- 使用错误的型号
+- 不知道您的自定义操作
+- 重新创建您已经完成的工作
+- 输出不一致
+
+## 解决方案：分享您的设置
+
+Alter 可以轻松共享配置，以便新团队成员在第一天就可以高效工作。
+
+## 分步团队入职
+
+<Steps>
+  <Step title="创建基线配置">
+    记录您团队的标准设置：
+    - **推荐模型**（例如，“使用 Claude 进行代码审查，使用 Gemini 进行创意任务”）
+    - **默认温度**（例如，0.7 用于平衡创造力）
+    - **语音热键**（标准化 `Fn` 或自定义键）
+    - **Workspaces的文件命名约定**
+  </Step>
+  
+  <Step title="构建入门Workspaces">
+    创建具有共同上下文的共享Workspaces：
+    - **代码库Workspaces：** 包括您的主项目文件夹
+    - **文档Workspaces：** 包括规格、要求、风格指南
+    - **知识库Workspaces：** 包括过去的决策、常见问题解答、维基百科
+    
+    <Tip>
+      Workspaces 存储在 `~/Library/Application Support/Alter/Workspaces/` 中。您可以直接共享 `.alterworkspace` 文件或记录如何创建它们。
+    </Tip>
+  </Step>
+  
+  <Step title="共享自定义操作">
+    导出团队最有用的操作：
+    1. 打开**动作编辑器**（从菜单栏）
+    2. 选择一个操作
+    3. 单击**导出**（或按`Cmd + E`）
+    4.保存`.json`文件
+    5. 与您的团队分享
+    
+    新成员可以在操作编辑器中使用 `Cmd + O` 导入这些内容。
+  </Step>
+  
+  <Step title="创建团队资料模板">
+    共享个人资料描述模板，新成员可以将其粘贴到“设置”>“个人资料”中：
+    
+    ```
+    Role: [Job title]
+    Team: [Team name]
+    Communication style: [Direct/casual/formal]
+    
+    Common tools we use:
+    - GitHub repo: [URL]
+    - Project management: [Linear/Asana/Jira]
+    - Documentation: [Notion/Confluence]
+    
+    Technical context:
+    - Primary language: [Python/JavaScript/etc]
+    - Framework: [React/Django/etc]
+    - Key dependencies: [List main libraries]
+    ```
+  </Step>
+</Steps>
+
+## 示例：开发团队如何使用它
+
+**设置：**
+- **标准型号：** Claude Sonnet 适用于大多数任务
+- **代码审查操作：** 预先配置以检查安全问题、测试和文档
+- **共享Workspaces：** 主要代码库 + API 文档 + 部署指南
+- **团队简介：** 每个人都包含 GitHub 存储库结构和关键依赖项
+
+**结果：**
+当新开发人员加入时：
+1.他们安装Alter
+2.导入团队的Actions（5分钟）
+3. 克隆共享Workspaces（2 分钟）  
+4.粘贴个人资料模板（1分钟）
+5. 他们立即变得高效——他们可以问“身份验证系统是如何工作的？”并获得上下文答案
+
+## 让它粘住
+
+<AccordionGroup>
+  <Accordion icon="refresh" title="每周细化会议">
+    每周花 15 分钟回顾：
+    - 人们正在使用哪些操作？
+    - 什么提示最有效？
+    - 是什么让新成员感到困惑？
+    
+    根据反馈更新您的共享资源。
+  </Accordion>
+  
+  <Accordion icon="users" title="创建团队聊天频道">
+    拥有专用频道（Slack/Discord）：
+    - 分享有用的提示
+    - 发布新的行动
+    - 询问“我该如何...？”问题
+    - 庆祝胜利（“Alter 刚刚帮我节省了 2 个小时！”）
+  </Accordion>
+  
+  <Accordion icon="book" title="维护团队剧本">
+    在您的团队 wiki 中记录您的 Alter 设置：
+    - 链接到导出的动作
+    - 设置Workspaces的说明
+    - 适用于您的域的最佳实践
+    - 要避免的常见错误
+  </Accordion>
+</AccordionGroup>
+
+## 不同团队快速获胜
+
+<CardGroup cols={2}>
+  <Card title="工程团队" icon="code">
+    - 代码审查行动
+    - 使用您的技术堆栈调试助手
+    - 文档生成器
+  </Card>
+  <Card title="营销团队" icon="megaphone">
+    - 品牌声音检查器
+    - 活动简介分析器
+    - 内容日历助手
+  </Card>
+  <Card title="支持团队" icon="headset">
+    - 工单回复模板
+    - 知识库搜索器
+    - 升级预测器
+  </Card>
+  <Card title="产品团队" icon="box">
+    - 用户反馈分析器
+    - 需求澄清者
+    - 发行说明生成器
+  </Card>
+</CardGroup>
+
+## 相关资源
+
+- [Workspaces 指南](/guides/workspaces-actions) – 如何创建和管理Workspaces
+- [动作编辑器指南](/guides/alter-settings) – 创建和共享自定义操作
+- [选择正确的型号](/guides/choosing-generative-model) – 按用例的模型建议
+
+---
+
+**从小事做起：** 选择本周要分享的一个操作或Workspaces。看看您的团队如何反应，然后从那里开始构建！

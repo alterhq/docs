@@ -618,6 +618,158 @@
             "openapi": "openapi.json"
           }
         ]
+      },
+      {
+        "language": "zh",
+        "tabs": [
+          {
+            "tab": "快速开始",
+            "pages": [
+              "zh/index",
+              "zh/quickstart",
+              "zh/getting-started/open-alter",
+              "zh/getting-started/your-workspace",
+              "zh/getting-started/first-workflows"
+            ]
+          },
+          {
+            "tab": "指南",
+            "pages": [
+              "zh/guides/index"
+            ],
+            "groups": [
+              {
+                "group": "从这里开始",
+                "pages": [
+                  "zh/guides/core-features",
+                  "zh/guides/alter-window",
+                  "zh/guides/dictation",
+                  "zh/guides/meetings",
+                  "zh/guides/getting-started"
+                ]
+              },
+              {
+                "group": "最佳效果（建议尽早）",
+                "pages": [
+                  "zh/guides/use-flow-orchestration",
+                  "zh/guides/managing-context-window"
+                ]
+              },
+              {
+                "group": "日常工作流",
+                "pages": [
+                  "zh/guides/workspaces-actions"
+                ]
+              },
+              {
+                "group": "自动化与 Tools",
+                "pages": [
+                  "zh/guides/alter-actions",
+                  "zh/guides/integrations",
+                  "zh/guides/tool-manager",
+                  "zh/guides/url-callbacks"
+                ]
+              },
+              {
+                "group": "设置与个性化",
+                "pages": [
+                  "zh/guides/alter-settings",
+                  "zh/guides/manage-settings",
+                  "zh/guides/settings"
+                ]
+              },
+              {
+                "group": "模型",
+                "pages": [
+                  "zh/guides/choosing-generative-model"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "操作指南",
+            "groups": [
+              {
+                "group": "快速任务",
+                "pages": [
+                  "zh/how-to/open-alter",
+                  "zh/how-to/add-context",
+                  "zh/how-to/change-hotkey",
+                  "zh/how-to/choose-language",
+                  "zh/how-to/use-byok",
+                  "zh/how-to/settings"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "使用场景",
+            "groups": [
+              {
+                "group": "场景",
+                "pages": [
+                  "zh/use-cases/meeting-workflow",
+                  "zh/use-cases/local-model-privacy"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "故障排查",
+            "groups": [
+              {
+                "group": "常见问题",
+                "pages": [
+                  "zh/common-issues/mic-not-transcribing",
+                  "zh/common-issues/hotkey-not-working",
+                  "zh/common-issues/tool-not-working",
+                  "zh/common-issues/custom-provider-not-showing",
+                  "zh/common-issues/models-not-listed-in-api-gateway"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "参考",
+            "groups": [
+              {
+                "group": "快速参考",
+                "pages": [
+                  "zh/references/faq-core",
+                  "zh/references/general-faq",
+                  "zh/references/pricing-faq",
+                  "zh/references/shortcuts",
+                  "zh/references/docs-map"
+                ]
+              },
+              {
+                "group": "资源",
+                "pages": [
+                  "zh/references/image-library"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Router",
+            "groups": [
+              {
+                "group": "快速开始",
+                "pages": [
+                  "zh/references/api-router-overview",
+                  "zh/guides/api-gateway"
+                ]
+              },
+              {
+                "group": "参考",
+                "pages": [
+                  "zh/references/api-model-names"
+                ]
+              }
+            ],
+            "openapi": "openapi.json"
+          }
+        ]
       }
     ],
     "global": {
