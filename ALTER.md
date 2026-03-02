@@ -86,6 +86,7 @@ Examples:
 - Use "workspace" not "project"
 - Use "action" for AI-powered tasks
 - Use "context" for files/app data sent to AI
+- Keep command-line/tool names untranslated across all languages (for example: `cURL`, `OpenAI`, `GitHub Actions`, `Tools Manager`, `URL Callbacks`).
 
 ## Content Boundaries
 
