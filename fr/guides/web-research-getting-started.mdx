@@ -1,0 +1,65 @@
+---
+title: "Demarrage"
+description: "Bien demarrer avec les connecteurs de recherche web dans Alter"
+---
+
+Utilisez ce guide pour choisir la bonne configuration de recherche web dans Alter.
+
+<Info>
+  Commencez par les routeurs Alter. `Fast`, `Best`, `Fair` et `Light` ont deja la recherche web activee, sans configuration ni connexion d'outil.
+</Info>
+
+## Ce que vous pouvez utiliser
+
+- **Local Tools :** `Web Search` et `Web Search Gemini`
+- **Remote MCP Servers :** Tavily, LinkUp, Exa
+- **Apps Gallery :** Firecrawl, LinkUp, Exa (si disponibles dans votre workspace)
+- **Routeurs Alter :** `Fast`, `Best`, `Fair` et `Light` incluent une recherche web native pour les informations recentes
+
+## Positionnement des providers (apercu)
+
+- **Tavily :** se positionne comme une couche d'acces web pour les agents IA, avec une API unique pour search, extraction, research et crawling.
+- **Firecrawl :** se positionne comme une API qui transforme les sites en donnees LLM-ready, avec un focus scraping et crawling.
+- **LinkUp :** se positionne comme un moteur de recherche pour AI apps, avec mode standard et mode deep, et des reponses sourcees.
+- **Exa :** se positionne comme une API de recherche IA orientee qualite, avec plusieurs endpoints de search a research.
+
+## Choisir la bonne option
+
+<CardGroup cols={2}>
+  <Card title="Commencer ici : sans configuration" icon="rocket" href="/fr/guides/native-web-search-in-alter-routers">
+    Utilisez d'abord la recherche web native des routeurs. C'est l'option la plus simple, disponible immediatement.
+  </Card>
+  <Card title="Outils inclus" icon="zap" href="/fr/guides/web-search-local-tools">
+    Utilisez les outils de recherche inclus dans Alter, sans compte provider supplementaire.
+  </Card>
+  <Card title="Recherche approfondie" icon="search" href="/fr/guides/connect-tavily">
+    Utilisez Tavily pour une extraction plus riche et une navigation multi-etapes.
+  </Card>
+  <Card title="Scraping a grande echelle" icon="database" href="/fr/guides/connect-firecrawl">
+    Utilisez Firecrawl pour extraire des donnees structurees sur plusieurs pages.
+  </Card>
+</CardGroup>
+
+## Construire une strategie hybride
+
+1. Commencez par la recherche native des routeurs, c'est l'option la plus simple avec de bons resultats par defaut.
+2. Utilisez les outils de recherche inclus pour etendre les modeles qui n'ont pas de recherche web (y compris les modeles locaux), sans creer de compte hors Alter.
+3. Ajoutez des providers MCP quand vous voulez d'excellents resultats sur n'importe quel modele et plus de controle sur la recherche et l'extraction.
+4. Ajoutez un scraper si votre workflow exige une extraction structuree multi-pages.
+
+<Warning>
+  Les plans gratuits et quotas evoluent. Verifiez la tarification des providers avant de dependre d'une limite precise.
+</Warning>
+
+<Tip>
+  Evitez d'activer plusieurs outils de recherche web en meme temps. Cela peut perturber le choix d'outil par le modele. Activez un seul outil de recherche par workflow, ou ajoutez des instructions explicites pour imposer un outil precis.
+</Tip>
+
+## Guides associes
+
+- [/fr/guides/web-search-local-tools](/fr/guides/web-search-local-tools)
+- [/fr/guides/connect-tavily](/fr/guides/connect-tavily)
+- [/fr/guides/connect-firecrawl](/fr/guides/connect-firecrawl)
+- [/fr/guides/connect-linkup](/fr/guides/connect-linkup)
+- [/fr/guides/connect-exa](/fr/guides/connect-exa)
+- [/fr/guides/native-web-search-in-alter-routers](/fr/guides/native-web-search-in-alter-routers)

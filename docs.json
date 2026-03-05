@@ -63,6 +63,18 @@
                 ]
               },
               {
+                "group": "Web Search",
+                "pages": [
+                  "guides/web-research-getting-started",
+                  "guides/native-web-search-in-alter-routers",
+                  "guides/web-search-local-tools",
+                  "guides/connect-tavily",
+                  "guides/connect-firecrawl",
+                  "guides/connect-linkup",
+                  "guides/connect-exa"
+                ]
+              },
+              {
                 "group": "Settings & Personalization",
                 "pages": [
                   "guides/alter-settings",
@@ -227,6 +239,18 @@
                   "pt/guides/integrations",
                   "pt/guides/tool-manager",
                   "pt/guides/url-callbacks"
+                ]
+              },
+              {
+                "group": "Pesquisa web",
+                "pages": [
+                  "pt/guides/web-research-getting-started",
+                  "pt/guides/native-web-search-in-alter-routers",
+                  "pt/guides/web-search-local-tools",
+                  "pt/guides/connect-tavily",
+                  "pt/guides/connect-firecrawl",
+                  "pt/guides/connect-linkup",
+                  "pt/guides/connect-exa"
                 ]
               },
               {
@@ -397,6 +421,18 @@
                 ]
               },
               {
+                "group": "Recherche web",
+                "pages": [
+                  "fr/guides/web-research-getting-started",
+                  "fr/guides/native-web-search-in-alter-routers",
+                  "fr/guides/web-search-local-tools",
+                  "fr/guides/connect-tavily",
+                  "fr/guides/connect-firecrawl",
+                  "fr/guides/connect-linkup",
+                  "fr/guides/connect-exa"
+                ]
+              },
+              {
                 "group": "Paramètres et personnalisation",
                 "pages": [
                   "fr/guides/alter-settings",
@@ -561,6 +597,18 @@
                   "es/guides/integrations",
                   "es/guides/tool-manager",
                   "es/guides/url-callbacks"
+                ]
+              },
+              {
+                "group": "Búsqueda web",
+                "pages": [
+                  "es/guides/web-research-getting-started",
+                  "es/guides/native-web-search-in-alter-routers",
+                  "es/guides/web-search-local-tools",
+                  "es/guides/connect-tavily",
+                  "es/guides/connect-firecrawl",
+                  "es/guides/connect-linkup",
+                  "es/guides/connect-exa"
                 ]
               },
               {
@@ -731,6 +779,18 @@
                 ]
               },
               {
+                "group": "Websuche",
+                "pages": [
+                  "de/guides/web-research-getting-started",
+                  "de/guides/native-web-search-in-alter-routers",
+                  "de/guides/web-search-local-tools",
+                  "de/guides/connect-tavily",
+                  "de/guides/connect-firecrawl",
+                  "de/guides/connect-linkup",
+                  "de/guides/connect-exa"
+                ]
+              },
+              {
                 "group": "Einstellungen und Personalisierung",
                 "pages": [
                   "de/guides/alter-settings",
@@ -898,6 +958,18 @@
                 ]
               },
               {
+                "group": "网页搜索",
+                "pages": [
+                  "zh/guides/web-research-getting-started",
+                  "zh/guides/native-web-search-in-alter-routers",
+                  "zh/guides/web-search-local-tools",
+                  "zh/guides/connect-tavily",
+                  "zh/guides/connect-firecrawl",
+                  "zh/guides/connect-linkup",
+                  "zh/guides/connect-exa"
+                ]
+              },
+              {
                 "group": "设置与个性化",
                 "pages": [
                   "zh/guides/alter-settings",
@@ -1062,6 +1134,18 @@
                   "ja/guides/integrations",
                   "ja/guides/tool-manager",
                   "ja/guides/url-callbacks"
+                ]
+              },
+              {
+                "group": "Web検索",
+                "pages": [
+                  "ja/guides/web-research-getting-started",
+                  "ja/guides/native-web-search-in-alter-routers",
+                  "ja/guides/web-search-local-tools",
+                  "ja/guides/connect-tavily",
+                  "ja/guides/connect-firecrawl",
+                  "ja/guides/connect-linkup",
+                  "ja/guides/connect-exa"
                 ]
               },
               {
