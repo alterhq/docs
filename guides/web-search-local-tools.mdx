@@ -1,0 +1,47 @@
+---
+title: "Included search tools"
+description: "Use Alter's built-in web search tools with no extra provider account"
+---
+
+Alter includes two built-in web search tools out of the box.
+
+These tools are useful when you use models that do not have native web search, including local models. They let you keep web access inside Alter without adding a third-party provider.
+
+<Info>
+  Unlike Tavily, LinkUp, Firecrawl, or Exa, these tools are included in Alter usage and do not require a separate provider account.
+</Info>
+
+## Tool comparison
+
+<CardGroup cols={2}>
+  <Card title="Web Search (DuckDuckGo)" icon="compass">
+    No API key required. Free and available immediately. Uses search snippets, so answers are fast but less detailed.
+  </Card>
+  <Card title="Web Search Gemini" icon="sparkles">
+    Uses Google search with Gemini 2.5 Flash. Returns more detailed answers and includes source links used for grounding. Requires an Alter Pro or Lifetime subscription.
+  </Card>
+</CardGroup>
+
+## When to use each
+
+- Use **Web Search (DuckDuckGo)** when you are on a free Alter account and need quick lookups.
+- Use **Web Search Gemini** when you have Alter Pro or Lifetime and need deeper synthesis with source links.
+
+<Info>
+  If you are on a free account, use **Web Search (DuckDuckGo)**.
+</Info>
+
+## How to enable
+
+1. Open **Tools Manager**.
+2. Go to **Local Tools**.
+3. Enable **Web Search** and/or **Web Search Gemini**.
+
+## Example prompts
+
+- "Summarize the latest announcements about on-device AI assistants."
+- "Compare the last three major updates from provider X and cite your sources."
+
+<Tip>
+  Do not keep both search tools enabled by default. Enable one tool for the current task, or write explicit instructions that tell the model exactly which search tool to use.
+</Tip>

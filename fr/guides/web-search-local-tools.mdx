@@ -1,0 +1,47 @@
+---
+title: "Outils de recherche inclus"
+description: "Utiliser les outils de recherche web inclus dans Alter, sans compte provider supplementaire"
+---
+
+Alter inclut deux outils de recherche web integres, disponibles immediatement.
+
+Ces outils sont utiles quand vous utilisez des modeles sans recherche web native, y compris des modeles locaux. Ils vous permettent de garder l'acces web dans Alter sans ajouter de provider tiers.
+
+<Info>
+  Contrairement a Tavily, LinkUp, Firecrawl ou Exa, ces outils sont inclus avec l'usage Alter et ne demandent pas de compte provider separe.
+</Info>
+
+## Comparatif rapide
+
+<CardGroup cols={2}>
+  <Card title="Web Search (DuckDuckGo)" icon="compass">
+    Aucune cle API requise. Gratuit et disponible tout de suite. Base sur des snippets, donc rapide mais moins detaille.
+  </Card>
+  <Card title="Web Search Gemini" icon="sparkles">
+    S'appuie sur Google search avec Gemini 2.5 Flash. Reponses plus detaillees et liens sources utilises pour le grounding. Necessite un abonnement Alter Pro ou Lifetime.
+  </Card>
+</CardGroup>
+
+## Quand utiliser chaque outil
+
+- Utilisez **Web Search (DuckDuckGo)** si vous etes sur un compte Alter gratuit et pour des verifications rapides.
+- Utilisez **Web Search Gemini** si vous avez Alter Pro ou Lifetime et que vous voulez une recherche plus approfondie avec sources.
+
+<Info>
+  Si vous utilisez un compte gratuit, utilisez **Web Search (DuckDuckGo)**.
+</Info>
+
+## Activation
+
+1. Ouvrez **Tools Manager**.
+2. Allez dans **Local Tools**.
+3. Activez **Web Search** et/ou **Web Search Gemini**.
+
+## Exemples de prompts
+
+- "Resume les dernieres annonces sur les assistants IA on-device."
+- "Compare les trois dernieres mises a jour du provider X et cite tes sources."
+
+<Tip>
+  N'activez pas les deux outils de recherche en meme temps par defaut. Activez un seul outil pour la tache en cours, ou ajoutez des instructions explicites pour dire au modele quel outil utiliser.
+</Tip>
