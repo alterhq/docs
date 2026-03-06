@@ -1,28 +1,28 @@
 ---
-title: "Scroll"
-description: "Scroll active app windows in Computer Use flows"
+title: "滚动"
+description: "滚动计算机使用流程中的活动应用程序窗口"
 ---
 
-Use Scroll when target content is outside the current viewport.
+当目标内容位于当前视口之外时使用滚动。
 
-## What it does
+## 它的作用
 
-- Scrolls in the frontmost app window.
-- Supports direction: `up`, `down`, `left`, `right`.
-- Runs for a timed duration.
+- 在最前面的应用程序窗口中滚动。
+- 支持方向：`up`、`down`、`left`、`right`。
+- 运行一段时间。
 
-## Inputs
+## 输入
 
-- `seconds` (optional): duration to scroll (default 3, max 3600).
-- `direction` (optional): `up`, `down`, `left`, or `right` (default `down`).
+- `seconds`（可选）：滚动持续时间（默认 3，最大 3600）。
+- `direction`（可选）：`up`、`down`、`left` 或 `right`（默认 `down`）。
 
-## Typical use
+## 典型用途
 
-- Bring hidden elements into view before calling Perform.
-- Continue page traversal before re-reading with Get Active App Context.
+- 在调用 Perform 之前将隐藏的元素带入视图。
+- 使用“获取活动应用程序上下文”重新阅读之前继续页面遍历。
 
-## Good pairing
+## 良好的配对
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Perform](/apps-tools/computer-use-perform)
-- [Wait](/apps-tools/computer-use-wait)
+- [获取活动应用程序上下文](/apps-tools/computer-use-get-active-app-context)
+- [执行](/apps-tools/computer-use-perform)
+- [等等](/apps-tools/computer-use-wait)

@@ -1,81 +1,81 @@
 ---
-title: "Alter 行动"
-description: "通过语音触发和自动化创建和配置自定义 AI 工作流程"
+title: "改变行动"
+description: "通过语音触发和自动化创建和配置自定义AI工作流程"
 ---
 
 <Info>
-  **Alter Actions** are customizable AI workflows that let you create specialized assistants for specific tasks. Combine AI instructions, voice triggers, tools, and conditional execution to automate anything on your Mac.
+  **改变操作**是可自定义的人工智能工作流程，可以让您为特定任务创建专门的助手。结合AI指令、语音触发、工具和条件执行，以自动化Mac上的任何操作。
 </Info>
 
-## What is an Alter Action?
+## 什么是更改操作？
 
-An **Alter Action** is an advanced automation that combines:
+**更改操作**是一种高级自动化，它结合了：
 
-- **AI Instructions** - System prompts defining how the AI behaves
-- **Triggers** - Voice commands, hotkeys, or conditional execution
-- **Context** - Access to selected text, files, active applications
-- **Tools** - Configured integrations with your Mac and 2000+ external services
-- **Output** - How results are displayed (markdown, code, inline insertion)
+- **AI指令** - 系统提示定义AI的行为方式
+- **执行** - 语音命令、热键或条件执行
+- **上下文** - 访问选定的文本、文件、活动应用程序
+- **工具** - 配置与您的 Mac 和 2000 多个外部服务的集成
+- **输出** - 结果如何展示（降价、代码、内联插入）
 
-Think of an Alter Action as a "specialized AI assistant" customized for a specific task.
+将Alter Action视为针对特定任务定制的“专业人工智能助手”。
 
-## Opening the Action Editor
+## 打开动作编辑器
 
-### Method 1: Menu Bar (Fastest)
-1. Click the **Alter menu icon** in the menu bar (top right)
-2. Select **Action Editor**
+### 方法1：菜单栏（最快）
+1. 单击菜单栏中的 **更改菜单图标**（右上角）
+2. 选择**动作编辑器**
 
-![Menu Bar](/images/tools/menu-bar-action-editor.webp)
+![菜单栏](/images/tools/menu-bar-action-editor.webp)
 
-### Method 2: Options Menu
-1. Open Alter window
-2. Click **⋯** (three dots) in top right
-3. Select **Action Editor**
+### 方法 2：选项菜单
+1. 打开更改窗口
+2.点击右上角的********（三个点）
+3. 选择**动作编辑器**
 
-![Options Menu](/images/tools/options-menu-action-editor.webp)
+![选项菜单](/images/tools/options-menu-action-editor.webp)
 
-### Method 3: Keyboard Shortcut
-Press **⌘ E** (Command + E) to open the Action Editor directly
+###方法3：键盘快捷键
+按 **⌘ E** (Command + E) 直接打开动作编辑器
 
 <Tip>
-  The keyboard shortcut is the fastest method once you've memorized it.
+  一旦您记住了键盘快捷键，它就是最快的方法。
 </Tip>
 
-## Action Editor Walkthrough
+## 动作编辑器演练
 
-The Action Editor has 7 main sections, each controlling different aspects of your action. Use the left panel to navigate between tabs.
+动作编辑器有 7 个主要部分，每个部分控制动作的不同方面。使用左侧面板在选项卡之间导航。
 
-### 1. General Settings
+### 1. 常规设置
 
-Configure basic metadata and execution context.
+配置基本元数据和执行上下文。
 
-![General Tab](/images/tools/action-editor-01-general.webp)
+![常规选项卡](/images/tools/action-editor-01-general.webp)
 
-**Fields:**
-- **Name** - Human-readable action name (e.g., "Code Explainer")
-- **Description** - What this action does (optional)
-- **Category** - Organize actions by type (code, productivity, business, etc.)
-- **Workspace** - Assign to a specific workspace (optional)
-- **Include Profile** - Include user profile information in AI context
+** 字段：**
+- **名称** - 可执行的操作名称（例如“人类代码解释器”）
+- **描述** - 此操作的作用（任选）
+- **类别** - 选择类型（代码、生产力、业务等）组织操作
+- **工作空间** - 分配特定的工作空间（任选）
+- **包含个人数据** - 在AI上下文中包含用户个人数据信息
 
-**Visibility Options:**
-- **Show only when running** - Action only appears if an app is running
-- **Show only when active** - Action only appears if an app has focus
-- **Workspace context** - Choose which workspace(s) see this action
+**可见性选项：**
+- **仅在运行时显示** - 仅当应用程序正在运行时才会显示操作
+- **仅在活动时显示** - 仅当应用程序具有焦点时才显示操作
+- **工作空间上下文** - 选择哪些工作空间可以看到此操作
 
 <Note>
-  Each action gets a unique UUID automatically.
+  每个操作都会自动获得一个唯一的UUID。
 </Note>
 
-### 2. System Prompt
+### 2.系统提示
 
-Define AI instructions and parameters for the model.
+定义模型的AI指令和参数。
 
-![System Prompt Tab](/images/tools/action-editor-02-systemprompt.webp)
+![系统提示选项卡](/images/tools/action-editor-02-systemprompt.webp)
 
-**System Prompt** - Core AI instructions describing the AI's behavior and expertise.
+**系统提示** - 描述AI行为和专业知识的核心AI指令。
 
-**Example:**
+**示例：**
 ```
 # IDENTITY AND PURPOSE
 You are an expert software engineer who explains code clearly
@@ -92,17 +92,17 @@ and accessibly to developers of all skill levels.
 - Keep language clear and non-technical
 ```
 
-**Parameters** - Define input fields users can customize before execution (text input, dropdown selections, etc.).
+**参数** - 定义用户可以在执行前自定义的输入字段（文本输入、下拉选择等）。
 
-### 3. User Prompt
+### 3. 用户提示
 
-Template for the user-facing prompt that gets sent to the AI.
+发送到 AI 的用户的提示模板。
 
-![User Prompt Tab](/images/tools/action-editor-03-userprompt.webp)
+![用户提示选项卡](/images/tools/action-editor-03-userprompt.webp)
 
-**Using Context Variables:**
+**使用上下文变量：**
 
-Wrap variables in `{{ }}` to insert dynamic content:
+将变量包装在 `{{ }}` 中以插入动态内容：
 
 ```
 Please explain this code:
@@ -112,272 +112,272 @@ Please explain this code:
 Explanation detail: {{ detailLevel }};
 ```
 
-**Available Context Variables:**
-- `{{ textSelection }}` - Currently selected text
-- `{{ filePath }}` - Path to selected file
-- `{{ clipboard }}` - Clipboard contents
-- Custom parameters you defined in System Prompt
+**可用的上下文变量：**
+- `{{ textSelection }}` - 当前选择的文本
+- `{{ filePath }}` - 所选文件的路径
+- `{{ clipboard }}` - 剪贴板内容
+- 您在系统提示中定义的自定义参数
 
-### 4. When to Show
+### 4. 何时展示
 
-Control when and where this action appears.
+控制此操作出现的时间和位置。
 
-![When to Show Tab](/images/tools/action-editor-04-whentoshow.webp)
+![何时显示选项卡](/images/tools/action-editor-04-whentoshow.webp)
 
-**Visibility Conditions:**
+**能见度条件：**
 
-- **Installed Applications** - Show action only in specific apps (VSCode, Xcode, Safari, etc.)
-- **Application is running** - Action requires the app to be running
-- **Application has focus** - Action only works when app is in foreground
-- **Web browser tab contains** - Show action when browsing specific domains
-- **Has content** - Show action only when context is available
+- **已安装的应用程序** - 仅在特定应用程序（VSCode、Xcode、Safari 等）中显示操作
+- **应用程序正在运行** - 操作要求应用程序正在运行
+- **具有程序焦点的应用程序** - 只有当应用程序位于前台时操作才有效
+- **Web浏览器选项卡包含** - 浏览特定域时显示操作
+- **有内容** - 只有当上下文可用时才显示操作
 
-### 5. Automation
+### 5. 自动化
 
-Configure execution behavior, schedules, and background processing.
+配置执行行为、计划和后台处理。
 
-![Automation Tab](/images/tools/action-editor-05-automation.webp)
+![自动化选项卡](/images/tools/action-editor-05-automation.webp)
 
-**Fields:**
+**字段：**
 
-- **Background Job** - Run action in background without showing UI
-- **Schedules** - Execute action at specific times (e.g., "Every Monday at 9 AM")
-- **Quick Action** - Execute the next "Quick Action" automatically after this completes
+- **后台作业** - 在后台运行操作而不显示UI
+- **时间表** - 在特定时间执行操作（例如，“每周一上午 9 点”）
+- **快速操作** - 完成后自动执行下一个“快速操作”
 
-Use this for action chaining: first action → output → next action executes automatically.
+将此用于操作链接：第一个操作 → 输出 → 下一个操作自动执行。
 
-### 6. Tools
+### 6. 工具
 
-Scope which tools are available for this action.
+可用于此操作的工具范围。
 
-![Tools Tab](/images/tools/action-editor-06-tools.webp)
+![工具选项卡](/images/tools/action-editor-06-tools.webp)
 
-**Tool Configuration:**
+**工具配置：**
 
-- **Disable Tools** - Toggle off individual tools to restrict functionality
-- When empty: All tools are available
-- When configured: Only selected tools are available
+- **禁用工具** - 关闭单个工具以限制功能
+- 空时：所有工具都可用
+- 配置后：仅选定的工具可用
 
-**Why Scope Tools?**
-- Reduce AI decision overhead (focus on relevant tools)
-- Speed up action execution
-- Improve security (limit what actions can access)
+**为什么选择范围工具？**
+- 减少人工智能决策开销（关注相关工具）
+- 加快行动执行速度
+- 提高安全性（限制可以访问的操作）
 
-### 7. Model
+### 7. 模型
 
-Select AI model and adjust creativity level.
+选择AI模型并调整创造力水平。
 
-![Model Tab](/images/tools/action-editor-07-model.webp)
+![模型选项卡](/images/tools/action-editor-07-model.webp)
 
-**Fields:**
+**字段：**
 
-- **Model** - Choose specific AI model for this action
-  - Leave empty to use user's default model setting
-  - Or select: Claude, GPT-4, local model, etc.
+- **模型** - 为此选择操作特定的AI模型
+  - 留空以使用用户的默认模型设置
+  - 或选择：Claude、GPT-4、本地模型等。
 
-- **Temperature** - Adjust creativity vs. precision
-  - **0.0** - Deterministic (consistent, predictable)
-  - **0.5** - Balanced (default)
-  - **1.0** - Creative (unpredictable, exploratory)
+- **温度** - 调整创造力与精度
+  - **0.0** - 确定性（一致、可预测）
+  - **0.5** - 平衡（默认）
+  - **1.0** - 创意（不可预测，探索性）
 
-## Best Practices
+## 最佳实践
 
 <CardGroup cols={2}>
   <Card title="清晰的名字" icon="tag">
-    "Code Explainer" describes what it does. Avoid generic names like "Action 1".
+    “代码解释器”描述了它的作用。使用“Action 1”等通用名称。
   </Card>
   <Card title="具体提示" icon="message">
-    Be detailed with AI instructions. Generic prompts produce generic outputs.
+    详细的AI指令。通用提示产生通用输出。
   </Card>
   <Card title="范围Tools" icon="tool">
-    Enable only the tools your action needs. Reduces overhead and improves speed.
+    只需启用您的操作所需的工具。减少所需时间并提高速度。
   </Card>
   <Card title="使用上下文变量" icon="brackets">
-    `{{ textSelection }}` always works. Manual copy/paste is error-prone.
+    `{{ textSelection }}`总是有效的。手动复制/粘贴很容易出错。
   </Card>
   <Card title="有条件的可见性" icon="eye">
-    "Code Explainer" only in VSCode + Xcode reduces menu clutter.
+    只需在 VSCode + Xcode 中的“代码解释器”即可减少菜单混乱。
   </Card>
   <Card title="分享前测试" icon="check">
-    Test with real data before deploying to your team.
+    在部署到您的团队之前使用真实数据进行测试。
   </Card>
 </CardGroup>
 
-## Common Action Examples
+## 常见操作示例
 
-### Example 1: Code Explainer
+### 示例 1：代码解释器
 
-**Setup:**
-- **Name:** Explain Code
-- **Category:** code
-- **Installed Apps:** VSCode, Xcode
-- **System Prompt:** You are an expert programmer who explains code clearly
-- **User Prompt:** `Please explain this code:\n\n{{ textSelection }}`
-- **Consumer:** markdown
-- **Temperature:** 0.5
+**设置：**
+- **名称：** 解释代码
+- **类别：**代码
+- **安装的应用程序：** VSCode、Xcode
+- **系统提示：**您是一位代码讲解的专家开发人员
+- **用户提示：** `Please explain this code:\n\n{{ textSelection }}`
+- **消费者：**降价
+- **温度：** 0.5
 
-### Example 2: Email Draft Creator
+### 示例 2：电子邮件草稿创建器
 
-**Setup:**
-- **Name:** Draft Email
-- **Category:** productivity
-- **When to Show:** Mail app active
-- **System Prompt:** You are a professional business communicator
-- **User Prompt:** `Transform this into a professional email:\n\n{{ textSelection }}`
-- **Tools:** Enable only Mail
-- **Consumer:** in-place
-- **Temperature:** 0.6
+**设置：**
+- **姓名：** 电子邮件草稿
+- **类别：**生产力
+- **何时显示：** 邮件应用程序处于活动状态
+- **系统提示：** 您是专业的商务沟通者
+- **用户提示：** `Transform this into a professional email:\n\n{{ textSelection }}`
+- **工具：** 仅启用邮件
+- **消费者：**就地
+- **温度：** 0.6
 
-### Example 3: Scheduled Daily Brief
+### 示例 3：预定每日简报
 
-**Setup:**
-- **Name:** Daily Brief
-- **Category:** productivity
-- **Automation:** Schedule for 9:00 AM daily
-- **Background Job:** Enabled
-- **System Prompt:** Generate a daily brief of priorities
+**设置：**
+- **名称：**每日简报
+- **类别：**生产力
+- **自动化：** 每天上午 9:00 的时间表
+- **后台作业：**已启用
+- **系统提示：** 生成每日优先事项简介
 
-## Voice Triggers
+## 语音触发器
 
-Assign voice hotkeys to trigger actions hands-free:
+分配语音热键以免提触发操作：
 
 <Steps>
   <Step title="系统设置">
-    Go to **Settings > Voice Triggers**
+    转到 **设置 > 语音触发器**
   </Step>
   <Step title="添加触发器">
-    Click **+ Add Trigger**
+    单击 **+ 添加触发器**
   </Step>
   <Step title="选择操作">
-    Choose action from dropdown
+    从下拉列表中选择操作
   </Step>
   <Step title="指定短语">
-    Enter trigger phrase (e.g., "explain" for Code Explainer)
+    输入触发短语（例如，代码解释器的“解释”）
   </Step>
   <Step title="节省">
-    Click Save and you're ready
+    单击“保存”即可
   </Step>
 </Steps>
 
-**Usage:** Hold voice hotkey + say trigger phrase → Action executes with current context
+**用法：** 按住语音热键 + 说出触发短语 → 操作在当前上下文中执行
 
-## x-callback-url Integration
+## x-callback-url 集成
 
-Trigger Alter actions from **any application** using special URLs. This enables powerful cross-app automation workflows.
+使用特殊的 URL 从**任何应用程序**触发更改操作。这实现了强大的跨应用程序自动化工作流程。
 
-### What is x-callback-url?
+### x-callback-url 是什么？
 
-x-callback-url is an inter-app communication protocol that lets applications trigger actions in each other through formatted URLs.
+x-callback-url 是一种应用程序间通信协议，允许应用程序通过一个 URL 相互触发操作。
 
-- **Inbound** - Trigger Alter actions from other apps (Shortcuts, Notes, Safari, etc.)
-- **Outbound** - Create links in Alter that open other apps (Bear, OmniFocus, Drafts, etc.)
+- **入站** - 从其他应用程序（快捷方式、注释、Safari等）触发更改操作
+- **出站** - 在Alter中创建可打开其他应用程序（Bear、OmniFocus、Drafts等）的链接
 
-### Getting Your Action's Callback URL
+### 获取操作的回调URL
 
 <Steps>
   <Step title="打开动作编辑器">
-    Press **⌘ E**
+    按 **⌘ E**
   </Step>
   <Step title="选择操作">
-    Choose the action you want to expose
+    选择您要公开的操作
   </Step>
   <Step title="转到常规">
-    Navigate to General tab
+    导航到“常规”选项卡
   </Step>
   <Step title="找到 URL Callback">
-    Look for "URL Callback" section
+    找到“URL回调”部分
   </Step>
   <Step title="复制网址">
-    Copy the `alter://` URL
+    复制`alter://` URL
   </Step>
 </Steps>
 
-**Format:**
+**格式：**
 ```
 alter://action/{action-id}?input=VALUE&param2=VALUE
 ```
 
-### Triggering Alter Actions from Other Apps
+### 从其他应用程序触发更改操作
 
-**Example 1: Web Search from Safari**
+**示例 1：从 Safari 进行网络搜索**
 ```
 alter://action/ask-web?input=What+is+Alter+MacOS
 ```
 
-**Example 2: Code Explainer with Input**
+**示例 2：带输入的代码解释器**
 ```
 alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 ```
 
-**Example 3: Using in Apple Shortcuts**
-1. Create a new Shortcut
-2. Add "Open URL" action
-3. Paste your `alter://` URL
-4. Run the shortcut to trigger the action
+**示例 3：在 Apple 快捷方式中使用**
+1.创建一个新的便捷方式
+2.添加“打开URL”动作
+3. 粘贴您的`alter://` URL
+4.运行快捷方式来触发操作
 
-### Use Cases
+### 用例
 
 <AccordionGroup>
   <Accordion icon="workflow" title="工作流程自动化">
-    Trigger action from Calendar → Generate meeting notes → Create email draft
+    从日历触发操作 → 生成会议记录 → 创建电子邮件草稿
   </Accordion>
 
-  <Accordion icon="link-2" title="多应用集成">
-    Notion button → Trigger Alter action → Update task status
+<Accordion icon="link-2" title="多应用集成">
+    概念按钮→触发更改操作→更新任务状态
   </Accordion>
 
-  <Accordion icon="copy" title="信息传递">
-    Copy text → Trigger action with callback → Open result in external app (no manual copying needed)
+<Accordion icon="copy" title="信息传递">
+    复制文本 → 通过回调触发操作 → 在外部应用程序中打开结果（无需手动复制）
   </Accordion>
 </AccordionGroup>
 
-## Keyboard Shortcuts
+## 键盘快捷键
 
-| Action | Shortcut |
+|行动|快捷方式 |
 |--------|----------|
-| Open Action Editor | `⌘ E` |
-| New Action | `Cmd + N` (in editor) |
-| Save Action | `Cmd + S` (in editor) |
-| Delete Action | `Cmd + Delete` (in editor) |
-| Search Actions | `Cmd + F` (in editor) |
+|打开动作编辑器 | `⌘ E` |
+|新行动| `Cmd + N`（在编辑器中）|
+|保存操作 | `Cmd + S`（在编辑器中）|
+|删除操作 | `Cmd + Delete`（在编辑器中）|
+|搜索操作 | `Cmd + F`（在编辑器中）|
 
-## Troubleshooting
+## 故障排除
 
 <AccordionGroup>
   <Accordion icon="circle-exclamation" title="操作未出现在菜单中">
-    - Check **When to Show** settings
-    - Verify app is running/active (if configured)
-    - Ensure action is **enabled**
+    - 检查**何时显示**设置
+    - 验证应用程序正在运行/活动（如果已配置）
+    - 确保操作已**启用**
   </Accordion>
 
-  <Accordion icon="triangle-exclamation" title="动作运行但输出较差">
-    - Review **System Prompt** — be more specific
-    - Adjust **Temperature** (lower for precision, higher for creativity)
-    - Check **User Prompt** — ensure variables are correct
+<Accordion icon="triangle-exclamation" title="动作运行但输出较差">
+    - 查看**系统提示** — 更具体
+    - 调整**温度**（降低精度，提高创造力）
+    - 检查**用户提示** — 确保变量正确
   </Accordion>
 
-  <Accordion icon="microphone" title="语音触发不起作用">
-    - Verify hotkey is configured in Settings
-    - Check microphone permissions
-    - Test with manual trigger first
+<Accordion icon="microphone" title="语音触发不起作用">
+    - 验证热键是否在“设置”中配置
+    - 检查麦克风权限
+    - 首先使用手动触发器进行测试
   </Accordion>
 
-  <Accordion icon="lock" title="Tools 在操作中不可用">
-    - Go to **Tools** tab
-    - Verify tools aren't disabled
-    - Check system permissions for the tool
+<Accordion icon="lock" title="Tools 在操作中不可用">
+    - 转到**工具**选项卡
+    - 验证工具没有被禁用
+    - 检查该工具的系统权限
   </Accordion>
 </AccordionGroup>
 
-## Related Guides
+## 相关指南
 
-- [Tools 与集成](/apps-tools/integrations-overview) — Available tools for your actions
-- [URL Callbacks](/workflows/url-callbacks) — Deep dive into x-callback-url automation
-- [语音和听写](/workflows/dictation) — Set up voice triggers
-- [设置](/how-to/settings-guide) — Configure global model and voice settings
+- [工具与集成](/apps-tools/integrations-overview) — 用于您的操作的可用工具
+- [URL Callbacks](/workflows/url-callbacks) — 深入研究 x-callback-url 自动化
+- [语音和听写](/workflows/dictation) — 设置语音烧
+- [设置](/how-to/settings-guide) — 配置全局模型和语音设置
 
 ---
 
-**Ready to build?** Open Alter, press `⌘ E`, and start creating your first action!
+**准备好构建了吗？**打开Alter，按`⌘ E`，然后开始创建您的第一个操作！
 
-**Want to automate across apps?** Use x-callback-urls to trigger actions from Safari, Shortcuts, Notes, or any app that supports URL schemes.
+**想要跨应用程序实现自动化？**使用 x-callback-urls 触发来自 Safari、快捷方式、注释或任何支持 URL 方案的应用程序的操作。

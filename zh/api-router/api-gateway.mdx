@@ -3,94 +3,94 @@ title: "API网关和路由器服务"
 description: "使用 Alter 作为 OpenAI 兼容的 API 端点来访问超过 92 个 AI 模型"
 ---
 
-Alter provides an OpenAI-compatible API endpoint that allows you to use Alter as a unified router for accessing 92+ AI models from 10+ providers. Use the Alter API either as a backend for third-party applications or as a direct API service for your custom projects.
+Alter 提供了兼容 OpenAI 的 API 端点，允许您使用 Alter 作为统一路由器来访问来自 10 多个提供商的 92 多个 AI 模型。使用 Alter API 作为第三方应用程序的后端或作为自定义项目的直接 API 服务。
 
 <Warning>
-  **预期用途：** API Router 适用于个人使用、轻量工具和低流量项目。它**不**适用于高吞吐的 agentic 系统或多用户服务。
+  **预期用途：** API Router 适用于个人使用、轻量工具和低流量项目。它**不**适用于高吞吐的代理系统蛋糕用户服务。
 </Warning>
 
-## Overview
+＃＃ 概述
 
-The Alter API gateway is a centralized router that eliminates the need to manage multiple API keys and billing accounts across different AI providers. Instead of having your billing details scattered across many providers, you can use Alter as your single entry point for AI model access.
+Alter API 网关是一个集中式路由器，无需管理跨不同 AI 提供商的多个 API 密钥和计费帐户。您可以使用 Alter 作为 AI 模型访问的单一入口点，而不是让您的账单详细信息分散在许多提供商中。
 
-### What is Alter Router?
+### 什么是更改路由器？
 
-Alter itself is a **router service**—a unified API gateway providing access to:
-- 10+ AI model providers (OpenAI, Gemini, Claude, Mistral, etc.)
-- 92+ individual AI models
-- Simplified authentication and billing
-- Easy model switching without code changes
+Alter 本身是一个**路由器服务**——一个统一的 API 网关，提供对以下内容的访问：
+- 10+ AI模型提供商（OpenAI、Gemini、Claude、Mistral等）
+- 92+ 个单独的 AI 模型
+- 简化身份验证和计费
+- 无需更改代码即可轻松切换模型
 
-## Key Features
+## 主要特点
 
-- **OpenAI-compliant endpoint** supporting chat completions and model listing
-- **Centralized billing** through your Alter account
-- **Access to all models** from external applications or custom code
-- **Seamless integration** with existing OpenAI-compatible tools and SDKs
-- **Flexible model selection** across all providers
+- **符合 OpenAI 的端点**支持聊天完成和模型列表
+- **通过您的 Alter 帐户进行集中计费**
+- **从外部应用程序或自定义代码访问所有模型**
+- **与现有 OpenAI 兼容工具和 SDK 无缝集成**
+- **跨所有提供商的灵活型号选择**
 
-## Getting Started
+＃＃ 入门
 
-### 1. Generate API Key
+### 1. 生成 API 密钥
 
-1. Open Alter Settings (**⌘ ,** or Settings menu)
-2. Go to **Router** tab
-3. Under "Alter API Keys" section, click "Add New Key" to generate a new API key
-4. Copy your key (starts with `sk-`)
+1. 打开更改设置（**⌘、** 或设置菜单）
+2. 转到 **路由器** 选项卡
+3. 在“更改 API 密钥”部分下，单击“添加新密钥”以生成新的 API 密钥
+4.复制您的密钥（以`sk-`开头）
 
-**Important:** Never share your API key. Treat it like a password.
+**重要提示：**切勿共享您的 API 密钥。将其视为密码。
 
-### 2. Get the Endpoint
+### 2. 获取端点
 
-The Alter router endpoint is:
+更改路由器端点是：
 ```
 https://alterhq.com/api
 ```
 
-For some tools, you may need to add `/v1`:
+对于某些工具，您可能需要添加`/v1`：
 ```
 https://alterhq.com/api/v1
 ```
 
-### 3. List Available Models
+### 3. 列出可用型号
 
-Check what models are available:
+检查有哪些型号可用：
 
 ```bash
 curl https://alterhq.com/api/models \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
-This returns all 92+ models across 10 providers with their capabilities.
+这会返回 10 个提供商的所有 92 个以上模型及其功能。
 
-## Model Naming Convention
+## 模型命名约定
 
-When using the Alter API, model names follow this format:
+使用 Alter API 时，模型名称遵循以下格式：
 ```
 <Provider>#<Model-name>
 ```
 
-### Examples:
-- `OpenAI#gpt-5` - Latest GPT-5
-- `OpenAI#gpt-5-nano` - Lightweight GPT
-- `Claude#claude-sonnet-4-6` - Latest Claude
-- `Gemini#gemini-2.5-pro` - Latest Gemini
-- `Mistral#mistral-small-latest` - Mistral model
-- `Alter#best` - Alter's best model
+### 示例：
+- `OpenAI#gpt-5` - 最新的 GPT-5
+- `OpenAI#gpt-5-nano` - 轻量级 GPT
+- `Claude#claude-sonnet-4-6` - 最新克劳德
+- `Gemini#gemini-2.5-pro` - 最新的双子座
+- `Mistral#mistral-small-latest` - 米斯特拉尔模型
+- `Alter#best` - Alter 的最佳模型
 
-## Usage Methods
+## 使用方法
 
-### For Third-Party Applications
+### 对于第三方应用程序
 
-Use Alter as a backend for tools like SillyTavern, NovelCrafter, etc.:
+使用 Alter 作为 SillyTavern、NovelCrafter 等工具的后端：
 
-1. Set base URL: `https://alterhq.com/api` (or `/v1`)
-2. Enter your API key
-3. Use `Provider#Model-name` format when selecting models
+1.设置基本URL：`https://alterhq.com/api`（或`/v1`）
+2. 输入您的API密钥
+3、选择型号时使用`Provider#Model-name`格式
 
-### For Custom Development
+### 用于定制开发
 
-#### Python (with OpenAI SDK)
+#### Python（使用 OpenAI SDK）
 
 ```python
 from openai import OpenAI
@@ -110,7 +110,7 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-#### JavaScript (with OpenAI SDK)
+#### JavaScript（使用 OpenAI SDK）
 
 ```javascript
 import OpenAI from 'openai';
@@ -131,7 +131,7 @@ const completion = await openai.chat.completions.create({
 console.log(completion.choices[0].message.content);
 ```
 
-#### LangChain (Python)
+#### 浪链（Python）
 
 ```python
 from langchain_openai import ChatOpenAI
@@ -146,7 +146,7 @@ response = chat.invoke("What is AI?")
 print(response.content)
 ```
 
-#### Direct cURL
+#### 直接卷曲
 
 ```bash
 curl https://alterhq.com/api/v1/chat/completions \
@@ -160,122 +160,122 @@ curl https://alterhq.com/api/v1/chat/completions \
   }'
 ```
 
-## Model Selection Guide
+## 选型指南
 
-### For Speed
-- `Alter#light` - Lightweight model
-- `OpenAI#gpt-5-nano` - Lightweight GPT
-- `Gemini#gemini-2.5-flash-lite` - Fast Gemini
+### 为了速度
+- `Alter#light` - 轻量级模型
+- `OpenAI#gpt-5-nano` - 轻量级 GPT
+- `Gemini#gemini-2.5-flash-lite` - 快速双子座
 
-### For Quality
-- `Alter#best` - Best available
-- `OpenAI#gpt-5` - Most capable GPT
-- `Gemini#gemini-2.5-pro` - Powerful Gemini
-- `Claude#claude-sonnet-4-6` - Latest Claude
+### 为了质量
+- `Alter#best` - 最佳可用
+- `OpenAI#gpt-5` - 最有能力的 GPT
+- `Gemini#gemini-2.5-pro` - 强大的双子座
+- `Claude#claude-sonnet-4-6` - 最新克劳德
 
 ### For Vision/Images
-- `OpenAI#gpt-5` - Advanced multimodal
-- `Gemini#gemini-2.5-pro` - Strong vision
-- `Mistral#pixtral-large-latest` - Vision capable
+- `OpenAI#gpt-5` - 高级多式联运
+- `Gemini#gemini-2.5-pro` - 强烈的愿景
+- `Mistral#pixtral-large-latest` - 视觉能力
 
-### For Coding
-- `OpenAI#gpt-5` - Excellent code
-- `Mistral#codestral-2501` - Code specialist
-- `Claude#claude-sonnet-4-6` - Strong coding
+### 用于编码
+- `OpenAI#gpt-5` - 优秀的代码
+- `Mistral#codestral-2501` - 代码专家
+- `Claude#claude-sonnet-4-6` - 强大的编码
 
-### For Cost
-- `Alter#fair` - Cost-effective
-- `Alter#light` - Cheapest
-- `OpenAI#gpt-5-nano` - Budget GPT
+### 成本
+- `Alter#fair` - 性价比高
+- `Alter#light` - 最便宜
+- `OpenAI#gpt-5-nano` - 预算 GPT
 
-### For Web Search
-- `Perplexity#sonar` - Web-aware
-- `Perplexity#sonar-pro` - Advanced search
+### 对于网络搜索
+- `Perplexity#sonar` - 网络感知
+- `Perplexity#sonar-pro` - 高级搜索
 
-## Supported Parameters
+## 支持的参数
 
-Standard OpenAI API parameters work with Alter:
+标准 OpenAI API 参数可与 Alter 配合使用：
 
-- `model` - Model ID (required)
-- `messages` - Chat messages (required)
-- `temperature` - 0.0-2.0 (default: 1.0)
-- `max_tokens` - Maximum response length
-- `top_p` - Nucleus sampling
-- `frequency_penalty` - Penalize repetition
-- `presence_penalty` - Encourage new topics
+- `model` - 型号 ID（必填）
+- `messages` - 聊天消息（必填）
+- `temperature` - 0.0-2.0（默认值：1.0）
+- `max_tokens` - 最大响应长度
+- `top_p` - 细胞核采样
+- `frequency_penalty` - 惩罚重复
+- `presence_penalty` - 鼓励新话题
 
-## Popular Use Cases
+## 热门用例
 
-### Third-Party App Integration
-- **[傻酒馆](https://sillytavern.app/)** - Roleplaying chat
-- **[小说工匠](https://www.novelcrafter.com/)** - Creative writing
-- Other OpenAI-compatible tools
+### 第三方应用程序集成
+- **[傻酒馆](https://sillytavern.app/)** - 角色扮演聊天
+- **[小说工匠](https://www.novelcrafter.com/)** - 创意写作
+- 其他 OpenAI 兼容工具
 
-### Custom Application Backend
-- Internal tools needing AI
-- Customer support automation
-- Content generation systems
-- Data analysis workflows
+### 自定义应用程序后端
+- 需要人工智能的内部工具
+- 客户支持自动化
+- 内容生成系统
+- 数据分析工作流程
 
-### Model Comparison & A/B Testing
+### 模型比较和 A/B 测试
 ```python
 for model_id in ["OpenAI#gpt-5", "Claude#claude-sonnet-4-6", "Gemini#gemini-2.5-pro"]:
     # Run same prompt on different models
     # Compare outputs
 ```
 
-### Cost Optimization
-Use cheaper models for high-volume tasks, powerful models for complex queries.
+### 成本优化
+使用更便宜的模型来处理大批量任务，使用强大的模型来处理复杂的查询。
 
-## Configuration
+＃＃ 配置
 
-### API Key Management
-- Generate and manage API keys through **Settings > Router**
-- Keep API keys secure—never share them publicly
-- Rotate keys regularly for security
-- Use different keys for different environments (dev/prod)
+### API密钥管理
+- 通过 **设置 > 路由器** 生成和管理 API 密钥
+- 确保 API 密钥安全——切勿公开共享
+- 定期轮换钥匙以确保安全
+- 不同的环境使用不同的密钥(dev/prod)
 
-### Usage Limits
+### 使用限制
 
-The API gateway has fair use limitations:
+API网关有合理使用限制：
 
-- **Daily Limit**: 200 requests per day under fair use
-- **Throttling**: After exceeding daily limit, requests throttle to 1 per 10 minutes
-- **Budget Top-up**: "Top up" your budget for consistent access beyond fair use limits
+- **每日限制**：合理使用情况下每天 200 个请求
+- **限制**：超过每日限制后，请求限制为每 10 分钟 1 次
+- **预算充值**：“充值”您的预算，以实现超越合理使用限制的一致访问
 
-## Troubleshooting
+## 故障排除
 
-### Models Not Listed
-If your application doesn't list available models:
-- Manually specify the model using `Provider#Model-name` format
-- Verify your API key is correct
-- Check that the application supports model listing endpoint
+### 未列出的型号
+如果您的应用程序未列出可用型号：
+- 使用`Provider#Model-name`格式手动指定模型
+- 验证您的API密钥是否正确
+- 检查应用程序是否支持模型列表端点
 
-### Authentication Errors
-- Verify your API key is correctly entered
-- Ensure you're using correct endpoint: `https://alterhq.com/api` or `https://alterhq.com/api/v1`
-- Check that your Alter account is active and in good standing
+### 身份验证错误
+- 验证您的 API 密钥是否输入正确
+- 确保您使用正确的端点：`https://alterhq.com/api` 或 `https://alterhq.com/api/v1`
+- 检查您的 Alter 帐户是否处于活动状态且信誉良好
 
-### Connection Issues
-- Verify the application supports OpenAI-compatible endpoints
-- Ensure you're using the latest version of Alter
-- Check network connectivity to `alterhq.com`
+### 连接问题
+- 验证应用程序支持 OpenAI 兼容端点
+- 确保您使用的是最新版本的 Alter
+- 检查`alterhq.com`的网络连接
 
-### High Latency
-- Try a faster model (e.g., `OpenAI#gpt-5-nano`)
-- Check your network connection
-- Use streaming for long responses
+### 高延迟
+- 尝试更快的模型（例如`OpenAI#gpt-5-nano`）
+- 检查您的网络连接
+- 使用流媒体进行长响应
 
-## Best Practices
+## 最佳实践
 
-1. **Secure your API key** - Use environment variables, never hardcode
-2. **Monitor usage** - Track API calls and set alerts
-3. **Choose appropriate models** - Match model capability to task complexity
-4. **Handle errors gracefully** - Implement retry logic with backoff
-5. **Optimize costs** - Use faster/cheaper models for routine tasks
+1. **保护您的 API 密钥** - 使用环境变量，切勿硬编码
+2. **监控使用情况** - 跟踪 API 调用并设置警报
+3. **选择合适的模型** - 将模型功能与任务复杂性相匹配
+4. **优雅地处理错误** - 通过退避实现重试逻辑
+5. **优化成本** - 使用更快/更便宜的模型来执行日常任务
 
-## Related Docs
+## 相关文档
 
-- [选择您的型号](/how-to/choose-generative-model)
-- [设置 - 路由器配置](/how-to/settings-guide#router-settings)
-- [设置 - API 密钥](/how-to/settings-guide#api-keys-settings)
+- [您选择的型号](/how-to/choose-generative-model)
+- [设置-路由器配置](/how-to/settings-guide#router-settings)
+- [设置-API键](/how-to/settings-guide#api-keys-settings)

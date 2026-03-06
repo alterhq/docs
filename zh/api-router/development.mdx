@@ -1,9 +1,9 @@
 ---
-title: "用于开发的 API Router"
+title: "用于开发的API路由器"
 description: "在 SDK 和自定义代码中使用 Alter API Router"
 ---
 
-在你自己的应用中，将 Alter 用作 OpenAI 兼容后端。
+在您自己的应用程序中，将更改使用 OpenAI 兼容的桌面。
 
 ## Python（OpenAI SDK）
 
@@ -42,7 +42,7 @@ const completion = await openai.chat.completions.create({
 console.log(completion.choices[0].message.content)
 ```
 
-## LangChain（Python）
+## 浪链（Python）
 
 ```python
 from langchain_openai import ChatOpenAI
@@ -57,7 +57,7 @@ response = chat.invoke("What is AI?")
 print(response.content)
 ```
 
-## 直接 cURL
+## 直接卷曲
 
 ```bash
 curl https://alterhq.com/api/v1/chat/completions \
@@ -73,14 +73,14 @@ curl https://alterhq.com/api/v1/chat/completions \
 
 - `model`（必填）
 - `messages`（必填）
-- `temperature`
-- `max_tokens`
-- `top_p`
-- `frequency_penalty`
-- `presence_penalty`
+-`temperature`
+-`max_tokens`
+-`top_p`
+-`frequency_penalty`
+-`presence_penalty`
 
 ## 相关文档
 
-- [API Gateway 与 Router 服务](/zh/api-router/api-gateway)
+- [API网关与路由器服务](/zh/api-router/api-gateway)
 - [API Router 运营与故障排查](/zh/api-router/operations)
 - [API 模型参考](/zh/references/api-model-names)

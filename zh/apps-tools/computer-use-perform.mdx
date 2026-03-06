@@ -1,29 +1,29 @@
 ---
-title: "Perform"
-description: "Run click, fill, and shortcut actions against UI elements"
+title: "履行"
+description: "针对 UI 元素运行单击、填充和快捷操作"
 ---
 
-Use this tool to execute concrete UI interactions after you identify targets with Get Active App Context.
+在通过“获取活动应用程序上下文”识别目标后，使用此工具执行具体的 UI 交互。
 
-## Supported actions
+## 支持的操作
 
-- `click`: click a target element.
-- `fill`: enter text into a text field or textarea.
-- `shortcut`: send keyboard shortcuts (for example `cmd+c`, `ctrl+shift+t`).
+- `click`：单击目标元素。
+- `fill`：在文本字段或文本区域中输入文本。
+- `shortcut`：发送键盘快捷键（例如`cmd+c`、`ctrl+shift+t`）。
 
-## Inputs
+## 输入
 
-- `elementID` (required for `click` and `fill`): element ID from Get Active App Context output.
-- `text` (required for `fill`): value to insert in the target input.
-- `shortcut` (required for `shortcut`): shortcut string.
-- `windowID` (optional): target a specific window (`pid/title`) instead of the active one.
+- `elementID`（`click` 和`fill` 必需）：来自“获取活动应用程序上下文”输出的元素 ID。
+- `text`（`fill` 必需）：要插入到目标输入中的值。
+- `shortcut`（`shortcut` 必需）：快捷方式字符串。
+- `windowID`（可选）：定位特定窗口 (`pid/title`) 而不是活动窗口。
 
-## Notes
+## 注释
 
-- Element IDs expire with UI changes and session timing. Re-read context if an element is no longer valid.
-- For background window targeting, use the same `windowID` across context read and perform steps.
+- 元素 ID 会随着 UI 更改和会话计时而过期。如果元素不再有效，则重新读取上下文。
+- 对于后台窗口定位，请在上下文读取和执行步骤中使用相同的`windowID`。
 
-## Good pairing
+## 良好的配对
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Wait](/apps-tools/computer-use-wait)
+- [获取活动应用程序上下文](/apps-tools/computer-use-get-active-app-context)
+- [等等](/apps-tools/computer-use-wait)

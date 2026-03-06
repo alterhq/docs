@@ -3,7 +3,7 @@ title: "在 TypingMind 中设置 Alter API"
 description: "使用 OpenAI Chat Completions 格式将 TypingMind 连接到 Alter API Router"
 ---
 
-使用本指南将 Alter 添加为 TypingMind 的自定义 provider。
+使用本指南将更改添加为 TypingMind 的自定义提供程序。
 
 ## 打开自定义模型设置
 
@@ -15,66 +15,66 @@ description: "使用 OpenAI Chat Completions 格式将 TypingMind 连接到 Alte
 
 按如下设置字段：
 
-- `Name`: `Alter`
-- `API Type`: `OpenAI Chat Completions API`
-- `Endpoint URL`: `https://alterhq.com/api/v1/chat/completions`
-- `Model ID`: 从下方支持的 ID 中选择
-- `Context Length`: 默认值或你偏好的值
+-`Name`：`Alter`
+-`API Type`：`OpenAI Chat Completions API`
+-`Endpoint URL`：`https://alterhq.com/api/v1/chat/completions`
+- `Model ID`选择：从下方支持的ID中
+- `Context Length`：默认值或您偏好的值
 
 ![TypingMind 基础配置](/images/integrations/typingmind-basic-config.png)
 
 ## 2）认证
 
-在 Authentication 区域：
+在认证区域：
 
-- `Authentication Type`: `No authentication`
+-`Authentication Type`：`No authentication`
 
-说明：我们会在下一步通过 Custom Headers 手动传入 API key。
+说明：我们将在下一步通过自定义标头手动创建 API 密钥。
 
 ## 3）高级配置（必需）
 
-展开底部 `Advanced`，然后添加一组 Custom Header：
+展开底部`Advanced`，然后添加一组自定义标题：
 
-- `Key`（左侧）：`Authorization`
+- `Key`（十字）：`Authorization`
 - `Value`（右侧）：`Bearer <YOUR_API_KEY>`
 
 将 `<YOUR_API_KEY>` 替换为真实的 Alter API key。
-请确保 `Bearer` 和 key 之间有一个空格。
+请确保`Bearer`和key之间有一个空格。
 
-![TypingMind 授权 Header](/images/integrations/typingmind-auth-header.png)
+![TypingMind 授权标题](/images/integrations/typingmind-auth-header.png)
 
-## 支持的模型 ID
+## 支持的模型ID
 
-请按原样复制 `Model ID`。
+请按原样复制`Model ID`。
 
-### Claude（Anthropic）
+### 克劳德（人类）
 
-- `Claude#claude-3-5-sonnet-latest`
+-`Claude#claude-3-5-sonnet-latest`
 - `Claude#claude-3-7-sonnet-20250219`
-- `Claude#claude-3-opus-20240229`
-- `Claude#claude-3-haiku-20240307`
+-`Claude#claude-3-opus-20240229`
+-`Claude#claude-3-haiku-20240307`
 
-### OpenAI
+### 开放人工智能
 
-- `OpenAI#gpt-4o`
-- `OpenAI#gpt-4o-mini`
-- `OpenAI#chatgpt-4o-latest`
-- `OpenAI#gpt-4-turbo`
+-`OpenAI#gpt-4o`
+-`OpenAI#gpt-4o-mini`
+-`OpenAI#chatgpt-4o-latest`
+-`OpenAI#gpt-4-turbo`
 
-### Gemini（Google）
+### 双子座（谷歌）
 
-- `Gemini#gemini-2.0-flash-001`
-- `Gemini#gemini-2.0-flash-lite-001`
-- `Gemini#gemini-1.5-pro`
-- `Gemini#gemini-1.5-flash`
+-`Gemini#gemini-2.0-flash-001`
+-`Gemini#gemini-2.0-flash-lite-001`
+-`Gemini#gemini-1.5-pro`
+-`Gemini#gemini-1.5-flash`
 
-### DeepSeek 及其他（通过 Providers）
+### DeepSeek 及其他（由创建提供）
 
 - `Together#deepseek-ai/DeepSeek-R1`
 - `Together#deepseek-ai/DeepSeek-V3`
-- `Groq#deepseek-r1-distill-llama-70b`
-- `Perplexity#sonar-pro`
+-`Groq#deepseek-r1-distill-llama-70b`
+-`Perplexity#sonar-pro`
 
 <Tip>
-  需要最新模型可用性？请查看 [API 模型参考](/zh/references/api-model-names)。
+  需要最新模型可用？请查看[API模型参考](/zh/references/api-model-names)。
 </Tip>

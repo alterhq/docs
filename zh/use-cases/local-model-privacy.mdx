@@ -1,175 +1,175 @@
 ---
 title: "使用本地人工智能保护您的数据隐私"
-description: "如何在您自己的 Mac 上运行 AI 模型以处理敏感文档和机密工作"
+description: "如何在您自己的 Mac 上运行 AI 模型来处理敏感的文档和机密工作"
 ---
 
 <Info>
-  **Perfect for:** Lawyers, doctors, security researchers, or anyone working with sensitive data who doesn't want it leaving their computer.
+  **非常适合：** 律师、医生、安全研究人员或任何处理敏感数据且不希望数据离开计算机的人。
 </Info>
 
-## The Concern
+## 关注点
 
-You're working with:
-- Client confidential information
-- Medical records
-- Proprietary business data
-- Personal financial documents
-- Security research
+您正在与：
+- 客户机密信息
+- 医疗记录
+- 专有业务数据
+- 个人财务文件
+- 安全研究
 
-And you're worried about sending this data to cloud AI services like OpenAI or Google, even if they claim it's private.
+您担心将这些数据发送到 OpenAI 或 Google 等云人工智能服务，即使他们声称这些数据是私有的。
 
-**The good news:** You don't have to. You can run AI models directly on your Mac.
+**好消息：** 你不必这样做。您可以直接在 Mac 上运行 AI 模型。
 
-## How Local Models Work
+## 本地模型如何工作
 
-Instead of sending your data to the internet, you download an AI model to your Mac (like downloading a large app) and run it locally. Your data never leaves your computer.
+您无需将数据发送到互联网，而是将 AI 模型下载到 Mac 上（就像下载大型应用程序一样）并在本地运行。您的数据永远不会离开您的计算机。
 
 <CardGroup cols={2}>
   <Card title="100% 私人" icon="shield-check">
-    Nothing sent to the cloud. Your data stays on your Mac.
+    没有任何内容发送到云端。您的数据保留在您的 Mac 上。
   </Card>
   <Card title="离线工作" icon="wifi-slash">
-    Use AI on airplanes, in secure facilities, or anywhere without internet.
+    在飞机上、安全设施中或任何没有互联网的地方使用人工智能。
   </Card>
   <Card title="无 API 成本" icon="money-bill">
-    Once downloaded, no per-use fees. Analyze thousands of documents for free.
+    下载后，无需按使用付费。免费分析数千份文档。
   </Card>
   <Card title="大文件速度更快" icon="bolt">
-    No upload/download time. Great for large documents.
+    没有上传/下载时间。非常适合大型文档。
   </Card>
 </CardGroup>
 
-## Setup: Two easy options
+## 设置：两个简单的选项
 
-### Option 1: Ollama (Recommended for beginners)
+### 选项 1：Ollama（推荐初学者）
 
-Ollama makes running local models as simple as installing an app.
+Ollama 使运行本地模型就像安装应用程序一样简单。
 
 <Steps>
   <Step title="安装Ollama">
-    1. Download from [llama.com](https://ollama.com)
-    2. Install it like any Mac app
-    3. It runs in your menu bar
+    1.从[llama.com](https://ollama.com)下载
+    2. 像安装任何 Mac 应用程序一样安装它
+    3.它在您的菜单栏中运行
   </Step>
   
-  <Step title="下载模型">
-    Open Terminal and run:
+<Step title="下载模型">
+    打开终端并运行：
     ```bash
     ollama pull llama3.1
     ```
     
-    This downloads Meta's Llama 3.1 model (~4.7GB). Other good options:
-    - `ollama pull mistral` (faster, smaller)
-    - `ollama pull codellama` (great for code)
-    - `ollama pull mixtral` (more capable, larger)
+这将下载 Meta 的 Llama 3.1 模型（~4.7GB）。其他不错的选择：
+    - `ollama pull mistral`（更快，更小）
+    - `ollama pull codellama`（非常适合代码）
+    - `ollama pull mixtral`（能力更强，更大）
   </Step>
   
-  <Step title="连接到 Alter">
-    1. Open Alter → Settings (`Cmd + ,`)
-    2. Go to **API Keys** tab
-    3. Under **Custom Provider**, select **Ollama**
-    4. Make sure Ollama is running (check your menu bar)
-    5. Toggle **Enable Custom Provider** ON
+<Step title="连接到 Alter">
+    1. 打开更改 → 设置 (`Cmd + ,`)
+    2. 转到 **API 密钥** 选项卡
+    3. 在 **自定义提供商** 下，选择 **Ollama**
+    4. 确保 Ollama 正在运行（检查菜单栏）
+    5. 打开**启用自定义提供程序**
   </Step>
   
-  <Step title="开始使用它">
-    1. Press `/` in Alter's prompt box
-    2. Look for the **Custom** section
-    3. Select your local model (e.g., "llama3.1")
-    4. Ask anything – it runs entirely on your Mac!
+<Step title="开始使用它">
+    1.在Alter的提示框中按`/`
+    2. 查找 **自定义** 部分
+    3. 选择您的本地型号（例如“llama3.1”）
+    4. 提出任何问题 – 它完全在您的 Mac 上运行！
   </Step>
 </Steps>
 
-### Option 2: LM Studio (More control)
+### 选项 2：LM Studio（更多控制）
 
-LM Studio gives you a graphical interface to manage models.
+LM Studio 为您提供图形界面来管理模型。
 
 <Steps>
   <Step title="安装LM Studio">
-    Download from [lmstudio.ai](https://lmstudio.ai) and install it.
+    从 [lmstudio.ai](https://lmstudio.ai) 下载并安装。
   </Step>
   
-  <Step title="下载模型">
-    1. Open LM Studio
-    2. Browse the model catalog
-    3. Download one that fits your needs and Mac's specs
-    4. Start the local server (big "Start Server" button)
+<Step title="下载模型">
+    1.打开LM Studio
+    2.浏览型号目录
+    3. 下载适合您的需求和 Mac 规格的一款
+    4.启动本地服务器（大“启动服务器”按钮）
   </Step>
   
-  <Step title="连接到 Alter">
-    1. In Alter Settings → **API Keys**
-    2. Select **LM Studio** as the provider
-    3. LM Studio runs on `localhost:1234` by default
-    4. Toggle **Enable Custom Provider** ON
+<Step title="连接到 Alter">
+    1. 在更改设置 → **API 密钥**
+    2. 选择 **LM Studio** 作为提供商
+    3. LM Studio默认运行在`localhost:1234`上
+    4. 将 **启用自定义提供程序** 打开
   </Step>
 </Steps>
 
-## Real-world example
+## 现实世界的例子
 
-**Dr. Chen, physician:**
-> "I need to analyze patient notes for research, but I can't use cloud AI due to HIPAA. With a local model, I can ask 'What patterns do you see in these symptoms?' and get AI assistance while keeping everything on my secure laptop."
+**博士。陈医师：**
+> “我需要分析患者记录以进行研究，但由于 HIPAA，我无法使用云 AI。使用本地模型，我可以询问‘您在这些症状中看到什么模式？’并获得人工智能帮助，同时将所有内容保存在我安全的笔记本电脑上。”
 
-**Alex, security researcher:**
-> "I analyze malware reports and can't upload them anywhere. Running a local model means I can ask 'What indicators of compromise are mentioned?' without risking data exposure."
+**亚历克斯，安全研究员：**
+> “我分析恶意软件报告，但无法将其上传到任何地方。运行本地模型意味着我可以询问‘提到了哪些危害指标？’而不冒数据暴露的风险。”
 
-## Trade-offs to know about
+## 需要了解的权衡
 
 <AccordionGroup>
   <Accordion icon="gauge" title="速度与隐私">
-    **Cloud models:** Faster, more capable
-    **Local models:** Slower, but completely private
+    **云模型：** 更快、更强大
+    **本地模型：** 较慢，但完全私有
     
-    A MacBook Pro with 16GB RAM can run small models smoothly. For larger models, you'll want 32GB+ RAM.
+配备 16GB RAM 的 MacBook Pro 可以流畅运行小型机型。对于较大的型号，您需要 32GB 以上的 RAM。
   </Accordion>
   
-  <Accordion icon="brain" title="能力差异">
-    Local models are getting better every month, but cloud models (GPT-4, Claude) are still more capable for complex reasoning. 
+<Accordion icon="brain" title="能力差异">
+    本地模型每个月都在变得更好，但云模型（GPT-4，Claude）仍然更能够进行复杂的推理。
     
-    **Best approach:** Use local models for sensitive data, cloud models for less sensitive complex tasks.
+**最佳方法：** 对敏感数据使用本地模型，对不太敏感的复杂任务使用云模型。
   </Accordion>
   
-  <Accordion icon="hard-drive" title="存储要求">
-    Models range from 4GB to 70GB+. Make sure you have enough disk space.
+<Accordion icon="hard-drive" title="存储要求">
+    型号范围从 4GB 到 70GB+。确保您有足够的磁盘空间。
     
-    **Good starter models:**
-    - Llama 3.1 8B (~4.7GB) – Fast, decent quality
-    - Mistral 7B (~4.1GB) – Good balance
-    - Mixtral 8x7B (~26GB) – Higher quality, needs more RAM
+**良好的入门型号：**
+    - Llama 3.1 8B (~4.7GB) – 速度快，质量不错
+    - Mistral 7B (~4.1GB) – 良好的平衡性
+    - Mixtral 8x7B (~26GB) – 更高质量，需要更多 RAM
   </Accordion>
 </AccordionGroup>
 
-## Best practices for private workflows
+## 私有工作流程的最佳实践
 
 <Tip>
-  **Use specific Actions for sensitive tasks:** Create Alter Actions configured to always use your local model. That way you never accidentally use a cloud model for sensitive work.
+  **对敏感任务使用特定操作：** 创建配置为始终使用本地模型的更改操作。这样您就不会意外地使用云模型来进行敏感工作。
 </Tip>
 
 <Tip>
-  **Set up a privacy workspace:** Create a workspace just for sensitive documents. This keeps them organized and reminds you to use local models.
+  **设置隐私工作区：** 仅为敏感文档创建一个工作区。这使它们保持井井有条，并提醒您使用本地模型。
 </Tip>
 
 <Tip>
-  **Verify it's working:** After setting up, disconnect from WiFi and try using Alter. If it still works with your local model, you know it's truly local.
+  **验证其是否正常工作：** 设置后，断开 WiFi 并尝试使用 Alter。如果它仍然适用于您的本地模型，那么您就知道它是真正的本地模型。
 </Tip>
 
-## When to use what
+## 何时使用什么
 
-| Scenario | Recommendation |
-|----------|---------------|
-| Medical records | Local model (Ollama/LM Studio) |
-| Legal documents | Local model |
-| Security research | Local model |
-| Financial analysis | Local model or Alter Cloud with Pro plan |
-| Creative writing | Cloud models (better creativity) |
-| General questions | Cloud models (faster) |
-| Code assistance | Either works well |
+|场景 |推荐|
+|----------|--------------|
+|医疗记录|本地模特(Ollama/LM Studio) |
+|法律文件|本地模特|
+|安全研究|本地模特|
+|财务分析|本地模型或带有 Pro 计划的 Alter Cloud |
+|创意写作|云模型（更好的创造力）|
+|一般问题 |云模型（更快）|
+|代码帮助 |两者都效果很好 |
 
-## Related resources
+## 相关资源
 
-- [如何使用您自己的 API 密钥](/how-to/use-byok) – Step-by-step setup guide
-- [选择人工智能模型](/how-to/choose-generative-model) – Compare local vs cloud options
-- [API 密钥设置](/how-to/settings-guide#external-api-keys) – Detailed configuration
+- [如何使用您自己的API密钥](/how-to/use-byok) – 分步设置指南
+- [选择人工智能模型](/how-to/choose-generative-model) – 比较本地与云选项
+- [API按键设置](/how-to/settings-guide#external-api-keys) – 详细配置
 
 ---
 
-**Ready to go private?** Start with Ollama and the Llama 3.1 model. It's free, easy to set up, and you'll have AI assistance that never leaves your Mac!
+**准备好私有化了吗？** 从 Ollama 和 Llama 3.1 模型开始。它是免费的、易于设置，并且您将获得永远不会离开您的 Mac 的 AI 帮助！

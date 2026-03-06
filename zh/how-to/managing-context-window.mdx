@@ -1,249 +1,249 @@
 ---
 title: "管理上下文窗口"
-description: "通过了解和管理上下文窗口的使用情况来优化您的 AI 交互"
+description: "通过了解和管理上下文的使用情况来优化您的AI交互"
 ---
 
 <Info>
-  The **context window** is the amount of text an AI model can process in a single conversation. Think of it as the model's working memory — it includes your messages, file contents, tool definitions, and the AI's responses.
+  **上下文窗口**是人工智能模型在单个对话中可以处理的文本量。将其视为模型的工作记忆 - 它包括您的消息、文件内容、工具定义和人工智能的响应。
 </Info>
 
-## Why Context Window Matters
+## 为什么上下文窗口很重要
 
-Every interaction with AI consumes context space. When your context window fills up:
+与人工智能的每次交互都会消耗上下文空间。当上下文窗口填满时：
 
 <CardGroup cols={3}>
   <Card title="性能下降" icon="gauge">
-    Larger payloads take longer to process, increasing response times
+    更大的有效负载需要更长的时间来处理，从而增加响应时间
   </Card>
   <Card title="合理使用预算耗尽" icon="scale-balanced">
-    More tokens per request consumes your fair use policy budget faster
+    每个请求更多的代币会更快地消耗您的合理使用政策预算
   </Card>
   <Card title="上下文被截断" icon="scissors">
-    Older messages may be dropped, causing the AI to "forget" earlier parts of the conversation
+    较旧的消息可能会被丢弃，导致人工智能“忘记”对话的早期部分
   </Card>
 </CardGroup>
 
-Understanding how to manage your context window helps you get better performance and more value from Alter.
+了解如何管理上下文窗口可以帮助您从 Alter 获得更好的性能和更多价值。
 
 ---
 
-## What Consumes Context Space
+## 什么消耗了上下文空间
 
-### 1. Conversation History
+### 1. 对话历史记录
 
-Every message you send and every response you receive stays in context. Long conversations naturally consume more space.
+您发送的每条消息和您收到的每条回复都保留在上下文中。长时间的谈话自然会消耗更多的空间。
 
-### 2. File Contents
+### 2. 文件内容
 
-When you attach files or folders, their entire contents are injected into the context:
+当您附加文件或文件夹时，它们的全部内容都会注入到上下文中：
 
-- **Text files** — Full content is included
-- **Code files** — Entire file contents are sent
-- **Documents** — Parsed text is included
-- **Images** — Descriptions or OCR text is added
+- **文本文件** — 包含完整内容
+- **代码文件** — 发送整个文件内容
+- **文档** — 包含已解析的文本
+- **图像** — 添加描述或 OCR 文本
 
-### 3. Tool Definitions
+### 3. 工具定义
 
-Every enabled tool consumes context space. A tool definition includes:
+每个启用的工具都会消耗上下文空间。工具定义包括：
 
-- Tool name and description
-- Required and optional parameters
-- Parameter descriptions and types
+- 工具名称和描述
+- 必需和可选参数
+- 参数说明及类型
 
 <Warning>
-  **Tools are the silent context consumer.** Enabling 10+ tools can easily consume 30-50% of your context window before you even start typing.
+  **工具是无声的上下文消费者。** 在您开始输入之前，启用 10 多个工具可以轻松消耗 30-50% 的上下文窗口。
 </Warning>
 
-### 4. System Instructions
+### 4.系统说明
 
-Background prompts, grounding documents, and system instructions all consume space.
+后台提示、基础文档、系统指令都占用空间。
 
 ---
 
-## How Tools Consume Context
+## 工具如何使用上下文
 
-Here's a real example of how tools impact your context:
+以下是工具如何影响您的环境的真实示例：
 
-| Tools Enabled | Approximate Context Used | Remaining for Your Content |
-|--------------|-------------------------|---------------------------|
-| 0 tools | ~5% | ~95% |
-| 5 tools | ~15% | ~85% |
-| 10 tools | ~30% | ~70% |
-| 20 tools | ~50% | ~50% |
-| 30+ tools | ~70%+ | ~30% |
+|启用工具 | Approximate Context Used |剩余内容用于您的内容 |
+|--------------|-------------------------|----------------------------|
+| 0 工具 | 〜5% | 〜95% |
+| 5 个工具 | ~15% | 〜85% |
+| 10 个工具 | 〜30% | 〜70% |
+| 20 个工具 | 〜50% | 〜50% |
+| 30+ 工具 | ~70%+ | 〜30% |
 
 <Note>
-  These are approximate values. Actual usage varies based on tool complexity and description length.
+  这些是近似值。实际使用情况因工具复杂性和描述长度而异。
 </Note>
 
 ---
 
-## Strategies for Managing Context
+## 管理环境的策略
 
-### 1. Use Flow for Tool Orchestration (Recommended)
+### 1.使用流程进行工具编排（推荐）
 
-The most effective way to reduce tool-related context consumption is to use **Flow** — Alter's built-in tool orchestrator.
+减少工具相关上下文消耗的最有效方法是使用 **Flow** — Alter 的内置工具编排器。
 
 <Card title="Flow 作为单个Tools加载" icon="wand-magic-sparkles" href="/workflows/use-flow-orchestration">
-  Instead of loading all your enabled tools into every request, Flow acts as one tool that intelligently selects and orchestrates the right tools for each task.
+  Flow 不是将所有启用的工具加载到每个请求中，而是充当一种工具，可以为每项任务智能地选择和编排正确的工具。
   
-  **Benefits:**
-  - Reduces context usage by 60-80%
-  - Improves response times
-  - Automatically handles multi-step tasks
-  - Saves fair use budget
+**好处：**
+  - 上下文使用量减少 60-80%
+  - 提高响应时间
+  - 自动处理多步骤任务
+  - 节省合理使用预算
 </Card>
 
-**Best Practice:** Configure your default "Ask Anything" action to use only Flow instead of all enabled tools.
+**最佳实践：** 将默认的“询问任何内容”操作配置为仅使用 Flow 而不是所有启用的工具。
 
-### 2. Disable Unused Tools
+### 2.禁用未使用的工具
 
-Only enable tools you actively use:
+仅启用您经常使用的工具：
 
 <Steps>
   <Step title="检查你的Tools">
-    Go to **Settings > Tool Manager** and see what's enabled
+    转到 **设置 > 工具管理器** 并查看启用的功能
   </Step>
   <Step title="禁用未使用的Tools">
-    Toggle off tools you haven't used in the past week
+    关闭过去一周未使用的工具
   </Step>
   <Step title="需要时重新启用">
-    You can always re-enable tools — they remember your authentication
+    您可以随时重新启用工具——它们会记住您的身份验证
   </Step>
 </Steps>
 
-### 3. Customize Tool Sets for Actions
+### 3. 自定义操作工具集
 
-Every action can be configured with its own specific tools. This is a powerful way to control context usage:
+每个操作都可以使用其自己的特定工具进行配置。这是控制上下文使用的有效方法：
 
-#### Ask Anything Action
+#### 询问任何行动
 
-The **Ask Anything** action is the default used when you type in the prompt box without selecting a specific action. It runs everywhere in Alter — minimize your tool selection here for maximum impact.
+当您在提示框中键入内容而不选择特定操作时，**询问任何内容** 操作是默认使用的。它在 Alter 中随处运行 - 最大限度地减少此处的工具选择以获得最大影响。
 
 <Steps>
   <Step title="打开动作编辑器">
-    Go to **Settings > Actions**
+    转到 **设置 > 操作**
   </Step>
   <Step title="查找询问任何问题">
-    Select the "Ask Anything" action
+    选择“询问任何内容”操作
   </Step>
   <Step title="单击高级">
-    Expand the Advanced section
+    展开高级部分
   </Step>
   <Step title="极限 Tools">
-    Select only the tools you absolutely need (or just Flow)
+    仅选择您绝对需要的工具（或仅选择 Flow）
   </Step>
 </Steps>
 
-#### Custom Actions
+#### 自定义操作
 
-When creating custom actions, think carefully about which tools are actually needed:
+创建自定义操作时，请仔细考虑实际需要哪些工具：
 
 <CardGroup cols={2}>
   <Card title="从默认值中学习" icon="book-open">
-    Most built-in Alter actions have tools disabled by default. For example, "Correct Grammar" doesn't need any tools — it's a pure text transformation.
+    默认情况下，大多数内置更改操作都禁用工具。例如，“正确语法”不需要任何工具——它是纯文本转换。
   </Card>
   <Card title="尽量简约" icon="filter">
-    Only enable tools your specific workflow requires. If your action just formats text, you probably don't need any tools.
+    仅启用您的特定工作流程所需的工具。如果您的操作只是格式化文本，那么您可能不需要任何工具。
   </Card>
 </CardGroup>
 
-#### Flow vs Specific Tools
+#### 流程与特定工具
 
 <Info>
-  **Use Flow** when you want flexibility and don't know which specific tools you'll need. It handles tool selection automatically.
+  **当您需要灵活性但不知道需要哪些特定工具时，请使用 Flow。它自动处理工具选择。
 </Info>
 
 <Info>
-  **Use specific tools** when you know exactly which tools your workflow needs. This gives better performance and fewer back-and-forth turns with the AI.
+  **当您确切知道您的工作流程需要哪些工具时，请使用特定工具**。这可以提供更好的性能并减少人工智能的来回转动。
 </Info>
 
-**Example:** If you're building an action that just creates calendar events, enable only the Calendar tool rather than Flow. This eliminates the tool selection step and executes faster.
+**示例：** 如果您正在构建仅创建日历事件的操作，请仅启用日历工具而不是流程。这消除了工具选择步骤并且执行速度更快。
 
-### 4. Use Workspaces for Large Files
+### 4. 对大文件使用工作区
 
-Instead of attaching large files to every conversation:
+不要将大文件附加到每个对话中：
 
-- Create a **workspace** for projects with large files
-- Reference the workspace when needed
-- Clear workspace context when switching tasks
+- 为具有大文件的项目创建**工作空间**
+- 需要时参考工作区
+- 切换任务时清除工作区上下文
 
 <Card title="了解Workspaces" icon="folder-open" href="/getting-started/core-features#workspaces">
-  Workspaces help organize files and manage context more efficiently
+  工作区有助于更有效地组织文件和管理上下文
 </Card>
 
-### 4. Clear Context Regularly
+### 4.定期理清上下文
 
-Use **⌘ K** (Command + K) to clear all contexts when:
+在以下情况下，使用 **⌘ K** (Command + K) 清除所有上下文：
 
-- Starting a new, unrelated task
-- Previous context is no longer relevant
-- Responses are getting slow
+- 开始一项新的、不相关的任务
+- 以前的上下文不再相关
+- 响应速度越来越慢
 
-### 5. Summarize Long Conversations
+### 5. 总结长对话
 
-For very long conversations:
+对于很长的对话：
 
-- Export the conversation to a file
-- Start a new conversation with a summary
-- Reference the exported file if needed
+- 将对话导出到文件
+- 通过摘要开始新对话
+- 如果需要，引用导出的文件
 
-### 6. Be Selective with File Attachments
+### 6. 对文件附件有选择性
 
-Instead of attaching entire folders:
+而不是附加整个文件夹：
 
-- Attach only the specific files you need
-- Remove files from context when done with them
+- 仅附加您需要的特定文件
+- 处理完毕后从上下文中删除文件
 
 ---
 
-## Monitoring Context Usage
+## 监控上下文使用情况
 
-While Alter doesn't show a real-time context meter, you can monitor usage indirectly:
+虽然 Alter 不显示实时上下文计量器，但您可以间接监控使用情况：
 
 <CardGroup cols={2}>
   <Card title="观看响应时间" icon="clock">
-    Slower responses often indicate high context usage
+    较慢的响应通常表明上下文使用率较高
   </Card>
   <Card title="检查 Tool 计数" icon="toolbox">
-    More enabled tools = more context consumed. Review Tool Manager regularly.
+    更多可用的工具=更多的上下文消耗。定期查看工具管理器。
   </Card>
 </CardGroup>
 
 ---
 
-## Quick Wins Checklist
+## 快速获胜清单
 
 <Steps>
   <Step title="启用 Flow" icon="check">
-    Configure "Ask Anything" to use only Flow instead of all tools
+    配置“Ask Anything”以仅使用 Flow 而不是所有工具
   </Step>
   <Step title="自定义操作" icon="check">
-    Set specific tools for custom actions — disable tools you don't need
+    为自定义操作设置特定工具 - 禁用您不需要的工具
   </Step>
   <Step title="审计Tools" icon="check">
-    Disable tools you haven't used recently
+    禁用您最近未使用过的工具
   </Step>
   <Step title="使用 Workspaces" icon="check">
-    Organize large projects in workspaces instead of attaching files ad-hoc
+    在工作区中组织大型项目，而不是临时附加文件
   </Step>
   <Step title="清晰的背景" icon="check">
-    Press **⌘ K** when starting new tasks
+    开始新任务时按 **⌘ K**
   </Step>
 </Steps>
 
 ---
 
-## Related Docs
+## 相关文档
 
 <CardGroup cols={3}>
   <Card title="使用 Flow 进行 Tool 编排" icon="wand-magic-sparkles" href="/workflows/use-flow-orchestration">
-    The best way to reduce tool-related context usage
+    减少与工具相关的上下文使用的最佳方法
   </Card>
   <Card title="Tool 经理指南" icon="toolbox" href="/how-to/tool-manager-guide">
-    Learn how to manage your tool integrations
+    了解如何管理您的工具集成
   </Card>
   <Card title="Workspaces" icon="folder-open" href="/getting-started/core-features#workspaces">
-    Organize files and manage context efficiently
+    有效地组织文件和管理上下文
   </Card>
 </CardGroup>
