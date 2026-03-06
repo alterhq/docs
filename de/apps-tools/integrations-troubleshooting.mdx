@@ -1,36 +1,36 @@
 ---
-title: "Troubleshooting"
-description: "Fix common integration and tool issues in Alter"
+title: "Fehlerbehebung"
+description: "Beheben Sie häufige Integrations- und Toolprobleme in Alter"
 ---
 
-Use this page when integrations are connected but not behaving as expected.
+Verwenden Sie diese Seite, wenn Integrationen verbunden sind, sich aber nicht wie erwartet verhalten.
 
-## Quick checks
+## Schnelle Kontrollen
 
-1. Re-open **Tools Manager** and confirm the relevant tool is enabled.
-2. Confirm your selected model supports tools.
-3. Re-test with one simple prompt before running multi-step flows.
+1. Öffnen Sie den **Tools Manager** erneut und bestätigen Sie, dass das entsprechende Tool aktiviert ist.
+2. Bestätigen Sie, dass Ihr ausgewähltes Modell Werkzeuge unterstützt.
+3. Führen Sie den Test mit einer einfachen Eingabeaufforderung erneut durch, bevor Sie mehrstufige Abläufe ausführen.
 
-## Common issues
+## Häufige Probleme
 
-### Tool does not run
+### Tool läuft nicht
 
-- Verify required input fields are present in your prompt.
-- Disable unrelated tools to reduce routing ambiguity.
-- Re-authenticate the integration if it uses external credentials.
+- Überprüfen Sie, ob in Ihrer Eingabeaufforderung erforderliche Eingabefelder vorhanden sind.
+- Deaktivieren Sie nicht verwandte Tools, um Routing-Mehrdeutigkeiten zu reduzieren.
+– Authentifizieren Sie die Integration erneut, wenn sie externe Anmeldeinformationen verwendet.
 
-### Assistant answers without using tools
+### Der Assistent antwortet ohne den Einsatz von Werkzeugen
 
-- Switch to a tool-capable model.
-- Ask with an explicit action request (for example, "create", "send", "add").
+- Wechseln Sie zu einem werkzeugfähigen Modell.
+- Fragen Sie mit einer expliziten Aktionsanforderung (z. B. „Erstellen“, „Senden“, „Hinzufügen“).
 
-### Connection appears valid but calls fail
+### Die Verbindung scheint gültig zu sein, aber Anrufe schlagen fehl
 
-- Check account scope and app permissions in the provider.
-- Retry with a minimal test action to isolate the failing step.
+- Überprüfen Sie den Kontoumfang und die App-Berechtigungen beim Anbieter.
+– Versuchen Sie es mit einer minimalen Testaktion erneut, um den fehlgeschlagenen Schritt zu isolieren.
 
-## Where to go next
+## Wohin als nächstes?
 
-- [Tool Manager guide](/how-to/tool-manager-guide)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Tools not working](/common-issues/tool-not-working)
+- [Tool Manager-Anleitung](/how-to/tool-manager-guide)
+- [Übersicht über Integrationen](/apps-tools/integrations-overview)
+- [Tools funktionieren nicht](/common-issues/tool-not-working)

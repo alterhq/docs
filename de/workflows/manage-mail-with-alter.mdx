@@ -1,86 +1,86 @@
 ---
-title: "Check unread emails and draft replies with Alter"
-description: "What Alter can currently do with Apple Mail, with practical prompts and setup"
+title: "Überprüfen Sie ungelesene E-Mails und Antwortentwürfe mit Alter"
+description: "Was Alter derzeit mit Apple Mail machen kann, mit praktischen Eingabeaufforderungen und Einrichtung"
 ---
 
-This workflow is for lightweight mail support: seeing unread messages and preparing drafts quickly.
+Dieser Workflow dient der einfachen E-Mail-Unterstützung: Sie sehen ungelesene Nachrichten und können Entwürfe schnell vorbereiten.
 
-## What this helps you do
+## Was Ihnen das hilft
 
-If you want a fast inbox check and a ready-to-review draft, Apple Mail local tools are enough. It is best for "read + draft" moments, not full mailbox automation.
+Wenn Sie eine schnelle Posteingangsprüfung und einen zur Überprüfung bereiten Entwurf wünschen, reichen die lokalen Apple Mail-Tools aus. Es eignet sich am besten für „Lesen + Entwurf“-Momente und nicht für die vollständige Postfachautomatisierung.
 
-## Works with
+## Funktioniert mit
 
 - App: Apple Mail
-- Tool type: Local tool
-- Permissions: Mail automation
+- Werkzeugtyp: Lokales Werkzeug
+- Berechtigungen: E-Mail-Automatisierung
 
-## What Alter can do today
+## Was Alter heute tun kann
 
-Alter can list unread messages across mailboxes and generate a new draft email in Mail with the context you provide.
+Alter kann ungelesene Nachrichten in allen Postfächern auflisten und in Mail einen neuen E-Mail-Entwurf mit dem von Ihnen angegebenen Kontext erstellen.
 
-## What Alter does not do yet
+## Was Alter noch nicht macht
 
-- It cannot reply directly inside an existing email thread.
-- It cannot send an email automatically from this tool (it creates drafts for review).
-- It cannot delete, archive, label, or bulk-process emails.
+- Es kann nicht direkt in einem vorhandenen E-Mail-Thread geantwortet werden.
+- Von diesem Tool aus kann nicht automatisch eine E-Mail gesendet werden (es erstellt Entwürfe zur Überprüfung).
+- Es ist nicht möglich, E-Mails zu löschen, zu archivieren, zu kennzeichnen oder in großen Mengen zu verarbeiten.
 
-## When to use Gmail or Outlook integrations instead
+## Wann Sie stattdessen Gmail- oder Outlook-Integrationen verwenden sollten
 
-If you need advanced email workflows (thread-aware replies, send actions, labeling, archiving, rules, and broader mailbox automation), use external integrations like Gmail or Outlook from the Integrations catalog.
+Wenn Sie erweiterte E-Mail-Workflows benötigen (Thread-fähige Antworten, Sendeaktionen, Beschriftung, Archivierung, Regeln und umfassendere Postfachautomatisierung), verwenden Sie externe Integrationen wie Gmail oder Outlook aus dem Integrationskatalog.
 
-## Typical workflows
+## Typische Arbeitsabläufe
 
-### Quick inbox check
+### Schnelle Posteingangsprüfung
 
-Ask for a short unread list, identify priority messages, then open Mail for final handling.
+Fordern Sie eine kurze Liste ungelesener Nachrichten an, identifizieren Sie Nachrichten mit Priorität und öffnen Sie dann Mail zur endgültigen Bearbeitung.
 
-### Draft first reply fast
+### Schneller Entwurf der ersten Antwort
 
-Ask Alter to draft a response to a specific recipient, then review and send from Mail.
+Bitten Sie Alter, eine Antwort für einen bestimmten Empfänger zu verfassen, sie dann zu überprüfen und per E-Mail zu versenden.
 
-## A realistic workflow
+## Ein realistischer Arbeitsablauf
 
 <Steps>
   <Step title="Scan unread mail">
-    Ask Alter to show 5-10 unread emails so you can prioritize.
+    Bitten Sie Alter, 5–10 ungelesene E-Mails anzuzeigen, damit Sie Prioritäten setzen können.
   </Step>
   <Step title="Draft response">
-    Ask Alter to create a draft for the top message.
+    Bitten Sie Alter, einen Entwurf für die Top-Nachricht zu erstellen.
   </Step>
   <Step title="Review and send">
-    Open the draft in Mail, edit if needed, then send manually.
+    Öffnen Sie den Entwurf in Mail, bearbeiten Sie ihn bei Bedarf und senden Sie ihn dann manuell.
   </Step>
 </Steps>
 
-## Copy/paste prompts
+## Eingabeaufforderungen kopieren/einfügen
 
-- "Show my 10 latest unread emails."
-- "Show only 5 unread emails so I can triage quickly."
-- "Draft an email to alex@company.com with subject 'Q2 Planning' and summarize our next steps."
-- "Create a draft reply to this contact saying I can do Thursday at 3 PM."
+- „Zeige meine 10 letzten ungelesenen E-Mails.“
+- „Nur 5 ungelesene E-Mails anzeigen, damit ich sie schnell selektieren kann.“
+- „Verfassen Sie eine E-Mail an alex@company.com mit dem Betreff „Q2-Planung“ und fassen Sie unsere nächsten Schritte zusammen.“
+- „Erstellen Sie einen Antwortentwurf für diesen Kontakt und sagen Sie, dass ich die Antwort am Donnerstag um 15:00 Uhr erledigen kann.“
 
-## How to enable
+## So aktivieren Sie es
 
 <Steps>
   <Step title="Enable Mail in Tools Manager">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Mail**.
+    Öffnen Sie Alter -> klicken Sie auf die drei Punkte -> **Tools-Manager** -> **Lokale Tools** -> aktivieren Sie **Mail**.
   </Step>
   <Step title="Allow Mail automation">
-    On first use, macOS may ask permission for Alter to control Mail. Allow it.
+    Bei der ersten Verwendung bittet macOS Alter möglicherweise um Erlaubnis, Mail zu steuern. Erlaube es.
   </Step>
   <Step title="Run a quick test">
-    Ask: "Show my 5 unread emails." Then ask Alter to create one draft email.
+    Fragen Sie: „Zeige meine 5 ungelesenen E-Mails.“ Bitten Sie Alter dann, einen E-Mail-Entwurf zu erstellen.
   </Step>
 </Steps>
 
-## What to expect
+## Was Sie erwartet
 
-- Unread listing is preview-oriented: you get enough context to decide what to open in Mail.
-- For drafts, you stay in control: Alter prepares the draft, and you send it after review.
+- Die Liste der ungelesenen Nachrichten ist auf die Vorschau ausgerichtet: Sie erhalten genügend Kontext, um zu entscheiden, was in Mail geöffnet werden soll.
+- Bei Entwürfen behalten Sie die Kontrolle: Alter bereitet den Entwurf vor und Sie senden ihn nach der Prüfung.
 
-## Related pages
+## Verwandte Seiten
 
-- [Mail app capabilities](/apps-tools/mail)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Use Tool Manager](/how-to/tool-manager-guide)
+- [Funktionen der Mail-App](/apps-tools/mail)
+- [Übersicht über Integrationen](/apps-tools/integrations-overview)
+- [Tool-Manager verwenden](/how-to/tool-manager-guide)

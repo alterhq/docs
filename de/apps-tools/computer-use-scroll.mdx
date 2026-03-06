@@ -1,28 +1,28 @@
 ---
-title: "Scroll"
-description: "Scroll active app windows in Computer Use flows"
+title: "Scrollen"
+description: "Scrollen Sie durch aktive App-Fenster in Computernutzungsflüssen"
 ---
 
-Use Scroll when target content is outside the current viewport.
+Verwenden Sie Scrollen, wenn sich der Zielinhalt außerhalb des aktuellen Ansichtsfensters befindet.
 
-## What it does
+## Was es tut
 
-- Scrolls in the frontmost app window.
-- Supports direction: `up`, `down`, `left`, `right`.
-- Runs for a timed duration.
+- Scrollt im vordersten App-Fenster.
+- Unterstützt die Richtung: `up`, `down`, `left`, `right`.
+- Läuft für eine begrenzte Dauer.
 
-## Inputs
+## Eingaben
 
-- `seconds` (optional): duration to scroll (default 3, max 3600).
-- `direction` (optional): `up`, `down`, `left`, or `right` (default `down`).
+- `seconds` (optional): Dauer zum Scrollen (Standard 3, max. 3600).
+- `direction` (optional): `up`, `down`, `left` oder `right` (Standard `down`).
 
-## Typical use
+## Typische Verwendung
 
-- Bring hidden elements into view before calling Perform.
-- Continue page traversal before re-reading with Get Active App Context.
+- Bringen Sie ausgeblendete Elemente ins Blickfeld, bevor Sie Perform aufrufen.
+- Setzen Sie den Seitendurchlauf fort, bevor Sie mit Get Active App Context erneut lesen.
 
-## Good pairing
+## Gute Paarung
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Perform](/apps-tools/computer-use-perform)
-- [Wait](/apps-tools/computer-use-wait)
+- [Aktiven App-Kontext abrufen](/apps-tools/computer-use-get-active-app-context)
+- [Durchführen](/apps-tools/computer-use-perform)
+- [Warten](/apps-tools/computer-use-wait)

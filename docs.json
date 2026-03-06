@@ -851,10 +851,10 @@
         "language": "de",
         "tabs": [
           {
-            "tab": "Getting Started",
+            "tab": "Erste Schritte",
             "groups": [
               {
-                "group": "Start Here",
+                "group": "Beginnen Sie hier",
                 "pages": [
                   "de/index",
                   "de/quickstart",
@@ -876,10 +876,10 @@
             ]
           },
           {
-            "tab": "Workflows",
+            "tab": "Arbeitsabläufe",
             "groups": [
               {
-                "group": "Communication",
+                "group": "Kommunikation",
                 "pages": [
                   "de/workflows/manage-mail-with-alter",
                   "de/workflows/send-messages-with-alter",
@@ -887,7 +887,7 @@
                 ]
               },
               {
-                "group": "Planning and Meetings",
+                "group": "Planung und Meetings",
                 "pages": [
                   "de/workflows/manage-calendar-with-alter",
                   "de/workflows/plan-places-and-routes-with-alter-maps",
@@ -897,7 +897,7 @@
                 ]
               },
               {
-                "group": "Capture and Knowledge",
+                "group": "Erfassung und Wissen",
                 "pages": [
                   "de/workflows/manage-notes-with-alter",
                   "de/workflows/summarize-x-feed-with-computer-use",
@@ -905,7 +905,7 @@
                 ]
               },
               {
-                "group": "Automation",
+                "group": "Automatisierung",
                 "pages": [
                   "de/workflows/manage-reminders-with-alter",
                   "de/workflows/workspaces-actions",
@@ -915,7 +915,7 @@
                 ]
               },
               {
-                "group": "Web Research",
+                "group": "Web-Recherche",
                 "pages": [
                   "de/workflows/web-research-getting-started",
                   "de/workflows/native-web-search-in-alter-routers",
@@ -929,17 +929,17 @@
             ]
           },
           {
-            "tab": "Apps & Tools",
+            "tab": "Apps und Tools",
             "groups": [
               {
-                "group": "Integrations",
+                "group": "Integrationen",
                 "pages": [
                   "de/apps-tools/integrations-overview",
                   "de/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "Mac Apps",
+                "group": "Mac-Apps",
                 "pages": [
                   "de/apps-tools/mail",
                   "de/apps-tools/calendar",
@@ -951,7 +951,7 @@
                 ]
               },
               {
-                "group": "Computer Use",
+                "group": "Computernutzung",
                 "pages": [
                   "de/apps-tools/computer-use",
                   "de/apps-tools/computer-use-get-active-app-context",
@@ -963,10 +963,10 @@
             ]
           },
           {
-            "tab": "How to",
+            "tab": "Wie",
             "groups": [
               {
-                "group": "Quick Tasks",
+                "group": "Schnelle Aufgaben",
                 "pages": [
                   "de/how-to/change-hotkey",
                   "de/how-to/choose-language",
@@ -975,7 +975,7 @@
                 ]
               },
               {
-                "group": "Manage and configure",
+                "group": "Verwalten und konfigurieren",
                 "pages": [
                   "de/how-to/settings-guide",
                   "de/how-to/tool-manager-guide",
@@ -985,10 +985,10 @@
             ]
           },
           {
-            "tab": "Troubleshooting",
+            "tab": "Fehlerbehebung",
             "groups": [
               {
-                "group": "Common Issues",
+                "group": "Häufige Probleme",
                 "pages": [
                   "de/common-issues/mic-not-transcribing",
                   "de/common-issues/hotkey-not-working",
@@ -1000,10 +1000,10 @@
             ]
           },
           {
-            "tab": "Reference",
+            "tab": "Referenz",
             "groups": [
               {
-                "group": "Quick Reference",
+                "group": "Kurzreferenz",
                 "pages": [
                   "de/references/faq-core",
                   "de/references/general-faq",
@@ -1013,7 +1013,7 @@
                 ]
               },
               {
-                "group": "Assets",
+                "group": "Vermögenswerte",
                 "pages": [
                   "de/references/image-library"
                 ]
@@ -1021,16 +1021,16 @@
             ]
           },
           {
-            "tab": "API Router",
+            "tab": "API-Router",
             "groups": [
               {
-                "group": "Getting Started",
+                "group": "Erste Schritte",
                 "pages": [
                   "de/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway & Router",
+                "group": "Gateway und Router",
                 "pages": [
                   "de/api-router/api-gateway",
                   "de/api-router/development",
@@ -1038,7 +1038,7 @@
                 ]
               },
               {
-                "group": "App Integrations",
+                "group": "App-Integrationen",
                 "pages": [
                   "de/api-router/app-integrations",
                   "de/api-router/typingmind",
@@ -1046,7 +1046,7 @@
                 ]
               },
               {
-                "group": "Reference",
+                "group": "Referenz",
                 "pages": [
                   "de/references/api-model-names"
                 ]
