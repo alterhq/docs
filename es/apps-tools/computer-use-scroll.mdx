@@ -1,28 +1,28 @@
 ---
-title: "Scroll"
-description: "Scroll active app windows in Computer Use flows"
+title: "Voluta"
+description: "Desplazarse por las ventanas de aplicaciones activas en los flujos de uso de la computadora"
 ---
 
-Use Scroll when target content is outside the current viewport.
+Utilice Desplazamiento cuando el contenido de destino esté fuera de la ventana gráfica actual.
 
-## What it does
+## Qué hace
 
-- Scrolls in the frontmost app window.
-- Supports direction: `up`, `down`, `left`, `right`.
-- Runs for a timed duration.
+- Se desplaza en la ventana de la aplicación más frontal.
+- Admite dirección: `up`, `down`, `left`, `right`.
+- Se ejecuta por una duración cronometrada.
 
-## Inputs
+## Entradas
 
-- `seconds` (optional): duration to scroll (default 3, max 3600).
-- `direction` (optional): `up`, `down`, `left`, or `right` (default `down`).
+- `seconds` (opcional): duración del desplazamiento (por defecto 3, máximo 3600).
+- `direction` (opcional): `up`, `down`, `left` o `right` (predeterminado `down`).
 
-## Typical use
+## Uso típico
 
-- Bring hidden elements into view before calling Perform.
-- Continue page traversal before re-reading with Get Active App Context.
+- Muestra los elementos ocultos antes de llamar a Perform.
+- Continúe recorriendo la página antes de volver a leer con Get Active App Context.
 
-## Good pairing
+## Buen maridaje
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Perform](/apps-tools/computer-use-perform)
-- [Wait](/apps-tools/computer-use-wait)
+- [Obtener contexto de aplicación activa](/apps-tools/computer-use-get-active-app-context)
+- [Realizar](/apps-tools/computer-use-perform)
+- [Espera](/apps-tools/computer-use-wait)

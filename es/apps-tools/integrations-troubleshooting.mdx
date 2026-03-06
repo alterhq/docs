@@ -1,36 +1,36 @@
 ---
-title: "Troubleshooting"
-description: "Fix common integration and tool issues in Alter"
+title: "Solución de problemas"
+description: "Solucionar problemas comunes de integración y herramientas en Alter"
 ---
 
-Use this page when integrations are connected but not behaving as expected.
+Utilice esta página cuando las integraciones estén conectadas pero no se comporten como se esperaba.
 
-## Quick checks
+## Comprobaciones rápidas
 
-1. Re-open **Tools Manager** and confirm the relevant tool is enabled.
-2. Confirm your selected model supports tools.
-3. Re-test with one simple prompt before running multi-step flows.
+1. Vuelva a abrir el **Administrador de herramientas** y confirme que la herramienta correspondiente esté habilitada.
+2. Confirme que el modelo seleccionado admite herramientas.
+3. Vuelva a realizar la prueba con un mensaje simple antes de ejecutar flujos de varios pasos.
 
-## Common issues
+## Problemas comunes
 
-### Tool does not run
+### La herramienta no se ejecuta
 
-- Verify required input fields are present in your prompt.
-- Disable unrelated tools to reduce routing ambiguity.
-- Re-authenticate the integration if it uses external credentials.
+- Verifique que los campos de entrada requeridos estén presentes en su mensaje.
+- Deshabilite herramientas no relacionadas para reducir la ambigüedad de enrutamiento.
+- Vuelva a autenticar la integración si utiliza credenciales externas.
 
-### Assistant answers without using tools
+### El asistente responde sin usar herramientas
 
-- Switch to a tool-capable model.
-- Ask with an explicit action request (for example, "create", "send", "add").
+- Cambiar a un modelo con capacidad para herramientas.
+- Preguntar con una solicitud de acción explícita (por ejemplo, "crear", "enviar", "agregar").
 
-### Connection appears valid but calls fail
+### La conexión parece válida pero las llamadas fallan
 
-- Check account scope and app permissions in the provider.
-- Retry with a minimal test action to isolate the failing step.
+- Verifique el alcance de la cuenta y los permisos de la aplicación en el proveedor.
+- Vuelva a intentarlo con una acción de prueba mínima para aislar el paso fallido.
 
-## Where to go next
+## Adónde ir a continuación
 
-- [Tool Manager guide](/how-to/tool-manager-guide)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Tools not working](/common-issues/tool-not-working)
+- [Guía del Administrador de herramientas](/how-to/tool-manager-guide)
+- [Descripción general de integraciones](/apps-tools/integrations-overview)
+- [Las herramientas no funcionan](/common-issues/tool-not-working)

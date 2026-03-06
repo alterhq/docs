@@ -1,29 +1,29 @@
 ---
-title: "Get Active App Context"
-description: "Capture active window content and OCR text for Computer Use workflows"
+title: "Obtener contexto de aplicación activa"
+description: "Capture el contenido de la ventana activa y el texto OCR para flujos de trabajo de uso informático"
 ---
 
-Use this tool to read what is currently visible in an app or browser window before taking action.
+Utilice esta herramienta para leer lo que está actualmente visible en una aplicación o ventana del navegador antes de realizar alguna acción.
 
-## What it does
+## Qué hace
 
-- Retrieves content from the active app window by default.
-- Accepts optional `windowID` (`pid/title`) to target a specific window.
-- Returns extracted text content.
-- Adds OCR text from screenshots when useful.
+- Recupera contenido de la ventana de la aplicación activa de forma predeterminada.
+- Acepta `windowID` opcional (`pid/title`) para apuntar a una ventana específica.
+- Devuelve contenido de texto extraído.
+- Agrega texto OCR de capturas de pantalla cuando sea útil.
 
-## Common uses
+## Usos comunes
 
-- Read page or app state before clicking.
-- Extract visible content for summaries.
-- Build a stable context before multi-step automation.
+- Lea el estado de la página o la aplicación antes de hacer clic.
+- Extraer contenido visible para resúmenes.
+- Construir un contexto estable antes de la automatización de varios pasos.
 
-## Input
+## Aporte
 
-- `windowID` (optional): target a specific window from `list_windows`.
+- `windowID` (opcional): apunta a una ventana específica de `list_windows`.
 
-## Good pairing
+## Buen maridaje
 
-- [Perform](/apps-tools/computer-use-perform)
-- [Scroll](/apps-tools/computer-use-scroll)
-- [Wait](/apps-tools/computer-use-wait)
+- [Realizar](/apps-tools/computer-use-perform)
+- [Desplazarse](/apps-tools/computer-use-scroll)
+- [Espera](/apps-tools/computer-use-wait)
