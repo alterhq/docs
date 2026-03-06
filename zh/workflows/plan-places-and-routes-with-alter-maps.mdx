@@ -1,72 +1,72 @@
 ---
-title: "Plan places and routes with Alter Maps"
-description: "What Alter can currently do with Apple Maps, with practical prompts and setup"
+title: "使用 Alter Maps 规划地点和路线"
+description: "Alter 目前可以使用 Apple Maps 做什么，以及实用的提示和设置"
 ---
 
-This workflow helps you go from "Where should I go?" to "How do I get there?" in a few prompts.
+此工作流程可帮助您摆脱“我应该去哪里？”的问题。到“我怎样才能到达那里？”在一些提示中。
 
-## What this helps you do
+## 这可以帮助您做什么
 
-Use Alter Maps workflows for practical travel decisions: find a place, compare nearby options, and get route guidance quickly.
+使用 Alter Maps 工作流程做出实际旅行决策：查找地点、比较附近的选项并快速获取路线指南。
 
-## Works with
+## 适用于
 
-- App: Apple Maps
-- Tool type: Local tool
-- Permissions: Location (optional, needed for "near me" flows)
+- 应用程序：苹果地图
+- 工具类型：本地工具
+- 权限：位置（可选，“靠近我”的流需要）
 
-## What Alter can do today
+## Alter 今天可以做什么
 
-Alter can search places by name/address, find nearby places by category, and return directions between two locations with transport mode options.
+Alter 可以按名称/地址搜索地点，按类别查找附近的地点，并使用交通模式选项返回两个地点之间的路线。
 
-## What Alter does not do yet
+## Alter 还没有做什么
 
 - ETA-specific tool responses are not currently exposed in the active tool set.
-- Static map image generation is not currently exposed in the active tool set.
+- 静态地图图像生成当前未在活动工具集中公开。
 
-## A realistic workflow
+## 真实的工作流程
 
 <Steps>
   <Step title="Discover options">
-    Ask for nearby places in a category (for example restaurants or pharmacies).
+    询问某个类别附近的地点（例如餐馆或药店）。
   </Step>
   <Step title="Pick destination">
-    Choose one result from the list with address or name.
+    从包含地址或姓名的列表中选择一项结果。
   </Step>
   <Step title="Get route">
-    Ask for directions from your origin to that destination with your preferred transport type.
+    使用您首选的交通类型询问从出发地到目的地的路线。
   </Step>
 </Steps>
 
-## Copy/paste prompts
+## 复制/粘贴提示
 
-- "Find coffee shops near me."
-- "Find hotels near 48.8566, 2.3522 within 5km."
-- "Search for 'Gare de Lyon, Paris'."
-- "Get driving directions from 10 Downing Street London to Heathrow Airport."
-- "Get transit directions from Times Square to JFK Airport."
+- “查找我附近的咖啡店。”
+- “查找5公里内48.8566、2.3522附近的酒店。”
+- “搜索‘巴黎里昂火车站’。”
+- “获取从伦敦唐宁街 10 号到希思罗机场的行车路线。”
+- “获取从时代广场到肯尼迪机场的交通路线。”
 
-## How to enable
+## 如何启用
 
 <Steps>
   <Step title="Enable Maps in Tools Manager">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Maps**.
+    打开 Alter -> 单击三个点 -> **工具管理器** -> **本地工具** -> 启用 **地图**。
   </Step>
   <Step title="Allow Location permission if needed">
-    If you ask for nearby places without coordinates, Alter may request Location access.
+    如果您询问附近没有坐标的地点，Alter 可能会请求位置访问权限。
   </Step>
   <Step title="Run a quick test">
-    Ask: "Find restaurants near me." Then ask for directions to one result.
+    询问：“查找我附近的餐馆。”然后询问获得某一结果的方向。
   </Step>
 </Steps>
 
-## What to expect
+## 期待什么
 
-- Place results include practical details (address, phone, and map link when available).
-- Nearby search works best with either your current location permission enabled or explicit coordinates.
+- 地点结果包括实用详细信息（地址、电话和地图链接（如果有））。
+- 附近搜索在启用当前位置权限或明确坐标的情况下效果最佳。
 
-## Related pages
+## 相关页面
 
-- [Maps app capabilities](/apps-tools/maps)
-- [Use Tool Manager](/how-to/tool-manager-guide)
-- [Tools Not Working](/common-issues/tool-not-working)
+- [地图应用程序功能](/apps-tools/maps)
+- [使用工具管理器](/how-to/tool-manager-guide)
+- [工具不起作用](/common-issues/tool-not-working)

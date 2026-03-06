@@ -1,29 +1,29 @@
 ---
-title: "Get Active App Context"
-description: "Capture active window content and OCR text for Computer Use workflows"
+title: "获取活动应用程序上下文"
+description: "捕获活动窗口内容和 OCR 文本以供计算机使用工作流程"
 ---
 
-Use this tool to read what is currently visible in an app or browser window before taking action.
+在采取行动之前，使用此工具读取应用程序或浏览器窗口中当前可见的内容。
 
-## What it does
+## 它的作用
 
-- Retrieves content from the active app window by default.
-- Accepts optional `windowID` (`pid/title`) to target a specific window.
-- Returns extracted text content.
-- Adds OCR text from screenshots when useful.
+- 默认情况下从活动应用程序窗口检索内容。
+- 接受可选的`windowID` (`pid/title`) 以定位特定窗口。
+- 返回提取的文本内容。
+- 在有用时添加屏幕截图中的 OCR 文本。
 
-## Common uses
+## 常见用途
 
-- Read page or app state before clicking.
-- Extract visible content for summaries.
-- Build a stable context before multi-step automation.
+- 单击之前阅读页面或应用程序状态。
+- 提取可见内容作为摘要。
+- 在多步骤自动化之前建立稳定的环境。
 
-## Input
+＃＃ 输入
 
-- `windowID` (optional): target a specific window from `list_windows`.
+- `windowID`（可选）：从`list_windows` 定位特定窗口。
 
-## Good pairing
+## 良好的配对
 
-- [Perform](/apps-tools/computer-use-perform)
-- [Scroll](/apps-tools/computer-use-scroll)
-- [Wait](/apps-tools/computer-use-wait)
+- [执行](/apps-tools/computer-use-perform)
+- [滚动](/apps-tools/computer-use-scroll)
+- [等等](/apps-tools/computer-use-wait)

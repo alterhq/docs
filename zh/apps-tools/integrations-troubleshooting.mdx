@@ -1,36 +1,36 @@
 ---
-title: "Troubleshooting"
-description: "Fix common integration and tool issues in Alter"
+title: "故障排除"
+description: "修复 Alter 中的常见集成和工具问题"
 ---
 
-Use this page when integrations are connected but not behaving as expected.
+当集成已连接但未按预期运行时，请使用此页面。
 
-## Quick checks
+## 快速检查
 
-1. Re-open **Tools Manager** and confirm the relevant tool is enabled.
-2. Confirm your selected model supports tools.
-3. Re-test with one simple prompt before running multi-step flows.
+1. 重新打开**工具管理器**并确认相关工具已启用。
+2. 确认您选择的型号支持工具。
+3. 在运行多步骤流程之前，通过一个简单的提示重新测试。
 
-## Common issues
+## 常见问题
 
-### Tool does not run
+### 工具不运行
 
-- Verify required input fields are present in your prompt.
-- Disable unrelated tools to reduce routing ambiguity.
-- Re-authenticate the integration if it uses external credentials.
+- 验证提示中是否存在必需的输入字段。
+- 禁用不相关的工具以减少路由歧义。
+- 如果使用外部凭据，请重新验证集成。
 
-### Assistant answers without using tools
+### 助手无需使用工具即可回答
 
-- Switch to a tool-capable model.
-- Ask with an explicit action request (for example, "create", "send", "add").
+- 切换到支持工具的模型。
+- 提出明确的操作请求（例如“创建”、“发送”、“添加”）。
 
-### Connection appears valid but calls fail
+### 连接显示有效但调用失败
 
-- Check account scope and app permissions in the provider.
-- Retry with a minimal test action to isolate the failing step.
+- 检查提供商中的帐户范围和应用程序权限。
+- 使用最少的测试操作重试以隔离失败的步骤。
 
-## Where to go next
+## 下一步去哪里
 
-- [Tool Manager guide](/how-to/tool-manager-guide)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Tools not working](/common-issues/tool-not-working)
+- [工具管理器指南](/how-to/tool-manager-guide)
+- [集成概述](/apps-tools/integrations-overview)
+- [工具不起作用](/common-issues/tool-not-working)

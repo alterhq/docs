@@ -1060,10 +1060,10 @@
         "language": "zh",
         "tabs": [
           {
-            "tab": "Getting Started",
+            "tab": "入门",
             "groups": [
               {
-                "group": "Start Here",
+                "group": "从这里开始",
                 "pages": [
                   "zh/index",
                   "zh/quickstart",
@@ -1085,10 +1085,10 @@
             ]
           },
           {
-            "tab": "Workflows",
+            "tab": "工作流程",
             "groups": [
               {
-                "group": "Communication",
+                "group": "沟通",
                 "pages": [
                   "zh/workflows/manage-mail-with-alter",
                   "zh/workflows/send-messages-with-alter",
@@ -1096,7 +1096,7 @@
                 ]
               },
               {
-                "group": "Planning and Meetings",
+                "group": "规划和会议",
                 "pages": [
                   "zh/workflows/manage-calendar-with-alter",
                   "zh/workflows/plan-places-and-routes-with-alter-maps",
@@ -1106,7 +1106,7 @@
                 ]
               },
               {
-                "group": "Capture and Knowledge",
+                "group": "捕获和知识",
                 "pages": [
                   "zh/workflows/manage-notes-with-alter",
                   "zh/workflows/summarize-x-feed-with-computer-use",
@@ -1114,7 +1114,7 @@
                 ]
               },
               {
-                "group": "Automation",
+                "group": "自动化",
                 "pages": [
                   "zh/workflows/manage-reminders-with-alter",
                   "zh/workflows/workspaces-actions",
@@ -1124,7 +1124,7 @@
                 ]
               },
               {
-                "group": "Web Research",
+                "group": "网络研究",
                 "pages": [
                   "zh/workflows/web-research-getting-started",
                   "zh/workflows/native-web-search-in-alter-routers",
@@ -1138,17 +1138,17 @@
             ]
           },
           {
-            "tab": "Apps & Tools",
+            "tab": "应用程序和工具",
             "groups": [
               {
-                "group": "Integrations",
+                "group": "集成",
                 "pages": [
                   "zh/apps-tools/integrations-overview",
                   "zh/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "Mac Apps",
+                "group": "Mac 应用程序",
                 "pages": [
                   "zh/apps-tools/mail",
                   "zh/apps-tools/calendar",
@@ -1160,7 +1160,7 @@
                 ]
               },
               {
-                "group": "Computer Use",
+                "group": "电脑使用",
                 "pages": [
                   "zh/apps-tools/computer-use",
                   "zh/apps-tools/computer-use-get-active-app-context",
@@ -1172,10 +1172,10 @@
             ]
           },
           {
-            "tab": "How to",
+            "tab": "如何",
             "groups": [
               {
-                "group": "Quick Tasks",
+                "group": "快速任务",
                 "pages": [
                   "zh/how-to/change-hotkey",
                   "zh/how-to/choose-language",
@@ -1184,7 +1184,7 @@
                 ]
               },
               {
-                "group": "Manage and configure",
+                "group": "管理和配置",
                 "pages": [
                   "zh/how-to/settings-guide",
                   "zh/how-to/tool-manager-guide",
@@ -1194,10 +1194,10 @@
             ]
           },
           {
-            "tab": "Troubleshooting",
+            "tab": "故障排除",
             "groups": [
               {
-                "group": "Common Issues",
+                "group": "常见问题",
                 "pages": [
                   "zh/common-issues/mic-not-transcribing",
                   "zh/common-issues/hotkey-not-working",
@@ -1209,10 +1209,10 @@
             ]
           },
           {
-            "tab": "Reference",
+            "tab": "参考",
             "groups": [
               {
-                "group": "Quick Reference",
+                "group": "快速参考",
                 "pages": [
                   "zh/references/faq-core",
                   "zh/references/general-faq",
@@ -1222,7 +1222,7 @@
                 ]
               },
               {
-                "group": "Assets",
+                "group": "资产",
                 "pages": [
                   "zh/references/image-library"
                 ]
@@ -1230,16 +1230,16 @@
             ]
           },
           {
-            "tab": "API Router",
+            "tab": "API路由器",
             "groups": [
               {
-                "group": "Getting Started",
+                "group": "入门",
                 "pages": [
                   "zh/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway & Router",
+                "group": "网关和路由器",
                 "pages": [
                   "zh/api-router/api-gateway",
                   "zh/api-router/development",
@@ -1247,7 +1247,7 @@
                 ]
               },
               {
-                "group": "App Integrations",
+                "group": "应用程序集成",
                 "pages": [
                   "zh/api-router/app-integrations",
                   "zh/api-router/typingmind",
@@ -1255,7 +1255,7 @@
                 ]
               },
               {
-                "group": "Reference",
+                "group": "参考",
                 "pages": [
                   "zh/references/api-model-names"
                 ]
