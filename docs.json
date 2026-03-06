@@ -851,55 +851,71 @@
         "language": "de",
         "tabs": [
           {
-            "tab": "Erste Schritte",
-            "pages": [
-              "de/index",
-              "de/quickstart",
-              "de/getting-started/open-alter",
-              "de/getting-started/your-workspace",
-              "de/getting-started/first-workflows"
+            "tab": "Getting Started",
+            "groups": [
+              {
+                "group": "Start Here",
+                "pages": [
+                  "de/index",
+                  "de/quickstart",
+                  "de/getting-started/getting-started-path",
+                  "de/getting-started/open-alter",
+                  "de/getting-started/your-workspace",
+                  "de/getting-started/window-types-notch-hub-panels",
+                  "de/getting-started/first-workflows",
+                  "de/getting-started/core-features",
+                  "de/getting-started/understand-context-and-apps",
+                  "de/getting-started/use-current-app-and-follow-mode",
+                  "de/getting-started/add-files-and-media",
+                  "de/getting-started/capture-voice-and-meetings",
+                  "de/getting-started/workspaces-basics",
+                  "de/getting-started/actions-basics",
+                  "de/getting-started/automate-with-workspaces-and-actions"
+                ]
+              }
             ]
           },
           {
-            "tab": "Leitfäden",
-            "pages": [
-              "de/getting-started/guides-index"
-            ],
+            "tab": "Workflows",
             "groups": [
               {
-                "group": "Hier starten",
+                "group": "Communication",
                 "pages": [
-                  "de/getting-started/core-features",
-                  "de/getting-started/alter-window",
-                  "de/workflows/dictation",
+                  "de/workflows/manage-mail-with-alter",
+                  "de/workflows/send-messages-with-alter",
+                  "de/workflows/manage-contacts-with-alter"
+                ]
+              },
+              {
+                "group": "Planning and Meetings",
+                "pages": [
+                  "de/workflows/manage-calendar-with-alter",
+                  "de/workflows/plan-places-and-routes-with-alter-maps",
+                  "de/workflows/meeting-workflow",
                   "de/workflows/meetings",
-                  "de/getting-started/getting-started-path"
+                  "de/workflows/dictation"
                 ]
               },
               {
-                "group": "Beste Ergebnisse (früh erledigen)",
+                "group": "Capture and Knowledge",
                 "pages": [
+                  "de/workflows/manage-notes-with-alter",
+                  "de/workflows/summarize-x-feed-with-computer-use",
+                  "de/workflows/local-model-privacy"
+                ]
+              },
+              {
+                "group": "Automation",
+                "pages": [
+                  "de/workflows/manage-reminders-with-alter",
+                  "de/workflows/workspaces-actions",
                   "de/workflows/use-flow-orchestration",
-                  "de/how-to/managing-context-window"
-                ]
-              },
-              {
-                "group": "Tägliche Workflows",
-                "pages": [
-                  "de/workflows/workspaces-actions"
-                ]
-              },
-              {
-                "group": "Automatisierungen und Tools",
-                "pages": [
                   "de/workflows/alter-actions",
-                  "de/apps-tools/integrations-overview",
-                  "de/how-to/tool-manager-guide",
                   "de/workflows/url-callbacks"
                 ]
               },
               {
-                "group": "Websuche",
+                "group": "Web Research",
                 "pages": [
                   "de/workflows/web-research-getting-started",
                   "de/workflows/native-web-search-in-alter-routers",
@@ -909,54 +925,70 @@
                   "de/workflows/connect-linkup",
                   "de/workflows/connect-exa"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "tab": "Apps & Tools",
+            "groups": [
               {
-                "group": "Einstellungen und Personalisierung",
+                "group": "Integrations",
                 "pages": [
-                  "de/how-to/settings-guide"
+                  "de/apps-tools/integrations-overview",
+                  "de/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "Modelle",
+                "group": "Mac Apps",
                 "pages": [
-                  "de/how-to/choose-generative-model"
+                  "de/apps-tools/mail",
+                  "de/apps-tools/calendar",
+                  "de/apps-tools/notes",
+                  "de/apps-tools/reminders",
+                  "de/apps-tools/messages",
+                  "de/apps-tools/contacts",
+                  "de/apps-tools/maps"
+                ]
+              },
+              {
+                "group": "Computer Use",
+                "pages": [
+                  "de/apps-tools/computer-use",
+                  "de/apps-tools/computer-use-get-active-app-context",
+                  "de/apps-tools/computer-use-perform",
+                  "de/apps-tools/computer-use-wait",
+                  "de/apps-tools/computer-use-scroll"
                 ]
               }
             ]
           },
           {
-            "tab": "Anleitungen",
+            "tab": "How to",
             "groups": [
               {
-                "group": "Schnelle Aufgaben",
+                "group": "Quick Tasks",
                 "pages": [
-                  "de/getting-started/open-alter",
-                  "de/how-to/add-context",
                   "de/how-to/change-hotkey",
                   "de/how-to/choose-language",
-                  "de/how-to/use-byok",
-                  "de/how-to/settings-guide"
+                  "de/how-to/choose-generative-model",
+                  "de/how-to/use-byok"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "Anwendungsfälle",
-            "groups": [
+              },
               {
-                "group": "Szenarien",
+                "group": "Manage and configure",
                 "pages": [
-                  "de/use-cases/meeting-workflow",
-                  "de/use-cases/local-model-privacy"
+                  "de/how-to/settings-guide",
+                  "de/how-to/tool-manager-guide",
+                  "de/how-to/managing-context-window"
                 ]
               }
             ]
           },
           {
-            "tab": "Fehlerbehebung",
+            "tab": "Troubleshooting",
             "groups": [
               {
-                "group": "Häufige Probleme",
+                "group": "Common Issues",
                 "pages": [
                   "de/common-issues/mic-not-transcribing",
                   "de/common-issues/hotkey-not-working",
@@ -968,10 +1000,10 @@
             ]
           },
           {
-            "tab": "Referenz",
+            "tab": "Reference",
             "groups": [
               {
-                "group": "Schnellreferenz",
+                "group": "Quick Reference",
                 "pages": [
                   "de/references/faq-core",
                   "de/references/general-faq",
@@ -981,7 +1013,7 @@
                 ]
               },
               {
-                "group": "Ressourcen",
+                "group": "Assets",
                 "pages": [
                   "de/references/image-library"
                 ]
@@ -992,7 +1024,7 @@
             "tab": "API Router",
             "groups": [
               {
-                "group": "Erste Schritte",
+                "group": "Getting Started",
                 "pages": [
                   "de/references/api-router-overview"
                 ]
@@ -1006,7 +1038,7 @@
                 ]
               },
               {
-                "group": "App-Integrationen",
+                "group": "App Integrations",
                 "pages": [
                   "de/api-router/app-integrations",
                   "de/api-router/typingmind",
@@ -1014,7 +1046,7 @@
                 ]
               },
               {
-                "group": "Referenz",
+                "group": "Reference",
                 "pages": [
                   "de/references/api-model-names"
                 ]
