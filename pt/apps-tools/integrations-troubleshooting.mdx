@@ -1,36 +1,36 @@
 ---
-title: "Troubleshooting"
-description: "Fix common integration and tool issues in Alter"
+title: "Solução de problemas"
+description: "Corrigir problemas comuns de integração e ferramentas no Alter"
 ---
 
-Use this page when integrations are connected but not behaving as expected.
+Use esta página quando as integrações estiverem conectadas, mas não se comportarem conforme o esperado.
 
-## Quick checks
+## Verificações rápidas
 
-1. Re-open **Tools Manager** and confirm the relevant tool is enabled.
-2. Confirm your selected model supports tools.
-3. Re-test with one simple prompt before running multi-step flows.
+1. Abra novamente o **Gerenciador de ferramentas** e confirme se a ferramenta relevante está habilitada.
+2. Confirme se o modelo selecionado suporta ferramentas.
+3. Teste novamente com um simples prompt antes de executar fluxos de várias etapas.
 
-## Common issues
+## Problemas comuns
 
-### Tool does not run
+### A ferramenta não funciona
 
-- Verify required input fields are present in your prompt.
-- Disable unrelated tools to reduce routing ambiguity.
-- Re-authenticate the integration if it uses external credentials.
+- Verifique se os campos de entrada obrigatórios estão presentes no seu prompt.
+- Desative ferramentas não relacionadas para reduzir a ambigüidade de roteamento.
+- Autentique novamente a integração se ela usar credenciais externas.
 
-### Assistant answers without using tools
+### O assistente responde sem usar ferramentas
 
-- Switch to a tool-capable model.
-- Ask with an explicit action request (for example, "create", "send", "add").
+- Mude para um modelo compatível com ferramentas.
+- Pergunte com uma solicitação de ação explícita (por exemplo, “criar”, “enviar”, “adicionar”).
 
-### Connection appears valid but calls fail
+### A conexão parece válida, mas as chamadas falham
 
-- Check account scope and app permissions in the provider.
-- Retry with a minimal test action to isolate the failing step.
+- Verifique o escopo da conta e as permissões do aplicativo no provedor.
+- Tente novamente com uma ação de teste mínima para isolar a etapa com falha.
 
-## Where to go next
+## Para onde ir em seguida
 
-- [Tool Manager guide](/how-to/tool-manager-guide)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Tools not working](/common-issues/tool-not-working)
+- [Guia do gerenciador de ferramentas](/how-to/tool-manager-guide)
+- [Visão geral das integrações](/apps-tools/integrations-overview)
+- [Ferramentas não funcionam](/common-issues/tool-not-working)

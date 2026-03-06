@@ -1,26 +1,26 @@
 ---
-title: "Wait"
-description: "Pause execution between Computer Use actions"
+title: "Espere"
+description: "Pausar a execução entre ações de uso do computador"
 ---
 
-Use Wait to add timing gaps between UI actions when pages, dialogs, or app states need time to update.
+Use Aguardar para adicionar intervalos de tempo entre as ações da interface do usuário quando páginas, caixas de diálogo ou estados de aplicativos precisarem de tempo para serem atualizados.
 
-## What it does
+## O que faz
 
-- Pauses execution for a given number of seconds.
-- Accepts numeric values and enforces a valid range.
+- Pausa a execução por um determinado número de segundos.
+- Aceita valores numéricos e impõe um intervalo válido.
 
-## Input
+## Entrada
 
-- `seconds` (required): positive number of seconds to pause (max 3600).
+- `seconds` (obrigatório): número positivo de segundos para pausa (máx. 3600).
 
-## Typical use
+## Uso típico
 
-- Add a short wait after navigation.
-- Pause after submit/click before reading context again.
-- Stabilize multi-step flows where UI renders asynchronously.
+- Adicione uma breve espera após a navegação.
+- Faça uma pausa após enviar/clique antes de ler o contexto novamente.
+- Estabilize fluxos de várias etapas onde a UI é renderizada de forma assíncrona.
 
-## Good pairing
+## Bom emparelhamento
 
-- [Perform](/apps-tools/computer-use-perform)
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Executar](/apps-tools/computer-use-perform)
+- [Obter contexto do aplicativo ativo](/apps-tools/computer-use-get-active-app-context)

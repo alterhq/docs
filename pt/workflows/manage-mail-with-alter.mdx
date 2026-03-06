@@ -1,86 +1,86 @@
 ---
-title: "Check unread emails and draft replies with Alter"
-description: "What Alter can currently do with Apple Mail, with practical prompts and setup"
+title: "Verifique e-mails não lidos e rascunhos de respostas com Alter"
+description: "O que o Alter pode fazer atualmente com o Apple Mail, com instruções práticas e configuração"
 ---
 
-This workflow is for lightweight mail support: seeing unread messages and preparing drafts quickly.
+Este fluxo de trabalho é para suporte de correio leve: ver mensagens não lidas e preparar rascunhos rapidamente.
 
-## What this helps you do
+## O que isso ajuda você a fazer
 
-If you want a fast inbox check and a ready-to-review draft, Apple Mail local tools are enough. It is best for "read + draft" moments, not full mailbox automation.
+Se você deseja uma verificação rápida da caixa de entrada e um rascunho pronto para revisão, as ferramentas locais do Apple Mail são suficientes. É melhor para momentos de “leitura + rascunho”, não para automação completa da caixa de correio.
 
-## Works with
+## Funciona com
 
-- App: Apple Mail
-- Tool type: Local tool
-- Permissions: Mail automation
+- Aplicativo: Apple Mail
+- Tipo de ferramenta: ferramenta local
+- Permissões: Automação de correio
 
-## What Alter can do today
+## O que Alter pode fazer hoje
 
-Alter can list unread messages across mailboxes and generate a new draft email in Mail with the context you provide.
+Alter pode listar mensagens não lidas em caixas de correio e gerar um novo rascunho de e-mail no Mail com o contexto que você fornecer.
 
-## What Alter does not do yet
+## O que Alter ainda não faz
 
-- It cannot reply directly inside an existing email thread.
-- It cannot send an email automatically from this tool (it creates drafts for review).
-- It cannot delete, archive, label, or bulk-process emails.
+- Ele não pode responder diretamente dentro de um tópico de e-mail existente.
+- Não é possível enviar um e-mail automaticamente a partir desta ferramenta (ela cria rascunhos para revisão).
+- Ele não pode excluir, arquivar, rotular ou processar e-mails em massa.
 
-## When to use Gmail or Outlook integrations instead
+## Quando usar integrações com Gmail ou Outlook
 
-If you need advanced email workflows (thread-aware replies, send actions, labeling, archiving, rules, and broader mailbox automation), use external integrations like Gmail or Outlook from the Integrations catalog.
+Se você precisar de fluxos de trabalho de e-mail avançados (respostas com reconhecimento de thread, ações de envio, rotulagem, arquivamento, regras e automação mais ampla de caixa de correio), use integrações externas como Gmail ou Outlook no catálogo de integrações.
 
-## Typical workflows
+## Fluxos de trabalho típicos
 
-### Quick inbox check
+### Verificação rápida da caixa de entrada
 
-Ask for a short unread list, identify priority messages, then open Mail for final handling.
+Solicite uma pequena lista de não lidas, identifique as mensagens prioritárias e abra o Mail para tratamento final.
 
-### Draft first reply fast
+### Rascunhe a primeira resposta rapidamente
 
-Ask Alter to draft a response to a specific recipient, then review and send from Mail.
+Peça ao Alter para redigir uma resposta para um destinatário específico, depois revise e envie pelo Mail.
 
-## A realistic workflow
-
-<Steps>
-  <Step title="Scan unread mail">
-    Ask Alter to show 5-10 unread emails so you can prioritize.
-  </Step>
-  <Step title="Draft response">
-    Ask Alter to create a draft for the top message.
-  </Step>
-  <Step title="Review and send">
-    Open the draft in Mail, edit if needed, then send manually.
-  </Step>
-</Steps>
-
-## Copy/paste prompts
-
-- "Show my 10 latest unread emails."
-- "Show only 5 unread emails so I can triage quickly."
-- "Draft an email to alex@company.com with subject 'Q2 Planning' and summarize our next steps."
-- "Create a draft reply to this contact saying I can do Thursday at 3 PM."
-
-## How to enable
+## Um fluxo de trabalho realista
 
 <Steps>
-  <Step title="Enable Mail in Tools Manager">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Mail**.
-  </Step>
-  <Step title="Allow Mail automation">
-    On first use, macOS may ask permission for Alter to control Mail. Allow it.
-  </Step>
-  <Step title="Run a quick test">
-    Ask: "Show my 5 unread emails." Then ask Alter to create one draft email.
-  </Step>
+<Step title="Scan unread mail">
+Peça ao Alter para mostrar de 5 a 10 e-mails não lidos para que você possa priorizar.
+</Step>
+<Step title="Draft response">
+Peça ao Alter para criar um rascunho para a mensagem principal.
+</Step>
+<Step title="Review and send">
+Abra o rascunho no Mail, edite se necessário e envie manualmente.
+</Step>
 </Steps>
 
-## What to expect
+## Solicitações de copiar/colar
 
-- Unread listing is preview-oriented: you get enough context to decide what to open in Mail.
-- For drafts, you stay in control: Alter prepares the draft, and you send it after review.
+- "Mostrar meus 10 últimos e-mails não lidos."
+- "Mostrar apenas cinco e-mails não lidos para que eu possa fazer uma triagem rapidamente."
+- "Redigir um e-mail para alex@company.com com o assunto 'Planejamento do segundo trimestre' e resumir nossos próximos passos."
+- "Crie um rascunho de resposta para este contato dizendo que posso fazer isso na quinta-feira às 15h."
 
-## Related pages
+## Como habilitar
 
-- [Mail app capabilities](/apps-tools/mail)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Use Tool Manager](/how-to/tool-manager-guide)
+<Steps>
+<Step title="Enable Mail in Tools Manager">
+Abra Alter -> clique nos três pontos -> **Gerenciador de ferramentas** -> **Ferramentas locais** -> habilite **Mail**.
+</Step>
+<Step title="Allow Mail automation">
+Na primeira utilização, o macOS pode pedir permissão ao Alter para controlar o Mail. Permita.
+</Step>
+<Step title="Run a quick test">
+Pergunte: “Mostrar meus 5 e-mails não lidos”. Em seguida, peça a Alter para criar um rascunho de e-mail.
+</Step>
+</Steps>
+
+## O que esperar
+
+- A listagem não lida é orientada para visualização: você obtém contexto suficiente para decidir o que abrir no Mail.
+- Para rascunhos, você mantém o controle: Alter prepara o rascunho e você o envia após revisão.
+
+## Páginas relacionadas
+
+- [Recursos do aplicativo de e-mail](/apps-tools/mail)
+- [Visão geral das integrações](/apps-tools/integrations-overview)
+- [Usar Gerenciador de Ferramentas](/how-to/tool-manager-guide)

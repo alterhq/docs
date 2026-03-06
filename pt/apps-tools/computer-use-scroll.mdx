@@ -1,28 +1,28 @@
 ---
-title: "Scroll"
-description: "Scroll active app windows in Computer Use flows"
+title: "Rolar"
+description: "Rolar janelas de aplicativos ativos em fluxos de uso do computador"
 ---
 
-Use Scroll when target content is outside the current viewport.
+Use Rolar quando o conteúdo de destino estiver fora da janela de visualização atual.
 
-## What it does
+## O que faz
 
-- Scrolls in the frontmost app window.
-- Supports direction: `up`, `down`, `left`, `right`.
-- Runs for a timed duration.
+- Rola na janela frontal do aplicativo.
+- Suporta direção: `up`, `down`, `left`, `right`.
+- Funciona por um período cronometrado.
 
-## Inputs
+## Entradas
 
-- `seconds` (optional): duration to scroll (default 3, max 3600).
-- `direction` (optional): `up`, `down`, `left`, or `right` (default `down`).
+- `seconds` (opcional): duração da rolagem (padrão 3, máximo 3600).
+- `direction` (opcional): `up`, `down`, `left` ou `right` (padrão `down`).
 
-## Typical use
+## Uso típico
 
-- Bring hidden elements into view before calling Perform.
-- Continue page traversal before re-reading with Get Active App Context.
+- Exiba elementos ocultos antes de chamar o Perform.
+- Continue percorrendo a página antes de reler com Get Active App Context.
 
-## Good pairing
+## Bom emparelhamento
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Perform](/apps-tools/computer-use-perform)
-- [Wait](/apps-tools/computer-use-wait)
+- [Obter contexto do aplicativo ativo](/apps-tools/computer-use-get-active-app-context)
+- [Executar](/apps-tools/computer-use-perform)
+- [Espere](/apps-tools/computer-use-wait)
