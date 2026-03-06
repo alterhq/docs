@@ -1,0 +1,36 @@
+---
+title: "Troubleshooting"
+description: "Fix common integration and tool issues in Alter"
+---
+
+Use this page when integrations are connected but not behaving as expected.
+
+## Quick checks
+
+1. Re-open **Tools Manager** and confirm the relevant tool is enabled.
+2. Confirm your selected model supports tools.
+3. Re-test with one simple prompt before running multi-step flows.
+
+## Common issues
+
+### Tool does not run
+
+- Verify required input fields are present in your prompt.
+- Disable unrelated tools to reduce routing ambiguity.
+- Re-authenticate the integration if it uses external credentials.
+
+### Assistant answers without using tools
+
+- Switch to a tool-capable model.
+- Ask with an explicit action request (for example, "create", "send", "add").
+
+### Connection appears valid but calls fail
+
+- Check account scope and app permissions in the provider.
+- Retry with a minimal test action to isolate the failing step.
+
+## Where to go next
+
+- [Tool Manager guide](/how-to/tool-manager-guide)
+- [Integrations overview](/apps-tools/integrations-overview)
+- [Tools not working](/common-issues/tool-not-working)

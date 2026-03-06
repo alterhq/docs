@@ -1269,55 +1269,71 @@
         "language": "ja",
         "tabs": [
           {
-            "tab": "はじめに",
-            "pages": [
-              "ja/index",
-              "ja/quickstart",
-              "ja/getting-started/open-alter",
-              "ja/getting-started/your-workspace",
-              "ja/getting-started/first-workflows"
+            "tab": "Getting Started",
+            "groups": [
+              {
+                "group": "Start Here",
+                "pages": [
+                  "ja/index",
+                  "ja/quickstart",
+                  "ja/getting-started/getting-started-path",
+                  "ja/getting-started/open-alter",
+                  "ja/getting-started/your-workspace",
+                  "ja/getting-started/window-types-notch-hub-panels",
+                  "ja/getting-started/first-workflows",
+                  "ja/getting-started/core-features",
+                  "ja/getting-started/understand-context-and-apps",
+                  "ja/getting-started/use-current-app-and-follow-mode",
+                  "ja/getting-started/add-files-and-media",
+                  "ja/getting-started/capture-voice-and-meetings",
+                  "ja/getting-started/workspaces-basics",
+                  "ja/getting-started/actions-basics",
+                  "ja/getting-started/automate-with-workspaces-and-actions"
+                ]
+              }
             ]
           },
           {
-            "tab": "ガイド",
-            "pages": [
-              "ja/getting-started/guides-index"
-            ],
+            "tab": "Workflows",
             "groups": [
               {
-                "group": "ここから開始",
+                "group": "Communication",
                 "pages": [
-                  "ja/getting-started/core-features",
-                  "ja/getting-started/alter-window",
-                  "ja/workflows/dictation",
+                  "ja/workflows/manage-mail-with-alter",
+                  "ja/workflows/send-messages-with-alter",
+                  "ja/workflows/manage-contacts-with-alter"
+                ]
+              },
+              {
+                "group": "Planning and Meetings",
+                "pages": [
+                  "ja/workflows/manage-calendar-with-alter",
+                  "ja/workflows/plan-places-and-routes-with-alter-maps",
+                  "ja/workflows/meeting-workflow",
                   "ja/workflows/meetings",
-                  "ja/getting-started/getting-started-path"
+                  "ja/workflows/dictation"
                 ]
               },
               {
-                "group": "最良の結果（早めに設定）",
+                "group": "Capture and Knowledge",
                 "pages": [
+                  "ja/workflows/manage-notes-with-alter",
+                  "ja/workflows/summarize-x-feed-with-computer-use",
+                  "ja/workflows/local-model-privacy"
+                ]
+              },
+              {
+                "group": "Automation",
+                "pages": [
+                  "ja/workflows/manage-reminders-with-alter",
+                  "ja/workflows/workspaces-actions",
                   "ja/workflows/use-flow-orchestration",
-                  "ja/how-to/managing-context-window"
-                ]
-              },
-              {
-                "group": "日常ワークフロー",
-                "pages": [
-                  "ja/workflows/workspaces-actions"
-                ]
-              },
-              {
-                "group": "自動化と Tools",
-                "pages": [
                   "ja/workflows/alter-actions",
-                  "ja/apps-tools/integrations-overview",
-                  "ja/how-to/tool-manager-guide",
                   "ja/workflows/url-callbacks"
                 ]
               },
               {
-                "group": "Web検索",
+                "group": "Web Research",
                 "pages": [
                   "ja/workflows/web-research-getting-started",
                   "ja/workflows/native-web-search-in-alter-routers",
@@ -1327,54 +1343,70 @@
                   "ja/workflows/connect-linkup",
                   "ja/workflows/connect-exa"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "tab": "Apps & Tools",
+            "groups": [
               {
-                "group": "設定とパーソナライズ",
+                "group": "Integrations",
                 "pages": [
-                  "ja/how-to/settings-guide"
+                  "ja/apps-tools/integrations-overview",
+                  "ja/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "モデル",
+                "group": "Mac Apps",
                 "pages": [
-                  "ja/how-to/choose-generative-model"
+                  "ja/apps-tools/mail",
+                  "ja/apps-tools/calendar",
+                  "ja/apps-tools/notes",
+                  "ja/apps-tools/reminders",
+                  "ja/apps-tools/messages",
+                  "ja/apps-tools/contacts",
+                  "ja/apps-tools/maps"
+                ]
+              },
+              {
+                "group": "Computer Use",
+                "pages": [
+                  "ja/apps-tools/computer-use",
+                  "ja/apps-tools/computer-use-get-active-app-context",
+                  "ja/apps-tools/computer-use-perform",
+                  "ja/apps-tools/computer-use-wait",
+                  "ja/apps-tools/computer-use-scroll"
                 ]
               }
             ]
           },
           {
-            "tab": "ハウツー",
+            "tab": "How to",
             "groups": [
               {
-                "group": "クイックタスク",
+                "group": "Quick Tasks",
                 "pages": [
-                  "ja/getting-started/open-alter",
-                  "ja/how-to/add-context",
                   "ja/how-to/change-hotkey",
                   "ja/how-to/choose-language",
-                  "ja/how-to/use-byok",
-                  "ja/how-to/settings-guide"
+                  "ja/how-to/choose-generative-model",
+                  "ja/how-to/use-byok"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "ユースケース",
-            "groups": [
+              },
               {
-                "group": "シナリオ",
+                "group": "Manage and configure",
                 "pages": [
-                  "ja/use-cases/meeting-workflow",
-                  "ja/use-cases/local-model-privacy"
+                  "ja/how-to/settings-guide",
+                  "ja/how-to/tool-manager-guide",
+                  "ja/how-to/managing-context-window"
                 ]
               }
             ]
           },
           {
-            "tab": "トラブルシューティング",
+            "tab": "Troubleshooting",
             "groups": [
               {
-                "group": "よくある問題",
+                "group": "Common Issues",
                 "pages": [
                   "ja/common-issues/mic-not-transcribing",
                   "ja/common-issues/hotkey-not-working",
@@ -1386,10 +1418,10 @@
             ]
           },
           {
-            "tab": "リファレンス",
+            "tab": "Reference",
             "groups": [
               {
-                "group": "クイックリファレンス",
+                "group": "Quick Reference",
                 "pages": [
                   "ja/references/faq-core",
                   "ja/references/general-faq",
@@ -1399,7 +1431,7 @@
                 ]
               },
               {
-                "group": "アセット",
+                "group": "Assets",
                 "pages": [
                   "ja/references/image-library"
                 ]
@@ -1410,13 +1442,13 @@
             "tab": "API Router",
             "groups": [
               {
-                "group": "はじめに",
+                "group": "Getting Started",
                 "pages": [
                   "ja/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway と Router",
+                "group": "Gateway & Router",
                 "pages": [
                   "ja/api-router/api-gateway",
                   "ja/api-router/development",
@@ -1424,7 +1456,7 @@
                 ]
               },
               {
-                "group": "アプリ連携",
+                "group": "App Integrations",
                 "pages": [
                   "ja/api-router/app-integrations",
                   "ja/api-router/typingmind",
@@ -1432,7 +1464,7 @@
                 ]
               },
               {
-                "group": "リファレンス",
+                "group": "Reference",
                 "pages": [
                   "ja/references/api-model-names"
                 ]
