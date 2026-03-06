@@ -1,0 +1,175 @@
+---
+title: "Keep Your Data Private with Local AI"
+description: "How to run AI models on your own Mac for sensitive documents and confidential work"
+---
+
+<Info>
+  **Perfect for:** Lawyers, doctors, security researchers, or anyone working with sensitive data who doesn't want it leaving their computer.
+</Info>
+
+## The Concern
+
+You're working with:
+- Client confidential information
+- Medical records
+- Proprietary business data
+- Personal financial documents
+- Security research
+
+And you're worried about sending this data to cloud AI services like OpenAI or Google, even if they claim it's private.
+
+**The good news:** You don't have to. You can run AI models directly on your Mac.
+
+## How Local Models Work
+
+Instead of sending your data to the internet, you download an AI model to your Mac (like downloading a large app) and run it locally. Your data never leaves your computer.
+
+<CardGroup cols={2}>
+  <Card title="100% Private" icon="shield-check">
+    Nothing sent to the cloud. Your data stays on your Mac.
+  </Card>
+  <Card title="Works Offline" icon="wifi-slash">
+    Use AI on airplanes, in secure facilities, or anywhere without internet.
+  </Card>
+  <Card title="No API Costs" icon="money-bill">
+    Once downloaded, no per-use fees. Analyze thousands of documents for free.
+  </Card>
+  <Card title="Faster for Big Files" icon="bolt">
+    No upload/download time. Great for large documents.
+  </Card>
+</CardGroup>
+
+## Setup: Two easy options
+
+### Option 1: Ollama (Recommended for beginners)
+
+Ollama makes running local models as simple as installing an app.
+
+<Steps>
+  <Step title="Install Ollama">
+    1. Download from [ollama.com](https://ollama.com)
+    2. Install it like any Mac app
+    3. It runs in your menu bar
+  </Step>
+  
+  <Step title="Download a model">
+    Open Terminal and run:
+    ```bash
+    ollama pull llama3.1
+    ```
+    
+    This downloads Meta's Llama 3.1 model (~4.7GB). Other good options:
+    - `ollama pull mistral` (faster, smaller)
+    - `ollama pull codellama` (great for code)
+    - `ollama pull mixtral` (more capable, larger)
+  </Step>
+  
+  <Step title="Connect to Alter">
+    1. Open Alter → Settings (`Cmd + ,`)
+    2. Go to **API Keys** tab
+    3. Under **Custom Provider**, select **Ollama**
+    4. Make sure Ollama is running (check your menu bar)
+    5. Toggle **Enable Custom Provider** ON
+  </Step>
+  
+  <Step title="Start using it">
+    1. Press `/` in Alter's prompt box
+    2. Look for the **Custom** section
+    3. Select your local model (e.g., "llama3.1")
+    4. Ask anything – it runs entirely on your Mac!
+  </Step>
+</Steps>
+
+### Option 2: LM Studio (More control)
+
+LM Studio gives you a graphical interface to manage models.
+
+<Steps>
+  <Step title="Install LM Studio">
+    Download from [lmstudio.ai](https://lmstudio.ai) and install it.
+  </Step>
+  
+  <Step title="Download a model">
+    1. Open LM Studio
+    2. Browse the model catalog
+    3. Download one that fits your needs and Mac's specs
+    4. Start the local server (big "Start Server" button)
+  </Step>
+  
+  <Step title="Connect to Alter">
+    1. In Alter Settings → **API Keys**
+    2. Select **LM Studio** as the provider
+    3. LM Studio runs on `localhost:1234` by default
+    4. Toggle **Enable Custom Provider** ON
+  </Step>
+</Steps>
+
+## Real-world example
+
+**Dr. Chen, physician:**
+> "I need to analyze patient notes for research, but I can't use cloud AI due to HIPAA. With a local model, I can ask 'What patterns do you see in these symptoms?' and get AI assistance while keeping everything on my secure laptop."
+
+**Alex, security researcher:**
+> "I analyze malware reports and can't upload them anywhere. Running a local model means I can ask 'What indicators of compromise are mentioned?' without risking data exposure."
+
+## Trade-offs to know about
+
+<AccordionGroup>
+  <Accordion icon="gauge" title="Speed vs Privacy">
+    **Cloud models:** Faster, more capable
+    **Local models:** Slower, but completely private
+    
+    A MacBook Pro with 16GB RAM can run small models smoothly. For larger models, you'll want 32GB+ RAM.
+  </Accordion>
+  
+  <Accordion icon="brain" title="Capability differences">
+    Local models are getting better every month, but cloud models (GPT-4, Claude) are still more capable for complex reasoning. 
+    
+    **Best approach:** Use local models for sensitive data, cloud models for less sensitive complex tasks.
+  </Accordion>
+  
+  <Accordion icon="hard-drive" title="Storage requirements">
+    Models range from 4GB to 70GB+. Make sure you have enough disk space.
+    
+    **Good starter models:**
+    - Llama 3.1 8B (~4.7GB) – Fast, decent quality
+    - Mistral 7B (~4.1GB) – Good balance
+    - Mixtral 8x7B (~26GB) – Higher quality, needs more RAM
+  </Accordion>
+</AccordionGroup>
+
+## Best practices for private workflows
+
+<Tip>
+  **Use specific Actions for sensitive tasks:** Create Alter Actions configured to always use your local model. That way you never accidentally use a cloud model for sensitive work.
+</Tip>
+
+<Tip>
+  **Set up a privacy workspace:** Create a workspace just for sensitive documents. This keeps them organized and reminds you to use local models.
+</Tip>
+
+<Tip>
+  **Verify it's working:** After setting up, disconnect from WiFi and try using Alter. If it still works with your local model, you know it's truly local.
+</Tip>
+
+## When to use what
+
+| Scenario | Recommendation |
+|----------|---------------|
+| Medical records | Local model (Ollama/LM Studio) |
+| Legal documents | Local model |
+| Security research | Local model |
+| Financial analysis | Local model or Alter Cloud with Pro plan |
+| Creative writing | Cloud models (better creativity) |
+| General questions | Cloud models (faster) |
+| Code assistance | Either works well |
+
+## Related resources
+
+- [How to use your own API key](/how-to/use-byok) – Step-by-step setup guide
+- [How to access settings](/how-to/settings-guide) – Open settings and configure providers
+- [General FAQ](/references/general-faq) – Model and provider basics
+
+---
+
+**Ready to go private?** Start with Ollama and the Llama 3.1 model. It's free, easy to set up, and you'll have AI assistance that never leaves your Mac!

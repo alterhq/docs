@@ -1,0 +1,367 @@
+---
+title: "Window Types: Notch, Hub, and Panels"
+description: "Understand Alter's interface modes, including Notch interactions, The Hub, and the Quick Panel"
+---
+
+<Info>
+  **Two interfaces, one powerful experience.** Use the Quick Panel for fast interactions and The Hub for deep work.
+</Info>
+
+## Two Ways to Interact
+
+<CardGroup cols={2}>
+  <Card title="The Hub" icon="layout">
+    Full workspace with tabs, sidebar, and comprehensive management
+  </Card>
+  <Card title="Quick Panel" icon="message-square">
+    Lightweight floating panel for quick queries and voice commands
+  </Card>
+</CardGroup>
+
+---
+
+### General Concept
+
+Alter provides two main interfaces for interacting with AI:
+
+<AccordionGroup>
+  <Accordion icon="layout-dashboard" title="The Hub">
+    The main window interface with tabs, sidebar, and comprehensive workspace management. Best for:
+    - Extended conversations
+    - Workspace management
+    - Multi-tasking with multiple contexts
+    - Reviewing meeting transcripts
+  </Accordion>
+  
+  <Accordion icon="message-circle" title="Quick Panel">
+    The lightweight floating panel accessible from the notch or hotkey. Perfect for:
+    - Quick queries
+    - Voice commands
+    - Fast context additions
+    - Rapid interactions
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Hub Interface
+
+<Frame>
+  The Hub is divided into three main sections:
+  
+  1. **Sidebar** - Navigation for conversations, workspaces, transcripts, and more
+  2. **Main Content Area** - Tabbed interface showing active content
+  3. **Input Area** - Prompt box and context management
+</Frame>
+
+### Opening The Hub
+
+<Steps>
+  <Step title="Keyboard shortcut">
+    Press `Shift + Cmd + H`
+  </Step>
+  <Step title="Menu bar">
+    Select "Open The Hub" from the Alter menu bar icon
+  </Step>
+  <Step title="From a conversation">
+    Open a conversation link from a floating panel
+  </Step>
+</Steps>
+
+### Tab Types
+
+<CardGroup cols={3}>
+  <Card title="Conversations" icon="message-square">
+    Chat sessions with AI models
+  </Card>
+  <Card title="Workspaces" icon="folder-open">
+    Collections of files, folders, and apps
+  </Card>
+  <Card title="Transcripts" icon="file-audio">
+    Meeting transcriptions and recordings
+  </Card>
+  <Card title="Calendar Events" icon="calendar">
+    Scheduled meetings and events
+  </Card>
+  <Card title="Scheduled Jobs" icon="clock">
+    Automated tasks and workflows
+  </Card>
+</CardGroup>
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Cmd + B` | Toggle sidebar visibility |
+| `Cmd + W` | Close active tab |
+| `Cmd + Option + →` | Next tab |
+| `Cmd + Option + ←` | Previous tab |
+| `Cmd + K` | Clear all contexts |
+| `Cmd + Delete` | Delete active conversation |
+
+### Managing Contexts
+
+<Steps>
+  <Step title="Add context">
+    Drag and drop files, or use `@` in the prompt box
+  </Step>
+  <Step title="Navigate">
+    Use arrow keys to move between contexts
+  </Step>
+  <Step title="Clear">
+    Press `Cmd + K` to remove all contexts
+  </Step>
+</Steps>
+
+### Inspector Panel
+
+<CardGroup cols={2}>
+  <Card title="Conversation Details" icon="info">
+    Metadata, export options, sharing links
+  </Card>
+  <Card title="Context Management" icon="layers">
+    See all contexts in current conversation
+  </Card>
+  <Card title="Workspace Info" icon="folder">
+    Statistics, files, and settings
+  </Card>
+</CardGroup>
+
+Toggle the Inspector using the sidebar icon or inspector button.
+
+---
+
+## Quick Panel Interface
+
+The Quick Panel (accessible from the notch) is divided into three sections:
+
+<CardGroup cols={3}>
+  <Card title="1. Context" icon="layers">
+    Your selected files, apps, and references
+  </Card>
+  <Card title="2. Prompt" icon="edit">
+    Where you type or speak your request
+  </Card>
+  <Card title="3. Additional Selection" icon="plus">
+    Quick access to models and actions
+  </Card>
+</CardGroup>
+
+### Navigation
+
+Use keyboard shortcuts in the Quick Panel:
+- `←`, `↑`, `→`, `↓` - Navigate between objects
+- `Enter` - Select an object
+- `@` - Add elements to context
+- `#` - Show conversation history
+- `>` - Show meeting history
+- `/` - List and choose model
+- `?` - Show help menu
+
+<Note>
+  See the **Prompt Box** section below for more keyboard shortcuts.
+</Note>
+
+---
+
+## The Context Section
+
+The **Context** section displays elements sent to Alter for reference.
+
+<CardGroup cols={2}>
+  <Card title="Files" icon="file">
+    Documents, images, audio files
+  </Card>
+  <Card title="Text Selection" icon="text">
+    Selected text from any app
+  </Card>
+  <Card title="Transcripts" icon="headphones">
+    Audio and YouTube transcripts
+  </Card>
+  <Card title="Folders" icon="folder">
+    Entire directories
+  </Card>
+  <Card title="Workspaces" icon="briefcase">
+    Saved workspace collections
+  </Card>
+  <Card title="Applications" icon="app-window">
+    Current app context
+  </Card>
+  <Card title="Web Pages" icon="globe">
+    URLs and web content
+  </Card>
+</CardGroup>
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `←` `↑` `→` `↓` | Navigate contexts |
+| `Space` | Add/remove selected |
+| `Cmd + K` | Remove all contexts |
+
+### Using Your Clipboard
+
+Paste content directly: `Cmd + V`
+
+Your clipboard content is automatically added to Alter's context.
+
+---
+
+## The Prompt Box
+
+The **Prompt Box** is where the magic happens.
+
+<Frame>
+  Start typing your prompt or an Alter Action title to send it to your AI model.
+</Frame>
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Enter` | Send prompt with active model |
+| `Cmd + Enter` | Search the web (via Gemini) |
+| `Shift + Enter` | New line |
+| `@` | Add elements to context |
+| `#` | Show conversation history |
+| `>` | Show meeting transcription history |
+| `/` | List and choose model |
+| `?` | Show help menu |
+
+<Tip>
+  **Invoke Actions:** Type any character in an Action's title to trigger it!
+</Tip>
+
+### Help Menu
+
+<Frame>
+  ![Help menu](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/5c14ac40-d9bd-4912-bf57-85f853ad441d/image.png?t=1741473617)
+</Frame>
+
+Press `?` in the prompt box to see all available shortcuts.
+
+---
+
+## Conversation Windows
+
+### Resizing Windows
+
+Customize conversation window size for your workflow:
+
+<CardGroup cols={2}>
+  <Card title="Width" icon="move-horizontal">
+    Drag edges horizontally to resize
+  </Card>
+  <Card title="Height" icon="move-vertical">
+    Drag edges vertically to resize
+  </Card>
+  <Card title="Layout" icon="layout">
+    Fit alongside other applications
+  </Card>
+  <Card title="Persistent" icon="save">
+    Size is remembered for future sessions
+  </Card>
+</CardGroup>
+
+<Info>
+  **Useful for:** Side-by-side work, reviewing long documents, screen sharing, different display setups
+</Info>
+
+### Continuous Speech-to-Prompt
+
+Have extended voice conversations without touching your keyboard:
+
+<Steps>
+  <Step title="Hold voice hotkey">
+    Press and hold `Fn` (or your configured key)
+  </Step>
+  <Step title="Speak naturally">
+    Say your prompt out loud
+  </Step>
+  <Step title="Release">
+    Let go to send to conversation
+  </Step>
+  <Step title="Keep going">
+    Each voice prompt adds to the same thread
+  </Step>
+</Steps>
+
+<Tip>
+  **Hands-free workflow:** Perfect for brainstorming, dictation, or when your hands are busy.
+</Tip>
+
+---
+
+## Conversation History
+
+### Managing Chat History
+
+Access history by typing `#` in the prompt box or using The Hub's sidebar.
+
+<Frame>
+  ![History with tags](/images/other/history-tags.webp)
+</Frame>
+
+### Organizing with Tags
+
+Add tags like `#personal` to categorize chats:
+
+```
+# #personal #food
+```
+
+Search for conversations matching multiple tags.
+
+### Renaming Conversations
+
+<Steps>
+  <Step title="Right-click">
+    Right-click any conversation in the list
+  </Step>
+  <Step title="Select Rename">
+    Choose `Rename` from the menu
+  </Step>
+  <Step title="Type new name">
+    Give it a descriptive name
+  </Step>
+</Steps>
+
+### Exporting Conversations
+
+Export as markdown for documentation or sharing:
+
+<Steps>
+  <Step title="Find conversation">
+    Locate it in the history
+  </Step>
+  <Step title="Right-click">
+    Open the context menu
+  </Step>
+  <Step title="Select Export">
+    Choose the Export option
+  </Step>
+  <Step title="Save">
+    Choose location and save as .md file
+  </Step>
+</Steps>
+
+<Card title="Export Uses" icon="download">
+  - Documentation
+  - Sharing with team
+  - Archiving important discussions
+  - Using in other tools
+</Card>
+
+---
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Core Features" icon="sparkles" href="/getting-started/core-features">
+    Workspaces, Actions, and more
+  </Card>
+  <Card title="Keyboard Shortcuts" icon="keyboard" href="/references/shortcuts">
+    Complete shortcut reference
+  </Card>
+</CardGroup>

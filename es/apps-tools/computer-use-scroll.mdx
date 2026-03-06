@@ -1,0 +1,28 @@
+---
+title: "Scroll"
+description: "Scroll active app windows in Computer Use flows"
+---
+
+Use Scroll when target content is outside the current viewport.
+
+## What it does
+
+- Scrolls in the frontmost app window.
+- Supports direction: `up`, `down`, `left`, `right`.
+- Runs for a timed duration.
+
+## Inputs
+
+- `seconds` (optional): duration to scroll (default 3, max 3600).
+- `direction` (optional): `up`, `down`, `left`, or `right` (default `down`).
+
+## Typical use
+
+- Bring hidden elements into view before calling Perform.
+- Continue page traversal before re-reading with Get Active App Context.
+
+## Good pairing
+
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Perform](/apps-tools/computer-use-perform)
+- [Wait](/apps-tools/computer-use-wait)
