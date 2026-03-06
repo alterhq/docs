@@ -224,10 +224,10 @@
         "language": "pt",
         "tabs": [
           {
-            "tab": "Getting Started",
+            "tab": "Começando",
             "groups": [
               {
-                "group": "Start Here",
+                "group": "Comece aqui",
                 "pages": [
                   "pt/index",
                   "pt/quickstart",
@@ -249,10 +249,10 @@
             ]
           },
           {
-            "tab": "Workflows",
+            "tab": "Fluxos de trabalho",
             "groups": [
               {
-                "group": "Communication",
+                "group": "Comunicação",
                 "pages": [
                   "pt/workflows/manage-mail-with-alter",
                   "pt/workflows/send-messages-with-alter",
@@ -260,7 +260,7 @@
                 ]
               },
               {
-                "group": "Planning and Meetings",
+                "group": "Planejamento e Reuniões",
                 "pages": [
                   "pt/workflows/manage-calendar-with-alter",
                   "pt/workflows/plan-places-and-routes-with-alter-maps",
@@ -270,7 +270,7 @@
                 ]
               },
               {
-                "group": "Capture and Knowledge",
+                "group": "Captura e Conhecimento",
                 "pages": [
                   "pt/workflows/manage-notes-with-alter",
                   "pt/workflows/summarize-x-feed-with-computer-use",
@@ -278,7 +278,7 @@
                 ]
               },
               {
-                "group": "Automation",
+                "group": "Automação",
                 "pages": [
                   "pt/workflows/manage-reminders-with-alter",
                   "pt/workflows/workspaces-actions",
@@ -288,7 +288,7 @@
                 ]
               },
               {
-                "group": "Web Research",
+                "group": "Pesquisa na Web",
                 "pages": [
                   "pt/workflows/web-research-getting-started",
                   "pt/workflows/native-web-search-in-alter-routers",
@@ -302,17 +302,17 @@
             ]
           },
           {
-            "tab": "Apps & Tools",
+            "tab": "Aplicativos e ferramentas",
             "groups": [
               {
-                "group": "Integrations",
+                "group": "Integrações",
                 "pages": [
                   "pt/apps-tools/integrations-overview",
                   "pt/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "Mac Apps",
+                "group": "Aplicativos para Mac",
                 "pages": [
                   "pt/apps-tools/mail",
                   "pt/apps-tools/calendar",
@@ -324,7 +324,7 @@
                 ]
               },
               {
-                "group": "Computer Use",
+                "group": "Uso do computador",
                 "pages": [
                   "pt/apps-tools/computer-use",
                   "pt/apps-tools/computer-use-get-active-app-context",
@@ -336,10 +336,10 @@
             ]
           },
           {
-            "tab": "How to",
+            "tab": "Como fazer",
             "groups": [
               {
-                "group": "Quick Tasks",
+                "group": "Tarefas Rápidas",
                 "pages": [
                   "pt/how-to/change-hotkey",
                   "pt/how-to/choose-language",
@@ -348,7 +348,7 @@
                 ]
               },
               {
-                "group": "Manage and configure",
+                "group": "Gerenciar e configurar",
                 "pages": [
                   "pt/how-to/settings-guide",
                   "pt/how-to/tool-manager-guide",
@@ -358,10 +358,10 @@
             ]
           },
           {
-            "tab": "Troubleshooting",
+            "tab": "Solução de problemas",
             "groups": [
               {
-                "group": "Common Issues",
+                "group": "Problemas comuns",
                 "pages": [
                   "pt/common-issues/mic-not-transcribing",
                   "pt/common-issues/hotkey-not-working",
@@ -373,10 +373,10 @@
             ]
           },
           {
-            "tab": "Reference",
+            "tab": "Referência",
             "groups": [
               {
-                "group": "Quick Reference",
+                "group": "Referência rápida",
                 "pages": [
                   "pt/references/faq-core",
                   "pt/references/general-faq",
@@ -386,7 +386,7 @@
                 ]
               },
               {
-                "group": "Assets",
+                "group": "Ativos",
                 "pages": [
                   "pt/references/image-library"
                 ]
@@ -394,16 +394,16 @@
             ]
           },
           {
-            "tab": "API Router",
+            "tab": "API do Roteador",
             "groups": [
               {
-                "group": "Getting Started",
+                "group": "Começando",
                 "pages": [
                   "pt/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway & Router",
+                "group": "Gateway e roteador",
                 "pages": [
                   "pt/api-router/api-gateway",
                   "pt/api-router/development",
@@ -411,7 +411,7 @@
                 ]
               },
               {
-                "group": "App Integrations",
+                "group": "Integrações de aplicativos",
                 "pages": [
                   "pt/api-router/app-integrations",
                   "pt/api-router/typingmind",
@@ -419,7 +419,7 @@
                 ]
               },
               {
-                "group": "Reference",
+                "group": "Referência",
                 "pages": [
                   "pt/references/api-model-names"
                 ]

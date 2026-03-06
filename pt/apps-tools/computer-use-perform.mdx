@@ -1,29 +1,29 @@
 ---
-title: "Perform"
-description: "Run click, fill, and shortcut actions against UI elements"
+title: "Executar"
+description: "Execute ações de clique, preenchimento e atalho em elementos da UI"
 ---
 
-Use this tool to execute concrete UI interactions after you identify targets with Get Active App Context.
+Use esta ferramenta para executar interações de UI concretas depois de identificar alvos com Get Active App Context.
 
-## Supported actions
+## Ações suportadas
 
-- `click`: click a target element.
-- `fill`: enter text into a text field or textarea.
-- `shortcut`: send keyboard shortcuts (for example `cmd+c`, `ctrl+shift+t`).
+- `click`: clique em um elemento de destino.
+- `fill`: insira texto em um campo de texto ou área de texto.
+- `shortcut`: envia atalhos de teclado (por exemplo `cmd+c`, `ctrl+shift+t`).
 
-## Inputs
+## Entradas
 
-- `elementID` (required for `click` and `fill`): element ID from Get Active App Context output.
-- `text` (required for `fill`): value to insert in the target input.
-- `shortcut` (required for `shortcut`): shortcut string.
-- `windowID` (optional): target a specific window (`pid/title`) instead of the active one.
+- `elementID` (obrigatório para `click` e `fill`): ID do elemento da saída Get Active App Context.
+- `text` (obrigatório para `fill`): valor a ser inserido na entrada alvo.
+- `shortcut` (obrigatório para `shortcut`): string de atalho.
+- `windowID` (opcional): direcione uma janela específica (`pid/title`) em vez da janela ativa.
 
-## Notes
+## Notas
 
-- Element IDs expire with UI changes and session timing. Re-read context if an element is no longer valid.
-- For background window targeting, use the same `windowID` across context read and perform steps.
+- Os IDs dos elementos expiram com alterações na interface do usuário e no tempo da sessão. Releia o contexto se um elemento não for mais válido.
+- Para direcionamento de janela em segundo plano, use o mesmo `windowID` em todas as etapas de leitura de contexto e execução.
 
-## Good pairing
+## Bom emparelhamento
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Wait](/apps-tools/computer-use-wait)
+- [Obter contexto do aplicativo ativo](/apps-tools/computer-use-get-active-app-context)
+- [Espere](/apps-tools/computer-use-wait)
