@@ -1,72 +1,72 @@
 ---
-title: "Plan places and routes with Alter Maps"
-description: "What Alter can currently do with Apple Maps, with practical prompts and setup"
+title: "Planifiez des lieux et des itinéraires avec Alter Maps"
+description: "Ce qu'Alter peut actuellement faire avec Apple Maps, avec des invites et une configuration pratiques"
 ---
 
-This workflow helps you go from "Where should I go?" to "How do I get there?" in a few prompts.
+Ce flux de travail vous aide à passer de la question « Où dois-je aller ? » à "Comment puis-je y arriver?" en quelques invites.
 
-## What this helps you do
+## Qu'est-ce que cela vous aide à faire
 
-Use Alter Maps workflows for practical travel decisions: find a place, compare nearby options, and get route guidance quickly.
+Utilisez les flux de travail Alter Maps pour prendre des décisions de voyage pratiques : trouvez un lieu, comparez les options à proximité et obtenez rapidement un itinéraire.
 
-## Works with
+## Fonctionne avec
 
-- App: Apple Maps
-- Tool type: Local tool
-- Permissions: Location (optional, needed for "near me" flows)
+- Application : Apple Maps
+- Type d'outil : Outil local
+- Autorisations : Localisation (facultatif, nécessaire pour les flux "à proximité")
 
-## What Alter can do today
+## Ce qu'Alter peut faire aujourd'hui
 
-Alter can search places by name/address, find nearby places by category, and return directions between two locations with transport mode options.
+Alter peut rechercher des lieux par nom/adresse, trouver des lieux à proximité par catégorie et renvoyer des itinéraires entre deux emplacements avec des options de mode de transport.
 
-## What Alter does not do yet
+## Ce qu'Alter ne fait pas encore
 
-- ETA-specific tool responses are not currently exposed in the active tool set.
-- Static map image generation is not currently exposed in the active tool set.
+- Les réponses des outils spécifiques à l'ETA ne sont actuellement pas exposées dans l'ensemble d'outils actif.
+- La génération d'images de carte statique n'est actuellement pas exposée dans l'ensemble d'outils actifs.
 
-## A realistic workflow
+## Un workflow réaliste
 
 <Steps>
   <Step title="Discover options">
-    Ask for nearby places in a category (for example restaurants or pharmacies).
+    Demandez les lieux à proximité dans une catégorie (par exemple restaurants ou pharmacies).
   </Step>
   <Step title="Pick destination">
-    Choose one result from the list with address or name.
+    Choisissez un résultat dans la liste avec l'adresse ou le nom.
   </Step>
   <Step title="Get route">
-    Ask for directions from your origin to that destination with your preferred transport type.
+    Demandez votre itinéraire depuis votre origine vers cette destination avec votre type de transport préféré.
   </Step>
 </Steps>
 
-## Copy/paste prompts
+## Invites à copier/coller
 
-- "Find coffee shops near me."
-- "Find hotels near 48.8566, 2.3522 within 5km."
-- "Search for 'Gare de Lyon, Paris'."
-- "Get driving directions from 10 Downing Street London to Heathrow Airport."
-- "Get transit directions from Times Square to JFK Airport."
+- "Trouvez des cafés près de chez moi."
+- "Trouver des hôtels près de 48.8566, 2.3522 dans un rayon de 5 km."
+- "Recherchez 'Gare de Lyon, Paris'."
+- "Obtenir les itinéraires routiers du 10 Downing Street Londres à l'aéroport d'Heathrow."
+- "Obtenir les itinéraires de transport en commun de Times Square à l'aéroport JFK."
 
-## How to enable
+## Comment activer
 
 <Steps>
   <Step title="Enable Maps in Tools Manager">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Maps**.
+    Ouvrez Alter -> cliquez sur les trois points -> **Gestionnaire d'outils** -> **Outils locaux** -> activez **Maps**.
   </Step>
   <Step title="Allow Location permission if needed">
-    If you ask for nearby places without coordinates, Alter may request Location access.
+    Si vous demandez des lieux à proximité sans coordonnées, Alter peut demander un accès à la localisation.
   </Step>
   <Step title="Run a quick test">
-    Ask: "Find restaurants near me." Then ask for directions to one result.
+    Demandez : « Trouver des restaurants à proximité de chez moi. » Demandez ensuite votre chemin vers un résultat.
   </Step>
 </Steps>
 
-## What to expect
+## À quoi s'attendre
 
-- Place results include practical details (address, phone, and map link when available).
-- Nearby search works best with either your current location permission enabled or explicit coordinates.
+- Les résultats du lieu incluent des détails pratiques (adresse, téléphone et lien vers la carte si disponible).
+- La recherche à proximité fonctionne mieux avec votre autorisation de localisation actuelle activée ou avec des coordonnées explicites.
 
-## Related pages
+## Pages connexes
 
-- [Maps app capabilities](/apps-tools/maps)
-- [Use Tool Manager](/how-to/tool-manager-guide)
-- [Tools Not Working](/common-issues/tool-not-working)
+- [Capacités de l'application Cartes](/apps-tools/maps)
+- [Utiliser le gestionnaire d'outils](/how-to/tool-manager-guide)
+- [Les outils ne fonctionnent pas](/common-issues/tool-not-working)

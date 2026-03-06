@@ -433,10 +433,10 @@
         "language": "fr",
         "tabs": [
           {
-            "tab": "Getting Started",
+            "tab": "Commencer",
             "groups": [
               {
-                "group": "Start Here",
+                "group": "Commencez ici",
                 "pages": [
                   "fr/index",
                   "fr/quickstart",
@@ -458,7 +458,7 @@
             ]
           },
           {
-            "tab": "Workflows",
+            "tab": "Flux de travail",
             "groups": [
               {
                 "group": "Communication",
@@ -469,7 +469,7 @@
                 ]
               },
               {
-                "group": "Planning and Meetings",
+                "group": "Planification et réunions",
                 "pages": [
                   "fr/workflows/manage-calendar-with-alter",
                   "fr/workflows/plan-places-and-routes-with-alter-maps",
@@ -479,7 +479,7 @@
                 ]
               },
               {
-                "group": "Capture and Knowledge",
+                "group": "Capture et connaissance",
                 "pages": [
                   "fr/workflows/manage-notes-with-alter",
                   "fr/workflows/summarize-x-feed-with-computer-use",
@@ -497,7 +497,7 @@
                 ]
               },
               {
-                "group": "Web Research",
+                "group": "Recherche sur le Web",
                 "pages": [
                   "fr/workflows/web-research-getting-started",
                   "fr/workflows/native-web-search-in-alter-routers",
@@ -511,17 +511,17 @@
             ]
           },
           {
-            "tab": "Apps & Tools",
+            "tab": "Applications et outils",
             "groups": [
               {
-                "group": "Integrations",
+                "group": "Intégrations",
                 "pages": [
                   "fr/apps-tools/integrations-overview",
                   "fr/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "Mac Apps",
+                "group": "Applications Mac",
                 "pages": [
                   "fr/apps-tools/mail",
                   "fr/apps-tools/calendar",
@@ -533,7 +533,7 @@
                 ]
               },
               {
-                "group": "Computer Use",
+                "group": "Utilisation de l'ordinateur",
                 "pages": [
                   "fr/apps-tools/computer-use",
                   "fr/apps-tools/computer-use-get-active-app-context",
@@ -545,10 +545,10 @@
             ]
           },
           {
-            "tab": "How to",
+            "tab": "Comment",
             "groups": [
               {
-                "group": "Quick Tasks",
+                "group": "Tâches rapides",
                 "pages": [
                   "fr/how-to/change-hotkey",
                   "fr/how-to/choose-language",
@@ -557,7 +557,7 @@
                 ]
               },
               {
-                "group": "Manage and configure",
+                "group": "Gérer et configurer",
                 "pages": [
                   "fr/how-to/settings-guide",
                   "fr/how-to/tool-manager-guide",
@@ -567,10 +567,10 @@
             ]
           },
           {
-            "tab": "Troubleshooting",
+            "tab": "Dépannage",
             "groups": [
               {
-                "group": "Common Issues",
+                "group": "Problèmes courants",
                 "pages": [
                   "fr/common-issues/mic-not-transcribing",
                   "fr/common-issues/hotkey-not-working",
@@ -582,10 +582,10 @@
             ]
           },
           {
-            "tab": "Reference",
+            "tab": "Référence",
             "groups": [
               {
-                "group": "Quick Reference",
+                "group": "Référence rapide",
                 "pages": [
                   "fr/references/faq-core",
                   "fr/references/general-faq",
@@ -595,7 +595,7 @@
                 ]
               },
               {
-                "group": "Assets",
+                "group": "Actifs",
                 "pages": [
                   "fr/references/image-library"
                 ]
@@ -603,16 +603,16 @@
             ]
           },
           {
-            "tab": "API Router",
+            "tab": "Routeur API",
             "groups": [
               {
-                "group": "Getting Started",
+                "group": "Commencer",
                 "pages": [
                   "fr/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway & Router",
+                "group": "Passerelle et routeur",
                 "pages": [
                   "fr/api-router/api-gateway",
                   "fr/api-router/development",
@@ -620,7 +620,7 @@
                 ]
               },
               {
-                "group": "App Integrations",
+                "group": "Intégrations d'applications",
                 "pages": [
                   "fr/api-router/app-integrations",
                   "fr/api-router/typingmind",
@@ -628,7 +628,7 @@
                 ]
               },
               {
-                "group": "Reference",
+                "group": "Référence",
                 "pages": [
                   "fr/references/api-model-names"
                 ]

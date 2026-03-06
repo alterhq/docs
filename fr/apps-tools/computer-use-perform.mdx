@@ -1,29 +1,29 @@
 ---
-title: "Perform"
-description: "Run click, fill, and shortcut actions against UI elements"
+title: "Effectuer"
+description: "Exécutez des actions de clic, de remplissage et de raccourci sur les éléments de l'interface utilisateur"
 ---
 
-Use this tool to execute concrete UI interactions after you identify targets with Get Active App Context.
+Utilisez cet outil pour exécuter des interactions concrètes avec l'interface utilisateur après avoir identifié les cibles avec Get Active App Context.
 
-## Supported actions
+## Actions prises en charge
 
-- `click`: click a target element.
-- `fill`: enter text into a text field or textarea.
-- `shortcut`: send keyboard shortcuts (for example `cmd+c`, `ctrl+shift+t`).
+- `click` : cliquez sur un élément cible.
+- `fill` : saisissez du texte dans un champ de texte ou une zone de texte.
+- `shortcut` : envoyer des raccourcis clavier (par exemple `cmd+c`, `ctrl+shift+t`).
 
-## Inputs
+## Entrées
 
-- `elementID` (required for `click` and `fill`): element ID from Get Active App Context output.
-- `text` (required for `fill`): value to insert in the target input.
-- `shortcut` (required for `shortcut`): shortcut string.
-- `windowID` (optional): target a specific window (`pid/title`) instead of the active one.
+- `elementID` (obligatoire pour `click` et `fill`) : ID d'élément de la sortie Get Active App Context.
+- `text` (obligatoire pour `fill`) : valeur à insérer dans l'entrée cible.
+- `shortcut` (obligatoire pour `shortcut`) : chaîne de raccourci.
+- `windowID` (facultatif) : ciblez une fenêtre spécifique (`pid/title`) au lieu de celle active.
 
-## Notes
+## Remarques
 
-- Element IDs expire with UI changes and session timing. Re-read context if an element is no longer valid.
-- For background window targeting, use the same `windowID` across context read and perform steps.
+- Les ID d'élément expirent avec les modifications de l'interface utilisateur et la durée de la session. Relisez le contexte si un élément n’est plus valide.
+- Pour le ciblage de la fenêtre d'arrière-plan, utilisez le même `windowID` dans toutes les étapes de lecture et d'exécution du contexte.
 
-## Good pairing
+## Bon accord
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Wait](/apps-tools/computer-use-wait)
+- [Obtenir le contexte de l'application active](/apps-tools/computer-use-get-active-app-context)
+- [Attendez](/apps-tools/computer-use-wait)

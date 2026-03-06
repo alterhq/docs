@@ -1,175 +1,175 @@
 ---
-title: "Keep Your Data Private with Local AI"
-description: "How to run AI models on your own Mac for sensitive documents and confidential work"
+title: "Gardez vos données privées avec l'IA locale"
+description: "Comment exécuter des modèles d'IA sur votre propre Mac pour les documents sensibles et le travail confidentiel"
 ---
 
 <Info>
-  **Perfect for:** Lawyers, doctors, security researchers, or anyone working with sensitive data who doesn't want it leaving their computer.
+  **Parfait pour :** Les avocats, les médecins, les chercheurs en sécurité ou toute personne travaillant avec des données sensibles et ne souhaitant pas qu'elles quittent leur ordinateur.
 </Info>
 
-## The Concern
+## L'inquiétude
 
-You're working with:
-- Client confidential information
-- Medical records
-- Proprietary business data
-- Personal financial documents
-- Security research
+Vous travaillez avec :
+- Informations confidentielles des clients
+- Dossiers médicaux
+- Données commerciales propriétaires
+- Documents financiers personnels
+- Recherche de sécurité
 
-And you're worried about sending this data to cloud AI services like OpenAI or Google, even if they claim it's private.
+Et vous craignez d'envoyer ces données à des services d'IA cloud comme OpenAI ou Google, même s'ils prétendent qu'elles sont privées.
 
-**The good news:** You don't have to. You can run AI models directly on your Mac.
+**La bonne nouvelle :** Vous n'êtes pas obligé de le faire. Vous pouvez exécuter des modèles d'IA directement sur votre Mac.
 
-## How Local Models Work
+## Comment fonctionnent les modèles locaux
 
-Instead of sending your data to the internet, you download an AI model to your Mac (like downloading a large app) and run it locally. Your data never leaves your computer.
+Au lieu d'envoyer vos données sur Internet, vous téléchargez un modèle d'IA sur votre Mac (comme si vous téléchargiez une grande application) et l'exécutez localement. Vos données ne quittent jamais votre ordinateur.
 
 <CardGroup cols={2}>
   <Card title="100% Private" icon="shield-check">
-    Nothing sent to the cloud. Your data stays on your Mac.
+    Rien n'est envoyé vers le cloud. Vos données restent sur votre Mac.
   </Card>
   <Card title="Works Offline" icon="wifi-slash">
-    Use AI on airplanes, in secure facilities, or anywhere without internet.
+    Utilisez l'IA dans les avions, dans des installations sécurisées ou n'importe où sans Internet.
   </Card>
   <Card title="No API Costs" icon="money-bill">
-    Once downloaded, no per-use fees. Analyze thousands of documents for free.
+    Une fois téléchargé, aucun frais d'utilisation. Analysez des milliers de documents gratuitement.
   </Card>
   <Card title="Faster for Big Files" icon="bolt">
-    No upload/download time. Great for large documents.
+    Pas de temps de chargement/téléchargement. Idéal pour les documents volumineux.
   </Card>
 </CardGroup>
 
-## Setup: Two easy options
+## Configuration : deux options simples
 
-### Option 1: Ollama (Recommended for beginners)
+### Option 1 : Ollama (Recommandé pour les débutants)
 
-Ollama makes running local models as simple as installing an app.
+Ollama rend l'exécution de modèles locaux aussi simple que l'installation d'une application.
 
 <Steps>
   <Step title="Install Ollama">
-    1. Download from [ollama.com](https://ollama.com)
-    2. Install it like any Mac app
-    3. It runs in your menu bar
+    1. Téléchargez depuis [ollama.com] (https://ollama.com)
+    2. Installez-le comme n'importe quelle application Mac
+    3. Il s'exécute dans votre barre de menus
   </Step>
   
-  <Step title="Download a model">
-    Open Terminal and run:
+<Step title="Download a model">
+    Ouvrez Terminal et exécutez :
     ```bash
     ollama pull llama3.1
     ```
     
-    This downloads Meta's Llama 3.1 model (~4.7GB). Other good options:
-    - `ollama pull mistral` (faster, smaller)
-    - `ollama pull codellama` (great for code)
-    - `ollama pull mixtral` (more capable, larger)
+Ceci télécharge le modèle Llama 3.1 de Meta (~ 4,7 Go). Autres bonnes options :
+    - `ollama pull mistral` (plus rapide, plus petit)
+    - `ollama pull codellama` (idéal pour le code)
+    - `ollama pull mixtral` (plus performant, plus grand)
   </Step>
   
-  <Step title="Connect to Alter">
-    1. Open Alter → Settings (`Cmd + ,`)
-    2. Go to **API Keys** tab
-    3. Under **Custom Provider**, select **Ollama**
-    4. Make sure Ollama is running (check your menu bar)
-    5. Toggle **Enable Custom Provider** ON
+<Step title="Connect to Alter">
+    1. Ouvrez Modifier → Paramètres (`Cmd + ,`)
+    2. Accédez à l'onglet **Clés API**
+    3. Sous **Fournisseur personnalisé**, sélectionnez **Ollama**.
+    4. Assurez-vous qu'Ollama est en cours d'exécution (vérifiez votre barre de menu)
+    5. Activez **Activer le fournisseur personnalisé**
   </Step>
   
-  <Step title="Start using it">
-    1. Press `/` in Alter's prompt box
-    2. Look for the **Custom** section
-    3. Select your local model (e.g., "llama3.1")
-    4. Ask anything – it runs entirely on your Mac!
+<Step title="Start using it">
+    1. Appuyez sur `/` dans la boîte de dialogue d'Alter.
+    2. Recherchez la section **Personnalisée**
+    3. Sélectionnez votre modèle local (par exemple, "llama3.1")
+    4. Demandez n'importe quoi – il fonctionne entièrement sur votre Mac !
   </Step>
 </Steps>
 
-### Option 2: LM Studio (More control)
+### Option 2 : LM Studio (Plus de contrôle)
 
-LM Studio gives you a graphical interface to manage models.
+LM Studio vous offre une interface graphique pour gérer les modèles.
 
 <Steps>
   <Step title="Install LM Studio">
-    Download from [lmstudio.ai](https://lmstudio.ai) and install it.
+    Téléchargez depuis [lmstudio.ai] (https://lmstudio.ai) et installez-le.
   </Step>
   
-  <Step title="Download a model">
-    1. Open LM Studio
-    2. Browse the model catalog
-    3. Download one that fits your needs and Mac's specs
-    4. Start the local server (big "Start Server" button)
+<Step title="Download a model">
+    1. Ouvrez LM Studio
+    2. Parcourez le catalogue de modèles
+    3. Téléchargez-en un qui correspond à vos besoins et aux spécifications de Mac
+    4. Démarrez le serveur local (gros bouton "Démarrer le serveur")
   </Step>
   
-  <Step title="Connect to Alter">
-    1. In Alter Settings → **API Keys**
-    2. Select **LM Studio** as the provider
-    3. LM Studio runs on `localhost:1234` by default
-    4. Toggle **Enable Custom Provider** ON
+<Step title="Connect to Alter">
+    1. Dans Modifier les paramètres → **Clés API**
+    2. Sélectionnez **LM Studio** comme fournisseur
+    3. LM Studio fonctionne sur `localhost:1234` par défaut
+    4. Activez **Activer le fournisseur personnalisé**
   </Step>
 </Steps>
 
-## Real-world example
+## Exemple concret
 
-**Dr. Chen, physician:**
-> "I need to analyze patient notes for research, but I can't use cloud AI due to HIPAA. With a local model, I can ask 'What patterns do you see in these symptoms?' and get AI assistance while keeping everything on my secure laptop."
+**Dr. Chen, médecin :**
+> « J'ai besoin d'analyser les notes des patients à des fins de recherche, mais je ne peux pas utiliser l'IA cloud en raison de la loi HIPAA. Avec un modèle local, je peux demander : « Quels modèles voyez-vous dans ces symptômes ? » et bénéficiez de l'assistance de l'IA tout en gardant tout sur mon ordinateur portable sécurisé."
 
-**Alex, security researcher:**
-> "I analyze malware reports and can't upload them anywhere. Running a local model means I can ask 'What indicators of compromise are mentioned?' without risking data exposure."
+**Alex, chercheur en sécurité :**
+> « J'analyse les rapports sur les logiciels malveillants et je ne peux les télécharger nulle part. L'exécution d'un modèle local signifie que je peux demander « Quels indicateurs de compromission sont mentionnés ? » sans risquer d'exposer les données.
 
-## Trade-offs to know about
+## Compromis à connaître
 
 <AccordionGroup>
   <Accordion icon="gauge" title="Speed vs Privacy">
-    **Cloud models:** Faster, more capable
-    **Local models:** Slower, but completely private
+    **Modèles cloud :** Plus rapides, plus performants
+    **Modèles locaux :** Plus lent, mais complètement privé
     
-    A MacBook Pro with 16GB RAM can run small models smoothly. For larger models, you'll want 32GB+ RAM.
+Un MacBook Pro doté de 16 Go de RAM peut faire fonctionner de petits modèles en douceur. Pour les modèles plus grands, vous aurez besoin de plus de 32 Go de RAM.
   </Accordion>
   
-  <Accordion icon="brain" title="Capability differences">
-    Local models are getting better every month, but cloud models (GPT-4, Claude) are still more capable for complex reasoning. 
+<Accordion icon="brain" title="Capability differences">
+    Les modèles locaux s'améliorent chaque mois, mais les modèles cloud (GPT-4, Claude) sont encore plus capables de raisonnement complexe.
     
-    **Best approach:** Use local models for sensitive data, cloud models for less sensitive complex tasks.
+**Meilleure approche :** Utilisez des modèles locaux pour les données sensibles et des modèles cloud pour les tâches complexes moins sensibles.
   </Accordion>
   
-  <Accordion icon="hard-drive" title="Storage requirements">
-    Models range from 4GB to 70GB+. Make sure you have enough disk space.
+<Accordion icon="hard-drive" title="Storage requirements">
+    Les modèles vont de 4 Go à 70 Go+. Assurez-vous de disposer de suffisamment d'espace disque.
     
-    **Good starter models:**
-    - Llama 3.1 8B (~4.7GB) – Fast, decent quality
-    - Mistral 7B (~4.1GB) – Good balance
-    - Mixtral 8x7B (~26GB) – Higher quality, needs more RAM
+**Bons modèles de démarrage :**
+    - Llama 3.1 8B (~ 4,7 Go) – Qualité rapide et décente
+    - Mistral 7B (~4,1 Go) – Bon équilibre
+    - Mixtral 8x7B (~ 26 Go) – Qualité supérieure, nécessite plus de RAM
   </Accordion>
 </AccordionGroup>
 
-## Best practices for private workflows
+## Bonnes pratiques pour les workflows privés
 
 <Tip>
-  **Use specific Actions for sensitive tasks:** Create Alter Actions configured to always use your local model. That way you never accidentally use a cloud model for sensitive work.
+  **Utilisez des actions spécifiques pour les tâches sensibles :** Créez des actions de modification configurées pour toujours utiliser votre modèle local. De cette façon, vous n’utiliserez jamais accidentellement un modèle cloud pour un travail sensible.
 </Tip>
 
 <Tip>
-  **Set up a privacy workspace:** Create a workspace just for sensitive documents. This keeps them organized and reminds you to use local models.
+  **Configurez un espace de travail de confidentialité :** Créez un espace de travail réservé aux documents sensibles. Cela les maintient organisés et vous rappelle d’utiliser des modèles locaux.
 </Tip>
 
 <Tip>
-  **Verify it's working:** After setting up, disconnect from WiFi and try using Alter. If it still works with your local model, you know it's truly local.
+  **Vérifiez que cela fonctionne :** Après la configuration, déconnectez-vous du WiFi et essayez d'utiliser Alter. Si cela fonctionne toujours avec votre modèle local, vous savez que c'est vraiment local.
 </Tip>
 
-## When to use what
+## Quand utiliser quoi
 
-| Scenario | Recommendation |
-|----------|---------------|
-| Medical records | Local model (Ollama/LM Studio) |
-| Legal documents | Local model |
-| Security research | Local model |
-| Financial analysis | Local model or Alter Cloud with Pro plan |
-| Creative writing | Cloud models (better creativity) |
-| General questions | Cloud models (faster) |
-| Code assistance | Either works well |
+| Scénario | Recommandation |
+|--------------|--------------------|
+| Dossiers médicaux | Modèle local (Ollama/LM Studio) |
+| Documents juridiques | Modèle local |
+| Recherche sur la sécurité | Modèle local |
+| Analyse financière | Modèle local ou Alter Cloud avec plan Pro |
+| Écriture créative | Modèles cloud (meilleure créativité) |
+| Questions générales | Modèles cloud (plus rapides) |
+| Aide au codage | L'un ou l'autre fonctionne bien |
 
-## Related resources
+## Ressources associées
 
-- [How to use your own API key](/how-to/use-byok) – Step-by-step setup guide
-- [How to access settings](/how-to/settings-guide) – Open settings and configure providers
-- [General FAQ](/references/general-faq) – Model and provider basics
+- [Comment utiliser votre propre clé API](/how-to/use-byok) – Guide de configuration étape par étape
+- [Comment accéder aux paramètres](/how-to/settings-guide) – Ouvrir les paramètres et configurer les fournisseurs
+- [FAQ générale](/references/general-faq) – Bases du modèle et du fournisseur
 
 ---
 
-**Ready to go private?** Start with Ollama and the Llama 3.1 model. It's free, easy to set up, and you'll have AI assistance that never leaves your Mac!
+**Prêt à devenir privé ?** Commencez par Ollama et le modèle Llama 3.1. C'est gratuit, facile à configurer et vous bénéficierez d'une assistance IA qui ne quitte jamais votre Mac !

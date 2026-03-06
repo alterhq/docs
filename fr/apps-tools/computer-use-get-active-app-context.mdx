@@ -1,29 +1,29 @@
 ---
-title: "Get Active App Context"
-description: "Capture active window content and OCR text for Computer Use workflows"
+title: "Obtenir le contexte d'application actif"
+description: "Capturez le contenu de la fenêtre active et le texte OCR pour les flux de travail d'utilisation de l'ordinateur"
 ---
 
-Use this tool to read what is currently visible in an app or browser window before taking action.
+Utilisez cet outil pour lire ce qui est actuellement visible dans une application ou une fenêtre de navigateur avant d'agir.
 
-## What it does
+## Ce que ça fait
 
-- Retrieves content from the active app window by default.
-- Accepts optional `windowID` (`pid/title`) to target a specific window.
-- Returns extracted text content.
-- Adds OCR text from screenshots when useful.
+- Récupère le contenu de la fenêtre de l'application active par défaut.
+- Accepte facultatif `windowID` (`pid/title`) pour cibler une fenêtre spécifique.
+- Renvoie le contenu du texte extrait.
+- Ajoute du texte OCR à partir de captures d'écran lorsque cela est utile.
 
-## Common uses
+## Utilisations courantes
 
-- Read page or app state before clicking.
-- Extract visible content for summaries.
-- Build a stable context before multi-step automation.
+- Lisez l'état de la page ou de l'application avant de cliquer.
+- Extrayez le contenu visible pour les résumés.
+- Créez un contexte stable avant l'automatisation en plusieurs étapes.
 
-## Input
+## Saisir
 
-- `windowID` (optional): target a specific window from `list_windows`.
+- `windowID` (facultatif) : ciblez une fenêtre spécifique depuis `list_windows`.
 
-## Good pairing
+## Bon accord
 
-- [Perform](/apps-tools/computer-use-perform)
-- [Scroll](/apps-tools/computer-use-scroll)
-- [Wait](/apps-tools/computer-use-wait)
+- [Effectuer](/apps-tools/computer-use-perform)
+- [Défilement](/apps-tools/computer-use-scroll)
+- [Attendez](/apps-tools/computer-use-wait)
