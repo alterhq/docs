@@ -1269,10 +1269,10 @@
         "language": "ja",
         "tabs": [
           {
-            "tab": "Getting Started",
+            "tab": "はじめる",
             "groups": [
               {
-                "group": "Start Here",
+                "group": "ここから始めましょう",
                 "pages": [
                   "ja/index",
                   "ja/quickstart",
@@ -1294,10 +1294,10 @@
             ]
           },
           {
-            "tab": "Workflows",
+            "tab": "ワークフロー",
             "groups": [
               {
-                "group": "Communication",
+                "group": "コミュニケーション",
                 "pages": [
                   "ja/workflows/manage-mail-with-alter",
                   "ja/workflows/send-messages-with-alter",
@@ -1305,7 +1305,7 @@
                 ]
               },
               {
-                "group": "Planning and Meetings",
+                "group": "企画と打ち合わせ",
                 "pages": [
                   "ja/workflows/manage-calendar-with-alter",
                   "ja/workflows/plan-places-and-routes-with-alter-maps",
@@ -1315,7 +1315,7 @@
                 ]
               },
               {
-                "group": "Capture and Knowledge",
+                "group": "捕獲と知識",
                 "pages": [
                   "ja/workflows/manage-notes-with-alter",
                   "ja/workflows/summarize-x-feed-with-computer-use",
@@ -1323,7 +1323,7 @@
                 ]
               },
               {
-                "group": "Automation",
+                "group": "オートメーション",
                 "pages": [
                   "ja/workflows/manage-reminders-with-alter",
                   "ja/workflows/workspaces-actions",
@@ -1347,17 +1347,17 @@
             ]
           },
           {
-            "tab": "Apps & Tools",
+            "tab": "アプリとツール",
             "groups": [
               {
-                "group": "Integrations",
+                "group": "統合",
                 "pages": [
                   "ja/apps-tools/integrations-overview",
                   "ja/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "Mac Apps",
+                "group": "Mac アプリ",
                 "pages": [
                   "ja/apps-tools/mail",
                   "ja/apps-tools/calendar",
@@ -1369,7 +1369,7 @@
                 ]
               },
               {
-                "group": "Computer Use",
+                "group": "コンピュータの使用",
                 "pages": [
                   "ja/apps-tools/computer-use",
                   "ja/apps-tools/computer-use-get-active-app-context",
@@ -1381,10 +1381,10 @@
             ]
           },
           {
-            "tab": "How to",
+            "tab": "方法",
             "groups": [
               {
-                "group": "Quick Tasks",
+                "group": "クイックタスク",
                 "pages": [
                   "ja/how-to/change-hotkey",
                   "ja/how-to/choose-language",
@@ -1393,7 +1393,7 @@
                 ]
               },
               {
-                "group": "Manage and configure",
+                "group": "管理と構成",
                 "pages": [
                   "ja/how-to/settings-guide",
                   "ja/how-to/tool-manager-guide",
@@ -1403,10 +1403,10 @@
             ]
           },
           {
-            "tab": "Troubleshooting",
+            "tab": "トラブルシューティング",
             "groups": [
               {
-                "group": "Common Issues",
+                "group": "よくある問題",
                 "pages": [
                   "ja/common-issues/mic-not-transcribing",
                   "ja/common-issues/hotkey-not-working",
@@ -1418,10 +1418,10 @@
             ]
           },
           {
-            "tab": "Reference",
+            "tab": "参照",
             "groups": [
               {
-                "group": "Quick Reference",
+                "group": "クイックリファレンス",
                 "pages": [
                   "ja/references/faq-core",
                   "ja/references/general-faq",
@@ -1431,7 +1431,7 @@
                 ]
               },
               {
-                "group": "Assets",
+                "group": "資産",
                 "pages": [
                   "ja/references/image-library"
                 ]
@@ -1439,16 +1439,16 @@
             ]
           },
           {
-            "tab": "API Router",
+            "tab": "APIルーター",
             "groups": [
               {
-                "group": "Getting Started",
+                "group": "はじめる",
                 "pages": [
                   "ja/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway & Router",
+                "group": "ゲートウェイとルーター",
                 "pages": [
                   "ja/api-router/api-gateway",
                   "ja/api-router/development",
@@ -1456,7 +1456,7 @@
                 ]
               },
               {
-                "group": "App Integrations",
+                "group": "アプリの統合",
                 "pages": [
                   "ja/api-router/app-integrations",
                   "ja/api-router/typingmind",
@@ -1464,7 +1464,7 @@
                 ]
               },
               {
-                "group": "Reference",
+                "group": "参照",
                 "pages": [
                   "ja/references/api-model-names"
                 ]

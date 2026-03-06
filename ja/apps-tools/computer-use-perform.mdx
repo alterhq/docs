@@ -1,29 +1,29 @@
 ---
-title: "Perform"
-description: "Run click, fill, and shortcut actions against UI elements"
+title: "実行する"
+description: "UI 要素に対してクリック、塗りつぶし、ショートカット アクションを実行する"
 ---
 
-Use this tool to execute concrete UI interactions after you identify targets with Get Active App Context.
+Get Active App Context でターゲットを特定した後、このツールを使用して具体的な UI インタラクションを実行します。
 
-## Supported actions
+## サポートされているアクション
 
-- `click`: click a target element.
-- `fill`: enter text into a text field or textarea.
-- `shortcut`: send keyboard shortcuts (for example `cmd+c`, `ctrl+shift+t`).
+- `click`: 対象の要素をクリックします。
+- `fill`: テキストフィールドまたはテキストエリアにテキストを入力します。
+- `shortcut`: キーボード ショートカットを送信します (例: `cmd+c`、`ctrl+shift+t`)。
 
-## Inputs
+## 入力
 
-- `elementID` (required for `click` and `fill`): element ID from Get Active App Context output.
-- `text` (required for `fill`): value to insert in the target input.
-- `shortcut` (required for `shortcut`): shortcut string.
-- `windowID` (optional): target a specific window (`pid/title`) instead of the active one.
+- `elementID` (`click` および `fill` に必須): アクティブなアプリ コンテキストの取得出力からの要素 ID。
+- `text` (`fill` には必須): ターゲット入力に挿入する値。
+- `shortcut` (`shortcut` には必須): ショートカット文字列。
+- `windowID` (オプション): アクティブなウィンドウではなく、特定のウィンドウ (`pid/title`) をターゲットにします。
 
-## Notes
+## 注意事項
 
-- Element IDs expire with UI changes and session timing. Re-read context if an element is no longer valid.
-- For background window targeting, use the same `windowID` across context read and perform steps.
+- 要素 ID は、UI の変更やセッションのタイミングによって期限切れになります。要素が有効でなくなった場合は、コンテキストを再読み取りします。
+- バックグラウンド ウィンドウ ターゲティングの場合、コンテキスト読み取りと実行ステップ全体で同じ `windowID` を使用します。
 
-## Good pairing
+## 良い組み合わせ
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Wait](/apps-tools/computer-use-wait)
+- [アクティブなアプリ コンテキストを取得](/apps-tools/computer-use-get-active-app-context)
+- [お待ちください](/apps-tools/computer-use-wait)

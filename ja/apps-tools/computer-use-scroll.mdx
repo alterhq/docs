@@ -1,28 +1,28 @@
 ---
-title: "Scroll"
-description: "Scroll active app windows in Computer Use flows"
+title: "スクロール"
+description: "コンピューター使用フローでアクティブなアプリ ウィンドウをスクロールする"
 ---
 
-Use Scroll when target content is outside the current viewport.
+ターゲット コンテンツが現在のビューポートの外側にある場合は、スクロールを使用します。
 
-## What it does
+## 何をするのか
 
-- Scrolls in the frontmost app window.
-- Supports direction: `up`, `down`, `left`, `right`.
-- Runs for a timed duration.
+- 最前面のアプリウィンドウをスクロールします。
+- サポート方向: `up`、`down`、`left`、`right`。
+- 一定時間実行します。
 
-## Inputs
+## 入力
 
-- `seconds` (optional): duration to scroll (default 3, max 3600).
-- `direction` (optional): `up`, `down`, `left`, or `right` (default `down`).
+- `seconds` (オプション): スクロールする期間 (デフォルトは 3、最大 3600)。
+- `direction` (オプション): `up`、`down`、`left`、または `right` (デフォルトは `down`)。
 
-## Typical use
+## 一般的な使用方法
 
-- Bring hidden elements into view before calling Perform.
-- Continue page traversal before re-reading with Get Active App Context.
+- Perform を呼び出す前に、非表示の要素を表示します。
+- Get Active App Context を使用して再読み取りする前に、ページの移動を続行します。
 
-## Good pairing
+## 良い組み合わせ
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
-- [Perform](/apps-tools/computer-use-perform)
-- [Wait](/apps-tools/computer-use-wait)
+- [アクティブなアプリ コンテキストを取得](/apps-tools/computer-use-get-active-app-context)
+- [実行](/apps-tools/computer-use-perform)
+- [お待ちください](/apps-tools/computer-use-wait)

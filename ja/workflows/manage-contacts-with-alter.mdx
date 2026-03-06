@@ -1,71 +1,71 @@
 ---
-title: "Manage contacts with Alter"
-description: "What Alter can currently do with Apple Contacts, with practical prompts and setup"
+title: "Alter で連絡先を管理する"
+description: "実際のプロンプトと設定を使用して、Alter が Apple 連絡先で現在できること"
 ---
 
-This workflow helps you keep your contact book accurate before messaging, emailing, or planning follow-ups.
+このワークフローは、メッセージを送信したり、電子メールを送信したり、フォローアップを計画したりする前に、連絡先帳を正確に保つのに役立ちます。
 
-## What this helps you do
+## これが役立つこと
 
-Use Alter to clean and maintain contact data while you work. You can search people quickly, add missing details, and keep groups organized without opening Contacts for every edit.
+Alter を使用して、作業中に連絡先データをクリーンアップおよび保守します。編集のたびに連絡先を開かなくても、人をすばやく検索したり、不足している詳細を追加したり、グループを整理したりすることができます。
 
-## Works with
+## で動作します
 
-- App: Apple Contacts
-- Tool type: Local tool
-- Permissions: Contacts
+- アプリ: Apple 連絡先
+- ツールの種類: ローカルツール
+- 権限: 連絡先
 
-## What Alter can do today
+## オルタが今できること
 
-Alter can find contacts by name/email/phone, list contacts by group, create new contacts, update existing records, and delete contacts with explicit confirmation.
+Alter は、名前/電子メール/電話で連絡先を検索したり、グループごとに連絡先をリストしたり、新しい連絡先を作成したり、既存のレコードを更新したり、明示的な確認を行って連絡先を削除したりできます。
 
-## What Alter cannot do yet
+## Alter でまだできないこと
 
-Update and delete actions are ID-based behind the scenes, so the best user flow is usually lookup first, then edit/delete.
+更新および削除アクションはバックグラウンドで ID ベースで行われるため、通常は最初に検索し、次に編集/削除するのが最適なユーザー フローです。
 
-## A realistic workflow
+## 現実的なワークフロー
 
 <Steps>
   <Step title="Find the person first">
-    Ask Alter to find the contact by name.
+    Alter に連絡先を名前で検索してもらいます。
   </Step>
   <Step title="Apply updates">
-    Add missing phone/email/company details or assign group info.
+    不足している電話/メール/会社の詳細を追加するか、グループ情報を割り当てます。
   </Step>
   <Step title="Use contact in next action">
-    Reuse that contact for Mail, Messages, or planning workflows.
+    その連絡先をメール、メッセージ、または計画ワークフローに再利用します。
   </Step>
 </Steps>
 
-## Copy/paste prompts
+## プロンプトのコピー/貼り付け
 
-- "Find contact Sarah Martin."
-- "List 20 contacts in the Work group."
-- "Create contact: first name Alex, last name Chen, work email alex@company.com, mobile +33612345678."
-- "Update contact [contact id] and add work email alex.chen@company.com."
-- "Delete contact [contact id] and confirm yes."
+- 「サラ・マーティンの連絡先を探してください。」
+- 「ワークグループの連絡先を 20 件リストします。」
+- 「連絡先を作成します: 名 Alex、姓 Chen、仕事用電子メール alex@company.com、携帯電話 +33612345678」
+- 「連絡先 [連絡先 ID] を更新し、仕事用電子メール alex.chen@company.com を追加してください。」
+- 「連絡先 [連絡先 ID] を削除し、はいを確認してください。」
 
-## How to enable
+## 有効にする方法
 
 <Steps>
   <Step title="Enable Contacts in Tools Manager">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Contacts**.
+    Alter を開く -> 3 つの点をクリック -> **ツール マネージャー** -> **ローカル ツール** -> **連絡先**を有効にします。
   </Step>
   <Step title="Allow Contacts permission">
-    On first use, macOS asks for Contacts access. Allow access for Alter.
+    初めて使用するとき、macOS は連絡先へのアクセスを要求します。 Alter のアクセスを許可します。
   </Step>
   <Step title="Run a quick test">
-    Ask: "Find contact John." If results appear, setup is complete.
+    「ジョンの連絡先を探して」と尋ねます。結果が表示されればセットアップは完了です。
   </Step>
 </Steps>
 
-## What to expect
+## 期待されること
 
-- Many actions work best after a lookup step because updates/deletes use contact IDs.
-- Deletion is protected by explicit confirmation (`confirm yes`).
+- 更新/削除には連絡先 ID が使用されるため、多くのアクションは検索ステップの後で最も効果的に機能します。
+- 削除は明示的な確認 (`confirm yes`) によって保護されます。
 
-## Related pages
+## 関連ページ
 
-- [Contacts app capabilities](/apps-tools/contacts)
-- [Send iMessages faster](/workflows/send-messages-with-alter)
-- [Check unread emails and draft replies](/workflows/manage-mail-with-alter)
+- [連絡先アプリの機能](/apps-tools/contacts)
+- [iMessage をより速く送信](/workflows/send-messages-with-alter)
+- [未読メールと返信の下書きを確認する](/workflows/manage-mail-with-alter)

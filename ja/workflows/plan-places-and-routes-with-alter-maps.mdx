@@ -1,72 +1,72 @@
 ---
-title: "Plan places and routes with Alter Maps"
-description: "What Alter can currently do with Apple Maps, with practical prompts and setup"
+title: "Alter Maps を使用して場所とルートを計画する"
+description: "実際のプロンプトとセットアップを使用して、Alter が現在 Apple Maps でできること"
 ---
 
-This workflow helps you go from "Where should I go?" to "How do I get there?" in a few prompts.
+このワークフローは、「どこに行けばよいですか?」から進むのに役立ちます。 「どうやってそこに行きますか？」いくつかのプロンプトで。
 
-## What this helps you do
+## これが役立つこと
 
-Use Alter Maps workflows for practical travel decisions: find a place, compare nearby options, and get route guidance quickly.
+Alter Maps ワークフローを使用すると、場所を検索し、近くの選択肢を比較し、ルート案内をすばやく取得するなど、実際的な旅行の意思決定を行うことができます。
 
-## Works with
+## で動作します
 
-- App: Apple Maps
-- Tool type: Local tool
-- Permissions: Location (optional, needed for "near me" flows)
+- アプリ: Apple マップ
+- ツールの種類: ローカルツール
+- 権限: 場所 (オプション、「近くの」フローに必要)
 
-## What Alter can do today
+## オルタが今できること
 
-Alter can search places by name/address, find nearby places by category, and return directions between two locations with transport mode options.
+Alter は、名前/住所で場所を検索したり、近くの場所をカテゴリで検索したり、交通モード オプションを使用して 2 つの場所間の道順を返したりすることができます。
 
-## What Alter does not do yet
+## Alter がまだ実行していないこと
 
-- ETA-specific tool responses are not currently exposed in the active tool set.
-- Static map image generation is not currently exposed in the active tool set.
+- ETA 固有のツール応答は、現在アクティブなツール セットでは公開されていません。
+- 静的マップ イメージの生成は、現在アクティブなツール セットでは公開されていません。
 
 ## A realistic workflow
 
 <Steps>
   <Step title="Discover options">
-    Ask for nearby places in a category (for example restaurants or pharmacies).
+    カテゴリ内の近くの場所 (レストランや薬局など) を尋ねます。
   </Step>
   <Step title="Pick destination">
-    Choose one result from the list with address or name.
+    住所または名前のリストから結果を 1 つ選択します。
   </Step>
   <Step title="Get route">
-    Ask for directions from your origin to that destination with your preferred transport type.
+    ご希望の交通手段を使用して、出発地から目的地までの道順を尋ねます。
   </Step>
 </Steps>
 
-## Copy/paste prompts
+## プロンプトのコピー/貼り付け
 
-- "Find coffee shops near me."
-- "Find hotels near 48.8566, 2.3522 within 5km."
-- "Search for 'Gare de Lyon, Paris'."
-- "Get driving directions from 10 Downing Street London to Heathrow Airport."
-- "Get transit directions from Times Square to JFK Airport."
+- 「近くのコーヒーショップを探してください。」
+- 「5km以内の48.8566、2.3522付近のホテルを検索」
+- 「「パリ リヨン駅」を検索してください。」
+- 「ロンドン ダウニング ストリート 10 番地からヒースロー空港までの車での行き方を確認します。」
+- 「タイムズスクエアからJFK空港までの乗換案内を取得します。」
 
-## How to enable
+## 有効にする方法
 
 <Steps>
   <Step title="Enable Maps in Tools Manager">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Maps**.
+    Alter を開く -> 3 つの点をクリック -> **ツール マネージャー** -> **ローカル ツール** -> **マップ**を有効にします。
   </Step>
   <Step title="Allow Location permission if needed">
-    If you ask for nearby places without coordinates, Alter may request Location access.
+    座標なしで近くの場所を尋ねた場合、Alter は位置情報へのアクセスを要求する場合があります。
   </Step>
   <Step title="Run a quick test">
-    Ask: "Find restaurants near me." Then ask for directions to one result.
+    「近くのレストランを探して」と尋ねます。次に、1 つの結果への道順を尋ねます。
   </Step>
 </Steps>
 
-## What to expect
+## 期待されること
 
-- Place results include practical details (address, phone, and map link when available).
-- Nearby search works best with either your current location permission enabled or explicit coordinates.
+- 場所の結果には実用的な詳細 (住所、電話番号、地図リンクがある場合) が含まれます。
+- 付近の検索は、現在の位置情報の許可が有効になっているか、明示的な座標が指定されている場合に最適に機能します。
 
-## Related pages
+## 関連ページ
 
-- [Maps app capabilities](/apps-tools/maps)
-- [Use Tool Manager](/how-to/tool-manager-guide)
-- [Tools Not Working](/common-issues/tool-not-working)
+- [マップ アプリの機能](/apps-tools/maps)
+- [ツールマネージャーを使用](/how-to/tool-manager-guide)
+- [ツールが動作しない](/common-issues/tool-not-working)

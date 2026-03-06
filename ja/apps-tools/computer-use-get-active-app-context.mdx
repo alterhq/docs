@@ -1,29 +1,29 @@
 ---
-title: "Get Active App Context"
-description: "Capture active window content and OCR text for Computer Use workflows"
+title: "アクティブなアプリコンテキストの取得"
+description: "コンピュータ使用ワークフローのためにアクティブなウィンドウのコンテンツと OCR テキストをキャプチャします"
 ---
 
-Use this tool to read what is currently visible in an app or browser window before taking action.
+このツールを使用して、アクションを実行する前にアプリまたはブラウザ ウィンドウに現在表示されている内容を読み取ります。
 
-## What it does
+## 何をするのか
 
-- Retrieves content from the active app window by default.
-- Accepts optional `windowID` (`pid/title`) to target a specific window.
-- Returns extracted text content.
-- Adds OCR text from screenshots when useful.
+- デフォルトでは、アクティブなアプリ ウィンドウからコンテンツを取得します。
+- オプションの `windowID` (`pid/title`) を受け入れて、特定のウィンドウをターゲットにします。
+- 抽出されたテキストコンテンツを返します。
+- 役立つ場合は、スクリーンショットから OCR テキストを追加します。
 
-## Common uses
+## 一般的な用途
 
-- Read page or app state before clicking.
-- Extract visible content for summaries.
-- Build a stable context before multi-step automation.
+- クリックする前にページまたはアプリの状態を読み取ります。
+- 要約用に表示されるコンテンツを抽出します。
+- マルチステップの自動化の前に、安定したコンテキストを構築します。
 
-## Input
+## 入力
 
-- `windowID` (optional): target a specific window from `list_windows`.
+- `windowID` (オプション): `list_windows` からの特定のウィンドウをターゲットにします。
 
-## Good pairing
+## 良い組み合わせ
 
-- [Perform](/apps-tools/computer-use-perform)
-- [Scroll](/apps-tools/computer-use-scroll)
-- [Wait](/apps-tools/computer-use-wait)
+- [実行](/apps-tools/computer-use-perform)
+- [スクロール](/apps-tools/computer-use-scroll)
+- [お待ちください](/apps-tools/computer-use-wait)

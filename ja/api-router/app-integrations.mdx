@@ -1,32 +1,32 @@
 ---
-title: "API Router とのアプリ連携"
-description: "サードパーティアプリを Alter API Router に接続する"
+title: "API Routerとの連携アプリ"
+description: "サードパーティアプリをAlter API Routerに接続する"
 ---
 
-外部アプリを Alter API Router と連携する際に、このガイドを使用してください。
+外部アプリをAlter API Routerと連携する国際的に、このガイドをご利用ください。
 
 ## 連携ガイド
 
 <CardGroup cols={2}>
   <Card title="TypingMind" icon="plug" href="/ja/api-router/typingmind">
-    TypingMind で Alter の endpoint と headers を使い、カスタム OpenAI Chat Completions モデルを設定します。
+    TypingMind で Alter のエンドポイントとヘッダーを使い、カスタム OpenAI Chat Completions モデルを設定します。
   </Card>
   <Card title="Msty.ai" icon="plug" href="/ja/api-router/msty">
-    Msty.ai で Alter endpoint、API key、モデル ID 形式を設定します。
+    Msty.aiでAlterエンドポイント、APIキー、モデルID形式を設定します。
   </Card>
   <Card title="一般セットアップパターン" icon="book-open" href="/ja/api-router/api-gateway">
-    多くの OpenAI 互換アプリで使う base URL、API key の扱い、モデル ID 形式です。
+    多くのOpenAI互換アプリで使うベースURL、APIキーの扱い、モデルIDの形式です。
   </Card>
 </CardGroup>
 
 ## 連携チェックリスト
 
-1. base URL を `https://alterhq.com/api` に設定する（必要なら `/v1`）
-2. 認証 header を `Authorization: Bearer YOUR_API_KEY` に設定する
-3. モデル ID は `Provider#Model-name` 形式を使う
-4. 初回リクエスト前にモデル一覧を取得する
+1.ベースURLを`https://alterhq.com/api`に設定する（必要なら`/v1`）
+2.認証ヘッダーを`Authorization: Bearer YOUR_API_KEY`に設定する
+3.モデルIDは`Provider#Model-name`形式を使う
+4.初回リクエスト前にモデル一覧を取得する
 
 ## 関連
 
-- [API Router 概要](/ja/references/api-router-overview)
-- [API モデルリファレンス](/ja/references/api-model-names)
+- [APIルーター概要](/ja/references/api-router-overview)
+- [APIモデル考察](/ja/references/api-model-names)

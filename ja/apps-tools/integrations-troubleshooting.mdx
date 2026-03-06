@@ -1,36 +1,36 @@
 ---
-title: "Troubleshooting"
-description: "Fix common integration and tool issues in Alter"
+title: "トラブルシューティング"
+description: "Alter での一般的な統合とツールの問題を修正"
 ---
 
-Use this page when integrations are connected but not behaving as expected.
+統合が接続されているが期待どおりに動作しない場合は、このページを使用します。
 
-## Quick checks
+## クイックチェック
 
-1. Re-open **Tools Manager** and confirm the relevant tool is enabled.
-2. Confirm your selected model supports tools.
-3. Re-test with one simple prompt before running multi-step flows.
+1. **ツール マネージャー**を再度開き、関連するツールが有効になっていることを確認します。
+2. 選択したモデルがツールをサポートしていることを確認します。
+3. 複数ステップのフローを実行する前に、1 つの単純なプロンプトで再テストします。
 
-## Common issues
+## よくある問題
 
-### Tool does not run
+### ツールが実行されない
 
-- Verify required input fields are present in your prompt.
-- Disable unrelated tools to reduce routing ambiguity.
-- Re-authenticate the integration if it uses external credentials.
+- 必須の入力フィールドがプロンプトに存在することを確認します。
+- ルーティングの曖昧さを減らすために、無関係なツールを無効にします。
+- 外部認証情報を使用する場合は、統合を再認証します。
 
-### Assistant answers without using tools
+### アシスタントはツールを使用せずに回答します
 
-- Switch to a tool-capable model.
-- Ask with an explicit action request (for example, "create", "send", "add").
+- ツール対応モデルに切り替えます。
+- 明示的なアクション要求 (「作成」、「送信」、「追加」など) を使用して尋ねます。
 
-### Connection appears valid but calls fail
+### 接続は有効に見えますが、通話は失敗します
 
-- Check account scope and app permissions in the provider.
-- Retry with a minimal test action to isolate the failing step.
+- プロバイダーのアカウントのスコープとアプリの権限を確認します。
+- 失敗したステップを特定するために、最小限のテスト アクションで再試行します。
 
-## Where to go next
+## 次にどこへ行くか
 
-- [Tool Manager guide](/how-to/tool-manager-guide)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Tools not working](/common-issues/tool-not-working)
+- [ツールマネージャーガイド](/how-to/tool-manager-guide)
+- [統合の概要](/apps-tools/integrations-overview)
+- [ツールが動作しない](/common-issues/tool-not-working)

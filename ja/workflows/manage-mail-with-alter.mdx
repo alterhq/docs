@@ -1,86 +1,86 @@
 ---
-title: "Check unread emails and draft replies with Alter"
-description: "What Alter can currently do with Apple Mail, with practical prompts and setup"
+title: "Alter で未読メールと返信の下書きを確認する"
+description: "Alter が Apple Mail で現在実行できること (実用的なプロンプトと設定)"
 ---
 
-This workflow is for lightweight mail support: seeing unread messages and preparing drafts quickly.
+このワークフローは、未読メッセージを確認し、下書きを迅速に準備する、軽量メール サポート用です。
 
-## What this helps you do
+## これが役立つこと
 
-If you want a fast inbox check and a ready-to-review draft, Apple Mail local tools are enough. It is best for "read + draft" moments, not full mailbox automation.
+受信箱を迅速にチェックし、すぐにレビューできる下書きが必要な場合は、Apple Mail のローカル ツールで十分です。メールボックスの完全な自動化ではなく、「読み取り + 下書き」の瞬間に最適です。
 
-## Works with
+## で動作します
 
-- App: Apple Mail
-- Tool type: Local tool
-- Permissions: Mail automation
+- アプリ: Apple Mail
+- ツールの種類: ローカルツール
+- 権限: メールの自動化
 
-## What Alter can do today
+## オルタが今できること
 
-Alter can list unread messages across mailboxes and generate a new draft email in Mail with the context you provide.
+Alter は、メールボックス全体の未読メッセージを一覧表示し、指定されたコンテキストを使用してメールに新しい下書き電子メールを生成できます。
 
-## What Alter does not do yet
+## Alter がまだ実行していないこと
 
-- It cannot reply directly inside an existing email thread.
-- It cannot send an email automatically from this tool (it creates drafts for review).
-- It cannot delete, archive, label, or bulk-process emails.
+- 既存の電子メール スレッド内で直接返信することはできません。
+- このツールから電子メールを自動的に送信することはできません (レビュー用の下書きが作成されます)。
+- 電子メールの削除、アーカイブ、ラベル付け、または一括処理はできません。
 
-## When to use Gmail or Outlook integrations instead
+## 代わりに Gmail または Outlook 統合を使用する場合
 
-If you need advanced email workflows (thread-aware replies, send actions, labeling, archiving, rules, and broader mailbox automation), use external integrations like Gmail or Outlook from the Integrations catalog.
+高度な電子メール ワークフロー (スレッド対応の返信、送信アクション、ラベル付け、アーカイブ、ルール、および広範なメールボックスの自動化) が必要な場合は、統合カタログにある Gmail や Outlook などの外部統合を使用してください。
 
-## Typical workflows
+## 一般的なワークフロー
 
-### Quick inbox check
+### 受信箱のクイックチェック
 
-Ask for a short unread list, identify priority messages, then open Mail for final handling.
+短い未読リストを要求し、優先メッセージを特定してから、最終処理のためにメールを開いてください。
 
-### Draft first reply fast
+### 最初の返信の下書きを迅速に作成する
 
-Ask Alter to draft a response to a specific recipient, then review and send from Mail.
+Alter に特定の受信者への返信の下書きを依頼し、確認してメールから送信します。
 
-## A realistic workflow
+## 現実的なワークフロー
 
 <Steps>
   <Step title="Scan unread mail">
-    Ask Alter to show 5-10 unread emails so you can prioritize.
+    優先順位を付けられるように、Alter に 5 ～ 10 件の未読メールを表示するように依頼します。
   </Step>
   <Step title="Draft response">
-    Ask Alter to create a draft for the top message.
+    Alter にトップメッセージの下書きを作成するよう依頼します。
   </Step>
   <Step title="Review and send">
-    Open the draft in Mail, edit if needed, then send manually.
+    メールで下書きを開き、必要に応じて編集して、手動で送信します。
   </Step>
 </Steps>
 
-## Copy/paste prompts
+## プロンプトのコピー/貼り付け
 
-- "Show my 10 latest unread emails."
-- "Show only 5 unread emails so I can triage quickly."
-- "Draft an email to alex@company.com with subject 'Q2 Planning' and summarize our next steps."
-- "Create a draft reply to this contact saying I can do Thursday at 3 PM."
+- 「最新の未読メール 10 件を表示します。」
+- 「すぐに優先順位を付けることができるように、未読メール 5 件だけを表示します。」
+- 「alex@company.com に件名を「第 2 四半期計画」として電子メールを送信し、次のステップを要約してください。」
+- 「この連絡先への返信の下書きを作成して、木曜日の午後 3 時に対応できるとします。」
 
-## How to enable
+## 有効にする方法
 
 <Steps>
   <Step title="Enable Mail in Tools Manager">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Mail**.
+    Alter を開く -> 3 つの点をクリック -> **ツール マネージャー** -> **ローカル ツール** -> **メール**を有効にします。
   </Step>
   <Step title="Allow Mail automation">
-    On first use, macOS may ask permission for Alter to control Mail. Allow it.
+    初めて使用するとき、macOS は Alter がメールを制御する許可を求める場合があります。許可してください。
   </Step>
   <Step title="Run a quick test">
-    Ask: "Show my 5 unread emails." Then ask Alter to create one draft email.
+    「5 件の未読メールを表示してください」と尋ねます。次に、Alter に下書きメールを 1 つ作成するように依頼します。
   </Step>
 </Steps>
 
-## What to expect
+## 期待されること
 
-- Unread listing is preview-oriented: you get enough context to decide what to open in Mail.
-- For drafts, you stay in control: Alter prepares the draft, and you send it after review.
+- 未読リストはプレビュー指向です。メールで何を開くかを決定するのに十分なコンテキストが得られます。
+- 下書きについては、お客様が管理します。Alter が下書きを準備し、レビュー後に送信します。
 
-## Related pages
+## 関連ページ
 
-- [Mail app capabilities](/apps-tools/mail)
-- [Integrations overview](/apps-tools/integrations-overview)
-- [Use Tool Manager](/how-to/tool-manager-guide)
+- [メールアプリの機能](/apps-tools/mail)
+- [統合の概要](/apps-tools/integrations-overview)
+- [ツールマネージャーを使用](/how-to/tool-manager-guide)

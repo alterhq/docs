@@ -1,175 +1,175 @@
 ---
-title: "Keep Your Data Private with Local AI"
-description: "How to run AI models on your own Mac for sensitive documents and confidential work"
+title: "ローカル AI でデータのプライバシーを維持"
+description: "機密文書や機密作業用に AI モデルを自分の Mac で実行する方法"
 ---
 
 <Info>
-  **Perfect for:** Lawyers, doctors, security researchers, or anyone working with sensitive data who doesn't want it leaving their computer.
+  **こんな人に最適:** 弁護士、医師、セキュリティ研究者、または機密データを自分のコンピュータから外に出したくない人など、機密データを扱っている人。
 </Info>
 
-## The Concern
+## 懸念事項
 
-You're working with:
-- Client confidential information
-- Medical records
-- Proprietary business data
-- Personal financial documents
-- Security research
+あなたが取り組んでいるのは:
+- クライアントの機密情報
+- 医療記録
+- 独自のビジネスデータ
+- 個人の財務書類
+- セキュリティ調査
 
-And you're worried about sending this data to cloud AI services like OpenAI or Google, even if they claim it's private.
+また、OpenAI や Google などのクラウド AI サービスにこのデータを送信するのは、たとえそのデータがプライベートであると主張しているとしても心配です。
 
-**The good news:** You don't have to. You can run AI models directly on your Mac.
+**良いニュース:** そうする必要はありません。 AI モデルを Mac 上で直接実行できます。
 
-## How Local Models Work
+## ローカルモデルの仕組み
 
-Instead of sending your data to the internet, you download an AI model to your Mac (like downloading a large app) and run it locally. Your data never leaves your computer.
+データをインターネットに送信する代わりに、AI モデルを Mac にダウンロードし (大きなアプリをダウンロードするのと同じように)、ローカルで実行します。データがコンピューターから離れることはありません。
 
 <CardGroup cols={2}>
   <Card title="100% Private" icon="shield-check">
-    Nothing sent to the cloud. Your data stays on your Mac.
+    クラウドには何も送信されませんでした。データは Mac に残ります。
   </Card>
   <Card title="Works Offline" icon="wifi-slash">
-    Use AI on airplanes, in secure facilities, or anywhere without internet.
+    飛行機、安全な施設、またはインターネットのない場所で AI を使用します。
   </Card>
   <Card title="No API Costs" icon="money-bill">
-    Once downloaded, no per-use fees. Analyze thousands of documents for free.
+    一度ダウンロードすると、使用ごとに料金は発生しません。数千のドキュメントを無料で分析します。
   </Card>
   <Card title="Faster for Big Files" icon="bolt">
-    No upload/download time. Great for large documents.
+    アップロード/ダウンロード時間はありません。大きな書類に最適です。
   </Card>
 </CardGroup>
 
-## Setup: Two easy options
+## セットアップ: 2 つの簡単なオプション
 
-### Option 1: Ollama (Recommended for beginners)
+### オプション 1: オラマ (初心者に推奨)
 
-Ollama makes running local models as simple as installing an app.
+Ollama を使用すると、アプリをインストールするのと同じくらい簡単にローカル モデルを実行できます。
 
 <Steps>
   <Step title="Install Ollama">
-    1. Download from [ollama.com](https://ollama.com)
-    2. Install it like any Mac app
-    3. It runs in your menu bar
+    1. [ollama.com](https://ollama.com)からダウンロード
+    2. 他の Mac アプリと同様にインストールします
+    3. メニューバーで実行されます
   </Step>
   
-  <Step title="Download a model">
-    Open Terminal and run:
+<Step title="Download a model">
+    ターミナルを開いて次を実行します。
     ```bash
     ollama pull llama3.1
     ```
     
-    This downloads Meta's Llama 3.1 model (~4.7GB). Other good options:
-    - `ollama pull mistral` (faster, smaller)
-    - `ollama pull codellama` (great for code)
-    - `ollama pull mixtral` (more capable, larger)
+これにより、Meta の Llama 3.1 モデル (~4.7GB) がダウンロードされます。その他の良いオプション:
+    - `ollama pull mistral` (より速く、より小さく)
+    - `ollama pull codellama` (コードに最適)
+    - `ollama pull mixtral` (より高性能、より大きい)
   </Step>
   
-  <Step title="Connect to Alter">
-    1. Open Alter → Settings (`Cmd + ,`)
-    2. Go to **API Keys** tab
-    3. Under **Custom Provider**, select **Ollama**
-    4. Make sure Ollama is running (check your menu bar)
-    5. Toggle **Enable Custom Provider** ON
+<Step title="Connect to Alter">
+    1. [変更] → [設定] (`Cmd + ,`) を開きます。
+    2. **API キー** タブに移動します
+    3. **カスタム プロバイダー** で、**Ollama** を選択します
+    4. Ollama が実行されていることを確認します (メニュー バーを確認してください)。
+    5. **カスタム プロバイダーを有効にする** をオンに切り替えます
   </Step>
   
-  <Step title="Start using it">
-    1. Press `/` in Alter's prompt box
-    2. Look for the **Custom** section
-    3. Select your local model (e.g., "llama3.1")
-    4. Ask anything – it runs entirely on your Mac!
+<Step title="Start using it">
+    1. Alter のプロンプト ボックスで `/` を押します
+    2. **カスタム** セクションを探します
+    3. ローカル モデル (例: 「llama3.1」) を選択します。
+    4. 何でも聞いてください – すべてあなたの Mac 上で実行されます!
   </Step>
 </Steps>
 
-### Option 2: LM Studio (More control)
+### オプション 2: LM Studio (より詳細な制御)
 
-LM Studio gives you a graphical interface to manage models.
+LM Studio には、モデルを管理するためのグラフィカル インターフェイスが用意されています。
 
 <Steps>
   <Step title="Install LM Studio">
-    Download from [lmstudio.ai](https://lmstudio.ai) and install it.
+    [lmstudio.ai](https://lmstudio.ai)からダウンロードしてインストールしてください。
   </Step>
   
-  <Step title="Download a model">
-    1. Open LM Studio
-    2. Browse the model catalog
-    3. Download one that fits your needs and Mac's specs
-    4. Start the local server (big "Start Server" button)
+<Step title="Download a model">
+    1.LMスタジオを開きます
+    2. モデルカタログを参照する
+    3. ニーズと Mac の仕様に合ったものをダウンロードします。
+    4. ローカルサーバーを起動します (大きな「サーバーの起動」ボタン)
   </Step>
   
-  <Step title="Connect to Alter">
-    1. In Alter Settings → **API Keys**
-    2. Select **LM Studio** as the provider
-    3. LM Studio runs on `localhost:1234` by default
-    4. Toggle **Enable Custom Provider** ON
+<Step title="Connect to Alter">
+    1. [設定の変更] → [**API キー**] で
+    2. プロバイダーとして **LM Studio** を選択します
+    3. LM Studio はデフォルトで `localhost:1234` で実行されます
+    4. **カスタム プロバイダーを有効にする** をオンに切り替えます
   </Step>
 </Steps>
 
-## Real-world example
+## 実際の例
 
-**Dr. Chen, physician:**
-> "I need to analyze patient notes for research, but I can't use cloud AI due to HIPAA. With a local model, I can ask 'What patterns do you see in these symptoms?' and get AI assistance while keeping everything on my secure laptop."
+**博士チェン医師:**
+> 「研究のために患者のメモを分析する必要がありますが、HIPAA のためクラウド AI を使用できません。ローカル モデルを使用すると、「これらの症状にはどのようなパターンが見られますか?」と尋ねることができます。すべてを安全なラップトップに保存しながら、AI 支援を受けられます。」
 
-**Alex, security researcher:**
-> "I analyze malware reports and can't upload them anywhere. Running a local model means I can ask 'What indicators of compromise are mentioned?' without risking data exposure."
+**アレックス、セキュリティ研究者:**
+> 「マルウェア レポートを分析していますが、どこにもアップロードできません。ローカル モデルを実行するということは、「どのような侵害の兆候が言及されているか?」を尋ねることができることを意味します。データ漏洩の危険を冒さずに。」
 
-## Trade-offs to know about
+## 知っておくべきトレードオフ
 
 <AccordionGroup>
   <Accordion icon="gauge" title="Speed vs Privacy">
-    **Cloud models:** Faster, more capable
-    **Local models:** Slower, but completely private
+    **クラウド モデル:** より速く、より高機能
+    **ローカル モデル:** 速度は遅くなりますが、完全にプライベートです
     
-    A MacBook Pro with 16GB RAM can run small models smoothly. For larger models, you'll want 32GB+ RAM.
+16GB RAM を搭載した MacBook Pro は小型モデルをスムーズに実行できます。より大きなモデルの場合は、32GB 以上の RAM が必要になります。
   </Accordion>
   
-  <Accordion icon="brain" title="Capability differences">
-    Local models are getting better every month, but cloud models (GPT-4, Claude) are still more capable for complex reasoning. 
+<Accordion icon="brain" title="Capability differences">
+    ローカル モデルは毎月改良されていますが、クラウド モデル (GPT-4、Claude) は依然として複雑な推論に対する能力が向上しています。
     
-    **Best approach:** Use local models for sensitive data, cloud models for less sensitive complex tasks.
+**最良のアプローチ:** 機密データにはローカル モデルを使用し、機密性の低い複雑なタスクにはクラウド モデルを使用します。
   </Accordion>
   
-  <Accordion icon="hard-drive" title="Storage requirements">
-    Models range from 4GB to 70GB+. Make sure you have enough disk space.
+<Accordion icon="hard-drive" title="Storage requirements">
+    モデルの範囲は 4GB から 70GB+ までです。十分なディスク容量があることを確認してください。
     
-    **Good starter models:**
-    - Llama 3.1 8B (~4.7GB) – Fast, decent quality
-    - Mistral 7B (~4.1GB) – Good balance
-    - Mixtral 8x7B (~26GB) – Higher quality, needs more RAM
+**優れたスターター モデル:**
+    - Llama 3.1 8B (~4.7GB) – 高速、まともな品質
+    - Mistral 7B (~4.1GB) – バランスが良い
+    - Mixtral 8x7B (~26GB) – 高品質、より多くの RAM が必要
   </Accordion>
 </AccordionGroup>
 
-## Best practices for private workflows
+## プライベート ワークフローのベスト プラクティス
 
 <Tip>
-  **Use specific Actions for sensitive tasks:** Create Alter Actions configured to always use your local model. That way you never accidentally use a cloud model for sensitive work.
+  **機密性の高いタスクには特定のアクションを使用します。** 常にローカル モデルを使用するように構成された変更アクションを作成します。そうすれば、機密性の高い作業に誤ってクラウド モデルを使用することがなくなります。
 </Tip>
 
 <Tip>
-  **Set up a privacy workspace:** Create a workspace just for sensitive documents. This keeps them organized and reminds you to use local models.
+  **プライバシー ワークスペースを設定する:** 機密文書専用のワークスペースを作成します。これにより、それらが整理され、ローカル モデルを使用することが思い出されます。
 </Tip>
 
 <Tip>
-  **Verify it's working:** After setting up, disconnect from WiFi and try using Alter. If it still works with your local model, you know it's truly local.
+  **動作していることを確認してください:** セットアップ後、WiFi から切断し、Alter を使用してみてください。まだローカル モデルで動作する場合は、それが本当にローカルであることがわかります。
 </Tip>
 
-## When to use what
+## いつ何を使用するか
 
-| Scenario | Recommendation |
-|----------|---------------|
-| Medical records | Local model (Ollama/LM Studio) |
-| Legal documents | Local model |
-| Security research | Local model |
-| Financial analysis | Local model or Alter Cloud with Pro plan |
-| Creative writing | Cloud models (better creativity) |
-| General questions | Cloud models (faster) |
-| Code assistance | Either works well |
+|シナリオ |推薦 |
+|----------|--------------|
+|医療記録 |ローカルモデル (Ollama/LM Studio) |
+|法的文書 |ローカルモデル |
+|セキュリティ研究 |ローカルモデル |
+|財務分析 |ローカル モデルまたは Pro プランの Alter Cloud |
+|クリエイティブライティング |クラウド モデル (創造性の向上) |
+|一般的な質問 |クラウド モデル (高速) |
+|コード支援 |どちらでもうまくいきます |
 
-## Related resources
+## 関連リソース
 
-- [How to use your own API key](/how-to/use-byok) – Step-by-step setup guide
-- [How to access settings](/how-to/settings-guide) – Open settings and configure providers
-- [General FAQ](/references/general-faq) – Model and provider basics
+- [独自の API キーの使用方法](/how-to/use-byok) – ステップバイステップのセットアップ ガイド
+- [設定へのアクセス方法](/how-to/settings-guide) – 設定を開いてプロバイダーを構成します
+- [一般的な FAQ](/references/general-faq) – モデルとプロバイダーの基本
 
 ---
 
-**Ready to go private?** Start with Ollama and the Llama 3.1 model. It's free, easy to set up, and you'll have AI assistance that never leaves your Mac!
+**プライベートにする準備はできていますか?** Ollama と Llama 3.1 モデルから始めましょう。無料でセットアップが簡単で、Mac から離れることなく AI アシスタントを利用できます。

@@ -3,11 +3,11 @@ title: "TypingMind で Alter API を設定する"
 description: "OpenAI Chat Completions 形式で TypingMind を Alter API Router に接続する"
 ---
 
-このガイドでは、TypingMind に Alter をカスタム provider として追加します。
+このガイドでは、TypingMind に Alter をカスタムプロバイダーとして追加します。
 
 ## カスタムモデル設定を開く
 
-TypingMind で次に進みます:
+TypingMindで次に行きます:
 
 `Settings` -> `Models` -> `+ Add Custom Model`
 
@@ -18,36 +18,36 @@ TypingMind で次に進みます:
 - `Name`: `Alter`
 - `API Type`: `OpenAI Chat Completions API`
 - `Endpoint URL`: `https://alterhq.com/api/v1/chat/completions`
-- `Model ID`: 下の対応 ID から選択
-- `Context Length`: 既定値または任意の値
+- `Model ID`: 対応下のIDから選択
+- `Context Length`:デフォルト値または任意の値
 
-![TypingMind 基本設定](/images/integrations/typingmind-basic-config.png)
+![TypingMind基本設定](/images/integrations/typingmind-basic-config.png)
 
 ## 2) 認証
 
-Authentication セクションで:
+認証セクションで:
 
 - `Authentication Type`: `No authentication`
 
-注: API key は次の手順で Custom Headers から手動で渡します。
+注: API キーは次の手順で Custom Headers から手動で渡します。
 
 ## 3) 高度な設定（必須）
 
-下部の `Advanced` を開き、Custom Header のペアを追加します:
+下部の `Advanced` を開き、カスタムヘッダーのペアを追加します:
 
 - `Key`（左）: `Authorization`
 - `Value`（右）: `Bearer <YOUR_API_KEY>`
 
-`<YOUR_API_KEY>` を実際の Alter API key に置き換えてください。
-`Bearer` とキーの間に半角スペースを 1 つ入れてください。
+`<YOUR_API_KEY>` を実際の Alter API キーに置き換えてください。
+`Bearer` とキーの間半角スペースを1つ入れてください。
 
-![TypingMind Authorization Header](/images/integrations/typingmind-auth-header.png)
+![TypingMind 認証ヘッダー](/images/integrations/typingmind-auth-header.png)
 
-## 対応 Model ID
+## 対応機種ID
 
-`Model ID` は表示どおりに正確にコピーしてください。
+`Model ID` は表示に正確にコピーしてください。
 
-### Claude（Anthropic）
+### クロード（人族）
 
 - `Claude#claude-3-5-sonnet-latest`
 - `Claude#claude-3-7-sonnet-20250219`
@@ -61,14 +61,14 @@ Authentication セクションで:
 - `OpenAI#chatgpt-4o-latest`
 - `OpenAI#gpt-4-turbo`
 
-### Gemini（Google）
+### ジェミニ（Google）
 
 - `Gemini#gemini-2.0-flash-001`
 - `Gemini#gemini-2.0-flash-lite-001`
 - `Gemini#gemini-1.5-pro`
 - `Gemini#gemini-1.5-flash`
 
-### DeepSeek とその他（Providers 経由）
+### DeepSeekとその他（提供経由）
 
 - `Together#deepseek-ai/DeepSeek-R1`
 - `Together#deepseek-ai/DeepSeek-V3`
@@ -76,5 +76,5 @@ Authentication セクションで:
 - `Perplexity#sonar-pro`
 
 <Tip>
-  最新のモデル提供状況が必要ですか？ [API モデルリファレンス](/ja/references/api-model-names) を確認してください。
+  最新のモデルを提供する状況が必要ですか? [API モデルの考え方](/ja/references/api-model-names) をご確認ください。
 </Tip>

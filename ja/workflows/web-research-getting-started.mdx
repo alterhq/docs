@@ -1,39 +1,39 @@
 ---
 title: "はじめに"
-description: "Alter の Web 検索オプションを最短で始める"
+description: "AlterのWeb検索オプションを最短で始める"
 ---
 
-このガイドで、Alter における最適な Web 検索構成を選べます。
+このガイドで、Alter における最適な Web 検索構成を選びます。
 
 <Info>
-  まずは Alter ルーターを使ってください。`Fast`、`Best`、`Fair`、`Light` は Web 検索を標準搭載しています。
+  次にAlterルーターを使ってください。`Fast`、`Best`、`Fair`、`Light`はWeb検索を標準搭載しています。
 </Info>
 
 ## 使える選択肢
 
-- **Local Tools:** `Web Search` と `Web Search Gemini`
-- **Remote MCP Servers:** Tavily、LinkUp、Exa
-- **Apps Gallery:** Firecrawl、LinkUp、Exa（workspace で利用可能な場合）
-- **Alter ルーター:** `Fast`、`Best`、`Fair`、`Light` のネイティブ Web 検索
+- **ローカル ツール:** `Web Search` と `Web Search Gemini`
+- **リモート MCP サーバー:** Tavily、LinkUp、Exa
+- **アプリギャラリー:** Firecrawl、LinkUp、Exa（ワークスペースで利用可能な場合）
+- **Alterルーター:** `Fast`、`Best`、`Fair`、`Light` のネイティブ Web 検索
 
 ## プロバイダーの位置付け
 
-- **Tavily:** AI agents 向けの Web アクセス層。search、extraction、research、crawling を単一 API で提供。
-- **Firecrawl:** Web サイトを LLM-ready データへ変換。scraping と crawling を重視。
-- **LinkUp:** AI apps 向け検索。standard/deep モードとソース付き回答を訴求。
-- **Exa:** 品質重視の AI 検索 API。search から research まで複数 endpoint を提供。
+- **Tavily:** AIエージェント向けのWebアクセス層。検索、抽出、調査、クローリングを単一APIで提供。
+- **Firecrawl:** Web サイトを LLM 対応データへ変換。スクレイピングとクロールを重視します。
+- **LinkUp:** AI アプリ向け検索。standard/deep モードとソース付き回答を訴えます。
+- **Exa:** 品質重視のAI検索API。検索からリサーチまで複数のエンドポイントを提供。
 
 ## おすすめの選び方
 
 <CardGroup cols={2}>
   <Card title="まずここから: 設定不要" icon="rocket" href="/ja/workflows/native-web-search-in-alter-routers">
-    まずはルーターのネイティブ検索。最も簡単です。
+    さらにネイティブのネイティブ検索。 最も簡単です。
   </Card>
   <Card title="同梱ツール" icon="zap" href="/ja/workflows/web-search-local-tools">
-    外部 provider アカウントなしで Alter 同梱の検索ツールを使います。
+    外部プロバイダー アカウントなしで Alter 同梱の検索ツールを使います。
   </Card>
   <Card title="深いリサーチ" icon="search" href="/ja/workflows/connect-tavily">
-    多段の調査や抽出が必要な場合は Tavily を使います。
+    多段の調査や抽出が必要な場合はTavilyを使います。
   </Card>
   <Card title="大規模スクレイピング" icon="database" href="/ja/workflows/connect-firecrawl">
     複数ページの構造化抽出には Firecrawl を使います。
@@ -42,17 +42,17 @@ description: "Alter の Web 検索オプションを最短で始める"
 
 ## ハイブリッド戦略
 
-1. まずはルーターのネイティブ検索から始めると、設定が最小で既定の結果も良好です。
+1.まずはルーターのネイティブ検索から始めると、設定が最低限でデフォルトの結果も良好です。
 2. Web 検索を持たないモデル（ローカルモデルを含む）には、Alter 同梱ツールで拡張します。外部アカウントは不要です。
-3. どのモデルでも高い結果品質や詳細な制御が必要なら、MCP providers を追加します。
-4. 複数ページの構造化抽出が必要なら scraper を追加します。
+3. どのモデルでも高い結果品質や詳細な制御が必要な場合は、MCP プロバイダーを追加します。
+4. 複数ページの構造化抽出が必要な場合はスクレーパーを追加します。
 
 <Warning>
-  無料枠や上限は変更されることがあります。利用前に最新情報を確認してください。
+  無料枠や上限は変更される場合がございます。ご利用前に最新情報をご確認ください。
 </Warning>
 
 <Tip>
-  Web 検索ツールを同時に複数有効化しないでください。モデルのツール選択が不安定になります。
+  Web 検索ツールを同時に複数有効化しないでください。モデルのツールの選択ができなくなります。
 </Tip>
 
 ## 関連ガイド

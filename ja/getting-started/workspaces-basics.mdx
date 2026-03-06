@@ -1,65 +1,65 @@
 ---
-title: "Use workspaces for bigger tasks"
-description: "Index folders and files once so Alter can work across larger contexts"
+title: "より大きなタスクにはワークスペースを使用する"
+description: "フォルダーとファイルに一度インデックスを付けると、Alter がより大きなコンテキスト全体で機能できるようになります。"
 ---
 
-Use workspaces when one-off file drops are not enough and you need persistent context.
+1 回限りのファイルのドロップでは不十分で、永続的なコンテキストが必要な場合は、ワークスペースを使用します。
 
-## Why use workspaces
+## ワークスペースを使用する理由
 
 <CardGroup cols={3}>
   <Card title="Faster responses" icon="zap">
-    Keep relevant context indexed and ready.
+    関連するコンテキストにインデックスを付けて準備を整えておきます。
   </Card>
   <Card title="Lower cost" icon="credit-card">
-    Send focused context instead of large raw inputs every time.
+    毎回大量の生の入力ではなく、焦点を絞ったコンテキストを送信します。
   </Card>
   <Card title="Large folders" icon="folder-open">
-    Work with bigger codebases and document sets.
+    より大きなコードベースとドキュメント セットを操作します。
   </Card>
 </CardGroup>
 
-## Create your first workspace
+## 最初のワークスペースを作成する
 
 <Steps>
   <Step title="Open The Hub">
-    Press `Shift + Cmd + H`.
+    `Shift + Cmd + H`を押してください。
   </Step>
   <Step title="Go to Workspaces">
-    Open the Workspaces section in the sidebar.
+    サイドバーの「ワークスペース」セクションを開きます。
   </Step>
   <Step title="Create workspace">
-    Click `+` in the workspace picker.
+    ワークスペース ピッカーで `+` をクリックします。
   </Step>
   <Step title="Add files and folders">
-    Add only the resources needed for one workflow you run often.
+    頻繁に実行する 1 つのワークフローに必要なリソースのみを追加します。
   </Step>
 </Steps>
 
-## How files are prepared
+## ファイルの準備方法
 
-| File type | Conversion |
+|ファイルの種類 |変換 |
 |---|---|
-| PDFs | Markdown with page markers |
-| DOCX | Markdown |
-| XLSX | Markdown or CSV |
-| Images | OCR text extraction |
-| Directories | Recursive processing |
+| PDF |ページ マーカーを使用したマークダウン |
+| DOCX |マークダウン |
+| XLSX |マークダウンまたは CSV |
+|画像 | OCR テキスト抽出 |
+|ディレクトリ |再帰処理 |
 
 <Note>
-  Audio and video files are not supported directly in workspaces. Transcribe them first by dropping them into Alter.
+  オーディオ ファイルとビデオ ファイルは、ワークスペースでは直接サポートされていません。まずは Alter にドロップして転記します。
 </Note>
 
-## Local storage
+## ローカルストレージ
 
-Workspace data is stored locally in:
+ワークスペース データはローカルに次の場所に保存されます。
 
 ```text
 ~/Library/Application Support/Alter/Workspaces/
 ```
 
-## Related pages
+## 関連ページ
 
-- [Automate with workspaces and actions](/getting-started/automate-with-workspaces-and-actions)
-- [Create reusable actions](/getting-started/actions-basics)
-- [Use Tool Manager](/how-to/tool-manager-guide)
+- [ワークスペースとアクションで自動化する](/getting-started/automate-with-workspaces-and-actions)
+- [再利用可能なアクションを作成する](/getting-started/actions-basics)
+- [ツールマネージャーを使用](/how-to/tool-manager-guide)

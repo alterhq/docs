@@ -1,29 +1,29 @@
 ---
-title: "Msty.ai で Alter API を設定する"
-description: "endpoint と API key の設定で Msty.ai を Alter API Router に接続する"
+title: "Msty.aiでAlter APIを設定する"
+description: "エンドポイントとAPIキーの設定でMsty.aiをAlter API Routerに接続する"
 ---
 
 このガイドでは、Msty.ai を Alter API Router に接続します。
 
-## provider 設定を開く
+## プロバイダー設定を開く
 
-Msty.ai で、次を設定する provider/model 設定画面を開きます:
+Msty.ai で、次を設定するプロバイダ/モデルの設定画面を開きます:
 
-- API endpoint（base URL）
-- API key
+- APIエンドポイント（ベースURL）
+- APIキー
 - モデル選択
 
-## 1) API key
+## 1) APIキー
 
-API key フィールドに Alter key を貼り付けます:
+APIキーフィールドにAlterキーを貼ります:
 
 `sk-...`
 
 Alter の `Settings` -> `Router` -> `Alter API Keys` でキーを生成します。
 
-## 2) 推論 endpoint
+## 2) 推論エンドポイント
 
-endpoint を次の値に設定します:
+エンドポイントを次の値に設定します:
 
 ```text
 https://alterhq.com/api/v1
@@ -31,21 +31,21 @@ https://alterhq.com/api/v1
 
 ## 3) モデルを取得して選択
 
-endpoint + API key 設定後、Msty.ai で **Fetch models** をクリックします。
+エンドポイント + API キー設定後、Msty.ai で **モデルを取得** をクリックします。
 
-Msty.ai が利用可能な Alter モデルを読み込み、一覧から選択できます。
-モデル ID を手動入力する必要はありません。
+Msty.ai が利用可能 Alter モデルを読み込み、一覧から選択できます。
+モデルIDを手動入力する必要はありません。
 
-![Msty.ai endpoint と API key の設定](/images/integrations/msty-endpoint-api-key.jpeg)
+![Msty.ai エンドポイントと API キーの設定](/images/integrations/msty-endpoint-api-key.jpeg)
 
 ## 接続確認
 
-1. Msty.ai で設定を保存
-2. 簡単な prompt を送信
-3. 失敗した場合は endpoint と API key を確認し、**Fetch models** を再実行
+1.Msty.aiで設定を保存
+2.簡単なプロンプトを送信
+3. 失敗した場合はエンドポイントとAPIキーを確認し、**モデルを取得**を再実行
 
 ## 関連
 
-- [API モデルリファレンス](/ja/references/api-model-names)
-- [開発向け API Router](/ja/api-router/development)
+- [APIモデル考察](/ja/references/api-model-names)
+- [開発向けAPIルーター](/ja/api-router/development)
 - [API Router 運用とトラブルシューティング](/ja/api-router/operations)

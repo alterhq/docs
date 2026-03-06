@@ -1,26 +1,26 @@
 ---
-title: "Wait"
-description: "Pause execution between Computer Use actions"
+title: "待って"
+description: "コンピュータ使用アクション間の実行を一時停止する"
 ---
 
-Use Wait to add timing gaps between UI actions when pages, dialogs, or app states need time to update.
+ページ、ダイアログ、またはアプリの状態の更新に時間が必要な場合は、「待機」を使用して UI アクション間にタイミング ギャップを追加します。
 
-## What it does
+## 何をするのか
 
-- Pauses execution for a given number of seconds.
-- Accepts numeric values and enforces a valid range.
+- 指定された秒数の間、実行を一時停止します。
+- 数値を受け入れ、有効な範囲を適用します。
 
-## Input
+## 入力
 
-- `seconds` (required): positive number of seconds to pause (max 3600).
+- `seconds` (必須): 一時停止する正の秒数 (最大 3600)。
 
-## Typical use
+## 一般的な使用方法
 
-- Add a short wait after navigation.
-- Pause after submit/click before reading context again.
-- Stabilize multi-step flows where UI renders asynchronously.
+- ナビゲーション後に短い待ち時間を追加します。
+- 送信/クリック後にコンテキストを再度読み取る前に一時停止します。
+- UI が非同期的にレンダリングされるマルチステップ フローを安定させます。
 
-## Good pairing
+## 良い組み合わせ
 
-- [Perform](/apps-tools/computer-use-perform)
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [実行](/apps-tools/computer-use-perform)
+- [アクティブなアプリのコンテキストを取得](/apps-tools/computer-use-get-active-app-context)

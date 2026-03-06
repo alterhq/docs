@@ -1,72 +1,72 @@
 ---
-title: "Summarize your X feed with Computer Use"
-description: "Use Alter Computer Use to read what is visible in your X timeline and generate structured summaries"
+title: "コンピューターの使用で X フィードを要約する"
+description: "Alter Computer Use を使用して、X タイムラインに表示されている内容を読み取り、構造化された概要を生成します"
 ---
 
-Use this workflow when API access is limited and you still need quick insight from your X (Twitter) feed.
+API アクセスが制限されていても、X (Twitter) フィードからの迅速な分析が必要な場合は、このワークフローを使用します。
 
-## What this helps you do
+## これが役立つこと
 
-You can treat your feed like a live source that Alter reads from the screen. Instead of pulling data from an API, Alter summarizes what is currently visible in your browser and helps you build a digest iteratively.
+フィードを、Alter が画面から読み取るライブ ソースのように扱うことができます。 API からデータを取得する代わりに、Alter はブラウザーに現在表示されている内容を要約し、ダイジェストを繰り返し作成するのに役立ちます。
 
-## Works with
+## で動作します
 
-- App: X in your browser
-- Tool type: Computer Use (screen-based)
-- Permissions: Accessibility and Screen Recording
+- アプリ: ブラウザの X
+- ツールの種類: コンピューターの使用 (画面ベース)
+- 権限: アクセシビリティと画面録画
 
-## What Alter can do today
+## オルタが今できること
 
-Alter can read visible feed content, summarize posts on screen, extract recurring topics, and merge multiple on-screen batches into one digest.
+Alter は、表示されているフィード コンテンツを読み取り、画面上の投稿を要約し、繰り返しトピックを抽出し、画面上の複数のバッチを 1 つのダイジェストにマージできます。
 
-## What Alter does not do yet
+## Alter がまだ実行していないこと
 
-- It does not use the official X API for this workflow.
-- It cannot summarize posts that are not currently visible unless you scroll and ask again.
-- It is not a full X account automation flow (posting, moderation, or analytics pipelines).
+- このワークフローには公式の X API は使用されません。
+- 現在表示されていない投稿については、スクロールして再度質問しない限り、要約することはできません。
+- これは、完全な X アカウント自動化フロー (投稿、モデレーション、または分析パイプライン) ではありません。
 
-## A realistic workflow
+## 現実的なワークフロー
 
 <Steps>
   <Step title="Capture batch 1">
-    Open your timeline and ask Alter to summarize visible posts.
+    タイムラインを開き、Alter に表示されている投稿を要約してもらいます。
   </Step>
   <Step title="Capture batch 2">
-    Scroll down and ask for a second summary focused on new posts.
+    下にスクロールして、新しい投稿に焦点を当てた 2 番目の概要を求めます。
   </Step>
   <Step title="Merge into digest">
-    Ask Alter to combine both summaries into one concise report.
+    Alter に両方の概要を 1 つの簡潔なレポートに結合するよう依頼します。
   </Step>
 </Steps>
 
-## Copy/paste prompts
+## プロンプトのコピー/貼り付け
 
-- "Summarize the tweets currently visible in my X feed."
-- "List the top 5 topics in the visible posts, with one-line evidence for each."
-- "Scroll down, capture the next batch, and summarize only new topics."
-- "Combine the last two feed summaries into one concise daily digest."
+- 「X フィードに現在表示されているツイートを要約します。」
+- 「表示されている投稿の上位 5 つのトピックをリストし、それぞれについて 1 行の証拠を付けます。」
+- 「下にスクロールして次のバッチをキャプチャし、新しいトピックのみを要約します。」
+- 「最後の 2 つのフィード概要を 1 つの簡潔な日次ダイジェストに結合します。」
 
-## How to enable
+## 有効にする方法
 
 <Steps>
   <Step title="Enable Computer Use tools">
-    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Alter** tools (Computer Use).
+    Alter を開く -> 3 つの点をクリック -> **ツール マネージャー** -> **ローカル ツール** -> **Alter** ツール (コンピューター使用) を有効にします。
   </Step>
   <Step title="Grant required macOS permissions">
-    In Alter settings, allow **Accessibility** and **Screen Recording** so Alter can read and interact with app windows.
+    Alter 設定で **アクセシビリティ** と **画面録画** を許可し、Alter がアプリ ウィンドウを読み取って操作できるようにします。
   </Step>
   <Step title="Run a quick test on X">
-    Open your X timeline and ask: "Summarize the posts visible on screen."
+    X タイムラインを開いて、「画面に表示されている投稿を要約してください」と尋ねます。
   </Step>
 </Steps>
 
-## What to expect
+## 期待されること
 
-- Best quality comes from short iterative loops: summarize -> scroll -> summarize -> merge.
-- If the wrong window is targeted, bring the browser window to front or ask Alter to list windows and target the correct one.
+- 最高の品質は、短い反復ループ (要約 -> スクロール -> 要約 -> マージ) から得られます。
+- 間違ったウィンドウがターゲットになっている場合は、ブラウザ ウィンドウを前面に持ってくるか、Alter にウィンドウをリストして正しいウィンドウをターゲットにするように依頼します。
 
-## Related pages
+## 関連ページ
 
-- [Computer Use capabilities](/apps-tools/computer-use)
-- [Settings](/how-to/settings-guide)
-- [Tools Not Working](/common-issues/tool-not-working)
+- [コンピュータの使用能力](/apps-tools/computer-use)
+- [設定](/how-to/settings-guide)
+- [ツールが動作しない](/common-issues/tool-not-working)

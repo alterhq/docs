@@ -1,367 +1,367 @@
 ---
-title: "Window Types: Notch, Hub, and Panels"
-description: "Understand Alter's interface modes, including Notch interactions, The Hub, and the Quick Panel"
+title: "窓のタイプ: ノッチ、ハブ、パネル"
+description: "Notchインターラクション、ハブ、クイックパネルなど、Alterのインターフェイスモードを理解する"
 ---
 
 <Info>
-  **Two interfaces, one powerful experience.** Use the Quick Panel for fast interactions and The Hub for deep work.
+  **2 つのインターフェイス、1 つの強力なエクスペリエンス。** 素早い対話にはクイック パネルを使用し、詳細な作業にはハブを使用します。
 </Info>
 
-## Two Ways to Interact
+## 対話する 2 つの方法
 
 <CardGroup cols={2}>
   <Card title="The Hub" icon="layout">
-    Full workspace with tabs, sidebar, and comprehensive management
+    タブ、サイドバー、包括的な管理を備えた完全なワークスペース
   </Card>
   <Card title="Quick Panel" icon="message-square">
-    Lightweight floating panel for quick queries and voice commands
+    軽量のフローティング パネルで素早いクエリや音声コマンドを実行可能
   </Card>
 </CardGroup>
 
 ---
 
-### General Concept
+### 一般的な概念
 
-Alter provides two main interfaces for interacting with AI:
+Alter は、AI と対話するための 2 つの主要なインターフェイスを提供します。
 
 <AccordionGroup>
   <Accordion icon="layout-dashboard" title="The Hub">
-    The main window interface with tabs, sidebar, and comprehensive workspace management. Best for:
-    - Extended conversations
-    - Workspace management
-    - Multi-tasking with multiple contexts
-    - Reviewing meeting transcripts
+    タブ、サイドバー、および包括的なワークスペース管理を備えたメイン ウィンドウ インターフェイス。以下に最適:
+    - 延長された会話
+    - ワークスペース管理
+    - 複数のコンテキストによるマルチタスク
+    - 会議記録の確認
   </Accordion>
   
-  <Accordion icon="message-circle" title="Quick Panel">
-    The lightweight floating panel accessible from the notch or hotkey. Perfect for:
-    - Quick queries
-    - Voice commands
-    - Fast context additions
-    - Rapid interactions
+<Accordion icon="message-circle" title="Quick Panel">
+    ノッチまたはホットキーからアクセスできる軽量フローティング パネル。以下に最適:
+    - クイッククエリ
+    - 音声コマンド
+    - 高速コンテキストの追加
+    - 迅速なインタラクション
   </Accordion>
 </AccordionGroup>
 
 ---
 
-## Hub Interface
+## ハブインターフェース
 
 <Frame>
-  The Hub is divided into three main sections:
+  ハブは 3 つの主要なセクションに分かれています。
   
-  1. **Sidebar** - Navigation for conversations, workspaces, transcripts, and more
-  2. **Main Content Area** - Tabbed interface showing active content
-  3. **Input Area** - Prompt box and context management
+1. **サイドバー** - 会話、ワークスペース、トランスクリプトなどのナビゲーション
+  2. **メインコンテンツエリア** - アクティブコンテンツを表示するタブ付きインターフェース
+  3. **入力エリア** - プロンプト ボックスとコンテキストの管理
 </Frame>
 
-### Opening The Hub
+### ハブを開く
 
 <Steps>
   <Step title="Keyboard shortcut">
-    Press `Shift + Cmd + H`
+    `Shift + Cmd + H`を押してください
   </Step>
   <Step title="Menu bar">
-    Select "Open The Hub" from the Alter menu bar icon
+    メニューバーの変更アイコンから「ハブを開く」を選択します。
   </Step>
   <Step title="From a conversation">
-    Open a conversation link from a floating panel
+    フローティング パネルから会話リンクを開く
   </Step>
 </Steps>
 
-### Tab Types
+### タブの種類
 
 <CardGroup cols={3}>
   <Card title="Conversations" icon="message-square">
-    Chat sessions with AI models
+    AIモデルとのチャットセッション
   </Card>
   <Card title="Workspaces" icon="folder-open">
-    Collections of files, folders, and apps
+    ファイル、解決、アプリのコレクション
   </Card>
   <Card title="Transcripts" icon="file-audio">
-    Meeting transcriptions and recordings
+    会議の文字起こしと録音
   </Card>
   <Card title="Calendar Events" icon="calendar">
-    Scheduled meetings and events
+    予定されている会議やイベント
   </Card>
   <Card title="Scheduled Jobs" icon="clock">
-    Automated tasks and workflows
+    自動化されたタスクとワークフロー
   </Card>
 </CardGroup>
 
-### Keyboard Shortcuts
+### キーボード ショートカット
 
-| Shortcut | Action |
-|----------|--------|
-| `Cmd + B` | Toggle sidebar visibility |
-| `Cmd + W` | Close active tab |
-| `Cmd + Option + →` | Next tab |
-| `Cmd + Option + ←` | Previous tab |
-| `Cmd + K` | Clear all contexts |
-| `Cmd + Delete` | Delete active conversation |
+|ショートカット |アクション |
+|----------|----------|
+| `Cmd + B` |サイドバーの表示/非表示を切り替える |
+| `Cmd + W` |アクティブなタブを閉じる |
+| `Cmd + Option + →` |次のタブ |
+| `Cmd + Option + ←` |前のタブ |
+| `Cmd + K` |すべてのコンテキストをクリア |
+| `Cmd + Delete` |アクティブな会話を削除 |
 
-### Managing Contexts
+### コンテキストの管理
 
 <Steps>
   <Step title="Add context">
-    Drag and drop files, or use `@` in the prompt box
+    ファイルをドラッグ アンド ドロップするか、プロンプト ボックスで `@` を使用します
   </Step>
   <Step title="Navigate">
-    Use arrow keys to move between contexts
+    コンテキスト間を移動するには矢印キーを使用します
   </Step>
   <Step title="Clear">
-    Press `Cmd + K` to remove all contexts
+    `Cmd + K` を押してすべてのコンテキストを削除します
   </Step>
 </Steps>
 
-### Inspector Panel
+### インスペクターパネル
 
 <CardGroup cols={2}>
   <Card title="Conversation Details" icon="info">
-    Metadata, export options, sharing links
+    メタデータ、エクスポート オプション、共有リンク
   </Card>
   <Card title="Context Management" icon="layers">
-    See all contexts in current conversation
+    現在の会話のすべてのコンテキストを表示
   </Card>
   <Card title="Workspace Info" icon="folder">
-    Statistics, files, and settings
+    統計、ファイル、設定
   </Card>
 </CardGroup>
 
-Toggle the Inspector using the sidebar icon or inspector button.
+サイドバーのアイコンまたはインスペクター ボタンを使用してインスペクターを切り替えます。
 
 ---
 
-## Quick Panel Interface
+## クイックパネルインターフェース
 
-The Quick Panel (accessible from the notch) is divided into three sections:
+クイック パネル (ノッチからアクセス可能) は 3 つのセクションに分かれています。
 
 <CardGroup cols={3}>
   <Card title="1. Context" icon="layers">
-    Your selected files, apps, and references
+    選択したファイル、アプリ、リファレンス
   </Card>
   <Card title="2. Prompt" icon="edit">
-    Where you type or speak your request
+    リクエストを入力または音声で入力する場所
   </Card>
   <Card title="3. Additional Selection" icon="plus">
-    Quick access to models and actions
+    モデルとアクションへの素早いアクセス
   </Card>
 </CardGroup>
 
-### Navigation
+### ナビゲーション
 
-Use keyboard shortcuts in the Quick Panel:
-- `←`, `↑`, `→`, `↓` - Navigate between objects
-- `Enter` - Select an object
-- `@` - Add elements to context
-- `#` - Show conversation history
-- `>` - Show meeting history
-- `/` - List and choose model
-- `?` - Show help menu
+クイック パネルでキーボード ショートカットを使用します。
+- `←`、`↑`、`→`、`↓` - オブジェクト間を移動する
+- `Enter` - オブジェクトを選択してください
+- `@` - コンテキストに要素を追加します
+- `#` - 会話履歴を表示
+- `>` - 会議履歴を表示
+- `/` - モデルをリストして選択します
+- `?` - ヘルプ メニューを表示
 
 <Note>
-  See the **Prompt Box** section below for more keyboard shortcuts.
+  キーボード ショートカットの詳細については、以下の **プロンプト ボックス** セクションを参照してください。
 </Note>
 
 ---
 
-## The Context Section
+## コンテキストセクション
 
-The **Context** section displays elements sent to Alter for reference.
+**コンテキスト** セクションには、参照のために Alter に送信された要素が表示されます。
 
 <CardGroup cols={2}>
   <Card title="Files" icon="file">
-    Documents, images, audio files
+    ドキュメント、画像、音声ファイル
   </Card>
   <Card title="Text Selection" icon="text">
-    Selected text from any app
+    任意のアプリから選択したテキスト
   </Card>
   <Card title="Transcripts" icon="headphones">
-    Audio and YouTube transcripts
+    音声とYouTubeのトランスクリプト
   </Card>
   <Card title="Folders" icon="folder">
-    Entire directories
+    ディレクトリ全体
   </Card>
   <Card title="Workspaces" icon="briefcase">
-    Saved workspace collections
+    保存されたワークスペースコレクション
   </Card>
   <Card title="Applications" icon="app-window">
-    Current app context
+    現在のアプリのコンテキスト
   </Card>
   <Card title="Web Pages" icon="globe">
-    URLs and web content
+    URLとWebコンテンツ
   </Card>
 </CardGroup>
 
-### Keyboard Navigation
+### キーボードナビゲーション
 
-| Key | Action |
-|-----|--------|
-| `←` `↑` `→` `↓` | Navigate contexts |
-| `Space` | Add/remove selected |
-| `Cmd + K` | Remove all contexts |
+|キー |アクション |
+|-----|----------|
+| `←` `↑` `→` `↓` |コンテキストをナビゲートする |
+| `Space` |選択したものを追加/削除 |
+| `Cmd + K` |すべてのコンテキストを削除 |
 
-### Using Your Clipboard
+### クリップボードの使用
 
-Paste content directly: `Cmd + V`
+コンテンツを直接貼り付けます: `Cmd + V`
 
-Your clipboard content is automatically added to Alter's context.
+クリップボードの内容は、Alter の変換テキストに自動的に追加されます。
 
 ---
 
-## The Prompt Box
+## プロンプトボックス
 
-The **Prompt Box** is where the magic happens.
+**プロンプト ボックス** は魔法が起こる場所です。
 
 <Frame>
-  Start typing your prompt or an Alter Action title to send it to your AI model.
+  プロンプトまたは変更アクションのタイトルの入力を開始して、AI モデルに送信します。
 </Frame>
 
-### Keyboard Shortcuts
+### キーボード ショートカット
 
-| Shortcut | Action |
-|----------|--------|
-| `Enter` | Send prompt with active model |
-| `Cmd + Enter` | Search the web (via Gemini) |
-| `Shift + Enter` | New line |
-| `@` | Add elements to context |
-| `#` | Show conversation history |
-| `>` | Show meeting transcription history |
-| `/` | List and choose model |
-| `?` | Show help menu |
+| 異議 | アクション |
+|----------|----------|
+| `Enter` |アクティブなモデルを含むプロンプトを送信 |
+| `Cmd + Enter` |ウェブを検索 (Gemini経由) |
+| `Shift + Enter` |改行 |
+| `@` |要素をコンテキストに追加する |
+| `#` |会話履歴を表示 |
+| `>` |会議の議題履歴を表示 |
+| `/` |モデルをリストして選択 |
+| `?` |ヘルプメニューを表示 |
 
 <Tip>
-  **Invoke Actions:** Type any character in an Action's title to trigger it!
+  **アクションの呼び出し:** アクションのタイトルに任意の文字を入力してアクションをトリガーします。
 </Tip>
 
-### Help Menu
+### ヘルプメニュー
 
 <Frame>
-  ![Help menu](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/5c14ac40-d9bd-4912-bf57-85f853ad441d/image.png?t=1741473617)
+  ![ヘルプメニュー](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/5c14ac40-d9bd-4912-bf57-85f853ad441d/image.png?t=1741473617)
 </Frame>
 
-Press `?` in the prompt box to see all available shortcuts.
+プロンプト ボックスで `?` を押すと、使用可能なすべてのショートカットが表示されます。
 
 ---
 
-## Conversation Windows
+## 会話ウィンドウ
 
-### Resizing Windows
+### ウィンドウのサイズ変更
 
-Customize conversation window size for your workflow:
+ワークフローに合わせて会話ウィンドウのサイズをカスタマイズします。
 
 <CardGroup cols={2}>
   <Card title="Width" icon="move-horizontal">
-    Drag edges horizontally to resize
+    サイズを変更するには、エッジを水平にドラッグします
   </Card>
   <Card title="Height" icon="move-vertical">
-    Drag edges vertically to resize
+    サイズを変更するには、端を垂直にドラッグします
   </Card>
   <Card title="Layout" icon="layout">
-    Fit alongside other applications
+    他のアプリケーションと併用可能
   </Card>
   <Card title="Persistent" icon="save">
-    Size is remembered for future sessions
+    サイズは将来のセッションのために記憶されます
   </Card>
 </CardGroup>
 
 <Info>
-  **Useful for:** Side-by-side work, reviewing long documents, screen sharing, different display setups
+  **用途:** 並列作業、長い文書のレビュー、画面共有、さまざまなディスプレイ設定
 </Info>
 
-### Continuous Speech-to-Prompt
+### 連続的なスピーチからプロンプトまで
 
-Have extended voice conversations without touching your keyboard:
+キーボードに触れずに長時間音声会話を行うことができます。
 
 <Steps>
   <Step title="Hold voice hotkey">
-    Press and hold `Fn` (or your configured key)
+    `Fn` (または設定したキー) を長押しします。
   </Step>
   <Step title="Speak naturally">
-    Say your prompt out loud
+    プロンプトを大声で言ってください
   </Step>
   <Step title="Release">
-    Let go to send to conversation
+    放して会話に送信します
   </Step>
   <Step title="Keep going">
-    Each voice prompt adds to the same thread
+    各音声プロンプトが同じスレッドに追加されます
   </Step>
 </Steps>
 
 <Tip>
-  **Hands-free workflow:** Perfect for brainstorming, dictation, or when your hands are busy.
+  **ハンズフリーのワークフロー:** ブレーンストーミング、ディクテーション、または手が忙しいときに最適です。
 </Tip>
 
 ---
 
-## Conversation History
+## 会話履歴
 
-### Managing Chat History
+### チャット履歴の管理
 
-Access history by typing `#` in the prompt box or using The Hub's sidebar.
+プロンプト ボックスに `#` と入力するか、ハブのサイドバーを使用して、履歴にアクセスします。
 
 <Frame>
-  ![History with tags](/images/other/history-tags.webp)
+  ![タグ付き履歴](/images/other/history-tags.webp)
 </Frame>
 
-### Organizing with Tags
+### タグによる整理
 
-Add tags like `#personal` to categorize chats:
+`#personal` のようなタグを追加して、チャットを分類します。
 
 ```
 # #personal #food
 ```
 
-Search for conversations matching multiple tags.
+複数のタグに一致する会話を検索します。
 
-### Renaming Conversations
+### 会話の名前を変更する
 
 <Steps>
   <Step title="Right-click">
-    Right-click any conversation in the list
+    リスト内の任意の会話を右クリックします
   </Step>
   <Step title="Select Rename">
-    Choose `Rename` from the menu
+    メニューから `Rename` を選択します
   </Step>
   <Step title="Type new name">
-    Give it a descriptive name
+    わかりやすい名前を付けてください
   </Step>
 </Steps>
 
-### Exporting Conversations
+### 会話のエクスポート
 
-Export as markdown for documentation or sharing:
+ドキュメント化または共有のためにマークダウンとしてエクスポートします。
 
 <Steps>
   <Step title="Find conversation">
-    Locate it in the history
+    履歴から見つけてください
   </Step>
   <Step title="Right-click">
-    Open the context menu
+    コンテキストメニューを開く
   </Step>
   <Step title="Select Export">
-    Choose the Export option
+    エクスポートオプションを選択します
   </Step>
   <Step title="Save">
-    Choose location and save as .md file
+    場所を選択し、.mdファイルとして保存します
   </Step>
 </Steps>
 
 <Card title="Export Uses" icon="download">
-  - Documentation
-  - Sharing with team
-  - Archiving important discussions
-  - Using in other tools
+  - ドキュメント
+  - チームとの共有
+  - 重要なディスカッションのアーカイブ
+  - 他のツールでの使用
 </Card>
 
 ---
 
-## Related Resources
+## 関連リソース
 
 <CardGroup cols={2}>
   <Card title="Core Features" icon="sparkles" href="/getting-started/core-features">
-    Workspaces, Actions, and more
+    ワークスペース、アクションなど
   </Card>
   <Card title="Keyboard Shortcuts" icon="keyboard" href="/references/shortcuts">
-    Complete shortcut reference
+    完全なショートカット リファレンス
   </Card>
 </CardGroup>

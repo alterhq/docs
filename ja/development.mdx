@@ -9,7 +9,7 @@ description: 'Preview and contribute to Alter documentation locally'
   - Git
 </Info>
 
-次の手順に従って、Alter ドキュメントをローカルでプレビューし、変更を提供します。
+次の手順に従い、ドキュメントをローカルでプレビューし、変更を提供します。
 
 <Steps>
 <Step title="リポジトリのクローンを作成する">
@@ -29,7 +29,7 @@ npm i -g mint
 
 <Step title="ローカルでプレビューする">
 
-docs ディレクトリで次のコマンドを実行します。
+docsディレクトリで次のコマンドを実行します。
 
 ```bash
 mint dev
@@ -42,7 +42,7 @@ mint dev
 
 ## カスタムポート
 
-デフォルトでは、Mintlify はポート 3000 を使用します。 `--port` フラグを使用してポートをカスタマイズできます。
+ちなみに、Mintlify はポート 3000 を使用します。 `--port` 主観を使ってポートをカスタマイズできます。
 
 ```bash
 mint dev --port 3333
@@ -56,19 +56,19 @@ mint dev --port 3333
 mint broken-links
 ```
 
-## AI 支援ライティング
+## AI支援ライティング
 
-Mintlify と連携するように AI コーディング ツールをセットアップします。
+Mintlifyと連携するためにAIインデックスツールをセットアップします。
 
 ```bash
 npx skills add https://mintlify.com/docs
 ```
 
-これにより、Claude コード、カーソル、ウィンドサーフィンなどの AI ツール用の Mintlify のドキュメント スキルがインストールされます。
+これにより、Claude コード、スマート、ウィンドサーフィンなどの AI ツール用の Mintlify のドキュメント スキルがインストールされます。
 
 ## 導入
 
-変更は、GitHub 統合を通じてメイン ブランチにマージされると自動的にデプロイされます。
+変更は、GitHub統合メインブランチにマージされると自動的にデプロイされます。
 
 <Frame>
   <img src="/images/checks-passed.png" alt="Screenshot of a deployment confirmation message that says All checks have passed." style={{ borderRadius: '0.5rem' }} />
@@ -77,11 +77,11 @@ npx skills add https://mintlify.com/docs
 ## 貢献ガイドライン
 
 貢献する前に、以下をお読みください。
-- [ALTER.md](/ALTER) - AI エージェントの貢献ルール
-- [エージェント.md](/AGENTS) - エージェント向けのプロジェクト手順
+- [ALTER.md](/ALTER) - AIエージェントの貢献ルール
+- [エージェント.md](/AGENTS) -エージェント向けのプロジェクト手順
 
 重要なポイント:
-- YAML フロントマターで MDX 形式を使用する
+- YAMLフロントメーターでMDX形式を使用する
 - 既存のコンテンツ構造に従う
 - アセットにローカル `/images/` パスを使用する
 - 送信する前に `mint broken-links` を実行してください
@@ -91,16 +91,16 @@ npx skills add https://mintlify.com/docs
 <AccordionGroup>
   <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
 
-    これはノードのバージョンが古いことが原因である可能性があります。次のことを試してください。
+これはノードのバージョンが古いためである可能性があります。次のことを試してください。
     1. 現在インストールされている CLI のバージョンを削除します: `npm remove -g mint`
     2. Node v19 以降にアップグレードします。
     3. CLI を再インストールします: `npm i -g mint`
   </Accordion>
 
-  <Accordion title="問題: 不明なエラーが発生しました">
+<Accordion title="問題: 不明なエラーが発生しました">
   
-    解決策: デバイスのルートに移動し、`~/.mintlify` フォルダーを削除します。次に、`mint dev` を再度実行します。
+解決策: デバイスのルートに移動し、`~/.mintlify` 削除します。次に、`mint dev` を再度実行します。
   </Accordion>
 </AccordionGroup>
 
-最新の CLI バージョンで何が変更されたか知りたいですか? [CLI変更ログ](https://www.npmjs.com/package/mintlify?activeTab=versions)を確認してください。
+最新の CLI バージョンで変更されたのか知りたいですか? [CLI変更ログ](https://www.npmjs.com/package/mintlify?activeTab=versions)を確認してください。

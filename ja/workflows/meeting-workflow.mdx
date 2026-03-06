@@ -1,110 +1,110 @@
 ---
-title: "Never Miss Action Items from Meetings"
-description: "How to automatically record, transcribe, and extract tasks from your meetings"
+title: "会議からのアクションアイテムを見逃すことはありません"
+description: "会議からタスクを自動的に記録、文字起こし、抽出する方法"
 ---
 
 <Info>
-  **Perfect for:** Busy professionals, team leads, and anyone who wants to focus on the conversation instead of taking notes.
+  **こんな人に最適:** 忙しいプロフェッショナル、チームリーダー、メモをとる代わりに会話に集中したい人。
 </Info>
 
-## The Problem
+＃＃ 問題
 
-You're in back-to-back meetings all day. By the time you get to the third one, you can't remember:
-- What was decided in the first meeting
-- Who agreed to do what
-- What your actual action items are
+一日中会議が続いています。 3番目に到達するまでに、次のことを思い出せなくなります。
+- 最初の打ち合わせで決まったこと
+- 誰が何をすることに同意したのか
+- 実際のアクションアイテムは何ですか
 
-You could take notes during meetings, but then you're not fully present in the conversation.
+会議中にメモを取ることはできますが、そうすると会話に完全に参加できなくなります。
 
-## The Solution: Let Alter Handle It
+## 解決策: Alter に任せる
 
-Alter automatically detects when you're in meetings and creates searchable transcripts with speaker identification. Then you can ask it to extract action items, decisions, and key points.
+Alter は、ユーザーが会議に参加していることを自動的に検出し、発言者を識別した検索可能なトランスクリプトを作成します。次に、実行項目、決定事項、重要なポイントを抽出するように依頼できます。
 
-## Real-world example
+## 実際の例
 
-**Sarah, Product Manager:**
-> "I used to spend 30 minutes after every meeting writing up notes. Now Alter records everything, and I just ask 'What are my action items?' and 'What decisions did we make about the API?' It saves me hours every week."
+**サラ、プロダクトマネージャー:**
+> 「以前は、毎回の会議の後にメモを書くのに 30 分を費やしていました。今では、Alter がすべてを記録してくれるので、「私のアクション アイテムは何ですか?」と尋ねるだけです。 「API についてどのような決定を下しましたか?」毎週何時間も節約できます。」
 
-## How to set it up
+## 設定方法
 
 <Steps>
   <Step title="Enable auto-recording">
-    1. Open Alter Settings (`Cmd + ,`)
-    2. Go to **Dictation** tab
-    3. Turn on **Auto Record Meetings**
-    4. Set the minimum duration (default: 2 minutes)
+    1. 設定変更 (`Cmd + ,`) を開きます
+    2. **ディクテーション** タブに移動します
+    3. **会議の自動録画**をオンにします
+    4. 最小継続時間を設定します (デフォルト: 2 分)
     
-    Now Alter will automatically detect Zoom, Google Meet, and Teams calls and ask if you want to record.
+これで、Alter は Zoom、Google Meet、Teams の通話を自動的に検出し、録音するかどうかを尋ねるようになります。
   </Step>
   
-  <Step title="Choose your transcription quality">
-    **Option 1: Cloud Processing** (Fastest, most accurate)
-    - Uses online AI for transcription
-    - Best accuracy for accents and technical terms
+<Step title="Choose your transcription quality">
+    **オプション 1: クラウド処理** (最速、最も正確)
+    - 文字起こしにはオンラインAIを使用
+    - アクセントや専門用語の精度が最高
     
-    **Option 2: Whisper Pro** (Private, works offline)
-    - Download a local model (recommended: Whisper Large V3)
-    - 100% offline processing
-    - Great for confidential meetings
+**オプション 2: Whisper Pro** (プライベート、オフラインで動作)
+    - ローカル モデルをダウンロードします (推奨: Whisper Large V3)
+    - 100% オフライン処理
+    - 機密会議に最適
   </Step>
   
-  <Step title="Test with a sample meeting">
-    1. Join any meeting (even a test Zoom with yourself)
-    2. Click **Record** when Alter asks, or manually start recording
-    3. Speak for 2-3 minutes
-    4. End the meeting
-    5. Wait 10 seconds for transcription
+<Step title="Test with a sample meeting">
+    1. 任意の会議に参加します (自分自身とのテスト Zoom も含む)
+    2. Alter が尋ねたら [**録画**] をクリックするか、手動で録画を開始します
+    3. 2〜3分間話します
+    4. 会議を終了する
+    5. 文字起こしが完了するまで 10 秒待ちます
   </Step>
 </Steps>
 
-## How to extract value from transcripts
+## トランスクリプトから値を抽出する方法
 
-Once you have a transcript, try these prompts:
+トランスクリプトを取得したら、次のプロンプトを試してください。
 
 <CardGroup cols={2}>
   <Card title="Get action items" icon="check-circle">
-    "List all the action items from this meeting and who is responsible for each"
+    「この会議でのすべてのアクションアイテムと、それぞれの責任者をリストアップしてください」
   </Card>
   <Card title="Summarize decisions" icon="gavel">
-    "What decisions were made? List them with context"
+    「どのような決定が下されましたか? コンテキストとともにリストします。」
   </Card>
   <Card title="Find specific topics" icon="search">
-    "What did we say about the budget/timeline/API?"
+    「予算、スケジュール、API について何を言いましたか?」
   </Card>
   <Card title="Create follow-up email" icon="envelope">
-    "Draft a follow-up email summarizing this meeting for the team"
+    「チーム向けにこの会議を要約したフォローアップ メールの草案を作成してください」
   </Card>
 </CardGroup>
 
-## Pro tips
+## プロのヒント
 
 <Tip>
-  **Speaker identification:** Alter uses AI to identify different speakers (Speaker 1, Speaker 2, etc.). You can rename them manually after the meeting if you know who they are.
+  **話者の識別:** Alter は AI を使用して、さまざまな話者 (話者 1、話者 2 など) を識別します。相手が誰であるかわかっている場合は、会議後に手動で名前を変更できます。
 </Tip>
 
 <Tip>
-  **Search across all meetings:** All transcripts are searchable. Type `#` in the prompt box to search past meeting content. Ask "What did John say about the roadmap in last week's meetings?"
+  **すべての会議の検索:** すべての議事録が検索可能です。過去の会議コンテンツを検索するには、プロンプト ボックスに `#` と入力します。 「ジョンは先週の会議でロードマップについて何と言いましたか?」と尋ねます。
 </Tip>
 
 <Tip>
-  **Live captions:** Turn on live captions during meetings (Settings > Voice > Enable Live Captions) to follow along in real-time, especially helpful if audio quality is poor.
+  **ライブ キャプション:** 会議中にライブ キャプションをオンにすると ([設定] > [音声] > [ライブ キャプションを有効にする])、リアルタイムでフォローできるようになります。特に音声品質が低い場合に役立ちます。
 </Tip>
 
-## Where your data goes
+## データの行き先
 
-All transcripts are stored **locally on your Mac** at:
+すべてのトランスクリプトは **ローカルの Mac** に保存されます。
 ```
 ~/Library/Application Support/Alter/Transcripts
 ```
 
-No one else can access them unless you explicitly share them.
+あなたが明示的に共有しない限り、他の誰もそれらにアクセスすることはできません。
 
-## Related features
+## 関連機能
 
-- [How to access settings](/how-to/settings-guide) – Configure meeting and voice options
-- [Troubleshoot mic transcription](/common-issues/mic-not-transcribing) – Fix capture issues
-- [Use Tool Manager](/how-to/tool-manager-guide) – Configure tools for follow-up workflows
+- [設定へのアクセス方法](/how-to/settings-guide) – 会議と音声のオプションを構成する
+- [マイク文字起こしのトラブルシューティング](/common-issues/mic-not-transcribing) – キャプチャの問題を修正
+- [ツール マネージャーを使用](/how-to/tool-manager-guide) – フォローアップ ワークフロー用のツールを構成します
 
 ---
 
-**Ready to try it?** Your next meeting is the perfect time to test this out. Just turn on auto-record and see how much easier your follow-up becomes!
+**試してみる準備はできましたか?** 次回の会議は、これをテストするのに最適な機会です。自動録画をオンにするだけで、フォローアップがどれだけ簡単になるかお確かめください。
