@@ -1,0 +1,29 @@
+---
+title: "Get Active App Context"
+description: "Capture active window content and OCR text for Computer Use workflows"
+---
+
+Use this tool to read what is currently visible in an app or browser window before taking action.
+
+## What it does
+
+- Retrieves content from the active app window by default.
+- Accepts optional `windowID` (`pid/title`) to target a specific window.
+- Returns extracted text content.
+- Adds OCR text from screenshots when useful.
+
+## Common uses
+
+- Read page or app state before clicking.
+- Extract visible content for summaries.
+- Build a stable context before multi-step automation.
+
+## Input
+
+- `windowID` (optional): target a specific window from `list_windows`.
+
+## Good pairing
+
+- [Perform](/apps-tools/computer-use-perform)
+- [Scroll](/apps-tools/computer-use-scroll)
+- [Wait](/apps-tools/computer-use-wait)

@@ -1060,55 +1060,71 @@
         "language": "zh",
         "tabs": [
           {
-            "tab": "快速开始",
-            "pages": [
-              "zh/index",
-              "zh/quickstart",
-              "zh/getting-started/open-alter",
-              "zh/getting-started/your-workspace",
-              "zh/getting-started/first-workflows"
+            "tab": "Getting Started",
+            "groups": [
+              {
+                "group": "Start Here",
+                "pages": [
+                  "zh/index",
+                  "zh/quickstart",
+                  "zh/getting-started/getting-started-path",
+                  "zh/getting-started/open-alter",
+                  "zh/getting-started/your-workspace",
+                  "zh/getting-started/window-types-notch-hub-panels",
+                  "zh/getting-started/first-workflows",
+                  "zh/getting-started/core-features",
+                  "zh/getting-started/understand-context-and-apps",
+                  "zh/getting-started/use-current-app-and-follow-mode",
+                  "zh/getting-started/add-files-and-media",
+                  "zh/getting-started/capture-voice-and-meetings",
+                  "zh/getting-started/workspaces-basics",
+                  "zh/getting-started/actions-basics",
+                  "zh/getting-started/automate-with-workspaces-and-actions"
+                ]
+              }
             ]
           },
           {
-            "tab": "指南",
-            "pages": [
-              "zh/getting-started/guides-index"
-            ],
+            "tab": "Workflows",
             "groups": [
               {
-                "group": "从这里开始",
+                "group": "Communication",
                 "pages": [
-                  "zh/getting-started/core-features",
-                  "zh/getting-started/alter-window",
-                  "zh/workflows/dictation",
+                  "zh/workflows/manage-mail-with-alter",
+                  "zh/workflows/send-messages-with-alter",
+                  "zh/workflows/manage-contacts-with-alter"
+                ]
+              },
+              {
+                "group": "Planning and Meetings",
+                "pages": [
+                  "zh/workflows/manage-calendar-with-alter",
+                  "zh/workflows/plan-places-and-routes-with-alter-maps",
+                  "zh/workflows/meeting-workflow",
                   "zh/workflows/meetings",
-                  "zh/getting-started/getting-started-path"
+                  "zh/workflows/dictation"
                 ]
               },
               {
-                "group": "最佳效果（建议尽早）",
+                "group": "Capture and Knowledge",
                 "pages": [
+                  "zh/workflows/manage-notes-with-alter",
+                  "zh/workflows/summarize-x-feed-with-computer-use",
+                  "zh/workflows/local-model-privacy"
+                ]
+              },
+              {
+                "group": "Automation",
+                "pages": [
+                  "zh/workflows/manage-reminders-with-alter",
+                  "zh/workflows/workspaces-actions",
                   "zh/workflows/use-flow-orchestration",
-                  "zh/how-to/managing-context-window"
-                ]
-              },
-              {
-                "group": "日常工作流",
-                "pages": [
-                  "zh/workflows/workspaces-actions"
-                ]
-              },
-              {
-                "group": "自动化与 Tools",
-                "pages": [
                   "zh/workflows/alter-actions",
-                  "zh/apps-tools/integrations-overview",
-                  "zh/how-to/tool-manager-guide",
                   "zh/workflows/url-callbacks"
                 ]
               },
               {
-                "group": "网页搜索",
+                "group": "Web Research",
                 "pages": [
                   "zh/workflows/web-research-getting-started",
                   "zh/workflows/native-web-search-in-alter-routers",
@@ -1118,54 +1134,70 @@
                   "zh/workflows/connect-linkup",
                   "zh/workflows/connect-exa"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "tab": "Apps & Tools",
+            "groups": [
               {
-                "group": "设置与个性化",
+                "group": "Integrations",
                 "pages": [
-                  "zh/how-to/settings-guide"
+                  "zh/apps-tools/integrations-overview",
+                  "zh/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "模型",
+                "group": "Mac Apps",
                 "pages": [
-                  "zh/how-to/choose-generative-model"
+                  "zh/apps-tools/mail",
+                  "zh/apps-tools/calendar",
+                  "zh/apps-tools/notes",
+                  "zh/apps-tools/reminders",
+                  "zh/apps-tools/messages",
+                  "zh/apps-tools/contacts",
+                  "zh/apps-tools/maps"
+                ]
+              },
+              {
+                "group": "Computer Use",
+                "pages": [
+                  "zh/apps-tools/computer-use",
+                  "zh/apps-tools/computer-use-get-active-app-context",
+                  "zh/apps-tools/computer-use-perform",
+                  "zh/apps-tools/computer-use-wait",
+                  "zh/apps-tools/computer-use-scroll"
                 ]
               }
             ]
           },
           {
-            "tab": "操作指南",
+            "tab": "How to",
             "groups": [
               {
-                "group": "快速任务",
+                "group": "Quick Tasks",
                 "pages": [
-                  "zh/getting-started/open-alter",
-                  "zh/how-to/add-context",
                   "zh/how-to/change-hotkey",
                   "zh/how-to/choose-language",
-                  "zh/how-to/use-byok",
-                  "zh/how-to/settings-guide"
+                  "zh/how-to/choose-generative-model",
+                  "zh/how-to/use-byok"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "使用场景",
-            "groups": [
+              },
               {
-                "group": "场景",
+                "group": "Manage and configure",
                 "pages": [
-                  "zh/use-cases/meeting-workflow",
-                  "zh/use-cases/local-model-privacy"
+                  "zh/how-to/settings-guide",
+                  "zh/how-to/tool-manager-guide",
+                  "zh/how-to/managing-context-window"
                 ]
               }
             ]
           },
           {
-            "tab": "故障排查",
+            "tab": "Troubleshooting",
             "groups": [
               {
-                "group": "常见问题",
+                "group": "Common Issues",
                 "pages": [
                   "zh/common-issues/mic-not-transcribing",
                   "zh/common-issues/hotkey-not-working",
@@ -1177,10 +1209,10 @@
             ]
           },
           {
-            "tab": "参考",
+            "tab": "Reference",
             "groups": [
               {
-                "group": "快速参考",
+                "group": "Quick Reference",
                 "pages": [
                   "zh/references/faq-core",
                   "zh/references/general-faq",
@@ -1190,7 +1222,7 @@
                 ]
               },
               {
-                "group": "资源",
+                "group": "Assets",
                 "pages": [
                   "zh/references/image-library"
                 ]
@@ -1201,13 +1233,13 @@
             "tab": "API Router",
             "groups": [
               {
-                "group": "快速开始",
+                "group": "Getting Started",
                 "pages": [
                   "zh/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway 与 Router",
+                "group": "Gateway & Router",
                 "pages": [
                   "zh/api-router/api-gateway",
                   "zh/api-router/development",
@@ -1215,7 +1247,7 @@
                 ]
               },
               {
-                "group": "应用集成",
+                "group": "App Integrations",
                 "pages": [
                   "zh/api-router/app-integrations",
                   "zh/api-router/typingmind",
@@ -1223,7 +1255,7 @@
                 ]
               },
               {
-                "group": "参考",
+                "group": "Reference",
                 "pages": [
                   "zh/references/api-model-names"
                 ]
