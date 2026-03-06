@@ -1,0 +1,32 @@
+---
+title: "App-Integrationen mit API Router"
+description: "Verbinden Sie Drittanbieter-Apps mit Alter API Router"
+---
+
+Verwenden Sie diese Anleitungen, wenn Sie externe Apps mit Alter API Router integrieren.
+
+## Integrationsanleitungen
+
+<CardGroup cols={2}>
+  <Card title="TypingMind" icon="plug" href="/de/api-router/typingmind">
+    Konfigurieren Sie in TypingMind ein benutzerdefiniertes OpenAI Chat Completions-Modell mit Alter Endpoint und Headers.
+  </Card>
+  <Card title="Msty.ai" icon="plug" href="/de/api-router/msty">
+    Setzen Sie Alter Endpoint, API-Key und Model-ID-Format in Msty.ai.
+  </Card>
+  <Card title="Allgemeines Setup-Muster" icon="book-open" href="/de/api-router/api-gateway">
+    Base URL, API-Key-Handling und Model-ID-Format, wie es die meisten OpenAI-kompatiblen Apps nutzen.
+  </Card>
+</CardGroup>
+
+## Integrations-Checkliste
+
+1. Base URL auf `https://alterhq.com/api` setzen (oder `/v1`, falls erforderlich)
+2. Auth-Header auf `Authorization: Bearer YOUR_API_KEY` setzen
+3. Model-IDs im Format `Provider#Model-name` verwenden
+4. Vor der ersten Anfrage einen Modell-List-Call ausführen
+
+## Verwandt
+
+- [API Router Überblick](/de/references/api-router-overview)
+- [API-Modellreferenz](/de/references/api-model-names)

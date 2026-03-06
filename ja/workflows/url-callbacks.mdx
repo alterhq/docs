@@ -1,0 +1,147 @@
+---
+title: "URL Callbacks"
+description: "x-callback-url スキームを使用して Alter を他のアプリと統合する"
+---
+
+URL スキームを使用して Alter を他のアプリと統合するには、このガイドを使用してください。
+
+## ビデオチュートリアル
+
+- https://www.youtube.com/watch?v=X-XJiveQ-Wc
+
+## 導入
+
+Alter は x-callback-url をサポートしているため、アプリは相互にアクションをトリガーできます。
+あなたはできる：
+
+- 外部アプリから Alter アクションをトリガーする
+- Alter から外部アプリのアクションをトリガーする
+- 入力データを URL で渡す
+- 元のアプリに戻ります (アプリのサポートに応じて)
+
+## 仕組み
+
+1. `alter://...` URL を介して、別のアプリから Alter アクションをトリガーします。
+2. アプリの URL スキームを使用して、Alter から外部アプリのアクションをトリガーします。
+
+## 外部アプリから Alter アクションをトリガーする
+
+1. アクションエディタを開きます。
+2. アクションを選択します。
+3. `General` で、**URL Callback** セクションから URL をコピーします。
+4. URL を別のアプリ (ブラウザ、メモ、ショートカットなど) に貼り付けます。
+
+![Alter バック コール URL](/images/integrations/alter-callback-urls-focus.webp)
+
+## Alter から外部アプリ アクションをトリガーする
+
+1. ターゲット アプリ スキームを使用して、Alter でクリック可能な URL を作成します。
+2. そのアプリで必要とされるとおりにパラメータを正確にフォーマットします。
+3. クリックして実行し、アクションの動作を確認します。
+
+## 例
+
+### Alter コールバックの例
+
+- 検索クエリ:
+  - __コード_0__
+  - <a href="alter://action/ask-web?input=What+is+Alter+MacOS">Alter で開く</a>
+
+- インプットのないビジネスストラテジスト:
+  - __コード_0__
+  - <a href="alter://action/business-strategist-gpt">Alter で開く</a>
+
+- ビジネス ストラテジストからの意見:
+  - __コード_0__
+  - <a href="alter://action/business-strategist-gpt?input=Explain+Red+Ocean+Strategy">Alter で開く</a>
+
+### クロスアプリの例
+
+- クマのメモの作成:
+  - __コード_0__
+
+## 対応アプリ（サンプリング）
+
+x-callback-url または URL スキームをサポートするアプリには次のものがあります。
+
+- [1ライター](http://1writerapp.com/developers)
+- [2Do](http://2doapp.com/kb/article/url-scheme-supported-by-2do-for-apps-like-launch-center-pro.html)
+- [議題](https://agenda.community/t/x-callback-url-support-and-reference/27253)
+- [アッピゴ・トド](http://support.appigo.com/support/solutions/articles/179661-third-party-integration-with-todo-ios-apps)
+- [クマ](https://bear.app/faq/X-callback-url%20Scheme%20documentation/)
+- [始める](http://blog.beginapp.co/blog/2013/9/15/url-schemes)
+- [ブレッドウォレット](http://breadwallet.com)
+- [余談](http://bywordapp.com/support/url-scheme.html)
+- [Cal2Todo](http://yaas4home.blog.fc2.com/blog-entry-344.html)
+- [クラウドドロップ](http://shabz.co/m/dev.html)
+- [コマンド+C](http://danilo.to/command-c/faq/how-to-use-x-callback-url)
+- [ダイダロスタッチ](http://daedalusapp.com/url-scheme/)
+- [デイメイト](http://www.nodheadsoftware.com/daymate/x-callback-url/)
+- [意味](http://handleopenurl.com/scheme/定義)
+- [デボン考える](https://www.devontechnologies.com/redirect/apps/devonthink)
+- 【急送】(http://www.dispatchapp.net)
+- [下書き](http://getdrafts.c​​om)
+- [期限](http://www.dueapp.com/developer.html)
+- [社説](http://omz-software.com/editorial/docs/ios/editorial_urlscheme.html)
+- [聖書を装備する](http://www.equipd.me/kb/url-scheme/)
+- [幻想的](http://flexibits.com/fantastical-iphone/faq)
+- [グラディス](http://www.bru.build/gladys-callback-scheme)
+- [Google Chrome](https://developers.google.com/chrome/mobile/docs/ios-links)
+- [Googleマップ](http://philgr.com/blog/google-maps-and-x-callback-url-support)
+- [フック](https://hookproductivity.com/)
+- [iCab モバイル](http://www.icab.de/blog/2012/07/01/icab-mobile-6-0-supports-x-callback-url/)
+- [インスタペーパー](http://blog.instapaper.com/post/4637427075)
+- [iPGMail](http://ipgmail.com/info/developers/)
+- [アイゼトル](http://developer.izettle.com/)
+- [KipptのKippster](http://kippster.net/url-schemes/)
+- [Launch Center Pro](http://appcubby.com/launch-center/)
+- [ミカル](http://micalapp.com/ja/faqs#category_10)
+- [手紙](http://blackfoggames.com/Missives/callback.html)
+- [マルチタイマー](http://persapps.com/app/multitimer/url-scheme.php)
+- [マイドアオープナー](http://forums.mydooropener.com/viewtopic.php?f=16&t=295)
+- [メモっぽい](http://notesy-app.com/weblog/files/b7e15801e5b4448495eaaccfdb374cc7-20.html)
+- [オムニフォーカス](https://discourse.omnigroup.com/t/automation-in-omnifocus-2-14-published-2016-04-26/23985/92)
+- [オープナー](http://www.opener.link/api)
+- [オットーのリモコン](http://andymolloy.net/blog/2013/08/21/otto-and-x-callback-url/)
+- [曇り](https://overcast.fm)
+- 【プレコ】(http://www.pleco.com/ipmanual/vershist.html)
+- [ポスター](http://www.tomwitkin.com/poster/developers/)
+- [プリズモ](https://github.com/creaceed/PrizmoAPI)
+- [プロクラスター](http://procasterapp.com/userguide/51)
+- [ロールPG](http://blackfoggames.com/RollPG/callback.html)
+- [JavaScriptを実行する](https://itunes.apple.com/us/app/runjavascript/id1254402852)
+- [スキャナーゴー](http://ilevelupapps.com/scanner-go)
+- [ショピ](http://sapient-pair.com/shopi/automation.html)
+- [ショーパスブラウザ](http://showrtpath.hatenablog.com/entry/2014/01/04/085804)
+- [サイロ](https://siloapp.net/developer)
+- [問題](https://support.apple.com/guide/shortcuts/welcome/ios)
+- [ストーリープランナー](http://literautas.com/en/apps/story-planner/x-callback-url/)
+- [街路](http://www.futuretap.com/blog/streets-api/)
+- [用語](http://agiletortoise.com/developers/terminology)
+- [テキストセンター](http://textcenterapp.com/xcallback.html)
+- [テキストエキスパンダータッチ](http://smile.clarify-it.com/d/ehf7a4)
+- [テキスト的な](http://www.textasticapp.com/v4/manual/x-callback-url.html)
+- [テキストクラフト](http://www.infovole.de/en/support-en/x-callback-url-in-textkraft/)
+- [テキストTool](http://blackfoggames.com/TextTool/callback.html)
+- [もの](https://culturedcode.com/things/help/url-scheme/)
+- [タイムページ](http://moleskine.helpscoutdocs.com/article/92-timepage-url-scheme)
+- [トレロ](https://trello.com/c/cJfzOdDm/188-automate-with-url-scheme)
+- [iOS用タンブラー](https://github.com/tumblr/TMTumblrSDK#url-schemes)
+- [ユリシーズ](http://ulyssesapp.com/kb/x-callback-url/)
+- [上向きメモ](http://www.upwordnotes.com/url-scheme/)
+- [ビデオLAN](https://wiki.videolan.org/Documentation:IOS/#x-callback-url)
+- [ウォーターマインダー](https://funnmedia.zendesk.com/hc/en-us/articles/360007745191-WaterMinder-X-Callback-URL-Support)
+- [どこへ?](http://www.futuretap.com/api/whereto/)
+- [作業コピー](http://workingcopyapp.com/x-callback-url.html)
+
+## テストとトラブルシューティング
+
+- URL スキームとパラメータを確認します。
+- 特殊文字を URL エンコードします。
+- ターゲット アプリがアクションをサポートしていることを確認します。
+- アプリのコールバック ドキュメント URL を Alter に貼り付けて、構文/ルールを確立します。
+
+## 関連ドキュメント
+
+- [Alter アクション - ワークフロー](/getting-started/core-features#alter-actions-workflows)
+- [Tools 機能しない](/common-issues/tool-not-working)

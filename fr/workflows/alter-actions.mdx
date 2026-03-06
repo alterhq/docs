@@ -1,0 +1,382 @@
+---
+title: "Alter Actions"
+description: "Créez et configurez des flux de travail d'IA personnalisés avec des déclencheurs vocaux et l'automatisation"
+---
+<Info>
+  Les **Alter Actions** sont des workflows d'IA personnalisables qui vous permettent de créer des assistants spécialisés pour des tâches spécifiques. Combinez les instructions de l'IA, les déclencheurs vocaux, les Tools et l'exécution conditionnelle pour automatiser tout sur votre Mac.
+</Info>
+
+## Qu'est-ce qu'une action de modification ?
+
+Une **Alter Action** est une automatisation avancée qui combine :
+
+- **Instructions IA** - Invites du système définissant le comportement de l'IA
+- **Déclencheurs** – Commandes vocales, raccourcis clavier ou exécution conditionnelle
+- **Contexte** - Accès au texte, aux fichiers et aux applications actives sélectionnés
+- **Tools** - Intégrations configurées avec votre Mac et plus de 2000 services externes
+- **Sortie** – Comment les résultats sont affichés (markdown, code, insertion en ligne)
+
+Considérez une Alter Action comme un « assistant IA spécialisé » personnalisé pour une tâche spécifique.
+
+## Ouverture de l'éditeur d'actions
+
+### Méthode 1 : barre de menus (la plus rapide)
+1. Cliquez sur l'**icône Alter le menu** dans la barre de menu (en haut à droite).
+2. Sélectionnez **Éditeur d'actions**
+
+![Barre de menus](/images/tools/menu-bar-action-editor.webp)
+
+### Méthode 2 : menu Options
+1. Ouvrir la fenêtre Alter
+2. Cliquez sur **⋯** (trois points) en haut à droite
+3. Sélectionnez **Éditeur d'actions**
+
+![Menu d'options](/images/tools/options-menu-action-editor.webp)
+
+### Méthode 3 : raccourci clavier
+Appuyez sur **⌘ E** (Commande + E) pour ouvrir directement l'éditeur d'actions.
+
+<Tip>
+  Le raccourci clavier est la méthode la plus rapide une fois que vous l’avez mémorisé.
+</Tip>
+
+## Procédure pas à pas de l'éditeur d'actions
+
+L'éditeur d'action comporte 7 sections principales, chacune contrôlant différents aspects de votre action. Utilisez le panneau de gauche pour naviguer entre les onglets.
+
+### 1. Paramètres généraux
+
+Configurez les métadonnées de base et le contexte d'exécution.
+
+![Onglet Général](/images/tools/action-editor-01-general.webp)
+
+**Champs :**
+- **Nom** – Nom de l'action lisible par l'homme (par exemple, "Code Explainer")
+- **Description** – Ce que fait cette action (facultatif)
+- **Catégorie** - Organisez les actions par type (code, productivité, métier, etc.)
+- **Workspace** – Attribuer à un Workspace spécifique (facultatif)
+- **Inclure le profil** : Inclure les informations de profil utilisateur dans le contexte de l'IA
+
+**Options de visibilité :**
+- **Afficher uniquement lors de l'exécution** - L'action n'apparaît que si une application est en cours d'exécution
+- **Afficher uniquement lorsqu'il est actif** - L'action n'apparaît que si une application a le focus
+- **Contexte de l'Workspace** – Choisissez quel(s) espace(s) de travail voient cette action
+
+<Note>
+  Chaque action obtient automatiquement un UUID unique.
+</Note>
+
+### 2. Invite système
+
+Définir les instructions et les paramètres d'IA pour le modèle.
+
+![Onglet Invite système](/images/tools/action-editor-02-systemprompt.webp)
+
+**Invite système** - Instructions de base de l'IA décrivant le comportement et l'expertise de l'IA.
+
+**Exemple:**
+```
+# IDENTITY AND PURPOSE
+You are an expert software engineer who explains code clearly
+and accessibly to developers of all skill levels.
+
+# STEPS
+1. Analyze the provided code
+2. Identify its purpose and key components
+3. Explain each section in simple terms
+
+# OUTPUT INSTRUCTIONS
+- Use markdown formatting
+- Include code examples where helpful
+- Keep language clear and non-technical
+```
+
+**Paramètres** - Définissez les champs de saisie que les utilisateurs peuvent personnaliser avant l'exécution (saisie de texte, sélections déroulantes, etc.).
+
+### 3. Invite utilisateur
+
+Modèle pour l'invite destinée à l'utilisateur qui est envoyée à l'IA.
+
+![Onglet Invite utilisateur](/images/tools/action-editor-03-userprompt.webp)
+
+**Utilisation de variables contextuelles :**
+
+Enveloppez les variables dans `{{ }}` pour insérer du contenu dynamique :
+
+```
+Please explain this code:
+
+{{ textSelection }}
+
+Explanation detail: {{ detailLevel }};
+```
+
+**Variables de contexte disponibles :**
+- `{{ textSelection }}` - Texte actuellement sélectionné
+- `{{ filePath }}` - Chemin d'accès au fichier sélectionné
+- `{{ clipboard }}` - Contenu du presse-papiers
+- Paramètres personnalisés que vous avez définis dans l'invite système
+
+### 4. Quand montrer
+
+Contrôlez quand et où cette action apparaît.
+
+![Quand afficher l'onglet](/images/tools/action-editor-04-whentoshow.webp)
+
+**Conditions de visibilité :**
+
+- **Applications installées** - Afficher l'action uniquement dans des applications spécifiques (VSCode, Xcode, Safari, etc.)
+- **L'application est en cours d'exécution** - L'action nécessite que l'application soit en cours d'exécution
+- **L'application a le focus** - L'action ne fonctionne que lorsque l'application est au premier plan
+- **L'onglet du navigateur Web contient** - Afficher l'action lors de la navigation dans des domaines spécifiques
+- **A du contenu** – Afficher l'action uniquement lorsque le contexte est disponible
+
+### 5. Automatisation
+
+Configurez le comportement d'exécution, les planifications et le traitement en arrière-plan.
+
+![Onglet Automatisation](/images/tools/action-editor-05-automation.webp)
+
+**Champs :**
+
+- **Tâche en arrière-plan** - Exécutez une action en arrière-plan sans afficher l'interface utilisateur
+- **Programmes** – Exécuter l'action à des heures précises (par exemple, "Tous les lundis à 9 h 00")
+- **Action rapide** - Exécutez automatiquement la prochaine "Action rapide" une fois cette opération terminée.
+
+Utilisez-le pour l'enchaînement d'actions : première action → sortie → l'action suivante s'exécute automatiquement.
+
+### 6. Tools
+
+Déterminez quels Tools sont disponibles pour cette action.
+
+![Onglet Tools](/images/tools/action-editor-06-tools.webp)
+
+**Configuration du Tool :**
+
+- ** Désactiver les Tools ** – Désactivez des Tools individuels pour restreindre les fonctionnalités.
+- Lorsqu'il est vide : tous les Tools sont disponibles
+- Une fois configuré : seuls les Tools sélectionnés sont disponibles
+
+**Pourquoi les Tools Scope ?**
+- Réduire les frais de décision liés à l’IA (concentrez-vous sur les Tools pertinents)
+- Accélérez l’exécution des actions
+- Améliorer la sécurité (limiter les actions auxquelles les actions peuvent accéder)
+
+### 7. Modèle
+
+Sélectionnez le modèle d'IA et ajustez le niveau de créativité.
+
+![Onglet Modèle](/images/tools/action-editor-07-model.webp)
+
+**Champs :**
+
+- **Modèle** : choisissez un modèle d'IA spécifique pour cette action
+  - Laissez vide pour utiliser le paramètre de modèle par défaut de l'utilisateur
+  - Ou sélectionnez : Claude, GPT-4, modèle local, etc.
+
+- **Température** – Ajustez la créativité par rapport à la précision
+  - **0,0** – Déterministe (cohérent, prévisible)
+  - **0,5** - Équilibré (par défaut)
+  - **1.0** – Créatif (imprévisible, exploratoire)
+
+## Meilleures pratiques
+
+<CardGroup cols={2}>
+  <Card title="Effacer les noms" icon="tag">
+    "Code Explainer" décrit ce qu'il fait. Évitez les noms génériques comme « Action 1 ».
+  </Card>
+  <Card title="Invites spécifiques" icon="message">
+    Soyez détaillé avec les instructions de l'IA. Les invites génériques produisent des sorties génériques.
+  </Card>
+  <Card title="Tools de portée" icon="tool">
+    Activez uniquement les Tools dont votre action a besoin. Réduit les frais généraux et améliore la vitesse.
+  </Card>
+  <Card title="Utiliser des variables contextuelles" icon="brackets">
+    `{{ textSelection }}` fonctionne toujours. Le copier/coller manuel est sujet aux erreurs.
+  </Card>
+  <Card title="Visibilité conditionnelle" icon="eye">
+    "Code Explainer" uniquement dans VSCode + Xcode réduit l'encombrement des menus.
+  </Card>
+  <Card title="Testez avant de partager" icon="check">
+    Testez avec des données réelles avant de déployer dans votre équipe.
+  </Card>
+</CardGroup>
+
+## Exemples d'actions courantes
+
+### Exemple 1 : Explication de code
+
+**Installation:**
+- **Nom :** Expliquer le code
+- **Catégorie :** code
+- **Applications installées :** VSCode, Xcode
+- **Invite système :** Vous êtes un programmeur expert qui explique clairement le code
+- **Invite utilisateur :** `Please explain this code:\n\n{{ textSelection }}`
+- **Consommateur :** démarque
+- **Température :** 0,5
+
+### Exemple 2 : Créateur de brouillon d'e-mail
+
+**Installation:**
+- **Nom :** Brouillon d'e-mail
+- **Catégorie :** productivité
+- **Quand afficher :** Application de messagerie active
+- **Invite système :** Vous êtes un communicateur professionnel professionnel
+- **Invite utilisateur :** `Transform this into a professional email:\n\n{{ textSelection }}`
+- **Tools :** Activer uniquement Mail
+- **Consommateur :** sur place
+- **Température :** 0,6
+
+### Exemple 3 : Brief quotidien programmé
+
+**Installation:**
+- **Nom :** Brief quotidien
+- **Catégorie :** productivité
+- **Automatisation :** Programme à 9 h 00 tous les jours
+- **Tâche en arrière-plan :** Activé
+- **Invite système :** Générez un résumé quotidien des priorités
+
+## Déclencheurs vocaux
+
+Attribuez des raccourcis clavier vocaux pour déclencher des actions en mains libres :
+
+<Steps>
+  <Step title="Paramètres système">
+    Accédez à **Paramètres > Déclencheurs vocaux**.
+  </Step>
+  <Step title="Ajouter un déclencheur">
+    Cliquez sur **+ Ajouter un déclencheur**
+  </Step>
+  <Step title="Sélectionnez une action">
+    Choisissez une action dans la liste déroulante
+  </Step>
+  <Step title="Attribuer une expression">
+    Saisissez la phrase de déclenchement (par exemple, « expliquer » pour Code Explainer)
+  </Step>
+  <Step title="Sauvegarder">
+    Cliquez sur Enregistrer et vous êtes prêt
+  </Step>
+</Steps>
+
+**Utilisation :** Maintenir la touche de raccourci vocale + prononcer la phrase de déclenchement → L'action s'exécute avec le contexte actuel
+
+## Intégration x-callback-url
+
+Déclenchez des actions Alter à partir de **n'importe quelle application** à l'aide d'URL spéciales. Cela permet de puissants flux de travail d’automatisation inter-applications.
+
+### Qu'est-ce que x-callback-url ?
+
+x-callback-url est un protocole de communication inter-applications qui permet aux applications de déclencher des actions les unes sur les autres via des URL formatées.
+
+- **Entrant** – Déclenchez des actions de modification à partir d'autres applications (raccourcis, notes, Safari, etc.)
+- **Sortant** - Créez des liens dans Alter qui ouvrent d'autres applications (Bear, OmniFocus, Drafts, etc.)
+
+### Obtenir l'URL Callback de votre action
+
+<Steps>
+  <Step title="Ouvrir l'éditeur d'actions">
+    Appuyez sur **⌘ E**
+  </Step>
+  <Step title="Sélectionnez une action">
+    Choisissez l'action que vous souhaitez exposer
+  </Step>
+  <Step title="Aller au Général">
+    Accédez à l'onglet Général
+  </Step>
+  <Step title="Trouver URL Callback">
+    Recherchez la section « URL Callback »
+  </Step>
+  <Step title="Copier l'URL">
+    Copiez l'URL `alter://`
+  </Step>
+</Steps>
+
+**Format:**
+```
+alter://action/{action-id}?input=VALUE&param2=VALUE
+```
+
+### Déclenchement d'actions de modification à partir d'autres applications
+
+**Exemple 1 : Recherche Web à partir de Safari**
+```
+alter://action/ask-web?input=What+is+Alter+MacOS
+```
+
+**Exemple 2 : Explication de code avec entrée**
+```
+alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
+```
+
+**Exemple 3 : Utilisation dans les raccourcis Apple**
+1. Créer un nouveau raccourci
+2. Ajouter l'action "Ouvrir l'URL"
+3. Collez votre URL `alter://`
+4. Exécutez le raccourci pour déclencher l'action
+
+### Cas d'utilisation
+
+<AccordionGroup>
+  <Accordion icon="workflow" title="Automatisation du flux de travail">
+    Déclencher une action depuis Calendrier → Générer des notes de réunion → Créer un brouillon d'e-mail
+  </Accordion>
+
+  <Accordion icon="link-2" title="Intégration multi-applications">
+    Bouton Notion → Déclencher l'action de modification → Mettre à jour l'état de la tâche
+  </Accordion>
+
+  <Accordion icon="copy" title="Transfert d'informations">
+    Copier le texte → Déclencher une action avec URL Callback → Ouvrir le résultat dans une application externe (aucune copie manuelle n'est nécessaire)
+  </Accordion>
+</AccordionGroup>
+
+## Raccourcis clavier
+
+| Actions | Raccourci |
+|--------|----------|
+| Ouvrir l'éditeur d'actions | `⌘ E` |
+| Nouvelle action | `Cmd + N` (sous éditeur) |
+| Enregistrer l'action | `Cmd + S` (sous éditeur) |
+| Supprimer l'action | `Cmd + Delete` (sous éditeur) |
+| Actions de recherche | `Cmd + F` (sous éditeur) |
+
+## Dépannage
+
+<AccordionGroup>
+  <Accordion icon="circle-exclamation" title="L'action n'apparaît pas dans le menu">
+    - Cochez les paramètres **Quand afficher**
+    - Vérifiez que l'application est en cours d'exécution/active (si configurée)
+    - Assurez-vous que l'action est **activée**
+  </Accordion>
+
+  <Accordion icon="triangle-exclamation" title="L'action s'exécute mais produit un résultat médiocre">
+    - Consultez **Invite système** – soyez plus précis
+    - Ajustez la **température** (plus basse pour la précision, plus élevée pour la créativité)
+    - Vérifiez **Invite utilisateur** : assurez-vous que les variables sont correctes.
+  </Accordion>
+
+  <Accordion icon="microphone" title="Le déclencheur vocal ne fonctionne pas">
+    - Vérifiez que le raccourci clavier est configuré dans Paramètres
+    - Vérifier les autorisations du microphone
+    - Testez d'abord avec le déclencheur manuel
+  </Accordion>
+
+  <Accordion icon="lock" title="Tools non disponibles en action">
+    - Accédez à l'onglet **Tools**.
+    - Vérifiez que les Tools ne sont pas désactivés
+    - Vérifier les autorisations système pour le Tool
+  </Accordion>
+</AccordionGroup>
+
+## Guides connexes
+
+- [Tools et intégrations](/fr/apps-tools/integrations-overview) — Tools disponibles pour vos actions
+- [URL Callbacks](/fr/workflows/url-callbacks) — Plongée en profondeur dans l'automatisation de x-callback-url
+- [Voix et dictée](/fr/workflows/dictation) — Configurer des déclencheurs vocaux
+- [Paramètres](/fr/how-to/settings-guide) — Configurer le modèle global et les paramètres vocaux
+
+---
+
+**Prêt à construire ?** Ouvrez Alter, appuyez sur `⌘ E` et commencez à créer votre première action !
+
+**Vous souhaitez automatiser toutes les applications ?** Utilisez x-callback-urls pour déclencher des actions à partir de Safari, de raccourcis, de Notes ou de toute application prenant en charge les schémas d'URL.

@@ -1,0 +1,309 @@
+---
+title: "Configuración de los ajustes Alter"
+description: "Aprenda cómo personalizar Alter para que coincida con sus preferencias y administrar su cuenta"
+---
+
+## Meta
+
+Aprenda cómo personalizar Alter para que coincida con sus preferencias, administrar su cuenta, configurar modelos de IA y configurar permisos para una productividad óptima.
+
+## Pasos
+
+### 1. Acceder a la configuración
+
+Hay tres formas de abrir Configuración:
+
+**Opción 1: Barra de menú**
+Haga clic en el icono Alter en la barra de menú y seleccione **Configuración...** en el menú desplegable.
+
+**Opción 2: método abreviado de teclado**
+Presione **⌘, (Comando + Coma)** para abrir Configuración directamente.
+
+**Opción 3: Menú de muesca**
+Haga clic en el ícono de menú de tres puntos (⋮) en la muesca Alter y seleccione **Configuración**.
+
+![Acceso a la barra de menú](/images/settings/Alter-Menu_Bar-Menu.webp)
+
+### Configuraciones generales
+
+En la pestaña **General**, puede configurar la funcionalidad principal y las opciones de acceso rápido:
+
+**Acceso rápido**
+- **Abrir muesca**: habilite el método abreviado de teclado para abrir la muesca desde cualquier lugar de la pantalla.
+- **Abrir o enfocar The Hub**: cambie o inicie rápidamente la ventana Alter Hub (⌘ ⌥ H)
+- **Nuevo chat dThe Hub**: inicia una nueva sesión de conversación en The Hub (⌘ Espacio)
+- **Botón de selección**: muestra un botón de acción rápida accesible desde cualquier lugar
+
+**Configuración de LLM**
+- **Tokens máximos**: establece la duración máxima de las respuestas de IA
+- **Temperatura**: controla la creatividad y la variación de la respuesta (0,0 = determinista, 1,0 = creativo; predeterminado: 0,70)
+
+**Notificaciones**
+- **Resumir vídeo de YouTube**: cree resúmenes automáticamente cuando visite vídeos de YouTube
+- **Grabar en transcripción**: transcriba grabaciones automáticamente a sus notas (vaya a la configuración de Notas para obtener más opciones)
+
+![Configuración general](/images/settings/Alter-Settings_01_General-Beta71.webp)
+
+### 2. Configuración de voz
+
+La pestaña **Voz** controla cómo Alter procesa y responde al audio:
+
+**Configuración general**
+
+- **Comportamiento del audio durante el dictado**: controle cómo se maneja el audio del sistema durante el dictado. Las opciones incluyen agachar (reducir el volumen) o silenciar el audio por completo para minimizar las interrupciones.
+- **Manténgase despierto durante la reunión**: evite que su Mac entre en modo de suspensión o de ahorro de energía durante las grabaciones de reuniones, lo que garantiza una transcripción ininterrumpida.
+- **Reproduzca un timbre al iniciar la grabación**: reciba una alerta de audio cuando comience a dictar o grabar una reunión
+
+**Idioma y vocabulario**
+- **Idioma de dictado**: seleccione su idioma preferido para la entrada de voz
+- **Diccionario personal**: agregue términos personalizados y reemplazos de transcripciones
+- **Administrar reemplazos**: edite palabras que con frecuencia no se reconocen correctamente
+
+**Procesador de voz**
+Elija su modelo de procesamiento de voz:
+- **Apple**: Integrado, optimizado para la privacidad
+- **Local**: Ejecútelo en su máquina con los modelos descargados
+- **Opciones de nube**: Anthropic y otros proveedores de nube con diversas capacidades
+
+![Configuración de voz](/images/settings/Alter-Settings_02_Voice-Beta71.webp)
+
+#### Configuración de voz: atajos de teclado
+
+Configure atajos de teclado para un acceso rápido por voz desde cualquier lugar:
+
+- **Atajo de teclado**: inicia/detiene la entrada de voz y habla comandos. Personalice la clave de activación para el funcionamiento con manos libres. Mantenga presionado para hablar y toque para dictar.
+- **Atajo de reunión**: acceso rápido a comandos de voz específicos de la reunión
+- **Subtítulos en vivo**: habilite la superposición de transcripción en vivo mientras habla
+- **Bloc de notas en vivo**: abra el panel del Bloc de notas en vivo para capturar la entrada de voz directamente en notas
+
+Estos atajos le permiten activar las funciones de voz de Alter sin cambiar de ventana ni quitar las manos del teclado.
+
+![Atajos de voz](/images/settings/Alter-Settings_02a_Voice-Shortcuts-Beta71.webp)
+
+#### Configuración de voz - Automatización
+
+Configure la automatización para reuniones y grabaciones:
+- **Aplicaciones para reuniones**: seleccione qué aplicaciones monitorear para las reuniones
+- **Grabación automática de reuniones**: comienza a grabar automáticamente cuando se detecta una reunión
+- **Buscar nombres de oradores**: identifique el nombre de cada orador según el servicio de reuniones que esté utilizando.
+- **Mantener el dictado en el portapapeles**: conservar la entrada de voz en el portapapeles
+
+![Automatización de voz](/images/settings/Alter-Settings_02b_Voice-Automation-Beta71.webp)
+
+#### Configuración de voz - Diccionario
+
+Cree un diccionario personal para una transcripción precisa:
+- Agregue palabras o frases que Alter frecuentemente no reconoce
+- Cree terminología personalizada para su campo o flujo de trabajo
+
+![Diccionario de voz](/images/settings/Alter-Settings_02c_Voice-Dictionary-Beta71.webp)
+
+#### Configuración de voz: reemplazos
+
+Configure reemplazos de palabras para errores de transcripción comunes:
+- Mapear palabras que se escuchan mal con frecuencia para corregirlas.
+- Ejemplo: "Alter" → "Alter" (si se interpreta mal como "Altar")
+
+![Reemplazos de voz](/images/settings/Alter-Settings_02d_Voice-Replacements-Beta71.webp)
+
+#### Configuración de voz: modelos locales
+
+Elija entre los modelos de procesamiento de voz local cuando utilice el procesador local:
+
+**¿Por qué procesamiento local?**
+- **Privacidad total**: todo el procesamiento de audio se realiza en tu Mac; no se envían datos a los servicios en la nube
+- **Cero intercambio de datos**: las grabaciones, las transcripciones y la identificación del orador permanecen completamente en su dispositivo
+- **Cumple con GDPR**: Diseñado con protección de datos según principios de diseño
+- **Siempre disponible**: funciona sin conexión y sin dependencia de Internet
+
+**Local** - Opciones básicas del modelo local
+- Modelos de susurro para conversión de voz a texto
+- Múltiples tamaños de modelos (pequeño, básico, pequeño, mediano, grande, etc.)
+- Elija basándose en la compensación entre precisión y rendimiento
+
+**Modelos de susurro**
+
+OpenAI Whisper admite más de 50 idiomas con una cobertura global integral:
+- **Idiomas principales**: inglés, español, francés, alemán, portugués, ruso, italiano, japonés, coreano, chino
+- **Idiomas europeos**: holandés, polaco, rumano, sueco, ucraniano, griego, checo, húngaro, eslovaco, turco, danés, noruego, finlandés
+- **Otros idiomas**: árabe, hebreo, hindi, vietnamita, tailandés, indonesio, tagalo, bengalí, tamil, marathi, kannada y muchos más
+
+**Características:**
+- Marcas de tiempo a nivel de palabra generadas automáticamente
+- Identificación del hablante (quién dijo qué)
+- Optimizado a 626 MB para el rendimiento de Mac
+- Lo mejor para cobertura y precisión del idioma global
+
+Whisper sobresale en idiomas muy hablados, pero la precisión puede variar en idiomas menos comunes con datos de entrenamiento limitados.
+
+![Voz - Modelos locales](/images/settings/Alter-Settings_02e_Voice-Local-Beta71.webp)
+
+**Local Plus** - Función paga
+
+Incluye los modelos Whisper y Parakeet con detección automática de idioma:
+
+**Modelos Whisper** (99 idiomas)
+- El mismo soporte de idiomas amplio que la opción local
+- Optimizado para mayor precisión en diversos contextos lingüísticos
+
+**Modelos de periquitos** (25 idiomas europeos)
+- Motor de conversión de voz a texto rápido y ligero de NVIDIA
+- **10 veces más rápido que Whisper** para la transcripción de reuniones en Mac
+- Detección automática de idioma desde audio
+- Admite búlgaro, croata, checo, danés, holandés, inglés, estonio, finlandés, francés, alemán, griego, húngaro, italiano, letón, lituano, maltés y más de 9 idiomas europeos
+
+**Características:**
+- Diario de locutores (identificar diferentes locutores)
+- Optimizado a 494 MB para el rendimiento de Mac
+- Ideal para grabación de reuniones en tiempo real
+- Lo mejor para cargas de trabajo de idiomas europeos
+
+**Elige tu modelo:**
+- **Perico**: Procesamiento más rápido, menor uso de recursos, ideal para reuniones (25 idiomas europeos)
+- **Whisper**: Cobertura de idiomas más amplia, máxima precisión (más de 50 idiomas globales)
+
+Ambos modelos proporcionan marcas de tiempo a nivel de palabra, identificación del hablante y detección automática del idioma, todo procesado localmente en su Mac.
+
+![Voz - Modelos Local Plus](/images/settings/Alter-Settings_02f_Voice-Local_Plus-Beta71.webp)
+
+### 3. Configuración del perfil
+
+La pestaña **Perfil** administra su identidad y preferencias:
+
+**Correo electrónico de cuenta**
+- Ver el correo electrónico de su cuenta actual
+- Se utiliza para facturación y recuperación de cuentas.
+
+**Integración de Discord**
+- Conecta o desconecta tu cuenta de Discord
+- Habilita flujos de trabajo específicos de Discord
+
+**Mi perfil**
+- Agregue una descripción de perfil (ayuda a Alter a brindar respuestas mejor personalizadas)
+- Información personalizada que Alter utiliza en las conversaciones
+
+**Lenguaje de generación**
+- Establezca su idioma preferido para las respuestas de Alter (predeterminado: inglés)
+- Nota: Esto puede variar dependiendo del modelo que estés usando.
+
+![Configuración de perfil](/images/settings/Alter-Settings_03_Profile-Beta71.webp)
+
+### 4. Configuración de apariencia
+
+La pestaña **Apariencia** controla la apariencia visual:
+
+**Opciones de tema**
+- **Sistema**: Combina la apariencia del sistema de tu Mac
+- **Luz**: Forzar tema de luz
+- **Oscuro**: Fuerza el tema oscuro
+
+**Personalización**
+- **Posición predeterminada del panel**: donde aparecen los paneles (valor predeterminado arriba a la derecha)
+- **Tamaño de fuente del menú**: ajuste el tamaño del texto para facilitar la lectura (predeterminado: 16)
+- **Tamaño de fuente del mensaje**: establece el tamaño del texto del mensaje de chat (predeterminado: 15)
+- **Muesca de visualización**: muestra el indicador de estado
+- **Mostrar bloque de control en la barra de menú**: Mostrar indicador en la barra de menú Alter
+- **Ocultar en capturas de pantalla**: excluye Alter de las capturas de pantalla y de la pantalla compartida.
+
+![Configuración de apariencia - Tema oscuro](/images/settings/Alter-Settings_04a_Appearance-Dark-Beta71.webp)
+
+![Configuración de apariencia - Tema claro](/images/settings/Alter-Settings_04b_Appearance-Light-Beta71.webp)
+
+![Configuración de apariencia - Vista completa](/images/settings/Alter-Settings_04c_Appearance-Full-Beta71.webp)
+
+### 5. Configuración de facturación
+
+La pestaña **Facturación** muestra el estado de tu suscripción:
+
+**Información de licencia**
+- Su plan actual (por ejemplo, Plan Pro)
+- Fecha de expiración
+- Cambiar o finalizar opciones de suscripción
+
+**Uso legítimo**
+- Indicador visual de su asignación restante de uso legítimo
+- Muestra el cronograma de reinicio (por ejemplo, "Restablecer en 20 días")
+
+![Configuración de facturación](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
+
+### 6. Configuración de permisos
+
+La pestaña **Permisos** administra el acceso al sistema y las preferencias de recopilación de datos:
+
+**Permisos del sistema**
+Cada permiso se puede habilitar con botones de acceso rápido:
+- **Iniciar al iniciar sesión**: inicia Alter automáticamente cuando se inicia tu Mac
+- **Accesibilidad**: Requerido para comandos de teclado y control de ventanas (Verifique Accesibilidad)
+- **Preferencias del Sistema**: Permitir el acceso a la configuración del sistema (Verifique las Preferencias del Sistema)
+- **Grabación de pantalla**: Capture el contenido de la pantalla para analizarlo y conocer el contexto (Verificar grabación de pantalla)
+- **Micrófono**: habilite la entrada de voz y el dictado (verifique el micrófono)
+
+**Analítica**
+- **Desactivar análisis**: controle si Alter recopila datos de uso anónimos. Cuando está habilitado, Alter solo recopila datos anónimos de interacción y errores de la interfaz de usuario para mejorar el producto; no se rastrea ningún dato personal ni contenido.
+
+![Configuración de permisos](/images/settings/Alter-Settings_06_Permissions-Beta71.webp)
+
+### 7. Configuración de claves API
+
+La pestaña **Claves API** te permite traer tus propios modelos:
+
+**Fogonadura**
+- Integre con servicios de socios que proporcionen puntos finales compatibles con OpenAI
+
+**Proveedores personalizados**
+Agregue y administre proveedores de LLM personalizados:
+- **Agregar proveedor**: crear un nuevo punto final de modelo personalizado
+- **URL del proveedor**: URL del punto final (p. ej., `http://localhost:1234/v1`)
+- **Administrar modelos**: vea y pruebe los modelos disponibles de cada proveedor
+
+**Tipos de proveedores admitidos**
+Al agregar un proveedor personalizado, puede elegir entre:
+- **OpenAI**: API de OpenAI (modelos GPT)
+- **Personalizado**: puntos finales genéricos compatibles con OpenAI
+- **Azure**: Servicio Microsoft Azure OpenAI
+- **LM Studio**: Modelos locales a través de LM Studio
+- **PrivateMode**: motores de inferencia locales
+- **Bifrost**: proveedor de API de Bifrost
+- **Mistral**: Modelos de IA de Mistral
+- **Gemini**: Google Gemini API
+- **OpenRouter**: Servicio de enrutador multimodelo
+- **Ollama**: marco local de LLM
+- **Osaurus**: proveedor de Osaurus
+
+**Agregar un proveedor**
+1. Haga clic en el botón "Agregar proveedor"
+2. Seleccione el tipo de proveedor en el menú desplegable
+3. Ingrese la URL del punto final de la API
+4. Proporcione su clave API
+5. Haga clic en "Guardar" para configurar
+
+![Claves API - Proveedores configurados](/images/settings/Alter-Settings_07a_APIkeys-Providers-Beta71.webp)
+
+![Claves API - Sin proveedores](/images/settings/Alter-Settings_07b_APIkeys-Empty-Beta71.webp)
+
+![Claves API - Configuración del proveedor](/images/settings/Alter-Settings_07c_APIkeys-Config-Beta71.webp)
+
+![Claves API - Agregar proveedor Modal](/images/settings/Alter-Settings_07d_APIkeys-AddProvider-Beta71.webp)
+
+![Claves API - Menú desplegable de tipo de proveedor](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
+
+### 8. Configuración del enrutador
+
+La pestaña **Enrutador** configura el punto final de IA predeterminado:
+
+**OpenAI Punto final compatible**
+- Punto final predeterminado para alimentar los modelos Alter
+- Enlace: https://alterhq.com/api
+
+**Alter Claves API**
+- Genera y gestiona tus claves API personales
+- Uso para integraciones y Tools de terceros.
+
+![Configuración del enrutador](/images/settings/Alter-Settings_08_Router-Beta71.webp)
+
+## Documentos relacionados
+
+- [Comenzando con Alter](/getting-started/getting-started-path)
+- [Dictado y voz](/workflows/dictation)
+- [Elegir su modelo generativo](/how-to/choose-generative-model)
+- [Servicio de enrutador y puerta de enlace API](/api-router/api-gateway)

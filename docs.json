@@ -16,104 +16,134 @@
         "tabs": [
           {
             "tab": "Getting Started",
-            "pages": [
-              "index",
-              "quickstart",
-              "getting-started/open-alter",
-              "getting-started/your-workspace",
-              "getting-started/first-workflows"
-            ]
-          },
-          {
-            "tab": "Guides",
-            "pages": [
-              "guides/index"
-            ],
             "groups": [
               {
                 "group": "Start Here",
                 "pages": [
-                  "guides/core-features",
-                  "guides/alter-window",
-                  "guides/dictation",
-                  "guides/meetings",
-                  "guides/getting-started"
-                ]
-              },
-              {
-                "group": "Best Results (Do This Early)",
-                "pages": [
-                  "guides/use-flow-orchestration",
-                  "guides/managing-context-window"
-                ]
-              },
-              {
-                "group": "Daily Workflows",
-                "pages": [
-                  "guides/workspaces-actions"
-                ]
-              },
-              {
-                "group": "Automations & Tools",
-                "pages": [
-                  "guides/alter-actions",
-                  "guides/integrations",
-                  "guides/tool-manager",
-                  "guides/url-callbacks"
-                ]
-              },
-              {
-                "group": "Web Search",
-                "pages": [
-                  "guides/web-research-getting-started",
-                  "guides/native-web-search-in-alter-routers",
-                  "guides/web-search-local-tools",
-                  "guides/connect-tavily",
-                  "guides/connect-firecrawl",
-                  "guides/connect-linkup",
-                  "guides/connect-exa"
-                ]
-              },
-              {
-                "group": "Settings & Personalization",
-                "pages": [
-                  "guides/alter-settings",
-                  "guides/manage-settings",
-                  "guides/settings"
-                ]
-              },
-              {
-                "group": "Models",
-                "pages": [
-                  "guides/choosing-generative-model"
+                  "index",
+                  "quickstart",
+                  "getting-started/getting-started-path",
+                  "getting-started/open-alter",
+                  "getting-started/your-workspace",
+                  "getting-started/window-types-notch-hub-panels",
+                  "getting-started/first-workflows",
+                  "getting-started/core-features",
+                  "getting-started/understand-context-and-apps",
+                  "getting-started/use-current-app-and-follow-mode",
+                  "getting-started/add-files-and-media",
+                  "getting-started/capture-voice-and-meetings",
+                  "getting-started/workspaces-basics",
+                  "getting-started/actions-basics",
+                  "getting-started/automate-with-workspaces-and-actions"
                 ]
               }
             ]
           },
           {
-            "tab": "How-To",
+            "tab": "Workflows",
+            "groups": [
+              {
+                "group": "Communication",
+                "pages": [
+                  "workflows/manage-mail-with-alter",
+                  "workflows/send-messages-with-alter",
+                  "workflows/manage-contacts-with-alter"
+                ]
+              },
+              {
+                "group": "Planning and Meetings",
+                "pages": [
+                  "workflows/manage-calendar-with-alter",
+                  "workflows/plan-places-and-routes-with-alter-maps",
+                  "workflows/meeting-workflow",
+                  "workflows/meetings",
+                  "workflows/dictation"
+                ]
+              },
+              {
+                "group": "Capture and Knowledge",
+                "pages": [
+                  "workflows/manage-notes-with-alter",
+                  "workflows/summarize-x-feed-with-computer-use",
+                  "workflows/local-model-privacy"
+                ]
+              },
+              {
+                "group": "Automation",
+                "pages": [
+                  "workflows/manage-reminders-with-alter",
+                  "workflows/workspaces-actions",
+                  "workflows/use-flow-orchestration",
+                  "workflows/alter-actions",
+                  "workflows/url-callbacks"
+                ]
+              },
+              {
+                "group": "Web Research",
+                "pages": [
+                  "workflows/web-research-getting-started",
+                  "workflows/native-web-search-in-alter-routers",
+                  "workflows/web-search-local-tools",
+                  "workflows/connect-tavily",
+                  "workflows/connect-firecrawl",
+                  "workflows/connect-linkup",
+                  "workflows/connect-exa"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Apps & Tools",
+            "groups": [
+              {
+                "group": "Integrations",
+                "pages": [
+                  "apps-tools/integrations-overview",
+                  "apps-tools/integrations-troubleshooting"
+                ]
+              },
+              {
+                "group": "Mac Apps",
+                "pages": [
+                  "apps-tools/mail",
+                  "apps-tools/calendar",
+                  "apps-tools/notes",
+                  "apps-tools/reminders",
+                  "apps-tools/messages",
+                  "apps-tools/contacts",
+                  "apps-tools/maps"
+                ]
+              },
+              {
+                "group": "Computer Use",
+                "pages": [
+                  "apps-tools/computer-use",
+                  "apps-tools/computer-use-get-active-app-context",
+                  "apps-tools/computer-use-perform",
+                  "apps-tools/computer-use-wait",
+                  "apps-tools/computer-use-scroll"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "How to",
             "groups": [
               {
                 "group": "Quick Tasks",
                 "pages": [
-                  "how-to/open-alter",
-                  "how-to/add-context",
                   "how-to/change-hotkey",
                   "how-to/choose-language",
-                  "how-to/use-byok",
-                  "how-to/settings"
+                  "how-to/choose-generative-model",
+                  "how-to/use-byok"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "Use Cases",
-            "groups": [
+              },
               {
-                "group": "Scenarios",
+                "group": "Manage and configure",
                 "pages": [
-                  "use-cases/meeting-workflow",
-                  "use-cases/local-model-privacy"
+                  "how-to/settings-guide",
+                  "how-to/tool-manager-guide",
+                  "how-to/managing-context-window"
                 ]
               }
             ]
@@ -166,17 +196,17 @@
               {
                 "group": "Gateway & Router",
                 "pages": [
-                  "guides/api-gateway",
-                  "guides/api-router-development",
-                  "guides/api-router-operations"
+                  "api-router/api-gateway",
+                  "api-router/development",
+                  "api-router/operations"
                 ]
               },
               {
                 "group": "App Integrations",
                 "pages": [
-                  "guides/api-router-app-integrations",
-                  "guides/typingmind-alter-api",
-                  "guides/msty-alter-api"
+                  "api-router/app-integrations",
+                  "api-router/typingmind",
+                  "api-router/msty"
                 ]
               },
               {
@@ -206,65 +236,63 @@
           {
             "tab": "Guias",
             "pages": [
-              "pt/guides/index"
+              "pt/getting-started/guides-index"
             ],
             "groups": [
               {
                 "group": "Comece aqui",
                 "pages": [
-                  "pt/guides/core-features",
-                  "pt/guides/alter-window",
-                  "pt/guides/dictation",
-                  "pt/guides/meetings",
-                  "pt/guides/getting-started"
+                  "pt/getting-started/core-features",
+                  "pt/getting-started/alter-window",
+                  "pt/workflows/dictation",
+                  "pt/workflows/meetings",
+                  "pt/getting-started/getting-started-path"
                 ]
               },
               {
                 "group": "Melhores resultados (faca isso cedo)",
                 "pages": [
-                  "pt/guides/use-flow-orchestration",
-                  "pt/guides/managing-context-window"
+                  "pt/workflows/use-flow-orchestration",
+                  "pt/how-to/managing-context-window"
                 ]
               },
               {
                 "group": "Fluxos de trabalho diarios",
                 "pages": [
-                  "pt/guides/workspaces-actions"
+                  "pt/workflows/workspaces-actions"
                 ]
               },
               {
                 "group": "Automacoes e Tools",
                 "pages": [
-                  "pt/guides/alter-actions",
-                  "pt/guides/integrations",
-                  "pt/guides/tool-manager",
-                  "pt/guides/url-callbacks"
+                  "pt/workflows/alter-actions",
+                  "pt/apps-tools/integrations-overview",
+                  "pt/how-to/tool-manager-guide",
+                  "pt/workflows/url-callbacks"
                 ]
               },
               {
                 "group": "Pesquisa web",
                 "pages": [
-                  "pt/guides/web-research-getting-started",
-                  "pt/guides/native-web-search-in-alter-routers",
-                  "pt/guides/web-search-local-tools",
-                  "pt/guides/connect-tavily",
-                  "pt/guides/connect-firecrawl",
-                  "pt/guides/connect-linkup",
-                  "pt/guides/connect-exa"
+                  "pt/workflows/web-research-getting-started",
+                  "pt/workflows/native-web-search-in-alter-routers",
+                  "pt/workflows/web-search-local-tools",
+                  "pt/workflows/connect-tavily",
+                  "pt/workflows/connect-firecrawl",
+                  "pt/workflows/connect-linkup",
+                  "pt/workflows/connect-exa"
                 ]
               },
               {
                 "group": "Configuracoes e personalizacao",
                 "pages": [
-                  "pt/guides/alter-settings",
-                  "pt/guides/manage-settings",
-                  "pt/guides/settings"
+                  "pt/how-to/settings-guide"
                 ]
               },
               {
                 "group": "Modelos",
                 "pages": [
-                  "pt/guides/choosing-generative-model"
+                  "pt/how-to/choose-generative-model"
                 ]
               }
             ]
@@ -275,12 +303,12 @@
               {
                 "group": "Tarefas rapidas",
                 "pages": [
-                  "pt/how-to/open-alter",
+                  "pt/getting-started/open-alter",
                   "pt/how-to/add-context",
                   "pt/how-to/change-hotkey",
                   "pt/how-to/choose-language",
                   "pt/how-to/use-byok",
-                  "pt/how-to/settings"
+                  "pt/how-to/settings-guide"
                 ]
               }
             ]
@@ -345,17 +373,17 @@
               {
                 "group": "Gateway e Router",
                 "pages": [
-                  "pt/guides/api-gateway",
-                  "pt/guides/api-router-development",
-                  "pt/guides/api-router-operations"
+                  "pt/api-router/api-gateway",
+                  "pt/api-router/development",
+                  "pt/api-router/operations"
                 ]
               },
               {
                 "group": "Integracoes de apps",
                 "pages": [
-                  "pt/guides/api-router-app-integrations",
-                  "pt/guides/typingmind-alter-api",
-                  "pt/guides/msty-alter-api"
+                  "pt/api-router/app-integrations",
+                  "pt/api-router/typingmind",
+                  "pt/api-router/msty"
                 ]
               },
               {
@@ -385,65 +413,63 @@
           {
             "tab": "Guides",
             "pages": [
-              "fr/guides/index"
+              "fr/getting-started/guides-index"
             ],
             "groups": [
               {
                 "group": "Commencer ici",
                 "pages": [
-                  "fr/guides/core-features",
-                  "fr/guides/alter-window",
-                  "fr/guides/dictation",
-                  "fr/guides/meetings",
-                  "fr/guides/getting-started"
+                  "fr/getting-started/core-features",
+                  "fr/getting-started/alter-window",
+                  "fr/workflows/dictation",
+                  "fr/workflows/meetings",
+                  "fr/getting-started/getting-started-path"
                 ]
               },
               {
                 "group": "Meilleurs résultats (à faire tôt)",
                 "pages": [
-                  "fr/guides/use-flow-orchestration",
-                  "fr/guides/managing-context-window"
+                  "fr/workflows/use-flow-orchestration",
+                  "fr/how-to/managing-context-window"
                 ]
               },
               {
                 "group": "Flux de travail quotidiens",
                 "pages": [
-                  "fr/guides/workspaces-actions"
+                  "fr/workflows/workspaces-actions"
                 ]
               },
               {
                 "group": "Automatisations et Tools",
                 "pages": [
-                  "fr/guides/alter-actions",
-                  "fr/guides/integrations",
-                  "fr/guides/tool-manager",
-                  "fr/guides/url-callbacks"
+                  "fr/workflows/alter-actions",
+                  "fr/apps-tools/integrations-overview",
+                  "fr/how-to/tool-manager-guide",
+                  "fr/workflows/url-callbacks"
                 ]
               },
               {
                 "group": "Recherche web",
                 "pages": [
-                  "fr/guides/web-research-getting-started",
-                  "fr/guides/native-web-search-in-alter-routers",
-                  "fr/guides/web-search-local-tools",
-                  "fr/guides/connect-tavily",
-                  "fr/guides/connect-firecrawl",
-                  "fr/guides/connect-linkup",
-                  "fr/guides/connect-exa"
+                  "fr/workflows/web-research-getting-started",
+                  "fr/workflows/native-web-search-in-alter-routers",
+                  "fr/workflows/web-search-local-tools",
+                  "fr/workflows/connect-tavily",
+                  "fr/workflows/connect-firecrawl",
+                  "fr/workflows/connect-linkup",
+                  "fr/workflows/connect-exa"
                 ]
               },
               {
                 "group": "Paramètres et personnalisation",
                 "pages": [
-                  "fr/guides/alter-settings",
-                  "fr/guides/manage-settings",
-                  "fr/guides/settings"
+                  "fr/how-to/settings-guide"
                 ]
               },
               {
                 "group": "Modèles",
                 "pages": [
-                  "fr/guides/choosing-generative-model"
+                  "fr/how-to/choose-generative-model"
                 ]
               }
             ]
@@ -454,12 +480,12 @@
               {
                 "group": "Tâches rapides",
                 "pages": [
-                  "fr/how-to/open-alter",
+                  "fr/getting-started/open-alter",
                   "fr/how-to/add-context",
                   "fr/how-to/change-hotkey",
                   "fr/how-to/choose-language",
                   "fr/how-to/use-byok",
-                  "fr/how-to/settings"
+                  "fr/how-to/settings-guide"
                 ]
               }
             ]
@@ -472,6 +498,14 @@
                 "pages": [
                   "fr/use-cases/meeting-workflow",
                   "fr/use-cases/local-model-privacy"
+                ]
+              },
+              {
+                "group": "Gerer votre Mac",
+                "pages": [
+                  "fr/use-cases/gerer-calendrier-avec-alter",
+                  "fr/use-cases/gerer-notes-avec-alter",
+                  "fr/use-cases/gerer-rappels-avec-alter"
                 ]
               }
             ]
@@ -524,17 +558,17 @@
               {
                 "group": "Passerelle et routeur",
                 "pages": [
-                  "fr/guides/api-gateway",
-                  "fr/guides/api-router-development",
-                  "fr/guides/api-router-operations"
+                  "fr/api-router/api-gateway",
+                  "fr/api-router/development",
+                  "fr/api-router/operations"
                 ]
               },
               {
                 "group": "Integrations d'app",
                 "pages": [
-                  "fr/guides/api-router-app-integrations",
-                  "fr/guides/typingmind-alter-api",
-                  "fr/guides/msty-alter-api"
+                  "fr/api-router/app-integrations",
+                  "fr/api-router/typingmind",
+                  "fr/api-router/msty"
                 ]
               },
               {
@@ -564,65 +598,63 @@
           {
             "tab": "Guías",
             "pages": [
-              "es/guides/index"
+              "es/getting-started/guides-index"
             ],
             "groups": [
               {
                 "group": "Empieza aquí",
                 "pages": [
-                  "es/guides/core-features",
-                  "es/guides/alter-window",
-                  "es/guides/dictation",
-                  "es/guides/meetings",
-                  "es/guides/getting-started"
+                  "es/getting-started/core-features",
+                  "es/getting-started/alter-window",
+                  "es/workflows/dictation",
+                  "es/workflows/meetings",
+                  "es/getting-started/getting-started-path"
                 ]
               },
               {
                 "group": "Mejores resultados (haz esto pronto)",
                 "pages": [
-                  "es/guides/use-flow-orchestration",
-                  "es/guides/managing-context-window"
+                  "es/workflows/use-flow-orchestration",
+                  "es/how-to/managing-context-window"
                 ]
               },
               {
                 "group": "Flujos de trabajo diarios",
                 "pages": [
-                  "es/guides/workspaces-actions"
+                  "es/workflows/workspaces-actions"
                 ]
               },
               {
                 "group": "Automatizaciones y Tools",
                 "pages": [
-                  "es/guides/alter-actions",
-                  "es/guides/integrations",
-                  "es/guides/tool-manager",
-                  "es/guides/url-callbacks"
+                  "es/workflows/alter-actions",
+                  "es/apps-tools/integrations-overview",
+                  "es/how-to/tool-manager-guide",
+                  "es/workflows/url-callbacks"
                 ]
               },
               {
                 "group": "Búsqueda web",
                 "pages": [
-                  "es/guides/web-research-getting-started",
-                  "es/guides/native-web-search-in-alter-routers",
-                  "es/guides/web-search-local-tools",
-                  "es/guides/connect-tavily",
-                  "es/guides/connect-firecrawl",
-                  "es/guides/connect-linkup",
-                  "es/guides/connect-exa"
+                  "es/workflows/web-research-getting-started",
+                  "es/workflows/native-web-search-in-alter-routers",
+                  "es/workflows/web-search-local-tools",
+                  "es/workflows/connect-tavily",
+                  "es/workflows/connect-firecrawl",
+                  "es/workflows/connect-linkup",
+                  "es/workflows/connect-exa"
                 ]
               },
               {
                 "group": "Ajustes y personalización",
                 "pages": [
-                  "es/guides/alter-settings",
-                  "es/guides/manage-settings",
-                  "es/guides/settings"
+                  "es/how-to/settings-guide"
                 ]
               },
               {
                 "group": "Modelos",
                 "pages": [
-                  "es/guides/choosing-generative-model"
+                  "es/how-to/choose-generative-model"
                 ]
               }
             ]
@@ -633,12 +665,12 @@
               {
                 "group": "Tareas rápidas",
                 "pages": [
-                  "es/how-to/open-alter",
+                  "es/getting-started/open-alter",
                   "es/how-to/add-context",
                   "es/how-to/change-hotkey",
                   "es/how-to/choose-language",
                   "es/how-to/use-byok",
-                  "es/how-to/settings"
+                  "es/how-to/settings-guide"
                 ]
               }
             ]
@@ -703,17 +735,17 @@
               {
                 "group": "Gateway y Router",
                 "pages": [
-                  "es/guides/api-gateway",
-                  "es/guides/api-router-development",
-                  "es/guides/api-router-operations"
+                  "es/api-router/api-gateway",
+                  "es/api-router/development",
+                  "es/api-router/operations"
                 ]
               },
               {
                 "group": "Integraciones de apps",
                 "pages": [
-                  "es/guides/api-router-app-integrations",
-                  "es/guides/typingmind-alter-api",
-                  "es/guides/msty-alter-api"
+                  "es/api-router/app-integrations",
+                  "es/api-router/typingmind",
+                  "es/api-router/msty"
                 ]
               },
               {
@@ -743,65 +775,63 @@
           {
             "tab": "Leitfäden",
             "pages": [
-              "de/guides/index"
+              "de/getting-started/guides-index"
             ],
             "groups": [
               {
                 "group": "Hier starten",
                 "pages": [
-                  "de/guides/core-features",
-                  "de/guides/alter-window",
-                  "de/guides/dictation",
-                  "de/guides/meetings",
-                  "de/guides/getting-started"
+                  "de/getting-started/core-features",
+                  "de/getting-started/alter-window",
+                  "de/workflows/dictation",
+                  "de/workflows/meetings",
+                  "de/getting-started/getting-started-path"
                 ]
               },
               {
                 "group": "Beste Ergebnisse (früh erledigen)",
                 "pages": [
-                  "de/guides/use-flow-orchestration",
-                  "de/guides/managing-context-window"
+                  "de/workflows/use-flow-orchestration",
+                  "de/how-to/managing-context-window"
                 ]
               },
               {
                 "group": "Tägliche Workflows",
                 "pages": [
-                  "de/guides/workspaces-actions"
+                  "de/workflows/workspaces-actions"
                 ]
               },
               {
                 "group": "Automatisierungen und Tools",
                 "pages": [
-                  "de/guides/alter-actions",
-                  "de/guides/integrations",
-                  "de/guides/tool-manager",
-                  "de/guides/url-callbacks"
+                  "de/workflows/alter-actions",
+                  "de/apps-tools/integrations-overview",
+                  "de/how-to/tool-manager-guide",
+                  "de/workflows/url-callbacks"
                 ]
               },
               {
                 "group": "Websuche",
                 "pages": [
-                  "de/guides/web-research-getting-started",
-                  "de/guides/native-web-search-in-alter-routers",
-                  "de/guides/web-search-local-tools",
-                  "de/guides/connect-tavily",
-                  "de/guides/connect-firecrawl",
-                  "de/guides/connect-linkup",
-                  "de/guides/connect-exa"
+                  "de/workflows/web-research-getting-started",
+                  "de/workflows/native-web-search-in-alter-routers",
+                  "de/workflows/web-search-local-tools",
+                  "de/workflows/connect-tavily",
+                  "de/workflows/connect-firecrawl",
+                  "de/workflows/connect-linkup",
+                  "de/workflows/connect-exa"
                 ]
               },
               {
                 "group": "Einstellungen und Personalisierung",
                 "pages": [
-                  "de/guides/alter-settings",
-                  "de/guides/manage-settings",
-                  "de/guides/settings"
+                  "de/how-to/settings-guide"
                 ]
               },
               {
                 "group": "Modelle",
                 "pages": [
-                  "de/guides/choosing-generative-model"
+                  "de/how-to/choose-generative-model"
                 ]
               }
             ]
@@ -812,12 +842,12 @@
               {
                 "group": "Schnelle Aufgaben",
                 "pages": [
-                  "de/how-to/open-alter",
+                  "de/getting-started/open-alter",
                   "de/how-to/add-context",
                   "de/how-to/change-hotkey",
                   "de/how-to/choose-language",
                   "de/how-to/use-byok",
-                  "de/how-to/settings"
+                  "de/how-to/settings-guide"
                 ]
               }
             ]
@@ -882,17 +912,17 @@
               {
                 "group": "Gateway & Router",
                 "pages": [
-                  "de/guides/api-gateway",
-                  "de/guides/api-router-development",
-                  "de/guides/api-router-operations"
+                  "de/api-router/api-gateway",
+                  "de/api-router/development",
+                  "de/api-router/operations"
                 ]
               },
               {
                 "group": "App-Integrationen",
                 "pages": [
-                  "de/guides/api-router-app-integrations",
-                  "de/guides/typingmind-alter-api",
-                  "de/guides/msty-alter-api"
+                  "de/api-router/app-integrations",
+                  "de/api-router/typingmind",
+                  "de/api-router/msty"
                 ]
               },
               {
@@ -922,65 +952,63 @@
           {
             "tab": "指南",
             "pages": [
-              "zh/guides/index"
+              "zh/getting-started/guides-index"
             ],
             "groups": [
               {
                 "group": "从这里开始",
                 "pages": [
-                  "zh/guides/core-features",
-                  "zh/guides/alter-window",
-                  "zh/guides/dictation",
-                  "zh/guides/meetings",
-                  "zh/guides/getting-started"
+                  "zh/getting-started/core-features",
+                  "zh/getting-started/alter-window",
+                  "zh/workflows/dictation",
+                  "zh/workflows/meetings",
+                  "zh/getting-started/getting-started-path"
                 ]
               },
               {
                 "group": "最佳效果（建议尽早）",
                 "pages": [
-                  "zh/guides/use-flow-orchestration",
-                  "zh/guides/managing-context-window"
+                  "zh/workflows/use-flow-orchestration",
+                  "zh/how-to/managing-context-window"
                 ]
               },
               {
                 "group": "日常工作流",
                 "pages": [
-                  "zh/guides/workspaces-actions"
+                  "zh/workflows/workspaces-actions"
                 ]
               },
               {
                 "group": "自动化与 Tools",
                 "pages": [
-                  "zh/guides/alter-actions",
-                  "zh/guides/integrations",
-                  "zh/guides/tool-manager",
-                  "zh/guides/url-callbacks"
+                  "zh/workflows/alter-actions",
+                  "zh/apps-tools/integrations-overview",
+                  "zh/how-to/tool-manager-guide",
+                  "zh/workflows/url-callbacks"
                 ]
               },
               {
                 "group": "网页搜索",
                 "pages": [
-                  "zh/guides/web-research-getting-started",
-                  "zh/guides/native-web-search-in-alter-routers",
-                  "zh/guides/web-search-local-tools",
-                  "zh/guides/connect-tavily",
-                  "zh/guides/connect-firecrawl",
-                  "zh/guides/connect-linkup",
-                  "zh/guides/connect-exa"
+                  "zh/workflows/web-research-getting-started",
+                  "zh/workflows/native-web-search-in-alter-routers",
+                  "zh/workflows/web-search-local-tools",
+                  "zh/workflows/connect-tavily",
+                  "zh/workflows/connect-firecrawl",
+                  "zh/workflows/connect-linkup",
+                  "zh/workflows/connect-exa"
                 ]
               },
               {
                 "group": "设置与个性化",
                 "pages": [
-                  "zh/guides/alter-settings",
-                  "zh/guides/manage-settings",
-                  "zh/guides/settings"
+                  "zh/how-to/settings-guide"
                 ]
               },
               {
                 "group": "模型",
                 "pages": [
-                  "zh/guides/choosing-generative-model"
+                  "zh/how-to/choose-generative-model"
                 ]
               }
             ]
@@ -991,12 +1019,12 @@
               {
                 "group": "快速任务",
                 "pages": [
-                  "zh/how-to/open-alter",
+                  "zh/getting-started/open-alter",
                   "zh/how-to/add-context",
                   "zh/how-to/change-hotkey",
                   "zh/how-to/choose-language",
                   "zh/how-to/use-byok",
-                  "zh/how-to/settings"
+                  "zh/how-to/settings-guide"
                 ]
               }
             ]
@@ -1061,17 +1089,17 @@
               {
                 "group": "Gateway 与 Router",
                 "pages": [
-                  "zh/guides/api-gateway",
-                  "zh/guides/api-router-development",
-                  "zh/guides/api-router-operations"
+                  "zh/api-router/api-gateway",
+                  "zh/api-router/development",
+                  "zh/api-router/operations"
                 ]
               },
               {
                 "group": "应用集成",
                 "pages": [
-                  "zh/guides/api-router-app-integrations",
-                  "zh/guides/typingmind-alter-api",
-                  "zh/guides/msty-alter-api"
+                  "zh/api-router/app-integrations",
+                  "zh/api-router/typingmind",
+                  "zh/api-router/msty"
                 ]
               },
               {
@@ -1101,65 +1129,63 @@
           {
             "tab": "ガイド",
             "pages": [
-              "ja/guides/index"
+              "ja/getting-started/guides-index"
             ],
             "groups": [
               {
                 "group": "ここから開始",
                 "pages": [
-                  "ja/guides/core-features",
-                  "ja/guides/alter-window",
-                  "ja/guides/dictation",
-                  "ja/guides/meetings",
-                  "ja/guides/getting-started"
+                  "ja/getting-started/core-features",
+                  "ja/getting-started/alter-window",
+                  "ja/workflows/dictation",
+                  "ja/workflows/meetings",
+                  "ja/getting-started/getting-started-path"
                 ]
               },
               {
                 "group": "最良の結果（早めに設定）",
                 "pages": [
-                  "ja/guides/use-flow-orchestration",
-                  "ja/guides/managing-context-window"
+                  "ja/workflows/use-flow-orchestration",
+                  "ja/how-to/managing-context-window"
                 ]
               },
               {
                 "group": "日常ワークフロー",
                 "pages": [
-                  "ja/guides/workspaces-actions"
+                  "ja/workflows/workspaces-actions"
                 ]
               },
               {
                 "group": "自動化と Tools",
                 "pages": [
-                  "ja/guides/alter-actions",
-                  "ja/guides/integrations",
-                  "ja/guides/tool-manager",
-                  "ja/guides/url-callbacks"
+                  "ja/workflows/alter-actions",
+                  "ja/apps-tools/integrations-overview",
+                  "ja/how-to/tool-manager-guide",
+                  "ja/workflows/url-callbacks"
                 ]
               },
               {
                 "group": "Web検索",
                 "pages": [
-                  "ja/guides/web-research-getting-started",
-                  "ja/guides/native-web-search-in-alter-routers",
-                  "ja/guides/web-search-local-tools",
-                  "ja/guides/connect-tavily",
-                  "ja/guides/connect-firecrawl",
-                  "ja/guides/connect-linkup",
-                  "ja/guides/connect-exa"
+                  "ja/workflows/web-research-getting-started",
+                  "ja/workflows/native-web-search-in-alter-routers",
+                  "ja/workflows/web-search-local-tools",
+                  "ja/workflows/connect-tavily",
+                  "ja/workflows/connect-firecrawl",
+                  "ja/workflows/connect-linkup",
+                  "ja/workflows/connect-exa"
                 ]
               },
               {
                 "group": "設定とパーソナライズ",
                 "pages": [
-                  "ja/guides/alter-settings",
-                  "ja/guides/manage-settings",
-                  "ja/guides/settings"
+                  "ja/how-to/settings-guide"
                 ]
               },
               {
                 "group": "モデル",
                 "pages": [
-                  "ja/guides/choosing-generative-model"
+                  "ja/how-to/choose-generative-model"
                 ]
               }
             ]
@@ -1170,12 +1196,12 @@
               {
                 "group": "クイックタスク",
                 "pages": [
-                  "ja/how-to/open-alter",
+                  "ja/getting-started/open-alter",
                   "ja/how-to/add-context",
                   "ja/how-to/change-hotkey",
                   "ja/how-to/choose-language",
                   "ja/how-to/use-byok",
-                  "ja/how-to/settings"
+                  "ja/how-to/settings-guide"
                 ]
               }
             ]
@@ -1240,17 +1266,17 @@
               {
                 "group": "Gateway と Router",
                 "pages": [
-                  "ja/guides/api-gateway",
-                  "ja/guides/api-router-development",
-                  "ja/guides/api-router-operations"
+                  "ja/api-router/api-gateway",
+                  "ja/api-router/development",
+                  "ja/api-router/operations"
                 ]
               },
               {
                 "group": "アプリ連携",
                 "pages": [
-                  "ja/guides/api-router-app-integrations",
-                  "ja/guides/typingmind-alter-api",
-                  "ja/guides/msty-alter-api"
+                  "ja/api-router/app-integrations",
+                  "ja/api-router/typingmind",
+                  "ja/api-router/msty"
                 ]
               },
               {

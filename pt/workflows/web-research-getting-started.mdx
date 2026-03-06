@@ -1,0 +1,65 @@
+---
+title: "Introducao"
+description: "Comece com opcoes de pesquisa web no Alter"
+---
+
+Use este guia para escolher a melhor configuracao de pesquisa web no Alter.
+
+<Info>
+  Comece pelos roteadores do Alter. `Fast`, `Best`, `Fair` e `Light` ja incluem pesquisa web, sem configuracao adicional.
+</Info>
+
+## O que voce pode usar
+
+- **Local Tools:** `Web Search` e `Web Search Gemini`
+- **Remote MCP Servers:** Tavily, LinkUp, Exa
+- **Apps Gallery:** Firecrawl, LinkUp, Exa (se estiverem disponiveis no seu workspace)
+- **Roteadores Alter:** `Fast`, `Best`, `Fair` e `Light` com pesquisa web nativa
+
+## Resumo do posicionamento
+
+- **Tavily:** camada de acesso web para agentes de IA, com API para search, extraction, research e crawling.
+- **Firecrawl:** API para transformar sites em dados prontos para LLM, com foco em scraping e crawling.
+- **LinkUp:** busca para AI apps, com modos padrao e deep e respostas com fontes.
+- **Exa:** API de busca para IA orientada a qualidade, com endpoints de search a research.
+
+## Escolha a melhor opcao
+
+<CardGroup cols={2}>
+  <Card title="Comece aqui: sem setup" icon="rocket" href="/pt/workflows/native-web-search-in-alter-routers">
+    Use primeiro a pesquisa nativa dos roteadores. E a opcao mais simples.
+  </Card>
+  <Card title="Ferramentas inclusas" icon="zap" href="/pt/workflows/web-search-local-tools">
+    Use as ferramentas inclusas do Alter sem criar conta em provedor externo.
+  </Card>
+  <Card title="Pesquisa profunda" icon="search" href="/pt/workflows/connect-tavily">
+    Use Tavily para extracao mais rica e navegacao em multiplas etapas.
+  </Card>
+  <Card title="Scraping em escala" icon="database" href="/pt/workflows/connect-firecrawl">
+    Use Firecrawl para extracao estruturada em varias paginas.
+  </Card>
+</CardGroup>
+
+## Estrategia hibrida
+
+1. Comece com pesquisa nativa dos roteadores para ter o setup mais facil e bons resultados padrao.
+2. Use ferramentas inclusas para estender modelos sem busca web nativa, incluindo modelos locais, sem criar conta fora do Alter.
+3. Adicione provedores MCP quando quiser otimos resultados em qualquer modelo e mais controle de pesquisa e extracao.
+4. Adicione um scraper quando precisar de extracao estruturada em multiplas paginas.
+
+<Warning>
+  Planos gratuitos e cotas mudam com o tempo. Verifique os limites atuais antes de depender deles.
+</Warning>
+
+<Tip>
+  Evite ativar varios tools de pesquisa web ao mesmo tempo. Isso pode confundir a selecao de ferramenta do modelo.
+</Tip>
+
+## Guias relacionados
+
+- [/pt/workflows/web-search-local-tools](/pt/workflows/web-search-local-tools)
+- [/pt/workflows/connect-tavily](/pt/workflows/connect-tavily)
+- [/pt/workflows/connect-firecrawl](/pt/workflows/connect-firecrawl)
+- [/pt/workflows/connect-linkup](/pt/workflows/connect-linkup)
+- [/pt/workflows/connect-exa](/pt/workflows/connect-exa)
+- [/pt/workflows/native-web-search-in-alter-routers](/pt/workflows/native-web-search-in-alter-routers)

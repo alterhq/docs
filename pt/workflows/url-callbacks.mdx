@@ -1,0 +1,147 @@
+---
+title: "URL Callbacks"
+description: "Integrar o Alter com outros aplicativos usando esquemas x-callback-url"
+---
+
+Use este guia para integrar Alter com outros aplicativos usando esquemas de URL.
+
+## Tutorial de Vídeo
+
+- https://www.youtube.com/watch?v=X-XJiveQ-Wc
+
+## Introdução
+
+Alter suporta x-callback-url para que os aplicativos possam desencadear ações uns nos outros.
+Você pode:
+
+- acionar ações Alter de aplicativos externos
+- desencadeia ações de aplicativos externos do Alter
+- passar dados de entrada em URLs
+- voltar para o aplicativo original (dependendo do suporte do aplicativo)
+
+## Como Funciona
+
+1. Ações do gatilho Alter de outro aplicativo através de URLs `alter://...`.
+2. Ativar ações de aplicativo externas do Alter usando o esquema de URL desse aplicativo.
+
+## Ativar ações Alter de aplicativos externos
+
+1. Abrir Editor de Ação.
+2. Selecione uma ação.
+3. Em `General`, copie o URL da seção **URL Callback**.
+4. Colar o URL em outro aplicativo (browser, notas, atalhos, etc.).
+
+![Alter Callback URLs](/images/integrations/alter-callback-urls-focus.webp)
+
+## Ativar ações externas de aplicativos do Alter
+
+1. Crie uma URL clicável no Alter usando o esquema de aplicação de destino.
+2. Formatar parâmetros exatamente como exigido por esse aplicativo.
+3. Clique para executar e verificar o comportamento da ação.
+
+## Exemplos
+
+### Exemplos de retorno de chamadas do Alter
+
+- Pesquisa:
+  - `alter://action/ask-web?input=What+is+Alter+MacOS`
+  - <a href="alter://action/ask-web?input=What+is+Alter+MacOS">Abrir no Alter</a>
+
+- Estrategista de negócios sem entrada:
+  - `alter://action/business-strategist-gpt`
+  - <a href="alter://action/business-strategist-gpt">Abrir no Alter</a>
+
+- Estrategista de negócios com entrada:
+  - `alter://action/business-strategist-gpt?input=Explain+Red+Ocean+Strategy`
+  - <a href="alter://action/business-strategist-gpt?input=Explain+Red+Ocean+Strategy">Abrir no Alter</a>
+
+### Exemplo de aplicação cruzada
+
+- Criação de notas:
+  - `bear://x-callback-url/create?title=Demo%20Note`
+
+## Aplicações Suportadas (Amostragem)
+
+Os aplicativos com suporte a x-callback-url ou URL-scheme incluem:
+
+- [1Escritor](http://1writerapp.com/developers)
+- [2Do](http://2doapp.com/kb/article/url-scheme-supported-by-2do-for-apps-like-launch-center-pro.html)
+- [Agenda](https://agenda.community/t/x-callback-url-support-and-reference/27253)
+- [Appigo Todo](http://support.appigo.com/support/solutions/articles/179661-third-party-integration-with-todo-ios-apps)
+- [Bear](https://bear.app/faq/X-callback-url%20Scheme%20documentation/)
+- [Início](http://blog.beginapp.co/blog/2013/9/15/url-schemes)
+- [Carteira de pão](http://breadwallet.com)
+- [Palavra](http://bywordapp.com/support/url-scheme.html)
+- [Cal2Todo](http://yaas4home.blog.fc2.com/blog-entry-344.html)
+- [ClouDrop](http://shabz.co/m/dev.html)
+- [Comando- C](http://danilo.to/command-c/faq/how-to-use-x-callback-url)
+- [Daedalus Touch](http://daedalusapp.com/url-scheme/)
+- [Daymate](http://www.nodheadsoftware.com/daymate/x-callback-url/)
+- [Definição](http://handleopenurl.com/scheme/definition)
+- [DEVONThink](https://www.devontechnologies.com/redirect/apps/devonthink)
+- [Dispatch](http://www.dispatchapp.net)
+- (http://getdrafts.com))
+- [Devido](http://www.dueapp.com/developer.html)
+- [Editorial](http://omz-software.com/editorial/docs/ios/editorial_urlscheme.html)
+- [Equipd Bible](http://www.equipd.me/kb/url-scheme/)
+- [Fantástico](http://flexibits.com/fantastical-iphone/faq)
+- [Gladys](http://www.bru.build/gladys-callback-scheme)
+- [Google Chrome](https://developers.google.com/chrome/mobile/docs/ios-links)
+- [Mapas do Google](http://philgr.com/blog/google-maps-and-x-callback-url-support)
+- [Hook](https://hookproductivity.com/)
+- [iCab Mobile](http://www.icab.de/blog/2012/07/01/icab-mobile-6-0-supports-x-callback-url/)
+- [Instapaper](http://blog.instapaper.com/post/4637427075)
+- [iPGMail](http://ipgmail.com/info/developers/)
+- [iZettle](http://developer.izettle.com/)
+- [Kippster para Kippt](http://kippster.net/url-schemes/)
+- (http://appcubby.com/launch-center/))
+- [miCal](http://micalapp.com/en/faqs#category_10)
+- (http://blackfoggames.com/Missives/callback.html))
+- [Multimer](http://persapps.com/app/multitimer/url-scheme.php)
+- [Opener da minha porta](http://forums.mydooropener.com/viewtopic.php?f=16&t=295)
+- [Nota](http://notesy-app.com/weblog/files/b7e15801e5b4448495eaaccfdb374cc7-20.html)
+- [OmniFocus](https://discourse.omnigroup.com/t/automation-in-omnifocus-2-14-released-2016-04-26/23985/92)
+- [Abre](http://www.opener.link/api)
+- [Otto's Remote](http://andymolloy.net/blog/2013/08/21/otto-and-x-callback-url/)
+- [Overcast](https://overcast.fm)
+- [Pleco](http://www.pleco.com/ipmanual/vershist.html)
+- [Poster](http://www.tomwitkin.com/poster/developers/)
+- [Prizmo](https://github.com/creaceed/PrizmoAPI)
+- [Procraster](http://procrasterapp.com/userguide/51)
+- [RollPG](http://blackfoggames.com/RollPG/callback.html)
+- [RunJavascript](https://itunes.apple.com/us/app/runjavascript/id1254402852)
+- [Scanner Go](http://ilevelupapps.com/scanner-go)
+- [Shopi](http://sapient-pair.com/shopi/automation.html)
+- [Showrtpath Browser](http://showrtpath.hatenablog.com/entry/2014/01/04/085804)
+- [Silo](https://siloapp.net/developer)
+- [Cortes](https://support.apple.com/guide/shortcuts/welcome/ios)
+- [Planejador de História](http://literautas.com/en/apps/story-planner/x-callback-url/)
+- [Ruas](http://www.futuretap.com/blog/streets-api/)
+- [Terminologia](http://agiletortoise.com/developers/terminology)
+- [TextoCentro](http://textcenterapp.com/xcallback.html)
+- [TextoExpander Touch](http://smile.clarify-it.com/d/ehf7a4)
+- [Texto](http://www.textasticapp.com/v4/manual/x-callback-url.html)
+- [Textkraft](http://www.infovole.de/en/support-en/x-callback-url-in-textkraft/)
+- [TextoTool](http://blackfoggames.com/TextTool/callback.html)
+- [Coisas](https://culturedcode.com/things/help/url-scheme/)
+- [Timepage](http://moleskine.helpscoutdocs.com/article/92-timepage-url-scheme)
+- [Trello](https://trello.com/c/cJfzOdDm/188-automate-with-url-scheme)
+- [Tumblr para iOS](https://github.com/tumblr/TMTumblrSDK#url-schemes)
+- [Ulisses](http://ulyssesapp.com/kb/x-callback-url/)
+- [Notas para cima](http://www.upwordnotes.com/url-scheme/)
+- [Vídeo](https://wiki.videolan.org/Documentation:IOS/#x-callback-url)
+- [Minder](https://funnmedia.zendesk.com/hc/en-us/articles/360007745191-WaterMinder-X-Callback-URL-Support)
+- [Para onde?](http://www.futuretap.com/api/whereto/)
+- [cópia de trabalho](http://workingcopyapp.com/x-callback-url.html)
+
+## Testes e solução de problemas
+
+- Verifique o esquema de URL e parâmetros.
+- URL- codifica caracteres especiais.
+- Confirme que o aplicativo alvo suporta a ação.
+- Colar o URL de documentação de retorno de chamada do aplicativo em Alter para sintaxe/regras de base.
+
+## Documentos Relacionados
+
+- [Alter Actions - Workflows](/getting-started/core-features#alter-actions-workflows)
+- [Tools Não Funciona](/common-issues/tool-not-working)

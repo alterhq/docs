@@ -1,0 +1,71 @@
+---
+title: "API Router Operations & Troubleshooting"
+description: "Model selection, limits, reliability, and common fixes for Alter API Router"
+---
+
+## Model selection quick guide
+
+**Speed**
+- `Alter#light`
+- `OpenAI#gpt-5-nano`
+- `Gemini#gemini-2.5-flash-lite`
+
+**Quality**
+- `Alter#best`
+- `OpenAI#gpt-5`
+- `Gemini#gemini-2.5-pro`
+- `Claude#claude-sonnet-4-6`
+
+**Coding**
+- `OpenAI#gpt-5`
+- `Mistral#codestral-2501`
+- `Claude#claude-sonnet-4-6`
+
+**Web search**
+- `Perplexity#sonar`
+- `Perplexity#sonar-pro`
+
+## Usage limits
+
+Under fair use:
+- Daily limit: `200` requests/day
+- After limit: throttled to `1 request / 10 minutes`
+- For steady higher volume: top up budget
+
+<Note>
+  API Router is designed for personal and low-volume workloads. For multi-user products or heavy agentic traffic, use dedicated provider infrastructure.
+</Note>
+
+## Common issues
+
+### Models not listed
+- Manually set the model to `Provider#Model-name`
+- Verify API key is valid
+- Check client supports model listing endpoints
+
+### Authentication errors
+- Confirm `Authorization: Bearer YOUR_API_KEY`
+- Confirm endpoint is `https://alterhq.com/api` or `/api/v1`
+- Confirm your account is active
+
+### Connection issues
+- Use an OpenAI-compatible client
+- Verify network access to `alterhq.com`
+
+### High latency
+- Try lighter models (`OpenAI#gpt-5-nano`, `Alter#light`)
+- Use streaming for long outputs
+
+## Best practices
+
+1. Keep API keys in env vars (never hardcode)
+2. Monitor request volume and error rates
+3. Match model capability to task complexity
+4. Implement retries with backoff
+5. Use lower-cost models for routine workloads
+
+## Related
+
+- [API Gateway & Router Service](/api-router/api-gateway)
+- [API Router for Development](/api-router/development)
+- [Models Not Listed in API Gateway](/common-issues/models-not-listed-in-api-gateway)

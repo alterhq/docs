@@ -1,0 +1,32 @@
+---
+title: "Integracoes de apps com API Router"
+description: "Conecte apps de terceiros ao Alter API Router"
+---
+
+Use estes guias ao integrar apps externos com o Alter API Router.
+
+## Guias de integracao
+
+<CardGroup cols={2}>
+  <Card title="TypingMind" icon="plug" href="/pt/api-router/typingmind">
+    Configure um modelo customizado de OpenAI Chat Completions no TypingMind usando endpoint e headers do Alter.
+  </Card>
+  <Card title="Msty.ai" icon="plug" href="/pt/api-router/msty">
+    Defina endpoint do Alter, API key e formato de model ID no Msty.ai.
+  </Card>
+  <Card title="Padrao geral de configuracao" icon="book-open" href="/pt/api-router/api-gateway">
+    Base URL, tratamento de API key e formato de model ID usados pela maioria dos apps compativeis com OpenAI.
+  </Card>
+</CardGroup>
+
+## Checklist de integracao
+
+1. Defina a base URL como `https://alterhq.com/api` (ou `/v1` se necessario)
+2. Defina o header de autenticacao como `Authorization: Bearer YOUR_API_KEY`
+3. Use model IDs no formato `Provider#Model-name`
+4. Execute uma chamada de listagem de modelos antes da primeira requisicao
+
+## Relacionado
+
+- [Visao geral do API Router](/pt/references/api-router-overview)
+- [Referencia de modelos API](/pt/references/api-model-names)

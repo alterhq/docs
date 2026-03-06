@@ -1,0 +1,51 @@
+---
+title: "Configurar Msty.ai com Alter API"
+description: "Conecte o Msty.ai ao Alter API Router com configuracao de endpoint e API key"
+---
+
+Use este guia para conectar o Msty.ai ao Alter API Router.
+
+## Abrir configuracao de provider
+
+No Msty.ai, abra a tela de configuracao de provider/modelo onde voce define:
+
+- endpoint da API (base URL)
+- API key
+- selecao de modelo
+
+## 1) API key
+
+Cole sua key do Alter no campo de API key:
+
+`sk-...`
+
+Gere uma key no Alter em `Settings` -> `Router` -> `Alter API Keys`.
+
+## 2) Endpoint de inferencia
+
+Defina o endpoint para:
+
+```text
+https://alterhq.com/api/v1
+```
+
+## 3) Buscar e escolher um modelo
+
+Clique em **Fetch models** no Msty.ai depois de definir endpoint + API key.
+
+O Msty.ai vai carregar os modelos disponiveis do Alter para voce escolher na lista.
+Nao e necessario digitar model IDs manualmente.
+
+![Configuracao de endpoint e API key no Msty.ai](/images/integrations/msty-endpoint-api-key.jpeg)
+
+## Verificar conexao
+
+1. Salve as configuracoes no Msty.ai
+2. Envie um prompt simples
+3. Se falhar, valide endpoint e API key e clique em **Fetch models** novamente
+
+## Relacionado
+
+- [Referencia de modelos API](/pt/references/api-model-names)
+- [API Router para desenvolvimento](/pt/api-router/development)
+- [Operacoes e troubleshooting do API Router](/pt/api-router/operations)

@@ -1,0 +1,71 @@
+---
+title: "Operaciones y solución de problemas de API Router"
+description: "Selección de modelo, límites, fiabilidad y soluciones comunes para Alter API Router"
+---
+
+## Guía rápida de selección de modelos
+
+**Velocidad**
+- `Alter#light`
+- `OpenAI#gpt-5-nano`
+- `Gemini#gemini-2.5-flash-lite`
+
+**Calidad**
+- `Alter#best`
+- `OpenAI#gpt-5`
+- `Gemini#gemini-2.5-pro`
+- `Claude#claude-sonnet-4-6`
+
+**Código**
+- `OpenAI#gpt-5`
+- `Mistral#codestral-2501`
+- `Claude#claude-sonnet-4-6`
+
+**Búsqueda web**
+- `Perplexity#sonar`
+- `Perplexity#sonar-pro`
+
+## Límites de uso
+
+Bajo fair use:
+- Límite diario: `200` solicitudes/día
+- Después del límite: se reduce a `1 solicitud / 10 minutos`
+- Para volumen sostenido más alto: recarga presupuesto
+
+<Note>
+  API Router está diseñado para uso personal y cargas de bajo volumen. Para productos multiusuario o tráfico agentic intenso, usa infraestructura dedicada del provider.
+</Note>
+
+## Problemas comunes
+
+### Modelos no listados
+- Define manualmente el modelo como `Provider#Model-name`
+- Verifica que la clave API sea válida
+- Verifica que el cliente soporte endpoints de listado de modelos
+
+### Errores de autenticación
+- Confirma `Authorization: Bearer YOUR_API_KEY`
+- Confirma el endpoint `https://alterhq.com/api` o `/api/v1`
+- Confirma que tu cuenta esté activa
+
+### Problemas de conexión
+- Usa un cliente compatible con OpenAI
+- Verifica acceso de red a `alterhq.com`
+
+### Alta latencia
+- Prueba modelos más ligeros (`OpenAI#gpt-5-nano`, `Alter#light`)
+- Usa streaming para salidas largas
+
+## Mejores prácticas
+
+1. Guarda claves API en variables de entorno (nunca en hardcode)
+2. Monitorea volumen de solicitudes y tasas de error
+3. Ajusta la capacidad del modelo a la complejidad de la tarea
+4. Implementa reintentos con backoff
+5. Usa modelos de menor costo para tareas rutinarias
+
+## Relacionado
+
+- [Servicio API Gateway y Router](/es/api-router/api-gateway)
+- [API Router para desarrollo](/es/api-router/development)
+- [API Gateway no lista modelos](/es/common-issues/models-not-listed-in-api-gateway)

@@ -1,0 +1,383 @@
+---
+title: "Alter Acciones"
+description: "Cree y configure flujos de trabajo de IA personalizados con activadores de voz y automatización"
+---
+
+<Info>
+**Alter Acciones** son flujos de trabajo de IA personalizables que te permiten crear asistentes especializados para tareas específicas. Combine instrucciones de IA, activadores de voz, Tools y ejecución condicional para automatizar cualquier cosa en su Mac.
+</Info>
+
+## ¿Qué es una acción Alter?
+
+Una acción **Alter** es una automatización avanzada que combina:
+
+- **Instrucciones de IA**: indicaciones del sistema que definen cómo se comporta la IA
+- **Disparadores**: comandos de voz, teclas de acceso rápido o ejecución condicional
+- **Contexto** - Acceso a texto seleccionado, archivos y aplicaciones activas
+- **Tools** - Integraciones configuradas con tu Mac y más de 2000 servicios externos
+- **Salida**: cómo se muestran los resultados (rebaja, código, inserción en línea)
+
+Piense en una acción Alter como un "asistente de IA especializado" personalizado para una tarea específica.
+
+## Abrir el editor de acciones
+
+### Método 1: barra de menú (más rápida)
+1. Haga clic en el icono de menú **Alter** en la barra de menú (arriba a la derecha)
+2. Seleccione **Editor de acciones**
+
+![Barra de menú](/images/tools/menu-bar-action-editor.webp)
+
+### Método 2: menú de opciones
+1. Abrir la ventana Alter
+2. Haga clic en **⋯** (tres puntos) en la parte superior derecha.
+3. Seleccione **Editor de acciones**
+
+![Menú Opciones](/images/tools/options-menu-action-editor.webp)
+
+### Método 3: método abreviado de teclado
+Presione **⌘ E** (Comando + E) para abrir el Editor de acciones directamente
+
+<Tip>
+El método abreviado de teclado es el método más rápido una vez que lo has memorizado.
+</Tip>
+
+## Tutorial del editor de acciones
+
+El Editor de acciones tiene 7 secciones principales, cada una de las cuales controla diferentes aspectos de tu acción. Utilice el panel izquierdo para navegar entre pestañas.
+
+### 1. Configuración general
+
+Configurar metadatos básicos y contexto de ejecución.
+
+![Pestaña General](/images/tools/action-editor-01-general.webp)
+
+**Campos:**
+- **Nombre**: nombre de acción legible por humanos (p. ej., "Explicación de código")
+- **Descripción**: Qué hace esta acción (opcional)
+- **Categoría** - Organiza acciones por tipo (código, productividad, negocio, etc.)
+- **Workspace** - Asignar a un espacio de trabajo específico (opcional)
+- **Incluir perfil**: incluya información del perfil del usuario en el contexto de IA
+
+**Opciones de visibilidad:**
+- **Mostrar solo cuando se está ejecutando**: la acción solo aparece si se está ejecutando una aplicación
+- **Mostrar solo cuando está activo**: la acción solo aparece si una aplicación tiene el foco
+- **Workspace contexto**: elija qué espacios de trabajo verán esta acción
+
+<Note>
+Cada acción obtiene un UUID único automáticamente.
+</Note>
+
+### 2. Aviso del sistema
+
+Defina instrucciones y parámetros de IA para el modelo.
+
+![Pestaña Aviso del sistema](/images/tools/action-editor-02-systemprompt.webp)
+
+**Mensaje del sistema**: instrucciones básicas de la IA que describen el comportamiento y la experiencia de la IA.
+
+**Ejemplo:**
+```
+# IDENTITY AND PURPOSE
+You are an expert software engineer who explains code clearly
+and accessibly to developers of all skill levels.
+
+# STEPS
+1. Analyze the provided code
+2. Identify its purpose and key components
+3. Explain each section in simple terms
+
+# OUTPUT INSTRUCTIONS
+- Use markdown formatting
+- Include code examples where helpful
+- Keep language clear and non-technical
+```
+
+**Parámetros**: define los campos de entrada que los usuarios pueden personalizar antes de la ejecución (entrada de texto, selecciones desplegables, etc.).
+
+### 3. Aviso de usuario
+
+Plantilla para el mensaje de cara al usuario que se envía a la IA.
+
+![Pestaña Aviso de usuario](/images/tools/action-editor-03-userprompt.webp)
+
+**Usando variables de contexto:**
+
+Ajuste las variables en `{{ }}` para insertar contenido dinámico:
+
+```
+Please explain this code:
+
+{{ textSelection }}
+
+Explanation detail: {{ detailLevel }};
+```
+
+**Variables de contexto disponibles:**
+- `{{ textSelection }}` - Texto seleccionado actualmente
+- `{{ filePath }}` - Ruta al archivo seleccionado
+- `{{ clipboard }}` - Contenido del portapapeles
+- Parámetros personalizados que definiste en el mensaje del sistema
+
+### 4. Cuándo mostrar
+
+Controla cuándo y dónde aparece esta acción.
+
+![Cuándo mostrar la pestaña](/images/tools/action-editor-04-whentoshow.webp)
+
+**Condiciones de Visibilidad:**
+
+- **Aplicaciones instaladas**: muestra acciones solo en aplicaciones específicas (VSCode, Xcode, Safari, etc.)
+- **La aplicación se está ejecutando**: la acción requiere que la aplicación se esté ejecutando
+- **La aplicación tiene el foco**: la acción solo funciona cuando la aplicación está en primer plano
+- **La pestaña del navegador web contiene**: muestra la acción al explorar dominios específicos
+- **Tiene contenido**: muestra la acción solo cuando el contexto está disponible
+
+### 5. Automatización
+
+Configure el comportamiento de ejecución, los cronogramas y el procesamiento en segundo plano.
+
+![Pestaña Automatización](/images/tools/action-editor-05-automation.webp)
+
+**Campos:**
+
+- **Trabajo en segundo plano**: ejecuta la acción en segundo plano sin mostrar la interfaz de usuario
+- **Horarios**: ejecute acciones en momentos específicos (por ejemplo, "Todos los lunes a las 9 a. m.")
+- **Acción rápida**: ejecuta la siguiente "Acción rápida" automáticamente después de que se complete
+
+Utilice esto para encadenar acciones: primera acción → salida → siguiente acción se ejecuta automáticamente.
+
+### 6. Tools
+
+Alcance qué Tools están disponibles para esta acción.
+
+![Tools Tab](/images/tools/action-editor-06-tools.webp)
+
+**Tool Configuración:**
+
+- **Desactivar Tools**: desactiva Tools individuales para restringir la funcionalidad
+- Cuando está vacío: todas las Tools están disponibles
+- Cuando está configurado: solo las Tools seleccionadas están disponibles
+
+**¿Por qué Alcance Tools?**
+- Reducir la sobrecarga de decisiones de IA (centrarse en las Tools relevantes)
+- Acelerar la ejecución de acciones
+- Mejorar la seguridad (limitar a qué acciones pueden acceder)
+
+### 7. modelo
+
+Seleccione el modelo de IA y ajuste el nivel de creatividad.
+
+![Pestaña Modelo](/images/tools/action-editor-07-model.webp)
+
+**Campos:**
+
+- **Modelo**: elija el modelo de IA específico para esta acción
+  - Déjelo vacío para usar la configuración de modelo predeterminada del usuario.
+  - O seleccione: Claude, GPT-4, modelo local, etc.
+
+- **Temperatura** - Ajusta la creatividad frente a la precisión
+  - **0,0** - Determinista (consistente, predecible)
+  - **0,5** - Equilibrado (predeterminado)
+  - **1.0** - Creativo (impredecible, exploratorio)
+
+## Mejores prácticas
+
+<CardGroup cols={2}>
+  <Card title="Borrar nombres" icon="tag">
+"Code Explicador" describe lo que hace. Evite nombres genéricos como "Acción 1".
+  </Card>
+  <Card title="Indicaciones específicas" icon="message">
+Sea detallado con instrucciones de IA. Las indicaciones genéricas producen resultados genéricos.
+  </Card>
+  <Card title="Alcance Tools" icon="tool">
+Habilite solo las Tools que su acción necesita. Reduce los gastos generales y mejora la velocidad.
+  </Card>
+  <Card title="Utilice variables de contexto" icon="brackets">
+`{{ textSelection }}` siempre funciona. Copiar y pegar manualmente es propenso a errores.
+  </Card>
+  <Card title="Visibilidad condicional" icon="eye">
+El "Explicador de código" solo en VSCode + Xcode reduce el desorden del menú.
+  </Card>
+  <Card title="Pruebe antes de compartir" icon="check">
+Pruebe con datos reales antes de implementarlos en su equipo.
+  </Card>
+</CardGroup>
+
+## Ejemplos de acciones comunes
+
+### Ejemplo 1: Explicador de código
+
+**Configuración:**
+- **Nombre:** Explicar código
+- **Categoría:** código
+- **Aplicaciones instaladas:** VSCode, Xcode
+- **Mensaje del sistema:** Eres un programador experto que explica el código claramente
+- **Mensaje de usuario:** `Please explain this code:\n\n{{ textSelection }}`
+- **Consumidor:** descuento
+- **Temperatura:** 0,5
+
+### Ejemplo 2: Creador de borradores de correo electrónico
+
+**Configuración:**
+- **Nombre:** Borrador de correo electrónico
+- **Categoría:** productividad
+- **Cuándo mostrar:** Aplicación de correo activa
+- **Mensaje del sistema:** Eres un comunicador empresarial profesional.
+- **Mensaje de usuario:** `Transform this into a professional email:\n\n{{ textSelection }}`
+- **Tools:** Habilitar solo correo
+- **Consumidor:** en el lugar
+- **Temperatura:** 0,6
+
+### Ejemplo 3: Resumen diario programado
+
+**Configuración:**
+- **Nombre:** Resumen diario
+- **Categoría:** productividad
+- **Automatización:** Horario de 9:00 a. m. todos los días
+- **Trabajo en segundo plano:** Habilitado
+- **Mensaje del sistema:** Genere un resumen diario de prioridades
+
+## Activadores de voz
+
+Asigne teclas de acceso rápido de voz para activar acciones con manos libres:
+
+<Steps>
+  <Step title="Configuración del sistema">
+Vaya a **Configuración > Activadores de voz**
+  </Step>
+  <Step title="Agregar disparador">
+Haga clic en **+ Agregar activador**
+  </Step>
+  <Step title="Seleccionar acción">
+Elija la acción del menú desplegable
+  </Step>
+  <Step title="Asignar frase">
+Ingrese la frase desencadenante (por ejemplo, "explicar" para el Explicador de código)
+  </Step>
+  <Step title="Ahorrar">
+Haz clic en Guardar y estarás listo.
+  </Step>
+</Steps>
+
+**Uso:** Mantenga presionada la tecla de acceso rápido de voz + diga la frase desencadenante → La acción se ejecuta con el contexto actual
+
+## x-callback-url Integración
+
+Active Alter acciones desde **cualquier aplicación** mediante URL especiales. Esto permite potentes flujos de trabajo de automatización entre aplicaciones.
+
+### ¿Qué es x-callback-url?
+
+x-callback-url es un protocolo de comunicación entre aplicaciones que permite que las aplicaciones activen acciones entre sí a través de URL formateadas.
+
+- **Entrante**: activa Alter acciones de otras aplicaciones (Atajos, Notas, Safari, etc.)
+- **Saliente**: crea enlaces en Alter que abren otras aplicaciones (Bear, OmniFocus, Drafts, etc.)
+
+### Obtener la URL Callback de su acción
+
+<Steps>
+  <Step title="Abrir editor de acciones">
+Presione **⌘ E**
+  </Step>
+  <Step title="Seleccionar acción">
+Elige la acción que quieres exponer
+  </Step>
+  <Step title="Ir a generales">
+Vaya a la pestaña General
+  </Step>
+  <Step title="Buscar URL Callback">
+Busque la sección "URL Callback"
+  </Step>
+  <Step title="Copiar URL">
+Copie la URL `alter://`
+  </Step>
+</Steps>
+
+**Formato:**
+```
+alter://action/{action-id}?input=VALUE&param2=VALUE
+```
+
+### Activación de acciones Alter desde otras aplicaciones
+
+**Ejemplo 1: Búsqueda web desde Safari**
+```
+alter://action/ask-web?input=What+is+Alter+MacOS
+```
+
+**Ejemplo 2: Explicador de código con entrada**
+```
+alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
+```
+
+**Ejemplo 3: uso en accesos directos de Apple**
+1. Crear un nuevo acceso directo
+2. Agregar la acción "Abrir URL"
+3. Pega tu URL `alter://`
+4. Ejecute el acceso directo para activar la acción.
+
+### Casos de uso
+
+<AccordionGroup>
+  <Accordion icon="workflow" title="Automatización del flujo de trabajo">
+Activar acción desde Calendario → Generar notas de reunión → Crear borrador de correo electrónico
+  </Accordion>
+
+  <Accordion icon="link-2" title="Integración de múltiples aplicaciones">
+Botón de noción → Activar acción Alter → Actualizar estado de tarea
+  </Accordion>
+
+  <Accordion icon="copy" title="Transferencia de información">
+Copiar texto → Activar acción con devolución de llamada → Abrir resultado en aplicación externa (no se necesita copia manual)
+  </Accordion>
+</AccordionGroup>
+
+## Atajos de teclado
+
+| Acción | Atajo |
+|--------|----------|
+| Abrir editor de acciones | `⌘ E` |
+| Nueva acción | `Cmd + N` (en editor) |
+| Guardar acción | `Cmd + S` (en editor) |
+| Eliminar acción | `Cmd + Delete` (en editor) |
+| Acciones de búsqueda | `Cmd + F` (en editor) |
+
+## Solución de problemas
+
+<AccordionGroup>
+  <Accordion icon="circle-exclamation" title="La acción no aparece en el menú.">
+    - Marque la configuración de **Cuándo mostrar**
+    - Verificar que la aplicación esté ejecutándose/activa (si está configurada)
+    - Asegúrese de que la acción esté **habilitada**
+  </Accordion>
+
+  <Accordion icon="triangle-exclamation" title="La acción se ejecuta pero produce un resultado deficiente.">
+    - Revise **Mensaje del sistema**: sea más específico
+    - Ajuste la **Temperatura** (más baja para precisión, más alta para creatividad)
+    - Marque **Mensaje de usuario**: asegúrese de que las variables sean correctas
+  </Accordion>
+
+  <Accordion icon="microphone" title="El disparador de voz no funciona">
+    - Verifique que la tecla de acceso rápido esté configurada en Configuración
+    - Verifique los permisos del micrófono
+    - Pruebe primero con el gatillo manual
+  </Accordion>
+
+  <Accordion icon="lock" title="Tools no disponible en acción">
+    - Ir a la pestaña **Tools**
+    - Verificar que las Tools no estén deshabilitadas
+    - Verifique los permisos del sistema para la Tool
+  </Accordion>
+</AccordionGroup>
+
+## Guías relacionadas
+
+- [Tools & Integraciones](/apps-tools/integrations-overview) — Herramientas disponibles para tus acciones
+- [URL Callbacks](/workflows/url-callbacks) — Profundización en la automatización x-callback-url
+- [Voz y dictado](/workflows/dictation) — Configurar activadores de voz
+- [Settings](/how-to/settings-guide) — Configurar el modelo global y los ajustes de voz
+
+---
+
+**¿Listo para construir?** Abra Alter, presione `⌘ E` y comience a crear su primera acción.
+
+**¿Quiere automatizar todas las aplicaciones?** Utilice x-callback-urls para activar acciones desde Safari, Accesos directos, Notas o cualquier aplicación que admita esquemas de URL.

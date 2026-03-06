@@ -1,0 +1,292 @@
+---
+title: "Tool オーケストレーションには Flow を使用する"
+description: "Flow によってツールが自動的に選択および調整され、コンテキストの使用量が削減され、パフォーマンスが向上します。"
+---
+
+<Info>
+  **Flow** は Alter の組み込みツール オーケストレーターです。 Flow は、有効なすべてのツールをすべてのリクエストにロードするのではなく、リクエストを適切なツールにインテリジェントにルーティングする単一のツールとして機能します。
+</Info>
+
+<Warning>
+  **最初に Tools を有効にしてください** — Flow は、Tool Manager ですでに有効にしたツールのみを使用できます。無効化されたツールが自動的に有効になることはありません。 Flow を使用する前に、必要なツールがオンになっていることを確認してください。
+</Warning>
+
+## Flow を使用する理由
+
+<CardGroup cols={3}>
+  <Card title="コンテキストスペースの節約" icon="compress">
+    Flow は、有効なすべてのツールではなく単一のツールとしてロードされ、コンテキスト ウィンドウを実際のコンテンツ用に解放します。
+  </Card>
+  <Card title="パフォーマンスの高速化" icon="bolt">
+    ペイロードが小さいほど高速に処理され、すべてのリクエストのレイテンシが短縮されます。
+  </Card>
+  <Card title="フェアユース予算を節約する" icon="scale-balanced">
+    リクエストあたりのトークンが少ないということは、フェアユース ポリシーの予算に対する使用量が少ないことを意味します
+  </Card>
+</CardGroup>
+
+有効にするすべてのツールは、コンテキスト ウィンドウ内のスペースを消費します。 10 個以上のツールを有効にすると、パフォーマンスに大きな影響を与えます。 Flow は、他のすべてを調整する単一のツールとして機能することで、この問題を解決します。
+
+---
+
+## Flow を有効にする
+
+<Steps>
+  <Step title="設定を開く">
+    **⌘ ,** (コマンド + カンマ) を押すか、メニューで **設定** をクリックします
+  </Step>
+  <Step title="Tool マネージャーに移動します">
+    **Tool マネージャー** タブに移動します
+  </Step>
+  <Step title="Flow を有効にする">
+    **Local Tools > Alter** で、**Flow** をオンに切り替えます
+  </Step>
+</Steps>
+
+<Note>
+  覚えておいてください: Flow は、すでに有効になっているツールのみを調整できます。 Flow 自体に加えて、必要な特定のツール (カレンダー、Gmail、Slack など) を有効にします。
+</Note>
+
+---
+
+## Flow の仕組み
+
+Flow を有効にしてリクエストを送信すると、次のプロセスに従います。
+
+<Steps>
+  <Step title="分析する">
+    Flow はリクエストを分析して、何を達成しようとしているのかを理解します
+  </Step>
+  <Step title="選択">
+    Flow は、有効なツールからタスクに適切なツールを選択します
+  </Step>
+  <Step title="実行する">
+    Flow はツール呼び出しを順番に実行し、必要に応じてステップ間でデータを渡します
+  </Step>
+  <Step title="要約する">
+    結果は、重要なデータポイントが保持された簡潔な応答に凝縮されます
+  </Step>
+</Steps>
+
+---
+
+## 例
+
+<Tabs>
+  <Tab title="シングル Tool">
+    **リクエスト:** 「今日は何の会議がありますか?」
+    
+    Flow は自動的に:
+    1. カレンダー情報が必要であることを認識します
+    2. カレンダーツールを選択します
+    3. 会議を取得します
+    
+    カレンダー ツールを手動で選択する必要はありません。Flow が処理します。
+  </Tab>
+  
+  <Tab title="マルチToolチェーン">
+    **リクエスト:** 「午後 3 時の会議をキャンセルして、出席者に体調が悪い旨を説明するメールを送信してください」
+    
+    Flow は自動的に:
+    1. **カレンダー** ツールを使用して午後 3 時の会議を見つけます
+    2. 会議の出席者を識別します
+    3. **Gmail** ツールを使用して電子メールを作成します
+    4. キャンセルと説明を送信します
+    
+    すべてを 1 つの自然言語リクエストで実行します。
+  </Tab>
+  
+  <Tab title="変身あり">
+    **リクエスト:** 「Alter ドキュメントを収集し、主要な機能を抽出してください」
+    
+    Flow は自動的に:
+    1. Web ツールを使用してドキュメントのコンテンツを取得します
+    2. `$1:Extract the key features and format as bullet points` を使用して生の HTML を変換します
+    3. フォーマットされた特徴のリストを返します。
+    
+    変換ステップでは、関連情報のみが抽出されます。
+  </Tab>
+</Tabs>
+
+---
+
+## Flow と特定の Tools を使用する場合
+
+<CardGroup cols={2}>
+  <Card title="Flow を使用してください" icon="wand-magic-sparkles">
+    <ul>
+      <li>You're not sure which tool to use</li>
+      <li>You want simple, natural language requests</li>
+      <li>You have many tools enabled</li>
+      <li>You're doing complex multi-step tasks</li>
+    </ul>
+  </Card>
+  <Card title="特定の Tool アクションを使用する" icon="bullseye">
+    <ul>
+      <li>You know exactly which tool you need</li>
+      <li>You want the fastest possible execution</li>
+      <li>You're building repeatable workflows</li>
+      <li>You need predictable, consistent behavior</li>
+    </ul>
+  </Card>
+</CardGroup>
+
+<Note>
+  **90% ルール:** タスクの 90% では、Flow が最適な選択です。最適化された反復可能なワークフローが必要な場合にのみ、特定のツール アクションを作成します。
+</Note>
+
+---
+
+## ベストプラクティス: 「何でも質問」を設定する
+
+**何でも質問** アクションは Alter のデフォルトです。特定のアクションを選択せず​​にプロンプ​​ト ボックスに入力する場合に使用されます。
+
+<Steps>
+  <Step title="アクションエディタを開く">
+    **[設定] > [アクション]** に移動します
+  </Step>
+  <Step title="検索して何でも質問する">
+    **「何でも質問する」** アクションを探します
+  </Step>
+  <Step title="「詳細設定」をクリックします">
+    [**詳細**] セクションを展開します
+  </Step>
+  <Step title="Flow のみを選択してください">
+    **Tools** セクションで、**Flow** のみを選択します (他のツールはすべて選択解除します)
+  </Step>
+  <Step title="保存">
+    変更を保存します
+  </Step>
+</Steps>
+
+これで、デフォルトのインタラクションは、すべての有効なツールをすべてのリクエストにロードするのではなく、Flow のオーケストレーションを使用するようになります。
+
+---
+
+<AccordionGroup>
+  <Accordion icon="link" title="上級: Tool 命令によるチェーン">
+    Flow は、タスクに複数の手順が必要な場合に、ツールを自動的にチェーンします。 1 つのツールの出力は、`$N` 構文を使用して後続の呼び出しで参照できます。
+
+    ### 参照構文
+
+    |構文 |説明 |
+    |----------|---------------|
+    | __コード_0__ |ステップ 1 からの生の出力 |
+    | __コード_0__ |ステップ 2 からの生の出力 |
+    | __コード_0__ |命令 | を使用してステップ N の出力を変換します。
+
+    ### 変換を伴う例
+
+    Web サイトをスクレイピングして結果をフォーマットする場合:
+
+    1. Flow は Web ツールを使用してコンテンツを取得します
+    2. 変換を適用します: `$1:Extract the key frameworks and format as bullet points`
+    3. LLM は、次のツールに渡す前に生のコンテンツを処理します。
+
+    これにより、Flow は次のことが可能になります。
+    - 大規模な出力から関連情報のみを抽出
+    - 次のツールに合わせてデータを適切にフォーマットする
+    - 後続のステップでのノイズを軽減する
+  </Accordion>
+
+  <Accordion icon="memory" title="上級: スマートなコンテキスト管理">
+    Flow には、会話に結果を返す方法を最適化する組み込みの要約ステップが含まれています。
+
+    ### 要約とは何ですか
+
+    ツールの実行後、Flow:
+
+    1. **出力を圧縮します** — 詳細なツール出力を圧縮します
+    2. **重要なデータを保存** — ID、URL、参照、およびデータ ポイントを保存します
+    3. **重要な洞察を明らかにします** — フォローアップのためのリンク、アイデア、調査結果を強調表示します
+    4. **出典の引用を提供します** — トレーサビリティのために [ステップ N] 表記を使用します
+
+    ### なぜこれが重要なのか
+
+    要約を行わないと、複雑なワークフローによってコンテキスト ウィンドウが肥大化してしまいます。 5、6ターン目までにトークンの制限に達してしまいます。
+
+    Flow の要約により、次のことが保証されます。
+    - **効率的なコンテキスト** — 重要な情報のみが保持されます
+    - **実用的な返信** — 重要なデータポイントは保存されます
+    - **パフォーマンスの向上** — コンテキストの削減 = 応答の高速化
+    - **トレーサビリティ** — [ステップ N] の引用により情報ソースが確認されます
+
+    ### 出力例
+
+    ```
+    Task completed successfully.
+
+    Key artifacts for next actions:
+    - Meeting ID: 12345 [Step 1]
+    - Attendees: alice@example.com, bob@example.com [Step 1]
+    - Draft email prepared [Step 2]
+
+    Important findings:
+    - Meeting conflicts with another event at 3pm [Step 1]
+    - Alice has an out-of-office message active [Step 2]
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 最良の結果を得るためのヒント
+
+<CardGroup cols={3}>
+  <Card title="具体的にする" icon="pencil">
+    <p><strong>Good:</strong> "Send a Slack message to the engineering channel"</p>
+    <p><strong>Vague:</strong> "Message the team"</p>
+    <p>Specific requests help Flow select the right tool.</p>
+  </Card>
+  <Card title="自然に連鎖する" icon="link">
+    Flow は複数ステップのタスクを適切に処理します。複雑なリクエストを複数のプロンプトに分割しないでください。Flow がチェーンを調整します。
+  </Card>
+  <Card title="レビュー結果" icon="eye">
+    Flow は、使用しているツールを示します。間違ったものが選択された場合は、リクエストをより詳細に言い換えてください。
+  </Card>
+</CardGroup>
+
+---
+
+## トラブルシューティング
+
+<AccordionGroup>
+  <Accordion icon="xmark" title="Flow 間違った Tool を選択しました">
+    リクエストをより具体的な詳細で言い換えます。
+    
+    - **代わりに:** 「メッセージを確認してください」
+    - **試してください:** 「一般チャネルで未読の Slack メッセージを確認する」
+    
+    具体的であればあるほど、Flow はユーザーの意図を適切なツールに適合させることができます。
+  </Accordion>
+  
+  <Accordion icon="question" title="Flow Tool が見つかりません">
+    ツールが次のとおりであることを確認してください。
+    - Tool マネージャーで **有効** (Flow では無効化されたツールを使用できません)
+    - **適切に設定されている** (例: Gmail で認証されている)
+    - **アクション設定による制限なし**
+  </Accordion>
+  
+  <Accordion icon="gauge-high" title="パフォーマンスはまだ遅い">
+    Flow を使用しても、非常に大きなリクエストは遅くなる可能性があります。試す：
+    - 非常に複雑なタスクを 2 ～ 3 つのステップに分割する
+    - 頻繁に繰り返されるタスクに特定のツール アクションを使用する
+    - Tool Manager で必須ツールのみを有効にする
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 関連ドキュメント
+
+<CardGroup cols={3}>
+  <Card title="Tool マネージャー ガイド" icon="toolbox" href="/how-to/tool-manager-guide">
+    ツールを接続して管理する方法を学ぶ
+  </Card>
+  <Card title="Tools 機能しない" icon="wrench" href="/common-issues/tool-not-working">
+    一般的な統合の問題を修正する
+  </Card>
+  <Card title="Alter アクション" icon="play" href="/getting-started/core-features#alter-actions-workflows">
+    カスタムツールのワークフローを構築する
+  </Card>
+</CardGroup>

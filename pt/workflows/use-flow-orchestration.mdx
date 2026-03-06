@@ -1,0 +1,292 @@
+---
+title: "Usar Flow para Orquestração Tool"
+description: "Deixe Flow selecionar e orquestrar automaticamente suas Tools para reduzir o uso do contexto e melhorar o desempenho"
+---
+
+<Info>
+**Flow** é o orquestrador de Tools integrado de Alter. Em vez de carregar todas as Tools habilitadas em cada solicitação, Flow atua como uma única Tool que encaminha inteligentemente seus pedidos para as Tools certas.
+</Info>
+
+<Warning>
+** Enable Tools First** — Flow só pode usar Tools que você já ativou no Tool Manager. Ele não ativa automaticamente Tools desabilitadas. Certifique-se de que as Tools de que precisa estão ligadas antes de utilizar o Flow.
+</Warning>
+
+## Por que utilizar Flow?
+
+<CardGroup cols={3}>
+  <Card title="Gravar o Espaço de Contexto" icon="compress">
+Flow carrega como uma única Tool em vez de todas as Tools habilitadas, libertando sua janela de contexto para conteúdo real
+  </Card>
+  <Card title="Desempenho Mais Rápido" icon="bolt">
+Cargas úteis menores processam mais rápido e reduzem a latência em cada solicitação
+  </Card>
+  <Card title="Salvar orçamento de uso justo" icon="scale-balanced">
+Menos fichas por pedido significa menos uso contra o seu orçamento de política de uso justo
+  </Card>
+</CardGroup>
+
+Cada Tool que você habilita consome espaço em sua janela de contexto. Quando você tem mais de 10 Tools habilitadas, isso impacta significativamente o desempenho. Flow resolve isso agindo como uma única Tool que orquestra todas as outras.
+
+---
+
+## Ativar o Flow
+
+<Steps>
+  <Step title="Abrir Configurações">
+Pressione ** ,** (Comando + Comma) ou clique em **Configurações** no menu
+  </Step>
+  <Step title="Ir para o Gestor Tool">
+Navegue até a aba **Tool Manager**
+  </Step>
+  <Step title="Ativar o Flow">
+Em **Local Tools > Alter**, alternar **Flow** em
+  </Step>
+</Steps>
+
+<Note>
+Lembre-se: Flow só pode orquestrar Tools que já estão habilitadas. Active as Tools específicas de que necessita (Calendar, Gmail, Slack, etc.) para além do próprio Flow.
+</Note>
+
+---
+
+## Como funciona o Flow
+
+Quando você envia um pedido com o Flow habilitado, ele segue este processo:
+
+<Steps>
+  <Step title="Analisar">
+Flow analisa seu pedido para entender o que você está tentando realizar
+  </Step>
+  <Step title="Selecionar">
+Nas suas Tools habilitadas, o Flow seleciona a( s) Tool( s) apropriada( s) para a tarefa
+  </Step>
+  <Step title="Executar">
+Flow executa as chamadas de Tool em sequência, passando dados entre passos conforme necessário
+  </Step>
+  <Step title="Resumir">
+Os resultados são condensados em uma resposta concisa com pontos-chave de dados preservados
+  </Step>
+</Steps>
+
+---
+
+## Exemplos
+
+<Tabs>
+  <Tab title="Tool único">
+**Pedido:** "Quais reuniões tenho hoje?"
+    
+Flow automaticamente:
+    1. Reconhece que você precisa de informações do calendário
+    2. Selecciona a Tool Calendário
+    3. Recupera suas reuniões
+    
+Não há necessidade de selecionar manualmente a Tool Calendário - Flow lida com ela.
+  </Tab>
+  
+  <Tab title="Multi- Tool Cadeia">
+**Pedido:** "Cancele minha reunião das 15h e envie um e-mail para os participantes explicando que estou doente"
+    
+Flow automaticamente:
+    1. Usa a Tool **Calendar** para encontrar sua reunião das 15h
+    2. Identifica os participantes da reunião
+    3. Usa a Tool ** Gmail** para compor um email
+    4. Envia o cancelamento e explicação
+    
+Tudo em um pedido de linguagem natural.
+  </Tab>
+  
+  <Tab title="Com Transformação">
+**Pedido:** "Escrapar a documentação do Alter e extrair as características chave"
+    
+Flow automaticamente:
+    1. Usa uma Tool Web para obter o conteúdo da documentação
+    2. Transforma o HTML em bruto usando o `$1:Extract the key features and format as bullet points`
+    3. Devolve uma lista formatada de funcionalidades
+    
+A etapa de transformação extrai apenas informações relevantes.
+  </Tab>
+</Tabs>
+
+---
+
+## Quando usar Flow vs Tools Específico
+
+<CardGroup cols={2}>
+  <Card title="Usar Flow" icon="wand-magic-sparkles">
+    <ul>
+      <li>You're not sure which tool to use</li>
+      <li>You want simple, natural language requests</li>
+      <li>You have many tools enabled</li>
+      <li>You're doing complex multi-step tasks</li>
+    </ul>
+  </Card>
+  <Card title="Usar ações específicas do Tool" icon="bullseye">
+    <ul>
+      <li>You know exactly which tool you need</li>
+      <li>You want the fastest possible execution</li>
+      <li>You're building repeatable workflows</li>
+      <li>You need predictable, consistent behavior</li>
+    </ul>
+  </Card>
+</CardGroup>
+
+<Note>
+**90% Regra:**Para 90% das tarefas, Flow é a melhor escolha. Crie ações específicas de Tools apenas quando você precisa de fluxos de trabalho otimizados e repetitivos.
+</Note>
+
+---
+
+## Melhores práticas: Configurar "Pergunte a qualquer coisa"
+
+A ação **Ask Anything** é padrão do Alter — é usada quando você digita na caixa de prompt sem selecionar uma ação específica.
+
+<Steps>
+  <Step title="Abrir o Editor de Ação">
+Ir para **Configurações > Acções**
+  </Step>
+  <Step title="Procurar Perguntar Qualquer Coisa">
+Procure a ação **"Pedir Qualquer coisa"**
+  </Step>
+  <Step title="Clique em Avançado">
+Expandir a secção ** Avançada**
+  </Step>
+  <Step title="Seleccionar apenas o Flow">
+Na seção **Tools**, selecione apenas **Flow** (desmarcar todas as outras Tools)
+  </Step>
+  <Step title="Gravar">
+Salve suas alterações
+  </Step>
+</Steps>
+
+Agora suas interações padrão usarão a orquestração do Flow em vez de carregar todas as Tools habilitadas em cada solicitação.
+
+---
+
+<AccordionGroup>
+  <Accordion icon="link" title="Avançado: Tool Acorrentamento com instruções">
+Flow automaticamente une Tools quando uma tarefa requer vários passos. A saída de uma Tool pode ser referenciada em chamadas subsequentes usando a sintaxe `$N`.
+
+Sintaxe de referência
+
+Descrição
+------------------------
+□ `$1` □ Saída bruta do passo 1
+□ `$2` □ Saída bruta do passo 2
+□ `$N:instruction` □ Transformar a saída do passo N usando uma instrução
+
+### Exemplo com Transformação
+
+Ao raspar um site e formatar os resultados:
+
+    1. Flow usa uma Tool web para obter conteúdo
+    2. Transformação aplicável: `$1:Extract the key frameworks and format as bullet points`
+    3. O LLM processa o conteúdo bruto antes de passar para a próxima Tool
+
+Isto permite ao Flow:
+    - Extrair apenas informações relevantes de grandes saídas
+    - Formatar dados apropriadamente para a próxima Tool
+    - Reduzir o ruído em etapas subsequentes
+  </Accordion>
+
+  <Accordion icon="memory" title="Avançado: Gerenciamento de Contexto Inteligente">
+Flow inclui uma etapa de sumarização integrada que otimiza como os resultados são devolvidos à sua conversa.
+
+# # O que a somarização faz
+
+Depois de executar as Tools, Flow:
+
+    1. **Condensa a saída** — Comprime as saídas da Tool verbose
+    2. **Preserva dados importantes** — Mantém IDs, URLs, referências e pontos de dados
+    3. ** Surfaces key insights** — Destaques links, ideias e resultados para acompanhamento
+    4. **Fornece citações de origem** — Utilização da notação [Passo N] para rastreabilidade
+
+Porque é que isto importa?
+
+Sem resumo, fluxos de trabalho complexos inundariam sua janela de contexto. Ao virar 5 ou 6, você atingiria os limites das fichas.
+
+A síntese de Flow garante:
+    - ** Contexto eficiente** Apenas são mantidas informações essenciais
+    - **Respostas acionáveis** — Pontos de dados importantes são preservados
+    - **Melhor desempenho** — Menos contexto = respostas mais rápidas
+    - ** Rastreabilidade** — [Passo N] citações verificar fontes de informação
+
+## # Saída de Exemplo
+
+    ```
+    Task completed successfully.
+
+    Key artifacts for next actions:
+    - Meeting ID: 12345 [Step 1]
+    - Attendees: alice@example.com, bob@example.com [Step 1]
+    - Draft email prepared [Step 2]
+
+    Important findings:
+    - Meeting conflicts with another event at 3pm [Step 1]
+    - Alice has an out-of-office message active [Step 2]
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Dicas para os melhores resultados
+
+<CardGroup cols={3}>
+  <Card title="Seja Específica" icon="pencil">
+    <p><strong>Good:</strong> "Send a Slack message to the engineering channel"</p>
+    <p><strong>Vague:</strong> "Message the team"</p>
+    <p>Specific requests help Flow select the right tool.</p>
+  </Card>
+  <Card title="Cadeia Naturalmente" icon="link">
+Flow lida bem com tarefas em várias etapas. Não quebre pedidos complexos em vários prompts — deixe Flow orquestrar a cadeia.
+  </Card>
+  <Card title="Resultados da revisão" icon="eye">
+Flow mostra quais Tools ele está usando. Se ele selecionar o errado, reformule seu pedido com mais detalhes.
+  </Card>
+</CardGroup>
+
+---
+
+## Solução de problemas
+
+<AccordionGroup>
+  <Accordion icon="xmark" title="Flow Seleccionou o Tool Errado">
+Refraseie seu pedido com detalhes mais específicos:
+    
+    - **Em vez de:** "Verificar as minhas mensagens"
+    - ** Tente:** "Verifique minhas mensagens Slack não lidas no canal geral"
+    
+Quanto mais específico você for, melhor o Flow pode corresponder sua intenção à Tool certa.
+  </Accordion>
+  
+  <Accordion icon="question" title="Flow Não consegue encontrar um Tool">
+Certifique-se de que a Tool é:
+    - ** Enabled** no Tool Manager (Flow não pode usar Tools desabilitadas)
+    - **Devidamente configurado** (por exemplo, autenticado com o Gmail)
+    - ** Não restrito** pelas suas configurações de ação
+  </Accordion>
+  
+  <Accordion icon="gauge-high" title="Desempenho Ainda Devagar">
+Mesmo com Flow, pedidos muito grandes podem ser lentos. Tente:
+    - Quebrando tarefas muito complexas em 2-3 passos
+    - Usando ações específicas da Tool para tarefas repetidas frequentemente
+    - Habilitando apenas Tools essenciais no Gerenciador Tool
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Documentos Relacionados
+
+<CardGroup cols={3}>
+  <Card title="Guia do Gestor Tool" icon="toolbox" href="/how-to/tool-manager-guide">
+Saiba como conectar e gerenciar suas Tools
+  </Card>
+  <Card title="Tools Não Funciona" icon="wrench" href="/common-issues/tool-not-working">
+Fixar questões comuns de integração
+  </Card>
+  <Card title="Alter Acções" icon="play" href="/getting-started/core-features#alter-actions-workflows">
+Compilar fluxos de trabalho de Tools personalizados
+  </Card>
+</CardGroup>

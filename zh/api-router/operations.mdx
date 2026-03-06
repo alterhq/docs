@@ -1,0 +1,71 @@
+---
+title: "API Router 运营与故障排查"
+description: "Alter API Router 的模型选择、限制、稳定性与常见修复方法"
+---
+
+## 模型选择速览
+
+**速度**
+- `Alter#light`
+- `OpenAI#gpt-5-nano`
+- `Gemini#gemini-2.5-flash-lite`
+
+**质量**
+- `Alter#best`
+- `OpenAI#gpt-5`
+- `Gemini#gemini-2.5-pro`
+- `Claude#claude-sonnet-4-6`
+
+**编程**
+- `OpenAI#gpt-5`
+- `Mistral#codestral-2501`
+- `Claude#claude-sonnet-4-6`
+
+**网页搜索**
+- `Perplexity#sonar`
+- `Perplexity#sonar-pro`
+
+## 使用限制
+
+在 fair use 下：
+- 每日限制：`200` 次请求/天
+- 超限后：降速为 `1 次请求 / 10 分钟`
+- 如需稳定更高流量：可充值预算
+
+<Note>
+  API Router 面向个人和低流量工作负载。对于多用户产品或高吞吐的 agentic 系统，请使用 provider 的专用基础设施。
+</Note>
+
+## 常见问题
+
+### 模型未列出
+- 手动将模型设置为 `Provider#Model-name`
+- 检查 API key 是否有效
+- 检查客户端是否支持模型列表 endpoint
+
+### 认证错误
+- 确认 `Authorization: Bearer YOUR_API_KEY`
+- 确认 endpoint 是 `https://alterhq.com/api` 或 `/api/v1`
+- 确认账号处于激活状态
+
+### 连接问题
+- 使用 OpenAI 兼容客户端
+- 检查到 `alterhq.com` 的网络连通性
+
+### 高延迟
+- 尝试更轻量模型（`OpenAI#gpt-5-nano`、`Alter#light`）
+- 长输出使用 streaming
+
+## 最佳实践
+
+1. API key 放在环境变量中（不要硬编码）
+2. 监控请求量和错误率
+3. 让模型能力匹配任务复杂度
+4. 实现带 backoff 的重试
+5. 日常任务使用低成本模型
+
+## 相关文档
+
+- [API Gateway 与 Router 服务](/zh/api-router/api-gateway)
+- [用于开发的 API Router](/zh/api-router/development)
+- [API Gateway 未列出模型](/zh/common-issues/models-not-listed-in-api-gateway)

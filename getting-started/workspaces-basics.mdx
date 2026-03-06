@@ -1,0 +1,65 @@
+---
+title: "Use workspaces for bigger tasks"
+description: "Index folders and files once so Alter can work across larger contexts"
+---
+
+Use workspaces when one-off file drops are not enough and you need persistent context.
+
+## Why use workspaces
+
+<CardGroup cols={3}>
+  <Card title="Faster responses" icon="zap">
+    Keep relevant context indexed and ready.
+  </Card>
+  <Card title="Lower cost" icon="credit-card">
+    Send focused context instead of large raw inputs every time.
+  </Card>
+  <Card title="Large folders" icon="folder-open">
+    Work with bigger codebases and document sets.
+  </Card>
+</CardGroup>
+
+## Create your first workspace
+
+<Steps>
+  <Step title="Open The Hub">
+    Press `Shift + Cmd + H`.
+  </Step>
+  <Step title="Go to Workspaces">
+    Open the Workspaces section in the sidebar.
+  </Step>
+  <Step title="Create workspace">
+    Click `+` in the workspace picker.
+  </Step>
+  <Step title="Add files and folders">
+    Add only the resources needed for one workflow you run often.
+  </Step>
+</Steps>
+
+## How files are prepared
+
+| File type | Conversion |
+|---|---|
+| PDFs | Markdown with page markers |
+| DOCX | Markdown |
+| XLSX | Markdown or CSV |
+| Images | OCR text extraction |
+| Directories | Recursive processing |
+
+<Note>
+  Audio and video files are not supported directly in workspaces. Transcribe them first by dropping them into Alter.
+</Note>
+
+## Local storage
+
+Workspace data is stored locally in:
+
+```text
+~/Library/Application Support/Alter/Workspaces/
+```
+
+## Related pages
+
+- [Automate with workspaces and actions](/getting-started/automate-with-workspaces-and-actions)
+- [Create reusable actions](/getting-started/actions-basics)
+- [Use Tool Manager](/how-to/tool-manager-guide)

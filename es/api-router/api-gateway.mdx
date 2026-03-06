@@ -1,0 +1,281 @@
+---
+title: "Servicio de enrutador y puerta de enlace API"
+description: "Utilice Alter como punto final API compatible con OpenAI para acceder a más de 92 modelos de IA"
+---
+
+Alter proporciona un punto final API compatible con OpenAI que le permite usar Alter como enrutador unificado para acceder a más de 92 modelos de IA de más de 10 proveedores. Utilice la API Alter como backend para aplicaciones de terceros o como servicio API directo para sus proyectos personalizados.
+
+<Warning>
+  **Uso previsto:** API Router esta pensado para uso personal, utilidades ligeras y proyectos de bajo volumen. **No** esta pensado para sistemas agentic de alto throughput ni para servicios multiusuario.
+</Warning>
+
+## Descripción general
+
+La puerta de enlace API Alter es un enrutador centralizado que elimina la necesidad de administrar múltiples claves API y cuentas de facturación entre diferentes proveedores de IA. En lugar de tener sus datos de facturación repartidos entre muchos proveedores, puede utilizar Alter como punto de entrada único para el acceso al modelo de IA.
+
+### ¿Qué es el enrutador Alter?
+
+Alter en sí es un **servicio de enrutador**: una puerta de enlace API unificada que brinda acceso a:
+- Más de 10 proveedores de modelos de IA (OpenAI, Gemini, Claude, Mistral, etc.)
+- Más de 92 modelos de IA individuales
+- Autenticación y facturación simplificadas
+- Cambio de modelo sencillo sin cambios de código
+
+## Características clave
+
+- **OpenAI-punto final compatible** que admite finalización de chat y listado de modelos
+- **Facturación centralizada** a través de tu cuenta Alter
+- **Acceso a todos los modelos** desde aplicaciones externas o código personalizado
+- **Integración perfecta** con Tools y SDK existentes compatibles con OpenAI
+- **Selección de modelo flexible** en todos los proveedores
+
+## Empezando
+
+### 1. Generar clave API
+
+1. Abra Alter Configuración (**⌘,** o menú Configuración)
+2. Vaya a la pestaña **Enrutador**
+3. En la sección "Alter Claves API", haga clic en "Agregar nueva clave" para generar una nueva clave API.
+4. Copie su clave (comienza con `sk-`)
+
+**Importante:** Nunca compartas tu clave API. Trátelo como una contraseña.
+
+### 2. Obtenga el punto final
+
+El punto final del enrutador Alter es:
+```
+https://alterhq.com/api
+```
+
+Para algunas Tools, es posible que necesites agregar `/v1`:
+```
+https://alterhq.com/api/v1
+```
+
+### 3. Listar modelos disponibles
+
+Consulta qué modelos están disponibles:
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+Esto devuelve los más de 92 modelos de 10 proveedores con sus capacidades.
+
+## Convención de nomenclatura de modelos
+
+Cuando se utiliza la API Alter, los nombres de los modelos siguen este formato:
+```
+<Provider>#<Model-name>
+```
+
+### Ejemplos:
+- `OpenAI#gpt-5` - Último GPT-5
+- `OpenAI#gpt-5-nano` - Ligero GPT
+- `Claude#claude-sonnet-4-6` - Último Claude
+- `Gemini#gemini-2.5-pro` - Último Gemini
+- `Mistral#mistral-small-latest` - Modelo Mistral
+- `Alter#best` - El mejor modelo de Alter
+
+## Métodos de uso
+
+### Para aplicaciones de terceros
+
+Utilice Alter como backend para Tools como SillyTavern, NovelCrafter, etc.:
+
+1. Establecer URL base: `https://alterhq.com/api` (o `/v1`)
+2. Ingrese su clave API
+3. Utilice el formato `Provider#Model-name` al seleccionar modelos
+
+### Para desarrollo personalizado
+
+#### Python (con OpenAI SDK)
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[
+        {"role": "user", "content": "What is machine learning?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+#### JavaScript (con OpenAI SDK)
+
+```javascript
+import OpenAI from 'openai';
+
+const openai = new OpenAI({
+    apiKey: "YOUR_API_KEY",
+    baseURL: "https://alterhq.com/api/v1",
+    dangerouslyAllowBrowser: true
+});
+
+const completion = await openai.chat.completions.create({
+    model: "OpenAI#gpt-5",
+    messages: [
+        {"role": "user", "content": "Hello!"}
+    ]
+});
+
+console.log(completion.choices[0].message.content);
+```
+
+#### LangChain (Python)
+
+```python
+from langchain_openai import ChatOpenAI
+
+chat = ChatOpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1",
+    model="OpenAI#gpt-5"
+)
+
+response = chat.invoke("What is AI?")
+print(response.content)
+```
+
+#### Direct cURL
+
+```bash
+curl https://alterhq.com/api/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "OpenAI#gpt-5",
+    "messages": [
+      {"role": "user", "content": "What is machine learning?"}
+    ]
+  }'
+```
+
+## Guía de selección de modelos
+
+### Para la velocidad
+- `Alter#light` - Modelo ligero
+- `OpenAI#gpt-5-nano` - Ligero GPT
+- `Gemini#gemini-2.5-flash-lite` - Rápido Gemini
+
+### Por la calidad
+- `Alter#best` - Mejor disponible
+- `OpenAI#gpt-5` - Más capaz GPT
+- `Gemini#gemini-2.5-pro` - Potente Gemini
+- `Claude#claude-sonnet-4-6` - Último Claude
+
+### Para visión/imágenes
+- `OpenAI#gpt-5` - Multimodal avanzado
+- `Gemini#gemini-2.5-pro` - Visión fuerte
+- `Mistral#pixtral-large-latest` - Capacidad de visión
+
+### Para codificar
+- `OpenAI#gpt-5` - Código excelente
+- `Mistral#codestral-2501` - Especialista en códigos
+- `Claude#claude-sonnet-4-6` - Codificación fuerte
+
+### Por costo
+- `Alter#fair` - Rentable
+- `Alter#light` - Más barato
+- `OpenAI#gpt-5-nano` - Presupuesto GPT
+
+### Para búsqueda web
+- `Perplexity#sonar` - Compatible con web
+- `Perplexity#sonar-pro` - Búsqueda avanzada
+
+## Parámetros admitidos
+
+Los parámetros API estándar OpenAI funcionan con Alter:
+
+- `model` - ID de modelo (obligatorio)
+- `messages` - Mensajes de chat (obligatorio)
+- `temperature` - 0,0-2,0 (predeterminado: 1,0)
+- `max_tokens` - Longitud máxima de respuesta
+- `top_p` - Muestreo de núcleo
+- `frequency_penalty` - Penalizar la repetición
+- `presence_penalty` - Fomentar nuevos temas
+
+## Casos de uso populares
+
+### Integración de aplicaciones de terceros
+- **[SillyTavern](https://sillytavern.app/)** - Chat de rol
+- **[NovelCrafter](https://www.novelcrafter.com/)** - Escritura creativa
+- Otras Tools compatibles con OpenAI
+
+### Backend de aplicación personalizada
+- Herramientas internas que necesitan IA
+- Automatización de atención al cliente
+- Sistemas de generación de contenidos
+- Flujos de trabajo de análisis de datos
+
+### Comparación de modelos y pruebas A/B
+```python
+for model_id in ["OpenAI#gpt-5", "Claude#claude-sonnet-4-6", "Gemini#gemini-2.5-pro"]:
+    # Run same prompt on different models
+    # Compare outputs
+```
+
+### Optimización de costos
+Utilice modelos más económicos para tareas de gran volumen y modelos potentes para consultas complejas.
+
+## Configuración
+
+### Gestión de claves API
+- Genere y administre claves API a través de **Configuración > Enrutador**
+- Mantenga seguras las claves API: nunca las comparta públicamente
+- Rote las claves periódicamente por seguridad
+- Utilice diferentes claves para diferentes entornos (dev/prod)
+
+### Límites de uso
+
+La puerta de enlace API tiene limitaciones de uso legítimo:
+
+- **Límite diario**: 200 solicitudes por día bajo uso justo
+- **Aceleración**: después de exceder el límite diario, solicita la aceleración a 1 cada 10 minutos.
+- **Recarga de presupuesto**: "Recarga" tu presupuesto para un acceso constante más allá de los límites de uso justo
+
+## Solución de problemas
+
+### Modelos no listados
+Si su aplicación no enumera los modelos disponibles:
+- Especifique manualmente el modelo usando el formato `Provider#Model-name`
+- Verifique que su clave API sea correcta
+- Compruebe que la aplicación admita el punto final de listado de modelos
+
+### Errores de autenticación
+- Verifique que su clave API esté ingresada correctamente
+- Asegúrese de utilizar el punto final correcto: `https://alterhq.com/api` o `https://alterhq.com/api/v1`
+- Verifique que su cuenta Alter esté activa y al día
+
+### Problemas de conexión
+- Verifique que la aplicación admita puntos finales compatibles con OpenAI
+- Asegúrate de estar utilizando la última versión de Alter
+- Verifique la conectividad de red a `alterhq.com`
+
+### Alta latencia
+- Pruebe un modelo más rápido (por ejemplo, `OpenAI#gpt-5-nano`)
+- Comprueba tu conexión de red
+- Utilice la transmisión para respuestas largas
+
+## Mejores prácticas
+
+1. **Asegure su clave API**: use variables de entorno, nunca codifique
+2. **Supervisar el uso**: realizar un seguimiento de las llamadas API y establecer alertas
+3. **Elija los modelos apropiados** - Haga coincidir la capacidad del modelo con la complejidad de la tarea
+4. **Maneje los errores con elegancia**: implemente la lógica de reintento con retroceso
+5. **Optimice costos**: utilice modelos más rápidos y económicos para tareas rutinarias
+
+## Documentos relacionados
+
+- [Elegir su modelo](/how-to/choose-generative-model)
+- [Configuración - Configuración del enrutador](/how-to/settings-guide#router-settings)
+- [Configuración - Claves API](/how-to/settings-guide#api-keys-settings)
