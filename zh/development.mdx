@@ -1,7 +1,8 @@
 ---
-title: "为文档做出贡献"
-description: "本地预览并贡献修改文档"
+标题：“为文档做出贡献”
+修改说明：“本地预览并贡献文档”
 ---
+
 
 <Info>
   **先决条件**：
@@ -56,7 +57,7 @@ mint dev --port 3333
 mint broken-links
 ```
 
-## AI辅助写作
+## 人工智能辅助写作
 
 设置您的 AI 编码工具以与 Mintlify 配合使用：
 
@@ -84,7 +85,7 @@ npx skills add https://mintlify.com/docs
 - 使用 MDX 格式和 YAML frontmatter
 - 遵循现有的内容结构
 - 使用本地`/images/`路径作为资源
-- 提交前运行`mint broken-links`
+- 运行前提交`mintbroken-links`
 
 ## 故障排除
 
@@ -92,9 +93,9 @@ npx skills add https://mintlify.com/docs
   <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
 
 这可能是由于节点版本引起的。请尝试以下操作：
-    1.删除当前安装的CLI版本：`npm remove -g mint`
+1.删​​除当前安装的CLI版本：`npm remove -g mint`
     2. 升级到节点 v19 或更高版本。
-    3.重新安装CLI：`npm i -g mint`
+3.重新安装CLI：`npm i -g mint`
   </Accordion>
 
 <Accordion title="问题：遇到未知错误">
