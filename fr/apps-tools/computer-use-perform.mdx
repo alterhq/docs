@@ -1,0 +1,29 @@
+---
+title: "Perform"
+description: "Run click, fill, and shortcut actions against UI elements"
+---
+
+Use this tool to execute concrete UI interactions after you identify targets with Get Active App Context.
+
+## Supported actions
+
+- `click`: click a target element.
+- `fill`: enter text into a text field or textarea.
+- `shortcut`: send keyboard shortcuts (for example `cmd+c`, `ctrl+shift+t`).
+
+## Inputs
+
+- `elementID` (required for `click` and `fill`): element ID from Get Active App Context output.
+- `text` (required for `fill`): value to insert in the target input.
+- `shortcut` (required for `shortcut`): shortcut string.
+- `windowID` (optional): target a specific window (`pid/title`) instead of the active one.
+
+## Notes
+
+- Element IDs expire with UI changes and session timing. Re-read context if an element is no longer valid.
+- For background window targeting, use the same `windowID` across context read and perform steps.
+
+## Good pairing
+
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Wait](/apps-tools/computer-use-wait)

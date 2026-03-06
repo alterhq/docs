@@ -1,0 +1,72 @@
+---
+title: "Plan places and routes with Alter Maps"
+description: "What Alter can currently do with Apple Maps, with practical prompts and setup"
+---
+
+This workflow helps you go from "Where should I go?" to "How do I get there?" in a few prompts.
+
+## What this helps you do
+
+Use Alter Maps workflows for practical travel decisions: find a place, compare nearby options, and get route guidance quickly.
+
+## Works with
+
+- App: Apple Maps
+- Tool type: Local tool
+- Permissions: Location (optional, needed for "near me" flows)
+
+## What Alter can do today
+
+Alter can search places by name/address, find nearby places by category, and return directions between two locations with transport mode options.
+
+## What Alter does not do yet
+
+- ETA-specific tool responses are not currently exposed in the active tool set.
+- Static map image generation is not currently exposed in the active tool set.
+
+## A realistic workflow
+
+<Steps>
+  <Step title="Discover options">
+    Ask for nearby places in a category (for example restaurants or pharmacies).
+  </Step>
+  <Step title="Pick destination">
+    Choose one result from the list with address or name.
+  </Step>
+  <Step title="Get route">
+    Ask for directions from your origin to that destination with your preferred transport type.
+  </Step>
+</Steps>
+
+## Copy/paste prompts
+
+- "Find coffee shops near me."
+- "Find hotels near 48.8566, 2.3522 within 5km."
+- "Search for 'Gare de Lyon, Paris'."
+- "Get driving directions from 10 Downing Street London to Heathrow Airport."
+- "Get transit directions from Times Square to JFK Airport."
+
+## How to enable
+
+<Steps>
+  <Step title="Enable Maps in Tools Manager">
+    Open Alter -> click the three dots -> **Tools Manager** -> **Local Tools** -> enable **Maps**.
+  </Step>
+  <Step title="Allow Location permission if needed">
+    If you ask for nearby places without coordinates, Alter may request Location access.
+  </Step>
+  <Step title="Run a quick test">
+    Ask: "Find restaurants near me." Then ask for directions to one result.
+  </Step>
+</Steps>
+
+## What to expect
+
+- Place results include practical details (address, phone, and map link when available).
+- Nearby search works best with either your current location permission enabled or explicit coordinates.
+
+## Related pages
+
+- [Maps app capabilities](/apps-tools/maps)
+- [Use Tool Manager](/how-to/tool-manager-guide)
+- [Tools Not Working](/common-issues/tool-not-working)
