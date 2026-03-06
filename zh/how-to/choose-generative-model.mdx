@@ -1,0 +1,138 @@
+---
+title: "选择你的生成模型"
+description: "如何在Alter中选择和配置AI模型"
+---
+默认情况下，Alter 提供多种型号，按其托管公司的字母顺序列出。
+
+您还可以使用 [API密钥](#via-your-api-key) 或使用 [你当地的模特](#locally-via-ollama-or-studiolm)。
+
+### 选择你的模型 
+
+打开Alter后，只需输入`/`即可显示可用型号并选择您要使用的型号。
+
+
+#### 选择最喜欢的型号
+
+用鼠标选择模型旁边的星形图标，将该模型标记为您的最爱。
+！[收藏模特](/images/models/favorite-model.webp)
+
+
+使用 API 密钥或本地模型时，它们会显示在顶部的 **自定义** 下。  
+所有其他交互均通过 Alter 云进行路由。
+
+### 使用 Alter 云
+
+默认情况下， Alter 使用我们的内部模型路由器 `/best` 设置，根据您的查询选择最佳模型。
+
+！[路由器和型号示例](/images/settings/router.png)
+
+
+您可以在 **设置 > 默认值 > 模型** 中更改默认模型。  
+
+
+#### Alter Cloud 的型号列表
+
+Alter 通过其统一路由器提供对 10 个提供商** 92 多个模型的访问。使用 `/models` 端点列出当前型号，或参阅 **[API网关指南](/api-router/api-gateway)** 了解详细的型号信息。
+
+**提供商概述（截至 Beta 71）：**
+
+|供应商|型号数量 |示例模型 |
+|----------|-------------|-----------------|
+| **Alter** | 4 | `best`、`fair`、`fast`、`light` |
+| **Claude**（人择）| 4 | `claude-sonnet-4-6`、`claude-sonnet-4-20250514` |
+| **OpenAI** | 17 | 17 `gpt-4o`、`gpt-4o-mini`、`gpt-5`、`o3`、`o4-mini` |
+| **Gemini**（谷歌）| 10 | 10 `gemini-2.5-pro`、`gemini-2.5-flash`、`gemini-3-pro-preview` |
+| **米斯特拉尔** | 9 | `mistral-small-latest`、`codestral-2501`、`pixtral-large-latest` |
+| **格罗克** | 7 | Llama、Qwen 等优化模型 |
+| **在一起** | 26 | 26 DeepSeek、Llama、Qwen 和专业变体 |
+| **xAI** | 8 | `grok-3-latest`、`grok-4`系列|
+| **大脑** | 5 | Llama、Qwen 和 DeepSeek 变体 |
+| **Perplexity** | 2 | `sonar`、`sonar-pro`（支持网络搜索）|
+
+**主要型号特征：**
+
+|特色 |型号|背景 |
+|--------|--------|---------|
+| **有视觉能力** | GPT-4O、Gemini 2.5+、Claude、米斯特拉尔 Pixtral |分析图像/视频 |
+| **最高上下文** | Alter 型号，Gemini | 100 万+ 代币 |
+| **最快** | Alter `light`、GPT-4O 迷你、Gemini 闪存 |低延迟 |
+| **最有能力** | GPT-4O、Gemini 2.5 Pro、Claude 十四行诗 |复杂推理 |
+| **网页搜索** | Perplexity 声纳 |实时资讯 |
+| **代码专家** |米斯特拉尔·科斯特拉尔 |代码生成|
+
+**有关所有 92 种以上型号的完整当前列表**，请直接通过 API 检查可用型号：
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+或者参见 **[API网关指南](/api-router/api-gateway)** 了解有关型号选择和使用的详细信息。
+
+### 使用您的 API 密钥
+
+！[定制本地](/images/models/custom-api-keys.webp)
+
+您可以使用自己的 API 密钥直接连接到提供商的端点：  
+1. 转至 **设置 > API 密钥 > 自定义提供商**。  
+2. 启用自定义提供程序
+3. 在列表中选择您的提供商
+
+> 连接后，**自定义端点** 旁边会出现一个勾号。  
+
+您的提供商的型号将列在 **自定义** 部分下。
+
+> 我们仅支持 OpenAI 兼容端点，这意味着您无法使用 Anthropic API 密钥。
+
+以下是基于提供的图像的自定义密钥支持的平台列表：
+
+1.蔚蓝
+2.Gemini
+3.LM Studio
+4. 米斯特拉尔
+5.Ollama
+6.OpenAI
+7. 打开路由器
+8. 自定义（任何 OpenAI 兼容端点）
+
+#### 在 Alter 中设置 Azure 端点
+
+1. **启用自定义提供程序：** 在Alter的设置中，启用“自定义提供程序”选项。
+2. **选择 Azure：** 选择 Azure 作为您的提供商。
+3. **输入完整聊天完成端点 URL：** 提供完整聊天完成端点 URL，包括 URL 中的 `api-version` 参数和型号名称。  例如：`https://yourinstance.openai.azure.com/openai/deployments/your-model-name/chat/completions?api-version=2024-02-15-preview`
+4. **输入 API 密钥：** 输入您的 Azure OpenAI API 密钥。
+
+重要考虑因素
+
+* **需要完整端点：** 确保使用 *完整* 聊天完成端点，因为 Alter 从 URL 中提取模型名称。
+* **URL 中的模型名称：** 模型部署名称*必须*包含在 URL 路径中。
+* **API 版本：** URL *必须*包含 `api-version` 参数。
+
+
+#### 在哪里可以找到您的 API 密钥
+
+|供应商|用于生成 API 密钥的 URL | 
+| -------- | -------- | 
+|谷歌 (Gemini) | https://aistudio.google.com/app/apikey | [关联](https://ai.google.dev/api/compatibility)
+|米斯特拉尔| https://console.mistral.ai/api-keys/  
+| OpenAI | https://platform.openai.com/api-keys |[链接]
+
+
+
+
+### 本地使用 Ollama 或 LM Studio
+
+！[定制本地](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/a3cb944c-7379-49a6-9349-c829bcda071b/image.png?t=1740499713)
+
+要将 Alter 与本地模型一起使用（通过 Ollama 或 LM Studio）：  
+1. 转至 **设置 > API 密钥 > 自定义提供商**。  
+2. 启用自定义提供程序
+3. 在提供商列表中选择 Ollama 或 LM Studio
+
+> 连接后，**自定义端点** 旁边会出现一个勾号。  
+
+！[图片替代](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/4a22f3fb-ad9e-4f50-8184-1e5cc5238118/Alter_Settings_API_key_custom_provider_on.png?t=1740500360)
+
+您的本地模型将列在 **自定义** 部分下。
+
+！[定制型号](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/c3a9bef5-ff23-4a35-99b6-aedc7bc38972/Alter_Main_Custom_Models.png?t=1740502675)

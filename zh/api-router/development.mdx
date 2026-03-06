@@ -1,0 +1,86 @@
+---
+title: "用于开发的 API Router"
+description: "在 SDK 和自定义代码中使用 Alter API Router"
+---
+
+在你自己的应用中，将 Alter 用作 OpenAI 兼容后端。
+
+## Python（OpenAI SDK）
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[{"role": "user", "content": "What is machine learning?"}]
+)
+
+print(response.choices[0].message.content)
+```
+
+## JavaScript（OpenAI SDK）
+
+```javascript
+import OpenAI from 'openai'
+
+const openai = new OpenAI({
+  apiKey: 'YOUR_API_KEY',
+  baseURL: 'https://alterhq.com/api/v1',
+  dangerouslyAllowBrowser: true
+})
+
+const completion = await openai.chat.completions.create({
+  model: 'OpenAI#gpt-5',
+  messages: [{ role: 'user', content: 'Hello!' }]
+})
+
+console.log(completion.choices[0].message.content)
+```
+
+## LangChain（Python）
+
+```python
+from langchain_openai import ChatOpenAI
+
+chat = ChatOpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1",
+    model="OpenAI#gpt-5"
+)
+
+response = chat.invoke("What is AI?")
+print(response.content)
+```
+
+## 直接 cURL
+
+```bash
+curl https://alterhq.com/api/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "OpenAI#gpt-5",
+    "messages": [{"role": "user", "content": "What is machine learning?"}]
+  }'
+```
+
+## 支持的参数
+
+- `model`（必填）
+- `messages`（必填）
+- `temperature`
+- `max_tokens`
+- `top_p`
+- `frequency_penalty`
+- `presence_penalty`
+
+## 相关文档
+
+- [API Gateway 与 Router 服务](/zh/api-router/api-gateway)
+- [API Router 运营与故障排查](/zh/api-router/operations)
+- [API 模型参考](/zh/references/api-model-names)

@@ -1,0 +1,86 @@
+---
+title: "API Router pour le développement"
+description: "Utilisez Alter API Router depuis des SDK et du code personnalisé"
+---
+
+Utilisez Alter comme backend compatible OpenAI dans vos propres applications.
+
+## Python (SDK OpenAI)
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[{"role": "user", "content": "What is machine learning?"}]
+)
+
+print(response.choices[0].message.content)
+```
+
+## JavaScript (SDK OpenAI)
+
+```javascript
+import OpenAI from 'openai'
+
+const openai = new OpenAI({
+  apiKey: 'YOUR_API_KEY',
+  baseURL: 'https://alterhq.com/api/v1',
+  dangerouslyAllowBrowser: true
+})
+
+const completion = await openai.chat.completions.create({
+  model: 'OpenAI#gpt-5',
+  messages: [{ role: 'user', content: 'Hello!' }]
+})
+
+console.log(completion.choices[0].message.content)
+```
+
+## LangChain (Python)
+
+```python
+from langchain_openai import ChatOpenAI
+
+chat = ChatOpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1",
+    model="OpenAI#gpt-5"
+)
+
+response = chat.invoke("What is AI?")
+print(response.content)
+```
+
+## cURL direct
+
+```bash
+curl https://alterhq.com/api/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "OpenAI#gpt-5",
+    "messages": [{"role": "user", "content": "What is machine learning?"}]
+  }'
+```
+
+## Paramètres pris en charge
+
+- `model` (obligatoire)
+- `messages` (obligatoire)
+- `temperature`
+- `max_tokens`
+- `top_p`
+- `frequency_penalty`
+- `presence_penalty`
+
+## Liens associés
+
+- [Service API Gateway & Router](/fr/api-router/api-gateway)
+- [Opérations et dépannage API Router](/fr/api-router/operations)
+- [Référence des modèles API](/fr/references/api-model-names)

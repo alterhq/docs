@@ -1,0 +1,138 @@
+---
+title: "Choisir votre modèle génératif"
+description: "Comment sélectionner et configurer des modèles d'IA dans Alter"
+---
+Par défaut, Alter propose une variété de modèles, classés par ordre alphabétique de leur société d'hébergement.
+
+Vous pouvez également utiliser votre [Clé API](#via-your-api-key) ou utiliser [votre modèle local](#locally-via-ollama-or-studiolm).
+
+### Choisir votre modèle 
+
+Après avoir ouvert Alter, tapez simplement `/` pour afficher les modèles disponibles et sélectionnez le modèle que vous souhaitez utiliser.
+
+
+#### Choisir un modèle préféré
+
+Sélectionnez l'icône étoile à côté d'un modèle avec votre souris pour marquer le modèle comme votre favori.
+![Favoriser un modèle](/images/models/favorite-model.webp)
+
+
+Lorsque vous utilisez votre clé API ou un modèle local, ceux-ci apparaissent en haut sous **Personnalisé**.  
+Toutes les autres interactions sont acheminées via Alter Cloud.
+
+### Utiliser Alter Cloud
+
+Par défaut, Alter est configuré avec `/best` , notre routeur de modèle interne, choisissant le meilleur modèle en fonction de votre requête.
+
+![Exemple de routeur et de modèle](/images/settings/router.png)
+
+
+Vous pouvez modifier le modèle par défaut dans **Paramètres > Valeurs par défaut > Modèle**.  
+
+
+#### Liste des modèles via Alter Cloud
+
+Alter donne accès à **92+ modèles auprès de 10 fournisseurs** via son routeur unifié. Utilisez le point de terminaison `/models` pour répertorier les modèles actuels ou consultez **[Guide de la passerelle API](/fr/api-router/api-gateway)** pour obtenir des informations détaillées sur le modèle.
+
+**Présentation du fournisseur (à partir de la version bêta 71) :**
+
+| Fournisseur | Nombre de modèles | Exemples de modèles |
+|----------|-------------|-----------------|
+| **Alter** | 4 | `best`, `fair`, `fast`, `light` |
+| **Claude** (Anthropique) | 4 | `claude-sonnet-4-6`, `claude-sonnet-4-20250514` |
+| **OpenAI** | 17 | `gpt-4o`, `gpt-4o-mini`, `gpt-5`, `o3`, `o4-mini` |
+| **Gemini** (Google) | 10 | `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-3-pro-preview` |
+| **Mistral** | 9 | `mistral-small-latest`, `codestral-2501`, `pixtral-large-latest` |
+| **Groq** | 7 | Lama, Qwen et autres modèles optimisés |
+| **Ensemble** | 26 | DeepSeek, Llama, Qwen et variantes spécialisées |
+| **xAI** | 8 | Série `grok-3-latest`, `grok-4` |
+| **Cérébras** | 5 | Variantes Lama, Qwen et DeepSeek |
+| **Perplexité** | 2 | `sonar`, `sonar-pro` (compatible avec la recherche sur le Web) |
+
+**Caractéristiques clés du modèle :**
+
+| Fonctionnalité | Modèles | Contexte |
+|---------|--------|---------|
+| **Capable de vision** | GPT-4O, Gemini 2.5+, Claude, Mistral Pixtral | Analyser des images/vidéos |
+| **Contexte le plus élevé** | modèles Alter, Gemini | 1 million+ jetons |
+| **Le plus rapide** | Alter `light`, GPT-4O mini, Gemini Flash | Faible latence |
+| **Le plus compétent** | GPT-4O, Gemini 2.5 Pro, Claude Sonnet | Raisonnement complexe |
+| **Recherche sur le Web** | Sonar de perplexité | Informations en temps réel |
+| **Spécialiste du code** | Mistral Codestral | Génération de codes |
+
+**Pour la liste actuelle complète des plus de 92 modèles**, vérifiez les modèles disponibles directement via l'API :
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+Ou consultez le **[Guide de la passerelle API](/fr/api-router/api-gateway)** pour des informations détaillées sur la sélection et l'utilisation du modèle.
+
+### Utiliser votre clé API
+
+![Local personnalisé](/images/models/custom-api-keys.webp)
+
+Vous pouvez utiliser votre propre clé API pour vous connecter directement au point de terminaison de votre fournisseur :  
+1. Accédez à **Paramètres > Clés API > Fournisseur personnalisé**.  
+2. Activer le fournisseur personnalisé
+3. Choisissez votre fournisseur dans la liste
+
+> Une fois connecté, une coche apparaîtra à côté de **Custom Endpoint**.  
+
+Les modèles de votre fournisseur seront répertoriés dans la section **Personnalisé**.
+
+> Nous ne prenons en charge que les points de terminaison compatibles OpenAI, ce qui signifie que vous ne pouvez pas utiliser vos clés API Anthropic.
+
+Voici une liste des plates-formes prises en charge pour les clés personnalisées, basée sur l'image fournie :
+
+1.  Azuré
+2.  Gemini
+3.  Studio LM
+4.  Mistral
+5.  Ollama
+6.  OpenAI
+7.  Routeur ouvert
+8.  Personnalisé (tout point de terminaison compatible OpenAI)
+
+#### Configuration d'un point de terminaison Azure dans Alter
+
+1.  **Activer le fournisseur personnalisé :** Dans les paramètres d'Alter, activez l'option "Fournisseur personnalisé".
+2.  **Choisissez Azure :** Sélectionnez Azure comme fournisseur.
+3.  **Entrez l'URL complète du point de terminaison de fin de chat :** fournissez l'URL complète du point de terminaison de fin de chat, y compris le paramètre `api-version` et le nom du modèle dans l'URL.  Par exemple : `https://yourinstance.openai.azure.com/openai/deployments/your-model-name/chat/completions?api-version=2024-02-15-preview`
+4.  **Entrez la clé API :** Saisissez votre clé API Azure OpenAI.
+
+Considérations importantes
+
+*   **Point de terminaison complet requis :** Assurez-vous d'utiliser le point de terminaison de complétion de discussion *complet*, car Alter extrait le nom du modèle de l'URL.
+*   **Nom du modèle dans l'URL :** Le nom du déploiement du modèle *doit* être inclus dans le chemin de l'URL.
+*   **Version API :** L'URL *doit* inclure le paramètre `api-version`.
+
+
+#### Où trouver vos clés API
+
+| Fournisseur | URL pour générer une clé API | 
+| -------- | -------- | 
+| Google (Gemini) | https://aistudio.google.com/app/apikey | [Lien](https://ai.google.dev/api/compatibility)
+| Mistral | https://console.mistral.ai/api-keys/  
+| OpenAI | https://platform.openai.com/api-keys |[Lien]
+
+
+
+
+### Localement en utilisant Ollama ou LM Studio
+
+![Local personnalisé](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/a3cb944c-7379-49a6-9349-c829bcda071b/image.png?t=1740499713)
+
+Pour utiliser Alter avec des modèles locaux (via Ollama ou LM Studio) :  
+1. Accédez à **Paramètres > Clés API > Fournisseur personnalisé**.  
+2. Activer le fournisseur personnalisé
+3. Choisissez Ollama ou LM Studio dans la liste des fournisseurs
+
+> Une fois connecté, une coche apparaîtra à côté de **Custom Endpoint**.  
+
+![image alternative](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/4a22f3fb-ad9e-4f50-8184-1e5cc5238118/Alter_Settings_API_key_custom_provider_on.png?t=1740500360)
+
+Vos modèles locaux seront répertoriés dans la section **Personnalisée**.
+
+![Modèle personnalisé](https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/c3a9bef5-ff23-4a35-99b6-aedc7bc38972/Alter_Main_Custom_Models.png?t=1740502675)

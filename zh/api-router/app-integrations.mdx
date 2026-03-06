@@ -1,0 +1,32 @@
+---
+title: "API Router 的应用集成"
+description: "将第三方应用连接到 Alter API Router"
+---
+
+当你将外部应用接入 Alter API Router 时，请使用这些指南。
+
+## 集成指南
+
+<CardGroup cols={2}>
+  <Card title="TypingMind" icon="plug" href="/zh/api-router/typingmind">
+    在 TypingMind 中配置自定义 OpenAI Chat Completions 模型，并使用 Alter endpoint 与 headers。
+  </Card>
+  <Card title="Msty.ai" icon="plug" href="/zh/api-router/msty">
+    在 Msty.ai 中设置 Alter endpoint、API key 与模型 ID 格式。
+  </Card>
+  <Card title="通用配置模式" icon="book-open" href="/zh/api-router/api-gateway">
+    大多数 OpenAI 兼容应用都会用到的 base URL、API key 处理方式与模型 ID 格式。
+  </Card>
+</CardGroup>
+
+## 集成检查清单
+
+1. 将 base URL 设为 `https://alterhq.com/api`（如有需要使用 `/v1`）
+2. 将认证 header 设为 `Authorization: Bearer YOUR_API_KEY`
+3. 使用 `Provider#Model-name` 格式的模型 ID
+4. 首次请求前先调用一次模型列表
+
+## 相关文档
+
+- [API Router 概览](/zh/references/api-router-overview)
+- [API 模型参考](/zh/references/api-model-names)

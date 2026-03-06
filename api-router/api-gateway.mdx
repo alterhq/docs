@@ -1,0 +1,77 @@
+---
+title: "API Gateway & Router Service"
+description: "Use Alter as an OpenAI-compatible API endpoint for model routing"
+---
+
+Alter provides an OpenAI-compatible endpoint you can use as a single Router across providers.
+
+<Warning>
+  **Intended use:** API Router is for personal usage, lightweight utilities, and low-volume projects. It is **not** intended to run high-throughput agentic systems (for example code agents, OpenClaw-style systems) or production services for other users.
+</Warning>
+
+## What you get
+
+- One endpoint for many model providers
+- Centralized billing through Alter
+- `Provider#Model-name` model IDs
+- Compatibility with OpenAI-style tools and SDKs
+
+## Quick setup
+
+### 1) Generate an API key
+
+1. Open Alter Settings (`⌘ ,`)
+2. Go to **Router**
+3. Under **Alter API Keys**, click **Add New Key**
+4. Copy the key (`sk-...`)
+
+### 2) Use the endpoint
+
+Primary endpoint:
+
+```text
+https://alterhq.com/api
+```
+
+Some clients require `/v1`:
+
+```text
+https://alterhq.com/api/v1
+```
+
+### 3) List available models
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+## Model naming format
+
+Use this format when selecting a model:
+
+```text
+Provider#Model-name
+```
+
+Examples:
+- `OpenAI#gpt-5`
+- `Claude#claude-sonnet-4-6`
+- `Gemini#gemini-2.5-pro`
+- `Alter#best`
+
+## Split guides
+
+To keep this page focused, advanced topics are in dedicated guides:
+
+- [API Router for Development](/api-router/development)
+- [API Router Operations & Troubleshooting](/api-router/operations)
+- [App Integrations with API Router](/api-router/app-integrations)
+- [Set Up TypingMind with Alter API](/api-router/typingmind)
+
+## Related Docs
+
+- [API Router Overview](/references/api-router-overview)
+- [API Model Reference](/references/api-model-names)
+- [Settings - Router](/how-to/settings-guide#router-settings)
+- [Settings - API Keys](/how-to/settings-guide#api-keys-settings)

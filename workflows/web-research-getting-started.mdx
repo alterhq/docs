@@ -1,0 +1,65 @@
+---
+title: "Getting started"
+description: "Get started with web research connectors in Alter"
+---
+
+Use this guide to pick the right web research setup in Alter.
+
+<Info>
+  Start with Alter routers first. `Fast`, `Best`, `Fair`, and `Light` already include web search, so you do not need to configure or connect any tool.
+</Info>
+
+## What you can use
+
+- **Local Tools:** `Web Search` and `Web Search Gemini`
+- **Remote MCP Servers:** Tavily, LinkUp, Exa
+- **Apps Gallery:** Firecrawl, LinkUp, Exa (if available in your workspace)
+- **Alter routers:** `Fast`, `Best`, `Fair`, and `Light` include native web search for fresh information
+
+## Provider positioning snapshot
+
+- **Tavily:** positions itself as a web access layer for AI agents, with one API for search, extraction, research, and crawling.
+- **Firecrawl:** positions itself as an API that turns websites into LLM-ready data, with strong scraping and crawling workflows.
+- **LinkUp:** positions itself as search for AI apps, with standard and deep modes and sourced answers.
+- **Exa:** positions itself as a high-quality search API for AI, with multiple endpoints from search to research.
+
+## Pick the right option
+
+<CardGroup cols={2}>
+  <Card title="Start here: no setup" icon="rocket" href="/workflows/native-web-search-in-alter-routers">
+    Use router-native web search first. It is the easiest option and works out of the box.
+  </Card>
+  <Card title="Included tools" icon="zap" href="/workflows/web-search-local-tools">
+    Use Alter's included search tools when you want web access without a separate provider account.
+  </Card>
+  <Card title="Deep research" icon="search" href="/workflows/connect-tavily">
+    Use Tavily when you need richer extraction and multi-step browsing.
+  </Card>
+  <Card title="Large scraping jobs" icon="database" href="/workflows/connect-firecrawl">
+    Use Firecrawl when you need structured extraction across multiple pages.
+  </Card>
+</CardGroup>
+
+## Build a hybrid strategy
+
+1. Start with router-native search for the easiest setup and strong default results.
+2. Use included search tools to extend models that do not have web search (including local models), without creating an account outside Alter.
+3. Add MCP providers when you want great results on any model and more control over research and extraction.
+4. Add a scraper when your workflow needs structured multi-page extraction.
+
+<Warning>
+  Free tiers and quotas change over time. Verify provider pricing before you rely on a specific limit.
+</Warning>
+
+<Tip>
+  Avoid enabling multiple web search tools at the same time. This can confuse model tool selection. Enable one search tool per workflow, or add explicit instructions that force the model to choose a specific tool.
+</Tip>
+
+## Related guides
+
+- [/workflows/web-search-local-tools](/workflows/web-search-local-tools)
+- [/workflows/connect-tavily](/workflows/connect-tavily)
+- [/workflows/connect-firecrawl](/workflows/connect-firecrawl)
+- [/workflows/connect-linkup](/workflows/connect-linkup)
+- [/workflows/connect-exa](/workflows/connect-exa)
+- [/workflows/native-web-search-in-alter-routers](/workflows/native-web-search-in-alter-routers)

@@ -1,0 +1,71 @@
+---
+title: "API Router 運用とトラブルシューティング"
+description: "Alter API Router のモデル選択、制限、信頼性、よくある解決策"
+---
+
+## モデル選択クイックガイド
+
+**速度**
+- `Alter#light`
+- `OpenAI#gpt-5-nano`
+- `Gemini#gemini-2.5-flash-lite`
+
+**品質**
+- `Alter#best`
+- `OpenAI#gpt-5`
+- `Gemini#gemini-2.5-pro`
+- `Claude#claude-sonnet-4-6`
+
+**コーディング**
+- `OpenAI#gpt-5`
+- `Mistral#codestral-2501`
+- `Claude#claude-sonnet-4-6`
+
+**Web 検索**
+- `Perplexity#sonar`
+- `Perplexity#sonar-pro`
+
+## 利用制限
+
+fair use の範囲では:
+- 1日上限: `200` リクエスト/日
+- 超過後: `10分あたり1リクエスト` にスロットル
+- 継続的に高い利用量が必要な場合: 予算をトップアップ
+
+<Note>
+  API Router は個人利用と低ボリュームのワークロード向けです。マルチユーザー製品や高スループットの agentic システムには、provider の専用インフラを利用してください。
+</Note>
+
+## よくある問題
+
+### モデルが表示されない
+- モデルを `Provider#Model-name` 形式で手動指定する
+- API key が有効か確認する
+- クライアントがモデル一覧 endpoint をサポートしているか確認する
+
+### 認証エラー
+- `Authorization: Bearer YOUR_API_KEY` を確認する
+- endpoint が `https://alterhq.com/api` または `/api/v1` であることを確認する
+- アカウントが有効であることを確認する
+
+### 接続問題
+- OpenAI 互換クライアントを使用する
+- `alterhq.com` へのネットワーク接続を確認する
+
+### 高レイテンシ
+- 軽量モデルを試す（`OpenAI#gpt-5-nano`、`Alter#light`）
+- 長文出力には streaming を使う
+
+## ベストプラクティス
+
+1. API key は環境変数に保存する（ハードコードしない）
+2. リクエスト量とエラー率を監視する
+3. タスクの複雑さに合わせてモデル能力を選ぶ
+4. backoff 付きのリトライを実装する
+5. ルーチン作業は低コストモデルを使う
+
+## 関連
+
+- [API Gateway & Router サービス](/ja/api-router/api-gateway)
+- [開発向け API Router](/ja/api-router/development)
+- [API Gateway がモデルを表示しない](/ja/common-issues/models-not-listed-in-api-gateway)

@@ -1,0 +1,281 @@
+---
+title: "API Gateway & Router Service"
+description: "Verwenden Sie Alter als OpenAI-kompatible API-Schnittstelle, um auf über 92 KI-Modelle zuzugreifen"
+---
+
+Alter bietet eine OpenAI-kompatible API-Schnittstelle, die es Ihnen ermöglicht, Alter als einen einheitlichen Router für den Zugriff auf über 92 KI-Modelle von mehr als 10 Anbietern zu verwenden. Nutzen Sie die Alter API entweder als Backend für Drittanbieteranwendungen oder als direkten API-Service für Ihre benutzerdefinierten Projekte.
+
+<Warning>
+  **Vorgesehene Nutzung:** API Router ist für persönliche Nutzung, leichte Utilities und Workloads mit niedrigem Volumen gedacht. Er ist **nicht** für High-Throughput-agentic-Systeme oder Multi-User-Services vorgesehen.
+</Warning>
+
+## Übersicht
+
+Das Alter API-Gateway ist ein zentralisierter Router, der die Notwendigkeit beseitigt, mehrere API-Schlüssel und Abrechnungs Konten über verschiedene KI-Anbieter hinweg zu verwalten. Anstatt Ihre Abrechnungsdetails über viele Anbieter verstreut zu haben, können Sie Alter als Ihren einzigen Einstiegspunkt für den Zugriff auf KI-Modelle verwenden.
+
+### Was ist der Alter Router?
+
+Alter selbst ist ein **Router-Dienst** – ein einheitliches API-Gateway, das Zugriff auf bietet:
+- Über 10 KI-Modellanbieter (OpenAI, Gemini, Claude, Mistral usw.)
+- Über 92 individuelle KI-Modelle
+- Vereinfachte Authentifizierung und Abrechnung
+- Einfacher Modellwechsel ohne Codeänderungen
+
+## Hauptmerkmale
+
+- **OpenAI-konformer Endpunkt**, der Chat-Vervollständigungen und Modellauflistungen unterstützt
+- **Zentralisierte Abrechnung** über Ihr Alter-Konto
+- **Zugriff auf alle Modelle** von externen Anwendungen oder benutzerdefiniertem Code
+- **Nahtlose Integration** mit bestehenden OpenAI-kompatiblen Tools und SDKs
+- **Flexible Modellauswahl** über alle Anbieter hinweg
+
+## Erster Schritte
+
+### 1. API-Schlüssel generieren
+
+1. Öffnen Sie die Alter Einstellungen (**⌘ ,** oder Menü Einstellungen)
+2. Gehen Sie zum Tab **Router**
+3. Klicken Sie im Abschnitt "Alter API-Schlüssel" auf "Neuen Schlüssel hinzufügen", um einen neuen API-Schlüssel zu generieren
+4. Kopieren Sie Ihren Schlüssel (beginnt mit `sk-`)
+
+**Wichtig:** Teilen Sie Ihren API-Schlüssel niemals. Behandeln Sie ihn wie ein Passwort.
+
+### 2. Den Endpunkt abrufen
+
+Der Alter Router-Endpunkt lautet:
+```
+https://alterhq.com/api
+```
+
+Für einige Tools müssen Sie möglicherweise `/v1` hinzufügen:
+```
+https://alterhq.com/api/v1
+```
+
+### 3. Verfügbare Modelle auflisten
+
+Überprüfen Sie, welche Modelle verfügbar sind:
+
+```bash
+curl https://alterhq.com/api/models \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+Dies gibt alle über 92 Modelle von 10 Anbietern mit ihren Fähigkeiten zurück.
+
+## Benennungskonvention für Modelle
+
+Bei der Verwendung der Alter API folgen die Modellnamen diesem Format:
+```
+<Provider>#<Model-name>
+```
+
+### Beispiele:
+- `OpenAI#gpt-5` - Neuester GPT-5
+- `OpenAI#gpt-5-nano` - Leichtgewichtiger GPT
+- `Claude#claude-sonnet-4-6` - Neuester Claude
+- `Gemini#gemini-2.5-pro` - Neuester Gemini
+- `Mistral#mistral-small-latest` - Mistral-Modell
+- `Alter#best` - Alters bestes Modell
+
+## Nutzungsmethoden
+
+### Für Drittanbieteranwendungen
+
+Verwenden Sie Alter als Backend für Tools wie SillyTavern, NovelCrafter usw.:
+
+1. Setzen Sie die Basis-URL: `https://alterhq.com/api` (oder `/v1`)
+2. Geben Sie Ihren API-Schlüssel ein
+3. Verwenden Sie das Format `Provider#Model-name`, wenn Sie Modelle auswählen
+
+### Für benutzerdefinierte Entwicklungen
+
+#### Python (mit OpenAI SDK)
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1"
+)
+
+response = client.chat.completions.create(
+    model="OpenAI#gpt-5",
+    messages=[
+        {"role": "user", "content": "Was ist maschinelles Lernen?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+#### JavaScript (mit OpenAI SDK)
+
+```javascript
+import OpenAI from 'openai';
+
+const openai = new OpenAI({
+    apiKey: "YOUR_API_KEY",
+    baseURL: "https://alterhq.com/api/v1",
+    dangerouslyAllowBrowser: true
+});
+
+const completion = await openai.chat.completions.create({
+    model: "OpenAI#gpt-5",
+    messages: [
+        {"role": "user", "content": "Hallo!"}
+    ]
+});
+
+console.log(completion.choices[0].message.content);
+```
+
+#### LangChain (Python)
+
+```python
+from langchain_openai import ChatOpenAI
+
+chat = ChatOpenAI(
+    api_key="YOUR_API_KEY",
+    base_url="https://alterhq.com/api/v1",
+    model="OpenAI#gpt-5"
+)
+
+response = chat.invoke("Was ist KI?")
+print(response.content)
+```
+
+#### Direkter cURL
+
+```bash
+curl https://alterhq.com/api/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "model": "OpenAI#gpt-5",
+    "messages": [
+      {"role": "user", "content": "Was ist maschinelles Lernen?"}
+    ]
+  }'
+```
+
+## Modellauswahl-Leitfaden
+
+### Für Geschwindigkeit
+- `Alter#light` - Leichtes Modell
+- `OpenAI#gpt-5-nano` - Leichtgewichtiger GPT
+- `Gemini#gemini-2.5-flash-lite` - Schnelles Gemini
+
+### Für Qualität
+- `Alter#best` - Bestmöglich verfügbar
+- `OpenAI#gpt-5` - Fähigster GPT
+- `Gemini#gemini-2.5-pro` - Leistungsstarkes Gemini
+- `Claude#claude-sonnet-4-6` - Neuester Claude
+
+### Für Vision/Bilder
+- `OpenAI#gpt-5` - Fortschrittlich multimodal
+- `Gemini#gemini-2.5-pro` - Starke Vision
+- `Mistral#pixtral-large-latest` - Vision tauglich
+
+### Für Programmierung
+- `OpenAI#gpt-5` - Ausgezeichneter Code
+- `Mistral#codestral-2501` - Codespezialist
+- `Claude#claude-sonnet-4-6` - Starke Programmierung
+
+### Für Kosten
+- `Alter#fair` - Kostenwirksam
+- `Alter#light` - Günstigster
+- `OpenAI#gpt-5-nano` - Budget GPT
+
+### Für Websuche
+- `Perplexity#sonar` - Web-bewusst
+- `Perplexity#sonar-pro` - Erweiterte Suche
+
+## Unterstützte Parameter
+
+Standard OpenAI API-Parameter funktionieren mit Alter:
+
+- `model` - Modell-ID (erforderlich)
+- `messages` - Chat-Nachrichten (erforderlich)
+- `temperature` - 0.0-2.0 (Standard: 1.0)
+- `max_tokens` - Maximale Antwortlänge
+- `top_p` - Kernstichprobe
+- `frequency_penalty` - Wiederholung bestrafen
+- `presence_penalty` - Neue Themen fördern
+
+## Beliebte Anwendungsfälle
+
+### Integration von Drittanbieteranwendungen
+- **[SillyTavern](https://sillytavern.app/)** - Rollenspiel-Chat
+- **[NovelCrafter](https://www.novelcrafter.com/)** - Kreatives Schreiben
+- Andere OpenAI-kompatible Tools
+
+### Backend für benutzerdefinierte Anwendungen
+- Interne Tools, die KI benötigen
+- Automatisierung des Kundensupports
+- Inhalteserstellungssysteme
+- Datenanalyse-Workflows
+
+### Modellvergleich & A/B-Tests
+```python
+for model_id in ["OpenAI#gpt-5", "Claude#claude-sonnet-4-6", "Gemini#gemini-2.5-pro"]:
+    # Führen Sie dasselbe Prompt auf verschiedenen Modellen aus
+    # Vergleichen Sie die Ausgaben
+```
+
+### Kostenoptimierung
+Verwenden Sie günstigere Modelle für hochvolumige Aufgaben und leistungsstarke Modelle für komplexe Anfragen.
+
+## Konfiguration
+
+### API-Schlüsselverwaltung
+- Generieren und verwalten Sie API-Schlüssel über **Einstellungen > Router**
+- Halten Sie API-Schlüssel sicher – niemals öffentlich teilen
+- Drehen Sie Schlüssel regelmäßig zur Sicherheit
+- Verwenden Sie unterschiedliche Schlüssel für verschiedene Umgebungen (dev/prod)
+
+### Nutzungslimits
+
+Das API-Gateway hat faire Nutzungsbeschränkungen:
+
+- **Tägliches Limit**: 200 Anfragen pro Tag unter fairer Nutzung
+- **Drosselung**: Nach Überschreitung des täglichen Limits wird die Anfrage auf 1 pro 10 Minuten gedrosselt
+- **Budget-Auffüllung**: "Füllen Sie" Ihr Budget auf für konsistenten Zugriff über die fairen Nutzungsgrenzen hinaus
+
+## Fehlerbehebung
+
+### Modelle nicht aufgelistet
+Wenn Ihre Anwendung verfügbare Modelle nicht auflistet:
+- Geben Sie das Modell manuell im Format `Provider#Model-name` an
+- Überprüfen Sie, ob Ihr API-Schlüssel korrekt ist
+- Stellen Sie sicher, dass die Anwendung den Endpunkt zur Modellauflistung unterstützt
+
+### Authentifizierungsfehler
+- Überprüfen Sie, ob Ihr API-Schlüssel korrekt eingegeben wurde
+- Stellen Sie sicher, dass Sie den richtigen Endpunkt verwenden: `https://alterhq.com/api` oder `https://alterhq.com/api/v1`
+- Überprüfen Sie, dass Ihr Alter-Konto aktiv und in gutem Zustand ist
+
+### Verbindungsprobleme
+- Vergewissern Sie sich, dass die Anwendung OpenAI-kompatible Endpunkte unterstützt
+- Stellen Sie sicher, dass Sie die neueste Version von Alter verwenden
+- Überprüfen Sie die Netzwerkverbindung zu `alterhq.com`
+
+### Hohe Latenz
+- Versuchen Sie ein schnelleres Modell (z.B. `OpenAI#gpt-5-nano`)
+- Überprüfen Sie Ihre Netzwerkverbindung
+- Verwenden Sie Streaming für lange Antworten
+
+## Beste Praktiken
+
+1. **Sichern Sie Ihren API-Schlüssel** - Verwenden Sie Umgebungsvariablen, niemals hardcodieren
+2. **Überwachen Sie die Nutzung** - Verfolgen Sie API-Aufrufe und setzen Sie Warnungen
+3. **Wählen Sie geeignete Modelle** - Passen Sie die Modellfähigkeiten an die Komplexität der Aufgabe an
+4. **Fehler elegant behandeln** - Implementieren Sie eine Wiederholungslogik mit Backoff
+5. **Kosten optimieren** - Verwenden Sie schnellere/günstigere Modelle für Routineaufgaben
+
+## Verwandte Dokumente
+
+- [Wählen Sie Ihr Modell](/de/how-to/choose-generative-model)
+- [Einstellungen - Routerkonfiguration](/de/how-to/settings-guide#router-settings)
+- [Einstellungen - API-Schlüssel](/de/how-to/settings-guide#api-keys-settings)
