@@ -224,55 +224,71 @@
         "language": "pt",
         "tabs": [
           {
-            "tab": "Primeiros passos",
-            "pages": [
-              "pt/index",
-              "pt/quickstart",
-              "pt/getting-started/open-alter",
-              "pt/getting-started/your-workspace",
-              "pt/getting-started/first-workflows"
+            "tab": "Getting Started",
+            "groups": [
+              {
+                "group": "Start Here",
+                "pages": [
+                  "pt/index",
+                  "pt/quickstart",
+                  "pt/getting-started/getting-started-path",
+                  "pt/getting-started/open-alter",
+                  "pt/getting-started/your-workspace",
+                  "pt/getting-started/window-types-notch-hub-panels",
+                  "pt/getting-started/first-workflows",
+                  "pt/getting-started/core-features",
+                  "pt/getting-started/understand-context-and-apps",
+                  "pt/getting-started/use-current-app-and-follow-mode",
+                  "pt/getting-started/add-files-and-media",
+                  "pt/getting-started/capture-voice-and-meetings",
+                  "pt/getting-started/workspaces-basics",
+                  "pt/getting-started/actions-basics",
+                  "pt/getting-started/automate-with-workspaces-and-actions"
+                ]
+              }
             ]
           },
           {
-            "tab": "Guias",
-            "pages": [
-              "pt/getting-started/guides-index"
-            ],
+            "tab": "Workflows",
             "groups": [
               {
-                "group": "Comece aqui",
+                "group": "Communication",
                 "pages": [
-                  "pt/getting-started/core-features",
-                  "pt/getting-started/alter-window",
-                  "pt/workflows/dictation",
+                  "pt/workflows/manage-mail-with-alter",
+                  "pt/workflows/send-messages-with-alter",
+                  "pt/workflows/manage-contacts-with-alter"
+                ]
+              },
+              {
+                "group": "Planning and Meetings",
+                "pages": [
+                  "pt/workflows/manage-calendar-with-alter",
+                  "pt/workflows/plan-places-and-routes-with-alter-maps",
+                  "pt/workflows/meeting-workflow",
                   "pt/workflows/meetings",
-                  "pt/getting-started/getting-started-path"
+                  "pt/workflows/dictation"
                 ]
               },
               {
-                "group": "Melhores resultados (faca isso cedo)",
+                "group": "Capture and Knowledge",
                 "pages": [
+                  "pt/workflows/manage-notes-with-alter",
+                  "pt/workflows/summarize-x-feed-with-computer-use",
+                  "pt/workflows/local-model-privacy"
+                ]
+              },
+              {
+                "group": "Automation",
+                "pages": [
+                  "pt/workflows/manage-reminders-with-alter",
+                  "pt/workflows/workspaces-actions",
                   "pt/workflows/use-flow-orchestration",
-                  "pt/how-to/managing-context-window"
-                ]
-              },
-              {
-                "group": "Fluxos de trabalho diarios",
-                "pages": [
-                  "pt/workflows/workspaces-actions"
-                ]
-              },
-              {
-                "group": "Automacoes e Tools",
-                "pages": [
                   "pt/workflows/alter-actions",
-                  "pt/apps-tools/integrations-overview",
-                  "pt/how-to/tool-manager-guide",
                   "pt/workflows/url-callbacks"
                 ]
               },
               {
-                "group": "Pesquisa web",
+                "group": "Web Research",
                 "pages": [
                   "pt/workflows/web-research-getting-started",
                   "pt/workflows/native-web-search-in-alter-routers",
@@ -282,54 +298,70 @@
                   "pt/workflows/connect-linkup",
                   "pt/workflows/connect-exa"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "tab": "Apps & Tools",
+            "groups": [
               {
-                "group": "Configuracoes e personalizacao",
+                "group": "Integrations",
                 "pages": [
-                  "pt/how-to/settings-guide"
+                  "pt/apps-tools/integrations-overview",
+                  "pt/apps-tools/integrations-troubleshooting"
                 ]
               },
               {
-                "group": "Modelos",
+                "group": "Mac Apps",
                 "pages": [
-                  "pt/how-to/choose-generative-model"
+                  "pt/apps-tools/mail",
+                  "pt/apps-tools/calendar",
+                  "pt/apps-tools/notes",
+                  "pt/apps-tools/reminders",
+                  "pt/apps-tools/messages",
+                  "pt/apps-tools/contacts",
+                  "pt/apps-tools/maps"
+                ]
+              },
+              {
+                "group": "Computer Use",
+                "pages": [
+                  "pt/apps-tools/computer-use",
+                  "pt/apps-tools/computer-use-get-active-app-context",
+                  "pt/apps-tools/computer-use-perform",
+                  "pt/apps-tools/computer-use-wait",
+                  "pt/apps-tools/computer-use-scroll"
                 ]
               }
             ]
           },
           {
-            "tab": "Como fazer",
+            "tab": "How to",
             "groups": [
               {
-                "group": "Tarefas rapidas",
+                "group": "Quick Tasks",
                 "pages": [
-                  "pt/getting-started/open-alter",
-                  "pt/how-to/add-context",
                   "pt/how-to/change-hotkey",
                   "pt/how-to/choose-language",
-                  "pt/how-to/use-byok",
-                  "pt/how-to/settings-guide"
+                  "pt/how-to/choose-generative-model",
+                  "pt/how-to/use-byok"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "Casos de uso",
-            "groups": [
+              },
               {
-                "group": "Cenarios",
+                "group": "Manage and configure",
                 "pages": [
-                  "pt/use-cases/meeting-workflow",
-                  "pt/use-cases/local-model-privacy"
+                  "pt/how-to/settings-guide",
+                  "pt/how-to/tool-manager-guide",
+                  "pt/how-to/managing-context-window"
                 ]
               }
             ]
           },
           {
-            "tab": "Solucao de problemas",
+            "tab": "Troubleshooting",
             "groups": [
               {
-                "group": "Problemas comuns",
+                "group": "Common Issues",
                 "pages": [
                   "pt/common-issues/mic-not-transcribing",
                   "pt/common-issues/hotkey-not-working",
@@ -341,10 +373,10 @@
             ]
           },
           {
-            "tab": "Referencia",
+            "tab": "Reference",
             "groups": [
               {
-                "group": "Referencia rapida",
+                "group": "Quick Reference",
                 "pages": [
                   "pt/references/faq-core",
                   "pt/references/general-faq",
@@ -354,7 +386,7 @@
                 ]
               },
               {
-                "group": "Recursos",
+                "group": "Assets",
                 "pages": [
                   "pt/references/image-library"
                 ]
@@ -365,13 +397,13 @@
             "tab": "API Router",
             "groups": [
               {
-                "group": "Primeiros passos",
+                "group": "Getting Started",
                 "pages": [
                   "pt/references/api-router-overview"
                 ]
               },
               {
-                "group": "Gateway e Router",
+                "group": "Gateway & Router",
                 "pages": [
                   "pt/api-router/api-gateway",
                   "pt/api-router/development",
@@ -379,7 +411,7 @@
                 ]
               },
               {
-                "group": "Integracoes de apps",
+                "group": "App Integrations",
                 "pages": [
                   "pt/api-router/app-integrations",
                   "pt/api-router/typingmind",
@@ -387,7 +419,7 @@
                 ]
               },
               {
-                "group": "Referencia",
+                "group": "Reference",
                 "pages": [
                   "pt/references/api-model-names"
                 ]
