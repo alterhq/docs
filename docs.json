@@ -111,7 +111,8 @@
                   "apps-tools/reminders",
                   "apps-tools/messages",
                   "apps-tools/contacts",
-                  "apps-tools/maps"
+                  "apps-tools/maps",
+                  "apps-tools/devonthink"
                 ]
               },
               {
