@@ -71,6 +71,7 @@
               {
                 "group": "Automation",
                 "pages": [
+                  "workflows/automate-blogging-with-alter",
                   "workflows/manage-reminders-with-alter",
                   "workflows/workspaces-actions",
                   "workflows/use-flow-orchestration",
@@ -133,11 +134,11 @@
               {
                 "group": "Quick Tasks",
                 "pages": [
-                "how-to/change-hotkey",
-                "how-to/choose-language",
-                "how-to/choose-generative-model",
-                "how-to/use-byok",
-                "how-to/reinstall-or-downgrade-alter"
+                  "how-to/change-hotkey",
+                  "how-to/choose-language",
+                  "how-to/choose-generative-model",
+                  "how-to/use-byok",
+                  "how-to/reinstall-or-downgrade-alter"
                 ]
               },
               {
@@ -182,9 +183,7 @@
               },
               {
                 "group": "Assets",
-                "pages": [
-                  "references/image-library"
-                ]
+                "pages": ["references/image-library"]
               }
             ]
           },
@@ -193,9 +192,7 @@
             "groups": [
               {
                 "group": "Getting Started",
-                "pages": [
-                  "references/api-router-overview"
-                ]
+                "pages": ["references/api-router-overview"]
               },
               {
                 "group": "Gateway & Router",
@@ -215,9 +212,7 @@
               },
               {
                 "group": "Reference",
-                "pages": [
-                  "references/api-model-names"
-                ]
+                "pages": ["references/api-model-names"]
               }
             ],
             "openapi": "openapi.json"
@@ -345,11 +340,11 @@
               {
                 "group": "Tarefas Rápidas",
                 "pages": [
-                "pt/how-to/change-hotkey",
-                "pt/how-to/choose-language",
-                "pt/how-to/choose-generative-model",
-                "pt/how-to/use-byok",
-                "pt/how-to/reinstall-or-downgrade-alter"
+                  "pt/how-to/change-hotkey",
+                  "pt/how-to/choose-language",
+                  "pt/how-to/choose-generative-model",
+                  "pt/how-to/use-byok",
+                  "pt/how-to/reinstall-or-downgrade-alter"
                 ]
               },
               {
@@ -394,9 +389,7 @@
               },
               {
                 "group": "Ativos",
-                "pages": [
-                  "pt/references/image-library"
-                ]
+                "pages": ["pt/references/image-library"]
               }
             ]
           },
@@ -405,9 +398,7 @@
             "groups": [
               {
                 "group": "Começando",
-                "pages": [
-                  "pt/references/api-router-overview"
-                ]
+                "pages": ["pt/references/api-router-overview"]
               },
               {
                 "group": "Gateway e roteador",
@@ -427,9 +418,7 @@
               },
               {
                 "group": "Referência",
-                "pages": [
-                  "pt/references/api-model-names"
-                ]
+                "pages": ["pt/references/api-model-names"]
               }
             ],
             "openapi": "openapi.json"
@@ -557,11 +546,11 @@
               {
                 "group": "Tâches rapides",
                 "pages": [
-                "fr/how-to/change-hotkey",
-                "fr/how-to/choose-language",
-                "fr/how-to/choose-generative-model",
-                "fr/how-to/use-byok",
-                "fr/how-to/reinstall-or-downgrade-alter"
+                  "fr/how-to/change-hotkey",
+                  "fr/how-to/choose-language",
+                  "fr/how-to/choose-generative-model",
+                  "fr/how-to/use-byok",
+                  "fr/how-to/reinstall-or-downgrade-alter"
                 ]
               },
               {
@@ -606,9 +595,7 @@
               },
               {
                 "group": "Actifs",
-                "pages": [
-                  "fr/references/image-library"
-                ]
+                "pages": ["fr/references/image-library"]
               }
             ]
           },
@@ -617,9 +604,7 @@
             "groups": [
               {
                 "group": "Commencer",
-                "pages": [
-                  "fr/references/api-router-overview"
-                ]
+                "pages": ["fr/references/api-router-overview"]
               },
               {
                 "group": "Passerelle et routeur",
@@ -639,9 +624,7 @@
               },
               {
                 "group": "Référence",
-                "pages": [
-                  "fr/references/api-model-names"
-                ]
+                "pages": ["fr/references/api-model-names"]
               }
             ],
             "openapi": "openapi.json"
@@ -769,11 +752,11 @@
               {
                 "group": "Tareas rápidas",
                 "pages": [
-                "es/how-to/change-hotkey",
-                "es/how-to/choose-language",
-                "es/how-to/choose-generative-model",
-                "es/how-to/use-byok",
-                "es/how-to/reinstall-or-downgrade-alter"
+                  "es/how-to/change-hotkey",
+                  "es/how-to/choose-language",
+                  "es/how-to/choose-generative-model",
+                  "es/how-to/use-byok",
+                  "es/how-to/reinstall-or-downgrade-alter"
                 ]
               },
               {
@@ -818,9 +801,7 @@
               },
               {
                 "group": "Activos",
-                "pages": [
-                  "es/references/image-library"
-                ]
+                "pages": ["es/references/image-library"]
               }
             ]
           },
@@ -829,9 +810,7 @@
             "groups": [
               {
                 "group": "Empezando",
-                "pages": [
-                  "es/references/api-router-overview"
-                ]
+                "pages": ["es/references/api-router-overview"]
               },
               {
                 "group": "Puerta de enlace y enrutador",
@@ -851,9 +830,7 @@
               },
               {
                 "group": "Referencia",
-                "pages": [
-                  "es/references/api-model-names"
-                ]
+                "pages": ["es/references/api-model-names"]
               }
             ],
             "openapi": "openapi.json"
@@ -981,11 +958,11 @@
               {
                 "group": "Schnelle Aufgaben",
                 "pages": [
-                "de/how-to/change-hotkey",
-                "de/how-to/choose-language",
-                "de/how-to/choose-generative-model",
-                "de/how-to/use-byok",
-                "de/how-to/reinstall-or-downgrade-alter"
+                  "de/how-to/change-hotkey",
+                  "de/how-to/choose-language",
+                  "de/how-to/choose-generative-model",
+                  "de/how-to/use-byok",
+                  "de/how-to/reinstall-or-downgrade-alter"
                 ]
               },
               {
@@ -1030,9 +1007,7 @@
               },
               {
                 "group": "Vermögenswerte",
-                "pages": [
-                  "de/references/image-library"
-                ]
+                "pages": ["de/references/image-library"]
               }
             ]
           },
@@ -1041,9 +1016,7 @@
             "groups": [
               {
                 "group": "Erste Schritte",
-                "pages": [
-                  "de/references/api-router-overview"
-                ]
+                "pages": ["de/references/api-router-overview"]
               },
               {
                 "group": "Gateway und Router",
@@ -1063,9 +1036,7 @@
               },
               {
                 "group": "Referenz",
-                "pages": [
-                  "de/references/api-model-names"
-                ]
+                "pages": ["de/references/api-model-names"]
               }
             ],
             "openapi": "openapi.json"
@@ -1193,11 +1164,11 @@
               {
                 "group": "快速任务",
                 "pages": [
-                "zh/how-to/change-hotkey",
-                "zh/how-to/choose-language",
-                "zh/how-to/choose-generative-model",
-                "zh/how-to/use-byok",
-                "zh/how-to/reinstall-or-downgrade-alter"
+                  "zh/how-to/change-hotkey",
+                  "zh/how-to/choose-language",
+                  "zh/how-to/choose-generative-model",
+                  "zh/how-to/use-byok",
+                  "zh/how-to/reinstall-or-downgrade-alter"
                 ]
               },
               {
@@ -1242,9 +1213,7 @@
               },
               {
                 "group": "资产",
-                "pages": [
-                  "zh/references/image-library"
-                ]
+                "pages": ["zh/references/image-library"]
               }
             ]
           },
@@ -1253,9 +1222,7 @@
             "groups": [
               {
                 "group": "入门",
-                "pages": [
-                  "zh/references/api-router-overview"
-                ]
+                "pages": ["zh/references/api-router-overview"]
               },
               {
                 "group": "网关和路由器",
@@ -1275,9 +1242,7 @@
               },
               {
                 "group": "参考",
-                "pages": [
-                  "zh/references/api-model-names"
-                ]
+                "pages": ["zh/references/api-model-names"]
               }
             ],
             "openapi": "openapi.json"
@@ -1405,11 +1370,11 @@
               {
                 "group": "クイックタスク",
                 "pages": [
-                "ja/how-to/change-hotkey",
-                "ja/how-to/choose-language",
-                "ja/how-to/choose-generative-model",
-                "ja/how-to/use-byok",
-                "ja/how-to/reinstall-or-downgrade-alter"
+                  "ja/how-to/change-hotkey",
+                  "ja/how-to/choose-language",
+                  "ja/how-to/choose-generative-model",
+                  "ja/how-to/use-byok",
+                  "ja/how-to/reinstall-or-downgrade-alter"
                 ]
               },
               {
@@ -1454,9 +1419,7 @@
               },
               {
                 "group": "資産",
-                "pages": [
-                  "ja/references/image-library"
-                ]
+                "pages": ["ja/references/image-library"]
               }
             ]
           },
@@ -1465,9 +1428,7 @@
             "groups": [
               {
                 "group": "はじめる",
-                "pages": [
-                  "ja/references/api-router-overview"
-                ]
+                "pages": ["ja/references/api-router-overview"]
               },
               {
                 "group": "ゲートウェイとルーター",
@@ -1487,9 +1448,7 @@
               },
               {
                 "group": "参照",
-                "pages": [
-                  "ja/references/api-model-names"
-                ]
+                "pages": ["ja/references/api-model-names"]
               }
             ],
             "openapi": "openapi.json"
