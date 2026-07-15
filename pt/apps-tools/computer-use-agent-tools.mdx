@@ -1,0 +1,282 @@
+---
+title: "Referência de ferramentas do agente"
+description: "Ferramentas apenas para LLM do subagente Computer Use — read_screen_ax, perform_sequence, list_windows e mais"
+---
+
+Estas ferramentas estão registradas para o subagente **Computer Use** do Alter (`computer_use_task`). São **apenas para LLM** — projetadas para o modelo chamar durante um loop de UI em segundo plano, não para execução manual pontual na maioria dos casos.
+
+O subagente também recebe as ferramentas primitivas [Perform](/apps-tools/computer-use-perform), [Scroll](/apps-tools/computer-use-scroll) e [Wait](/apps-tools/computer-use-wait). Esta página cobre as ferramentas **específicas do agente** e as regras compartilhadas de direcionamento de janela.
+
+<Card title="Comece aqui" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  Leia a [visão geral do Computer Use](/apps-tools/computer-use) para invocar o agente com uma string `goal`.
+</Card>
+
+## Fluxo de trabalho compartilhado
+
+### Formatos de ID de janela
+
+`list_windows` retorna dois estilos de ID:
+
+| Formato | Exemplo | Notas |
+|--------|---------|-------|
+| `pid/title` | `4280/Mail — Inbox` | Legível; o título pode mudar |
+| `pid/windowNumber` estável | `4280/12345` | Preferido quando disponível — sobrevive a mudanças de título |
+
+Passe o mesmo `windowID` para `read_screen_ax`, `perform`, `perform_sequence`, `scroll` e `computer_use_screenshot` em cada etapa dessa janela.
+
+### Ordem de resolução
+
+Quando `windowID` é omitido:
+
+1. `windowID` explícito na chamada da ferramenta
+2. **Alvo rastreado** — janela registrada por `open_app`, `open_urls` ou ferramentas anteriores nesta conversa
+3. **Fallback de sessão** — durante execução em segundo plano, a janela mostrada na pré-visualização ao vivo (evita deriva quando você refoca outro app)
+4. **Janela em primeiro plano**
+
+### Apps bloqueados
+
+O Computer Use recusa abrir, ler ou controlar apps na sua lista de bloqueio (**Settings → Computer use → Blocked apps**). Gerenciadores de senha são bloqueados por padrão. As ferramentas retornam um erro claro para o agente parar de iterar e reportar o bloqueio.
+
+### Autônomo vs dentro do agente
+
+| Contexto | Disponível? |
+|---------|------------|
+| Dentro do subagente `computer_use_task` | Sim — conjunto completo abaixo |
+| Agente pai Ask Anything | Indiretamente — o pai deve chamar `computer_use_task`, não encadear estas manualmente |
+| Execução manual no Tools Manager | Possível para depuração; não é o fluxo principal |
+
+Ferramentas de workspace (`workspace_read`, `workspace_bash`, etc.) **não** estão disponíveis dentro do Computer Use.
+
+---
+
+## `read_screen_ax`
+
+**Nome de exibição:** Read Screen (AX)
+
+Retorna a **árvore de acessibilidade** de uma janela como texto. Elementos interativos incluem o sufixo **`@elementID`** para uso com `perform` e `perform_sequence`. **Sem captura de tela** nem análise visual — estritamente apenas AX.
+
+### Parâmetros
+
+| Parâmetro | Obrigatório | Padrão | Descrição |
+|-----------|----------|---------|-------------|
+| `windowID` | Não | rastreado → fallback de sessão → primeiro plano | `pid/title` ou `pid/windowNumber` estável |
+
+### Quando o agente chama
+
+- **Primeira etapa** em uma janela (antes de qualquer clique ou preenchimento)
+- **Depois** de navegação, diálogos, rolagem ou atalhos que alterem a UI
+- **Antes** de escolher opções de combobox/lista que não estavam visíveis na leitura anterior
+
+### Saída
+
+Envolvido em `<activeAppContext>…</activeAppContext>`. Durante execuções do Computer Use, apps correspondentes podem acrescentar `<appGuidance>` (Calculator, Discord, Spotify, X.com, etc.) com técnicas mais rápidas.
+
+### Exemplo
+
+Etapa do objetivo: o agente já abriu o Mail via `open_app` e recebeu `windowID: 5123/Mail — Inbox`.
+
+```
+read_screen_ax({ "windowID": "5123/Mail — Inbox" })
+```
+
+Retorna linhas com IDs de elemento como `Unread message row 1@MessageRow_0` para cliques `perform` subsequentes.
+
+### vs `get_active_app_context`
+
+[Get Active App Context](/apps-tools/computer-use-get-active-app-context) adiciona OCR de capturas de tela. O agente Computer Use prefere **`read_screen_ax`** por velocidade e privacidade, a menos que o objetivo exija captura visual via `computer_use_screenshot`.
+
+---
+
+## `perform_sequence`
+
+**Nome de exibição:** Perform Sequence
+
+Executa várias ações de UI em **uma chamada de ferramenta** — mais rápido que invocações `perform` separadas quando todos os elementos alvo já estão visíveis na leitura AX atual.
+
+### Parâmetros
+
+| Parâmetro | Obrigatório | Descrição |
+|-----------|----------|-------------|
+| `steps` | Sim | Array de objetos de ação (veja abaixo) |
+| `windowID` | Não | Aplicado a cada etapa |
+
+Cada objeto **step**:
+
+| Campo | Obrigatório para | Descrição |
+|-------|--------------|-------------|
+| `action` | — | `click` (padrão), `fill`, `type` ou `shortcut` |
+| `elementID` | `click`, `fill` | ID após `@` de `read_screen_ax` |
+| `text` | `fill`, `type` | Texto a inserir |
+| `shortcut` | `shortcut` | ex.: `cmd+k`, `escape`, `shift+enter` |
+
+### Regras de agrupamento
+
+- Todos os valores `elementID` devem vir do **mesmo** resultado de `read_screen_ax`
+- Agrupe apenas ações que não alterem o layout entre etapas (formulário de vários campos, expressão de calculadora via `type`)
+- **Pare o agrupamento** antes de navegação, troca de app ou abertura de menus/diálogos — depois releia
+- A execução **para na primeira etapa com falha** e informa qual etapa falhou
+
+### Exemplo
+
+Preencher formulário de três campos visível em uma leitura:
+
+```json
+{
+  "windowID": "5123/Signup",
+  "steps": [
+    { "action": "fill", "elementID": "FirstName", "text": "Alex" },
+    { "action": "fill", "elementID": "LastName", "text": "Rivera" },
+    { "action": "fill", "elementID": "Email", "text": "alex@example.com" }
+  ]
+}
+```
+
+Busca rápida no Spotify (após ler a janela principal):
+
+```json
+{
+  "steps": [
+    { "action": "shortcut", "shortcut": "cmd+k" },
+    { "action": "type", "text": "Debussy Clair de Lune" }
+  ]
+}
+```
+
+Veja [Perform](/apps-tools/computer-use-perform) para semântica de ação única (`type` vs `fill`, formato de atalho).
+
+---
+
+## `computer_use_screenshot`
+
+**Nome de exibição:** Computer Use Screenshot
+
+Captura uma **janela de app específica** como PNG. **Não** usa atalhos globais de captura, `screencapture` nem seleção interativa de região.
+
+### Parâmetros
+
+| Parâmetro | Obrigatório | Descrição |
+|-----------|----------|-------------|
+| `windowID` | Não | Mesma ordem de resolução das outras ferramentas |
+
+### Quando usar
+
+- O objetivo pede explicitamente capturas de tela ou artefatos visuais
+- **Evite** para inspeção rotineira de UI — use `read_screen_ax` em vez disso
+
+### Saída
+
+Metadados de texto (`app`, `title`, `windowID`, dimensões) mais anexo de imagem para o modelo.
+
+### Exemplo
+
+```
+computer_use_screenshot({ "windowID": "9042/Google Chrome — Dashboard" })
+```
+
+Falha se a permissão Screen Recording estiver ausente ou a janela estiver minimizada/oculta.
+
+---
+
+## `list_windows`
+
+**Nome de exibição:** List Windows
+
+Enumera janelas abertas de aplicativos em execução. Sem parâmetros.
+
+### Retorna
+
+Para cada janela:
+
+- Nome do app e identificador de bundle
+- Título da janela
+- **Window ID** (`pid/title`)
+- **Stable Window ID** quando disponível
+- PID
+- Marcador **⭐ (ACTIVE)** na janela em primeiro plano
+
+### Quando o agente chama
+
+- A janela alvo **não** é o app em primeiro plano e não foi aberta via `open_app` / `open_urls` nesta execução
+- **Uma vez por execução** costuma bastar — reutilize os IDs retornados em vez de listar repetidamente
+
+### Saída de exemplo (abreviada)
+
+```
+Open Windows (42 total):
+
+Safari (com.apple.Safari):
+  - Window: "Apple — Homepage" ⭐ (ACTIVE)
+    Window ID: 4280/Apple — Homepage
+    Stable Window ID: 4280/87
+    PID: 4280
+```
+
+O agente então passa `4280/87` para `read_screen_ax` para um scrape em segundo plano enquanto você trabalha em outro app.
+
+---
+
+## `open_app`
+
+**Nome de exibição:** Open Application
+
+Inicia ou foca um aplicativo Mac. Retorna o ID da janela alvo para acompanhamento imediato — muitas vezes **sem** chamar `list_windows`.
+
+### Parâmetros
+
+| Parâmetro | Obrigatório | Descrição |
+|-----------|----------|-------------|
+| `bundleId` | Sim | Identificador de bundle (ex.: `com.apple.Calculator`) **ou** nome legível do app (`Calculator`, `Google Chrome`) — nomes são resolvidos automaticamente |
+
+### Comportamento
+
+- **Execuções em segundo plano:** Se o app já está em execução, o Alter não rouba o foco. Novos lançamentos usam abertura não ativadora quando possível e restauram seu app em primeiro plano anterior.
+- **Apps bloqueados:** Recusados com erro de lista de bloqueio
+- A **resposta de sucesso** inclui `Window ID` e `Stable Window ID` opcional para passar às ferramentas subsequentes
+
+### Exemplo
+
+```json
+{ "bundleId": "com.apple.Calculator" }
+```
+
+A resposta inclui:
+
+```
+Target window: Calculator - Calculator
+Window ID: 6012/Calculator
+Pass this windowID to read_screen_ax, perform, perform_sequence, and scroll...
+```
+
+---
+
+## Ferramentas primitivas no mesmo agente
+
+Estas têm páginas dedicadas; o subagente as usa com as mesmas regras de `windowID`:
+
+| Ferramenta | Página | Notas do agente |
+|------|------|-------------|
+| `perform` | [Perform](/apps-tools/computer-use-perform) | Clique/preenchimento/type/atalho único; prefira `perform_sequence` ao agrupar |
+| `scroll` | [Scroll](/apps-tools/computer-use-scroll) | Duração `milliseconds` (padrão 3000); Chromium/Safari usam rolagem por teclado em segundo plano |
+| `wait` | [Wait](/apps-tools/computer-use-wait) | Use quando a leitura AX estiver vazia ou carregando — não antes de cada etapa |
+| `open_urls` | — | Abre URLs; roteado para o navegador do agente durante Computer Use |
+
+`get_active_app_context` **não** está no conjunto de ferramentas do subagente — use `read_screen_ax` em vez disso.
+
+---
+
+## Solução de problemas
+
+| Problema | Orientação |
+|-------|----------|
+| `Window … not found` | Execute `list_windows` novamente; a janela pode ter sido fechada |
+| Falhas de `elementID` após agrupamento | Layout mudou — releia com `read_screen_ax` |
+| App bloqueado | Ajuste a lista de bloqueio ou reformule o objetivo para pular esse app |
+| Captura falhou | Conceda Screen Recording; garanta que a janela esteja visível |
+| Atalhos globais ignorados | Esperado no modo segundo plano — o agente usa `fill`/`type`, não ⌘C/⌘V |
+
+## Documentação relacionada
+
+- [Visão geral do Computer Use](/apps-tools/computer-use)
+- [Computer Use em segundo plano](/apps-tools/computer-use-background)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait) · [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Settings → Computer use](/how-to/settings-guide#computer-use)

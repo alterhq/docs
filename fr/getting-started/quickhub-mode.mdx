@@ -1,0 +1,141 @@
+---
+title: "Mode QuickHub"
+description: "L'interface de conversation principale d'Alter — QuickHub flottant vs l'encoche héritée"
+---
+
+Le **mode QuickHub** est l'interface de conversation principale d'Alter. Lorsqu'il est activé, chaque chat s'ouvre dans **QuickHub** — un panneau flottant que vous pouvez déplacer, attacher aux fenêtres d'applications ou invoquer depuis le bord de l'écran. Les nouvelles installations ont le mode QuickHub activé par défaut (`useQuickHub = true` depuis **2.0.0-beta100**).
+
+Désactivez le mode QuickHub pour revenir à l'expérience centrée sur l'**encoche** : survolez l'encoche de la caméra pour ouvrir le menu rapide compact au lieu de QuickHub.
+
+## QuickHub vs l'encoche
+
+| | **Mode QuickHub activé** (par défaut) | **Mode QuickHub désactivé** |
+|---|---|---|
+| UI principale | Panneau **QuickHub** flottant | Menu au survol de l'**encoche** |
+| Label du raccourci global | **Ouvrir QuickHub** | **Ouvrir l'encoche** |
+| Edge Bar | Disponible | Désactivée |
+| Attacher aux apps | Oui — ancrer à côté de toute fenêtre | Disposition encoche limitée |
+| Idéal pour | Chat quotidien, workflows attachés, Edge Bar | Configuration minimale encoche seule |
+
+QuickHub n'est pas un produit séparé du Hub — c'est la **surface de conversation légère**. Ouvrez tout chat QuickHub dans la fenêtre **Hub** complète avec **Ouvrir dans le Hub** (par défaut **⌘O**) lorsque vous avez besoin d'onglets, de la barre latérale et de la gestion des workspaces.
+
+<Tip>
+  La plupart des nouveaux utilisateurs devraient laisser le **mode QuickHub** activé. L'encoche reste disponible dans **Paramètres → Apparence → Afficher l'encoche** pour l'indication de statut ; ce n'est plus le seul moyen de chatter.
+</Tip>
+
+## Activer ou désactiver le mode QuickHub
+
+1. Ouvrez **Paramètres** (⌘,)
+2. Allez dans **Général**
+3. Basculez **Mode QuickHub** — *Utiliser QuickHub pour toutes les conversations au lieu de l'encoche*
+
+Lorsque vous désactivez le mode QuickHub, les paramètres **Edge Bar** sont grisés et le lanceur de bord d'écran cesse d'apparaître.
+
+## Ouvrir QuickHub
+
+**Depuis n'importe où (global)**
+
+- **⌘⇧Space** — **Ouvrir QuickHub** (par défaut ; configurable dans **Paramètres → Raccourcis → Global**)
+- **Ouvrir QuickHub et attacher** — ouvre QuickHub et l'attache sur un côté avec votre déclencheur configuré (voir ci-dessous)
+- **Edge Bar** — déplacez-vous vers un bord d'écran activé et cliquez **Ouvrir QuickHub** ou **Nouveau chat** — voir [Edge Bar](/fr/getting-started/edge-bar)
+
+**Depuis le Hub**
+
+- **Nouveau chat Hub** — **⌥Space** (par défaut) démarre une nouvelle conversation Hub ; les conversations QuickHub partagent les mêmes catégories de raccourcis sous **Hub & QuickHub**
+
+## Attacher, détacher et épingler
+
+QuickHub peut **s'ancrer à côté** de la fenêtre de l'app au premier plan pour chatter tout en travaillant dans Mail, Safari, Xcode ou toute autre app.
+
+### Raccourcis d'attache
+
+Configurez sous **Paramètres → Raccourcis → QuickHub** :
+
+| Raccourci | Par défaut | Action |
+|----------|---------|--------|
+| **Attacher à gauche** | **⌃⌘←** | Ancrer QuickHub à gauche de l'app active |
+| **Attacher à droite** | **⌃⌘→** | Ancrer QuickHub à droite de l'app active |
+| **Détacher la fenêtre** | **⌃⌘↓** | Remettre QuickHub en position flottante |
+| **Épingler la fenêtre** | **⌘⌥P** | Épingler ou désépingler QuickHub au-dessus des autres fenêtres |
+
+Vous pouvez aussi cliquer **Attacher** depuis le lanceur **Edge Bar** lorsque le mode QuickHub est activé.
+
+### Ouvrir QuickHub et attacher
+
+Sous **Paramètres → Raccourcis → Global**, **Ouvrir QuickHub et attacher** combine ouverture + attache en un geste :
+
+- **Comportement d'attache** — **Attacher à gauche** ou **Attacher à droite** (par défaut **Attacher à droite**)
+- **Raccourci** — déclencheur double-tap : **Double tap ⌘** (par défaut), **Double tap ⌥**, **Double tap ⌃**, **Double tap ⇧**, ou **Aucun**
+
+Double-tapez le modificateur choisi pour ouvrir QuickHub et l'ancrer au côté sélectionné.
+
+## Dépendance Edge Bar
+
+L'**Edge Bar** — le lanceur de bord d'écran pour réunions, chats, attache et cartes de session Computer Use — **nécessite le mode QuickHub**. Les hotspots de bord invoquent les surfaces QuickHub ; ils ne sont pas reliés à la disposition encoche.
+
+Si vous comptez sur Edge Bar, gardez le mode QuickHub activé et configurez les bords sous **Paramètres → Général → Edge Bar**.
+
+## Impact sur les labels de raccourcis
+
+Plusieurs raccourcis changent leur **nom affiché** lorsque le mode QuickHub est basculé :
+
+- **Paramètres → Raccourcis → Global → Ouvrir QuickHub** vs **Ouvrir l'encoche** — même emplacement de raccourci (**⌘⇧Space** par défaut), label différent
+- Les raccourcis de la catégorie **Hub & QuickHub** s'appliquent à la surface active (onglet Hub ou conversation QuickHub)
+
+Recherchez les raccourcis dans **Paramètres → Raccourcis** avec **⌘F**, ou tapez dans le champ **Rechercher des raccourcis**.
+
+## Workflows typiques
+
+**Question rapide en codant**
+
+Appuyez sur **⌘⇧Space**, demandez, appuyez sur **Esc** ou cliquez ailleurs — QuickHub se ferme sans ouvrir le Hub complet.
+
+**Côte à côte avec une app**
+
+Appuyez sur **⌃⌘→** (**Attacher à droite**) ou utilisez **Attacher** depuis Edge Bar.
+
+**Longue session → Hub complet**
+
+Appuyez sur **⌘O** (**Ouvrir dans le Hub**) pour déplacer le chat QuickHub actuel dans un onglet Hub avec barre latérale et historique.
+
+**Computer Use en arrière-plan**
+
+Démarrez un objectif Computer Use depuis QuickHub ou le Hub. L'agent tourne en arrière-plan ; le statut de session apparaît dans **Edge Bar** pendant que vous continuez à travailler. Voir [Computer Use en arrière-plan](/fr/apps-tools/computer-use-background).
+
+## Dépannage
+
+**⌘⇧Space ouvre l'encoche au lieu de QuickHub**
+
+- Activez le **mode QuickHub** sous **Paramètres → Général**
+- Confirmez que **Paramètres → Raccourcis → Global** affiche **Ouvrir QuickHub**, pas **Ouvrir l'encoche**
+
+**Les raccourcis d'attache ne font rien**
+
+- QuickHub doit être ouvert ou en cours d'ouverture ; l'attache cible la fenêtre **au premier plan**
+- Certaines apps plein écran ou à sécurité élevée bloquent l'ancrage — essayez **Détacher la fenêtre** (**⌃⌘↓**) et utilisez QuickHub flottant
+
+**Edge Bar manquante**
+
+- Edge Bar nécessite le mode QuickHub et au moins un bord activé — voir [Edge Bar](/fr/getting-started/edge-bar)
+
+**Le double tap ⌘ ouvre QuickHub attaché alors que je voulais seulement Command**
+
+- Changez **Ouvrir QuickHub et attacher → Raccourci** sur **Aucun**, ou choisissez un modificateur que vous double-tapez rarement
+- Ou désactivez **Ouvrir QuickHub et attacher** en effaçant son raccourci enregistré
+
+## Docs associées
+
+<CardGroup cols={2}>
+  <Card title="Edge Bar" icon="sidebar.right" href="/fr/getting-started/edge-bar">
+    Lanceur de bord d'écran et sessions Computer Use
+  </Card>
+  <Card title="Types de fenêtres" icon="layout" href="/fr/getting-started/window-types-notch-hub-panels">
+    Aperçu QuickHub, Hub et panneaux
+  </Card>
+  <Card title="Paramètres raccourcis" icon="keyboard" href="/fr/how-to/settings-guide#shortcuts">
+    Guide complet de l'éditeur de raccourcis
+  </Card>
+  <Card title="Référence raccourcis" icon="list" href="/fr/references/shortcuts">
+    Inventaire complet des raccourcis par défaut
+  </Card>
+</CardGroup>

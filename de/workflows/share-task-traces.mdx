@@ -1,0 +1,135 @@
+---
+title: "Aufgaben-Traces teilen und exportieren"
+description: "Task-Konversationen als Markdown exportieren, Traces mit dem Alter-Team teilen und Subagent-Chats aus dem Tool Inspector öffnen"
+---
+
+Wenn Alter ein **task-erzeugendes Tool** ausführt — **Computer Use**, **Flow** oder andere Agenten mit Sub-Konversation — zeigt der Parent-Chat einen Tool-Lauf im **Tool Inspector**. Von dort können Sie **den vollständigen Task-Thread öffnen**, **als Markdown exportieren** oder einen **Trace** mit dem Alter-Team zur Fehlerbehebung teilen.
+
+Dieser Workflow ist getrennt vom Speichern einer normalen Hub-Konversation mit **Konversation als Markdown speichern** (**⌘⇧S**). Task-Traces erfassen das Hin und Her des **Subagenten**, einschließlich Tool-Aufrufen, die die Parent-Nachricht ausgelöst hat.
+
+## Wann welche Option nutzen
+
+| Aktion | Nutzen wenn |
+|--------|-------------|
+| **In Tab öffnen** | Sie den vollständigen Task-Dialog in Alter lesen wollen |
+| **Chat exportieren** | Sie eine lokale **.md**-Datei für Aufzeichnungen oder Offline-Review brauchen |
+| **Trace teilen** | Etwas fehlschlug oder sich unerwartet verhielt — Diagnose an Alter senden |
+| **Konversation als Markdown speichern** (**⌘⇧S**) | Sie den **Parent**-Hub/QuickHub-Chat exportieren wollen, nicht nur den Task-Sub-Thread |
+
+## Wo Task-Aktionen zu finden sind
+
+1. Führen Sie ein task-erzeugendes Tool aus (z. B. Alter bitten, ein **Computer Use**-Ziel auszuführen, oder **Flow** aufrufen)
+2. Öffnen Sie im **Hub** oder **QuickHub** das **Inspector**-Panel (Sidebar-Inspector-Umschalter)
+3. Wählen Sie den **Tool-Lauf** im Inspector — die Zeile für `computer_use_task`, Flow oder einen anderen Task-Agenten
+4. Scrollen Sie zum **Task-Konversations**-Aktionsblock (hervorgehobener Akzent-Hintergrund)
+
+Drei Aktionen erscheinen:
+
+- **In Tab öffnen**
+- **Chat exportieren**
+- **Trace teilen**
+
+Während ein Share hochlädt, zeigt die Schaltfläche **Trace wird geteilt...** und ist deaktiviert, bis die Anfrage abgeschlossen ist.
+
+Bei aktiven **Computer Use**-Läufen kann der Inspector auch **Watch preview** zeigen — siehe [Computer Use im Hintergrund](/de/apps-tools/computer-use-background).
+
+## In Tab öffnen
+
+**In Tab öffnen** springt zur **schreibgeschützten Task-Konversation** — dem Subagent-Thread mit eigenen Nachrichten, Tool-Aufrufen und Ergebnissen. Nutzen Sie dies, wenn:
+
+- Die Parent-Antwort das Ergebnis zusammenfasste, Sie aber Schritt-für-Schritt-Details wollen
+- Sie ein bestimmtes Tool-Argument oder -Ergebnis aus dem Sub-Thread kopieren müssen
+- Sie einen langen **Computer Use**-Lauf vor dem Export prüfen
+
+Der Task-Tab öffnet im Hub-Kontext. Wenn Sie das Tool aus QuickHub ausgelöst haben, zuerst **In Hub öffnen** (**⌘O**), wenn Sie das volle tabbed Hub-Layout brauchen.
+
+## Chat exportieren
+
+**Chat exportieren** speichert die Task-Konversation als **Markdown-Dokument**:
+
+1. Klicken Sie **Chat exportieren** im Tool Inspector
+2. Wählen Sie einen Speicherort im Dialog (Standard: **Downloads**)
+3. Alter schreibt eine `.md`-Datei benannt nach dem Task-Titel (oder **Task Chat** wenn ohne Titel)
+4. Finder öffnet den enthaltenden Ordner
+
+Der Export enthält Task-Titel und formatierte Nachrichten aus der Subagent-Konversation — derselbe Inhalt wie für Trace-Sharing, aber **lokal auf Ihrem Mac** gespeichert.
+
+<Tip>
+  Um die **Parent**-Konversation zu exportieren (alles im Hauptchat sichtbar, nicht nur der Subagent-Thread), nutzen Sie **Konversation als Markdown speichern** — Standard **⌘⇧S** unter **Einstellungen → Tastenkürzel → Hub**.
+</Tip>
+
+## Trace teilen
+
+**Trace teilen** lädt ein Diagnose-Bundle an Alters API hoch, damit das Team Bugs, Berechtigungsfehler oder unerwartetes Agent-Verhalten untersuchen kann.
+
+### Voraussetzungen
+
+- Sie müssen bei Alter **angemeldet** sein (gültiges Account-JWT). Ohne Anmeldung schlägt das Teilen mit Authentifizierungsfehler fehl.
+- Eine Task-Konversation muss für den gewählten Tool-Lauf existieren.
+
+### Was gesendet wird
+
+- **Titel** — Task-Konversationstitel
+- **Markdown** — formatierte Task-Nachrichten (wie Export Chat)
+- **Tool-Name** — z. B. `computer_use_task` oder Flow-Tool-ID
+- **Task-Konversations-ID** — interne Verknüpfung von Parent und Sub-Thread
+- **App-Version** — Alter-Build-String zur Reproduktion
+
+Bei Erfolg zeigt Alter **Trace geteilt** — *Der Trace wurde mit dem Alter-Team geteilt.*
+
+Bei Fehler **Trace teilen fehlgeschlagen** mit Fehlermeldung (Netzwerk, Auth oder Server).
+
+### Datenschutz
+
+Traces sind für **Support und Debugging** gedacht, nicht für öffentliches Teilen:
+
+- Inhalt spiegelt wider, was der **Task-Subagent** sah und tat
+- **Bildschirminhalt**, Fenstertitel und Dateipfade aus Computer Use können im Markdown erscheinen
+- Heimverzeichnis-Pfade in Doctor-Berichten werden bei **Bericht kopieren** geschwärzt; Task-Exporte werden **nicht** automatisch geschwärzt
+
+Teilen Sie keine Traces mit Passwörtern, Finanzdaten oder vertraulichen Dokumenten, es sei denn, Sie beabsichtigen, diese Informationen dem Alter-Support preiszugeben.
+
+## Konversation als Markdown speichern (Parent-Chat)
+
+**Konversation als Markdown speichern** — Standard **⌘⇧S** — exportiert die **aktive Hub- oder QuickHub-Konversation** über Hub-Menü oder Shortcut. Es **ersetzt nicht** **Chat exportieren** bei einem Tool-Lauf:
+
+- **⌘⇧S** → gesamter Parent-Thread
+- **Chat exportieren** (Inspector) → nur Subagent-Task-Thread
+
+Anpassen unter **Einstellungen → Tastenkürzel → Hub**.
+
+## Fehlerbehebung
+
+**Task-Aktionen fehlen im Inspector**
+
+- Das Tool muss ein **task-erzeugender** Lauf mit zugehöriger Sub-Konversation sein
+- Warten Sie, bis der Tool-Start abgeschlossen ist
+
+**Chat exportieren piept ohne Wirkung**
+
+- Task-Konversation wurde aus dem Speicher entlassen — Tool erneut ausführen oder Parent-Konversation öffnen, während der Task noch geladen ist
+
+**Trace teilen schlägt mit Login-Fehler fehl**
+
+- Unter **Einstellungen → Profil** oder Account-Menü anmelden, dann erneut versuchen
+
+**Ich brauche einen öffentlich teilbaren Link**
+
+- **Trace teilen** lädt an Alter-Support hoch; kopiert keine öffentliche URL. Nutzen Sie **Chat exportieren** und teilen Sie die `.md`-Datei über eigene Kanäle.
+
+## Verwandte Docs
+
+<CardGroup cols={2}>
+  <Card title="Computer Use" icon="cursorarrow.rays" href="/de/apps-tools/computer-use">
+    Zielbasierter Agent, der Task-Konversationen erzeugt
+  </Card>
+  <Card title="Computer Use im Hintergrund" icon="play.rectangle" href="/de/apps-tools/computer-use-background">
+    Watch preview und Edge-Bar-Sitzungen
+  </Card>
+  <Card title="Shortcuts-Referenz" icon="keyboard" href="/de/references/shortcuts">
+    ⌘⇧S und Hub-Shortcuts
+  </Card>
+  <Card title="Doctor-Einstellungen" icon="stethoscope" href="/de/how-to/settings-guide#doctor">
+    Berechtigungsdiagnose wenn Tools fehlschlagen
+  </Card>
+</CardGroup>

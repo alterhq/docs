@@ -1,29 +1,35 @@
 ---
-title: "履行"
-description: "针对 UI 元素运行单击、填充和快捷操作"
+title: "Perform"
+description: "对 UI 元素执行点击、填充、输入和快捷键操作"
 ---
 
-在通过“获取活动应用程序上下文”识别目标后，使用此工具执行具体的 UI 交互。
+在使用 Get Active App Context 识别目标后，用此工具执行具体的 UI 交互。
+
+<Tip>
+  多步骤 UI 工作请优先使用 [**Computer Use**](/apps-tools/computer-use) 智能体（`computer_use_task`），它会自动调用 `perform` 和 [`perform_sequence`](/apps-tools/computer-use-agent-tools)。
+</Tip>
 
 ## 支持的操作
 
-- `click`：单击目标元素。
-- `fill`：在文本字段或文本区域中输入文本。
-- `shortcut`：发送键盘快捷键（例如`cmd+c`、`ctrl+shift+t`）。
+- `click`: 点击目标元素（默认）。
+- `fill`: 向由 `elementID` 标识的字段输入文本。
+- `type`: 向当前焦点输入按键，无需 `elementID`（如计算器）。
+- `shortcut`: 发送快捷键（如 `cmd+c`）。
 
 ## 输入
 
-- `elementID`（`click` 和`fill` 必需）：来自“获取活动应用程序上下文”输出的元素 ID。
-- `text`（`fill` 必需）：要插入到目标输入中的值。
-- `shortcut`（`shortcut` 必需）：快捷方式字符串。
-- `windowID`（可选）：定位特定窗口 (`pid/title`) 而不是活动窗口。
+- `action` (可选): `click`, `fill`, `type`, or `shortcut` (默认 `click`).
+- `elementID` (必填（ `click` and `fill`): 来自 Get Active App Context 的元素 ID。
+- `text` (必填（ `fill` and `type`): 要插入的值或按键。
+- `shortcut` (必填（ `shortcut`): 快捷键字符串。
+- `windowID` (可选): 特定窗口（`pid/title`）。
 
-## 注释
+## 说明
 
-- 元素 ID 会随着 UI 更改和会话计时而过期。如果元素不再有效，则重新读取上下文。
-- 对于后台窗口定位，请在上下文读取和执行步骤中使用相同的`windowID`。
+- elementID 会随 UI 变化失效。
+- 后台操作各步骤使用相同 `windowID`。
 
-## 良好的配对
+## 另见
 
-- [获取活动应用程序上下文](/apps-tools/computer-use-get-active-app-context)
-- [等等](/apps-tools/computer-use-wait)
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Wait](/apps-tools/computer-use-wait)

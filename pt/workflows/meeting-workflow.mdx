@@ -1,110 +1,16 @@
 ---
-title: "Nunca perca itens de ação das reuniões"
-description: "Como gravar, transcrever e extrair automaticamente tarefas de suas reuniões"
+title: "Nunca perca itens de ação de reuniões"
+description: "Redirecionamento — conteúdo de reuniões na guia Meetings"
 ---
 
 <Info>
-**Perfeito para:** Profissionais ocupados, líderes de equipe e qualquer pessoa que queira se concentrar na conversa em vez de fazer anotações.
+  Esta página foi movida. Setup, Sprecherzuordnung und Follow-up-Prompts stehen jetzt an einem Ort.
 </Info>
 
-## O problema
+Veja **[Meetings](/workflows/meetings)** para:
 
-Você está em reuniões consecutivas o dia todo. Quando você chega ao terceiro, você não consegue se lembrar:
-- O que foi decidido na primeira reunião
-- Who agreed to do what
-- Quais são seus itens de ação reais
-
-Você pode fazer anotações durante as reuniões, mas não estará totalmente presente na conversa.
-
-## A solução: deixe Alter cuidar disso
-
-O Alter detecta automaticamente quando você está em reuniões e cria transcrições pesquisáveis ​​com identificação do palestrante. Em seguida, você pode pedir que extraia itens de ação, decisões e pontos-chave.
-
-## Exemplo do mundo real
-
-**Sarah, gerente de produto:**
-> “Eu costumava passar 30 minutos depois de cada reunião fazendo anotações. Agora o Alter registra tudo e eu apenas pergunto 'Quais são meus itens de ação?' e 'Que decisões tomamos sobre a API?' Isso me economiza horas todas as semanas."
-
-## Como configurar
-
-<Steps>
-<Step title="Enable auto-recording">
-    1. Abra Alterar configurações (`Cmd + ,`)
-    2. Vá para a guia **Ditado**
-    3. Ative **Gravação automática de reuniões**
-    4. Defina a duração mínima (padrão: 2 minutos)
-    
-Agora o Alter detectará automaticamente chamadas do Zoom, Google Meet e Teams e perguntará se você deseja gravar.
-</Step>
-  
-<Step title="Choose your transcription quality">
-**Opção 1: processamento em nuvem** (mais rápido e mais preciso)
-    - Usa IA online para transcrição
-    - Melhor precisão para sotaques e termos técnicos
-    
-**Opção 2: Whisper Pro** (Privado, funciona offline)
-    - Baixe um modelo local (recomendado: Whisper Large V3)
-    - Processamento 100% off-line
-    - Ótimo para reuniões confidenciais
-</Step>
-  
-<Step title="Test with a sample meeting">
-    1. Participe de qualquer reunião (até mesmo um teste de Zoom com você mesmo)
-    2. Clique em **Gravar** quando Alter perguntar ou inicie a gravação manualmente
-    3. Fale por 2-3 minutos
-    4. Encerrar a reunião
-    5. Aguarde 10 segundos pela transcrição
-</Step>
-</Steps>
-
-## Como extrair valor das transcrições
-
-Depois de obter uma transcrição, tente estas instruções:
-
-<CardGroup cols={2}>
-<Card title="Get action items" icon="check-circle">
-“Liste todos os itens de ação desta reunião e quem é responsável por cada um”
-</Card>
-<Card title="Summarize decisions" icon="gavel">
-"Quais decisões foram tomadas? Liste-as com contexto"
-</Card>
-<Card title="Find specific topics" icon="search">
-"O que dissemos sobre o orçamento/cronograma/API?"
-</Card>
-<Card title="Create follow-up email" icon="envelope">
-"Elabore um e-mail de acompanhamento resumindo esta reunião para a equipe"
-</Card>
-</CardGroup>
-
-## Dicas profissionais
-
-<Tip>
-**Identificação do alto-falante:** Alter usa IA para identificar diferentes alto-falantes (Alto-falante 1, Alto-falante 2, etc.). Você pode renomeá-los manualmente após a reunião se souber quem são.
-</Tip>
-
-<Tip>
-**Pesquise em todas as reuniões:** Todas as transcrições podem ser pesquisadas. Digite `#` na caixa de prompt para pesquisar o conteúdo da reunião anterior. Pergunte "O que John disse sobre o roteiro nas reuniões da semana passada?"
-</Tip>
-
-<Tip>
-**Legendas ao vivo:** ative as legendas ao vivo durante as reuniões (Configurações > Voz > Ativar legendas ao vivo) para acompanhar em tempo real, o que é especialmente útil se a qualidade do áudio for ruim.
-</Tip>
-
-## Para onde vão seus dados
-
-Todas as transcrições são armazenadas **localmente no seu Mac** em:
-```
-~/Library/Application Support/Alter/Transcripts
-```
-
-Ninguém mais pode acessá-los, a menos que você os compartilhe explicitamente.
-
-## Recursos relacionados
-
-- [Como acessar as configurações](/how-to/settings-guide) – Configurar opções de reunião e voz
-- [Solucionar problemas de transcrição do microfone](/common-issues/mic-not-transcribing) – Corrigir problemas de captura
-- [Use Tool Manager](/how-to/tool-manager-guide) – Configure ferramentas para fluxos de trabalho de acompanhamento
-
----
-
-**Pronto para experimentar?** Sua próxima reunião é o momento perfeito para testar isso. Basta ativar a gravação automática e ver como fica mais fácil o seu acompanhamento!
+- Gravação automática e manual
+- Correspondência de falantes e calendários (beta93+)
+- Transcrição na nuvem com Soniox V5 (beta96+)
+- Legendas ao vivo e gestão de transcrições
+- Prompts para itens de ação, decisões e e-mails de acompanhamento

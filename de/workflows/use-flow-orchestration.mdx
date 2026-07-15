@@ -137,29 +137,30 @@ Wenn Sie eine Anfrage mit aktivem Flow senden, folgt es diesem Prozess:
 
 ---
 
-## Best Practice: "Frage alles" konfigurieren
+## Ask Anything-Standards (beta100+)
 
-Die Aktion **Frage alles** ist Alters Standard — sie wird verwendet, wenn Sie in das Eingabefeld tippen, ohne eine spezifische Aktion auszuwählen.
+Die Aktion **Frage alles** läuft, wenn Sie ohne andere Aktion tippen. Ab **2.0.0-beta100** sind drei Tools standardmäßig aktiv:
+
+| Tool | Rolle |
+|------|------|
+| **Flow** | Tools für mehrstufige Aufgaben orchestrieren |
+| **Computer Use** | Bildschirmautomatisierung (`computer_use_task`) |
+| **Ask User** | Klärende Mehrfachauswahl-Fragen |
+
+Aktivieren Sie Integrationen im **Tools Manager** (**⌘⇧T**).
+
+### Optional: weniger Tools für Tempo
 
 <Steps>
-  <Step title="Aktionen-Editor öffnen">
-    Gehen Sie zu **Einstellungen > Aktionen**
-  </Step>
-  <Step title="Frage alles finden">
-    Suchen Sie nach der Aktion **"Frage alles"**
-  </Step>
-  <Step title="Erweiterte Optionen klicken">
-    Erweitern Sie den Bereich **Erweiterte Optionen**
-  </Step>
-  <Step title="Nur Flow auswählen">
-    Wählen Sie im Abschnitt **Tools** nur **Flow** aus (alle anderen Tools abwählen).
-  </Step>
-  <Step title="Speichern">
-    Speichern Sie Ihre Änderungen.
-  </Step>
+  <Step title="Action Editor öffnen">**⌘⇧E** oder Menüleiste</Step>
+  <Step title="Frage alles finden">Aktion **Frage alles** wählen</Step>
+  <Step title="Tools öffnen">Tab **Tools** — **Computer Use** und **Ask User** deaktivieren</Step>
+  <Step title="Speichern">Änderungen speichern</Step>
 </Steps>
 
-Jetzt verwenden Ihre Standardinteraktionen die Orchestrierung von Flow, anstatt alle aktivierten Tools in jede Anfrage zu laden.
+<Note>
+  **Computer Use** und **Ask User** sind bewusste Standardwerte. Entfernen Sie sie nur für ein leichteres, Flow-only-Setup.
+</Note>
 
 ---
 

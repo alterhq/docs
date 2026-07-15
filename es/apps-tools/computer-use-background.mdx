@@ -1,0 +1,85 @@
+---
+title: "Computer Use en segundo plano"
+description: "Ejecuta tareas Computer Use en segundo plano mientras sigues trabajando, con vista previa en vivo y controles de sesión Edge Bar"
+---
+
+Computer Use en segundo plano permite que Alter controle apps en tu Mac **sin tomar tu pantalla**. Sigues escribiendo, leyendo y cambiando de ventana mientras el agente trabaja en una ventana en segundo plano. Una vista previa flotante en vivo y una tarjeta de sesión Edge Bar muestran el progreso — y puedes detener la ejecución en cualquier momento.
+
+Esta es la experiencia predeterminada del agente **Computer Use** (`computer_use_task`), introducida en **2.0.0-beta100**.
+
+## Cuándo usar el modo en segundo plano
+
+Úsalo cuando:
+
+- Quieres que Alter scrape una página, rellene un formulario o navegue en una app **mientras continúas tu trabajo**
+- La tarea puede tardar varios minutos y no quieres QuickHub adjunto a la ventana objetivo
+- Necesitas automatización UI en una ventana que **no** es tu app en primer plano
+
+<Card title="Interfaz principal" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  Empieza con la [visión general de Computer Use](/apps-tools/computer-use) — pasa un `goal` a `computer_use_task`.
+</Card>
+
+## Cómo funciona una ejecución en segundo plano
+
+Cuando invocas **Computer Use**, Alter:
+
+1. **Inicia una sesión Edge Bar** de inmediato
+2. **Aplica presentación `edgebarOnly`** — QuickHub no se adjunta a la app objetivo
+3. **Ejecuta un subagente dedicado** que hace bucle con herramientas UI hasta **600 segundos** (10 minutos)
+4. **Enruta entradas a la ventana objetivo en segundo plano** vía `BackgroundInputDriver`
+5. **Rastrea la ventana objetivo activa** en la tarjeta de sesión y vista previa
+
+Los atajos globales **⌘C**, **⌘V**, **⌘Tab** **no** los usa el agente.
+
+## Tarjeta de sesión Edge Bar
+
+Muestra **objetivo**, **estado**, **app objetivo** y **Detener**. Requiere [modo QuickHub](/getting-started/quickhub-mode).
+
+## Ventana de vista previa en vivo
+
+Picture-in-picture con captura en vivo (~15 fps). Configura en **Configuración → Computer use → Mostrar vista previa automáticamente** y **Tamaño de vista previa**. Abre con **Watch preview** en el Tool Inspector.
+
+## Enrutamiento de entrada en segundo plano
+
+| Ruta | Cuándo |
+|-------|-----------|
+| **SkyLight** | Preferida cuando el servidor de ventanas puede entregar eventos |
+| **Per-PID** | Eventos directos al proceso objetivo |
+| **HID fallback** | Último recurso |
+
+Apps **Chromium** y **Safari** usan desplazamiento por teclado en segundo plano.
+
+## Ciblage de ventana
+
+Orden de resolución de `windowID`: explícito → objetivo rastreado → respaldo de sesión → ventana en primer plano.
+
+## Navegador agente
+
+`open_urls` usa el **navegador agente** si está configurado en **Configuración → Computer use → Navegador agente**. **Limpiar al terminar** cierra pestañas del agente.
+
+## Detener, cancelar y timeout
+
+| Acción | Efecto |
+|--------|--------|
+| **Detener** | Cancela el subagente |
+| **Timeout 600 s** | El subagente se detiene |
+| **Descartar** | Quita la tarjeta de Edge Bar |
+
+## Ajustes
+
+**Configuración → Computer use**: navegador agente, limpiar al terminar, vista previa automática, tamaño, apps bloqueadas. Ver [Configuración → Computer use](/how-to/settings-guide#computer-use).
+
+## Solución de problemas
+
+**La vista previa no aparece** — Activa vista previa automática o **Watch preview**. QuickHub Mode debe estar activo.
+
+**App bloqueada** — Gestores de contraseñas bloqueados por defecto en **Apps bloqueadas**.
+
+**Permisos** — Requiere **Accesibilidad** y **Grabación de pantalla**. Ver [Las herramientas no funcionan](/common-issues/tool-not-working).
+
+## Documentos relacionados
+
+- [Visión general Computer Use](/apps-tools/computer-use)
+- [Herramientas agente Computer Use](/apps-tools/computer-use-agent-tools)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait)
+- [Configuración → Computer use](/how-to/settings-guide#computer-use)

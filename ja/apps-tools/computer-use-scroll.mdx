@@ -3,8 +3,12 @@ title: "スクロール"
 description: "コンピューター使用フローでアクティブなアプリ ウィンドウをスクロールする"
 ---
 
+
 ターゲット コンテンツが現在のビューポートの外側にある場合は、スクロールを使用します。
 
+<Tip>
+  The [**Computer Use**](/apps-tools/computer-use) agent calls `scroll` as part of its background loop. See [agent tools](/apps-tools/computer-use-agent-tools) for window targeting and [Background Computer Use](/apps-tools/computer-use-background) for non-blocking runs.
+</Tip>
 ## 何をするのか
 
 - 最前面のアプリウィンドウをスクロールします。
@@ -13,7 +17,7 @@ description: "コンピューター使用フローでアクティブなアプリ
 
 ## 入力
 
-- `seconds` (オプション): スクロールする期間 (デフォルトは 3、最大 3600)。
+- `milliseconds` (オプション): スクロール時間（ミリ秒）（デフォルト **3000**、最大 **3600000**）。
 - `direction` (オプション): `up`、`down`、`left`、または `right` (デフォルトは `down`)。
 
 ## 一般的な使用方法

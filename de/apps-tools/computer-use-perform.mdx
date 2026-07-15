@@ -1,29 +1,35 @@
 ---
-title: "Führen Sie durch"
-description: "Führen Sie Klick-, Füll- und Verknüpfungsaktionen für UI-Elemente aus"
+title: "Durchführen"
+description: "Klick-, Fill-, Type- und Shortcut-Aktionen auf UI-Elemente ausführen"
 ---
 
-Verwenden Sie dieses Tool, um konkrete UI-Interaktionen auszuführen, nachdem Sie Ziele mit Get Active App Context identifiziert haben.
+Nutzen Sie dieses Tool für konkrete UI-Interaktionen nach dem Identifizieren von Zielen mit Get Active App Context.
+
+<Tip>
+  Für mehrstufige UI-Arbeit bevorzugen Sie den [**Computer Use**](/de/apps-tools/computer-use)-Agenten (`computer_use_task`), der `perform` und [`perform_sequence`](/de/apps-tools/computer-use-agent-tools) automatisch aufruft.
+</Tip>
 
 ## Unterstützte Aktionen
 
-- `click`: Klicken Sie auf ein Zielelement.
-- `fill`: Geben Sie Text in ein Textfeld oder einen Textbereich ein.
-- `shortcut`: Tastaturkürzel senden (zum Beispiel `cmd+c`, `ctrl+shift+t`).
+- `click`: Klick auf Zielelement (Standard).
+- `fill`: Text in Feld/Textarea mit `elementID` eingeben.
+- `type`: Roh-Tastatureingaben ohne `elementID` (z. B. Taschenrechner).
+- `shortcut`: Tastenkürzel senden (z. B. `cmd+c`).
 
 ## Eingaben
 
-- `elementID` (erforderlich für `click` und `fill`): Element-ID aus der Ausgabe „Get Active App Context“.
-- `text` (erforderlich für `fill`): Wert, der in die Zieleingabe eingefügt werden soll.
-- `shortcut` (erforderlich für `shortcut`): Verknüpfungszeichenfolge.
-- `windowID` (optional): Zielen Sie auf ein bestimmtes Fenster (`pid/title`) statt auf das aktive.
+- `action` (optional): `click`, `fill`, `type`, or `shortcut` (Standard `click`).
+- `elementID` (erforderlich für `click` and `fill`): Element-ID aus Get Active App Context.
+- `text` (erforderlich für `fill` and `type`): Wert oder Tastatureingaben.
+- `shortcut` (erforderlich für `shortcut`): Shortcut-String.
+- `windowID` (optional): Bestimmtes Fenster (`pid/title`) statt aktives.
 
-## Notizen
+## Hinweise
 
-– Element-IDs laufen mit Änderungen an der Benutzeroberfläche und dem Sitzungszeitpunkt ab. Lesen Sie den Kontext erneut, wenn ein Element nicht mehr gültig ist.
-– Verwenden Sie für das Targeting von Hintergrundfenstern die gleichen `windowID` kontextübergreifenden Lese- und Ausführungsschritte.
+- Element-IDs verfallen bei UI-Änderungen.
+- Gleiches `windowID` für Hintergrundfenster in allen Schritten.
 
-## Gute Paarung
+## Siehe auch
 
-- [Aktiven App-Kontext abrufen](/apps-tools/computer-use-get-active-app-context)
-- [Warten](/apps-tools/computer-use-wait)
+- [Get Active App Context](/de/apps-tools/computer-use-get-active-app-context)
+- [Warten](/de/apps-tools/computer-use-wait)

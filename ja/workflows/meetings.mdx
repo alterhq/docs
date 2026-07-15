@@ -28,6 +28,11 @@ Alter は、次の会議に参加すると自動的に検出します。
   </Card>
 </CardGroup>
 
+### クラウド文字起こし（Soniox V5）
+
+**Cloud** プロセッサでは **Soniox V5**（beta96+）を使用。クラウドはログインが必要；ローカル **Whisper Pro** と **Parakeet** はオフラインのまま。
+
+
 会議が検出されると、Alter は、録画するかスキップするかを選択する当然な通知を表示します。
 
 ### 自動録画設定
@@ -80,7 +85,7 @@ Alter は、次の会議に参加すると自動的に検出します。
 
 <Steps>
   <Step title="録音を開始する">
-    ノッチのマイクアイコンをクリックすると、赤い録音ボタンに変わります
+    ノッチのClick the mic icon in QuickHub (or the notch when QuickHub Mode is off) — it turns into a red recording button
   </Step>
   <Step title="モニター">
     文字起こし中にマイクがアニメーションする
@@ -94,7 +99,20 @@ Alter は、次の会議に参加すると自動的に検出します。
 
 ## 話者の識別
 
-Alter は、話者ダイアライゼーションに最先端の AI である **Pyannote 4 (Community-1)** を使用しています。
+Alter は、話者ダイアライゼーションに最先端の AI である **Pyannote 4 (Community-1)
+
+### 話者名マッチング（beta93+）
+
+**Settings → Voice → Automation** で **Find speakers names (experimental)** を有効化：
+
+<Steps>
+  <Step title="Voice を開く">**Settings → Voice → Automation**</Step>
+  <Step title="有効化">実験的マッチングをオン</Step>
+  <Step title="カレンダー">仕事用カレンダーを選択</Step>
+  <Step title="連絡先">連絡先アクセスを許可</Step>
+</Steps>
+
+** を使用しています。
 
 <CardGroup cols={3}>
   <Card title="完璧なID" icon="check-circle">

@@ -3,8 +3,12 @@ title: "待って"
 description: "コンピュータ使用アクション間の実行を一時停止する"
 ---
 
+
 ページ、ダイアログ、またはアプリの状態の更新に時間が必要な場合は、「待機」を使用して UI アクション間にタイミング ギャップを追加します。
 
+<Tip>
+  Inside [**Computer Use**](/apps-tools/computer-use), the subagent calls `wait` only when an accessibility read is empty or still loading — not before every step. See the [agent tools reference](/apps-tools/computer-use-agent-tools).
+</Tip>
 ## 何をするのか
 
 - 指定された秒数の間、実行を一時停止します。

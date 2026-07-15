@@ -1,110 +1,16 @@
 ---
-title: "Verpassen Sie nie wieder Aktionspunkte aus Besprechungen"
-description: "So zeichnen Sie Ihre Besprechungen automatisch auf, transkribieren und extrahieren Aufgaben daraus"
+title: "Nie wieder Aktionspunkte aus Meetings verpassen"
+description: "Weiterleitung — Meeting-Inhalte im Meetings-Guide"
 ---
 
 <Info>
-  **Perfekt für:** Vielbeschäftigte Berufstätige, Teamleiter und alle, die sich auf das Gespräch konzentrieren möchten, anstatt sich Notizen zu machen.
+  Diese Seite wurde verschoben. Setup, Sprecherzuordnung und Follow-up-Prompts stehen jetzt an einem Ort.
 </Info>
 
-## Das Problem
+Siehe **[Meetings](/de/workflows/meetings)** für:
 
-Sie sind den ganzen Tag in aufeinanderfolgenden Besprechungen. Wenn Sie zum dritten kommen, können Sie sich nicht mehr erinnern:
-- Was wurde im ersten Treffen beschlossen?
-- Wer hat zugestimmt, was zu tun?
-- Was sind Ihre tatsächlichen Aktionselemente?
-
-Während Besprechungen können Sie zwar Notizen machen, sind dann aber nicht vollständig im Gespräch dabei.
-
-## Die Lösung: Lassen Sie Alter damit umgehen
-
-Alter erkennt automatisch, wenn Sie an Besprechungen teilnehmen, und erstellt durchsuchbare Transkripte mit Sprecheridentifizierung. Dann können Sie es bitten, Aktionselemente, Entscheidungen und Schlüsselpunkte zu extrahieren.
-
-## Beispiel aus der Praxis
-
-**Sarah, Produktmanagerin:**
-> „Früher habe ich nach jedem Meeting 30 Minuten damit verbracht, Notizen zu machen. Jetzt zeichnet Alter alles auf und ich frage nur: ‚Was sind meine Aktionspunkte?‘ und „Welche Entscheidungen haben wir bezüglich der API getroffen?“ Es spart mir jede Woche Stunden.“
-
-## So richten Sie es ein
-
-<Steps>
-  <Step title="Enable auto-recording">
-    1. Öffnen Sie „Einstellungen ändern“ (`Cmd + ,`).
-    2. Gehen Sie zur Registerkarte **Diktat**
-    3. Aktivieren Sie **Besprechungen automatisch aufzeichnen**
-    4. Stellen Sie die Mindestdauer ein (Standard: 2 Minuten)
-    
-Jetzt erkennt Alter Zoom-, Google Meet- und Teams-Anrufe automatisch und fragt Sie, ob Sie aufzeichnen möchten.
-  </Step>
-  
-<Step title="Choose your transcription quality">
-    **Option 1: Cloud-Verarbeitung** (Am schnellsten, am genauesten)
-    - Verwendet Online-KI für die Transkription
-    - Beste Genauigkeit bei Akzenten und Fachbegriffen
-    
-**Option 2: Whisper Pro** (Privat, funktioniert offline)
-    - Laden Sie ein lokales Modell herunter (empfohlen: Whisper Large V3)
-    - 100 % Offline-Verarbeitung
-    - Ideal für vertrauliche Besprechungen
-  </Step>
-  
-<Step title="Test with a sample meeting">
-    1. Nehmen Sie an jedem Meeting teil (sogar an einem Test-Zoom mit sich selbst)
-    2. Klicken Sie auf **Aufnehmen**, wenn Alter Sie dazu auffordert, oder starten Sie die Aufnahme manuell
-    3. Sprechen Sie 2-3 Minuten lang
-    4. Beenden Sie das Meeting
-    5. Warten Sie 10 Sekunden auf die Transkription
-  </Step>
-</Steps>
-
-## So extrahieren Sie Wert aus Transkripten
-
-Sobald Sie ein Transkript haben, versuchen Sie es mit diesen Eingabeaufforderungen:
-
-<CardGroup cols={2}>
-  <Card title="Get action items" icon="check-circle">
-    „Listen Sie alle Aktionspunkte dieser Besprechung auf und geben Sie an, wer jeweils dafür verantwortlich ist.“
-  </Card>
-  <Card title="Summarize decisions" icon="gavel">
-    „Welche Entscheidungen wurden getroffen? Listen Sie sie mit Kontext auf.“
-  </Card>
-  <Card title="Find specific topics" icon="search">
-    „Was haben wir zum Budget/Zeitplan/API gesagt?“
-  </Card>
-  <Card title="Create follow-up email" icon="envelope">
-    „Entwerfen Sie eine Folge-E-Mail mit einer Zusammenfassung dieser Besprechung für das Team.“
-  </Card>
-</CardGroup>
-
-## Profi-Tipps
-
-<Tip>
-  **Sprecheridentifikation:** Alter verwendet KI, um verschiedene Sprecher zu identifizieren (Sprecher 1, Sprecher 2 usw.). Sie können sie nach dem Meeting manuell umbenennen, wenn Sie wissen, wer sie sind.
-</Tip>
-
-<Tip>
-  **Suche in allen Meetings:** Alle Transkripte sind durchsuchbar. Geben Sie `#` in das Eingabeaufforderungsfeld ein, um nach Inhalten vergangener Besprechungen zu suchen. Fragen Sie: „Was hat John in den Besprechungen der letzten Woche über die Roadmap gesagt?“
-</Tip>
-
-<Tip>
-  **Live-Untertitel:** Aktivieren Sie Live-Untertitel während Besprechungen (Einstellungen > Stimme > Live-Untertitel aktivieren), um in Echtzeit mitzumachen. Dies ist besonders hilfreich, wenn die Audioqualität schlecht ist.
-</Tip>
-
-## Wohin Ihre Daten gehen
-
-Alle Transkripte werden **lokal auf Ihrem Mac** gespeichert unter:
-```
-~/Library/Application Support/Alter/Transcripts
-```
-
-Niemand sonst kann darauf zugreifen, es sei denn, Sie teilen sie ausdrücklich.
-
-## Verwandte Funktionen
-
-- [So greifen Sie auf die Einstellungen zu](/how-to/settings-guide) – Konfigurieren Sie Besprechungs- und Sprachoptionen
-- [Fehler bei der Mikrofontranskription beheben](/common-issues/mic-not-transcribing) – Aufnahmeprobleme beheben
-- [Tool-Manager verwenden](/how-to/tool-manager-guide) – Tools für Folgeworkflows konfigurieren
-
----
-
-**Bereit, es auszuprobieren?** Ihr nächstes Meeting ist der perfekte Zeitpunkt, es auszuprobieren. Schalten Sie einfach die automatische Aufzeichnung ein und sehen Sie, wie viel einfacher Ihre Nachverfolgung wird!
+- Auto-Record und manuelle Aufnahme
+- Sprecherzuordnung und Kalenderauswahl (beta93+)
+- Cloud-Transkription mit Soniox V5 (beta96+)
+- Live-Untertitel und Transkriptverwaltung
+- Prompts für Aktionspunkte, Entscheidungen und Follow-up-E-Mails

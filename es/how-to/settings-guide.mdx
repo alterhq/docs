@@ -1,11 +1,11 @@
 ---
-title: "Configuración de los ajustes Alter"
-description: "Aprenda cómo personalizar Alter para que coincida con sus preferencias y administrar su cuenta"
+title: "Configuración de los ajustes de Alter"
+description: "Aprende a personalizar Alter según tus preferencias y gestionar tu cuenta"
 ---
 
-## Meta
+## Objetivo
 
-Aprenda cómo personalizar Alter para que coincida con sus preferencias, administrar su cuenta, configurar modelos de IA y configurar permisos para una productividad óptima.
+Aprende a personalizar Alter según tus preferencias, gestionar tu cuenta, configurar modelos de IA y establecer permisos para una productividad óptima.
 
 ## Pasos
 
@@ -14,268 +14,283 @@ Aprenda cómo personalizar Alter para que coincida con sus preferencias, adminis
 Hay tres formas de abrir Configuración:
 
 **Opción 1: Barra de menú**
-Haga clic en el icono Alter en la barra de menú y seleccione **Configuración...** en el menú desplegable.
+Haz clic en el icono de Alter en la barra de menú y selecciona **Settings...** en el menú desplegable.
 
-**Opción 2: método abreviado de teclado**
-Presione **⌘, (Comando + Coma)** para abrir Configuración directamente.
+**Opción 2: Atajo de teclado**
+Pulsa **⌘ , (Comando + Coma)** para abrir Configuración directamente.
 
-**Opción 3: Menú de muesca**
-Haga clic en el ícono de menú de tres puntos (⋮) en la muesca Alter y seleccione **Configuración**.
+**Opción 3: Menú de la muesca**
+Haz clic en el icono de menú de tres puntos (⋮) en la muesca de Alter y selecciona **Settings**.
 
 ![Acceso a la barra de menú](/images/settings/Alter-Menu_Bar-Menu.webp)
 
-### Configuraciones generales
+### Ajustes generales {#general}
 
-En la pestaña **General**, puede configurar la funcionalidad principal y las opciones de acceso rápido:
+En la pestaña **General** configuras QuickHub Mode, Edge Bar, asistencia de selección, parámetros predeterminados del modelo y reglas de notificaciones.
 
-**Acceso rápido**
-- **Abrir muesca**: habilite el método abreviado de teclado para abrir la muesca desde cualquier lugar de la pantalla.
-- **Abrir o enfocar The Hub**: cambie o inicie rápidamente la ventana Alter Hub (⌘ ⌥ H)
-- **Nuevo chat dThe Hub**: inicia una nueva sesión de conversación en The Hub (⌘ Espacio)
-- **Botón de selección**: muestra un botón de acción rápida accesible desde cualquier lugar
+#### Acceso rápido
 
-**Configuración de LLM**
-- **Tokens máximos**: establece la duración máxima de las respuestas de IA
-- **Temperatura**: controla la creatividad y la variación de la respuesta (0,0 = determinista, 1,0 = creativo; predeterminado: 0,70)
+- **Selection Button** — Muestra un botón de acceso rápido junto al cursor del ratón al seleccionar texto
+- **QuickHub Mode** — Usa QuickHub para todas las conversaciones en lugar de la muesca (predeterminado **activado** para usuarios nuevos). Desactivado: los atajos globales muestran **Open notch** en lugar de **Open QuickHub**. Consulta [Modo QuickHub](/getting-started/quickhub-mode).
 
-**Notificaciones**
-- **Resumir vídeo de YouTube**: cree resúmenes automáticamente cuando visite vídeos de YouTube
-- **Grabar en transcripción**: transcriba grabaciones automáticamente a sus notas (vaya a la configuración de Notas para obtener más opciones)
+#### Edge Bar
 
-![Configuración general](/images/settings/Alter-Settings_01_General-Beta71.webp)
+Los ajustes de Edge Bar aparecen debajo de QuickHub Mode y están **desactivados cuando QuickHub Mode está desactivado**.
 
-### 2. Configuración de voz
+- **Left edge** / **Right edge** — Activa los lanzadores del borde de pantalla de forma independiente (predeterminado: derecha activada, izquierda desactivada)
+- **All monitor edges** — Usa los bordes izquierdo/derecho seleccionados en todos los monitores, incluidos los bordes entre pantallas. Desactivado: solo los bordes exteriores en configuraciones multimonitor son elegibles
+- **Opening distance** — Control deslizante de **0%** (pegado al borde) a **100%** (distancia predeterminada) en pasos del 25%
 
-La pestaña **Voz** controla cómo Alter procesa y responde al audio:
+El pie del apartado explica el comportamiento de revelado y las reglas multimonitor. Guía completa: [Edge Bar](/getting-started/edge-bar).
 
-**Configuración general**
+Los atajos globales para abrir QuickHub (**⌘⇧Space** predeterminado), el Hub (**⌘⇧H**) y chats nuevos (**⌥Space**) se configuran en **Settings → Shortcuts → Global**, no en esta pestaña.
 
-- **Comportamiento del audio durante el dictado**: controle cómo se maneja el audio del sistema durante el dictado. Las opciones incluyen agachar (reducir el volumen) o silenciar el audio por completo para minimizar las interrupciones.
-- **Manténgase despierto durante la reunión**: evite que su Mac entre en modo de suspensión o de ahorro de energía durante las grabaciones de reuniones, lo que garantiza una transcripción ininterrumpida.
-- **Reproduzca un timbre al iniciar la grabación**: reciba una alerta de audio cuando comience a dictar o grabar una reunión
+**LLM Settings**
+- **Max Tokens**: Establece la longitud máxima de las respuestas de IA
+- **Temperature**: Controla la creatividad y variación de las respuestas (0.0 = determinista, 1.0 = creativo; predeterminado: 0.70)
 
-**Idioma y vocabulario**
-- **Idioma de dictado**: seleccione su idioma preferido para la entrada de voz
-- **Diccionario personal**: agregue términos personalizados y reemplazos de transcripciones
-- **Administrar reemplazos**: edite palabras que con frecuencia no se reconocen correctamente
+**Notifications**
+- **Summarize YouTube video**: Crea resúmenes automáticamente cuando visitas vídeos de YouTube
+- **Record to transcript**: Transcribe grabaciones automáticamente a tus notas (ve a los ajustes de Notes para más opciones)
 
-**Procesador de voz**
-Elija su modelo de procesamiento de voz:
+![Ajustes generales](/images/settings/Alter-Settings_01_General-Beta71.webp)
+
+### 2. Ajustes de voz {#voice}
+
+La pestaña **Voice** controla cómo Alter procesa y responde al audio:
+
+**General Configuration**
+
+- **Audio behavior during dictation**: Controla cómo se gestiona el audio del sistema mientras dictas. Las opciones incluyen ducking (reducir el volumen) o silenciar el audio por completo para minimizar interrupciones
+- **Keep awake during meeting**: Evita que tu Mac entre en suspensión o modo de ahorro de energía durante grabaciones de reuniones, garantizando una transcripción ininterrumpida
+- **Play chime when starting recording**: Recibe una alerta sonora al iniciar el dictado o la grabación de una reunión
+
+**Language & Vocabulary**
+- **Dictation language**: Selecciona tu idioma preferido para la entrada de voz
+- **Personal Dictionary**: Añade términos personalizados y reemplazos de transcripción
+- **Manage Replacements**: Edita palabras que se reconocen mal con frecuencia
+
+**Voice Processor**
+Elige tu modelo de procesamiento de voz:
 - **Apple**: Integrado, optimizado para la privacidad
-- **Local**: Ejecútelo en su máquina con los modelos descargados
-- **Opciones de nube**: Anthropic y otros proveedores de nube con diversas capacidades
+- **Local / Local Plus**: Ejecútalo en tu Mac con modelos Whisper o Parakeet descargados
+- **Cloud**: Transcripción en línea mediante **Soniox V5** (beta96+); mejor precisión para reuniones cuando eres elegible
 
-![Configuración de voz](/images/settings/Alter-Settings_02_Voice-Beta71.webp)
+![Ajustes de voz](/images/settings/Alter-Settings_02_Voice-Beta71.webp)
 
-#### Configuración de voz: atajos de teclado
+#### Ajustes de voz - Atajos de teclado
 
-Configure atajos de teclado para un acceso rápido por voz desde cualquier lugar:
+Configura atajos de teclado para acceder rápidamente a la voz desde cualquier lugar:
 
-- **Atajo de teclado**: inicia/detiene la entrada de voz y habla comandos. Personalice la clave de activación para el funcionamiento con manos libres. Mantenga presionado para hablar y toque para dictar.
-- **Atajo de reunión**: acceso rápido a comandos de voz específicos de la reunión
-- **Subtítulos en vivo**: habilite la superposición de transcripción en vivo mientras habla
-- **Bloc de notas en vivo**: abra el panel del Bloc de notas en vivo para capturar la entrada de voz directamente en notas
+- **Keyboard Shortcut**: Inicia/detiene la entrada de voz y habla comandos. Personaliza la tecla de activación para un funcionamiento manos libres. Mantén pulsado para hablar con el prompt; toca para dictar.
+- **Meeting Shortcut**: Acceso rápido a comandos de voz específicos de reuniones
+- **Live Captions**: Activa la superposición de transcripción en vivo mientras hablas
+- **Live Notepad**: Abre el panel de bloc de notas en vivo para capturar la entrada de voz directamente en notas
 
-Estos atajos le permiten activar las funciones de voz de Alter sin cambiar de ventana ni quitar las manos del teclado.
+Estos atajos te permiten activar las funciones de voz de Alter sin cambiar de ventana ni quitar las manos del teclado.
 
 ![Atajos de voz](/images/settings/Alter-Settings_02a_Voice-Shortcuts-Beta71.webp)
 
-#### Configuración de voz - Automatización
+#### Ajustes de voz - Automatización
 
-Configure la automatización para reuniones y grabaciones:
-- **Aplicaciones para reuniones**: seleccione qué aplicaciones monitorear para las reuniones
-- **Grabación automática de reuniones**: comienza a grabar automáticamente cuando se detecta una reunión
-- **Buscar nombres de oradores**: identifique el nombre de cada orador según el servicio de reuniones que esté utilizando.
-- **Mantener el dictado en el portapapeles**: conservar la entrada de voz en el portapapeles
+Configura la automatización para reuniones y grabaciones:
+- **Meeting apps**: Selecciona qué apps monitorizar para reuniones
+- **Auto record meetings**: Inicia la grabación automáticamente cuando se detecta una reunión
+- **Find speakers names (experimental)**: Identificación de locutores solo en la nube; activa la coincidencia con calendario y Contactos (beta93+)
+- **Calendars for speaker matching**: Elige calendarios de Apple usados para coincidir eventos y sugerir nombres de asistentes
+- **Contacts for speaker matching**: Resuelve los correos de asistentes a nombres para mostrar
+- **Keep dictation in pasteboard**: Conserva la entrada de voz en el portapapeles
+
+**Cloud processor:** Cuando **Cloud** está seleccionado como procesador de voz, la transcripción de reuniones y dictado usa el motor **Soniox V5** (beta96+) para mayor precisión. Requiere inicio de sesión y elegibilidad para dictado en la nube.
 
 ![Automatización de voz](/images/settings/Alter-Settings_02b_Voice-Automation-Beta71.webp)
 
-#### Configuración de voz - Diccionario
+#### Ajustes de voz - Diccionario
 
-Cree un diccionario personal para una transcripción precisa:
-- Agregue palabras o frases que Alter frecuentemente no reconoce
-- Cree terminología personalizada para su campo o flujo de trabajo
+Crea un diccionario personal para una transcripción precisa:
+- Añade palabras o frases que Alter reconoce mal con frecuencia
+- Crea terminología personalizada para tu campo o flujo de trabajo
 
 ![Diccionario de voz](/images/settings/Alter-Settings_02c_Voice-Dictionary-Beta71.webp)
 
-#### Configuración de voz: reemplazos
+#### Ajustes de voz - Reemplazos
 
-Configure reemplazos de palabras para errores de transcripción comunes:
-- Mapear palabras que se escuchan mal con frecuencia para corregirlas.
-- Ejemplo: "Alter" → "Alter" (si se interpreta mal como "Altar")
+Configura reemplazos de palabras para errores comunes de transcripción:
+- Asocia palabras mal oídas con frecuencia a las correctas
+- Ejemplo: "Alter" → "Alter" (si se oye como "Altar")
 
 ![Reemplazos de voz](/images/settings/Alter-Settings_02d_Voice-Replacements-Beta71.webp)
 
-#### Configuración de voz: modelos locales
+#### Ajustes de voz - Modelos locales
 
-Elija entre los modelos de procesamiento de voz local cuando utilice el procesador local:
+Elige entre modelos locales de procesamiento de voz cuando uses el procesador Local:
 
 **¿Por qué procesamiento local?**
-- **Privacidad total**: todo el procesamiento de audio se realiza en tu Mac; no se envían datos a los servicios en la nube
-- **Cero intercambio de datos**: las grabaciones, las transcripciones y la identificación del orador permanecen completamente en su dispositivo
-- **Cumple con GDPR**: Diseñado con protección de datos según principios de diseño
-- **Siempre disponible**: funciona sin conexión y sin dependencia de Internet
+- **Privacidad total**: Todo el procesamiento de audio ocurre en tu Mac; no se envían datos a servicios en la nube
+- **Cero intercambio de datos**: Grabaciones, transcripciones e identificación de locutores permanecen por completo en tu dispositivo
+- **Cumple con el RGPD**: Diseñado con protección de datos desde el diseño
+- **Siempre disponible**: Funciona sin conexión, sin depender de internet
 
-**Local** - Opciones básicas del modelo local
-- Modelos de susurro para conversión de voz a texto
-- Múltiples tamaños de modelos (pequeño, básico, pequeño, mediano, grande, etc.)
-- Elija basándose en la compensación entre precisión y rendimiento
+**Local** - Opciones básicas de modelos locales
+- Modelos Whisper para voz a texto
+- Varios tamaños de modelo (Tiny, Base, Small, Medium, Large, etc.)
+- Elige según el equilibrio entre precisión y rendimiento
 
-**Modelos de susurro**
+**Whisper Models**
 
-OpenAI Whisper admite más de 50 idiomas con una cobertura global integral:
+OpenAI Whisper admite más de 50 idiomas con cobertura global amplia:
 - **Idiomas principales**: inglés, español, francés, alemán, portugués, ruso, italiano, japonés, coreano, chino
-- **Idiomas europeos**: holandés, polaco, rumano, sueco, ucraniano, griego, checo, húngaro, eslovaco, turco, danés, noruego, finlandés
+- **Idiomas europeos**: neerlandés, polaco, rumano, sueco, ucraniano, griego, checo, húngaro, eslovaco, turco, danés, noruego, finlandés
 - **Otros idiomas**: árabe, hebreo, hindi, vietnamita, tailandés, indonesio, tagalo, bengalí, tamil, marathi, kannada y muchos más
 
-**Características:**
+**Features:**
 - Marcas de tiempo a nivel de palabra generadas automáticamente
-- Identificación del hablante (quién dijo qué)
-- Optimizado a 626 MB para el rendimiento de Mac
-- Lo mejor para cobertura y precisión del idioma global
+- Identificación de locutores (quién dijo qué)
+- Optimizado a 626 MB para el rendimiento en Mac
+- Ideal para cobertura y precisión de idiomas globales
 
-Whisper sobresale en idiomas muy hablados, pero la precisión puede variar en idiomas menos comunes con datos de entrenamiento limitados.
+Whisper destaca en idiomas muy hablados, pero la precisión puede variar en idiomas menos comunes con datos de entrenamiento limitados.
 
 ![Voz - Modelos locales](/images/settings/Alter-Settings_02e_Voice-Local-Beta71.webp)
 
-**Local Plus** - Función paga
+**Local Plus** - Función de pago
 
-Incluye los modelos Whisper y Parakeet con detección automática de idioma:
+Incluye modelos Whisper y Parakeet con detección automática de idioma:
 
-**Modelos Whisper** (99 idiomas)
-- El mismo soporte de idiomas amplio que la opción local
-- Optimizado para mayor precisión en diversos contextos lingüísticos
+**Whisper Models** (99 idiomas)
+- El mismo amplio soporte de idiomas que la opción Local
+- Optimizado para precisión en contextos lingüísticos diversos
 
-**Modelos de periquitos** (25 idiomas europeos)
-- Motor de conversión de voz a texto rápido y ligero de NVIDIA
-- **10 veces más rápido que Whisper** para la transcripción de reuniones en Mac
-- Detección automática de idioma desde audio
-- Admite búlgaro, croata, checo, danés, holandés, inglés, estonio, finlandés, francés, alemán, griego, húngaro, italiano, letón, lituano, maltés y más de 9 idiomas europeos
+**Parakeet Models** (25 idiomas europeos)
+- Motor de voz a texto rápido y ligero de NVIDIA
+- **10 veces más rápido que Whisper** para transcripción de reuniones en Mac
+- Detección automática de idioma a partir del audio
+- Admite búlgaro, croata, checo, danés, neerlandés, inglés, estonio, finlandés, francés, alemán, griego, húngaro, italiano, letón, lituano, maltés y más de 9 idiomas europeos adicionales
 
-**Características:**
-- Diario de locutores (identificar diferentes locutores)
-- Optimizado a 494 MB para el rendimiento de Mac
+**Features:**
+- Diarización de locutores (identificar distintos locutores)
+- Optimizado a 494 MB para el rendimiento en Mac
 - Ideal para grabación de reuniones en tiempo real
-- Lo mejor para cargas de trabajo de idiomas europeos
+- Mejor para cargas de trabajo en idiomas europeos
 
 **Elige tu modelo:**
-- **Perico**: Procesamiento más rápido, menor uso de recursos, ideal para reuniones (25 idiomas europeos)
+- **Parakeet**: Procesamiento más rápido, menor uso de recursos, ideal para reuniones (25 idiomas europeos)
 - **Whisper**: Cobertura de idiomas más amplia, máxima precisión (más de 50 idiomas globales)
 
-Ambos modelos proporcionan marcas de tiempo a nivel de palabra, identificación del hablante y detección automática del idioma, todo procesado localmente en su Mac.
+Ambos modelos ofrecen marcas de tiempo a nivel de palabra, identificación de locutores y detección automática de idioma, todo procesado localmente en tu Mac.
 
 ![Voz - Modelos Local Plus](/images/settings/Alter-Settings_02f_Voice-Local_Plus-Beta71.webp)
 
-### 3. Configuración del perfil
+### 3. Ajustes de perfil
 
-La pestaña **Perfil** administra su identidad y preferencias:
+La pestaña **Profile** gestiona tu identidad y preferencias:
 
-**Correo electrónico de cuenta**
-- Ver el correo electrónico de su cuenta actual
-- Se utiliza para facturación y recuperación de cuentas.
+**Account Email**
+- Consulta el correo de tu cuenta actual
+- Se usa para facturación y recuperación de cuenta
 
-**Integración de Discord**
+**Discord Integration**
 - Conecta o desconecta tu cuenta de Discord
 - Habilita flujos de trabajo específicos de Discord
 
-**Mi perfil**
-- Agregue una descripción de perfil (ayuda a Alter a brindar respuestas mejor personalizadas)
-- Información personalizada que Alter utiliza en las conversaciones
+**My Profile**
+- Añade una descripción de perfil (ayuda a Alter a ofrecer respuestas mejor adaptadas)
+- Información personalizada que Alter usa en las conversaciones
 
-**Lenguaje de generación**
-- Establezca su idioma preferido para las respuestas de Alter (predeterminado: inglés)
-- Nota: Esto puede variar dependiendo del modelo que estés usando.
+**Generation Language**
+- Establece tu idioma preferido para las respuestas de Alter (predeterminado: inglés)
+- Nota: Puede variar según el modelo que uses
 
-![Configuración de perfil](/images/settings/Alter-Settings_03_Profile-Beta71.webp)
+![Ajustes de perfil](/images/settings/Alter-Settings_03_Profile-Beta71.webp)
 
-### 4. Configuración de apariencia
+### 4. Ajustes de apariencia {#appearance}
 
-La pestaña **Apariencia** controla la apariencia visual:
+La pestaña **Appearance** controla el aspecto visual:
 
-**Opciones de tema**
-- **Sistema**: Combina la apariencia del sistema de tu Mac
-- **Luz**: Forzar tema de luz
-- **Oscuro**: Fuerza el tema oscuro
+**Theme Options**
+- **System**: Coincide con la apariencia del sistema de tu Mac
+- **Light**: Forzar tema claro
+- **Dark**: Forzar tema oscuro
 
-**Personalización**
-- **Posición predeterminada del panel**: donde aparecen los paneles (valor predeterminado arriba a la derecha)
-- **Tamaño de fuente del menú**: ajuste el tamaño del texto para facilitar la lectura (predeterminado: 16)
-- **Tamaño de fuente del mensaje**: establece el tamaño del texto del mensaje de chat (predeterminado: 15)
-- **Muesca de visualización**: muestra el indicador de estado
-- **Mostrar bloque de control en la barra de menú**: Mostrar indicador en la barra de menú Alter
-- **Ocultar en capturas de pantalla**: excluye Alter de las capturas de pantalla y de la pantalla compartida.
+**Customization**
+- **Default Panel Position**: Center, Top Left, Top Right, Bottom Left, Bottom Right, Top Center o Last Position (Top Right es el predeterminado en instalaciones nuevas)
+- **Menu Font Size**: Ajusta el tamaño del texto para legibilidad (predeterminado: 16)
+- **Message Font Size**: Establece el tamaño del texto de los mensajes del chat (predeterminado: 15)
+- **Display Notch**: Muestra el indicador de estado
+- **Show control block in menu bar**: Muestra el indicador en la barra de menú de Alter
+- **Hide in screen captures**: Excluye Alter de capturas de pantalla y pantalla compartida
 
-![Configuración de apariencia - Tema oscuro](/images/settings/Alter-Settings_04a_Appearance-Dark-Beta71.webp)
+![Ajustes de apariencia - Tema oscuro](/images/settings/Alter-Settings_04a_Appearance-Dark-Beta71.webp)
 
-![Configuración de apariencia - Tema claro](/images/settings/Alter-Settings_04b_Appearance-Light-Beta71.webp)
+![Ajustes de apariencia - Tema claro](/images/settings/Alter-Settings_04b_Appearance-Light-Beta71.webp)
 
-![Configuración de apariencia - Vista completa](/images/settings/Alter-Settings_04c_Appearance-Full-Beta71.webp)
+![Ajustes de apariencia - Vista completa](/images/settings/Alter-Settings_04c_Appearance-Full-Beta71.webp)
 
-### 5. Configuración de facturación
+### 5. Ajustes de facturación
 
-La pestaña **Facturación** muestra el estado de tu suscripción:
+La pestaña **Billing** muestra el estado de tu suscripción:
 
-**Información de licencia**
-- Su plan actual (por ejemplo, Plan Pro)
-- Fecha de expiración
-- Cambiar o finalizar opciones de suscripción
+**License Information**
+- Tu plan actual (p. ej., Pro Plan)
+- Fecha de caducidad
+- Opciones para cambiar o cancelar la suscripción
 
-**Uso legítimo**
-- Indicador visual de su asignación restante de uso legítimo
-- Muestra el cronograma de reinicio (por ejemplo, "Restablecer en 20 días")
+**Fair Use**
+- Indicador visual de tu asignación restante de uso razonable
+- Muestra el plazo de reinicio (p. ej., "Reset in 20 days")
 
-![Configuración de facturación](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
+![Ajustes de facturación](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
 
-### 6. Configuración de permisos
+### 6. Ajustes de permisos {#permissions}
 
-La pestaña **Permisos** administra el acceso al sistema y las preferencias de recopilación de datos:
+La pestaña **Permissions** gestiona el acceso al sistema y las preferencias de recopilación de datos:
 
-**Permisos del sistema**
-Cada permiso se puede habilitar con botones de acceso rápido:
-- **Iniciar al iniciar sesión**: inicia Alter automáticamente cuando se inicia tu Mac
-- **Accesibilidad**: Requerido para comandos de teclado y control de ventanas (Verifique Accesibilidad)
-- **Preferencias del Sistema**: Permitir el acceso a la configuración del sistema (Verifique las Preferencias del Sistema)
-- **Grabación de pantalla**: Capture el contenido de la pantalla para analizarlo y conocer el contexto (Verificar grabación de pantalla)
-- **Micrófono**: habilite la entrada de voz y el dictado (verifique el micrófono)
+**System Permissions**
+Cada permiso se puede activar con botones de acceso rápido:
+- **Launch at Login**: Inicia Alter automáticamente cuando arranca tu Mac
+- **Accessibility**: Necesario para comandos de teclado y control de ventanas (Check Accessibility)
+- **System Preferences**: Permite acceso a los ajustes del sistema (Check System Preferences)
+- **Screen Recording**: Captura contenido de pantalla para análisis y contexto (Check Screen Recording)
+- **Microphone**: Habilita entrada de voz y dictado (Check Microphone)
 
-**Analítica**
-- **Desactivar análisis**: controle si Alter recopila datos de uso anónimos. Cuando está habilitado, Alter solo recopila datos anónimos de interacción y errores de la interfaz de usuario para mejorar el producto; no se rastrea ningún dato personal ni contenido.
+**Analytics**
+- **Disable Analytics**: Controla si Alter recopila datos de uso anonimizados. Cuando está activado, Alter solo recopila interacciones anónimas de la UI y datos de errores para mejorar el producto; no se rastrean datos personales ni contenido.
 
-![Configuración de permisos](/images/settings/Alter-Settings_06_Permissions-Beta71.webp)
+![Ajustes de permisos](/images/settings/Alter-Settings_06_Permissions-Beta71.webp)
 
-### 7. Configuración de claves API
+### 7. Ajustes de claves API {#external-api-keys}
 
-La pestaña **Claves API** te permite traer tus propios modelos:
+La pestaña **API keys** te permite usar tus propios modelos:
 
-**Fogonadura**
-- Integre con servicios de socios que proporcionen puntos finales compatibles con OpenAI
+**Partners**
+- Integra servicios asociados que ofrecen endpoints compatibles con OpenAI
 
-**Proveedores personalizados**
-Agregue y administre proveedores de LLM personalizados:
-- **Agregar proveedor**: crear un nuevo punto final de modelo personalizado
-- **URL del proveedor**: URL del punto final (p. ej., `http://localhost:1234/v1`)
-- **Administrar modelos**: vea y pruebe los modelos disponibles de cada proveedor
+**Custom Providers**
+Añade y gestiona proveedores LLM personalizados:
+- **Add Provider**: Crea un nuevo endpoint de modelo personalizado
+- **Provider URL**: URL del endpoint (p. ej., `http://localhost:1234/v1`)
+- **Manage Models**: Consulta y prueba los modelos disponibles de cada proveedor
 
-**Tipos de proveedores admitidos**
-Al agregar un proveedor personalizado, puede elegir entre:
+**Supported Provider Types**
+Al añadir un proveedor personalizado, puedes elegir entre:
 - **OpenAI**: API de OpenAI (modelos GPT)
-- **Personalizado**: puntos finales genéricos compatibles con OpenAI
-- **Azure**: Servicio Microsoft Azure OpenAI
-- **LM Studio**: Modelos locales a través de LM Studio
-- **PrivateMode**: motores de inferencia locales
-- **Bifrost**: proveedor de API de Bifrost
-- **Mistral**: Modelos de IA de Mistral
+- **Custom**: Endpoints genéricos compatibles con OpenAI
+- **Azure**: Microsoft Azure OpenAI Service
+- **LM Studio**: Modelos locales mediante LM Studio
+- **PrivateMode**: Motores de inferencia locales
+- **Bifrost**: Proveedor de API Bifrost
+- **Mistral**: Modelos Mistral AI
 - **Gemini**: Google Gemini API
-- **OpenRouter**: Servicio de enrutador multimodelo
-- **Ollama**: marco local de LLM
-- **Osaurus**: proveedor de Osaurus
+- **OpenRouter**: Servicio enrutador multimodelo
+- **Ollama**: Framework LLM local
+- **Osaurus**: Proveedor Osaurus
 
-**Agregar un proveedor**
-1. Haga clic en el botón "Agregar proveedor"
-2. Seleccione el tipo de proveedor en el menú desplegable
-3. Ingrese la URL del punto final de la API
-4. Proporcione su clave API
-5. Haga clic en "Guardar" para configurar
+**Adding a Provider**
+1. Haz clic en el botón "Add Provider"
+2. Selecciona Provider Type en el menú desplegable
+3. Introduce la URL del endpoint de la API
+4. Proporciona tu API Key
+5. Haz clic en "Save" para configurar
 
 ![Claves API - Proveedores configurados](/images/settings/Alter-Settings_07a_APIkeys-Providers-Beta71.webp)
 
@@ -283,27 +298,331 @@ Al agregar un proveedor personalizado, puede elegir entre:
 
 ![Claves API - Configuración del proveedor](/images/settings/Alter-Settings_07c_APIkeys-Config-Beta71.webp)
 
-![Claves API - Agregar proveedor Modal](/images/settings/Alter-Settings_07d_APIkeys-AddProvider-Beta71.webp)
+![Claves API - Modal Add Provider](/images/settings/Alter-Settings_07d_APIkeys-AddProvider-Beta71.webp)
 
-![Claves API - Menú desplegable de tipo de proveedor](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
+![Claves API - Menú desplegable Provider Type](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
 
-### 8. Configuración del enrutador
+### 8. Ajustes de Router {#router}
 
-La pestaña **Enrutador** configura el punto final de IA predeterminado:
+La pestaña **Router** configura el endpoint de IA predeterminado:
 
-**OpenAI Punto final compatible**
-- Punto final predeterminado para alimentar los modelos Alter
+**OpenAI Compatible Endpoint**
+- Endpoint predeterminado que alimenta los modelos de Alter
 - Enlace: https://alterhq.com/api
 
-**Alter Claves API**
+**Alter API Keys**
 - Genera y gestiona tus claves API personales
-- Uso para integraciones y Tools de terceros.
+- Úsalas para integraciones y herramientas de terceros
 
-![Configuración del enrutador](/images/settings/Alter-Settings_08_Router-Beta71.webp)
+![Ajustes de Router](/images/settings/Alter-Settings_08_Router-Beta71.webp)
+
+### 9. Ajustes de Computer use {#computer-use}
+
+La pestaña **Computer use** configura cómo el agente de automatización de UI de Alter controla apps, navegadores y la vista previa flotante en vivo introducida en **2.0.0-beta100**.
+
+Abre **Settings** (⌘,) y selecciona **Computer use** en la barra lateral — aparece bajo la sección API con el icono de cursor con rayos, junto a **API keys** y **Router**. La pestaña se organiza en tres secciones que coinciden exactamente con la UI de la app: **Browser**, **Preview** y **Blocked apps**.
+
+#### Browser
+
+Asigna a Computer Use su propio navegador para que las páginas controladas por el agente queden separadas de tu navegación diaria.
+
+**Agent browser** — *El navegador que controla el agente de computer use*
+
+- **macOS default** — `open_urls` dentro de Computer Use usa tu navegador predeterminado del sistema (comportamiento inicial)
+- **Dedicated browser** — Elige un navegador instalado (Chrome, Safari, Arc, etc.). Durante una ejecución de Computer Use, las páginas que abre el agente van solo a este navegador. Los enlaces que abres tú y `open_urls` **fuera** de Computer Use siguen usando tu predeterminado de macOS.
+
+Así puedes permanecer con sesión iniciada en sitios sensibles en tu navegador principal mientras el agente usa un perfil aislado.
+
+**Clean up when finished**
+
+- Cuando está activado, Alter cierra las pestañas que abrió el agente al terminar la **última** sesión de Computer Use
+- En navegadores que no pueden cerrar pestañas individuales (por ejemplo Firefox), el agent browser se **cierra** — pero **solo si el agente lo lanzó**, nunca un navegador que ya tenías abierto
+- Requiere un **Agent browser** dedicado (desactivado cuando está seleccionado **macOS default**)
+
+#### Preview
+
+La vista previa flotante muestra una imagen en imagen en vivo de la ventana que Computer Use está controlando.
+
+**Show preview automatically** — *Mostrar la vista previa flotante cuando empieza una tarea de computer use*
+
+- Activado (predeterminado): la vista previa se abre al iniciar una tarea
+- Desactivado: las ejecuciones siguen en segundo plano; abre la vista previa en cualquier momento con **Watch preview** en el Tool Inspector de la tarea en curso
+
+**Preview size** — *Presets Small o Large, o Custom para conservar el tamaño al que la arrastras*
+
+| Option | Width |
+|--------|-------|
+| **Small** | Preset de 320 pt |
+| **Large** | Preset de 560 pt |
+| **Custom** | Recuerda el tamaño que estableces arrastrando la esquina de la vista previa |
+
+La vista previa mantiene una relación de aspecto fija; puedes ocultarla con el control **Hide** de la ventana sin detener la ejecución.
+
+#### Blocked apps
+
+Computer Use se niega a **abrir, leer o controlar** apps de esta lista. Los gestores de contraseñas y otras apps sensibles están bloqueadas por defecto:
+
+- Keychain Access
+- Bitwarden
+- Passwords (macOS)
+- 1Password / 1Password 7
+
+**Add app…** — Elige uno o más bundles `.app` de `/Applications` para bloquear
+
+**Restore defaults** — Restablece la lista a los valores predeterminados integrados de Alter para apps sensibles
+
+Elimina una app con el botón menos de su fila. Si un objetivo apunta a una app bloqueada, el agente informa del bloqueo y deja de intentarlo — ajusta la lista solo cuando quieras intencionadamente que Computer Use controle esa app.
+
+Cuando no hay apps bloqueadas, la sección muestra **No apps are blocked.** en texto secundario.
+
+#### Recordatorio de permisos
+
+Computer Use requiere **Accessibility** (para leer árboles AX y enviar clics) y **Screen Recording** (para la vista previa en vivo y `computer_use_screenshot`). Concede ambos en **Settings → Permissions** antes de tu primera ejecución. Si algo sigue fallando, abre **Settings → Doctor** para un informe consolidado de permisos.
+
+<Tip>
+  Las ejecuciones en segundo plano, las tarjetas de sesión de Edge Bar y el comportamiento de la vista previa están documentados en [Computer Use en segundo plano](/apps-tools/computer-use-background). Problemas de permisos: [Las herramientas no funcionan](/common-issues/tool-not-working) o **Settings → Doctor**.
+</Tip>
+
+### 10. Ajustes de Shortcuts {#shortcuts}
+
+La pestaña **Shortcuts** es un editor con búsqueda de todos los atajos de teclado de Alter. Abre **Settings → Shortcuts** (bajo la sección **General** en la barra lateral).
+
+#### Búsqueda y navegación
+
+- **Search shortcuts** — Filtra por nombre de acción, descripción, categoría o combinación de teclas
+- **⌘F** — Enfoca la búsqueda mientras la pestaña Shortcuts está al frente
+- **Esc** — Borra el campo de búsqueda cuando la búsqueda está enfocada
+
+Cada fila muestra el nombre de la acción, una descripción breve y un control **recorder**. Haz clic en el recorder y pulsa las teclas deseadas. Si cambias un atajo respecto al predeterminado, aparece un botón **reset** (↺) para restaurar la asignación de fábrica.
+
+#### Global
+
+Atajos a nivel de sistema que funcionan desde cualquier app (sujetos a permisos de macOS):
+
+| Action | Default | Notes |
+|--------|---------|-------|
+| **Open QuickHub** / **Open notch** | **⌘⇧Space** | La etiqueta depende de **QuickHub Mode** |
+| **Open QuickHub and Attach** | Doble **⌘** + selectores de adjuntar | Ver adjuntar QuickHub abajo |
+| **Open or Focus the Hub** | **⌘⇧H** | |
+| **New Hub Chat** | **⌥Space** | |
+| **Dictation Shortcut** | **Fn** | Un recorder vacío vuelve a Fn |
+| **Meeting Shortcut** | **⌘⇧M** | Alternar grabación de reunión |
+| **Live captions** | **⌘⇧↓** | |
+| **Live Notepad** | **⌘⇧→** | |
+
+#### Open QuickHub and Attach
+
+**Open QuickHub and Attach** tiene dos selectores adicionales junto al recorder del atajo:
+
+- **Attach behavior** — **Attach Left** o **Attach Right** (predeterminado **Attach Right**)
+- **Shortcut** — Activador de doble pulsación: **Double tap ⌘** (predeterminado), **Double tap ⌥**, **Double tap ⌃**, **Double tap ⇧** o **None**
+
+Pulsa dos veces el modificador elegido para abrir QuickHub y acoplarlo al lado seleccionado. Documentado en [Modo QuickHub](/getting-started/quickhub-mode).
+
+#### Hub & QuickHub
+
+Atajos compartidos que aplican a la superficie de conversación activa:
+
+| Action | Default |
+|--------|---------|
+| **Command Palette** | **⌘K** |
+| **New Chat or Tab** | **⌘T** |
+| **Close Chat or Tab** | **⌘W** |
+| **Delete Conversation** | **⌘Delete** |
+| **Previous Chat or Tab** | **⌘⌥←** |
+| **Next Chat or Tab** | **⌘⌥→** |
+| **Clear All Contexts** | **⌘⇧X** |
+| **Quick Actions** | **⌘/** |
+| **Retry Last Message** | **⌘R** |
+
+#### QuickHub
+
+Atajos de adjuntar y navegación específicos del panel flotante QuickHub:
+
+| Action | Default |
+|--------|---------|
+| **Open in Hub** | **⌘O** |
+| **Attach Left** | **⌃⌘←** |
+| **Attach Right** | **⌃⌘→** |
+| **Detach Window** | **⌃⌘↓** |
+| **Pin Window** | **⌘⌥P** |
+
+#### Hub
+
+Atajos de la ventana Hub, incluidas acciones de workspace y exportación:
+
+| Action | Default |
+|--------|---------|
+| **New Workspace** | **⌘⌥N** |
+| **Create Workspace from Context** | **⌘J** |
+| **Switch to Workspace** | **⌘⌥O** |
+| **Save Conversation as Markdown** | **⌘⇧S** |
+| **Close All Tabs** | **⌘⌥W** |
+| **Close Window** | **⌘⇧W** |
+| **Search** | **⌘F** |
+| **Jump to Tab 1-9** | **⌘1**–**⌘9** (solo lectura) |
+
+#### Windows
+
+Abre las ventanas auxiliares de Alter:
+
+| Action | Default |
+|--------|---------|
+| **Alter Hub** | **⌘⇧H** |
+| **Action Editor** | **⌘⇧E** |
+| **Tools Manager** | **⌘⇧T** |
+| **Settings** | **⌘,** |
+
+#### Conversation
+
+Comportamiento de entrada y desplazamiento dentro de conversaciones de QuickHub y Hub:
+
+| Action | Default |
+|--------|---------|
+| **Cycle Mode** | **⇧Tab** |
+| **Scroll Up** | **Page Up** |
+| **Scroll Down** | **Page Down** |
+
+#### Tools
+
+La sección **Tools** lista atajos **de solo lectura** para herramientas de quick action configuradas. Para editarlos, haz clic en **Open Quick Actions** — Alter abre **Tools Manager** en la sección Quick Actions (**⌘⇧T** o `alter://toolsManager?section=quickActions`).
+
+#### Conflictos y restablecimiento
+
+macOS y otras apps pueden reclamar las mismas combinaciones de teclas. Si un atajo no se dispara:
+
+1. Revisa **System Settings → Keyboard → Keyboard Shortcuts** en busca de conflictos
+2. Elige una combinación libre en el recorder de Alter
+3. Haz clic en el botón ↺ reset para restaurar el predeterminado de Alter en esa fila
+
+Para un inventario completo más allá de la UI de ajustes, consulta [Referencia de atajos](/references/shortcuts). Para cambiar solo el atajo global de apertura, [Cambiar la tecla de acceso rápido](/how-to/change-hotkey) es una guía enfocada.
+
+### 11. Ajustes de Marketplace {#marketplace}
+
+La pestaña **Marketplace** (bajo **Account** en la barra lateral de ajustes) controla tu perfil público de Alter Marketplace y las preferencias de notificaciones. Lo que guardes aquí puede aparecer en listados de agentes y páginas de la comunidad; los ajustes locales de Alter no se ven afectados.
+
+#### Public Profile
+
+- **Display Name** — Nombre de usuario mostrado en tu perfil público
+- **Bio** — Hasta **160 caracteres**; un contador en vivo muestra `count/160`
+- **Avatar** — Haz clic en la insignia de cámara para elegir una imagen; **Remove** borra el avatar actual
+- **Save Profile** — Sube los cambios (desactivado hasta que edites algo)
+
+Los datos del perfil se sincronizan con el servicio de cuenta de Alter al guardar. Los errores aparecen en rojo debajo del formulario.
+
+#### Social Links
+
+URLs opcionales mostradas en tu perfil de marketplace:
+
+- **Website**
+- **GitHub**
+- **Twitter / X**
+- **LinkedIn**
+- **Discord**
+- **YouTube**
+
+Deja un campo vacío para ocultar ese enlace públicamente. Los valores se almacenan con tu perfil de cuenta.
+
+#### Notifications
+
+- **Comment notifications** — *Recibe notificaciones cuando alguien comenta tus agentes o te responde.*
+
+Desactívalo para silenciar alertas de comentarios del marketplace manteniendo visible tu perfil público.
+
+### 12. Ajustes de Doctor {#doctor}
+
+**Doctor** (bajo **System** en la barra lateral de ajustes) ejecuta un diagnóstico de salud y permisos en Alter. Úsalo cuando las herramientas fallen sin motivo aparente, el procesamiento de voz se comporte mal o necesites un informe redactado para soporte.
+
+Doctor se ejecuta automáticamente al abrir la pestaña y luego muestra un resumen y secciones detalladas.
+
+#### Encabezado del resumen
+
+- Título **Alter Doctor** con hora de **last checked**
+- Píldora de estado general: **OK**, **Warning**, **Failed** o **Idle**
+- Píldoras de recuento: **OK**, **Idle**, **Warn**, **Fail**
+
+#### Refresh y Copy Report
+
+- **Refresh** — Vuelve a ejecutar todas las comprobaciones (muestra un indicador de progreso mientras corre)
+- **Copy Report** — Copia un informe de texto plano **redactado** al portapapeles (rutas del directorio personal acortadas a `~`; cadenas tipo JWT/token reemplazadas). El botón muestra brevemente **Copied**
+
+Pega el informe en Discord o correo al contactar soporte, junto con un [trace de tarea compartido](/workflows/share-task-traces) si procede.
+
+#### Secciones de diagnóstico
+
+**Environment**
+
+- **macOS** — Cadena de versión del sistema operativo
+- **Architecture** — `arm64` o `x86_64`
+
+**Application**
+
+- **Version** — Versión corta, número de build y configuración (Debug/Release)
+- **Application Support** — Si existe el directorio de soporte de Alter
+
+**Permissions**
+
+- **Accessibility** — Necesario para lectura de selección y control de apps. Enlaza a **Settings → Permissions** cuando no está concedido
+- **Screen Recording** — Necesario para contexto de reunión/pantalla y vista previa de Computer Use
+- **Microphone** — Necesario para dictado y audio de reuniones
+- **Automation** — Acceso a System Events para automatización estilo AppleScript. Empieza como **Idle** hasta que hagas clic en **Check Automation**; Alter solicita permiso y actualiza el informe
+
+**Voice Processor**
+
+- **Selected processor** — Motor de voz actual (Apple, cloud, Whisper, etc.) con enlace a **Settings → Voice**
+- **Plan access** — Si tu suscripción admite el procesador seleccionado
+- **Local model** / **Local model runtime** (solo Apple Silicon + Whisper) — Estado de descarga y carga
+
+**Storage**
+
+Uso de disco para Application Support, Alter Prompts, Caches, WebKit y rutas HTTP Storage.
+
+**Database**
+
+Estado del esquema local de Core Data: actualizado, necesita migración o aún sin store.
+
+**Actions**
+
+Recuento de Alter Actions cargadas (activadas, creadas por el usuario, total).
+
+**Tools**
+
+- **Activated tools** — Recuento con atajo **Open the Tools Manager** a la sección Active Tools
+- **MCP configuration** — Apps conectadas y servidores MCP remotos
+- **MCP clients** — Estado en tiempo de ejecución por servidor (running, stopped, error)
+
+**Search**
+
+- **Conversations** / **Transcripts** — Recuentos de registros indexados; **Warning** mientras reindexa
+- **Notes** — Si las herramientas de Apple Notes están activas
+
+#### Acciones de sección
+
+Algunas secciones incluyen botones en el pie:
+
+- **Open Permissions**, **Open Voice**, **Open Billing** — Saltar a la pestaña de ajustes correspondiente
+- **Open the Tools Manager** — Enlace profundo a secciones MCP o active tools
+- **Check Automation** — Disparar comprobación de permiso de System Events (sección Permissions)
+
+#### Doctor vs páginas de problemas comunes
+
+| Situation | Start here |
+|-----------|------------|
+| "Algo va mal" en general | **Settings → Doctor** |
+| El atajo dejó de funcionar | [El atajo de teclado no funciona](/common-issues/hotkey-not-working) |
+| El micrófono no transcribe | [El micrófono no funciona](/common-issues/mic-not-transcribing) |
+| Fallo de herramienta o MCP | [Las herramientas no funcionan](/common-issues/tool-not-working) + sección **Tools** de Doctor |
+| Errores de permisos de Computer Use | **Permissions** de Doctor + [Ajustes de Computer use](/how-to/settings-guide#computer-use) |
 
 ## Documentos relacionados
 
-- [Comenzando con Alter](/getting-started/getting-started-path)
+- [Primeros pasos con Alter](/getting-started/getting-started-path)
 - [Dictado y voz](/workflows/dictation)
-- [Elegir su modelo generativo](/how-to/choose-generative-model)
-- [Servicio de enrutador y puerta de enlace API](/api-router/api-gateway)
+- [Elegir tu modelo generativo](/how-to/choose-generative-model)
+- [API Gateway y servicio Router](/api-router/api-gateway)
+- [Resumen de Computer Use](/apps-tools/computer-use)
+- [Computer Use en segundo plano](/apps-tools/computer-use-background)
+- [Modo QuickHub](/getting-started/quickhub-mode)
+- [Edge Bar](/getting-started/edge-bar)
+- [Compartir traces de tareas](/workflows/share-task-traces)
+- [Referencia de atajos](/references/shortcuts)

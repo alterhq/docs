@@ -1,0 +1,134 @@
+---
+title: "Edge Bar"
+description: "从屏幕边缘唤出快捷操作 — 会议、QuickHub、聊天和 Computer Use 会话"
+---
+
+**Edge Bar** 是一个垂直启动器，当你将指针移到已启用的屏幕边缘时会出现。它提供一键访问会议、QuickHub、新聊天和附加 — 无需寻找热键或菜单栏。在**后台 Computer Use** 运行期间，会话卡片和实时预览也在这里。
+
+Edge Bar 需要 **QuickHub 模式**。如果关闭 QuickHub 模式，Edge Bar 设置会被禁用，启动器不会出现。参见 [QuickHub 模式](/getting-started/quickhub-mode)。
+
+## 何时使用 Edge Bar
+
+在以下情况使用 Edge Bar：
+
+- 想要用**鼠标**从任何应用打开 QuickHub 或开始会议
+- 在**多显示器**上工作，需要外边缘（或所有内边缘）触发
+- 在后台运行 **Computer Use**，需要会话状态、停止控制和附近的 **Watch preview**
+- 更喜欢将文件拖到边缘启动器，而不是浮动 QuickHub 窗口
+
+键盘访问：使用 **⌘⇧Space**（**打开 QuickHub**）或 **设置 → 快捷键 → 全局** 中的 **打开 QuickHub 并附加**。Edge Bar 是对这些快捷键的补充，不会取代它们。
+
+## Edge Bar 如何出现
+
+1. 在 **设置 → 通用 → Edge Bar** 中启用至少一个边缘
+2. 将指针移到该**屏幕内边缘**（显示器的边缘，不是刘海）
+3. 靠近时启动器**逐渐显示** — 越靠近边缘越明显
+4. 点击图标执行操作
+5. **沿边缘垂直拖动**可重新定位；Alter 会记住**每个边缘和每台显示器**的位置
+
+在**单显示器**上，启用的左右边缘始终可用。在**多显示器**上，默认只使用**外侧**边缘（最左显示器的左边缘和最右显示器的右边缘）。这可以避免在屏幕间移动光标时误触发。
+
+开启 **所有显示器边缘** 可在**每台**显示器上启用选定的左/右边缘，包括显示器**之间**的边缘。
+
+## Edge Bar 操作
+
+未录制会议时，启动器从上到下显示：
+
+| 操作 | 作用 |
+|--------|------|
+| **开始会议** | 用麦克风和系统音频开始会议录制 |
+| **总结视频** | 总结活跃浏览器视频（检测到支持的页面时显示） |
+| **打开 QuickHub** | 打开浮动 QuickHub 窗口 |
+| **新聊天** | 开始新的 QuickHub 对话 |
+| **附加** | 将 QuickHub 附加到前台应用一侧 |
+
+**会议录制中**，启动器切换为会议控制：**开始会议**（停止/切换）、**Live Notepad**、**Live Captions**，然后是分隔线下的 **新聊天** 和 **附加**。
+
+**听写期间**显示较短的一组：**开始会议**、**新聊天** 和 **附加**。
+
+## Computer Use 会话
+
+后台 **Computer Use** 任务运行时，**Edge Bar 会话卡片**会出现在启动器旁。每张卡片显示：
+
+- 任务**目标**（截断显示；悬停查看完整文本）
+- **状态** — 智能体正在做什么（读取无障碍树、点击、滚动等）
+- **目标应用** — 绑定后的图标、名称和窗口标题
+- **停止** — 立即取消运行
+
+已完成、失败或已停止的会话会进入终态，并在短暂延迟后自动消失。**浮动实时预览**（智能体目标窗口的画中画）由同一 Edge Bar 区域管理 — 从会话卡片或 Tool Inspector 中的 **Watch preview** 打开。
+
+参见 [后台 Computer Use](/apps-tools/computer-use-background)。
+
+## 拖放目标
+
+Edge Bar 可见时，可**拖放**到其上 — QuickHub 接受的相同内容类型（文件、文本、URL 和其他支持的剪贴板项）。Alter 将拖放项路由到当前或新的 QuickHub 对话，类似于直接拖到 QuickHub 窗口本身。
+
+## 配置 Edge Bar
+
+打开 **设置 → 通用**（⌘,），滚动到 **Edge Bar** 部分。**QuickHub 模式**关闭时所有控件禁用。
+
+### 左边缘 / 右边缘
+
+独立切换 **左边缘** 和 **右边缘**。默认：**右边缘** 开启，**左边缘** 关闭。
+
+### 所有显示器边缘
+
+**所有显示器边缘** — *在每台显示器上使用选定的左/右边缘，包括显示器之间的边缘。*
+
+关闭时（默认），多显示器设置中只有外侧边缘可用。开启时，每台已连接显示器上每个启用的边缘都可以显示启动器。
+
+### 打开距离
+
+**打开距离** — *0% 贴边；100% 使用默认距离。*
+
+**0%** 到 **100%** 的滑块，以 **25%** 为步进，控制启动器从边缘多远开始显示：
+
+- **0%** — 指针必须贴到物理边缘
+- **100%**（默认） — 标准显示距离
+- 中间值（25%、50%、75%）介于两者之间
+
+如果误触发 Edge Bar，使用较低值；如果希望启动器更早出现，使用较高值。
+
+<Tip>
+  完整的 Edge Bar 和 QuickHub 模式设置在 **设置 → 通用**。快捷键自定义在 **设置 → 快捷键** — 见 [配置 Alter 设置](/how-to/settings-guide#general)。
+</Tip>
+
+## 故障排除
+
+**Edge Bar 从不出现**
+
+- 确认 **QuickHub 模式**已开启（**设置 → 通用 → QuickHub 模式**）
+- 启用至少 **左边缘** 或 **右边缘**
+- 多显示器且未开启 **所有显示器边缘** 时，尝试显示组的最外侧左边缘或右边缘
+- 检查是否有其他应用在屏幕边缘捕获鼠标事件
+
+**启动器出现在错误的显示器上**
+
+- 如需显示器之间的内边缘，开启 **所有显示器边缘**
+- 在所需边缘上垂直拖动以重新定位；位置按显示器保存
+
+**Computer Use 卡片缺失**
+
+- Edge Bar 会话需要 QuickHub 模式和活跃的 `computer_use_task` 运行
+- 如果浮动预览被隐藏，在 Tool Inspector 中打开 **Watch preview**
+
+**设置呈灰色**
+
+- Edge Bar 需要 QuickHub 模式。页脚显示：*Edge Bar 需要启用 QuickHub 模式。*
+
+## 相关文档
+
+<CardGroup cols={2}>
+  <Card title="QuickHub 模式" icon="square.on.square" href="/getting-started/quickhub-mode">
+    默认界面、附加/分离和快捷键
+  </Card>
+  <Card title="后台 Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use-background">
+    Edge Bar 会话卡片和实时预览
+  </Card>
+  <Card title="通用设置" icon="gear" href="/how-to/settings-guide#general">
+    QuickHub 模式和 Edge Bar 开关
+  </Card>
+  <Card title="窗口类型" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    QuickHub、Hub 和面板概览
+  </Card>
+</CardGroup>

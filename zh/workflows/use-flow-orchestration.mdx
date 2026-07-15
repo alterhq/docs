@@ -163,6 +163,29 @@ description: "让 Flow 自动选择和编辑您的工具，以减少上下文使
 
 ---
 
+## Ask Anything 默认值（beta100+）
+
+未选择其他动作时输入将运行 **Ask Anything**。**2.0.0-beta100** 起默认启用 **Flow**、**Computer Use** 与 **Ask User**。
+
+| 工具 | 作用 |
+|------|------|
+| **Flow** | 编排已启用的工具 |
+| **Computer Use** | 屏幕自动化（`computer_use_task`） |
+| **Ask User** | 澄清式选择题 |
+
+在 **Tools Manager**（**⌘⇧T**）中启用底层集成。
+
+### 可选：减少工具以提速
+
+<Steps>
+  <Step title="打开 Action Editor">**⌘⇧E**</Step>
+  <Step title="Ask Anything">选择该动作</Step>
+  <Step title="Tools">不需要时可关闭 **Computer Use** 与 **Ask User**</Step>
+  <Step title="保存">保存更改</Step>
+</Steps>
+
+---
+
 <AccordionGroup>
   <Accordion icon="link" title="高级：Tool 使用指令链接">
     当任务需要多个步骤时，Flow 会自动将工具链接在一起。可以使用 `$N` 语法在后续调用中引用一个工具的输出。

@@ -3,8 +3,12 @@ title: "Voluta"
 description: "Desplazarse por las ventanas de aplicaciones activas en los flujos de uso de la computadora"
 ---
 
+
 Utilice Desplazamiento cuando el contenido de destino esté fuera de la ventana gráfica actual.
 
+<Tip>
+  The [**Computer Use**](/apps-tools/computer-use) agent calls `scroll` as part of its background loop. See [agent tools](/apps-tools/computer-use-agent-tools) for window targeting and [Background Computer Use](/apps-tools/computer-use-background) for non-blocking runs.
+</Tip>
 ## Qué hace
 
 - Se desplaza en la ventana de la aplicación más frontal.
@@ -13,7 +17,7 @@ Utilice Desplazamiento cuando el contenido de destino esté fuera de la ventana 
 
 ## Entradas
 
-- `seconds` (opcional): duración del desplazamiento (por defecto 3, máximo 3600).
+- `milliseconds` (opcional): duración en milisegundos (predeterminado **3000**, máximo **3600000**).
 - `direction` (opcional): `up`, `down`, `left` o `right` (predeterminado `down`).
 
 ## Uso típico

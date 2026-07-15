@@ -1,0 +1,124 @@
+---
+title: "Edge Bar"
+description: "Acciones rápidas desde el borde de la pantalla — reuniones, QuickHub, chats y sesiones de Computer Use"
+---
+
+La **Edge Bar** es un lanzador vertical que aparece cuando mueves el puntero a un borde de pantalla activado. Ofrece acceso con un clic a reuniones, QuickHub, chats nuevos y adjuntar — sin buscar un atajo o la barra de menús. Durante ejecuciones de **Computer Use en segundo plano**, las tarjetas de sesión y la vista previa en vivo también están aquí.
+
+Edge Bar requiere el **modo QuickHub**. Si desactivas el modo QuickHub, los ajustes de Edge Bar se deshabilitan y el lanzador no aparece. Consulta [Modo QuickHub](/getting-started/quickhub-mode).
+
+## Cuándo usar Edge Bar
+
+Usa Edge Bar cuando:
+
+- Quieres una forma **con el ratón** de abrir QuickHub o iniciar una reunión desde cualquier app
+- Trabajas con **varios monitores** y quieres activadores en bordes exteriores (o todos los interiores)
+- Ejecutas **Computer Use** en segundo plano y quieres estado de sesión, controles de parada y **Watch preview** cerca
+- Prefieres arrastrar archivos al lanzador del borde en lugar de a una ventana QuickHub flotante
+
+Para acceso con teclado: **⌘⇧Space** (**Abrir QuickHub**) o **Abrir QuickHub y adjuntar** en **Configuración → Atajos → Global**. Edge Bar complementa esos atajos; no los reemplaza.
+
+## Cómo aparece Edge Bar
+
+1. Activa al menos un borde en **Configuración → General → Edge Bar**
+2. Mueve el puntero a ese **borde interior de la pantalla** (el borde del display, no la muesca)
+3. El lanzador **se revela** al acercarte — más cerca del borde significa más visible
+4. Haz clic en un icono para ejecutar esa acción
+5. **Arrastra la barra verticalmente** a lo largo del borde para reposicionarla; Alter recuerda la posición **por borde y por monitor**
+
+En un **solo display**, los bordes izquierdo y derecho activados siempre están disponibles. Con **varios displays**, solo se usan los bordes **exteriores** por defecto. Activa **Todos los bordes de monitor** para habilitar bordes en **cada** monitor, incluidos los **entre** displays.
+
+## Acciones de Edge Bar
+
+Cuando no hay reunión grabando, el lanzador muestra estas acciones (de arriba a abajo):
+
+| Acción | Qué hace |
+|--------|----------|
+| **Iniciar reunión** | Comenzar grabación con micrófono y audio del sistema |
+| **Resumir video** | Resumir el video del navegador activo (cuando se detecta una página compatible) |
+| **Abrir QuickHub** | Abrir la ventana QuickHub flotante |
+| **Nuevo chat** | Iniciar una conversación QuickHub nueva |
+| **Adjuntar** | Adjuntar QuickHub al lado de la app en primer plano |
+
+Mientras una **reunión se graba**, el lanzador cambia a controles de reunión: **Iniciar reunión** (parar/alternar), **Live Notepad**, **Live Captions**, luego **Nuevo chat** y **Adjuntar** bajo un separador.
+
+Durante la **dictación**, aparece un conjunto más corto: **Iniciar reunión**, **Nuevo chat** y **Adjuntar**.
+
+## Sesiones de Computer Use
+
+Cuando una tarea **Computer Use** corre en segundo plano, aparece una **tarjeta de sesión Edge Bar** junto al lanzador. Cada tarjeta muestra:
+
+- El **objetivo** de la tarea (truncado; pasa el cursor para el texto completo)
+- **Estado** — qué hace el agente (leer árboles de accesibilidad, clics, desplazamiento, etc.)
+- **App objetivo** — icono, nombre y título de ventana una vez vinculada
+- **Detener** — cancela la ejecución de inmediato
+
+Las sesiones completadas, fallidas o detenidas pasan a un estado terminal y desaparecen tras un breve retraso. La **vista previa flotante en vivo** se gestiona desde la misma zona Edge Bar — ábrela desde la tarjeta de sesión o desde **Watch preview** en el Tool Inspector.
+
+Consulta [Computer Use en segundo plano](/apps-tools/computer-use-background).
+
+## Destino de arrastre
+
+Mientras Edge Bar es visible, puedes **arrastrar y soltar** sobre ella — los mismos tipos de contenido que QuickHub acepta (archivos, texto, URL y otros elementos del portapapeles). Alter enruta los elementos soltados a la conversación QuickHub activa o nueva.
+
+## Configurar Edge Bar
+
+Abre **Configuración → General** (⌘,) y desplázate a la sección **Edge Bar**. Todos los controles están deshabilitados cuando el **modo QuickHub** está desactivado.
+
+### Borde izquierdo / Borde derecho
+
+Activa **Borde izquierdo** y **Borde derecho** de forma independiente. Por defecto: **Borde derecho** activado, **Borde izquierdo** desactivado.
+
+### Todos los bordes de monitor
+
+**Todos los bordes de monitor** — *Usar bordes izquierdo/derecho seleccionados en cada monitor, incluidos entre displays.*
+
+### Distancia de apertura
+
+**Distancia de apertura** — *0 % pegado al borde; 100 % usa la distancia predeterminada.*
+
+Un control deslizante de **0 %** a **100 %** en pasos de **25 %** controla qué tan lejos del borde comienza a revelarse el lanzador.
+
+<Tip>
+  Los ajustes completos de Edge Bar y modo QuickHub están en **Configuración → General**. La personalización de atajos está en **Configuración → Atajos** — ver [Configurar ajustes de Alter](/how-to/settings-guide#general).
+</Tip>
+
+## Solución de problemas
+
+**Edge Bar nunca aparece**
+
+- Confirma que el **modo QuickHub** está activado (**Configuración → General → Modo QuickHub**)
+- Activa al menos **Borde izquierdo** o **Borde derecho**
+- En varios monitores sin **Todos los bordes de monitor**, prueba el borde **exterior** izquierdo o derecho
+- Comprueba que otra app no capture eventos del ratón en el borde
+
+**El lanzador aparece en el monitor equivocado**
+
+- Activa **Todos los bordes de monitor** si necesitas bordes interiores entre displays
+- Reposiciona la barra arrastrándola verticalmente en el borde deseado
+
+**Falta la tarjeta de Computer Use**
+
+- Las sesiones Edge Bar requieren modo QuickHub y una ejecución `computer_use_task` activa
+- Abre **Watch preview** desde el Tool Inspector si la vista previa flotante está oculta
+
+**Los ajustes están atenuados**
+
+- Edge Bar requiere modo QuickHub. El pie de página indica: *Edge Bar requiere que el modo QuickHub esté activado.*
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Modo QuickHub" icon="square.on.square" href="/getting-started/quickhub-mode">
+    Interfaz predeterminada, adjuntar/desadjuntar y atajos
+  </Card>
+  <Card title="Computer Use en segundo plano" icon="cursorarrow.rays" href="/apps-tools/computer-use-background">
+    Tarjetas de sesión Edge Bar y vista previa en vivo
+  </Card>
+  <Card title="Ajustes generales" icon="gear" href="/how-to/settings-guide#general">
+    Modo QuickHub y opciones Edge Bar
+  </Card>
+  <Card title="Tipos de ventana" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Resumen de QuickHub, Hub y paneles
+  </Card>
+</CardGroup>

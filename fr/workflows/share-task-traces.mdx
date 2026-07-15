@@ -1,0 +1,99 @@
+---
+title: "Partager et exporter les traces de tâche"
+description: "Exporter les conversations de tâche en markdown, partager des traces avec l'équipe Alter et ouvrir les chats subagent depuis le Tool Inspector"
+---
+
+Lorsqu'Alter exécute un **outil producteur de tâche** — **Computer Use**, **Flow** ou d'autres agents qui créent une sous-conversation — le chat parent affiche une exécution d'outil dans le **Tool Inspector**. De là, vous pouvez **ouvrir le fil de tâche complet**, **l'exporter en markdown** ou **partager une trace** avec l'équipe Alter pour le débogage.
+
+Ce workflow est distinct de l'enregistrement d'une conversation Hub normale avec **Enregistrer la conversation en Markdown** (**⌘⇧S**). Les traces de tâche capturent l'échange du **subagent**, y compris les appels d'outils déclenchés par le message parent.
+
+## Quand utiliser chaque option
+
+| Action | Utiliser quand |
+|--------|----------|
+| **Ouvrir dans un onglet** | Vous voulez lire la conversation de tâche complète dans Alter |
+| **Exporter le chat** | Vous avez besoin d'un fichier **.md** local |
+| **Partager la trace** | Quelque chose a échoué ou s'est comporté de façon inattendue |
+| **Enregistrer la conversation en Markdown** (**⌘⇧S**) | Vous voulez exporter le chat **parent** Hub/QuickHub, pas seulement le sous-fil |
+
+## Où trouver les actions de tâche
+
+1. Exécutez un outil producteur de tâche (par ex. demander à Alter d'exécuter un objectif **Computer Use**, ou invoquer **Flow**)
+2. Dans le **Hub** ou **QuickHub**, ouvrez le panneau **Inspector** (bascule inspecteur de la barre latérale)
+3. Sélectionnez l'**exécution d'outil** dans l'inspecteur — la ligne pour `computer_use_task`, Flow ou un autre agent de tâche
+4. Faites défiler jusqu'au bloc d'actions **conversation de tâche** (fond accentué)
+
+Trois actions apparaissent :
+
+- **Ouvrir dans un onglet**
+- **Exporter le chat**
+- **Partager la trace**
+
+Pendant un partage, le bouton affiche **Partage de la trace...** et est désactivé jusqu'à la fin.
+
+Pour des exécutions **Computer Use** encore actives, l'inspecteur peut aussi afficher **Watch preview** — voir [Computer Use en arrière-plan](/fr/apps-tools/computer-use-background).
+
+## Ouvrir dans un onglet
+
+**Ouvrir dans un onglet** ouvre la **conversation de tâche en lecture seule** — le fil subagent avec ses propres messages, appels d'outils et résultats.
+
+## Exporter le chat
+
+**Exporter le chat** enregistre la conversation de tâche en **document Markdown** :
+
+1. Cliquez **Exporter le chat** dans le Tool Inspector
+2. Choisissez un emplacement (par défaut **Téléchargements**)
+3. Alter écrit un fichier `.md` nommé d'après le titre de la tâche
+4. Finder ouvre le dossier contenant
+
+<Tip>
+  Pour exporter la conversation **parent** (tout le chat principal), utilisez **Enregistrer la conversation en Markdown** — par défaut **⌘⇧S** sous **Paramètres → Raccourcis → Hub**.
+</Tip>
+
+## Partager la trace
+
+**Partager la trace** envoie un bundle de diagnostic à l'API Alter pour que l'équipe puisse investiguer bugs, échecs de permission ou comportement inattendu de l'agent.
+
+### Exigences
+
+- Vous devez être **connecté** à Alter (JWT de compte valide).
+- Une conversation de tâche doit exister pour l'exécution sélectionnée.
+
+### Ce qui est envoyé
+
+- **Titre**, **Markdown**, **nom d'outil**, **id de conversation de tâche**, **version de l'app**
+
+En cas de succès : **Trace partagée**. En cas d'échec : **Échec du partage de trace**.
+
+### Confidentialité
+
+Les traces sont destinées au **support et au débogage** — pas au partage public. Le contenu reflète ce que le **subagent de tâche** a vu et fait. Ne partagez pas de traces contenant mots de passe ou données confidentielles sauf intention d'exposition au support Alter.
+
+## Enregistrer la conversation en Markdown (chat parent)
+
+**⌘⇧S** exporte la **conversation Hub ou QuickHub active** — pas le sous-fil de tâche seul. Personnalisez sous **Paramètres → Raccourcis → Hub**.
+
+## Dépannage
+
+**Actions de tâche manquantes** — L'outil doit produire une sous-conversation. Attendez le démarrage complet.
+
+**Exporter le chat bip sans effet** — Conversation libérée de la mémoire ; relancez l'outil.
+
+**Partage échoue (connexion)** — Connectez-vous sous **Paramètres → Profil**.
+
+## Docs associées
+
+<CardGroup cols={2}>
+  <Card title="Computer Use" icon="cursorarrow.rays" href="/fr/apps-tools/computer-use">
+    Agent basé sur des objectifs produisant des conversations de tâche
+  </Card>
+  <Card title="Computer Use en arrière-plan" icon="play.rectangle" href="/fr/apps-tools/computer-use-background">
+    Watch preview et sessions Edge Bar
+  </Card>
+  <Card title="Référence raccourcis" icon="keyboard" href="/fr/references/shortcuts">
+    ⌘⇧S et raccourcis Hub
+  </Card>
+  <Card title="Paramètres Doctor" icon="stethoscope" href="/fr/how-to/settings-guide#doctor">
+    Diagnostics de permission quand les outils échouent
+  </Card>
+</CardGroup>

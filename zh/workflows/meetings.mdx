@@ -28,13 +28,18 @@ description: "具有发言者识别和离线处理功能的专业会议转录"
   </Card>
 </CardGroup>
 
+### 云端转写（Soniox V5）
+
+使用 **Cloud** 语音处理器时，Alter 通过 **Soniox V5**（beta96+）转写。云端需登录；本地 **Whisper Pro** 与 **Parakeet** 仍可离线使用。
+
+
 当检测到会议时，更改会显示一条细微的通知，让您可以选择录制或跳过。
 
 ### 自动录制设置
 
 <Steps>
   <Step title="启用自动录制">
-    设置 → 听写 → **自动录制会议**
+    Settings → Voice → ****Auto Record Meetings****
   </Step>
   <Step title="设置阈值">
     定义最小长度（默认：120秒）
@@ -94,7 +99,20 @@ description: "具有发言者识别和离线处理功能的专业会议转录"
 
 ## 说话人识别
 
-改变使用**Pyannote 4 (Community-1)**，这是最先进的人工智能，用于说话人分类。
+改变使用**Pyannote 4 (Community-1)
+
+### 说话人匹配（beta93+）
+
+在 **Settings → Voice → Automation** 中启用 **Find speakers names (experimental)**：
+
+<Steps>
+  <Step title="打开 Voice">**Settings → Voice → Automation**</Step>
+  <Step title="启用">打开实验性说话人匹配</Step>
+  <Step title="日历">选择工作日历</Step>
+  <Step title="通讯录">允许通讯录访问</Step>
+</Steps>
+
+**，这是最先进的人工智能，用于说话人分类。
 
 <CardGroup cols={3}>
   <Card title="完美的身份证明" icon="check-circle">

@@ -28,13 +28,18 @@ Alter erkennt automatisch, wann Sie an Meetings teilnehmen in:
   </Card>
 </CardGroup>
 
+### Cloud-Transkription (Soniox V5)
+
+Mit dem **Cloud**-Sprachprozessor nutzt Alter **Soniox V5** (beta96+) für höhere Genauigkeit. Cloud erfordert Login; lokale **Whisper Pro** und **Parakeet** bleiben offline.
+
+
 Wenn ein Meeting erkannt wird, zeigt Alter eine subtile Benachrichtigung an, die Ihnen die Option gibt, aufzuzeichnen oder zu überspringen.
 
 ### Auto-Record Einstellungen
 
 <Steps>
   <Step title="Auto-Record aktivieren">
-    Einstellungen → Diktat → **Automatische Aufzeichnung von Meetings**
+    Settings → Voice → ****Auto Record Meetings****
   </Step>
   <Step title="Schwelle festlegen">
     Minimale Länge definieren (Standard: 120 Sekunden)
@@ -80,7 +85,7 @@ Sie können auch manuell Aufzeichnungen steuern:
 
 <Steps>
   <Step title="Aufzeichnung starten">
-    Klicken Sie auf das Mikrofonsymbol auf der Kerbe – es verwandelt sich in einen roten Aufnahmeknopf
+    Click the mic icon in QuickHub (or the notch when QuickHub Mode is off) — it turns into a red recording button
   </Step>
   <Step title="Überwachen">
     Das Mikrofon wird während der Transkription animiert
@@ -94,7 +99,24 @@ Sie können auch manuell Aufzeichnungen steuern:
 
 ## Sprecheridentifikation
 
-Alter verwendet **Pyannote 4 (Community-1)**, eine hochmoderne KI zur Sprecherdiarisierung.
+Alter verwendet **Pyannote 4 (Community-1)
+
+### Sprecherzuordnung (beta93+)
+
+Aktivieren Sie **Sprechernamen finden (experimentell)** unter **Einstellungen → Sprache → Automatisierung**. Alter schlägt echte Namen statt „Sprecher 1“ vor:
+
+- **Kalender für Sprecherzuordnung** — Apple-Kalender auswählen
+- **Kontakte für Sprecherzuordnung** — Kontakte-Zugriff für Anzeigenamen
+- **Manuelle Kalenderauswahl** — Transkript mit Ereignis verknüpfen
+
+<Steps>
+  <Step title="Spracheinstellungen öffnen">**Einstellungen → Sprache → Automatisierung**</Step>
+  <Step title="Sprecherzuordnung aktivieren">**Sprechernamen finden (experimentell)** einschalten</Step>
+  <Step title="Kalender wählen">Arbeitskalender auswählen</Step>
+  <Step title="Kontakte erlauben">Kontakte-Zugriff gewähren</Step>
+</Steps>
+
+**, eine hochmoderne KI zur Sprecherdiarisierung.
 
 <CardGroup cols={3}>
   <Card title="Perfekte ID" icon="check-circle">

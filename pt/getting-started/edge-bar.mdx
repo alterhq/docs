@@ -1,0 +1,134 @@
+---
+title: "Edge Bar"
+description: "Ações rápidas na borda da tela — reuniões, QuickHub, chats e sessões Computer Use"
+---
+
+A **Edge Bar** é um lançador vertical que aparece quando você move o ponteiro para uma borda de tela ativada. Oferece acesso com um clique a reuniões, QuickHub, novos chats e anexar — sem procurar um atalho ou a barra de menus. Durante execuções de **Computer Use em segundo plano**, os cartões de sessão e a visualização ao vivo também ficam aqui.
+
+A Edge Bar requer o **Modo QuickHub**. Se você desativar o Modo QuickHub, as configurações da Edge Bar ficam desabilitadas e o lançador não aparece. Veja [Modo QuickHub](/getting-started/quickhub-mode).
+
+## Quando usar a Edge Bar
+
+Use a Edge Bar quando:
+
+- Quiser uma forma **com o mouse** de abrir o QuickHub ou iniciar uma reunião de qualquer app
+- Trabalhar em **vários monitores** e quiser gatilhos nas bordas externas (ou em todas as internas)
+- Executar **Computer Use** em segundo plano e precisar de status da sessão, controles de parada e **Watch preview** por perto
+- Preferir arrastar arquivos para o lançador da borda em vez de uma janela QuickHub flutuante
+
+Para acesso pelo teclado, use **⌘⇧Space** (**Abrir QuickHub**) ou **Abrir QuickHub e anexar** em **Configurações → Atalhos → Global**. A Edge Bar complementa esses atalhos; não os substitui.
+
+## Como a Edge Bar aparece
+
+1. Ative pelo menos uma borda em **Configurações → Geral → Edge Bar**
+2. Mova o ponteiro para essa **borda interna da tela** (a borda do display, não o entalhe)
+3. O lançador **se revela** conforme você se aproxima — mais perto da borda significa mais visível
+4. Clique em um ícone para executar a ação
+5. **Arraste a barra verticalmente** ao longo da borda para reposicioná-la; o Alter lembra a posição **por borda e por monitor**
+
+Em **um display**, as bordas esquerda e direita ativadas estão sempre disponíveis. Em **vários displays**, apenas bordas **externas** são usadas por padrão (a borda esquerda do monitor mais à esquerda e a borda direita do monitor mais à direita). Isso evita acionamentos acidentais ao mover o cursor entre telas.
+
+Ative **Todas as bordas dos monitores** para habilitar as bordas esquerda/direita selecionadas em **cada** monitor, incluindo bordas **entre** displays.
+
+## Ações da Edge Bar
+
+Quando nenhuma reunião está gravando, o lançador mostra estas ações (de cima para baixo):
+
+| Ação | O que faz |
+|--------|----------|
+| **Iniciar reunião** | Começar gravação de reunião com microfone e áudio do sistema |
+| **Resumir vídeo** | Resumir o vídeo do navegador ativo (quando uma página compatível é detectada) |
+| **Abrir QuickHub** | Abrir a janela QuickHub flutuante |
+| **Novo chat** | Iniciar uma nova conversa QuickHub |
+| **Anexar** | Anexar QuickHub ao lado do app em primeiro plano |
+
+Enquanto uma **reunião está gravando**, o lançador muda para controles de reunião: **Iniciar reunião** (parar/alternar), **Live Notepad**, **Live Captions**, depois **Novo chat** e **Anexar** abaixo de um separador.
+
+Durante **ditado**, aparece um conjunto menor: **Iniciar reunião**, **Novo chat** e **Anexar**.
+
+## Sessões Computer Use
+
+Quando uma tarefa **Computer Use** roda em segundo plano, um **cartão de sessão Edge Bar** aparece junto ao lançador. Cada cartão mostra:
+
+- O **objetivo** da tarefa (truncado; passe o mouse para o texto completo)
+- **Status** — o que o agente está fazendo (lendo árvores AX, clicando, rolando, etc.)
+- **App alvo** — ícone, nome e título da janela após vinculação
+- **Parar** — cancela a execução imediatamente
+
+Sessões concluídas, com falha ou interrompidas passam a um estado final e desaparecem após um curto atraso. A **visualização ao vivo flutuante** (picture-in-picture da janela alvo do agente) é gerenciada na mesma área da Edge Bar — abra-a pelo cartão de sessão ou por **Watch preview** no Tool Inspector.
+
+Veja [Computer Use em segundo plano](/apps-tools/computer-use-background).
+
+## Alvo de soltar
+
+Com a Edge Bar visível, você pode **arrastar e soltar** nela — os mesmos tipos de conteúdo que o QuickHub aceita (arquivos, texto, URLs e outros itens compatíveis da área de transferência). O Alter encaminha os itens soltos para a conversa QuickHub ativa ou nova, de forma semelhante a soltar na própria janela QuickHub.
+
+## Configurar Edge Bar
+
+Abra **Configurações → Geral** (⌘,) e role até a seção **Edge Bar**. Todos os controles ficam desabilitados quando o **Modo QuickHub** está desligado.
+
+### Borda esquerda / Borda direita
+
+Alterne **Borda esquerda** e **Borda direita** independentemente. Padrão: **Borda direita** ativada, **Borda esquerda** desativada.
+
+### Todas as bordas dos monitores
+
+**Todas as bordas dos monitores** — *Usar bordas esquerda/direita selecionadas em cada monitor, incluindo bordas entre displays.*
+
+Quando desativado (padrão), apenas bordas externas em configuração multi-monitor são elegíveis. Quando ativado, cada borda habilitada em cada display conectado pode revelar o lançador.
+
+### Distância de abertura
+
+**Distância de abertura** — *0% cola na borda; 100% usa a distância padrão.*
+
+Um controle deslizante de **0%** a **100%** em passos de **25%** define a que distância da borda o lançador começa a aparecer:
+
+- **0%** — o ponteiro deve estar na borda física
+- **100%** (padrão) — distância padrão de revelação
+- Valores intermediários (25%, 50%, 75%) ficam entre esses extremos
+
+Use um valor menor se acionar a Edge Bar acidentalmente; um valor maior se quiser que o lançador apareça mais cedo.
+
+<Tip>
+  Configurações completas da Edge Bar e do Modo QuickHub em **Configurações → Geral**. Personalização de atalhos em **Configurações → Atalhos** — veja [Configurar ajustes do Alter](/how-to/settings-guide#general).
+</Tip>
+
+## Solução de problemas
+
+**Edge Bar nunca aparece**
+
+- Confirme que o **Modo QuickHub** está ativado (**Configurações → Geral → Modo QuickHub**)
+- Ative pelo menos **Borda esquerda** ou **Borda direita**
+- Em vários monitores sem **Todas as bordas dos monitores**: tente a borda externa esquerda ou direita do grupo de displays
+- Verifique se outro app não está capturando eventos do mouse na borda da tela
+
+**Lançador aparece no monitor errado**
+
+- Ative **Todas as bordas dos monitores** se precisar de bordas internas entre displays
+- Reposicione a barra arrastando-a verticalmente na borda desejada; as posições são salvas por monitor
+
+**Cartão Computer Use ausente**
+
+- Sessões Edge Bar requerem Modo QuickHub e uma execução `computer_use_task` ativa
+- Abra **Watch preview** no Tool Inspector se a visualização flutuante estiver oculta
+
+**Configurações acinzentadas**
+
+- A Edge Bar requer Modo QuickHub. A mensagem na parte inferior diz: *Edge Bar requer que o Modo QuickHub esteja ativado.*
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Modo QuickHub" icon="square.on.square" href="/getting-started/quickhub-mode">
+    Interface padrão, anexar/desanexar e atalhos
+  </Card>
+  <Card title="Computer Use em segundo plano" icon="cursorarrow.rays" href="/apps-tools/computer-use-background">
+    Cartões de sessão Edge Bar e visualização ao vivo
+  </Card>
+  <Card title="Configurações gerais" icon="gear" href="/how-to/settings-guide#general">
+    Modo QuickHub e opções Edge Bar
+  </Card>
+  <Card title="Tipos de janela" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Visão geral QuickHub, Hub e painéis
+  </Card>
+</CardGroup>

@@ -1,0 +1,134 @@
+---
+title: "Edge Bar"
+description: "Schnellaktionen vom Bildschirmrand aus — Meetings, QuickHub, Chats und Computer-Use-Sitzungen"
+---
+
+Die **Edge Bar** ist ein vertikaler Launcher, der erscheint, wenn Sie den Zeiger zu einem aktivierten Bildschirmrand bewegen. Sie bietet Ein-Klick-Zugriff auf Meetings, QuickHub, neue Chats und Anheften — ohne Hotkey oder Menüleiste zu suchen. Während **Computer Use im Hintergrund**-Läufen befinden sich Sitzungskarten und die Live-Vorschau ebenfalls hier.
+
+Edge Bar erfordert den **QuickHub-Modus**. Wenn Sie den QuickHub-Modus deaktivieren, sind Edge-Bar-Einstellungen deaktiviert und der Launcher erscheint nicht. Siehe [QuickHub-Modus](/de/getting-started/quickhub-mode).
+
+## Wann Edge Bar nutzen
+
+Nutzen Sie Edge Bar, wenn:
+
+- Sie einen **mausgesteuerten** Weg zum Öffnen von QuickHub oder Starten eines Meetings aus jeder App wollen
+- Sie über **mehrere Monitore** arbeiten und Rand-Trigger auf äußeren (oder allen inneren) Rändern wollen
+- Sie **Computer Use** im Hintergrund ausführen und Sitzungsstatus, Stopp-Steuerung und **Watch preview** in der Nähe brauchen
+- Sie Dateien auf den Rand-Launcher ziehen statt in ein schwebendes QuickHub-Fenster
+
+Für tastaturbasierten Zugriff: **⌘⇧Space** (**QuickHub öffnen**) oder **QuickHub öffnen und anheften** unter **Einstellungen → Tastenkürzel → Global**. Edge Bar ergänzt diese Shortcuts; sie ersetzt sie nicht.
+
+## Wie Edge Bar erscheint
+
+1. Aktivieren Sie mindestens einen Rand unter **Einstellungen → Allgemein → Edge Bar**
+2. Bewegen Sie den Zeiger zum **inneren Bildschirmrand** (Rand des Displays, nicht der Encoche)
+3. Der Launcher **wird sichtbar**, je näher am Rand — näher am Rand bedeutet sichtbarer
+4. Klicken Sie ein Symbol für die gewünschte Aktion
+5. **Ziehen Sie die Leiste vertikal** am Rand, um sie zu positionieren; Alter merkt sich die Position **pro Rand und Monitor**
+
+Auf **einem Display** sind aktivierte linke und rechte Ränder immer verfügbar. Bei **mehreren Displays** werden standardmäßig nur **äußere** Ränder genutzt (linker Rand des linksten Monitors, rechter Rand des rechtesten). Das verhindert versehentliche Auslösung beim Wechseln zwischen Bildschirmen.
+
+Aktivieren Sie **Alle Monitor-Ränder**, um ausgewählte linke/rechte Ränder auf **jedem** Monitor zu aktivieren, einschließlich Ränder **zwischen** Displays.
+
+## Edge-Bar-Aktionen
+
+Wenn keine Besprechung aufgezeichnet wird, zeigt der Launcher diese Aktionen (von oben nach unten):
+
+| Aktion | Wirkung |
+|--------|---------|
+| **Meeting starten** | Besprechungsaufnahme mit Mikrofon und Systemaudio beginnen |
+| **Video zusammenfassen** | Aktives Browser-Video zusammenfassen (wenn unterstützte Seite erkannt) |
+| **QuickHub öffnen** | Schwebendes QuickHub-Fenster öffnen |
+| **Neuer Chat** | Neue QuickHub-Konversation starten |
+| **Anheften** | QuickHub an der Seite der vordersten App anheften |
+
+Während eine **Besprechung aufgezeichnet** wird, wechselt der Launcher zu Meeting-Steuerungen: **Meeting starten** (Stopp/Umschalten), **Live Notepad**, **Live Captions**, dann **Neuer Chat** und **Anheften** unter einem Trennstrich.
+
+Während der **Diktat**-Aufnahme erscheint ein kürzerer Satz: **Meeting starten**, **Neuer Chat** und **Anheften**.
+
+## Computer-Use-Sitzungen
+
+Wenn eine **Computer Use**-Aufgabe im Hintergrund läuft, erscheint eine **Edge-Bar-Sitzungskarte** neben dem Launcher. Jede Karte zeigt:
+
+- Das Aufgaben-**Ziel** (gekürzt; Hover für vollen Text)
+- **Status** — was der Agent tut (AX-Bäume lesen, klicken, scrollen usw.)
+- **Ziel-App** — Icon, Name und Fenstertitel nach Bindung
+- **Stopp** — bricht den Lauf sofort ab
+
+Abgeschlossene, fehlgeschlagene oder gestoppte Sitzungen wechseln in einen Endzustand und verschwinden nach kurzer Verzögerung. Die **schwebende Live-Vorschau** (Picture-in-Picture des Zielfensters) wird über dieselbe Edge-Bar-Zone verwaltet — öffnen Sie sie von der Sitzungskarte oder über **Watch preview** im Tool Inspector.
+
+Siehe [Computer Use im Hintergrund](/de/apps-tools/computer-use-background).
+
+## Drop-Ziel
+
+Während Edge Bar sichtbar ist, können Sie **Drag & Drop** darauf ausführen — dieselben Inhaltstypen wie QuickHub (Dateien, Text, URLs und andere unterstützte Pasteboard-Elemente). Alter leitet abgelegte Elemente in die aktive oder neue QuickHub-Konversation, ähnlich wie ein Drop auf das QuickHub-Fenster selbst.
+
+## Edge Bar konfigurieren
+
+Öffnen Sie **Einstellungen → Allgemein** (⌘,) und scrollen Sie zur **Edge Bar**-Sektion. Alle Steuerungen sind deaktiviert, wenn **QuickHub-Modus** aus ist.
+
+### Linker Rand / Rechter Rand
+
+**Linker Rand** und **Rechter Rand** unabhängig umschalten. Standard: **Rechter Rand** an, **Linker Rand** aus.
+
+### Alle Monitor-Ränder
+
+**Alle Monitor-Ränder** — *Ausgewählte linke/rechte Ränder auf jedem Monitor verwenden, einschließlich Ränder zwischen Displays.*
+
+Wenn aus (Standard), sind bei Multi-Monitor nur äußere Ränder berechtigt. Wenn an, kann jeder aktivierte Rand auf jedem verbundenen Display den Launcher zeigen.
+
+### Öffnungsabstand
+
+**Öffnungsabstand** — *0 % klebt am Rand; 100 % nutzt die Standarddistanz.*
+
+Ein Schieberegler von **0 %** bis **100 %** in **25 %-**Schritten steuert, wie weit vom Rand der Launcher sichtbar wird:
+
+- **0 %** — Zeiger muss am physischen Rand sein
+- **100 %** (Standard) — Standard-Enthüllungsdistanz
+- Zwischenwerte (25 %, 50 %, 75 %) dazwischen
+
+Nutzen Sie einen niedrigeren Wert bei versehentlicher Auslösung; einen höheren, wenn der Launcher früher erscheinen soll.
+
+<Tip>
+  Vollständige Edge-Bar- und QuickHub-Modus-Einstellungen unter **Einstellungen → Allgemein**. Shortcut-Anpassung unter **Einstellungen → Tastenkürzel** — siehe [Alter-Einstellungen konfigurieren](/de/how-to/settings-guide#general).
+</Tip>
+
+## Fehlerbehebung
+
+**Edge Bar erscheint nie**
+
+- Bestätigen Sie, dass **QuickHub-Modus** an ist (**Einstellungen → Allgemein → QuickHub-Modus**)
+- Aktivieren Sie mindestens **Linker Rand** oder **Rechter Rand**
+- Bei mehreren Monitoren ohne **Alle Monitor-Ränder**: äußeren linken oder rechten Rand des Display-Verbunds versuchen
+- Prüfen Sie, ob eine andere App Mausereignisse am Bildschirmrand abfängt
+
+**Launcher auf falschem Monitor**
+
+- Aktivieren Sie **Alle Monitor-Ränder** für innere Ränder zwischen Displays
+- Positionieren Sie die Leiste durch vertikales Ziehen am gewünschten Rand; Positionen werden pro Monitor gespeichert
+
+**Computer-Use-Karte fehlt**
+
+- Edge-Bar-Sitzungen erfordern QuickHub-Modus und einen aktiven `computer_use_task`-Lauf
+- Öffnen Sie **Watch preview** im Tool Inspector, wenn die schwebende Vorschau verborgen ist
+
+**Einstellungen ausgegraut**
+
+- Edge Bar erfordert QuickHub-Modus. Fußzeile: *Edge Bar erfordert, dass der QuickHub-Modus aktiviert ist.*
+
+## Verwandte Docs
+
+<CardGroup cols={2}>
+  <Card title="QuickHub-Modus" icon="square.on.square" href="/de/getting-started/quickhub-mode">
+    Standard-UI, Anheften/Lösen und Shortcuts
+  </Card>
+  <Card title="Computer Use im Hintergrund" icon="cursorarrow.rays" href="/de/apps-tools/computer-use-background">
+    Edge-Bar-Sitzungskarten und Live-Vorschau
+  </Card>
+  <Card title="Allgemeine Einstellungen" icon="gear" href="/de/how-to/settings-guide#general">
+    QuickHub-Modus und Edge-Bar-Schalter
+  </Card>
+  <Card title="Fenstertypen" icon="layout" href="/de/getting-started/window-types-notch-hub-panels">
+    QuickHub-, Hub- und Panel-Übersicht
+  </Card>
+</CardGroup>

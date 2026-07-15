@@ -1,30 +1,163 @@
 ---
-title: "Descripción general"
-description: "Automatización y extracción basada en pantalla con herramientas de uso informático."
+title: "Resumen"
+description: "Agente Computer Use basado en objetivos para automatización UI en macOS — describe una tarea, Alter controla las apps"
 ---
 
-Computer Use le brinda a Alter una capa de ejecución de UI para flujos de trabajo de escritorio. Puede inspeccionar ventanas, interactuar con elementos de la interfaz de usuario y controlar flujos de varios pasos.
+Computer Use es la **capa de automatización UI** für macOS. Statt Low-Level-Tools selbst zu verketten, beschreiben Sie in natürlicher Sprache, was Sie wollen, und der **Computer Use**-Agent (`computer_use_task`) liest Accessibility-Bäume, klickt, scrollt, öffnet Apps und liefert das Ergebnis.
 
-## Conjunto de herramientas
+Seit **2.0.0-beta100** läuft Computer Use standardmäßig **im Hintergrund**: Sie arbeiten weiter, während der Agent ein Zielfenster bedient, mit Live-Vorschau und Edge-Bar-Sitzungskarte. Siehe [Computer Use en segundo plano](/apps-tools/computer-use-background).
 
-- [Obtener contexto de aplicación activa](/apps-tools/computer-use-get-active-app-context)
-- [Realizar](/apps-tools/computer-use-perform)
-- [Espera](/apps-tools/computer-use-wait)
-- [Desplazarse](/apps-tools/computer-use-scroll)
+## El agente `computer_use_task`
 
-## Flujo típico
+**Computer Use** ist ein zielbasierter Subagent. Sie übergeben einen einzelnen **`goal`**-String; Alter startet eine interne Task-Schleife, die UI-Tools aufruft, bis die Aufgabe erledigt ist oder Sie stoppen.
 
-1. Lea el estado actual de la interfaz de usuario con **Obtener contexto de aplicación activa**.
-2. Active acciones de la interfaz de usuario con **Realizar**.
-3. Utilice **Desplazar** cuando el elemento de destino esté fuera de la pantalla.
-4. Agregue **Espera** entre los pasos para la carga o las transiciones de estado.
+### Parameter
 
-## Mejor flujo de trabajo
+| Parameter | Erforderlich | Beschreibung |
+|-----------|--------------|--------------|
+| `goal` | Ja | Die vollständige UI-Aufgabe — Apps, URLs, negative Einschränkungen („nicht absenden“) und was zurückgegeben werden soll |
+| `windowID` | Nein | Bestehendes Fenster mit `pid/title` oder stabilem `pid/windowNumber` aus `list_windows` ansprechen |
 
-- [Resume tu feed X con el uso de la computadora](/workflows/summarize-x-feed-with-computer-use)
+Beispiel-Ziel:
 
-## Configuración y solución de problemas
+```
+Öffne den Taschenrechner, berechne 354+73 und gib nur das numerische Ergebnis zurück.
+Öffne keine anderen Apps.
+```
 
-- [Configuración](/how-to/settings-guide)
-- [Administrar herramientas](/how-to/tool-manager-guide)
-- [Las herramientas no funcionan](/common-issues/tool-not-working)
+Beispiel mit explizitem Fenster:
+
+```
+In windowID 4280/Mail — Inbox lies die Betreffzeilen der ersten fünf ungelesenen Nachrichten und liste sie auf.
+```
+
+### Aufruf
+
+**Ask Anything (Standard)** — Computer Use ist standardmäßig für neue Sitzungen neben Flow und Ask User aktiviert. Fragen Sie in natürlicher Sprache:
+
+> „Nutze Computer Use, um das Bewerbungsformular in Safari auszufüllen, aber klicke nicht auf Absenden.“
+
+Alters Parent-Agent ruft `computer_use_task` mit Ihrer Anfrage als `goal` auf.
+
+**Tools Manager** — Aktivieren Sie **Computer Use** (`computer_use_task`) für benutzerdefinierte Actions oder MCP-Workflows. Das Tool ist **nur für LLM** gedacht: vom Modell gewählt, nicht manuell mit festen Parametern.
+
+## Qué hace el agente
+
+Wenn `computer_use_task` läuft, tut Alter:
+
+1. Erstellt **Systemanweisungen** für den Subagenten (AX-first-Workflow, Batching-Regeln, Sicherheitsbeschränkungen)
+2. Injiziert **Live-Kontext** — heutiges Datum, vorderstes Fenster-ID, Agent-Browser-Name und Ihr **App-Profil**
+3. Startet eine **Hintergrundsitzung** (Edge-Bar-Karte + optionale Live-Vorschau)
+4. Delegiert an die **`task`**-Primitive mit festem Tool-Set und **600 Sekunden** Timeout
+5. Liefert eine **Endantwort** — vollständige extrahierte Daten bei Scrape-Zielen, kurze Bestätigung bei Aktionszielen
+
+Der Subagent schleift selbst: Bildschirm lesen → handeln → neu lesen. Er hat **keine** Workspace-/Bash-/Datei-Tools; Nicht-UI-Arbeit bleibt beim Parent-Orchestrator.
+
+## Conjunto de herramientas del subagente
+
+| Tool | Rolle |
+|------|-------|
+| `read_screen_ax` | Accessibility-Baum mit `@elementID`-Tags (bevorzugt gegenüber Screenshots) |
+| `computer_use_screenshot` | Gezielte App-Fenster-Erfassung bei visuellen Anforderungen |
+| `perform` | Einzelner Klick, Fill, Type oder Shortcut |
+| `perform_sequence` | Mehrere Aktionen aus einem AX-Read bündeln |
+| `scroll` | Zeitgesteuertes Scrollen in Hintergrundfenster |
+| `open_urls` | Webseiten öffnen (an Agent-Browser bei Konfiguration) |
+| `open_app` | Mac-App per Bundle-ID oder Name starten/fokussieren |
+| `list_windows` | Fenster-IDs ermitteln |
+| `wait` | Pause wenn AX-Read leer oder noch lädt |
+
+Vollständige Referenz: [Herramientas agente Computer Use](/apps-tools/computer-use-agent-tools).
+
+## Flujo AX-first
+
+Der Agent ist auf **Accessibility-Text** ausgelegt, nicht auf Pixel:
+
+1. **`read_screen_ax`** mit Ziel-`windowID`
+2. **`perform`** oder **`perform_sequence`** mit `@elementID`-Werten aus diesem Read
+3. **Neu lesen** nach Navigation, Dialogen, Scrollen oder Shortcuts
+4. **`computer_use_screenshot`** nur wenn das Ziel explizit Bilder braucht
+
+**Batching:** Wenn mehrere Klicks/Fills Elemente aus dem **selben** Read treffen, sollte der Agent **`perform_sequence`** einmal nutzen statt vieler `perform`-Aufrufe.
+
+**App-Guidance:** Für Apps wie Taschenrechner, Discord, Spotify und X/Twitter kann `read_screen_ax` einen `<appGuidance>`-Block mit schnelleren Techniken enthalten.
+
+## Segundo plano vs primer plano
+
+| Modus | Verhalten |
+|-------|-----------|
+| **Hintergrund (`edgebarOnly`)** | Standard für `computer_use_task`. QuickHub bleibt losgelöst; Overlay nicht auf Ziel; Eingabe via `BackgroundInputDriver`; Live-Vorschau + Edge-Bar-Sitzung |
+| **Vordergrund (angeheftet)** | Legacy für direktes `perform` / `get_active_app_context` außerhalb des Task-Agenten |
+
+Alle neuen Ziele sollten über **`computer_use_task`** laufen für automatische Hintergrundausführung.
+
+## Navegador agente
+
+Wenn **Configuración → Computer use → Agent browser** auf einen dedizierten Browser gesetzt ist, öffnet `open_urls` in Computer Use Seiten dort — nicht in Ihrem Alltagsbrowser.
+
+## Escribir objetivos efectivos
+
+### Apps und Einschränkungen explizit benennen
+
+```
+Öffne Notizen, erstelle eine neue Notiz mit dem Titel „Q3-Ideen“, tippe drei Stichpunkte zu Team-Offsite-Ideen und stoppe — teile oder synchronisiere die Notiz nirgends.
+```
+
+### Negative Einschränkungen
+
+Der Agent respektiert Anweisungen, **nicht** zu senden, veröffentlichen, kaufen oder zu bestätigen.
+
+### Extraktion vs. Aktion
+
+| Zieltyp | Erwartete Endantwort |
+|---------|----------------------|
+| **Extraktion** | Vollständiger Inhalt, strukturiert, keine Zusammenfassung |
+| **Aktion** | Kurze Bestätigung |
+| **Blockiert/teilweise** | Erklärung des Fehlschlags plus Teildaten |
+
+## Cadena manual de herramientas (Power-User)
+
+Vor dem Task-Agenten wurden Primitive explizit verkettet: `get_active_app_context` → `perform` → `scroll` → `wait`. Das funktioniert weiter in **Tools Manager** für **einen** deterministischen Schritt. Für mehrstufige UI-Arbeit ist **`computer_use_task` stark bevorzugt**.
+
+| `computer_use_task` nutzen | Primitive direkt nutzen |
+|-----------------------------|-------------------------|
+| Mehrstufige Ziele über Apps/Seiten | Einzelner Klick/Fill unter voller Kontrolle |
+| Scraping, Formulare, Navigation | Debugging eines Perform-Aufrufs |
+| Standard Ask Anything | Legacy-Actions |
+
+Primitive-Referenzen:
+
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Perform](/apps-tools/computer-use-perform)
+- [Scroll](/apps-tools/computer-use-scroll)
+- [Wait](/apps-tools/computer-use-wait)
+
+## Ajustes y permisos
+
+- **Configuración → Computer use** — Agent-Browser, Vorschau, blockierte Apps ([Anleitung](/how-to/settings-guide#computer-use))
+- **Einstellungen → Berechtigungen** — Barrierefreiheit und Bildschirmaufnahme erforderlich
+- **Einstellungen → Doctor** — Diagnose von Berechtigungs- und Automatisierungsproblemen
+
+## Solución de problemas
+
+| Symptom | Was versuchen |
+|---------|---------------|
+| Tool nicht verfügbar | **Computer Use** in Tools Manager aktivieren |
+| „Blockiert“-App-Fehler | App auf Blockliste — **Configuración → Computer use → Blocked apps** |
+| Falsches Fenster | `windowID` übergeben; Agent soll `list_windows` einmal aufrufen |
+| Timeout nach 10 Min. | Ziel in kleinere Aufgaben teilen |
+| Vom Nutzer gestoppt | Agent meldet Teilerfolg; nächsten Schritt bestätigen |
+
+Siehe [Computer Use en segundo plano](/apps-tools/computer-use-background), [Las herramientas no funcionan](/common-issues/tool-not-working) und [Integrations-Fehlerbehebung](/apps-tools/integrations-troubleshooting).
+
+## Flujos de trabajo
+
+- [X-Feed mit Computer Use zusammenfassen](/workflows/summarize-x-feed-with-computer-use)
+- [Flow-Orchestrierung nutzen](/workflows/use-flow-orchestration) — Computer Use ist ein Standard-Ask-Anything-Tool
+
+## Documentos relacionados
+
+- [Computer Use en segundo plano](/apps-tools/computer-use-background)
+- [Herramientas agente Computer Use](/apps-tools/computer-use-agent-tools)
+- [Configuración → Computer use](/how-to/settings-guide#computer-use)
+- [Tools Manager](/how-to/tool-manager-guide)

@@ -163,6 +163,29 @@ Ahora sus interacciones predeterminadas utilizarán la orquestación de Flow en 
 
 ---
 
+## Valores predeterminados de Ask Anything (beta100+)
+
+**Ask Anything** se ejecuta al escribir sin elegir otra acción. Desde **2.0.0-beta100** incluye **Flow**, **Computer Use** y **Ask User** por defecto.
+
+| Tool | Rol |
+|------|-----|
+| **Flow** | Orquesta herramientas habilitadas |
+| **Computer Use** | Automatización de pantalla (`computer_use_task`) |
+| **Ask User** | Preguntas aclaratorias |
+
+Habilite integraciones en **Tools Manager** (**⌘⇧T**).
+
+### Opcional: reducir herramientas
+
+<Steps>
+  <Step title="Abrir Action Editor">**⌘⇧E**</Step>
+  <Step title="Ask Anything">Seleccione la acción</Step>
+  <Step title="Tools">Desactive **Computer Use** y **Ask User** si no los necesita</Step>
+  <Step title="Guardar">Guarde cambios</Step>
+</Steps>
+
+---
+
 <AccordionGroup>
   <Accordion icon="link" title="Avanzado: Tool Encadenamiento con instrucciones">
 Flow encadena automáticamente Tools cuando una tarea requiere varios pasos. Se puede hacer referencia al resultado de una Tool en llamadas posteriores utilizando la sintaxis `$N`.

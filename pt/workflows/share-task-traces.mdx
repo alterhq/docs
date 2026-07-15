@@ -1,0 +1,135 @@
+---
+title: "Compartilhar e exportar rastros de tarefa"
+description: "Exportar conversas de tarefa como markdown, compartilhar rastros com a equipe Alter e abrir chats de subagente no Tool Inspector"
+---
+
+Quando o Alter executa uma **ferramenta que produz tarefas** — **Computer Use**, **Flow** ou outros agentes com subconversa — o chat principal mostra uma execução de ferramenta no **Tool Inspector**. De lá você pode **abrir o thread completo da tarefa**, **exportar como markdown** ou **compartilhar um rastro** com a equipe Alter para depuração.
+
+Este fluxo é separado de salvar uma conversa Hub normal com **Salvar conversa como Markdown** (**⌘⇧S**). Rastros de tarefa capturam o vai-e-vem do **subagente**, incluindo chamadas de ferramenta que a mensagem principal acionou.
+
+## Quando usar cada opção
+
+| Ação | Usar quando |
+|--------|-------------|
+| **Abrir em aba** | Quiser ler a conversa de tarefa completa no Alter |
+| **Exportar chat** | Precisar de um arquivo **.md** local para registros ou revisão offline |
+| **Compartilhar rastro** | Algo falhou ou se comportou de forma inesperada — enviar diagnóstico ao Alter |
+| **Salvar conversa como Markdown** (**⌘⇧S**) | Quiser exportar o chat **principal** Hub/QuickHub, não apenas o sub-thread da tarefa |
+
+## Onde encontrar as ações de tarefa
+
+1. Execute uma ferramenta produtora de tarefas (por exemplo, peça ao Alter para executar um objetivo **Computer Use** ou invoque **Flow**)
+2. No **Hub** ou **QuickHub**, abra o painel **Inspector** da conversa (alternador do inspector na barra lateral)
+3. Selecione a **execução de ferramenta** no inspector — a linha de `computer_use_task`, Flow ou outro agente de tarefa
+4. Role até o bloco de ações da **conversa de tarefa** (fundo de destaque)
+
+Três ações aparecem:
+
+- **Abrir em aba**
+- **Exportar chat**
+- **Compartilhar rastro**
+
+Enquanto um compartilhamento está sendo enviado, o botão mostra **Compartilhando rastro...** e fica desabilitado até a solicitação terminar.
+
+Em execuções **Computer Use** ativas, o inspector também pode mostrar **Watch preview** — veja [Computer Use em segundo plano](/apps-tools/computer-use-background).
+
+## Abrir em aba
+
+**Abrir em aba** vai para a **conversa de tarefa somente leitura** — o thread do subagente com suas próprias mensagens, chamadas de ferramenta e resultados. Use quando:
+
+- A resposta principal resumiu o resultado, mas você quer detalhes passo a passo
+- Precisar copiar um argumento ou resultado específico do sub-thread
+- Estiver revisando uma execução longa de **Computer Use** antes de exportar
+
+A aba da tarefa abre no contexto do Hub. Se você acionou a ferramenta pelo QuickHub, use **Abrir no Hub** (**⌘O**) primeiro quando precisar do layout completo do Hub com abas.
+
+## Exportar chat
+
+**Exportar chat** salva a conversa de tarefa como um **documento Markdown**:
+
+1. Clique em **Exportar chat** no Tool Inspector
+2. Escolha um local no painel de salvamento (padrão: **Downloads**)
+3. O Alter grava um arquivo `.md` nomeado pelo título da tarefa (ou **Task Chat** se sem título)
+4. O Finder abre a pasta contendo o arquivo
+
+A exportação inclui o título da tarefa e mensagens formatadas da conversa do subagente — o mesmo conteúdo usado para compartilhar rastros, mas salvo **localmente no seu Mac**.
+
+<Tip>
+  Para exportar a conversa **principal** (tudo visível no chat principal, não apenas o sub-thread do subagente), use **Salvar conversa como Markdown** — padrão **⌘⇧S** em **Configurações → Atalhos → Hub**.
+</Tip>
+
+## Compartilhar rastro
+
+**Compartilhar rastro** envia um pacote de diagnóstico à API do Alter para que a equipe investigue bugs, falhas de permissão ou comportamento inesperado do agente.
+
+### Requisitos
+
+- Você deve estar **conectado** ao Alter (JWT de conta válido). Sem login, o compartilhamento falha com erro de autenticação.
+- Deve existir uma conversa de tarefa para a execução de ferramenta selecionada.
+
+### O que é enviado
+
+- **Título** — título da conversa de tarefa
+- **Markdown** — mensagens de tarefa formatadas (como Exportar chat)
+- **Nome da ferramenta** — por exemplo `computer_use_task` ou ID da ferramenta Flow
+- **ID da conversa de tarefa** — vínculo interno entre principal e sub-thread
+- **Versão do app** — string de build do Alter para reprodução
+
+Em caso de sucesso, o Alter mostra **Rastro compartilhado** — *O rastro foi compartilhado com a equipe Alter.*
+
+Em caso de falha, **Falha ao compartilhar rastro** com a mensagem de erro (rede, autenticação ou servidor).
+
+### Privacidade
+
+Rastros são destinados a **suporte e depuração**, não a compartilhamento público:
+
+- O conteúdo reflete o que o **subagente da tarefa** viu e fez
+- **Conteúdo da tela**, títulos de janela e caminhos de arquivo do Computer Use podem aparecer no markdown
+- Caminhos do diretório home em relatórios Doctor são ocultados em **Copiar relatório**; exportações de tarefa **não** são ocultadas automaticamente
+
+Não compartilhe rastros com senhas, dados financeiros ou documentos confidenciais, a menos que pretenda expor essas informações ao suporte Alter.
+
+## Salvar conversa como Markdown (chat principal)
+
+**Salvar conversa como Markdown** — padrão **⌘⇧S** — exporta a **conversa Hub ou QuickHub ativa** para markdown pelo menu Hub ou atalho. **Não substitui** **Exportar chat** em uma execução de ferramenta:
+
+- **⌘⇧S** → thread principal completo
+- **Exportar chat** (inspector) → apenas sub-thread de tarefa do subagente
+
+Personalize em **Configurações → Atalhos → Hub**.
+
+## Solução de problemas
+
+**Ações de tarefa ausentes no inspector**
+
+- A ferramenta deve ser uma execução **produtora de tarefas** com subconversa associada
+- Aguarde a conclusão da inicialização da ferramenta
+
+**Exportar chat emite som sem efeito**
+
+- A conversa de tarefa foi liberada da memória — execute a ferramenta novamente ou abra a conversa principal enquanto a tarefa ainda estiver carregada
+
+**Compartilhar rastro falha com erro de login**
+
+- Entre em **Configurações → Perfil** ou menu da conta, depois tente novamente
+
+**Preciso de um link público compartilhável**
+
+- **Compartilhar rastro** envia ao suporte Alter; não copia uma URL pública. Use **Exportar chat** e compartilhe o arquivo `.md` pelos seus próprios canais.
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+    Agente baseado em objetivos que produz conversas de tarefa
+  </Card>
+  <Card title="Computer Use em segundo plano" icon="play.rectangle" href="/apps-tools/computer-use-background">
+    Watch preview e sessões Edge Bar
+  </Card>
+  <Card title="Referência de atalhos" icon="keyboard" href="/references/shortcuts">
+    ⌘⇧S e atalhos Hub
+  </Card>
+  <Card title="Ajustes Doctor" icon="stethoscope" href="/how-to/settings-guide#doctor">
+    Diagnóstico de permissões quando ferramentas falham
+  </Card>
+</CardGroup>

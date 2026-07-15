@@ -1,0 +1,282 @@
+---
+title: "智能体工具参考"
+description: "Computer Use 子智能体内的 LLM 专用工具 — read_screen_ax、perform_sequence、list_windows 等"
+---
+
+这些工具为 Alter 的 **Computer Use** 子智能体（`computer_use_task`）注册。它们**仅供 LLM 使用** — 供模型在后台 UI 循环中调用，多数情况下并非用于手动单次执行。
+
+子智能体还会收到原始工具 [Perform](/apps-tools/computer-use-perform)、[Scroll](/apps-tools/computer-use-scroll) 和 [Wait](/apps-tools/computer-use-wait)。本页介绍**智能体专用**工具及共享的窗口定位规则。
+
+<Card title="从这里开始" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  阅读 [Computer Use 概览](/apps-tools/computer-use)，了解如何用 `goal` 字符串调用智能体。
+</Card>
+
+## 共享工作流
+
+### 窗口 ID 格式
+
+`list_windows` 返回两种 ID 样式：
+
+| 格式 | 示例 | 说明 |
+|--------|---------|-------|
+| `pid/title` | `4280/Mail — Inbox` | 人类可读；标题可能变化 |
+| 稳定的 `pid/windowNumber` | `4280/12345` | 可用时优先 — 标题变更后仍有效 |
+
+在该窗口的每一步中，将相同的 `windowID` 传给 `read_screen_ax`、`perform`、`perform_sequence`、`scroll` 和 `computer_use_screenshot`。
+
+### 解析顺序
+
+省略 `windowID` 时：
+
+1. 工具调用中的显式 `windowID`
+2. **跟踪目标** — 由 `open_app`、`open_urls` 或本会话中先前工具记录的窗口
+3. **会话回退** — 后台运行期间，实时预览中显示的窗口（防止您重新聚焦其他应用时发生偏移）
+4. **最前窗口**
+
+### 被阻止的应用
+
+Computer Use 拒绝打开、读取或控制您阻止列表中的应用（**Settings → Computer use → Blocked apps**）。密码管理器默认被阻止。工具会返回明确错误，使智能体停止循环并向您报告阻止情况。
+
+### 独立使用 vs 智能体内
+
+| 上下文 | 是否可用？ |
+|---------|------------|
+| `computer_use_task` 子智能体内 | 是 — 下方完整工具集 |
+| Ask Anything 父智能体 | 间接 — 父级应调用 `computer_use_task`，而非手动串联这些工具 |
+| Tools Manager 手动运行 | 可用于调试；非主要工作流 |
+
+工作区工具（`workspace_read`、`workspace_bash` 等）在 Computer Use 内**不可用**。
+
+---
+
+## `read_screen_ax`
+
+**显示名称：** Read Screen (AX)
+
+以文本形式返回窗口的**无障碍树**。交互元素包含供 `perform` 和 `perform_sequence` 使用的 **`@elementID`** 后缀。**无截图**、无视觉分析 — 严格仅 AX。
+
+### 参数
+
+| 参数 | 必填 | 默认值 | 说明 |
+|-----------|----------|---------|-------------|
+| `windowID` | 否 | 跟踪 → 会话回退 → 最前 | `pid/title` 或稳定的 `pid/windowNumber` |
+
+### 智能体何时调用
+
+- 窗口上的**第一步**（任何点击或填充之前）
+- 改变 UI 的导航、对话框、滚动或快捷键**之后**
+- 选择上次读取中不可见的组合框/列表选项**之前**
+
+### 输出
+
+包裹在 `<activeAppContext>…</activeAppContext>` 中。Computer Use 运行期间，匹配的应用可能附加 `<appGuidance>`（Calculator、Discord、Spotify、X.com 等）及更快技巧。
+
+### 示例
+
+目标步骤：智能体已通过 `open_app` 打开 Mail 并收到 `windowID: 5123/Mail — Inbox`。
+
+```
+read_screen_ax({ "windowID": "5123/Mail — Inbox" })
+```
+
+返回带元素 ID 的行，如 `Unread message row 1@MessageRow_0`，供后续 `perform` 点击使用。
+
+### 与 `get_active_app_context` 对比
+
+[Get Active App Context](/apps-tools/computer-use-get-active-app-context) 从截图添加 OCR。除非目标需要通过 `computer_use_screenshot` 进行视觉捕获，Computer Use 智能体为速度与隐私优先使用 **`read_screen_ax`**。
+
+---
+
+## `perform_sequence`
+
+**显示名称：** Perform Sequence
+
+在**一次工具调用**中执行多个 UI 操作 — 当当前 AX 读取中所有目标元素已可见时，比多次 `perform` 调用更快。
+
+### 参数
+
+| 参数 | 必填 | 说明 |
+|-----------|----------|-------------|
+| `steps` | 是 | 操作对象数组（见下文） |
+| `windowID` | 否 | 应用于每一步 |
+
+每个 **step** 对象：
+
+| 字段 | 必填条件 | 说明 |
+|-------|--------------|-------------|
+| `action` | — | `click`（默认）、`fill`、`type` 或 `shortcut` |
+| `elementID` | `click`、`fill` | `read_screen_ax` 中 `@` 后的 ID |
+| `text` | `fill`、`type` | 要输入的文本 |
+| `shortcut` | `shortcut` | 如 `cmd+k`、`escape`、`shift+enter` |
+
+### 批处理规则
+
+- 所有 `elementID` 必须来自**同一次** `read_screen_ax` 结果
+- 仅批处理步骤间不改变布局的操作（多字段表单、通过 `type` 输入计算器表达式）
+- 在导航、切换应用或打开菜单/对话框**之前停止批处理** — 然后重新读取
+- 执行在**第一个失败步骤处停止**并报告哪一步失败
+
+### 示例
+
+在一次读取中填充可见的三字段表单：
+
+```json
+{
+  "windowID": "5123/Signup",
+  "steps": [
+    { "action": "fill", "elementID": "FirstName", "text": "Alex" },
+    { "action": "fill", "elementID": "LastName", "text": "Rivera" },
+    { "action": "fill", "elementID": "Email", "text": "alex@example.com" }
+  ]
+}
+```
+
+Spotify 快速搜索（读取主窗口后）：
+
+```json
+{
+  "steps": [
+    { "action": "shortcut", "shortcut": "cmd+k" },
+    { "action": "type", "text": "Debussy Clair de Lune" }
+  ]
+}
+```
+
+单操作语义（`type` 与 `fill`、快捷键格式）见 [Perform](/apps-tools/computer-use-perform)。
+
+---
+
+## `computer_use_screenshot`
+
+**显示名称：** Computer Use Screenshot
+
+将**特定应用窗口**捕获为 PNG。**不使用**全局截图快捷键、`screencapture` 或交互式区域选择。
+
+### 参数
+
+| 参数 | 必填 | 说明 |
+|-----------|----------|-------------|
+| `windowID` | 否 | 与其他工具相同的解析顺序 |
+
+### 何时使用
+
+- 目标明确要求截图或视觉产物
+- 常规 UI 检查**应避免** — 改用 `read_screen_ax`
+
+### 输出
+
+文本元数据（`app`、`title`、`windowID`、尺寸）及供模型使用的图像附件。
+
+### 示例
+
+```
+computer_use_screenshot({ "windowID": "9042/Google Chrome — Dashboard" })
+```
+
+缺少 Screen Recording 权限或窗口最小化/隐藏时会失败。
+
+---
+
+## `list_windows`
+
+**显示名称：** List Windows
+
+枚举运行中应用程序的打开窗口。无参数。
+
+### 返回内容
+
+每个窗口：
+
+- 应用名称与 bundle 标识符
+- 窗口标题
+- **Window ID**（`pid/title`）
+- 可用时的 **Stable Window ID**
+- PID
+- 最前窗口上的 **⭐ (ACTIVE)** 标记
+
+### 智能体何时调用
+
+- 目标窗口**不是**最前应用，且本运行中未通过 `open_app` / `open_urls` 打开
+- **每次运行一次**通常足够 — 复用返回的 ID，勿重复列举
+
+### 示例输出（缩写）
+
+```
+Open Windows (42 total):
+
+Safari (com.apple.Safari):
+  - Window: "Apple — Homepage" ⭐ (ACTIVE)
+    Window ID: 4280/Apple — Homepage
+    Stable Window ID: 4280/87
+    PID: 4280
+```
+
+智能体随后将 `4280/87` 传给 `read_screen_ax`，在您使用其他应用时进行后台抓取。
+
+---
+
+## `open_app`
+
+**显示名称：** Open Application
+
+启动或聚焦 Mac 应用。返回目标窗口 ID 以供立即跟进 — 通常**无需**调用 `list_windows`。
+
+### 参数
+
+| 参数 | 必填 | 说明 |
+|-----------|----------|-------------|
+| `bundleId` | 是 | Bundle 标识符（如 `com.apple.Calculator`）**或**人类可读应用名（`Calculator`、`Google Chrome`）— 名称自动解析 |
+
+### 行为
+
+- **后台运行：** 若应用已在运行，Alter 不会抢夺焦点。新启动尽可能使用非激活打开，并恢复您先前的最前应用。
+- **被阻止的应用：** 以阻止列表错误拒绝
+- **成功响应**包含 `Window ID` 及可选 `Stable Window ID`，供后续工具使用
+
+### 示例
+
+```json
+{ "bundleId": "com.apple.Calculator" }
+```
+
+响应包含：
+
+```
+Target window: Calculator - Calculator
+Window ID: 6012/Calculator
+Pass this windowID to read_screen_ax, perform, perform_sequence, and scroll...
+```
+
+---
+
+## 同一智能体内的原始工具
+
+这些工具有独立页面；子智能体使用相同的 `windowID` 规则：
+
+| 工具 | 页面 | 智能体说明 |
+|------|------|-------------|
+| `perform` | [Perform](/apps-tools/computer-use-perform) | 单次点击/填充/type/快捷键；批处理时优先 `perform_sequence` |
+| `scroll` | [Scroll](/apps-tools/computer-use-scroll) | `milliseconds` 时长（默认 3000）；Chromium/Safari 在后台使用键盘滚动 |
+| `wait` | [Wait](/apps-tools/computer-use-wait) | AX 读取为空或加载时使用 — 非每步之前 |
+| `open_urls` | — | 打开 URL；Computer Use 期间路由至智能体浏览器 |
+
+`get_active_app_context` **不在**子智能体工具集中 — 请改用 `read_screen_ax`。
+
+---
+
+## 故障排除
+
+| 问题 | 指导 |
+|-------|----------|
+| `Window … not found` | 重新运行 `list_windows`；窗口可能已关闭 |
+| 批处理后 `elementID` 失败 | 布局已变 — 用 `read_screen_ax` 重新读取 |
+| 应用被阻止 | 调整阻止列表或改写目标以跳过该应用 |
+| 截图失败 | 授予 Screen Recording；确保窗口可见 |
+| 全局快捷键被忽略 | 后台模式下属预期 — 智能体使用 `fill`/`type`，而非 ⌘C/⌘V |
+
+## 相关文档
+
+- [Computer Use 概览](/apps-tools/computer-use)
+- [后台 Computer Use](/apps-tools/computer-use-background)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait) · [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Settings → Computer use](/how-to/settings-guide#computer-use)

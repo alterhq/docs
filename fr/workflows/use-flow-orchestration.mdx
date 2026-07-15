@@ -162,6 +162,29 @@ Désormais, vos interactions par défaut utiliseront l'orchestration de Flow au 
 
 ---
 
+## Valeurs par défaut Ask Anything (beta100+)
+
+**Ask Anything** s'exécute sans autre action sélectionnée. Depuis **2.0.0-beta100**, **Flow**, **Computer Use** et **Ask User** sont activés par défaut.
+
+| Outil | Rôle |
+|-------|------|
+| **Flow** | Orchestre vos outils activés |
+| **Computer Use** | Automatisation d'écran (`computer_use_task`) |
+| **Ask User** | Questions de clarification |
+
+Activez les intégrations dans **Tools Manager** (**⌘⇧T**).
+
+### Optionnel : réduire les outils
+
+<Steps>
+  <Step title="Ouvrir Action Editor">**⌘⇧E**</Step>
+  <Step title="Ask Anything">Sélectionnez l'action</Step>
+  <Step title="Tools">Désactivez **Computer Use** et **Ask User** si besoin</Step>
+  <Step title="Enregistrer">Sauvegardez</Step>
+</Steps>
+
+---
+
 <AccordionGroup>
   <Accordion icon="link" title="Avancé : chaînage de Tools avec instructions">
     Flow enchaîne automatiquement les Tools lorsqu’une tâche nécessite plusieurs étapes. La sortie d'un Tool peut être référencée dans les appels suivants à l'aide de la syntaxe `$N`.

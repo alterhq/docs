@@ -1,20 +1,26 @@
 ---
 title: "Effectuer"
-description: "Exécutez des actions de clic, de remplissage et de raccourci sur les éléments de l'interface utilisateur"
+description: "Exécutez des actions de clic, de remplissage, de saisie et de raccourci sur les éléments de l'interface utilisateur"
 ---
 
 Utilisez cet outil pour exécuter des interactions concrètes avec l'interface utilisateur après avoir identifié les cibles avec Get Active App Context.
 
+<Tip>
+  Pour un travail UI en plusieurs étapes, préférez l'agent [**Computer Use**](/apps-tools/computer-use) (`computer_use_task`), qui appelle `perform` et [`perform_sequence`](/apps-tools/computer-use-agent-tools) automatiquement. Consultez la [référence des outils agent](/apps-tools/computer-use-agent-tools) pour les règles de regroupement.
+</Tip>
+
 ## Actions prises en charge
 
-- `click` : cliquez sur un élément cible.
-- `fill` : saisissez du texte dans un champ de texte ou une zone de texte.
+- `click` : cliquez sur un élément cible (par défaut).
+- `fill` : saisissez du texte dans un champ ou une zone de texte identifié par `elementID`.
+- `type` : saisissez des frappes brutes dans l'élément ayant le focus clavier — pas besoin de `elementID` (utile pour les apps sans champ remplissable, par ex. une expression complète dans Calculatrice).
 - `shortcut` : envoyer des raccourcis clavier (par exemple `cmd+c`, `ctrl+shift+t`).
 
 ## Entrées
 
-- `elementID` (obligatoire pour `click` et `fill`) : ID d'élément de la sortie Get Active App Context.
-- `text` (obligatoire pour `fill`) : valeur à insérer dans l'entrée cible.
+- `action` (facultatif) : `click`, `fill`, `type` ou `shortcut` (par défaut `click`).
+- `elementID` (obligatoire pour `click` et `fill`) : ID d'élément de la sortie Get Active App Context.
+- `text` (obligatoire pour `fill` et `type`) : valeur à insérer ou frappes à saisir.
 - `shortcut` (obligatoire pour `shortcut`) : chaîne de raccourci.
 - `windowID` (facultatif) : ciblez une fenêtre spécifique (`pid/title`) au lieu de celle active.
 

@@ -1,0 +1,141 @@
+---
+title: "QuickHub-Modus"
+description: "Alters Standard-Konversationsoberfläche — schwebendes QuickHub vs. die Legacy-Encoche"
+---
+
+Der **QuickHub-Modus** ist Alters primäre Konversationsoberfläche. Wenn aktiviert, öffnet sich jeder Chat in **QuickHub** — einem schwebenden Panel, das Sie verschieben, an App-Fenster anheften oder vom Bildschirmrand aus aufrufen können. Neue Installationen haben QuickHub-Modus standardmäßig aktiviert (`useQuickHub = true` ab **2.0.0-beta100**).
+
+Deaktivieren Sie den QuickHub-Modus, um zur **Encoche**-zentrierten Erfahrung zurückzukehren: Bewegen Sie den Mauszeiger über die Kamera-Encoche, um das kompakte Schnellmenü zu öffnen.
+
+## QuickHub vs. Encoche
+
+| | **QuickHub-Modus an** (Standard) | **QuickHub-Modus aus** |
+|---|---|---|
+| Primäre UI | Schwebendes **QuickHub**-Panel | **Encoche**-Hover-Menü |
+| Globales Öffnen-Shortcut-Label | **QuickHub öffnen** | **Encoche öffnen** |
+| Edge Bar | Verfügbar | Deaktiviert |
+| An Apps anheften | Ja — neben jedem Fenster andocken | Begrenztes Encoche-Layout |
+| Am besten für | Täglicher Chat, Anheften-Workflows, Edge Bar | Minimales Encoche-only-Setup |
+
+QuickHub ist kein separates Produkt vom Hub — es ist die **leichtgewichtige Konversationsoberfläche**. Öffnen Sie jeden QuickHub-Chat im vollen **Hub**-Fenster mit **In Hub öffnen** (Standard **⌘O**), wenn Sie Tabs, Sidebar und Workspace-Verwaltung benötigen.
+
+<Tip>
+  Die meisten neuen Nutzer sollten den **QuickHub-Modus** aktiviert lassen. Die Encoche bleibt unter **Einstellungen → Erscheinungsbild → Encoche anzeigen** für Statusanzeige verfügbar; sie ist nicht mehr der einzige Weg zum Chatten.
+</Tip>
+
+## QuickHub-Modus aktivieren oder deaktivieren
+
+1. Öffnen Sie **Einstellungen** (⌘,)
+2. Gehen Sie zu **Allgemein**
+3. Schalten Sie **QuickHub-Modus** um — *QuickHub für alle Konversationen statt der Encoche verwenden*
+
+Wenn Sie den QuickHub-Modus deaktivieren, werden die **Edge Bar**-Einstellungen ausgegraut und der Bildschirmrand-Launcher erscheint nicht mehr.
+
+## QuickHub öffnen
+
+**Von überall (global)**
+
+- **⌘⇧Space** — **QuickHub öffnen** (Standard; konfigurierbar unter **Einstellungen → Tastenkürzel → Global**)
+- **QuickHub öffnen und anheften** — öffnet QuickHub und heftet es mit Ihrem konfigurierten Trigger an eine Seite an (siehe unten)
+- **Edge Bar** — bewegen Sie sich zu einem aktivierten Bildschirmrand und klicken Sie **QuickHub öffnen** oder **Neuer Chat** — siehe [Edge Bar](/de/getting-started/edge-bar)
+
+**Vom Hub**
+
+- **Neuer Hub-Chat** — **⌥Space** (Standard) startet eine neue Hub-Konversation; QuickHub-Konversationen teilen dieselben Shortcut-Kategorien unter **Hub & QuickHub**
+
+## Anheften, lösen und fixieren
+
+QuickHub kann **neben** dem vordersten App-Fenster andocken, damit Sie chatten können, während Sie in Mail, Safari, Xcode oder einer anderen App arbeiten.
+
+### Anheften-Shortcuts
+
+Konfigurieren unter **Einstellungen → Tastenkürzel → QuickHub**:
+
+| Shortcut | Standard | Aktion |
+|----------|---------|--------|
+| **Links anheften** | **⌃⌘←** | QuickHub links neben der aktiven App andocken |
+| **Rechts anheften** | **⌃⌘→** | QuickHub rechts neben der aktiven App andocken |
+| **Fenster lösen** | **⌃⌘↓** | QuickHub in schwebende Position zurücksetzen |
+| **Fenster fixieren** | **⌘⌥P** | QuickHub fixieren oder lösen, damit es über anderen Fenstern bleibt |
+
+Sie können auch **Anheften** vom **Edge Bar**-Launcher klicken, wenn der QuickHub-Modus aktiv ist.
+
+### QuickHub öffnen und anheften
+
+Unter **Einstellungen → Tastenkürzel → Global** kombiniert **QuickHub öffnen und anheften** Öffnen + Anheften in einer Geste:
+
+- **Anheft-Verhalten** — **Links anheften** oder **Rechts anheften** (Standard **Rechts anheften**)
+- **Shortcut** — Doppeltipp-Modifier: **Doppeltipp ⌘** (Standard), **Doppeltipp ⌥**, **Doppeltipp ⌃**, **Doppeltipp ⇧** oder **Keiner**
+
+Tippen Sie den gewählten Modifier schnell doppelt, um QuickHub zu öffnen und an die gewählte Seite anzuheften.
+
+## Edge Bar-Abhängigkeit
+
+Die **Edge Bar** — der Bildschirmrand-Launcher für Meetings, Chats, Anheften und Computer-Use-Sitzungskarten — **erfordert den QuickHub-Modus**. Edge-Hotspots rufen QuickHub-Oberflächen auf; sie sind nicht mit dem Encoche-Layout verbunden.
+
+Wenn Sie auf Edge Bar angewiesen sind, lassen Sie den QuickHub-Modus aktiviert und konfigurieren Sie Ränder unter **Einstellungen → Allgemein → Edge Bar**.
+
+## Auswirkung auf Shortcut-Labels
+
+Mehrere Shortcuts ändern ihren **Anzeigenamen**, wenn der QuickHub-Modus umgeschaltet wird:
+
+- **Einstellungen → Tastenkürzel → Global → QuickHub öffnen** vs. **Encoche öffnen** — derselbe Shortcut-Slot (**⌘⇧Space** Standard), anderes Label
+- **Hub & QuickHub**-Kategorie-Shortcuts gelten für die aktive Oberfläche (Hub-Tab oder QuickHub-Konversation)
+
+Durchsuchen Sie Shortcuts in **Einstellungen → Tastenkürzel** mit **⌘F**, oder nutzen Sie das Feld **Shortcuts suchen**.
+
+## Typische Workflows
+
+**Kurze Frage beim Codieren**
+
+Drücken Sie **⌘⇧Space**, fragen Sie, drücken Sie **Esc** oder klicken Sie weg — QuickHub schließt sich, ohne den vollen Hub zu öffnen.
+
+**Seite an Seite mit einer App**
+
+Drücken Sie **⌃⌘→** (**Rechts anheften**) oder nutzen Sie **Anheften** von der Edge Bar.
+
+**Lange Sitzung → voller Hub**
+
+Drücken Sie **⌘O** (**In Hub öffnen**), um den aktuellen QuickHub-Chat in einen Hub-Tab mit Sidebar und Verlauf zu verschieben.
+
+**Computer Use im Hintergrund**
+
+Starten Sie ein Computer-Use-Ziel aus QuickHub oder dem Hub. Der Agent läuft im Hintergrund; der Sitzungsstatus erscheint in der **Edge Bar**, während Sie weiterarbeiten. Siehe [Computer Use im Hintergrund](/de/apps-tools/computer-use-background).
+
+## Fehlerbehebung
+
+**⌘⇧Space öffnet die Encoche statt QuickHub**
+
+- Aktivieren Sie **QuickHub-Modus** unter **Einstellungen → Allgemein**
+- Bestätigen Sie, dass **Einstellungen → Tastenkürzel → Global** **QuickHub öffnen** zeigt, nicht **Encoche öffnen**
+
+**Anheften-Shortcuts bewirken nichts**
+
+- QuickHub muss geöffnet sein oder sich öffnen; Anheften zielt auf das **vorderste** App-Fenster
+- Einige Vollbild- oder Sicherheits-Apps blockieren Andocken — versuchen Sie **Fenster lösen** (**⌃⌘↓**) und nutzen Sie schwebendes QuickHub
+
+**Edge Bar fehlt**
+
+- Edge Bar erfordert QuickHub-Modus und mindestens einen aktivierten Rand — siehe [Edge Bar](/de/getting-started/edge-bar)
+
+**Doppeltipp ⌘ öffnet QuickHub angeheftet, obwohl ich nur Command wollte**
+
+- Ändern Sie **QuickHub öffnen und anheften → Shortcut** auf **Keiner**, oder wählen Sie einen Modifier, den Sie selten doppelt tippen
+- Oder deaktivieren Sie **QuickHub öffnen und anheften**, indem Sie den aufgezeichneten Shortcut löschen
+
+## Verwandte Docs
+
+<CardGroup cols={2}>
+  <Card title="Edge Bar" icon="sidebar.right" href="/de/getting-started/edge-bar">
+    Bildschirmrand-Launcher und Computer-Use-Sitzungen
+  </Card>
+  <Card title="Fenstertypen" icon="layout" href="/de/getting-started/window-types-notch-hub-panels">
+    QuickHub-, Hub- und Panel-Übersicht
+  </Card>
+  <Card title="Tastenkürzel-Einstellungen" icon="keyboard" href="/de/how-to/settings-guide#shortcuts">
+    Vollständiger Shortcut-Editor
+  </Card>
+  <Card title="Shortcuts-Referenz" icon="list" href="/de/references/shortcuts">
+    Vollständiges Standard-Shortcut-Inventar
+  </Card>
+</CardGroup>

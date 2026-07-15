@@ -1,0 +1,92 @@
+---
+title: "QuickHub 模式"
+description: "Alter 的默认对话界面 — 浮动 QuickHub 与旧版刘海"
+---
+
+**QuickHub 模式**是 Alter 的主要对话界面。启用后，每个聊天都在 **QuickHub** 中打开 — 一个可移动、可附加到应用窗口或从屏幕边缘唤起的浮动面板。新安装默认开启 QuickHub 模式（**2.0.0-beta100** 起 `useQuickHub = true`）。
+
+关闭 QuickHub 模式可回到以**刘海**为中心的体验：将鼠标悬停在摄像头刘海上以打开紧凑快捷菜单，而不是 QuickHub。
+
+## QuickHub 与刘海
+
+| | **QuickHub 模式开启**（默认） | **QuickHub 模式关闭** |
+|---|---|---|
+| 主界面 | 浮动 **QuickHub** 面板 | **刘海**悬停菜单 |
+| 全局打开快捷键标签 | **打开 QuickHub** | **打开刘海** |
+| Edge Bar | 可用 | 禁用 |
+| 附加到应用 | 是 — 可停靠在任何窗口旁 | 刘海布局受限 |
+| 最适合 | 日常聊天、附加工作流、Edge Bar | 仅刘海的最小设置 |
+
+QuickHub 不是与 Hub 分离的产品 — 它是**轻量级对话界面**。需要标签页、侧边栏和工作区管理时，用 **在 Hub 中打开**（默认 **⌘O**）将 QuickHub 聊天移入完整 **Hub** 窗口。
+
+<Tip>
+  大多数新用户应保持 **QuickHub 模式** 开启。刘海仍在 **设置 → 外观 → 显示刘海** 中可用于状态指示。
+</Tip>
+
+## 启用或禁用 QuickHub 模式
+
+1. 打开**设置**（⌘,）
+2. 进入**通用**
+3. 切换 **QuickHub 模式** — *对所有对话使用 QuickHub 而非刘海*
+
+关闭 QuickHub 模式后，**Edge Bar** 设置会变灰，屏幕边缘启动器不再出现。
+
+## 打开 QuickHub
+
+**全局**
+
+- **⌘⇧Space** — **打开 QuickHub**（默认；在 **设置 → 快捷键 → 全局** 中配置）
+- **打开 QuickHub 并附加** — 打开并附加到一侧
+- **Edge Bar** — 移到已启用的屏幕边缘 — 见 [Edge Bar](/getting-started/edge-bar)
+
+**从 Hub**
+
+- **新建 Hub 聊天** — **⌥Space**（默认）
+
+## 附加、分离与固定
+
+在 **设置 → 快捷键 → QuickHub** 中配置：
+
+| 快捷键 | 默认 | 操作 |
+|----------|---------|--------|
+| **左侧附加** | **⌃⌘←** | 将 QuickHub 停靠在活跃应用左侧 |
+| **右侧附加** | **⌃⌘→** | 停靠在右侧 |
+| **分离窗口** | **⌃⌘↓** | 恢复浮动 QuickHub |
+| **固定窗口** | **⌘⌥P** | 固定 QuickHub 于其他窗口之上 |
+
+## Edge Bar 依赖
+
+**Edge Bar** **需要 QuickHub 模式**。在 **设置 → 通用 → Edge Bar** 中配置边缘。
+
+## 典型工作流
+
+**快速提问** — **⌘⇧Space**，提问，**Esc**。
+
+**与应用并排** — **⌃⌘→** 或 Edge Bar 的**附加**。
+
+**长会话** — **⌘O**（**在 Hub 中打开**）。
+
+**后台 Computer Use** — 见 [后台 Computer Use](/apps-tools/computer-use-background)。
+
+## 故障排除
+
+**⌘⇧Space 打开刘海而非 QuickHub** — 在 **设置 → 通用** 中启用 **QuickHub 模式**。
+
+**Edge Bar 缺失** — 需要 QuickHub 模式 + 已启用边缘 — [Edge Bar](/getting-started/edge-bar)。
+
+## 相关文档
+
+<CardGroup cols={2}>
+  <Card title="Edge Bar" icon="sidebar.right" href="/getting-started/edge-bar">
+    屏幕边缘启动器与 Computer Use 会话
+  </Card>
+  <Card title="窗口类型" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    QuickHub、Hub 与面板概览
+  </Card>
+  <Card title="快捷键设置" icon="keyboard" href="/how-to/settings-guide#shortcuts">
+    完整快捷键编辑器
+  </Card>
+  <Card title="快捷键参考" icon="list" href="/references/shortcuts">
+    完整默认快捷键列表
+  </Card>
+</CardGroup>

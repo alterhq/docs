@@ -3,8 +3,12 @@ title: "Esperar"
 description: "Pausar la ejecución entre acciones de uso de la computadora"
 ---
 
+
 Utilice Esperar para agregar espacios de tiempo entre las acciones de la interfaz de usuario cuando las páginas, los cuadros de diálogo o los estados de la aplicación necesiten tiempo para actualizarse.
 
+<Tip>
+  Inside [**Computer Use**](/apps-tools/computer-use), the subagent calls `wait` only when an accessibility read is empty or still loading — not before every step. See the [agent tools reference](/apps-tools/computer-use-agent-tools).
+</Tip>
 ## Qué hace
 
 - Pausa la ejecución durante un número determinado de segundos.

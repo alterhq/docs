@@ -1,29 +1,35 @@
 ---
-title: "実行する"
-description: "UI 要素に対してクリック、塗りつぶし、ショートカット アクションを実行する"
+title: "Perform"
+description: "UI 要素に対するクリック、入力、タイプ、ショートカット操作を実行"
 ---
 
-Get Active App Context でターゲットを特定した後、このツールを使用して具体的な UI インタラクションを実行します。
+Get Active App Context で対象を特定した後、このツールで具体的な UI 操作を実行します。
 
-## サポートされているアクション
+<Tip>
+  複数ステップの UI 作業には [**Computer Use**](/apps-tools/computer-use) エージェント（`computer_use_task`）を優先してください。`perform` と [`perform_sequence`](/apps-tools/computer-use-agent-tools) を自動呼び出しします。
+</Tip>
 
-- `click`: 対象の要素をクリックします。
-- `fill`: テキストフィールドまたはテキストエリアにテキストを入力します。
-- `shortcut`: キーボード ショートカットを送信します (例: `cmd+c`、`ctrl+shift+t`)。
+## サポートされるアクション
+
+- `click`: 対象要素をクリック（デフォルト）。
+- `fill`: `elementID` で特定したフィールドに入力。
+- `type`: `elementID` 不要のキー入力（例: 計算機）。
+- `shortcut`: ショートカット送信（例: `cmd+c`）。
 
 ## 入力
 
-- `elementID` (`click` および `fill` に必須): アクティブなアプリ コンテキストの取得出力からの要素 ID。
-- `text` (`fill` には必須): ターゲット入力に挿入する値。
-- `shortcut` (`shortcut` には必須): ショートカット文字列。
-- `windowID` (オプション): アクティブなウィンドウではなく、特定のウィンドウ (`pid/title`) をターゲットにします。
+- `action` (任意): `click`, `fill`, `type`, or `shortcut` (デフォルト `click`).
+- `elementID` (必須（ `click` and `fill`): Get Active App Context の要素 ID。
+- `text` (必須（ `fill` and `type`): 入力値またはキーストローク。
+- `shortcut` (必須（ `shortcut`): ショートカット文字列。
+- `windowID` (任意): 特定ウィンドウ（`pid/title`）。
 
-## 注意事項
+## 注意
 
-- 要素 ID は、UI の変更やセッションのタイミングによって期限切れになります。要素が有効でなくなった場合は、コンテキストを再読み取りします。
-- バックグラウンド ウィンドウ ターゲティングの場合、コンテキスト読み取りと実行ステップ全体で同じ `windowID` を使用します。
+- elementID は UI 変更で無効になる場合があります。
+- バックグラウンドでは同じ `windowID` を使用。
 
-## 良い組み合わせ
+## 関連
 
-- [アクティブなアプリ コンテキストを取得](/apps-tools/computer-use-get-active-app-context)
-- [お待ちください](/apps-tools/computer-use-wait)
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Wait](/apps-tools/computer-use-wait)

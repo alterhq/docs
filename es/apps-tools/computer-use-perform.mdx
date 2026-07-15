@@ -1,29 +1,35 @@
 ---
-title: "Llevar a cabo"
-description: "Ejecute acciones de clic, relleno y acceso directo contra elementos de la interfaz de usuario"
+title: "Perform"
+description: "Ejecutar acciones de clic, relleno, escritura y atajo en elementos de la UI"
 ---
 
-Utilice esta herramienta para ejecutar interacciones concretas de la interfaz de usuario después de identificar objetivos con Get Active App Context.
+Use esta herramienta para interacciones UI concretas tras identificar objetivos con Get Active App Context.
 
-## Acciones admitidas
+<Tip>
+  Para trabajo UI en varios pasos, prefiera el agente [**Computer Use**](/apps-tools/computer-use) (`computer_use_task`), que llama `perform` y [`perform_sequence`](/apps-tools/computer-use-agent-tools) automáticamente.
+</Tip>
 
-- `click`: haga clic en un elemento de destino.
-- `fill`: ingresa texto en un campo de texto o área de texto.
-- `shortcut`: envía atajos de teclado (por ejemplo `cmd+c`, `ctrl+shift+t`).
+## Acciones compatibles
+
+- `click`: Clic en elemento (predeterminado).
+- `fill`: Texto en campo identificado por `elementID`.
+- `type`: Pulsaciones sin `elementID` (p. ej. Calculadora).
+- `shortcut`: Atajos de teclado (p. ej. `cmd+c`).
 
 ## Entradas
 
-- `elementID` (obligatorio para `click` y `fill`): ID de elemento de la salida Obtener contexto de aplicación activa.
-- `text` (obligatorio para `fill`): valor a insertar en la entrada de destino.
-- `shortcut` (obligatorio para `shortcut`): cadena de acceso directo.
-- `windowID` (opcional): apunta a una ventana específica (`pid/title`) en lugar de la activa.
+- `action` (opcional): `click`, `fill`, `type`, or `shortcut` (predeterminado `click`).
+- `elementID` (obligatorio para `click` and `fill`): ID de elemento de Get Active App Context.
+- `text` (obligatorio para `fill` and `type`): Valor o pulsaciones.
+- `shortcut` (obligatorio para `shortcut`): Cadena de atajo.
+- `windowID` (opcional): Ventana específica (`pid/title`).
 
 ## Notas
 
-- Los ID de elementos caducan con los cambios en la interfaz de usuario y el tiempo de sesión. Vuelva a leer el contexto si un elemento ya no es válido.
-- Para la segmentación por ventana en segundo plano, utilice el mismo `windowID` en todos los contextos, lea y realice los pasos.
+- Los elementID expiran con cambios de UI.
+- Use el mismo `windowID` en pasos de fondo.
 
-## Buen maridaje
+## Ver también
 
-- [Obtener contexto de aplicación activa](/apps-tools/computer-use-get-active-app-context)
-- [Espera](/apps-tools/computer-use-wait)
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Wait](/apps-tools/computer-use-wait)

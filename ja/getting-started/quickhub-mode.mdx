@@ -1,0 +1,92 @@
+---
+title: "QuickHub モード"
+description: "Alter のデフォルト会話インターフェース — フローティング QuickHub とレガシーのノッチ"
+---
+
+**QuickHub モード**は Alter の主要な会話インターフェースです。有効にすると、すべてのチャットが **QuickHub** — 移動・アプリウィンドウへの添付・画面端からの起動ができるフローティングパネル — で開きます。新規インストールはデフォルトで QuickHub モードオン（**2.0.0-beta100** 以降 `useQuickHub = true`）。
+
+QuickHub モードをオフにすると **ノッチ**中心の体験に戻ります。カメラノッチにホバーしてコンパクトなクイックメニューを開きます。
+
+## QuickHub とノッチ
+
+| | **QuickHub モードオン**（デフォルト） | **QuickHub モードオフ** |
+|---|---|---|
+| 主 UI | フローティング **QuickHub** パネル | **ノッチ**ホバーメニュー |
+| グローバルショートカット表示名 | **QuickHub を開く** | **ノッチを開く** |
+| Edge Bar | 利用可 | 無効 |
+| アプリへの添付 | 可 — 任意のウィンドウ横にドック | ノッチレイアウトは限定的 |
+| 向いている用途 | 日常チャット、添付ワークフロー、Edge Bar | ノッチのみの最小構成 |
+
+QuickHub は Hub とは別製品ではなく **軽量な会話サーフェス**です。タブ・サイドバー・ワークスペース管理が必要なら **Hub で開く**（デフォルト **⌘O**）で Hub ウィンドウへ移動します。
+
+<Tip>
+  新規ユーザーは **QuickHub モード** をオンにしたままにすることをおすすめします。ノッチは **設定 → 外観 → ノッチを表示** でステータス表示に利用できます。
+</Tip>
+
+## QuickHub モードの有効/無効
+
+1. **設定**を開く（⌘,）
+2. **一般**へ
+3. **QuickHub モード**を切り替え — *ノッチの代わりにすべての会話で QuickHub を使用*
+
+オフにすると **Edge Bar** 設定がグレーアウトし、画面端ランチャーは表示されません。
+
+## QuickHub を開く
+
+**どこからでも（グローバル）**
+
+- **⌘⇧Space** — **QuickHub を開く**（**設定 → ショートカット → グローバル**で設定可）
+- **QuickHub を開いて添付** — 開いて指定側に添付
+- **Edge Bar** — 有効な画面端へ — [Edge Bar](/getting-started/edge-bar) 参照
+
+**Hub から**
+
+- **新規 Hub チャット** — **⌥Space**（デフォルト）
+
+## 添付・切り離し・ピン留め
+
+**設定 → ショートカット → QuickHub** で設定：
+
+| ショートカット | デフォルト | 動作 |
+|----------|---------|--------|
+| **左に添付** | **⌃⌘←** | アクティブアプリの左にドック |
+| **右に添付** | **⌃⌘→** | 右にドック |
+| **ウィンドウを切り離し** | **⌃⌘↓** | フローティングに戻す |
+| **ウィンドウをピン留め** | **⌘⌥P** | 他ウィンドウの上に固定 |
+
+## Edge Bar 依存
+
+**Edge Bar** は **QuickHub モード必須**。**設定 → 一般 → Edge Bar** で端を設定。
+
+## 典型的なワークフロー
+
+**コーディング中の質問** — **⌘⇧Space** → 質問 → **Esc**。
+
+**アプリ横並び** — **⌃⌘→** または Edge Bar の**添付**。
+
+**長いセッション** — **⌘O**（**Hub で開く**）。
+
+**バックグラウンド Computer Use** — [バックグラウンド Computer Use](/apps-tools/computer-use-background) 参照。
+
+## トラブルシューティング
+
+**⌘⇧Space でノッチが開く** — **設定 → 一般** で **QuickHub モード** をオンに。
+
+**Edge Bar がない** — QuickHub モード + 端の有効化 — [Edge Bar](/getting-started/edge-bar)。
+
+## 関連ドキュメント
+
+<CardGroup cols={2}>
+  <Card title="Edge Bar" icon="sidebar.right" href="/getting-started/edge-bar">
+    画面端ランチャーと Computer Use セッション
+  </Card>
+  <Card title="ウィンドウタイプ" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    QuickHub・Hub・パネル概要
+  </Card>
+  <Card title="ショートカット設定" icon="keyboard" href="/how-to/settings-guide#shortcuts">
+    ショートカットエディタ全文
+  </Card>
+  <Card title="ショートカット一覧" icon="list" href="/references/shortcuts">
+    デフォルトショートカット一覧
+  </Card>
+</CardGroup>

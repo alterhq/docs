@@ -3,8 +3,12 @@ title: "滚动"
 description: "滚动计算机使用流程中的活动应用程序窗口"
 ---
 
+
 当目标内容位于当前视口之外时使用滚动。
 
+<Tip>
+  The [**Computer Use**](/apps-tools/computer-use) agent calls `scroll` as part of its background loop. See [agent tools](/apps-tools/computer-use-agent-tools) for window targeting and [Background Computer Use](/apps-tools/computer-use-background) for non-blocking runs.
+</Tip>
 ## 它的作用
 
 - 在最前面的应用程序窗口中滚动。
@@ -13,7 +17,7 @@ description: "滚动计算机使用流程中的活动应用程序窗口"
 
 ## 输入
 
-- `seconds`（可选）：滚动持续时间（默认 3，最大 3600）。
+- `milliseconds`（可选）：滚动时长（毫秒）（默认 **3000**，最大 **3600000**）。
 - `direction`（可选）：`up`、`down`、`left` 或 `right`（默认 `down`）。
 
 ## 典型用途

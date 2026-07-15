@@ -1,0 +1,141 @@
+---
+title: "Modo QuickHub"
+description: "La interfaz de conversación predeterminada de Alter — QuickHub flotante frente a la muesca heredada"
+---
+
+El **modo QuickHub** es la interfaz de conversación principal de Alter. Cuando está activado, cada chat se abre en **QuickHub** — un panel flotante que puedes mover, adjuntar a ventanas de apps o invocar desde el borde de la pantalla. Las instalaciones nuevas tienen el modo QuickHub activado por defecto (`useQuickHub = true` desde **2.0.0-beta100**).
+
+Desactiva el modo QuickHub para volver a la experiencia centrada en la **muesca**: pasa el cursor sobre la muesca de la cámara para abrir el menú rápido compacto en lugar de QuickHub.
+
+## QuickHub vs la muesca
+
+| | **Modo QuickHub activado** (predeterminado) | **Modo QuickHub desactivado** |
+|---|---|---|
+| UI principal | Panel **QuickHub** flotante | Menú al pasar sobre la **muesca** |
+| Etiqueta del atajo global | **Abrir QuickHub** | **Abrir muesca** |
+| Edge Bar | Disponible | Desactivada |
+| Adjuntar a apps | Sí — acoplar junto a cualquier ventana | Diseño de muesca limitado |
+| Ideal para | Chat diario, flujos adjuntos, Edge Bar | Configuración mínima solo muesca |
+
+QuickHub no es un producto separado del Hub — es la **superficie de conversación ligera**. Abre cualquier chat de QuickHub en la ventana **Hub** completa con **Abrir en Hub** (predeterminado **⌘O**) cuando necesites pestañas, barra lateral y gestión de workspaces.
+
+<Tip>
+  La mayoría de usuarios nuevos deben dejar el **modo QuickHub** activado. La muesca sigue disponible en **Configuración → Apariencia → Mostrar muesca** para indicación de estado; ya no es la única forma de chatear.
+</Tip>
+
+## Activar o desactivar el modo QuickHub
+
+1. Abre **Configuración** (⌘,)
+2. Ve a **General**
+3. Activa o desactiva **Modo QuickHub** — *Usar QuickHub para todas las conversaciones en lugar de la muesca*
+
+Al desactivar el modo QuickHub, los ajustes de **Edge Bar** se atenúan y el lanzador del borde de pantalla deja de aparecer.
+
+## Abrir QuickHub
+
+**Desde cualquier lugar (global)**
+
+- **⌘⇧Space** — **Abrir QuickHub** (predeterminado; configurable en **Configuración → Atajos → Global**)
+- **Abrir QuickHub y adjuntar** — abre QuickHub y lo adjunta a un lado con tu activador configurado (ver abajo)
+- **Edge Bar** — muévete a un borde de pantalla activado y haz clic en **Abrir QuickHub** o **Nuevo chat** — ver [Edge Bar](/getting-started/edge-bar)
+
+**Desde el Hub**
+
+- **Nuevo chat Hub** — **⌥Space** (predeterminado) inicia una conversación nueva en el Hub; los chats de QuickHub comparten las mismas categorías de atajos en **Hub & QuickHub**
+
+## Adjuntar, desadjuntar y fijar
+
+QuickHub puede **acoplarse junto** a la ventana de la app en primer plano para chatear mientras trabajas en Mail, Safari, Xcode u otra app.
+
+### Atajos de adjuntar
+
+Configura en **Configuración → Atajos → QuickHub**:
+
+| Atajo | Predeterminado | Acción |
+|----------|---------|--------|
+| **Adjuntar izquierda** | **⌃⌘←** | Acoplar QuickHub a la izquierda de la app activa |
+| **Adjuntar derecha** | **⌃⌘→** | Acoplar QuickHub a la derecha de la app activa |
+| **Desadjuntar ventana** | **⌃⌘↓** | Volver QuickHub a posición flotante |
+| **Fijar ventana** | **⌘⌥P** | Fijar o desfijar QuickHub sobre otras ventanas |
+
+También puedes hacer clic en **Adjuntar** desde el lanzador **Edge Bar** cuando el modo QuickHub está activado.
+
+### Abrir QuickHub y adjuntar
+
+En **Configuración → Atajos → Global**, **Abrir QuickHub y adjuntar** combina abrir + adjuntar en un gesto:
+
+- **Comportamiento de adjuntar** — **Adjuntar izquierda** o **Adjuntar derecha** (predeterminado **Adjuntar derecha**)
+- **Atajo** — activador de doble toque: **Doble toque ⌘** (predeterminado), **Doble toque ⌥**, **Doble toque ⌃**, **Doble toque ⇧**, o **Ninguno**
+
+Toca dos veces el modificador elegido para abrir QuickHub y acoplarlo al lado seleccionado.
+
+## Dependencia de Edge Bar
+
+**Edge Bar** — el lanzador del borde de pantalla para reuniones, chats, adjuntar y tarjetas de sesión de Computer Use — **requiere el modo QuickHub**. Los hotspots del borde invocan superficies QuickHub; no están conectados al diseño de la muesca.
+
+Si dependes de Edge Bar, mantén el modo QuickHub activado y configura los bordes en **Configuración → General → Edge Bar**.
+
+## Impacto en etiquetas de atajos
+
+Varios atajos cambian su **nombre mostrado** al alternar el modo QuickHub:
+
+- **Configuración → Atajos → Global → Abrir QuickHub** vs **Abrir muesca** — mismo espacio de atajo (**⌘⇧Space** predeterminado), etiqueta distinta
+- Los atajos de **Hub & QuickHub** aplican a la superficie activa (pestaña Hub o conversación QuickHub)
+
+Busca atajos en **Configuración → Atajos** con **⌘F**, o escribe en el campo **Buscar atajos**.
+
+## Flujos típicos
+
+**Pregunta rápida mientras programas**
+
+Pulsa **⌘⇧Space**, pregunta, pulsa **Esc** o haz clic fuera — QuickHub se cierra sin abrir el Hub completo.
+
+**Lado a lado con una app**
+
+Pulsa **⌃⌘→** (**Adjuntar derecha**) o usa **Adjuntar** desde Edge Bar.
+
+**Sesión larga → Hub completo**
+
+Pulsa **⌘O** (**Abrir en Hub**) para mover el chat actual de QuickHub a una pestaña del Hub con barra lateral e historial.
+
+**Computer Use en segundo plano**
+
+Inicia un objetivo de Computer Use desde QuickHub o el Hub. El agente corre en segundo plano; el estado de sesión aparece en **Edge Bar** mientras sigues trabajando. Ver [Computer Use en segundo plano](/apps-tools/computer-use-background).
+
+## Solución de problemas
+
+**⌘⇧Space abre la muesca en lugar de QuickHub**
+
+- Activa el **modo QuickHub** en **Configuración → General**
+- Confirma que **Configuración → Atajos → Global** muestra **Abrir QuickHub**, no **Abrir muesca**
+
+**Los atajos de adjuntar no hacen nada**
+
+- QuickHub debe estar abierto o abriéndose; adjuntar apunta a la ventana **en primer plano**
+- Algunas apps a pantalla completa o de alta seguridad bloquean el acoplamiento — prueba **Desadjuntar ventana** (**⌃⌘↓**) y usa QuickHub flotante
+
+**Falta Edge Bar**
+
+- Edge Bar requiere modo QuickHub y al menos un borde activado — ver [Edge Bar](/getting-started/edge-bar)
+
+**El doble toque ⌘ abre QuickHub adjunto cuando solo quería Command**
+
+- Cambia **Abrir QuickHub y adjuntar → Atajo** a **Ninguno**, o elige un modificador que rara vez toques dos veces
+- O desactiva **Abrir QuickHub y adjuntar** borrando su atajo registrado
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Edge Bar" icon="sidebar.right" href="/getting-started/edge-bar">
+    Lanzador del borde de pantalla y sesiones Computer Use
+  </Card>
+  <Card title="Tipos de ventana" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Resumen de QuickHub, Hub y paneles
+  </Card>
+  <Card title="Ajustes de atajos" icon="keyboard" href="/how-to/settings-guide#shortcuts">
+    Guía completa del editor de atajos
+  </Card>
+  <Card title="Referencia de atajos" icon="list" href="/references/shortcuts">
+    Inventario completo de atajos predeterminados
+  </Card>
+</CardGroup>

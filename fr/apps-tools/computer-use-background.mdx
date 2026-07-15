@@ -1,0 +1,138 @@
+---
+title: "Computer Use en arrière-plan"
+description: "Exécutez des tâches Computer Use en arrière-plan pendant que vous continuez à travailler, avec aperçu en direct et contrôles de session Edge Bar"
+---
+
+Computer Use en arrière-plan permet à Alter de piloter des apps sur votre Mac **sans prendre le contrôle de votre écran**. Vous continuez à taper, lire et changer de fenêtre pendant que l'agent travaille dans une fenêtre en arrière-plan. Un aperçu flottant en direct et une carte de session Edge Bar montrent la progression — et vous pouvez arrêter l'exécution à tout moment.
+
+C'est l'expérience par défaut de l'agent **Computer Use** (`computer_use_task`), introduite dans **2.0.0-beta100**.
+
+## Quand utiliser le mode arrière-plan
+
+Utilisez Computer Use en arrière-plan lorsque :
+
+- Vous voulez qu'Alter scrape une page, remplisse un formulaire ou navigue dans une app **pendant que vous continuez votre travail**
+- La tâche peut prendre plusieurs minutes et vous ne voulez pas QuickHub attaché à la fenêtre cible
+- Vous devez exécuter l'automatisation UI sur une fenêtre qui n'est **pas** votre app au premier plan
+
+Le Computer Use de type premier plan (QuickHub attaché à la cible, overlay sur l'app) existe encore pour les anciens flux. Pour presque tout nouveau travail, décrivez la tâche complète dans un **objectif Computer Use** et laissez l'agent en arrière-plan s'en charger.
+
+<Card title="Interface principale" icon="cursorarrow.rays" href="/fr/apps-tools/computer-use">
+  Commencez par l'[aperçu Computer Use](/fr/apps-tools/computer-use) — passez un `goal` à `computer_use_task` et l'agent boucle avec son ensemble d'outils.
+</Card>
+
+## Comment fonctionne une exécution en arrière-plan
+
+Lorsque vous (ou l'agent parent) invoquez **Computer Use**, Alter :
+
+1. **Démarre une session Edge Bar** immédiatement — avant que le subagent résolve sa fenêtre cible
+2. **Applique la présentation `edgebarOnly`** — QuickHub ne s'attache pas à l'app cible, et l'overlay n'est pas dessiné sur cette fenêtre
+3. **Exécute un subagent dédié** qui boucle avec les outils UI (`read_screen_ax`, `perform`, `scroll`, etc.) pendant jusqu'à **600 secondes** (10 minutes)
+4. **Route les entrées vers la fenêtre cible en arrière-plan** via `BackgroundInputDriver`
+5. **Suit la fenêtre cible active** et la reflète dans la carte de session et l'aperçu en direct
+
+Vous gardez le contrôle de votre Mac. Les raccourcis globaux comme **⌘C**, **⌘V**, **⌘Tab** ne sont **pas** utilisés par l'agent.
+
+## Carte de session Edge Bar
+
+Pendant une exécution active, une session **Computer Use** apparaît dans l'**Edge Bar** (nécessite le [mode QuickHub](/fr/getting-started/quickhub-mode)). Chaque carte affiche :
+
+- **Objectif** — le texte de la tâche demandée
+- **Statut** — ce que fait l'agent
+- **App cible** — nom, icône et titre de fenêtre une fois liée
+- **Arrêter** — annule le subagent immédiatement
+
+Quand une session se termine, échoue ou est arrêtée, la carte passe à un état terminal et disparaît après un court délai.
+
+## Fenêtre d'aperçu en direct
+
+L'**aperçu flottant** est une fenêtre picture-in-picture montrant une capture en direct de la fenêtre contrôlée par l'agent (~15 fps).
+
+### Afficher l'aperçu automatiquement
+
+Par défaut, l'aperçu s'ouvre au démarrage d'une tâche Computer Use. Désactivez dans **Paramètres → Computer use → Afficher l'aperçu automatiquement**.
+
+### Watch preview
+
+Quand l'aperçu est masqué, ouvrez-le depuis le **Tool Inspector** sur la tâche en cours : sélectionnez l'exécution **Computer Use**, cliquez **Watch preview**.
+
+### Taille de l'aperçu
+
+Choisissez **Petit**, **Grand** ou **Personnalisé** sous **Paramètres → Computer use → Taille de l'aperçu**. Jusqu'à **six** sessions concurrentes peuvent apparaître dans le sélecteur d'aperçu.
+
+## Routage des entrées en arrière-plan
+
+`BackgroundInputDriver` envoie clics, clavier et défilement au processus cible sans activer l'app au premier plan :
+
+| Route | Quand utilisée |
+|-------|-----------|
+| **SkyLight** | Préférée quand le serveur de fenêtres peut livrer les événements |
+| **Per-PID** | Envoie les événements directement au processus cible |
+| **HID fallback** | Dernier recours |
+
+Les **apps Chromium** (Chrome, Edge, Brave, Arc, Electron) et **Safari** utilisent le défilement clavier en arrière-plan car les événements de scroll natifs sont peu fiables.
+
+## Ciblage de fenêtre pendant les exécutions en arrière-plan
+
+Les outils UI résolvent `windowID` dans cet ordre :
+
+1. **`windowID` explicite** dans l'appel d'outil
+2. **Cible suivie** — fenêtre ouverte via `open_app`, `open_urls` ou outil antérieur
+3. **Repli de session** — pendant `edgebarOnly`, la fenêtre liée à l'aperçu en direct
+4. **Fenêtre au premier plan** — seulement hors session arrière-plan
+
+## Navigateur agent
+
+Les pages web ouvertes avec `open_urls` pendant Computer Use vont au **navigateur agent** si configuré sous **Paramètres → Computer use → Navigateur agent**.
+
+Avec **Nettoyer à la fin** activé, Alter ferme les onglets ouverts par l'agent quand la dernière session se termine.
+
+## Arrêter, annuler et timeout
+
+| Action | Effet |
+|--------|--------|
+| **Arrêter** (aperçu ou carte) | Annule le subagent ; l'agent parent reçoit un message pour résumer |
+| **Timeout 600 s** | Le subagent s'arrête |
+| **Ignorer** (session terminée) | Retire la carte de Edge Bar |
+
+Alter ne relance pas automatiquement Computer Use après un arrêt.
+
+## Paramètres
+
+Configurez sous **Paramètres → Computer use** :
+
+- **Navigateur agent**
+- **Nettoyer à la fin**
+- **Afficher l'aperçu automatiquement**
+- **Taille de l'aperçu**
+- **Apps bloquées**
+
+Référence complète : [Paramètres → Computer use](/fr/how-to/settings-guide#computer-use).
+
+## Dépannage
+
+### L'aperçu n'apparaît jamais
+
+- Vérifiez **Afficher l'aperçu automatiquement**, ou cliquez **Watch preview** dans le Tool Inspector
+- Edge Bar doit être disponible (mode QuickHub activé)
+
+### L'agent agit sur la mauvaise fenêtre
+
+- Incluez un `windowID` spécifique dans votre objectif
+- Demandez à l'agent d'appeler `list_windows` une fois
+
+### Erreurs d'app bloquée
+
+Les gestionnaires de mots de passe sont bloqués par défaut. Ajustez : **Paramètres → Computer use → Apps bloquées**.
+
+### Échecs de permission
+
+Computer Use en arrière-plan nécessite **Accessibilité** et **Enregistrement d'écran**. Accordez les deux sous **Paramètres → Permissions** ou **Paramètres → Doctor**.
+
+## Docs associées
+
+- [Aperçu Computer Use](/fr/apps-tools/computer-use)
+- [Outils agent Computer Use](/fr/apps-tools/computer-use-agent-tools)
+- [Effectuer](/fr/apps-tools/computer-use-perform) · [Défilement](/fr/apps-tools/computer-use-scroll) · [Attendez](/fr/apps-tools/computer-use-wait)
+- [Paramètres → Computer use](/fr/how-to/settings-guide#computer-use)
+- [Les outils ne fonctionnent pas](/fr/common-issues/tool-not-working)

@@ -163,6 +163,29 @@ Agora suas interações padrão usarão a orquestração do Flow em vez de carre
 
 ---
 
+## Padrões do Ask Anything (beta100+)
+
+**Ask Anything** executa ao digitar sem outra ação. Desde **2.0.0-beta100**, **Flow**, **Computer Use** e **Ask User** vêm ativos por padrão.
+
+| Ferramenta | Papel |
+|------------|-------|
+| **Flow** | Orquestra ferramentas habilitadas |
+| **Computer Use** | Automação de tela (`computer_use_task`) |
+| **Ask User** | Perguntas de esclarecimento |
+
+Ative integrações no **Tools Manager** (**⌘⇧T**).
+
+### Opcional: reduzir ferramentas
+
+<Steps>
+  <Step title="Abrir Action Editor">**⌘⇧E**</Step>
+  <Step title="Ask Anything">Selecione a ação</Step>
+  <Step title="Tools">Desative **Computer Use** e **Ask User** se não precisar</Step>
+  <Step title="Salvar">Salve</Step>
+</Steps>
+
+---
+
 <AccordionGroup>
   <Accordion icon="link" title="Avançado: Tool Acorrentamento com instruções">
 Flow automaticamente une Tools quando uma tarefa requer vários passos. A saída de uma Tool pode ser referenciada em chamadas subsequentes usando a sintaxe `$N`.

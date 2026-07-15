@@ -1,0 +1,282 @@
+---
+title: "Referenz Agent-Tools"
+description: "Nur-LLM-Tools im Computer-Use-Subagenten — read_screen_ax, perform_sequence, list_windows und mehr"
+---
+
+Diese Tools sind für Alters **Computer Use**-Subagenten (`computer_use_task`) registriert. Sie sind **nur für LLM** — für Modellaufrufe in einer Hintergrund-UI-Schleife, nicht für manuelle Einzelausführung in den meisten Fällen.
+
+Der Subagent erhält auch die primitiven Tools [Perform](/de/apps-tools/computer-use-perform), [Scroll](/de/apps-tools/computer-use-scroll) und [Wait](/de/apps-tools/computer-use-wait). Diese Seite behandelt die **agentspezifischen** Tools und gemeinsame Fenster-Zielregeln.
+
+<Card title="Hier starten" icon="cursorarrow.rays" href="/de/apps-tools/computer-use">
+  Lesen Sie die [Computer-Use-Übersicht](/de/apps-tools/computer-use), um den Agenten mit einem `goal`-String aufzurufen.
+</Card>
+
+## Gemeinsamer Workflow
+
+### Window-ID-Formate
+
+`list_windows` liefert zwei ID-Stile:
+
+| Format | Beispiel | Hinweise |
+|--------|---------|-------|
+| `pid/title` | `4280/Mail — Inbox` | Lesbar; Titel kann sich ändern |
+| Stabile `pid/windowNumber` | `4280/12345` | Bevorzugt wenn verfügbar — überlebt Titeländerungen |
+
+Übergeben Sie dieselbe `windowID` an `read_screen_ax`, `perform`, `perform_sequence`, `scroll` und `computer_use_screenshot` für jeden Schritt auf diesem Fenster.
+
+### Auflösungsreihenfolge
+
+Wenn `windowID` weggelassen wird:
+
+1. Explizite `windowID` im Tool-Aufruf
+2. **Verfolgtes Ziel** — Fenster, das von `open_app`, `open_urls` oder vorherigen Tools in dieser Konversation aufgezeichnet wurde
+3. **Sitzungs-Fallback** — während eines Hintergrundlaufs das Fenster in der Live-Vorschau (verhindert Drift, wenn Sie eine andere App fokussieren)
+4. **Vorderstes Fenster**
+
+### Blockierte Apps
+
+Computer Use verweigert das Öffnen, Lesen oder Steuern von Apps auf Ihrer Blockliste (**Einstellungen → Computer use → Blocked apps**). Passwortmanager sind standardmäßig blockiert. Tools liefern einen klaren Fehler, damit der Agent stoppt und die Blockierung meldet.
+
+### Standalone vs. im Agenten
+
+| Kontext | Verfügbar? |
+|---------|------------|
+| Im `computer_use_task`-Subagenten | Ja — vollständiger Satz unten |
+| Ask-Anything-Parent-Agent | Indirekt — Parent soll `computer_use_task` aufrufen, nicht diese manuell ketten |
+| Tools Manager manueller Lauf | Möglich zum Debuggen; nicht der primäre Workflow |
+
+Workspace-Tools (`workspace_read`, `workspace_bash` usw.) sind **nicht** in Computer Use verfügbar.
+
+---
+
+## `read_screen_ax`
+
+**Anzeigename:** Read Screen (AX)
+
+Gibt den **Accessibility-Baum** eines Fensters als Text zurück. Interaktive Elemente enthalten ein **`@elementID`**-Suffix für `perform` und `perform_sequence`. **Kein Screenshot** und keine Bildanalyse — strikt nur AX.
+
+### Parameter
+
+| Parameter | Erforderlich | Standard | Beschreibung |
+|-----------|----------|---------|-------------|
+| `windowID` | Nein | verfolgt → Sitzungs-Fallback → vorderstes | `pid/title` oder stabile `pid/windowNumber` |
+
+### Wann der Agent es aufruft
+
+- **Erster Schritt** auf einem Fenster (vor jedem Klick oder Fill)
+- **Nach** Navigation, Dialogen, Scrollen oder Shortcuts, die die UI ändern
+- **Vor** der Auswahl von Combobox-/Listenoptionen, die im vorherigen Read nicht sichtbar waren
+
+### Ausgabe
+
+Eingewickelt in `<activeAppContext>…</activeAppContext>`. Während Computer-Use-Läufen können passende Apps `<appGuidance>` anhängen (Calculator, Discord, Spotify, X.com usw.) mit schnelleren Techniken.
+
+### Beispiel
+
+Zielschritt: Agent hat Mail bereits via `open_app` geöffnet und `windowID: 5123/Mail — Inbox` erhalten.
+
+```
+read_screen_ax({ "windowID": "5123/Mail — Inbox" })
+```
+
+Liefert Zeilen mit Element-IDs wie `Unread message row 1@MessageRow_0` für nachfolgende `perform`-Klicks.
+
+### vs. `get_active_app_context`
+
+[Get Active App Context](/de/apps-tools/computer-use-get-active-app-context) fügt OCR aus Screenshots hinzu. Der Computer-Use-Agent bevorzugt **`read_screen_ax`** für Geschwindigkeit und Datenschutz, es sei denn, das Ziel erfordert visuelle Erfassung via `computer_use_screenshot`.
+
+---
+
+## `perform_sequence`
+
+**Anzeigename:** Perform Sequence
+
+Führt mehrere UI-Aktionen in **einem Tool-Aufruf** aus — schneller als separate `perform`-Aufrufe, wenn alle Zielelemente im aktuellen AX-Read sichtbar sind.
+
+### Parameter
+
+| Parameter | Erforderlich | Beschreibung |
+|-----------|----------|-------------|
+| `steps` | Ja | Array von Aktionsobjekten (siehe unten) |
+| `windowID` | Nein | Gilt für jeden Schritt |
+
+Jedes **step**-Objekt:
+
+| Feld | Erforderlich für | Beschreibung |
+|-------|--------------|-------------|
+| `action` | — | `click` (Standard), `fill`, `type` oder `shortcut` |
+| `elementID` | `click`, `fill` | ID nach `@` aus `read_screen_ax` |
+| `text` | `fill`, `type` | Einzufügender Text |
+| `shortcut` | `shortcut` | z. B. `cmd+k`, `escape`, `shift+enter` |
+
+### Batching-Regeln
+
+- Alle `elementID`-Werte müssen aus dem **selben** `read_screen_ax`-Ergebnis stammen
+- Nur Aktionen batchen, die das Layout zwischen Schritten nicht ändern (Mehrfeld-Formular, Taschenrechnerausdruck via `type`)
+- **Batching stoppen** vor Navigation, App-Wechsel oder Menüs/Dialogen — dann neu lesen
+- Ausführung **stoppt beim ersten fehlgeschlagenen Schritt** und meldet, welcher Schritt fehlschlug
+
+### Beispiel
+
+Dreifeld-Formular aus einem Read ausfüllen:
+
+```json
+{
+  "windowID": "5123/Signup",
+  "steps": [
+    { "action": "fill", "elementID": "FirstName", "text": "Alex" },
+    { "action": "fill", "elementID": "LastName", "text": "Rivera" },
+    { "action": "fill", "elementID": "Email", "text": "alex@example.com" }
+  ]
+}
+```
+
+Spotify-Schnellsuche (nach Read des Hauptfensters):
+
+```json
+{
+  "steps": [
+    { "action": "shortcut", "shortcut": "cmd+k" },
+    { "action": "type", "text": "Debussy Clair de Lune" }
+  ]
+}
+```
+
+Siehe [Perform](/de/apps-tools/computer-use-perform) für Einzelaktions-Semantik (`type` vs. `fill`, Shortcut-Format).
+
+---
+
+## `computer_use_screenshot`
+
+**Anzeigename:** Computer Use Screenshot
+
+Erfasst ein **bestimmtes App-Fenster** als PNG. Nutzt **keine** globalen Screenshot-Shortcuts, `screencapture` oder interaktive Bereichsauswahl.
+
+### Parameter
+
+| Parameter | Erforderlich | Beschreibung |
+|-----------|----------|-------------|
+| `windowID` | Nein | Gleiche Auflösungsreihenfolge wie bei anderen Tools |
+
+### Wann nutzen
+
+- Ziel verlangt ausdrücklich Screenshots oder visuelle Artefakte
+- **Vermeiden** für routinemäßige UI-Inspektion — nutzen Sie `read_screen_ax`
+
+### Ausgabe
+
+Text-Metadaten (`app`, `title`, `windowID`, Abmessungen) plus Bildanhang für das Modell.
+
+### Beispiel
+
+```
+computer_use_screenshot({ "windowID": "9042/Google Chrome — Dashboard" })
+```
+
+Schlägt fehl, wenn die Bildschirmaufnahme-Berechtigung fehlt oder das Fenster minimiert/verborgen ist.
+
+---
+
+## `list_windows`
+
+**Anzeigename:** List Windows
+
+Listet offene Fenster laufender Anwendungen auf. Keine Parameter.
+
+### Rückgabe
+
+Pro Fenster:
+
+- App-Name und Bundle-ID
+- Fenstertitel
+- **Window ID** (`pid/title`)
+- **Stable Window ID** wenn verfügbar
+- PID
+- **⭐ (ACTIVE)**-Marker am vordersten Fenster
+
+### Wann der Agent es aufruft
+
+- Zielfenster ist **nicht** die vorderste App und wurde in diesem Lauf nicht via `open_app` / `open_urls` geöffnet
+- **Einmal pro Lauf** reicht meist — zurückgegebene IDs wiederverwenden statt wiederholt zu listen
+
+### Beispielausgabe (gekürzt)
+
+```
+Open Windows (42 total):
+
+Safari (com.apple.Safari):
+  - Window: "Apple — Homepage" ⭐ (ACTIVE)
+    Window ID: 4280/Apple — Homepage
+    Stable Window ID: 4280/87
+    PID: 4280
+```
+
+Der Agent übergibt dann `4280/87` an `read_screen_ax` für ein Hintergrund-Scrape, während Sie in einer anderen App arbeiten.
+
+---
+
+## `open_app`
+
+**Anzeigename:** Open Application
+
+Startet oder fokussiert eine Mac-App. Liefert die Ziel-Window-ID für sofortige Folgeschritte — oft **ohne** `list_windows`.
+
+### Parameter
+
+| Parameter | Erforderlich | Beschreibung |
+|-----------|----------|-------------|
+| `bundleId` | Ja | Bundle-ID (z. B. `com.apple.Calculator`) **oder** App-Name (`Calculator`, `Google Chrome`) — Namen werden automatisch aufgelöst |
+
+### Verhalten
+
+- **Hintergrundläufe:** Wenn die App bereits läuft, stiehlt Alter keinen Fokus. Neue Starts nutzen wenn möglich nicht-aktivierendes Öffnen und stellen die vorherige Vordergrund-App wieder her.
+- **Blockierte Apps:** Mit Blocklisten-Fehler abgelehnt
+- **Erfolgsantwort** enthält `Window ID` und optionale `Stable Window ID` für nachfolgende Tools
+
+### Beispiel
+
+```json
+{ "bundleId": "com.apple.Calculator" }
+```
+
+Antwort enthält:
+
+```
+Target window: Calculator - Calculator
+Window ID: 6012/Calculator
+Pass this windowID to read_screen_ax, perform, perform_sequence, and scroll...
+```
+
+---
+
+## Primitive Tools im selben Agenten
+
+Diese haben eigene Seiten; der Subagent nutzt sie mit denselben `windowID`-Regeln:
+
+| Tool | Seite | Agent-Hinweise |
+|------|------|-------------|
+| `perform` | [Perform](/de/apps-tools/computer-use-perform) | Einzelner Klick/Fill/Type/Shortcut; `perform_sequence` beim Batching bevorzugen |
+| `scroll` | [Scroll](/de/apps-tools/computer-use-scroll) | `milliseconds`-Dauer (Standard 3000); Chromium/Safari nutzen Tastatur-Scroll im Hintergrund |
+| `wait` | [Wait](/de/apps-tools/computer-use-wait) | Wenn AX-Read leer oder lädt — nicht vor jedem Schritt |
+| `open_urls` | — | Öffnet URLs; während Computer Use an Agent-Browser geroutet |
+
+`get_active_app_context` ist **nicht** im Subagent-Toolset — nutzen Sie `read_screen_ax`.
+
+---
+
+## Fehlerbehebung
+
+| Problem | Hinweis |
+|-------|----------|
+| `Window … not found` | `list_windows` erneut ausführen; Fenster wurde möglicherweise geschlossen |
+| `elementID`-Fehler nach Batch | Layout geändert — mit `read_screen_ax` neu lesen |
+| Blockierte App | Blockliste anpassen oder Ziel umformulieren |
+| Screenshot fehlgeschlagen | Bildschirmaufnahme gewähren; Fenster sichtbar halten |
+| Globale Shortcuts ignoriert | Erwartet im Hintergrundmodus — Agent nutzt `fill`/`type`, nicht ⌘C/⌘V |
+
+## Verwandte Docs
+
+- [Computer-Use-Übersicht](/de/apps-tools/computer-use)
+- [Computer Use im Hintergrund](/de/apps-tools/computer-use-background)
+- [Perform](/de/apps-tools/computer-use-perform) · [Scroll](/de/apps-tools/computer-use-scroll) · [Wait](/de/apps-tools/computer-use-wait) · [Get Active App Context](/de/apps-tools/computer-use-get-active-app-context)
+- [Einstellungen → Computer use](/de/how-to/settings-guide#computer-use)

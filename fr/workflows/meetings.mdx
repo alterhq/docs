@@ -6,7 +6,7 @@ description: "Transcription professionnelle des réunions avec identification de
   **Ne prenez plus jamais de notes de réunion.** Modifiez les enregistrements, transcrivez et vous aide à extraire automatiquement les éléments d'action.
 </Info>
 
-## Enregistrement automatique des réunions
+## **Auto Record Meetings** des réunions
 
 ### Détection intelligente des réunions
 
@@ -27,13 +27,18 @@ Alter détecte automatiquement lorsque vous rejoignez des réunions sur :
   </Card>
 </CardGroup>
 
+### Transcription cloud (Soniox V5)
+
+Avec le processeur **Cloud**, Alter utilise **Soniox V5** (beta96+). Le cloud nécessite une connexion ; **Whisper Pro** et **Parakeet** locaux restent hors ligne.
+
+
 Lorsqu'une réunion est détectée, Alter affiche une notification subtile vous donnant la possibilité de l'enregistrer ou de l'ignorer.
 
 ### Paramètres d'enregistrement automatique
 
 <Steps>
   <Step title="Activer l'enregistrement automatique">
-    Paramètres → Dictée → **Enregistrement automatique des réunions**
+    Paramètres → Dictée → ****Auto Record Meetings** des réunions**
   </Step>
   <Step title="Définir le seuil">
     Définir la durée minimale (par défaut : 120 secondes)
@@ -79,7 +84,7 @@ Vous pouvez également contrôler manuellement les enregistrements :
 
 <Steps>
   <Step title="Commencer l'enregistrement">
-    Cliquez sur l'icône du micro sur l'encoche – elle se transforme en bouton d'enregistrement rouge
+    Click the mic icon in QuickHub (or the notch when QuickHub Mode is off) — it turns into a red recording button
   </Step>
   <Step title="Moniteur">
     Le micro s'anime pendant la transcription
@@ -93,7 +98,20 @@ Vous pouvez également contrôler manuellement les enregistrements :
 
 ## Identification du locuteur
 
-Alter utilise **Pyannote 4 (Community-1)**, une IA de pointe pour la diarisation des locuteurs.
+Alter utilise **Pyannote 4 (Community-1)
+
+### Correspondance des intervenants (beta93+)
+
+Activez **Find speakers names (experimental)** dans **Réglages → Voice → Automation** :
+
+<Steps>
+  <Step title="Ouvrir Voice">**Réglages → Voice → Automation**</Step>
+  <Step title="Activer">Activez la correspondance expérimentale</Step>
+  <Step title="Calendriers">Choisissez les calendriers de travail</Step>
+  <Step title="Contacts">Autorisez l'accès aux Contacts</Step>
+</Steps>
+
+**, une IA de pointe pour la diarisation des locuteurs.
 
 <CardGroup cols={3}>
   <Card title="Identification parfaite" icon="check-circle">

@@ -236,8 +236,11 @@
                 "pages": [
                   "pt/index",
                   "pt/quickstart",
+                  "pt/getting-started/guides-index",
                   "pt/getting-started/getting-started-path",
                   "pt/getting-started/open-alter",
+                  "pt/getting-started/quickhub-mode",
+                  "pt/getting-started/edge-bar",
                   "pt/getting-started/your-workspace",
                   "pt/getting-started/window-types-notch-hub-panels",
                   "pt/getting-started/first-workflows",
@@ -269,7 +272,6 @@
                 "pages": [
                   "pt/workflows/manage-calendar-with-alter",
                   "pt/workflows/plan-places-and-routes-with-alter-maps",
-                  "pt/workflows/meeting-workflow",
                   "pt/workflows/meetings",
                   "pt/workflows/dictation"
                 ]
@@ -288,6 +290,7 @@
                   "pt/workflows/manage-reminders-with-alter",
                   "pt/workflows/workspaces-actions",
                   "pt/workflows/use-flow-orchestration",
+                  "pt/workflows/share-task-traces",
                   "pt/workflows/alter-actions",
                   "pt/workflows/url-callbacks"
                 ]
@@ -332,6 +335,8 @@
                 "group": "Uso do computador",
                 "pages": [
                   "pt/apps-tools/computer-use",
+                  "pt/apps-tools/computer-use-background",
+                  "pt/apps-tools/computer-use-agent-tools",
                   "pt/apps-tools/computer-use-get-active-app-context",
                   "pt/apps-tools/computer-use-perform",
                   "pt/apps-tools/computer-use-wait",
@@ -350,7 +355,8 @@
                   "pt/how-to/choose-language",
                   "pt/how-to/choose-generative-model",
                   "pt/how-to/use-byok",
-                  "pt/how-to/reinstall-or-downgrade-alter"
+                  "pt/how-to/reinstall-or-downgrade-alter",
+                  "pt/how-to/add-context"
                 ]
               },
               {
@@ -442,8 +448,11 @@
                 "pages": [
                   "fr/index",
                   "fr/quickstart",
+                  "fr/getting-started/guides-index",
                   "fr/getting-started/getting-started-path",
                   "fr/getting-started/open-alter",
+                  "fr/getting-started/quickhub-mode",
+                  "fr/getting-started/edge-bar",
                   "fr/getting-started/your-workspace",
                   "fr/getting-started/window-types-notch-hub-panels",
                   "fr/getting-started/first-workflows",
@@ -475,7 +484,6 @@
                 "pages": [
                   "fr/workflows/manage-calendar-with-alter",
                   "fr/workflows/plan-places-and-routes-with-alter-maps",
-                  "fr/workflows/meeting-workflow",
                   "fr/workflows/meetings",
                   "fr/workflows/dictation"
                 ]
@@ -494,6 +502,7 @@
                   "fr/workflows/manage-reminders-with-alter",
                   "fr/workflows/workspaces-actions",
                   "fr/workflows/use-flow-orchestration",
+                  "fr/workflows/share-task-traces",
                   "fr/workflows/alter-actions",
                   "fr/workflows/url-callbacks"
                 ]
@@ -538,6 +547,8 @@
                 "group": "Utilisation de l'ordinateur",
                 "pages": [
                   "fr/apps-tools/computer-use",
+                  "fr/apps-tools/computer-use-background",
+                  "fr/apps-tools/computer-use-agent-tools",
                   "fr/apps-tools/computer-use-get-active-app-context",
                   "fr/apps-tools/computer-use-perform",
                   "fr/apps-tools/computer-use-wait",
@@ -556,7 +567,8 @@
                   "fr/how-to/choose-language",
                   "fr/how-to/choose-generative-model",
                   "fr/how-to/use-byok",
-                  "fr/how-to/reinstall-or-downgrade-alter"
+                  "fr/how-to/reinstall-or-downgrade-alter",
+                  "fr/how-to/add-context"
                 ]
               },
               {
@@ -648,8 +660,11 @@
                 "pages": [
                   "es/index",
                   "es/quickstart",
+                  "es/getting-started/guides-index",
                   "es/getting-started/getting-started-path",
                   "es/getting-started/open-alter",
+                  "es/getting-started/quickhub-mode",
+                  "es/getting-started/edge-bar",
                   "es/getting-started/your-workspace",
                   "es/getting-started/window-types-notch-hub-panels",
                   "es/getting-started/first-workflows",
@@ -681,7 +696,6 @@
                 "pages": [
                   "es/workflows/manage-calendar-with-alter",
                   "es/workflows/plan-places-and-routes-with-alter-maps",
-                  "es/workflows/meeting-workflow",
                   "es/workflows/meetings",
                   "es/workflows/dictation"
                 ]
@@ -700,6 +714,7 @@
                   "es/workflows/manage-reminders-with-alter",
                   "es/workflows/workspaces-actions",
                   "es/workflows/use-flow-orchestration",
+                  "es/workflows/share-task-traces",
                   "es/workflows/alter-actions",
                   "es/workflows/url-callbacks"
                 ]
@@ -744,6 +759,8 @@
                 "group": "Uso de la computadora",
                 "pages": [
                   "es/apps-tools/computer-use",
+                  "es/apps-tools/computer-use-background",
+                  "es/apps-tools/computer-use-agent-tools",
                   "es/apps-tools/computer-use-get-active-app-context",
                   "es/apps-tools/computer-use-perform",
                   "es/apps-tools/computer-use-wait",
@@ -762,7 +779,8 @@
                   "es/how-to/choose-language",
                   "es/how-to/choose-generative-model",
                   "es/how-to/use-byok",
-                  "es/how-to/reinstall-or-downgrade-alter"
+                  "es/how-to/reinstall-or-downgrade-alter",
+                  "es/how-to/add-context"
                 ]
               },
               {
@@ -854,8 +872,11 @@
                 "pages": [
                   "de/index",
                   "de/quickstart",
+                  "de/getting-started/guides-index",
                   "de/getting-started/getting-started-path",
                   "de/getting-started/open-alter",
+                  "de/getting-started/quickhub-mode",
+                  "de/getting-started/edge-bar",
                   "de/getting-started/your-workspace",
                   "de/getting-started/window-types-notch-hub-panels",
                   "de/getting-started/first-workflows",
@@ -887,7 +908,6 @@
                 "pages": [
                   "de/workflows/manage-calendar-with-alter",
                   "de/workflows/plan-places-and-routes-with-alter-maps",
-                  "de/workflows/meeting-workflow",
                   "de/workflows/meetings",
                   "de/workflows/dictation"
                 ]
@@ -906,6 +926,7 @@
                   "de/workflows/manage-reminders-with-alter",
                   "de/workflows/workspaces-actions",
                   "de/workflows/use-flow-orchestration",
+                  "de/workflows/share-task-traces",
                   "de/workflows/alter-actions",
                   "de/workflows/url-callbacks"
                 ]
@@ -950,6 +971,8 @@
                 "group": "Computernutzung",
                 "pages": [
                   "de/apps-tools/computer-use",
+                  "de/apps-tools/computer-use-background",
+                  "de/apps-tools/computer-use-agent-tools",
                   "de/apps-tools/computer-use-get-active-app-context",
                   "de/apps-tools/computer-use-perform",
                   "de/apps-tools/computer-use-wait",
@@ -968,7 +991,8 @@
                   "de/how-to/choose-language",
                   "de/how-to/choose-generative-model",
                   "de/how-to/use-byok",
-                  "de/how-to/reinstall-or-downgrade-alter"
+                  "de/how-to/reinstall-or-downgrade-alter",
+                  "de/how-to/add-context"
                 ]
               },
               {
@@ -1060,8 +1084,11 @@
                 "pages": [
                   "zh/index",
                   "zh/quickstart",
+                  "zh/getting-started/guides-index",
                   "zh/getting-started/getting-started-path",
                   "zh/getting-started/open-alter",
+                  "zh/getting-started/quickhub-mode",
+                  "zh/getting-started/edge-bar",
                   "zh/getting-started/your-workspace",
                   "zh/getting-started/window-types-notch-hub-panels",
                   "zh/getting-started/first-workflows",
@@ -1093,7 +1120,6 @@
                 "pages": [
                   "zh/workflows/manage-calendar-with-alter",
                   "zh/workflows/plan-places-and-routes-with-alter-maps",
-                  "zh/workflows/meeting-workflow",
                   "zh/workflows/meetings",
                   "zh/workflows/dictation"
                 ]
@@ -1112,6 +1138,7 @@
                   "zh/workflows/manage-reminders-with-alter",
                   "zh/workflows/workspaces-actions",
                   "zh/workflows/use-flow-orchestration",
+                  "zh/workflows/share-task-traces",
                   "zh/workflows/alter-actions",
                   "zh/workflows/url-callbacks"
                 ]
@@ -1156,6 +1183,8 @@
                 "group": "电脑使用",
                 "pages": [
                   "zh/apps-tools/computer-use",
+                  "zh/apps-tools/computer-use-background",
+                  "zh/apps-tools/computer-use-agent-tools",
                   "zh/apps-tools/computer-use-get-active-app-context",
                   "zh/apps-tools/computer-use-perform",
                   "zh/apps-tools/computer-use-wait",
@@ -1174,7 +1203,8 @@
                   "zh/how-to/choose-language",
                   "zh/how-to/choose-generative-model",
                   "zh/how-to/use-byok",
-                  "zh/how-to/reinstall-or-downgrade-alter"
+                  "zh/how-to/reinstall-or-downgrade-alter",
+                  "zh/how-to/add-context"
                 ]
               },
               {
@@ -1266,8 +1296,11 @@
                 "pages": [
                   "ja/index",
                   "ja/quickstart",
+                  "ja/getting-started/guides-index",
                   "ja/getting-started/getting-started-path",
                   "ja/getting-started/open-alter",
+                  "ja/getting-started/quickhub-mode",
+                  "ja/getting-started/edge-bar",
                   "ja/getting-started/your-workspace",
                   "ja/getting-started/window-types-notch-hub-panels",
                   "ja/getting-started/first-workflows",
@@ -1299,7 +1332,6 @@
                 "pages": [
                   "ja/workflows/manage-calendar-with-alter",
                   "ja/workflows/plan-places-and-routes-with-alter-maps",
-                  "ja/workflows/meeting-workflow",
                   "ja/workflows/meetings",
                   "ja/workflows/dictation"
                 ]
@@ -1318,6 +1350,7 @@
                   "ja/workflows/manage-reminders-with-alter",
                   "ja/workflows/workspaces-actions",
                   "ja/workflows/use-flow-orchestration",
+                  "ja/workflows/share-task-traces",
                   "ja/workflows/alter-actions",
                   "ja/workflows/url-callbacks"
                 ]
@@ -1362,6 +1395,8 @@
                 "group": "コンピュータの使用",
                 "pages": [
                   "ja/apps-tools/computer-use",
+                  "ja/apps-tools/computer-use-background",
+                  "ja/apps-tools/computer-use-agent-tools",
                   "ja/apps-tools/computer-use-get-active-app-context",
                   "ja/apps-tools/computer-use-perform",
                   "ja/apps-tools/computer-use-wait",
@@ -1380,7 +1415,8 @@
                   "ja/how-to/choose-language",
                   "ja/how-to/choose-generative-model",
                   "ja/how-to/use-byok",
-                  "ja/how-to/reinstall-or-downgrade-alter"
+                  "ja/how-to/reinstall-or-downgrade-alter",
+                  "ja/how-to/add-context"
                 ]
               },
               {

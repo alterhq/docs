@@ -1,110 +1,16 @@
 ---
-title: "Ne manquez jamais les éléments d'action des réunions"
-description: "Comment enregistrer, transcrire et extraire automatiquement les tâches de vos réunions"
+title: "Ne manquez plus les actions de réunion"
+description: "Redirection — le contenu réunion est dans le guide Meetings"
 ---
 
 <Info>
-  **Parfait pour :** Les professionnels occupés, les chefs d'équipe et tous ceux qui souhaitent se concentrer sur la conversation au lieu de prendre des notes.
+  Cette page a été déplacée. Setup, Sprecherzuordnung und Follow-up-Prompts stehen jetzt an einem Ort.
 </Info>
 
-## Le problème
+Voir **[Meetings](/fr/workflows/meetings)** pour :
 
-Vous participez à des réunions consécutives toute la journée. Au moment où vous arrivez au troisième, vous ne vous souvenez plus :
-- Ce qui a été décidé lors de la première réunion
-- Qui a accepté de faire quoi
-- Quelles sont vos actions réelles
-
-Vous pouvez prendre des notes pendant les réunions, mais vous n'êtes alors pas pleinement présent dans la conversation.
-
-## La solution : laissez Alter s'en occuper
-
-Alter détecte automatiquement lorsque vous êtes en réunion et crée des transcriptions consultables avec identification de l'orateur. Vous pouvez ensuite lui demander d’extraire des actions, des décisions et des points clés.
-
-## Exemple concret
-
-**Sarah, chef de produit :**
-> « Avant, je passais 30 minutes après chaque réunion à rédiger des notes. Désormais, Alter enregistre tout et je demande simplement « Quelles sont mes actions ? » et "Quelles décisions avons-nous prises concernant l'API ?" Cela me fait gagner des heures chaque semaine."
-
-## Comment le configurer
-
-<Steps>
-  <Step title="Enable auto-recording">
-    1. Ouvrez Modifier les paramètres (`Cmd + ,`)
-    2. Accédez à l'onglet **Dictée**
-    3. Activez **Enregistrement automatique des réunions**
-    4. Définissez la durée minimale (par défaut : 2 minutes)
-    
-Désormais, Alter détectera automatiquement les appels Zoom, Google Meet et Teams et vous demandera si vous souhaitez enregistrer.
-  </Step>
-  
-<Step title="Choose your transcription quality">
-    **Option 1 : Traitement cloud** (le plus rapide, le plus précis)
-    - Utilise l'IA en ligne pour la transcription
-    - Meilleure précision pour les accents et les termes techniques
-    
-**Option 2 : Whisper Pro** (Privé, fonctionne hors ligne)
-    - Télécharger un modèle local (recommandé : Whisper Large V3)
-    - Traitement 100% hors ligne
-    - Idéal pour les réunions confidentielles
-  </Step>
-  
-<Step title="Test with a sample meeting">
-    1. Rejoignez n'importe quelle réunion (même un test Zoom avec vous-même)
-    2. Cliquez sur **Enregistrer** lorsque Alter vous le demande, ou démarrez manuellement l'enregistrement.
-    3. Parlez pendant 2-3 minutes
-    4. Terminez la réunion
-    5. Attendez 10 secondes pour la transcription
-  </Step>
-</Steps>
-
-## Comment extraire la valeur des transcriptions
-
-Une fois que vous avez une transcription, essayez ces invites :
-
-<CardGroup cols={2}>
-  <Card title="Get action items" icon="check-circle">
-    « Énumérez toutes les mesures à prendre lors de cette réunion et indiquez qui est responsable de chacune »
-  </Card>
-  <Card title="Summarize decisions" icon="gavel">
-    "Quelles décisions ont été prises ? Énumérez-les avec leur contexte"
-  </Card>
-  <Card title="Find specific topics" icon="search">
-    "Qu'avons-nous dit à propos du budget/du calendrier/de l'API ?"
-  </Card>
-  <Card title="Create follow-up email" icon="envelope">
-    "Rédiger un email de suivi résumant cette réunion pour l'équipe"
-  </Card>
-</CardGroup>
-
-## Conseils de pro
-
-<Tip>
-  **Identification des haut-parleurs :** Alter utilise l'IA pour identifier différents haut-parleurs (Haut-parleur 1, Haut-parleur 2, etc.). Vous pouvez les renommer manuellement après la réunion si vous savez qui ils sont.
-</Tip>
-
-<Tip>
-  **Recherche dans toutes les réunions :** Toutes les transcriptions sont consultables. Tapez `#` dans la zone d'invite pour rechercher le contenu de la réunion précédente. Demandez : "Qu'a dit John à propos de la feuille de route lors des réunions de la semaine dernière ?"
-</Tip>
-
-<Tip>
-  **Sous-titres en direct :** activez les sous-titres en direct pendant les réunions (Paramètres > Voix > Activer les sous-titres en direct) pour suivre en temps réel, ce qui est particulièrement utile si la qualité audio est mauvaise.
-</Tip>
-
-## Où vont vos données
-
-Toutes les transcriptions sont stockées **localement sur votre Mac** à l'adresse :
-```
-~/Library/Application Support/Alter/Transcripts
-```
-
-Personne d'autre ne peut y accéder à moins que vous ne les partagiez explicitement.
-
-## Fonctionnalités associées
-
-- [Comment accéder aux paramètres](/how-to/settings-guide) – Configurer les options de réunion et vocales
-- [Dépanner la transcription du micro](/common-issues/mic-not-transcribing) – Résoudre les problèmes de capture
-- [Utiliser le gestionnaire d'outils](/how-to/tool-manager-guide) – Configurer les outils pour les flux de travail de suivi
-
----
-
-**Prêt à l'essayer ?** Votre prochaine réunion est le moment idéal pour tester cela. Activez simplement l'enregistrement automatique et voyez à quel point votre suivi devient plus facile !
+- Enregistrement auto et manuel
+- Correspondance des intervenants et calendriers (beta93+)
+- Transcription cloud Soniox V5 (beta96+)
+- Sous-titres en direct et gestion des transcriptions
+- Prompts pour actions, décisions et e-mails de suivi

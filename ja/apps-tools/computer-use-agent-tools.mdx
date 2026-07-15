@@ -1,0 +1,282 @@
+---
+title: "エージェントツールリファレンス"
+description: "Computer Use サブエージェント内の LLM 専用ツール — read_screen_ax、perform_sequence、list_windows など"
+---
+
+これらのツールは Alter の **Computer Use** サブエージェント（`computer_use_task`）向けに登録されています。**LLM 専用** — バックグラウンド UI ループ中にモデルが呼び出すよう設計されており、通常は手動の単発実行向けではありません。
+
+サブエージェントはプリミティブツール [Perform](/apps-tools/computer-use-perform)、[Scroll](/apps-tools/computer-use-scroll)、[Wait](/apps-tools/computer-use-wait) も受け取ります。このページでは **エージェント固有** のツールと、共有のウィンドウターゲット規則を扱います。
+
+<Card title="ここから始める" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  `goal` 文字列でエージェントを呼び出す方法は [Computer Use 概要](/apps-tools/computer-use) を参照してください。
+</Card>
+
+## 共有ワークフロー
+
+### ウィンドウ ID 形式
+
+`list_windows` は 2 種類の ID スタイルを返します：
+
+| 形式 | 例 | 備考 |
+|--------|---------|-------|
+| `pid/title` | `4280/Mail — Inbox` | 人間が読みやすい；タイトルは変わる可能性あり |
+| 安定した `pid/windowNumber` | `4280/12345` | 利用可能なら推奨 — タイトル変更に耐える |
+
+そのウィンドウの各ステップで、同じ `windowID` を `read_screen_ax`、`perform`、`perform_sequence`、`scroll`、`computer_use_screenshot` に渡します。
+
+### 解決順序
+
+`windowID` を省略した場合：
+
+1. ツール呼び出し内の明示的な `windowID`
+2. **追跡対象** — `open_app`、`open_urls`、またはこの会話の以前のツールで記録されたウィンドウ
+3. **セッションフォールバック** — バックグラウンド実行中、ライブプレビューに表示されるウィンドウ（別アプリにフォーカスを戻したときのドリフトを防ぐ）
+4. **最前面ウィンドウ**
+
+### ブロックされたアプリ
+
+Computer Use はブロックリスト上のアプリの開封・読み取り・操作を拒否します（**Settings → Computer use → Blocked apps**）。パスワードマネージャーはデフォルトでブロックされます。ツールは明確なエラーを返し、エージェントがループを止めてブロックを報告します。
+
+### スタンドアロン vs エージェント内
+
+| コンテキスト | 利用可能？ |
+|---------|------------|
+| `computer_use_task` サブエージェント内 | はい — 下記のフルセット |
+| Ask Anything 親エージェント | 間接的 — 親は `computer_use_task` を呼ぶべきで、これらを手動で連鎖しない |
+| Tools Manager 手動実行 | デバッグ用に可能；主ワークフローではない |
+
+ワークスペースツール（`workspace_read`、`workspace_bash` など）は Computer Use 内では **利用できません**。
+
+---
+
+## `read_screen_ax`
+
+**表示名：** Read Screen (AX)
+
+ウィンドウの **アクセシビリティツリー** をテキストで返します。インタラクティブ要素には `perform` と `perform_sequence` 用の **`@elementID`** サフィックスが付きます。**スクリーンショットなし**、ビジョン分析なし — 厳密に AX のみ。
+
+### パラメータ
+
+| パラメータ | 必須 | デフォルト | 説明 |
+|-----------|----------|---------|-------------|
+| `windowID` | いいえ | 追跡 → セッションフォールバック → 最前面 | `pid/title` または安定した `pid/windowNumber` |
+
+### エージェントが呼ぶタイミング
+
+- ウィンドウ上の **最初のステップ**（クリックや入力の前）
+- UI を変えるナビゲーション、ダイアログ、スクロール、ショートカットの **後**
+- 前回の読み取りで見えなかったコンボボックス／リストオプションを選ぶ **前**
+
+### 出力
+
+`<activeAppContext>…</activeAppContext>` でラップされます。Computer Use 実行中、一致するアプリは `<appGuidance>`（Calculator、Discord、Spotify、X.com など）を付加し、より速い手法を示す場合があります。
+
+### 例
+
+目標ステップ：エージェントは `open_app` で Mail を開き、`windowID: 5123/Mail — Inbox` を受け取った。
+
+```
+read_screen_ax({ "windowID": "5123/Mail — Inbox" })
+```
+
+後続の `perform` クリック用に `Unread message row 1@MessageRow_0` のような要素 ID の行を返します。
+
+### vs `get_active_app_context`
+
+[Get Active App Context](/apps-tools/computer-use-get-active-app-context) はスクリーンショットから OCR を追加します。Computer Use エージェントは、目標が `computer_use_screenshot` による視覚キャプチャを要求しない限り、速度とプライバシーのため **`read_screen_ax`** を優先します。
+
+---
+
+## `perform_sequence`
+
+**表示名：** Perform Sequence
+
+**1 回のツール呼び出し** で複数の UI アクションを実行 — 現在の AX 読み取りですべての対象要素が見えている場合、個別の `perform` 呼び出しより高速です。
+
+### パラメータ
+
+| パラメータ | 必須 | 説明 |
+|-----------|----------|-------------|
+| `steps` | はい | アクションオブジェクトの配列（下記参照） |
+| `windowID` | いいえ | 各ステップに適用 |
+
+各 **step** オブジェクト：
+
+| フィールド | 必須条件 | 説明 |
+|-------|--------------|-------------|
+| `action` | — | `click`（デフォルト）、`fill`、`type`、`shortcut` |
+| `elementID` | `click`、`fill` | `read_screen_ax` の `@` 以降の ID |
+| `text` | `fill`、`type` | 入力するテキスト |
+| `shortcut` | `shortcut` | 例：`cmd+k`、`escape`、`shift+enter` |
+
+### バッチング規則
+
+- すべての `elementID` は **同じ** `read_screen_ax` 結果から取得すること
+- ステップ間でレイアウトを変えないアクションのみバッチ（複数フィールドフォーム、`type` による電卓式など）
+- ナビゲーション、アプリ切り替え、メニュー／ダイアログを開く **前にバッチを止める** — その後再読み取り
+- 実行は **最初に失敗したステップで停止** し、どのステップが失敗したか報告
+
+### 例
+
+1 回の読み取りで見える 3 フィールドフォームを入力：
+
+```json
+{
+  "windowID": "5123/Signup",
+  "steps": [
+    { "action": "fill", "elementID": "FirstName", "text": "Alex" },
+    { "action": "fill", "elementID": "LastName", "text": "Rivera" },
+    { "action": "fill", "elementID": "Email", "text": "alex@example.com" }
+  ]
+}
+```
+
+Spotify クイック検索（メインウィンドウ読み取り後）：
+
+```json
+{
+  "steps": [
+    { "action": "shortcut", "shortcut": "cmd+k" },
+    { "action": "type", "text": "Debussy Clair de Lune" }
+  ]
+}
+```
+
+単一アクションの意味（`type` vs `fill`、ショートカット形式）は [Perform](/apps-tools/computer-use-perform) を参照。
+
+---
+
+## `computer_use_screenshot`
+
+**表示名：** Computer Use Screenshot
+
+**特定のアプリウィンドウ** を PNG でキャプチャします。グローバルスクリーンショットショートカット、`screencapture`、対話的領域選択は **使用しません**。
+
+### パラメータ
+
+| パラメータ | 必須 | 説明 |
+|-----------|----------|-------------|
+| `windowID` | いいえ | 他ツールと同じ解決順序 |
+
+### 使用タイミング
+
+- 目標が明示的にスクリーンショットや視覚成果物を要求する場合
+- 通常の UI 検査には **避ける** — 代わりに `read_screen_ax` を使用
+
+### 出力
+
+テキストメタデータ（`app`、`title`、`windowID`、寸法）とモデル用の画像添付。
+
+### 例
+
+```
+computer_use_screenshot({ "windowID": "9042/Google Chrome — Dashboard" })
+```
+
+Screen Recording 権限がない、またはウィンドウが最小化／非表示の場合は失敗します。
+
+---
+
+## `list_windows`
+
+**表示名：** List Windows
+
+実行中アプリケーションの開いているウィンドウを列挙します。パラメータなし。
+
+### 返却内容
+
+各ウィンドウについて：
+
+- アプリ名とバンドル識別子
+- ウィンドウタイトル
+- **Window ID**（`pid/title`）
+- 利用可能なら **Stable Window ID**
+- PID
+- 最前面ウィンドウの **⭐ (ACTIVE)** マーカー
+
+### エージェントが呼ぶタイミング
+
+- 対象ウィンドウが最前面アプリ **ではなく**、この実行で `open_app` / `open_urls` により開かれていない
+- **実行あたり 1 回** で通常十分 — 繰り返し列挙せず返された ID を再利用
+
+### 出力例（省略）
+
+```
+Open Windows (42 total):
+
+Safari (com.apple.Safari):
+  - Window: "Apple — Homepage" ⭐ (ACTIVE)
+    Window ID: 4280/Apple — Homepage
+    Stable Window ID: 4280/87
+    PID: 4280
+```
+
+エージェントは別アプリで作業中にバックグラウンドスクレイプのため `4280/87` を `read_screen_ax` に渡します。
+
+---
+
+## `open_app`
+
+**表示名：** Open Application
+
+Mac アプリを起動またはフォーカスします。即時フォローアップ用の対象ウィンドウ ID を返します — 多くの場合 `list_windows` **なし**。
+
+### パラメータ
+
+| パラメータ | 必須 | 説明 |
+|-----------|----------|-------------|
+| `bundleId` | はい | バンドル識別子（例：`com.apple.Calculator`）**または** 人間向けアプリ名（`Calculator`、`Google Chrome`）— 名前は自動解決 |
+
+### 動作
+
+- **バックグラウンド実行：** アプリが既に実行中なら Alter はフォーカスを奪いません。新規起動は可能なら非アクティブ起動を使い、以前の最前面アプリを復元します。
+- **ブロックされたアプリ：** ブロックリストエラーで拒否
+- **成功応答** に `Window ID` とオプションの `Stable Window ID` が含まれ、後続ツールに渡せます
+
+### 例
+
+```json
+{ "bundleId": "com.apple.Calculator" }
+```
+
+応答に含まれる内容：
+
+```
+Target window: Calculator - Calculator
+Window ID: 6012/Calculator
+Pass this windowID to read_screen_ax, perform, perform_sequence, and scroll...
+```
+
+---
+
+## 同じエージェント内のプリミティブツール
+
+専用ページがあり、サブエージェントは同じ `windowID` 規則で使用します：
+
+| ツール | ページ | エージェント向けメモ |
+|------|------|-------------|
+| `perform` | [Perform](/apps-tools/computer-use-perform) | 単一クリック／入力／type／ショートカット；バッチ時は `perform_sequence` を優先 |
+| `scroll` | [Scroll](/apps-tools/computer-use-scroll) | `milliseconds` 継続時間（デフォルト 3000）；Chromium/Safari はバックグラウンドでキーボードスクロール |
+| `wait` | [Wait](/apps-tools/computer-use-wait) | AX 読み取りが空または読み込み中のとき — 毎ステップの前ではない |
+| `open_urls` | — | URL を開く；Computer Use 中はエージェントブラウザにルーティング |
+
+`get_active_app_context` はサブエージェントツールセットに **含まれません** — 代わりに `read_screen_ax` を使用。
+
+---
+
+## トラブルシューティング
+
+| 問題 | ガイダンス |
+|-------|----------|
+| `Window … not found` | `list_windows` を再実行；ウィンドウが閉じた可能性 |
+| バッチ後の `elementID` 失敗 | レイアウト変更 — `read_screen_ax` で再読み取り |
+| ブロックされたアプリ | ブロックリストを調整するか、そのアプリをスキップするよう目標を言い換え |
+| スクリーンショット失敗 | Screen Recording を許可；ウィンドウが表示されていることを確認 |
+| グローバルショートカット無視 | バックグラウンドモードでは想定内 — エージェントは `fill`/`type` を使用、⌘C/⌘V ではない |
+
+## 関連ドキュメント
+
+- [Computer Use 概要](/apps-tools/computer-use)
+- [バックグラウンド Computer Use](/apps-tools/computer-use-background)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait) · [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Settings → Computer use](/how-to/settings-guide#computer-use)

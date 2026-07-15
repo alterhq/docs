@@ -24,15 +24,26 @@ Klicken Sie auf das Drei-Punkte-Menüsymbol (⋮) in der Alter-Notch und wählen
 
 ![Zugriff auf die Menüleiste](/images/settings/Alter-Menu_Bar-Menu.webp)
 
-### Allgemeine Einstellungen
+### Allgemeine Einstellungen {#general}
 
-Im Tab **Allgemein** können Sie die Kernfunktionen und Schnellzugriffsoptionen konfigurieren:
+Im Tab **Allgemein** konfigurieren Sie QuickHub-Modus, Edge Bar, Auswahlhilfe, Standard-Modellparameter und Benachrichtigungen.
 
-**Schnellzugriff**
-- **Notch öffnen**: Tastenkürzel aktivieren, um die Notch überall auf Ihrem Bildschirm zu öffnen
-- **Hub öffnen oder fokussieren**: Schnell zwischen dem Alter-Hub-Fenster wechseln oder es starten (⌘ ⌥ H)
-- **Neuer Hub-Chat**: Eine neue Konversationssitzung im Hub starten (⌘ Leertaste)
-- **Auswahlknopf**: Eine schnelle Aktionsschaltfläche anzeigen, die von überall zugänglich ist
+#### Schnellzugriff
+
+- **Auswahlknopf** — Schnellzugriffsschaltfläche neben dem Mauszeiger bei Textauswahl
+- **QuickHub-Modus** — QuickHub für alle Gespräche statt der Notch (Standard **ein** für neue Nutzer). Aus: globale Shortcuts zeigen **Encoche öffnen** statt **QuickHub öffnen**. Siehe [QuickHub-Modus](/de/getting-started/quickhub-mode).
+
+#### Edge Bar
+
+Edge-Bar-Einstellungen stehen unter QuickHub-Modus und sind **deaktiviert, wenn QuickHub-Modus aus ist**.
+
+- **Linker Rand** / **Rechter Rand** — Bildschirmrand-Launcher unabhängig aktivieren (Standard: rechts an, links aus)
+- **Alle Monitorränder** — Ausgewählte linke/rechte Ränder auf jedem Monitor, auch zwischen Displays. Aus: nur äußere Ränder bei Multi-Monitor-Setups
+- **Öffnungsabstand** — Schieberegler von **0%** (am Rand) bis **100%** (Standardabstand) in 25%-Schritten
+
+Die Fußzeile des Abschnitts erklärt Einblendverhalten und Multi-Monitor-Regeln. Vollständige Anleitung: [Edge Bar](/de/getting-started/edge-bar).
+
+Globale Shortcuts für QuickHub (**⌘⇧Space** Standard), Hub (**⌘⇧H**) und neue Chats (**⌥Space**) liegen unter **Einstellungen → Shortcuts → Global**, nicht in diesem Tab.
 
 **LLM-Einstellungen**
 - **Maximale Tokens**: Die maximale Länge der KI-Antworten festlegen 
@@ -44,7 +55,7 @@ Im Tab **Allgemein** können Sie die Kernfunktionen und Schnellzugriffsoptionen 
 
 ![Allgemeine Einstellungen](/images/settings/Alter-Settings_01_General-Beta71.webp)
 
-### 2. Spracheinstellungen
+### 2. Spracheinstellungen {#voice}
 
 Der Tab **Sprache** steuert, wie Alter Audio verarbeitet und darauf reagiert:
 
@@ -55,15 +66,15 @@ Der Tab **Sprache** steuert, wie Alter Audio verarbeitet und darauf reagiert:
 - **Ton abspielen beim Starten der Aufnahme**: Erhalten Sie einen akustischen Alarm, wenn Sie mit dem Diktieren oder der Aufnahme des Meetings beginnen 
 
 **Sprache & Wörterbuch**
-- **Diktatsprache**: Wählen Sie Ihre bevorzugte Sprache für die Sprach Eingabe
+- **Diktatsprache**: Wählen Sie Ihre bevorzugte Sprache für die Spracheingabe
 - **Persönliches Wörterbuch**: Fügen Sie benutzerdefinierte Begriffe und Transkriptionsersetzungen hinzu
 - **Ersetzungen verwalten**: Häufig falsch erkannte Wörter bearbeiten
 
 **Sprachprozessor**
 Wählen Sie Ihr Sprachverarbeitungsmodell:
 - **Apple**: Eingebaut, optimiert für Datenschutz
-- **Local**: Auf Ihrem Gerät mit heruntergeladenen Modellen ausführen
-- **Cloud-Optionen**: Anthropic und andere Cloud-Anbieter mit verschiedenen Fähigkeiten
+- **Local / Local Plus**: Auf Ihrem Mac mit heruntergeladenen Whisper- oder Parakeet-Modellen ausführen
+- **Cloud**: Online-Transkription über **Soniox V5** (beta96+); beste Genauigkeit für Meetings bei Berechtigung
 
 ![Spracheinstellungen](/images/settings/Alter-Settings_02_Voice-Beta71.webp)
 
@@ -73,7 +84,7 @@ Konfigurieren Sie Tastenkombinationen für den schnellen Sprachezugriff von übe
 
 - **Tastenkombination**: Spracheingabe starten/stoppen und Befehle sprechen. Passen Sie die Aktivierungstaste für eine freihändige Bedienung an. Halten Sie zum Sprechen gedrückt, tippen Sie für Diktat.
 - **Meeting-Kürzel**: Schneller Zugriff auf sprachspezifische Befehle für Meetings
-- **Live-Untertitel**: Aktivieren Sie eine live Transkriptionsüberlagerung während des Sprechens
+- **Live-Untertitel**: Aktivieren Sie eine Live-Transkriptionsüberlagerung während des Sprechens
 - **Live-Notizblock**: Öffnen Sie das Live-Notizfeld, um Spracheingaben direkt in Notizen zu erfassen
 
 Diese Kürzel ermöglichen es Ihnen, die Sprachfunktionen von Alter zu aktivieren, ohne Fenster zu wechseln oder die Hände von der Tastatur zu nehmen.
@@ -85,8 +96,12 @@ Diese Kürzel ermöglichen es Ihnen, die Sprachfunktionen von Alter zu aktiviere
 Konfigurieren Sie die Automatisierung für Meetings und Aufzeichnungen:
 - **Meeting-Apps**: Wählen Sie aus, welche Apps für Meetings überwacht werden sollen
 - **Meetings automatisch aufzeichnen**: Beginnen Sie automatisch mit der Aufnahme, wenn ein Meeting erkannt wird
-- **Sprecher identifizieren**: Bestimmen Sie den Namen jedes Sprechers basierend auf dem verwendeten Meeting-Dienst
+- **Sprechernamen finden (experimentell)**: Nur-Cloud-Sprecheridentifikation; Kalender- und Kontakte-Abgleich aktivieren (beta93+)
+- **Kalender für Sprecherabgleich**: Apple-Kalender wählen, die für Terminabgleich und Teilnehmernamen genutzt werden
+- **Kontakte für Sprecherabgleich**: Teilnehmer-E-Mails in Anzeigenamen auflösen
 - **Diktate im Clipboard behalten**: Spracheingabe in der Zwischenablage behalten
+
+**Cloud-Prozessor:** Ist **Cloud** als Sprachprozessor gewählt, nutzen Meeting- und Diktat-Transkription die **Soniox-V5**-Engine (beta96+) für bessere Genauigkeit. Erfordert Anmeldung und Berechtigung für Cloud-Diktat.
 
 ![Sprachausführung](/images/settings/Alter-Settings_02b_Voice-Automation-Beta71.webp)
 
@@ -100,15 +115,15 @@ Erstellen Sie ein persönliches Wörterbuch für eine genaue Transkription:
 
 #### Spracheinstellungen - Ersetzungen
 
-Richten Sie Wort Ersetzungen für häufige Transkriptionsfehler ein:
+Richten Sie Wortersatz für häufige Transkriptionsfehler ein:
 - Ordnen Sie häufig falsch verstandene Wörter den richtigen zu
-- Beispiel: "Alter" → "Alter" (wenn falsch verstanden als "Altar")
+- Beispiel: „Alter“ → „Alter“ (wenn falsch verstanden als „Altar“)
 
 ![Sprachersatz](/images/settings/Alter-Settings_02d_Voice-Replacements-Beta71.webp)
 
 #### Spracheinstellungen - Lokale Modelle
 
-Wählen Sie aus lokalen Sprachverarbeitungsmodellen, wenn Sie den lokalen Prozessor verwenden:
+Wählen Sie aus lokalen Sprachverarbeitungsmodellen, wenn Sie den Local-Prozessor verwenden:
 
 **Warum lokale Verarbeitung?**
 - **Kompletter Datenschutz**: Alle Audioverarbeitungen erfolgen auf Ihrem Mac—es werden keine Daten an Cloud-Dienste gesendet
@@ -131,7 +146,7 @@ OpenAI Whisper unterstützt über 50 Sprachen mit umfassender globaler Abdeckung
 **Funktionen:**
 - Zeitstempel auf Wortebene werden automatisch erzeugt
 - Sprecheridentifizierung (wer was gesagt hat)
-- Optimiert auf 626MB für die Mac-Leistung
+- Optimiert auf 626 MB für die Mac-Leistung
 - Am besten für globale Sprachabdeckung und Genauigkeit
 
 Whisper glänzt bei weit verbreiteten Sprachen, aber die Genauigkeit kann bei weniger gängigen Sprachen mit begrenzten Trainingsdaten variieren.
@@ -143,18 +158,18 @@ Whisper glänzt bei weit verbreiteten Sprachen, aber die Genauigkeit kann bei we
 Enthält sowohl Whisper- als auch Parakeet-Modelle mit automatischer Spracherkennung:
 
 **Whisper-Modelle** (99 Sprachen)
-- Die gleiche breite Sprachunterstützung wie die lokale Option
+- Die gleiche breite Sprachunterstützung wie die Local-Option
 - Für Genauigkeit in verschiedenen sprachlichen Kontexten optimiert
 
 **Parakeet-Modelle** (25 europäische Sprachen)
 - Schnelle, leichte Sprache-zu-Text-Engine von NVIDIA
 - **10x schneller als Whisper** für die Transkription von Meetings auf dem Mac
 - Automatische Spracherkennung aus dem Audio
-- Unterstützt Bulgarisch, Kroatisch, Tschechisch, Dänisch, Niederländisch, Englisch, Estnisch, Finnisch, Französisch, Deutsch, Griechisch, Ungarisch, Italienisch, Lettisch, Litauisch, Maltesisch und 9+ andere europäische Sprachen
+- Unterstützt Bulgarisch, Kroatisch, Tschechisch, Dänisch, Niederländisch, Englisch, Estnisch, Finnisch, Französisch, Deutsch, Griechisch, Ungarisch, Italienisch, Lettisch, Litauisch, Maltesisch und 9+ weitere europäische Sprachen
 
 **Funktionen:**
 - Sprecherdiarisierung (verschiedene Sprecher identifizieren)
-- Optimiert auf 494MB für die Mac-Leistung
+- Optimiert auf 494 MB für die Mac-Leistung
 - Ideal für die Echtzeitaufzeichnung von Meetings
 - Am besten für europäische Sprachlasten
 
@@ -162,9 +177,9 @@ Enthält sowohl Whisper- als auch Parakeet-Modelle mit automatischer Spracherken
 - **Parakeet**: Schnellere Verarbeitung, geringerer Ressourcenverbrauch, ideal für Meetings (25 europäische Sprachen)
 - **Whisper**: Breitere Sprachabdeckung, maximale Genauigkeit (50+ globale Sprachen)
 
-Beide Modelle bieten Zeitstempel auf Wortebene, Sprecheridentifizierung und automatische Spracherkennung—all lokal auf Ihrem Mac verarbeitet.
+Beide Modelle bieten Zeitstempel auf Wortebene, Sprecheridentifizierung und automatische Spracherkennung—alles lokal auf Ihrem Mac verarbeitet.
 
-![Sprache - Lokale Plus-Modelle](/images/settings/Alter-Settings_02f_Voice-Local_Plus-Beta71.webp)
+![Sprache - Local-Plus-Modelle](/images/settings/Alter-Settings_02f_Voice-Local_Plus-Beta71.webp)
 
 ### 3. Profileinstellungen
 
@@ -188,7 +203,7 @@ Der Tab **Profil** verwaltet Ihre Identität und Vorlieben:
 
 ![Profileinstellungen](/images/settings/Alter-Settings_03_Profile-Beta71.webp)
 
-### 4. Erscheinungseinstellungen
+### 4. Erscheinungseinstellungen {#appearance}
 
 Der Tab **Erscheinung** steuert das visuelle Aussehen und Gefühl:
 
@@ -198,7 +213,7 @@ Der Tab **Erscheinung** steuert das visuelle Aussehen und Gefühl:
 - **Dunkel**: Dunkles Theme forcieren
 
 **Anpassung**
-- **Standard-Panelposition**: Wo die Panels erscheinen (oberes rechtes Standard)
+- **Standard-Panelposition**: Mitte, Oben links, Oben rechts, Unten links, Unten rechts, Oben Mitte oder Letzte Position (Oben rechts ist der Standard bei Neuinstallationen)
 - **Menüschriftgröße**: Textgröße für die Lesbarkeit anpassen (Standard: 16)
 - **Nachrichtenschriftgröße**: Textgröße für Chat-Nachrichten festlegen (Standard: 15)
 - **Notch anzeigen**: Den Statusanzeiger anzeigen
@@ -216,17 +231,17 @@ Der Tab **Erscheinung** steuert das visuelle Aussehen und Gefühl:
 Der Tab **Abrechnung** zeigt Ihren Abonnementstatus:
 
 **Lizenzinformationen**
-- Ihr aktueller Plan (z.B. Pro-Plan)
+- Ihr aktueller Plan (z. B. Pro-Plan)
 - Ablaufdatum
 - Optionen zur Änderung oder Kündigung des Abonnements
 
 **Fair Use**
 - Visueller Indikator Ihres verbleibenden Fair-Use-Kontingents
-- Zeigt den Zeitplan zur Rücksetzung (z.B. „Rücksetzung in 20 Tagen“)
+- Zeigt den Zeitplan zur Rücksetzung (z. B. „Rücksetzung in 20 Tagen“)
 
 ![Abrechnungseinstellungen](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
 
-### 6. Berechtigungseinstellungen
+### 6. Berechtigungseinstellungen {#permissions}
 
 Der Tab **Berechtigungen** verwaltet den Zugriff auf das System und die Daten sammelnden Vorlieben:
 
@@ -235,7 +250,7 @@ Jede Berechtigung kann mit Schnellzugriffs-Schaltflächen aktiviert werden:
 - **Beim Anmelden starten**: Alter automatisch starten, wenn Ihr Mac startet
 - **Barrierefreiheit**: Erforderlich für Tastaturbefehle und Fenstersteuerung (Barrierefreiheit überprüfen)
 - **Systemeinstellungen**: Zugriff auf die Systemeinstellungen erlauben (Systemeinstellungen überprüfen)
-- **Bildschirmaufnahme**: Bildschirm Inhalte zur Analyse und Kontextbewusstsein erfassen (Bildschirmaufnahme überprüfen)
+- **Bildschirmaufnahme**: Bildschirminhalte zur Analyse und Kontextbewusstsein erfassen (Bildschirmaufnahme überprüfen)
 - **Mikrofon**: Spracheingabe und Diktat aktivieren (Mikrofon überprüfen)
 
 **Analytik**
@@ -243,9 +258,9 @@ Jede Berechtigung kann mit Schnellzugriffs-Schaltflächen aktiviert werden:
 
 ![Berechtigungseinstellungen](/images/settings/Alter-Settings_06_Permissions-Beta71.webp)
 
-### 7. API-Schlüsseleinstellungen
+### 7. API-Schlüsseleinstellungen {#external-api-keys}
 
-Der Tab **API-Schlüssel** ermöglicht es Ihnen, Ihre eigenen Modelle zu integrieren:
+Der Tab **API keys** ermöglicht es Ihnen, Ihre eigenen Modelle zu integrieren:
 
 **Partner**
 - Integrieren Sie sich mit Partnerdiensten, die OpenAI-kompatible Endpunkte bereitstellen
@@ -253,29 +268,29 @@ Der Tab **API-Schlüssel** ermöglicht es Ihnen, Ihre eigenen Modelle zu integri
 **Benutzerdefinierte Anbieter**
 Fügen Sie benutzerdefinierte LLM-Anbieter hinzu und verwalten Sie diese:
 - **Anbieter hinzufügen**: Neuen benutzerdefinierten Modellendpunkt erstellen
-- **Anbieter-URL**: Endpunkt-URL (z.B. `http://localhost:1234/v1`)
+- **Anbieter-URL**: Endpunkt-URL (z. B. `http://localhost:1234/v1`)
 - **Modelle verwalten**: Verfügbare Modelle von jedem Anbieter anzeigen und testen
 
 **Unterstützte Anbietertypen**
 Beim Hinzufügen eines benutzerdefinierten Anbieters können Sie aus folgenden wählen:
 - **OpenAI**: OpenAIs API (GPT-Modelle)
-- **Benutzerdefiniert**: Generische OpenAI-kompatible Endpunkte
+- **Custom**: Generische OpenAI-kompatible Endpunkte
 - **Azure**: Microsoft Azure OpenAI-Dienst
 - **LM Studio**: Lokale Modelle über LM Studio
 - **PrivateMode**: Lokale Inferenzmaschinen
 - **Bifrost**: Bifrost-API-Anbieter
-- **Mistral**: Mistral-IA-Modelle
+- **Mistral**: Mistral-AI-Modelle
 - **Gemini**: Google Gemini-API
 - **OpenRouter**: Multi-Modell-Routerdienst
 - **Ollama**: Lokales LLM-Framework
 - **Osaurus**: Osaurus-Anbieter
 
 **Anbieter hinzufügen**
-1. Klicken Sie auf die Schaltfläche „Anbieter hinzufügen“
-2. Wählen Sie den Anbietertyp aus dem Dropdown-Menü aus
+1. Klicken Sie auf die Schaltfläche „Add Provider“
+2. Wählen Sie den Anbietertyp aus dem Dropdown-Menü
 3. Geben Sie die API-Endpunkt-URL ein
 4. Geben Sie Ihren API-Schlüssel ein
-5. Klicken Sie auf „Speichern“, um zu konfigurieren
+5. Klicken Sie auf „Save“, um zu konfigurieren
 
 ![API-Schlüssel - Anbieter konfiguriert](/images/settings/Alter-Settings_07a_APIkeys-Providers-Beta71.webp)
 
@@ -287,11 +302,11 @@ Beim Hinzufügen eines benutzerdefinierten Anbieters können Sie aus folgenden w
 
 ![API-Schlüssel - Anbietertyp Dropdown](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
 
-### 8. Router-Einstellungen
+### 8. Router-Einstellungen {#router}
 
-Der Tab **Router** konfiguriert den Standard-AI-Endpunkt:
+Der Tab **Router** konfiguriert den Standard-KI-Endpunkt:
 
-**OpenAI kompatibler Endpunkt**
+**OpenAI-kompatibler Endpunkt**
 - Standard-Endpunkt zur Unterstützung von Alter-Modellen
 - Link: https://alterhq.com/api
 
@@ -301,9 +316,313 @@ Der Tab **Router** konfiguriert den Standard-AI-Endpunkt:
 
 ![Router-Einstellungen](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
+### 9. Computer-use-Einstellungen {#computer-use}
+
+Der Tab **Computer use** konfiguriert, wie Alters UI-Automatisierungsagent Apps, Browser und die schwebende Live-Vorschau steuert, die in **2.0.0-beta100** eingeführt wurde.
+
+Öffnen Sie **Einstellungen** (⌘,) und wählen Sie **Computer use** in der Seitenleiste — er erscheint unter dem API-Bereich mit dem Cursor-Strahlen-Symbol, neben **API keys** und **Router**. Der Tab ist in drei Abschnitte gegliedert, die exakt der App-Oberfläche entsprechen: **Browser**, **Preview** und **Blocked apps**.
+
+#### Browser
+
+Geben Sie Computer Use einen eigenen Browser, damit agent-gesteuerte Seiten von Ihrem täglichen Surfen getrennt bleiben.
+
+**Agent browser** — *Der Browser, den der Computer-Use-Agent steuert*
+
+- **macOS default** — `open_urls` innerhalb von Computer Use nutzt Ihren Systemstandardbrowser (Standardverhalten)
+- **Dedicated browser** — Installierten Browser wählen (Chrome, Safari, Arc usw.). Während eines Computer-Use-Laufs landen vom Agenten geöffnete Seiten nur in diesem Browser. Links, die Sie selbst öffnen, und `open_urls` **außerhalb** von Computer Use nutzen weiterhin Ihren macOS-Standard.
+
+So bleiben Sie in Ihrem Hauptbrowser bei sensiblen Seiten angemeldet, während der Agent ein isoliertes Profil nutzt.
+
+**Clean up when finished**
+
+- Wenn aktiviert, schließt Alter Tabs, die der Agent geöffnet hat, nach Ende der **letzten** Computer-Use-Sitzung
+- Bei Browsern, die einzelne Tabs nicht schließen können (z. B. Firefox), wird der Agent-Browser **beendet** — aber **nur wenn der Agent ihn gestartet hat**, nie ein Browser, den Sie bereits offen hatten
+- Erfordert einen dedizierten **Agent browser** (deaktiviert bei **macOS default**)
+
+#### Preview
+
+Die schwebende Vorschau zeigt ein Live-Bild-im-Bild des Fensters, das Computer Use steuert.
+
+**Show preview automatically** — *Schwebende Vorschau anzeigen, wenn eine Computer-Use-Aufgabe startet*
+
+- An (Standard): Vorschau öffnet sich beim Task-Start
+- Aus: Läufe erfolgen weiter im Hintergrund; Vorschau jederzeit über **Watch preview** im Tool Inspector der laufenden Aufgabe öffnen
+
+**Preview size** — *Kleine oder große Voreinstellungen oder Custom für die per Drag gesetzte Größe*
+
+| Option | Breite |
+|--------|--------|
+| **Small** | 320 pt Voreinstellung |
+| **Large** | 560 pt Voreinstellung |
+| **Custom** | Merkt sich die Größe, die Sie per Ziehen an der Vorschau-Ecke setzen |
+
+Die Vorschau behält ein festes Seitenverhältnis; Sie können sie mit **Hide** am Fenster ausblenden, ohne den Lauf zu stoppen.
+
+#### Blocked apps
+
+Computer Use verweigert **Öffnen, Lesen oder Steuern** von Apps auf dieser Liste. Passwortmanager und andere sensible Apps sind standardmäßig blockiert:
+
+- Keychain Access
+- Bitwarden
+- Passwords (macOS)
+- 1Password / 1Password 7
+
+**Add app…** — Ein oder mehrere `.app`-Bundles aus `/Applications` zum Blockieren wählen
+
+**Restore defaults** — Liste auf Alters eingebaute Standardwerte für sensible Apps zurücksetzen
+
+Entfernen Sie eine App mit der Minus-Schaltfläche in der Zeile. Zielt ein Ziel auf eine blockierte App, meldet der Agent die Blockierung und versucht es nicht weiter — passen Sie die Liste nur an, wenn Sie Computer Use absichtlich diese App steuern lassen wollen.
+
+Sind keine Apps blockiert, zeigt der Abschnitt **No apps are blocked.** in Sekundärtext.
+
+#### Berechtigungshinweis
+
+Computer Use erfordert **Barrierefreiheit** (zum Lesen von AX-Bäumen und Senden von Klicks) und **Bildschirmaufnahme** (für Live-Vorschau und `computer_use_screenshot`). Gewähren Sie beides unter **Einstellungen → Berechtigungen** vor dem ersten Lauf. Wenn etwas weiter fehlschlägt, öffnen Sie **Einstellungen → Doctor** für einen konsolidierten Berechtigungsbericht.
+
+<Tip>
+  Hintergrundläufe, Edge-Bar-Sitzungskarten und Vorschauverhalten sind in [Computer Use im Hintergrund](/de/apps-tools/computer-use-background) dokumentiert. Berechtigungsprobleme: [Tools funktionieren nicht](/de/common-issues/tool-not-working) oder **Einstellungen → Doctor**.
+</Tip>
+
+### 10. Tastenkürzel-Einstellungen {#shortcuts}
+
+Der Tab **Shortcuts** ist ein durchsuchbarer Editor für alle Alter-Tastenkürzel. Öffnen Sie **Einstellungen → Shortcuts** (unter **General** in der Seitenleiste).
+
+#### Suche und Navigation
+
+- **Search shortcuts** — Nach Aktionsname, Beschreibung, Kategorie oder Tastenkombination filtern
+- **⌘F** — Suche fokussieren, während der Shortcuts-Tab im Vordergrund ist
+- **Esc** — Suchfeld leeren, wenn die Suche fokussiert ist
+
+Jede Zeile zeigt Aktionsname, kurze Beschreibung und ein **Recorder**-Steuerelement. Klicken Sie auf den Recorder und drücken Sie die gewünschten Tasten. Ändern Sie ein Kürzel vom Standard ab, erscheint eine **Reset**-Schaltfläche (↺) zum Wiederherstellen der Werkseinstellung.
+
+#### Global
+
+Systemweite Shortcuts, die in jeder App funktionieren (vorbehaltlich macOS-Berechtigungen):
+
+| Aktion | Standard | Hinweise |
+|--------|---------|-------|
+| **Open QuickHub** / **Open notch** | **⌘⇧Space** | Label hängt vom **QuickHub-Modus** ab |
+| **Open QuickHub and Attach** | Doppel-**⌘** + Anheften-Auswahl | Siehe QuickHub-Anheften unten |
+| **Open or Focus the Hub** | **⌘⇧H** | |
+| **New Hub Chat** | **⌥Space** | |
+| **Dictation Shortcut** | **Fn** | Leerer Recorder fällt auf Fn zurück |
+| **Meeting Shortcut** | **⌘⇧M** | Meeting-Aufnahme umschalten |
+| **Live captions** | **⌘⇧↓** | |
+| **Live Notepad** | **⌘⇧→** | |
+
+#### Open QuickHub and Attach
+
+**Open QuickHub and Attach** hat neben dem Shortcut-Recorder zwei zusätzliche Auswahlfelder:
+
+- **Attach behavior** — **Attach Left** oder **Attach Right** (Standard **Attach Right**)
+- **Shortcut** — Doppeltipp-Auslöser: **Double tap ⌘** (Standard), **Double tap ⌥**, **Double tap ⌃**, **Double tap ⇧** oder **None**
+
+Doppeltippen Sie den gewählten Modifier, um QuickHub zu öffnen und an die gewählte Seite anzudocken. Dokumentiert in [QuickHub-Modus](/de/getting-started/quickhub-mode).
+
+#### Hub & QuickHub
+
+Gemeinsame Shortcuts für die jeweils aktive Gesprächsoberfläche:
+
+| Aktion | Standard |
+|--------|---------|
+| **Command Palette** | **⌘K** |
+| **New Chat or Tab** | **⌘T** |
+| **Close Chat or Tab** | **⌘W** |
+| **Delete Conversation** | **⌘Delete** |
+| **Previous Chat or Tab** | **⌘⌥←** |
+| **Next Chat or Tab** | **⌘⌥→** |
+| **Clear All Contexts** | **⌘⇧X** |
+| **Quick Actions** | **⌘/** |
+| **Retry Last Message** | **⌘R** |
+
+#### QuickHub
+
+Anheften- und Navigations-Shortcuts speziell für das schwebende QuickHub-Panel:
+
+| Aktion | Standard |
+|--------|---------|
+| **Open in Hub** | **⌘O** |
+| **Attach Left** | **⌃⌘←** |
+| **Attach Right** | **⌃⌘→** |
+| **Detach Window** | **⌃⌘↓** |
+| **Pin Window** | **⌘⌥P** |
+
+#### Hub
+
+Hub-Fenster-Shortcuts inklusive Workspace- und Exportaktionen:
+
+| Aktion | Standard |
+|--------|---------|
+| **New Workspace** | **⌘⌥N** |
+| **Create Workspace from Context** | **⌘J** |
+| **Switch to Workspace** | **⌘⌥O** |
+| **Save Conversation as Markdown** | **⌘⇧S** |
+| **Close All Tabs** | **⌘⌥W** |
+| **Close Window** | **⌘⇧W** |
+| **Search** | **⌘F** |
+| **Jump to Tab 1-9** | **⌘1**–**⌘9** (nur Anzeige) |
+
+#### Windows
+
+Alters Hilfsfenster öffnen:
+
+| Aktion | Standard |
+|--------|---------|
+| **Alter Hub** | **⌘⇧H** |
+| **Action Editor** | **⌘⇧E** |
+| **Tools Manager** | **⌘⇧T** |
+| **Settings** | **⌘,** |
+
+#### Conversation
+
+Eingabe- und Scrollverhalten in QuickHub- und Hub-Gesprächen:
+
+| Aktion | Standard |
+|--------|---------|
+| **Cycle Mode** | **⇧Tab** |
+| **Scroll Up** | **Page Up** |
+| **Scroll Down** | **Page Down** |
+
+#### Tools
+
+Der Abschnitt **Tools** listet **schreibgeschützte** Shortcuts für konfigurierte Quick-Action-Tools. Zum Bearbeiten klicken Sie **Open Quick Actions** — Alter öffnet den **Tools Manager** im Abschnitt Quick Actions (**⌘⇧T** oder `alter://toolsManager?section=quickActions`).
+
+#### Konflikte und Reset
+
+macOS und andere Apps können dieselben Tastenkombinationen belegen. Wenn ein Shortcut nicht auslöst:
+
+1. Prüfen Sie **Systemeinstellungen → Tastatur → Tastaturkurzbefehle** auf Konflikte
+2. Wählen Sie eine freie Kombination in Alters Recorder
+3. Klicken Sie ↺ Reset, um Alters Standard für diese Zeile wiederherzustellen
+
+Für eine vollständige Übersicht über die Einstellungs-UI hinaus siehe [Shortcuts-Referenz](/de/references/shortcuts). Nur den globalen Öffnen-Shortcut ändern: [Hotkey ändern](/de/how-to/change-hotkey) ist eine fokussierte Anleitung.
+
+### 11. Marketplace-Einstellungen {#marketplace}
+
+Der Tab **Marketplace** (unter **Account** in der Einstellungs-Seitenleiste) steuert Ihr öffentliches Alter-Marketplace-Profil und Benachrichtigungseinstellungen. Was Sie hier speichern, kann in Agent-Listings und Community-Seiten erscheinen; rein lokale Alter-Einstellungen sind davon unberührt.
+
+#### Öffentliches Profil
+
+- **Display Name** — Benutzername auf Ihrem öffentlichen Profil
+- **Bio** — Bis **160 Zeichen**; ein Live-Zähler zeigt `count/160`
+- **Avatar** — Klicken Sie auf das Kamera-Badge für ein Bild; **Remove** entfernt den aktuellen Avatar
+- **Save Profile** — Lädt Änderungen hoch (deaktiviert, bis Sie etwas bearbeitet haben)
+
+Profildaten synchronisieren beim Speichern mit Alters Kontodienst. Fehler erscheinen rot unter dem Formular.
+
+#### Soziale Links
+
+Optionale URLs auf Ihrem Marketplace-Profil:
+
+- **Website**
+- **GitHub**
+- **Twitter / X**
+- **LinkedIn**
+- **Discord**
+- **YouTube**
+
+Leer lassen, um den Link öffentlich auszublenden. Werte werden mit Ihrem Kontoprofil gespeichert.
+
+#### Benachrichtigungen
+
+- **Comment notifications** — *Benachrichtigung, wenn jemand Ihre Agents kommentiert oder Ihnen antwortet.*
+
+Ausschalten, um Marketplace-Kommentar-Alerts zu stummschalten, während Ihr öffentliches Profil sichtbar bleibt.
+
+### 12. Doctor-Einstellungen {#doctor}
+
+**Doctor** (unter **System** in der Einstellungs-Seitenleiste) führt eine Gesundheits- und Berechtigungsdiagnose für Alter aus. Nutzen Sie ihn, wenn Tools mysteriös ausfallen, die Sprachverarbeitung sich falsch verhält oder Sie einen geschwärzten Bericht für den Support brauchen.
+
+Doctor startet automatisch beim Öffnen des Tabs und zeigt danach eine Zusammenfassung und Detailabschnitte.
+
+#### Zusammenfassungskopf
+
+- Titel **Alter Doctor** mit **last checked**-Zeit
+- Gesamtstatus-Pille: **OK**, **Warning**, **Failed** oder **Idle**
+- Zählpillen: **OK**, **Idle**, **Warn**, **Fail**
+
+#### Refresh und Copy Report
+
+- **Refresh** — Alle Prüfungen erneut ausführen (Fortschrittsanzeige während des Laufs)
+- **Copy Report** — **Geschwärzten** Klartext-Bericht in die Zwischenablage (Home-Verzeichnispfade zu `~` gekürzt; JWT-/Token-ähnliche Strings ersetzt). Schaltfläche zeigt kurz **Copied**
+
+Fügen Sie den Bericht bei Discord- oder E-Mail-Support ein, ggf. zusammen mit einem [geteilten Task-Trace](/de/workflows/share-task-traces).
+
+#### Diagnoseabschnitte
+
+**Environment**
+
+- **macOS** — Betriebssystem-Versionsstring
+- **Architecture** — `arm64` oder `x86_64`
+
+**Application**
+
+- **Version** — Kurzversion, Build-Nummer und Konfiguration (Debug/Release)
+- **Application Support** — Ob Alters Support-Verzeichnis existiert
+
+**Permissions**
+
+- **Accessibility** — Erforderlich für Auswahl-Lesen und App-Steuerung. Link zu **Einstellungen → Berechtigungen**, wenn nicht gewährt
+- **Screen Recording** — Erforderlich für Meeting-/Bildschirmkontext und Computer-Use-Vorschau
+- **Microphone** — Erforderlich für Diktat und Meeting-Audio
+- **Automation** — System-Events-Zugriff für AppleScript-ähnliche Automatisierung. Startet als **Idle**, bis Sie **Check Automation** klicken; Alter fordert Berechtigung an und aktualisiert den Bericht
+
+**Voice Processor**
+
+- **Selected processor** — Aktuelle Sprachengine (Apple, Cloud, Whisper usw.) mit Link zu **Einstellungen → Sprache**
+- **Plan access** — Ob Ihr Abonnement den gewählten Prozessor unterstützt
+- **Local model** / **Local model runtime** (nur Apple Silicon + Whisper) — Download- und Ladestatus
+
+**Storage**
+
+Speicherverbrauch für Application Support, Alter Prompts, Caches, WebKit und HTTP-Storage-Pfade.
+
+**Database**
+
+Lokaler Core-Data-Schema-Status: aktuell, Migration nötig oder noch kein Store.
+
+**Actions**
+
+Anzahl geladener Alter Actions (aktiviert, nutzerautorisiert, gesamt).
+
+**Tools**
+
+- **Activated tools** — Anzahl mit **Open the Tools Manager**-Shortcut zum Abschnitt Active Tools
+- **MCP configuration** — Verbundene Apps und Remote-MCP-Server
+- **MCP clients** — Laufzeitstatus pro Server (running, stopped, error)
+
+**Search**
+
+- **Conversations** / **Transcripts** — Indizierte Datensatzanzahl; **Warning** während Re-Indexierung
+- **Notes** — Ob Apple-Notes-Tools aktiv sind
+
+#### Abschnittsaktionen
+
+Einige Abschnitte haben Fußzeilen-Schaltflächen:
+
+- **Open Permissions**, **Open Voice**, **Open Billing** — Zum passenden Einstellungs-Tab springen
+- **Open the Tools Manager** — Deep-Link zu MCP- oder Active-Tools-Abschnitten
+- **Check Automation** — System-Events-Berechtigungsprüfung auslösen (Abschnitt Permissions)
+
+#### Doctor vs. Common-Issues-Seiten
+
+| Situation | Start hier |
+|-----------|------------|
+| Breites „etwas stimmt nicht“ | **Einstellungen → Doctor** |
+| Hotkey funktioniert nicht mehr | [Tastenkombination funktioniert nicht](/de/common-issues/hotkey-not-working) |
+| Mikro transkribiert nicht | [Mikrofon funktioniert nicht](/de/common-issues/mic-not-transcribing) |
+| Tool- oder MCP-Fehler | [Tools funktionieren nicht](/de/common-issues/tool-not-working) + Doctor-Abschnitt **Tools** |
+| Computer-Use-Berechtigungsfehler | Doctor **Permissions** + [Computer-use-Einstellungen](/de/how-to/settings-guide#computer-use) |
+
 ## Verwandte Dokumente
 
 - [Erste Schritte mit Alter](/de/getting-started/getting-started-path)
 - [Diktat & Stimme](/de/workflows/dictation)
-- [Auswahl Ihres generativen Modells](/de/how-to/choose-generative-model)
-- [API-Gateway & Routerdienst](/de/api-router/api-gateway)
+- [Generatives Modell wählen](/de/how-to/choose-generative-model)
+- [API-Gateway & Router](/de/api-router/api-gateway)
+- [Computer Use Übersicht](/de/apps-tools/computer-use)
+- [Computer Use im Hintergrund](/de/apps-tools/computer-use-background)
+- [QuickHub-Modus](/de/getting-started/quickhub-mode)
+- [Edge Bar](/de/getting-started/edge-bar)
+- [Task-Traces teilen](/de/workflows/share-task-traces)
+- [Shortcuts-Referenz](/de/references/shortcuts)

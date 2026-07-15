@@ -3,17 +3,21 @@ title: "Rolar"
 description: "Rolar janelas de aplicativos ativos em fluxos de uso do computador"
 ---
 
+
 Use Rolar quando o conteúdo de destino estiver fora da janela de visualização atual.
 
+<Tip>
+  The [**Computer Use**](/apps-tools/computer-use) agent calls `scroll` as part of its background loop. See [agent tools](/apps-tools/computer-use-agent-tools) for window targeting and [Background Computer Use](/apps-tools/computer-use-background) for non-blocking runs.
+</Tip>
 ## O que faz
 
-- Rola na janela frontal do aplicativo.
+- Rola por uma duração em milissegundos.
 - Suporta direção: `up`, `down`, `left`, `right`.
 - Funciona por um período cronometrado.
 
 ## Entradas
 
-- `seconds` (opcional): duração da rolagem (padrão 3, máximo 3600).
+- `milliseconds` (opcional): duração em milissegundos (padrão **3000**, máximo **3600000**).
 - `direction` (opcional): `up`, `down`, `left` ou `right` (padrão `down`).
 
 ## Uso típico

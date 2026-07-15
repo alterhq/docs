@@ -1,0 +1,138 @@
+---
+title: "后台 Computer Use"
+description: "在继续工作的同时在后台运行 Computer Use 任务，支持实时预览和 Edge Bar 会话控制"
+---
+
+后台 Computer Use 让 Alter 控制 Mac 上的应用，**无需占用你的屏幕**。智能体在后台窗口工作时，你可继续输入、阅读和切换窗口。浮动实时预览和 Edge Bar 会话卡片显示进度 — 并可随时停止运行。
+
+这是 **Computer Use** 智能体（`computer_use_task`）的默认体验，自 **2.0.0-beta100** 起提供。
+
+## 何时使用后台模式
+
+在以下情况使用后台 Computer Use：
+
+- 希望 Alter 抓取页面、填写表单或在应用中导航，**同时你继续自己的工作**
+- 任务可能需要几分钟，且不想将 QuickHub 附加到目标窗口
+- 需要在**非**前台应用的窗口上运行 UI 自动化
+
+前台 Computer Use（QuickHub 附加到目标）仍存在于旧流程中。对于几乎所有新任务，在一个 **Computer Use** 目标中描述完整任务即可。
+
+<Card title="主要界面" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  从 [Computer Use 概览](/apps-tools/computer-use) 开始 — 向 `computer_use_task` 传递 `goal`。
+</Card>
+
+## 后台运行如何工作
+
+当你（或父智能体）调用 **Computer Use** 时，Alter 会：
+
+1. **立即启动 Edge Bar 会话** — 在子智能体解析目标窗口之前
+2. **应用 `edgebarOnly` 展示** — QuickHub 不附加到目标应用，窗口上不绘制 overlay
+3. **运行专用子智能体**，使用 UI 工具（`read_screen_ax`、`perform`、`scroll` 等）循环最多 **600 秒**（10 分钟）
+4. **通过 `BackgroundInputDriver` 将输入路由到后台目标窗口**
+5. **跟踪活跃目标窗口** 并镜像到会话卡片和实时预览
+
+全局快捷键如 **⌘C**、**⌘V**、**⌘Tab** 智能体**不会**使用。
+
+## Edge Bar 会话卡片
+
+运行活跃时，**Computer Use** 会话会出现在 **Edge Bar** 中（需要 [QuickHub 模式](/getting-started/quickhub-mode)）。每张卡片显示：
+
+- **目标** — 请求的任务文本
+- **状态** — 智能体正在做什么
+- **目标应用** — 绑定后的名称、图标和窗口标题
+- **停止** — 立即取消子智能体
+
+已完成、失败或已停止的会话会进入终态，并在短暂延迟后消失。
+
+## 实时预览窗口
+
+**浮动预览** 是画中画窗口，显示智能体控制窗口的实时截图（约 15 fps）。
+
+### 自动显示预览
+
+默认情况下，Computer Use 任务启动时会打开预览。在 **设置 → Computer use → 自动显示预览** 中关闭。
+
+### Watch preview
+
+预览隐藏时，从运行中任务的 **Tool Inspector** 打开：选择 **Computer Use** 运行，点击 **Watch preview**。
+
+### 预览大小
+
+在 **设置 → Computer use → 预览大小** 中选择 **小**、**大** 或 **自定义**。预览选择器中最多可同时显示 **六** 个会话。
+
+## 后台输入路由
+
+`BackgroundInputDriver` 向目标进程发送鼠标点击、键盘和滚动，而不将该应用激活到前台：
+
+| 路由 | 使用场景 |
+|-------|----------|
+| **SkyLight** | Window Server 能传递事件时优先使用 |
+| **Per-PID** | 直接向目标进程发送事件 |
+| **HID 回退** | 最后手段 |
+
+**Chromium** 应用（Chrome、Edge、Brave、Arc、Electron）和 **Safari** 在后台使用键盘滚动。
+
+## 后台运行期间的窗口定位
+
+UI 工具按以下顺序解析 `windowID`：
+
+1. 工具调用中的**显式 `windowID`**
+2. **跟踪目标** — 最近通过 `open_app`、`open_urls` 或先前工具打开的窗口
+3. **会话回退** — `edgebarOnly` 活跃时，绑定到实时预览的窗口
+4. **前台窗口** — 仅在非后台会话中
+
+## 智能体浏览器
+
+智能体通过 `open_urls` 打开的网页会进入**智能体浏览器**（在 **设置 → Computer use → 智能体浏览器** 中配置）。
+
+启用 **完成后清理** 时，Alter 会在最后一个会话结束时关闭智能体标签页。
+
+## 停止、取消和超时
+
+| 操作 | 效果 |
+|--------|------|
+| **停止**（预览或卡片） | 取消子智能体；父智能体收到摘要 |
+| **600 秒超时** | 子智能体停止 |
+| **关闭**（已完成会话） | 从 Edge Bar 移除卡片 |
+
+停止后 Alter 不会自动重新运行 Computer Use。
+
+## 设置
+
+在 **设置 → Computer use** 中配置：
+
+- **智能体浏览器**
+- **完成后清理**
+- **自动显示预览**
+- **预览大小**
+- **Blocked apps**
+
+完整参考：[设置 → Computer use](/how-to/settings-guide#computer-use)。
+
+## 故障排除
+
+### 预览从不出现
+
+- 检查 **自动显示预览** 或 Tool Inspector 中的 **Watch preview**
+- Edge Bar 必须可用（QuickHub 模式开启）
+
+### 智能体操作错误的窗口
+
+- 在目标中指定具体的 `windowID`
+- 让智能体调用一次 `list_windows`
+
+### 被阻止的应用错误
+
+密码管理器默认被阻止。在 **设置 → Computer use → Blocked apps** 中调整。
+
+### 权限错误
+
+需要**辅助功能**和**屏幕录制**。在 **设置 → 权限** 或 **设置 → Doctor** 中授予。
+
+## 相关文档
+
+- [Computer Use 概览](/apps-tools/computer-use)
+- [Computer Use 智能体工具](/apps-tools/computer-use-agent-tools)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait)
+- [设置 → Computer use](/how-to/settings-guide#computer-use)
+- [工具无法使用](/common-issues/tool-not-working)

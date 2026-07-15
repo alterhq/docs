@@ -3,8 +3,12 @@ title: "等待"
 description: "在计算机使用操作之间暂停执行"
 ---
 
+
 当页面、对话框或应用程序状态需要时间更新时，使用“等待”在 UI 操作之间添加时间间隔。
 
+<Tip>
+  Inside [**Computer Use**](/apps-tools/computer-use), the subagent calls `wait` only when an accessibility read is empty or still loading — not before every step. See the [agent tools reference](/apps-tools/computer-use-agent-tools).
+</Tip>
 ## 它的作用
 
 - 暂停执行指定的秒数。

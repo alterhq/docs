@@ -1,0 +1,92 @@
+---
+title: "Modo QuickHub"
+description: "A interface de conversação padrão do Alter — QuickHub flutuante vs o entalhe legado"
+---
+
+O **Modo QuickHub** é a interface de conversação principal do Alter. Quando ativado, cada chat abre no **QuickHub** — um painel flutuante que você pode mover, anexar a janelas de apps ou invocar da borda da tela. Novas instalações têm o Modo QuickHub ativado por padrão (`useQuickHub = true` desde **2.0.0-beta100**).
+
+Desative o Modo QuickHub para voltar à experiência centrada no **entalhe**: passe o mouse sobre o entalhe da câmera para abrir o menu rápido compacto em vez do QuickHub.
+
+## QuickHub vs entalhe
+
+| | **Modo QuickHub ativado** (padrão) | **Modo QuickHub desativado** |
+|---|---|---|
+| UI principal | Painel **QuickHub** flutuante | Menu ao passar sobre o **entalhe** |
+| Rótulo do atalho global | **Abrir QuickHub** | **Abrir entalhe** |
+| Edge Bar | Disponível | Desativada |
+| Anexar a apps | Sim — acoplar ao lado de qualquer janela | Layout de entalhe limitado |
+| Ideal para | Chat diário, fluxos anexados, Edge Bar | Configuração mínima só entalhe |
+
+QuickHub não é um produto separado do Hub — é a **superfície de conversação leve**. Abra qualquer chat QuickHub na janela **Hub** completa com **Abrir no Hub** (padrão **⌘O**) quando precisar de abas, barra lateral e gerenciamento de workspaces.
+
+<Tip>
+  A maioria dos novos usuários deve manter o **Modo QuickHub** ativado. O entalhe permanece em **Configurações → Aparência → Exibir entalhe** para indicação de status.
+</Tip>
+
+## Ativar ou desativar o Modo QuickHub
+
+1. Abra **Configurações** (⌘,)
+2. Vá para **Geral**
+3. Alterne **Modo QuickHub** — *Usar QuickHub para todas as conversas em vez do entalhe*
+
+Ao desativar, as configurações da **Edge Bar** ficam acinzentadas e o launcher da borda da tela para de aparecer.
+
+## Abrir QuickHub
+
+**De qualquer lugar (global)**
+
+- **⌘⇧Space** — **Abrir QuickHub** (padrão; configurável em **Configurações → Atalhos → Global**)
+- **Abrir QuickHub e anexar** — abre QuickHub e anexa a um lado
+- **Edge Bar** — mova-se para uma borda ativada — ver [Edge Bar](/getting-started/edge-bar)
+
+**Do Hub**
+
+- **Novo chat Hub** — **⌥Space** (padrão)
+
+## Anexar, desanexar e fixar
+
+Configure em **Configurações → Atalhos → QuickHub**:
+
+| Atalho | Padrão | Ação |
+|----------|---------|--------|
+| **Anexar à esquerda** | **⌃⌘←** | Acoplar QuickHub à esquerda da app ativa |
+| **Anexar à direita** | **⌃⌘→** | Acoplar QuickHub à direita |
+| **Desanexar janela** | **⌃⌘↓** | Voltar QuickHub à posição flutuante |
+| **Fixar janela** | **⌘⌥P** | Fixar QuickHub acima de outras janelas |
+
+## Dependência da Edge Bar
+
+A **Edge Bar** **requer o Modo QuickHub**. Configure bordas em **Configurações → Geral → Edge Bar**.
+
+## Fluxos típicos
+
+**Pergunta rápida** — **⌘⇧Space**, pergunte, **Esc**.
+
+**Lado a lado** — **⌃⌘→** ou **Anexar** da Edge Bar.
+
+**Sessão longa** — **⌘O** (**Abrir no Hub**).
+
+**Computer Use em segundo plano** — ver [Computer Use em segundo plano](/apps-tools/computer-use-background).
+
+## Solução de problemas
+
+**⌘⇧Space abre o entalhe** — Ative **Modo QuickHub** em **Configurações → Geral**.
+
+**Edge Bar ausente** — Modo QuickHub + borda ativada — [Edge Bar](/getting-started/edge-bar).
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Edge Bar" icon="sidebar.right" href="/getting-started/edge-bar">
+    Launcher da borda da tela e sessões Computer Use
+  </Card>
+  <Card title="Tipos de janela" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Visão geral QuickHub, Hub e painéis
+  </Card>
+  <Card title="Configurações de atalhos" icon="keyboard" href="/how-to/settings-guide#shortcuts">
+    Editor completo de atalhos
+  </Card>
+  <Card title="Referência de atalhos" icon="list" href="/references/shortcuts">
+    Inventário completo de atalhos padrão
+  </Card>
+</CardGroup>

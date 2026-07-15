@@ -1,331 +1,87 @@
 ---
-title: "Integraciones"
-description: "Conecte Alter con sus aplicaciones y servicios externos de Mac"
+title: "Resumen"
+description: "Entienda las herramientas locales e integraciones externas en Alter"
 ---
 
-<Info>
-**Alter no solo chatea, sino que también hace cosas.** Conéctate con más de 17 aplicaciones locales de Mac y más de 2000 servicios externos.
-</Info>
+Alter se conecta a su Mac de dos formas:
 
-## Local Tools
+- **Mac Apps (herramientas locales)** — Integraciones propias con Mail, Calendar, Messages, Notes, Reminders, Contacts, Maps, DEVONthink y Computer Use. Se ejecutan en su Mac con permisos del sistema; no requieren claves API para las apps integradas.
+- **Integraciones externas** — Servidores MCP, skills y conectores en la nube (Slack, Notion, GitHub, APIs de búsqueda web, etc.) configurados en **Tools Manager**.
 
-Alter proporciona **más de 17 potentes Tools locales** que se integran directamente con sus aplicaciones Mac. A diferencia de otros asistentes de IA, Alter en realidad controla tu Mac a través del lenguaje natural.
+## Elegir el tipo de integración correcto
+
+- Use **Mac Apps** cuando el flujo permanezca en su Mac (bandeja de entrada, calendario, iMessage, automatización de pantalla).
+- Use **integraciones externas** cuando los datos o acciones estén en otro servicio o en la web abierta.
+
+## Herramientas locales (Mac Apps)
+
+Las herramientas locales se ejecutan en su entorno y son ideales para el uso diario en apps de Apple y Computer Use.
 
 <CardGroup cols={2}>
-  <Card title="100% gratis" icon="gift">
-Todas las Tools locales están disponibles para todos sin costo alguno.
+  <Card title="Navegación Mac Apps" icon="apple" href="/apps-tools/mail">
+    Referencias por app: Mail, Calendar, Messages, Notes y más
+  </Card>
+  <Card title="Computer Use" icon="display" href="/apps-tools/computer-use">
+    Agente de automatización de pantalla por objetivos
+  </Card>
+</CardGroup>
+
+<CardGroup cols={2}>
+  <Card title="Gratis" icon="gift">
+    Las herramientas locales están incluidas.
+  </Card>
+  <Card title="Privado por defecto" icon="shield">
+    Los flujos locales permanecen en su Mac.
+  </Card>
+  <Card title="Control de apps" icon="command">
+    Alter ejecuta acciones en apps, no solo resume datos.
   </Card>
   <Card title="Funciona sin conexión" icon="wifi-off">
-No se requiere Internet: completamente privado
-  </Card>
-  <Card title="Control nativo" icon="command">
-Controla realmente tus aplicaciones, no solo lee sobre ellas
-  </Card>
-  <Card title="Privacidad primero" icon="shield">
-Tus datos nunca salen de tu Mac
+    Muchas acciones locales funcionan sin servicios externos.
   </Card>
 </CardGroup>
 
-### Cómo utilizar Local Tools
+### Abrir 
 
 <Steps>
-  <Step title="Abierto Tools Manager">
-Haga clic en los tres puntos en Alter → **Tools Manager**
+  <Step title="Abrir Tools Manager">
+    En Alter, abra el menú de tres puntos y seleccione **Tools Manager**.
   </Step>
-  <Step title="Habilitar Tools">
-En la sección **Local Tools**, busque y habilite Tools (Calendario, Mapas, etc.)
+  <Step title="Active solo lo necesario">
+    Active las herramientas locales relevantes para su flujo.
   </Step>
-  <Step title="Usa lenguaje natural">
-Solicite a Alter que realice acciones:
-    - "Envía un mensaje a John diciéndole que llego tarde"
-    - "Agregar una reunión a mi calendario para mañana a las 2 p.m."
-    - "Muéstrame mis correos electrónicos no leídos"
+  <Step title="Probar con un prompt">
+    Ejecute un prompt pequeño para confirmar permisos y comportamiento.
   </Step>
 </Steps>
 
-<Note>
-Active/desactive todas las Tools usando el interruptor global en Tools Manager (Configuración > Tools)
-</Note>
+## Integraciones externas
 
-### Demostración en vídeo
+Las integraciones externas conectan Alter con Slack, Notion, GitHub y APIs de investigación mediante **Tools Manager → Remote MCP Servers** o skills instaladas.
 
-<Frame>
-  <div className="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/qL9iiHihYOU" title="reproductor de vídeos de youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</Frame>
+- Úselas cuando su flujo abarque varios sistemas fuera de las apps integradas de macOS.
+- Active solo los servicios necesarios para la tarea actual.
+- Los flujos de Mac Apps (Mail, Calendar, Messages) **no** requieren conectores externos — vea la sección **Mac Apps** en esta pestaña.
 
-### Aplicaciones Mac disponibles
-
-<AccordionGroup>
-  <Accordion icon="briefcase" title="Productividad y organización">
-    - **Notas:** Accede y administra tus notas
-    - **Recordatorios:** Administre sus recordatorios
-    - **Calendario:** Crear, editar, eliminar y enumerar eventos
-    - **Finder:** Listar y abrir aplicaciones
-  </Accordion>
-  
-  <Accordion icon="settings" title="Sistema y automatización">
-    - **Alter:** Utilice acciones rápidas como Tools, copie al portapapeles
-    - **Configuración del sistema:** Enviar notificaciones del sistema
-    - **Atajos:** Llame a los atajos de Apple con respuesta de IA como entrada
-    - **Editor de secuencias de comandos:** Ejecute secuencias de comandos de Apple
-  </Accordion>
-  
-  <Accordion icon="compass" title="Web y navegación">
-    - **Mapas:** Busca lugares, obtén direcciones, puntos de interés
-    - **Safari:** Búsqueda web impulsada por DuckDuckGo
-  </Accordion>
-  
-  <Accordion icon="message-circle" title="Comunicación">
-    - **Contactos:** Administrar y buscar contactos
-    - **Correo:** Borradores de correos electrónicos
-    - **Mensajes:** Enviar mensajes
-  </Accordion>
-</AccordionGroup>
-
----
-
-## Servicios externos
-
-Conéctese con **Más de 2000 aplicaciones externas** para una automatización avanzada.
-
-<Warning>
-**Acceso anticipado:** Las integraciones externas están en versión preliminar para suscriptores anuales y vitalicios.
-</Warning>
-
-### Integraciones populares
-
-<CardGroup cols={4}>
-  <Card title="Noción" icon="book">
-Notas y bases de datos
-  </Card>
-  <Card title="Lineal" icon="git-branch">
-Gestión de proyectos
-  </Card>
-  <Card title="GitHub" icon="github">
-Repositorios de código
-  </Card>
-  <Card title="Flojo" icon="hash">
-Mensajería de equipo
-  </Card>
-  <Card title="Calendario de Google" icon="calendar">
-Programación
-  </Card>
-  <Card title="Gmail" icon="mail">
-Correo electrónico
-  </Card>
-  <Card title="fuerza de ventas" icon="bar-chart">
-CRM
-  </Card>
-  <Card title="HubSpot" icon="users">
-Marketing
-  </Card>
-</CardGroup>
-
-¡Y más de 2000 a través de plataformas de integración!
-
-### Vídeo: Integraciones externas
-
-<Frame>
-  <div className="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ltYMIKf6nV8" title="reproductor de vídeos de youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</Frame>
-
----
-
-## Flujos de trabajo de automatización
-
-### Ganchos web
-
-Configure integraciones de webhooks para flujos de trabajo personalizados:
+## Puntos de entrada populares
 
 <CardGroup cols={2}>
-  <Card title="Flujos de trabajo personalizados" icon="webhook">
-Conéctese con cualquier servicio compatible con webhook
+  <Card title="Gestionar calendario" icon="calendar" href="/workflows/manage-calendar-with-alter">
+    Planifique y actualice su agenda desde Alter.
   </Card>
-  <Card title="Acciones externas" icon="zap">
-Activar servicios desde Alter conversaciones
+  <Card title="Flujos de Mail" icon="mail" href="/workflows/manage-mail-with-alter">
+    Redacte respuestas y procese la bandeja de entrada.
   </Card>
-</CardGroup>
-
-### Atajos de Apple
-
-Conéctese con miles de atajos de Apple:
-
-<Steps>
-  <Step title="Habilitar la Tool de accesos directos">
-En Tools Manager, active la Tool Atajos
-  </Step>
-  <Step title="Crear acceso directo">
-En la aplicación Atajos, crea automatización
-  </Step>
-  <Step title="Configurar entrada">
-Haz que acepte el último mensaje de la IA como entrada.
-  </Step>
-  <Step title="Activador desde Alter">
-"Ejecutar mi acceso directo [nombre del acceso directo]"
-  </Step>
-</Steps>
-
-### Acciones rápidas
-
-Crea acciones personalizadas para tus integraciones:
-
-<CardGroup cols={2}>
-  <Card title="Insertar acción" icon="corner-down-left">
-Colocar automáticamente respuestas de IA en aplicaciones activas
+  <Card title="Flujos de Messages" icon="message-circle" href="/workflows/send-messages-with-alter">
+    Envíe y gestione iMessages más rápido.
   </Card>
-  <Card title="Acciones de webhook" icon="send">
-Enviar datos a servicios externos
-  </Card>
-  <Card title="Guión de Apple" icon="terminal">
-Ejecutar scripts personalizados
-  </Card>
-  <Card title="Creador de formularios" icon="layout">
-Crear formularios interactivos
+  <Card title="Flujo Computer Use" icon="screen-share" href="/workflows/summarize-x-feed-with-computer-use">
+    Extraiga y resuma contenido visible de la UI.
   </Card>
 </CardGroup>
 
-<Frame>
-  <div className="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/m2i7PC7n9JE" title="reproductor de vídeos de youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</Frame>
+## Páginas relacionadas
 
----
-
-## x-callback-url Integración
-
-Alter admite el protocolo [x-callback-url](https://x-callback-url.com/) para la comunicación entre aplicaciones.
-
-### ¿Qué es x-callback-url?
-
-Un estándar que permite que las aplicaciones activen acciones entre sí mediante URL especiales. Pase datos, realice acciones y regrese sin problemas.
-
-### Activación de Alter desde otras aplicaciones
-
-<Steps>
-  <Step title="Obtener la URL">
-En Action Editor, seleccione una acción → sección "URL Callback"
-  </Step>
-  <Step title="Copiar esquema">
-Copie la URL `alter://` para esa acción.
-  </Step>
-  <Step title="Usar en cualquier lugar">
-Pegar en Atajos, Notas, navegador, etc.
-  </Step>
-</Steps>
-
-**Ejemplo:**
-```
-alter://action/ask-web?input=What+is+Alter+MacOS
-```
-
-### Activar otras aplicaciones desde Alter
-
-Cree enlaces en los que se pueda hacer clic utilizando esquemas de URL de la aplicación de destino:
-
-| Aplicación | URL de ejemplo | Acción |
-|-----|-------------|--------|
-| Oso | `bear://x-callback-url/create?title=Demo` | Crear nota |
-| Cosas | `things://add?title=Task` | Agregar tarea |
-| Borradores | `drafts://x-callback-url/create?text=Hello` | Crear borrador |
-
-<Card title="Aplicaciones compatibles" icon="check-circle">
-Bear, Things, Drafts, OmniFocus, 1Writer, Agenda y cientos más
-</Card>
-
-<Info>
-Consulte la guía [URL Callbacks](/workflows/url-callbacks) para obtener la documentación completa
-</Info>
-
----
-
-## Configuración
-
-### Acceda a Tools Manager
-
-<Steps>
-  <Step title="Abrir Alter">
-Utilice su acceso directo global o mouse
-  </Step>
-  <Step title="abrir menú">
-Haga clic en tres puntos a la derecha
-  </Step>
-  <Step title="Seleccione Tools Manager">
-Habilitar/deshabilitar integraciones según sea necesario
-  </Step>
-</Steps>
-
-### Privacidad y seguridad
-
-<CardGroup cols={3}>
-  <Card title="Local Tools" icon="shield-check">
-Los datos permanecen en tu Mac, completamente fuera de línea
-  </Card>
-  <Card title="External Tools" icon="lock">
-Habilita solo lo que necesitas
-  </Card>
-  <Card title="Sin antecedentes" icon="eye-off">
-Alter solo accede a los datos cuando se le solicita
-  </Card>
-</CardGroup>
-
----
-
-## Solución de problemas
-
-### Problemas comunes
-
-<AccordionGroup>
-  <Accordion icon="x-circle" title="Tool No funciona">
-Compruebe qué parámetros se requieren. Cree indicaciones personalizadas o agregue explicaciones a su perfil para un mejor uso de la Tool.
-  </Accordion>
-  
-  <Accordion icon="cpu" title="Asistente no utiliza Tools">
-Asegúrese de que su modelo admita Tools. Recomendado:
-    - Alter Mejor
-    - Gemini 2.0 Flash
-    - Claude Soneto
-  </Accordion>
-  
-  <Accordion icon="shortcut" title="Problemas con los atajos de Apple">
-Asegúrese de que los accesos directos acepten el último mensaje del asistente como parámetro de entrada
-  </Accordion>
-</AccordionGroup>
-
-### Obtener ayuda
-
-<CardGroup cols={2}>
-  <Card title="Preguntar Alter" icon="help-circle">
-"¿Cómo uso la Tool Calendario?"
-  </Card>
-  <Card title="Comunidad" icon="users">
-Únase a Discord para recibir apoyo del equipo y la comunidad
-  </Card>
-</CardGroup>
-
-<Tip>
-**Consejo profesional:** Comience con Tools locales para familiarizarse antes de configurar servicios externos.
-</Tip>
-
----
-
-## Recursos relacionados
-
-<CardGroup cols={2}>
-  <Card title="Tool Gerente" icon="tool" href="/how-to/tool-manager-guide">
-Configuración detallada de la Tool
-  </Card>
-  <Card title="URL Callbacks" icon="link" href="/workflows/url-callbacks">
-Sumérgete en x-callback-url
-  </Card>
-  <Card title="Solución de problemas" icon="wrench" href="/common-issues/tool-not-working">
-Solucionar problemas de Tools
-  </Card>
-  <Card title="Comportamiento" icon="zap" href="/getting-started/core-features#alter-actions-workflows">
-Crear flujos de trabajo personalizados
-  </Card>
-</CardGroup>
+- [Guía del Tool Manager](/how-to/tool-manager-guide)
+- [Solución de problemas de integraciones](/apps-tools/integrations-troubleshooting)
+- [Referencia de la app Mail](/apps-tools/mail)

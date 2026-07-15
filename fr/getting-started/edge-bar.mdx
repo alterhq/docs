@@ -1,0 +1,134 @@
+---
+title: "Edge Bar"
+description: "Révélez des actions rapides depuis le bord de l'écran — réunions, QuickHub, chats et sessions Computer Use"
+---
+
+L'**Edge Bar** est un lanceur vertical qui apparaît lorsque vous déplacez le pointeur vers un bord d'écran activé. Elle vous donne un accès en un clic aux réunions, à QuickHub, aux nouveaux chats et à l'attache — sans chercher un raccourci ou la barre de menus. Pendant les exécutions **Computer Use en arrière-plan**, les cartes de session et l'aperçu en direct se trouvent également ici.
+
+Edge Bar nécessite le **mode QuickHub**. Si vous désactivez le mode QuickHub, les paramètres Edge Bar sont désactivés et le lanceur n'apparaît pas. Consultez [QuickHub Mode](/fr/getting-started/quickhub-mode) pour le modèle d'interface complet.
+
+## Quand utiliser Edge Bar
+
+Utilisez Edge Bar lorsque :
+
+- Vous voulez un moyen **piloté à la souris** d'ouvrir QuickHub ou de démarrer une réunion depuis n'importe quelle app
+- Vous travaillez sur **plusieurs moniteurs** et voulez des déclencheurs sur les bords extérieurs (ou tous les bords intérieurs)
+- Vous exécutez **Computer Use** en arrière-plan et voulez le statut de session, les contrôles d'arrêt et **Watch preview** à proximité
+- Vous préférez glisser des fichiers sur le lanceur de bord plutôt que dans une fenêtre QuickHub flottante
+
+Pour un accès au clavier, utilisez **⌘⇧Space** (**Ouvrir QuickHub**) ou **Ouvrir QuickHub et attacher** depuis **Paramètres → Raccourcis → Global**. Edge Bar complète ces raccourcis ; elle ne les remplace pas.
+
+## Comment Edge Bar apparaît
+
+1. Activez au moins un bord sous **Paramètres → Général → Edge Bar**
+2. Déplacez le pointeur vers ce **bord intérieur de l'écran** (le bord de l'affichage, pas l'encoche)
+3. Le lanceur **se révèle** à l'approche — plus près du bord signifie plus visible
+4. Cliquez sur une icône pour exécuter cette action
+5. **Faites glisser la barre verticalement** le long du bord pour la repositionner ; Alter mémorise la position **par bord et par moniteur**
+
+Sur un **écran unique**, les bords gauche et droit activés sont toujours disponibles. Sur **plusieurs écrans**, seuls les bords **extérieurs** sont utilisés par défaut (le bord gauche du moniteur le plus à gauche et le bord droit du moniteur le plus à droite). Cela évite les déclenchements accidentels lors du passage du curseur entre les écrans.
+
+Activez **Tous les bords des moniteurs** pour activer vos bords gauche/droit sélectionnés sur **chaque** moniteur, y compris les bords **entre** les écrans.
+
+## Actions Edge Bar
+
+Lorsqu'aucune réunion n'est en cours d'enregistrement, le lanceur affiche ces actions (de haut en bas) :
+
+| Action | Effet |
+|--------|-------|
+| **Démarrer la réunion** | Commencer l'enregistrement avec microphone et audio système |
+| **Résumer la vidéo** | Résumer la vidéo du navigateur actif (affiché quand une page prise en charge est détectée) |
+| **Ouvrir QuickHub** | Ouvrir la fenêtre QuickHub flottante |
+| **Nouveau chat** | Démarrer une nouvelle conversation QuickHub |
+| **Attacher** | Attacher QuickHub sur le côté de l'app au premier plan |
+
+Pendant qu'une **réunion est en cours d'enregistrement**, le lanceur passe aux contrôles de réunion : **Démarrer la réunion** (arrêt/bascule), **Live Notepad**, **Live Captions**, puis **Nouveau chat** et **Attacher** sous un séparateur.
+
+Pendant la **dictée**, un ensemble plus court apparaît : **Démarrer la réunion**, **Nouveau chat** et **Attacher**.
+
+## Sessions Computer Use
+
+Lorsqu'une tâche **Computer Use** s'exécute en arrière-plan, une **carte de session Edge Bar** apparaît à côté du lanceur. Chaque carte affiche :
+
+- L'**objectif** de la tâche (tronqué ; survolez pour le texte complet)
+- Le **statut** — ce que fait l'agent (lecture des arbres d'accessibilité, clics, défilement, etc.)
+- L'**app cible** — icône, nom et titre de fenêtre une fois liée
+- **Arrêter** — annule l'exécution immédiatement
+
+Les sessions terminées, échouées ou arrêtées passent à un état terminal et disparaissent automatiquement après un court délai. L'**aperçu en direct flottant** (picture-in-picture de la fenêtre cible de l'agent) est géré depuis la même zone Edge Bar — ouvrez-le depuis la carte de session ou depuis **Watch preview** dans le Tool Inspector.
+
+Consultez [Computer Use en arrière-plan](/fr/apps-tools/computer-use-background) pour le flux complet d'exécution en arrière-plan.
+
+## Zone de dépôt
+
+Lorsque Edge Bar est visible, vous pouvez **glisser-déposer** dessus — les mêmes types de contenu que QuickHub accepte (fichiers, texte, URL et autres éléments du presse-papiers pris en charge). Alter achemine les éléments déposés vers la conversation QuickHub active ou nouvelle, comme un dépôt sur la fenêtre QuickHub elle-même.
+
+## Configurer Edge Bar
+
+Ouvrez **Paramètres → Général** (⌘,) et faites défiler jusqu'à la section **Edge Bar**. Tous les contrôles sont désactivés lorsque le **mode QuickHub** est désactivé.
+
+### Bord gauche / Bord droit
+
+Activez **Bord gauche** et **Bord droit** indépendamment. Par défaut : **Bord droit** activé, **Bord gauche** désactivé.
+
+### Tous les bords des moniteurs
+
+**Tous les bords des moniteurs** — *Utiliser les bords gauche/droit sélectionnés sur chaque moniteur, y compris entre les écrans.*
+
+Lorsque désactivé (par défaut), seuls les bords extérieurs d'une configuration multi-moniteurs sont éligibles. Lorsque activé, chaque bord activé sur chaque écran connecté peut révéler le lanceur.
+
+### Distance d'ouverture
+
+**Distance d'ouverture** — *0 % colle au bord ; 100 % utilise la distance par défaut.*
+
+Un curseur de **0 %** à **100 %** par pas de **25 %** contrôle la distance du bord à laquelle le lanceur commence à se révéler :
+
+- **0 %** — Vous devez pousser le pointeur contre le bord physique ; la barre reste collée au cadre
+- **100 %** (par défaut) — Distance de révélation standard ; le lanceur apparaît avant d'atteindre le bord absolu
+- Les valeurs intermédiaires (25 %, 50 %, 75 %) se situent entre ces extrêmes
+
+Utilisez une valeur plus basse si vous déclenchez Edge Bar accidentellement ; une valeur plus haute si vous voulez que le lanceur apparaisse plus tôt.
+
+<Tip>
+  Les paramètres complets Edge Bar et mode QuickHub se trouvent sous **Paramètres → Général**. La personnalisation des raccourcis est dans **Paramètres → Raccourcis** — voir [Configurer les paramètres Alter](/fr/how-to/settings-guide#general).
+</Tip>
+
+## Dépannage
+
+**Edge Bar n'apparaît jamais**
+
+- Confirmez que le **mode QuickHub** est activé (**Paramètres → Général → Mode QuickHub**)
+- Activez au moins **Bord gauche** ou **Bord droit**
+- Sur plusieurs moniteurs sans **Tous les bords des moniteurs**, essayez le bord **extérieur** gauche ou droit de votre groupe d'écrans
+- Vérifiez qu'une autre app ne capture pas les événements souris au bord de l'écran
+
+**Le lanceur apparaît sur le mauvais moniteur**
+
+- Activez **Tous les bords des moniteurs** si vous avez besoin des bords intérieurs entre les écrans
+- Repositionnez la barre en la faisant glisser verticalement sur le bord souhaité ; les positions sont enregistrées par moniteur
+
+**Carte Computer Use manquante**
+
+- Les sessions Edge Bar nécessitent le mode QuickHub et une exécution `computer_use_task` active
+- Ouvrez **Watch preview** depuis le Tool Inspector si l'aperçu flottant est masqué
+
+**Les paramètres sont grisés**
+
+- Edge Bar nécessite le mode QuickHub. Le pied de page indique : *Edge Bar nécessite que le mode QuickHub soit activé.*
+
+## Docs associées
+
+<CardGroup cols={2}>
+  <Card title="Mode QuickHub" icon="square.on.square" href="/fr/getting-started/quickhub-mode">
+    Interface par défaut, attacher/détacher et raccourcis
+  </Card>
+  <Card title="Computer Use en arrière-plan" icon="cursorarrow.rays" href="/fr/apps-tools/computer-use-background">
+    Cartes de session Edge Bar et aperçu en direct
+  </Card>
+  <Card title="Paramètres généraux" icon="gear" href="/fr/how-to/settings-guide#general">
+    Mode QuickHub et bascules Edge Bar
+  </Card>
+  <Card title="Types de fenêtres" icon="layout" href="/fr/getting-started/window-types-notch-hub-panels">
+    Aperçu QuickHub, Hub et panneaux
+  </Card>
+</CardGroup>

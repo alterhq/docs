@@ -1,97 +1,161 @@
 ---
-title: "Atalhos"
-description: "Lista completa de atalhos de teclado para o Alter"
+title: "Atalhos de teclado"
+description: "Lista completa de atalhos do Alter"
 ---
 
-### Navegação Global
+### Global Navigation
 
-Disponível através das janelas (a menos que a janela alvo já esteja ativa).
+Available across windows (unless the target window is already active).
 
-- ** Shift + Cmd + H**: Abrir o Hub Alter
-- ** Shift + Cmd + E**: Editor de Ação Aberto
-- ** Shift + Cmd + T**: Abrir o Tools Manager
-- **Alt + Espaço** (padrão): Open notch — configurável em **Configurações > Predefinições > Abrir o entalhe de teclas**
-- **Alter atalho do menu rápido**: Abra Alter de qualquer lugar — configurável em **Configurações > Geral > Acesso rápido**
-- ** Tecla de voz para texto**: Iniciar entrada de voz — configurável em **Definições > Ditação > Atalho** (padrão: tecla Fn)
+- **Shift + Cmd + H**: Open Alter Hub
+- **Shift + Cmd + E**: Open Action Editor
+- **Shift + Cmd + T**: Open Tools Manager
+- **Cmd + Shift + Space** (default): Open QuickHub — configurable in **Settings → Shortcuts → Global** as **Open QuickHub** (or **Open notch** when QuickHub Mode is off)
+- **Option + Space** (default): New Hub Chat — configurable in **Settings → Shortcuts → Global**
+- **Speech-to-text hotkey**: Start voice input — configurable in **Settings → Voice → Shortcuts** (default: Fn key)
 
-### Painel Rápido
+### QuickHub
 
-Quando o painel rápido está aberto (a partir do entalhe):
+When QuickHub Mode is on (default). Configure in **Settings → Shortcuts → QuickHub** and **Global**:
 
-- **←**, **↑**, **→**, **↓**: Navegar entre objetos
-- **Enter**: Selecione um objeto
+- **Shift + Cmd + Space** (default): Open QuickHub — **Settings → Shortcuts → Global → Open QuickHub**
+- **Double tap ⌘** (default): Open QuickHub and Attach — **Settings → Shortcuts → Global → Open QuickHub and Attach** (attach side: **Attach Left** or **Attach Right**)
+- **Ctrl + Cmd + ←**: Attach Left — dock QuickHub beside the active app
+- **Ctrl + Cmd + →**: Attach Right
+- **Ctrl + Cmd + ↓**: Detach Window — return to floating QuickHub
+- **Cmd + Option + P**: Pin Window
+- **Cmd + O**: Open in Hub — move current QuickHub chat to the Hub window
 
-### Secção de Contexto
+See [QuickHub Mode](/getting-started/quickhub-mode) and [Edge Bar](/getting-started/edge-bar).
 
-- **←**, **↑**, **→**, **↓**: Navegar entre contextos
-- ** Barra de Espaço**: Adicionar/remover contexto(s) selecionado(s)
-- ** Cmd + K**: Remover todos os contextos da conversa ativa
-- **Cmd + V**: Colar o conteúdo da área de transferência para adicionar ao contexto
+### Hub & QuickHub (shared)
 
-### Caixa de Pedidos
+When a Hub tab or QuickHub conversation is focused (**Settings → Shortcuts → Hub & QuickHub**):
 
-- **Entrar**: Perguntar com seu modelo ativo
-- **Cmd + Enter**: Prompt usando pesquisa web (via Gemini web)
-- ** Shift + Enter**: quebra de linha
-- **@**: Adicionar elementos ao contexto
-- **#**: Mostrar histórico de conversas Alter
-- **>**: Mostrar o histórico das transcrições das reuniões
-- **/**: Lista e escolha o seu modelo
-- ****: Mostrar o menu de ajuda
+- **Cmd + K**: Command Palette
+- **Cmd + T**: New Chat or Tab
+- **Cmd + W**: Close Chat or Tab
+- **Cmd + Delete**: Delete Conversation
+- **Cmd + Option + ←** / **→**: Previous / Next Chat or Tab
+- **Cmd + Shift + X**: Clear All Contexts
+- **Cmd + /**: Quick Actions
+- **Cmd + R**: Retry Last Message
 
-### Janela de Hub Alter
+### Hub-only
 
-- **Cmd + F**: Pesquisa de foco (setas para navegar resultados)
-- ** Cmd + B**: Alternar a visibilidade da barra lateral
-- **Cmd + T**: Página nova (iniciar novo chat)
-- **Cmd + J**: Criar Workspace (requer contexto ativo)
-- **Cmd + Opt + O**: Mudar para o Workspace...
-- **Cmd + K**: Limpar todos os contextos (requer contextos ativos)
-- **Cmd + Delete**: Excluir conversa (necessita de conversa ativa)
-- **Cmd + W**: Fechar a aba (fecha a janela se for a última aba)
-- ** Cmd + Opt + W**: Fechar todas as abas (necessários > 1 abas)
-- **Cmd + Opt + ←**: Página anterior (requer > 1 aba)
-- **Cmd + Opt + →**: Página seguinte (requer > 1 tab)
-- **Cmd + 1...9**: Mudar para um índice de tabulação específico
+- **Cmd + Shift + S**: Save Conversation as Markdown
+- **Cmd + Option + N**: New Workspace
+- **Cmd + J**: Create Workspace from Context
+- **Cmd + Option + O**: Switch to Workspace
+- **Cmd + Option + W**: Close All Tabs
+- **Cmd + Shift + W**: Close Window
 
-#### Workspace (exige Workspace seleccionado)
+### QuickHub (legacy notch — QuickHub Mode off)
 
-Não existem atalhos predefinidos; estes podem ser definidos através das Configurações do Sistema macOS:
+When QuickHub Mode is off, the compact panel opens from the notch:
 
-- Configuração do Workspace aberto
-- Renomear Workspace
-- Definir permissões
-- Alternar caixa de areia
-- Iniciar/Parar o recipiente da caixa de areia
-- Abrir terminal na área de areia
+- **←**, **↑**, **→**, **↓**: Navigate between objects
+- **Enter**: Select an object
 
-### Janela do Editor de Ação
+### Conversation
 
-- **Cmd + F**: Focar a pesquisa
-- **Cmd + N**: Nova ação
-- **Cmd + D**: Duplicar ação (requer ação selecionada)
-- **Cmd + E**: Exportar ação (requer ação selecionada)
-- **Cmd + O**: Importar a acção
-- **Cmd + Delete**: Delete action (requer ação selecionada)
-- ** Cmd + W**: Fechar janela
-- ** Cmd + [**: Secção anterior
-- **Cmd + ]**: Próxima seção
+When a QuickHub or Hub conversation is focused (**Settings → Shortcuts → Conversation**):
 
-### Janela Tools Manager
+- **Shift + Tab**: Cycle input mode
+- **Page Up** / **Page Down**: Scroll the conversation or result list one page
 
-- ** Cmd + W**: Fechar janela
-- **Cmd + F**: Focar a pesquisa
-- **Quando "Skills" é selecionado**: Cmd + O (habilidade de importação), Cmd + R (lista actualizada)
-- **Quando "Remote MCP Servers" é selecionado**: Cmd + N (Adicionar servidor), Cmd + R (Refresh list)
-- **Quando "Ações Rápidas" é selecionada**: Cmd + N (Nova ação rápida), Excluir (Excluir ação rápida, requer seleção)
+### Tools (per-tool shortcuts)
 
-### Painéis de Reuniões ao Vivo
+Tool-specific shortcuts are **not** in `AppShortcuts.swift` — they are configured per enabled tool:
 
-Disponível apenas durante as reuniões:
+1. Open **Tools Manager** (**⌘⇧T**)
+2. Select a tool with shortcut support
+3. Assign or edit its shortcut
 
-- ** Cmd + Shift + ↓**: Activa/ desactiva as legendas ao vivo
-- ** Shift + Cmd + →**: Alterna o bloco de notas ao vivo
+View and search all tool shortcuts in **Settings → Shortcuts → Tools**. Read-only entries link back to Tools Manager for editing. Quick Actions shortcuts are edited from Tools Manager → **Quick Actions** (also reachable via **Open Tools Manager** in the Shortcuts tab).
 
-### Configuração do Alter
+Common window shortcuts from **Settings → Shortcuts → Windows**:
 
-- **Cmd + ,**: Configurações abertas (quando a janela Alter estiver visível)
+| Shortcut | Action |
+|----------|--------|
+| **⌘⇧H** | Alter Hub |
+| **⌘⇧E** | Action Editor |
+| **⌘⇧T** | Tools Manager |
+| **⌘ ,** | Settings |
+
+### Context Section
+
+- **←**, **↑**, **→**, **↓**: Navigate between contexts
+- **Space Bar**: Add/remove selected context(s)
+- **Cmd + Shift + X**: Clear all contexts from the active conversation
+- **Cmd + K**: Open Command Palette (Hub & QuickHub switcher)
+- **Cmd + V**: Paste clipboard content to add to context
+
+### Prompt Box
+
+- **Enter**: Prompt with your active model
+- **Cmd + Enter**: Prompt using web search (via Gemini web)
+- **Shift + Enter**: Line break
+- **@**: Add elements to context
+- **#**: Show history of Alter conversations
+- **>**: Show history of meeting transcriptions
+- **/**: List and choose your model
+- **?**: Show help menu
+
+### Alter Hub Window
+
+- **Cmd + F**: Focus search (arrow keys to navigate results)
+- **Cmd + B**: Toggle sidebar visibility
+- **Cmd + T**: New tab (start new chat)
+- **Cmd + J**: Create workspace (requires active context)
+- **Cmd + Opt + O**: Switch to workspace...
+- **Cmd + Shift + X**: Clear all contexts (requires active contexts)
+- **Cmd + K**: Open Command Palette
+- **Cmd + Delete**: Delete conversation (requires active conversation)
+- **Cmd + W**: Close tab (closes window if it's the last tab)
+- **Cmd + Opt + W**: Close all tabs (requires >1 tab)
+- **Cmd + Opt + ←**: Previous tab (requires >1 tab)
+- **Cmd + Opt + →**: Next tab (requires >1 tab)
+- **Cmd + 1...9**: Switch to specific tab index
+
+#### Workspace (requires selected workspace)
+
+No default shortcuts; these can be set via macOS System Settings:
+
+- Open workspace settings
+- Rename workspace
+- Set permissions
+- Toggle sandbox
+- Start/Stop sandbox container
+- Open terminal in sandbox
+
+### Action Editor Window
+
+- **Cmd + F**: Focus search
+- **Cmd + N**: New action
+- **Cmd + D**: Duplicate action (requires selected action)
+- **Cmd + E**: Export action (requires selected action)
+- **Cmd + O**: Import action
+- **Cmd + Delete**: Delete action (requires selected action)
+- **Cmd + W**: Close window
+- **Cmd + [**: Previous section
+- **Cmd + ]**: Next section
+
+### Tools Manager Window
+
+- **Cmd + W**: Close window
+- **Cmd + F**: Focus search
+- **When "Skills" is selected**: Cmd + O (Import skill), Cmd + R (Refresh list)
+- **When "Remote MCP Servers" is selected**: Cmd + N (Add server), Cmd + R (Refresh list)
+- **When "Quick Actions" is selected**: Cmd + N (New quick action), Delete (Delete quick action, requires selection)
+
+### Live Meetings Panels
+
+Available during meetings only:
+
+- **Cmd + Shift + ↓**: Toggle live captions on/off
+- **Shift + Cmd + →**: Toggle live notepad
+
+### Alter Settings
+
+- **Cmd + ,**: Open settings (when Alter window is visible)

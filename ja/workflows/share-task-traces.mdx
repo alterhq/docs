@@ -1,0 +1,51 @@
+---
+title: "タスクトレースの共有とエクスポート"
+description: "タスク会話を Markdown でエクスポートし、Alter チームとトレースを共有し、Tool Inspector からサブエージェントチャットを開く"
+---
+
+Alter が**タスクを生成するツール** — **Computer Use**、**Flow** など — を実行すると、親チャットの **Tool Inspector** にツール実行が表示されます。**完全なタスクスレッドを開く**、**Markdown でエクスポート**、**トレースを共有**できます。
+
+**会話を Markdown で保存**（**⌘⇧S**）とは別のワークフローです。
+
+## 各オプションの使い分け
+
+| アクション | 使う場面 |
+|--------|-------------|
+| **タブで開く** | Alter 内で完全なタスク会話を読む |
+| **チャットをエクスポート** | ローカル **.md** が必要 |
+| **トレースを共有** | 失敗や予期しない動作 |
+| **会話を Markdown で保存**（**⌘⇧S**） | **親** Hub/QuickHub をエクスポート |
+
+## タスク操作の場所
+
+1. タスク生成ツールを実行
+2. **Hub** または **QuickHub** で **Inspector** を開く
+3. `computer_use_task`、Flow などを選択
+4. **タスク会話**ブロックまでスクロール
+
+アクティブな **Computer Use** では **Watch preview** も — [バックグラウンド Computer Use](/apps-tools/computer-use-background)。
+
+<Tip>
+  **親**会話は **会話を Markdown で保存** — **⌘⇧S**、**設定 → ショートカット → Hub**。
+</Tip>
+
+## トレースを共有
+
+Alter API に診断をアップロード。**ログイン**必須。**サポートとデバッグ**用。
+
+## 関連ドキュメント
+
+<CardGroup cols={2}>
+  <Card title="Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+    タスク会話を生成する目標ベースエージェント
+  </Card>
+  <Card title="バックグラウンド Computer Use" icon="play.rectangle" href="/apps-tools/computer-use-background">
+    Watch preview と Edge Bar セッション
+  </Card>
+  <Card title="ショートカット一覧" icon="keyboard" href="/references/shortcuts">
+    ⌘⇧S と Hub ショートカット
+  </Card>
+  <Card title="Doctor 設定" icon="stethoscope" href="/how-to/settings-guide#doctor">
+    ツール失敗時の権限診断
+  </Card>
+</CardGroup>

@@ -1,11 +1,11 @@
 ---
-title: "配置更改设置"
-description: "了解如何自定义自定义以符合您的偏好并管理您的帐户"
+title: "配置 Alter 设置"
+description: "了解如何自定义 Alter 以符合你的偏好并管理账户"
 ---
 
-＃＃ 目标
+## 目标
 
-了解如何自定义自定义以符合您的偏好、管理您的帐户、配置 AI 模型以及设置权限以实现最佳生产力。
+了解如何自定义 Alter 以符合你的偏好、管理账户、配置 AI 模型，以及设置权限以实现最佳生产力。
 
 ## 步骤
 
@@ -14,296 +14,615 @@ description: "了解如何自定义自定义以符合您的偏好并管理您的
 打开设置有以下三种方式：
 
 **选项 1：菜单栏**
-单击菜单栏中的“更改”图标，然后从下拉菜单中选择“**设置...**”。
+点击菜单栏中的 Alter 图标，然后从下拉菜单中选择 **Settings...**。
 
-**选项2：键盘快捷键**
-按 **⌘ , (Command + 逗号)** 直接打开“设置”。
+**选项 2：键盘快捷键**
+按 **⌘ ,（Command + 逗号）** 直接打开 Settings。
 
-**选项 3：缺口菜单**
-单击更改凹口中的三点菜单图标 (⋮)，然后选择 **设置**。
+**选项 3：Notch 菜单**
+点击 Alter Notch 中的三点菜单图标 (⋮)，然后选择 **Settings**。
 
 ![菜单栏访问](/images/settings/Alter-Menu_Bar-Menu.webp)
 
-### 常规设置
+### 常规设置 {#general}
 
-在 **常规** 选项卡中，您可以配置核心功能和快速访问选项：
+在 **General** 选项卡中，你可以配置 QuickHub Mode、Edge Bar、选区辅助、默认模型参数以及通知规则。
 
-**快速访问**
-- **打开凹口**：实现键盘快捷键以从屏幕上的任何位置打开凹口
-- **打开或聚焦Hub**：快速切换到或启动Alter Hub窗口 (⌘ ⌥ H)
-- **新的中心聊天**：在中心（⌘空间）中开始新的对话会话
-- **按钮选择**：显示可从任何地方访问的快速操作按钮
+#### 快速访问
 
-**法学硕士课程**
-- **最大代币**：设置AI响应的最大长度 
-- **温度**：控制响应创造力和变化（0.0 = 确定性，1.0 = 创造；默认值：0.70）
+- **Selection Button** — 选中文本时在鼠标光标旁显示快速访问按钮
+- **QuickHub Mode** — 所有对话使用 QuickHub 而非 Notch（新用户默认 **开启**）。关闭后，全局快捷键标签显示 **Open notch** 而非 **Open QuickHub**。参见 [QuickHub Mode](/getting-started/quickhub-mode)。
 
-**通知**
-- **总结 YouTube 视频**：当您访问 YouTube 视频时自动创建摘要
-- **记录到会计**：自动将录音会计到您的笔记中（前往笔记设置了解更多选项）
+#### Edge Bar
+
+Edge Bar 设置位于 QuickHub Mode 下方，**QuickHub Mode 关闭时会被禁用**。
+
+- **Left edge** / **Right edge** — 独立启用屏幕边缘启动器（默认：右侧开启，左侧关闭）
+- **All monitor edges** — 在每个显示器上使用已选定的左/右边缘，包括显示器之间的边缘。关闭时，多显示器设置下仅外缘可用
+- **Opening distance** — 滑块从 **0%**（贴边）到 **100%**（默认距离），步进 25%
+
+该部分页脚说明唤出行为与多显示器规则。完整指南：[Edge Bar](/getting-started/edge-bar)。
+
+打开 QuickHub（默认 **⌘⇧Space**）、Hub（**⌘⇧H**）和新聊天（**⌥Space**）的全局快捷键在 **Settings → Shortcuts → Global** 中配置，不在此选项卡。
+
+**LLM Settings**
+- **Max Tokens**：设置 AI 回复的最大长度
+- **Temperature**：控制回复的创造性与变化程度（0.0 = 确定性，1.0 = 创造性；默认：0.70）
+
+**Notifications**
+- **Summarize YouTube video**：访问 YouTube 视频时自动创建摘要
+- **Record to transcript**：自动将录音转写至笔记（更多选项请前往 Notes 设置）
 
 ![常规设置](/images/settings/Alter-Settings_01_General-Beta71.webp)
 
-### 2.语音设置
+### 2. 语音设置 {#voice}
 
-**语音**选项卡控制改变如何处理和响应音频：
+**Voice** 选项卡控制 Alter 如何处理和响应音频：
 
-**一般配置**
+**General Configuration**
 
-- **听写期间的行为**：控制听写时系统音频的处理方式。选项包括闪避（降低音量）或完全静音以尽量减少干扰
-- **会议期间保持清醒**：防止您的 Mac 在会议录制过程中休眠或进入省电模式，确保瞬时暂停
-- **开始录制时播放提示音**：开始听写或会议录制时接收音频警报
+- **Audio behavior during dictation**：控制听写时系统音频的处理方式。选项包括 ducking（降低音量）或完全静音，以尽量减少干扰
+- **Keep awake during meeting**：会议录制期间防止 Mac 休眠或进入省电模式，确保转写不中断
+- **Play chime when starting recording**：开始听写或会议录制时播放提示音
 
-**语言和词汇**
-- **听写语言**：选择您喜欢的语音输入语言
-- **个人词典**：添加自定义术语和转录替换
-- **管理替换**：编辑经常被误认的单词
+**Language & Vocabulary**
+- **Dictation language**：选择语音输入的首选语言
+- **Personal Dictionary**：添加自定义术语和转写替换
+- **Manage Replacements**：编辑经常被误识别的词
 
-**语音处理器**
-选择您的语音处理模型：
-- **Apple**：内置，针对隐私进行了优化
-- **本地**：在您的计算机上运行下载的模型
-- **云选项**：Anthropic和其他具有各种功能的云事业
+**Voice Processor**
+选择语音处理模型：
+- **Apple**：内置，针对隐私优化
+- **Local / Local Plus**：在 Mac 上使用已下载的 Whisper 或 Parakeet 模型运行
+- **Cloud**：通过 **Soniox V5** 在线转写（beta96+）；符合条件时会议转写准确度最佳
 
 ![语音设置](/images/settings/Alter-Settings_02_Voice-Beta71.webp)
 
 #### 语音设置 - 键盘快捷键
 
-配置键盘快捷键以便从任何地方快速进行语音访问：
+配置键盘快捷键，以便从任意位置快速使用语音功能：
 
-- **键盘快捷键**：开始/停止语音输入和说出命令。自定义免提操作的激活密钥。按住可说出提示，点击可听写。
-- **会议快捷方式**：快速访问会议特定的语音命令
-- **实时字幕**：说话时启用实时转录叠加
-- **实时记事本**：打开实时记事本面板，将语音输入直接捕获到笔记中
+- **Keyboard Shortcut**：开始/停止语音输入并说出命令。自定义激活键以实现免提操作。按住说话以提示，点按进行听写。
+- **Meeting Shortcut**：快速访问会议专用语音命令
+- **Live Captions**：说话时启用实时转写叠加层
+- **Live Notepad**：打开 Live Notepad 面板，将语音输入直接捕获到笔记中
 
-这些快捷方式允许您激活更改的语音功能，并关闭窗口或将手从键盘上移开。
+这些快捷键可让你在不切换窗口或离开键盘的情况下激活 Alter 的语音功能。
 
-![语音快捷方式](/images/settings/Alter-Settings_02a_Voice-Shortcuts-Beta71.webp)
+![语音快捷键](/images/settings/Alter-Settings_02a_Voice-Shortcuts-Beta71.webp)
 
 #### 语音设置 - 自动化
 
-配置会议和录音的自动化：
-- **会议应用程序**：选择要监控会议的应用程序
-- **自动录制会议**：检测到会议时自动开始录制
-- **查找发言人姓名**：根据您使用的会议服务识别每个发言人的姓名
-- **在粘贴板中保留听写**：在剪贴板中保留语音输入
+配置会议和录制的自动化：
+- **Meeting apps**：选择要监控会议的应用
+- **Auto record meetings**：检测到会议时自动开始录制
+- **Find speakers names (experimental)**：仅 Cloud 的说话人识别；启用日历和 Contacts 匹配（beta93+）
+- **Calendars for speaker matching**：选择用于匹配日程和推荐与会者姓名的 Apple 日历
+- **Contacts for speaker matching**：将与会者邮箱解析为显示名称
+- **Keep dictation in pasteboard**：在剪贴板中保留语音输入
+
+**Cloud processor：** 选择 **Cloud** 作为语音处理器时，会议和听写转写使用 **Soniox V5** 引擎（beta96+）以提高准确度。需要登录且具备 cloud dictation 资格。
 
 ![语音自动化](/images/settings/Alter-Settings_02b_Voice-Automation-Beta71.webp)
 
 #### 语音设置 - 词典
 
-建立个人词典以实现准确转录：
-- 添加经常错误识别的单词或短语
-- 为您的领域或工作流程创建自定义术语
+建立个人词典以实现准确转写：
+- 添加 Alter 经常误识别的词或短语
+- 为你的领域或工作流创建自定义术语
 
 ![语音词典](/images/settings/Alter-Settings_02c_Voice-Dictionary-Beta71.webp)
 
 #### 语音设置 - 替换
 
-设置常见转录错误的单词替换：
-- 将经常听错的单词映射到正确的单词
-- 示例：“改变”→“改变”（如果误听为“祭坛”）
+设置常见转写错误的词替换：
+- 将经常听错的词映射为正确词
+- 示例："Alter" → "Alter"（若被误听为 "Altar"）
 
 ![语音替换](/images/settings/Alter-Settings_02d_Voice-Replacements-Beta71.webp)
 
-#### 语音设置 - 本地型号
+#### 语音设置 - 本地模型
 
-使用本地处理器时从本地语音处理模型中选择：
+使用 Local 处理器时，可从本地语音处理模型中选择：
 
-**为什么要进行本地处理？**
-- **隐私**：所有音频处理都在您的 Mac 上进行 - 不会将任何数据完全发送到云服务
-- **零数据共享**：录音、文字记录和说话人识别完全保留在您的设备上
-- **符合GDPR**：按照设计原则进行数据保护
-- **持续可用**：离线工作，依赖互联网
+**Why Local Processing?**
+- **Complete privacy**：所有音频处理均在 Mac 上完成——不会向云服务发送任何数据
+- **Zero data sharing**：录音、转写和说话人识别完全保留在你的设备上
+- **GDPR compliant**：遵循 privacy by design 原则
+- **Always available**：离线可用，不依赖互联网
 
-**本地** - 基本本地模型选项
+**Local** - 基础本地模型选项
 - 用于语音转文本的 Whisper 模型
-- 多种型号尺寸（微型、基础、小型、中型、大型等）
-- 根据准确性与性能权衡进行选择
+- 多种模型尺寸（Tiny、Base、Small、Medium、Large 等）
+- 根据准确度与性能的权衡进行选择
 
-**耳语模型**
+**Whisper Models**
 
-OpenAI Whisper支持50多种语言，全面覆盖全球：
-- **主要语言**：英语、西班牙语、法语、德语、葡萄牙语、土耳其语、斯科特语、阿拉语、韩语、中文
-- **欧洲语言**：荷兰语、波兰语、罗马尼亚语、瑞典语、乌克兰语、希腊语、捷克语、匈牙利语、斯洛伐克语、土耳其语、丹麦语、挪威语、芬兰语
-- **其他语言**：阿拉伯语、希伯来语、印地语、越南语、泰语、印尼语、他加禄语、孟加拉语、泰米尔语、马拉地语、卡纳达语等
+OpenAI Whisper 支持 50 多种语言，覆盖全球：
+- **Major languages**：英语、西班牙语、法语、德语、葡萄牙语、俄语、意大利语、日语、韩语、中文
+- **European languages**：荷兰语、波兰语、罗马尼亚语、瑞典语、乌克兰语、希腊语、捷克语、匈牙利语、斯洛伐克语、土耳其语、丹麦语、挪威语、芬兰语
+- **Other languages**：阿拉伯语、希伯来语、印地语、越南语、泰语、印尼语、他加禄语、孟加拉语、泰米尔语、马拉地语、卡纳达语等
 
-**特点：**
-- 自动生成字级计时器
+**Features:**
+- 自动生成词级时间戳
 - 说话人识别（谁说了什么）
-- 针对Mac性能优化至626MB
-- 最适合全球语言覆盖范围和准确性
+- 针对 Mac 性能优化至 626MB
+- 最适合全球语言覆盖与准确度
 
-Whisper 熟练处理广泛使用的语言，但对于训练数据有限的不太常见的语言，准确性可能会有所不同。
+Whisper 在广泛使用的语言上表现优异，但对于训练数据较少的不常见语言，准确度可能有所差异。
 
-![声音 - 本地模特](/images/settings/Alter-Settings_02e_Voice-Local-Beta71.webp)
+![语音 - 本地模型](/images/settings/Alter-Settings_02e_Voice-Local-Beta71.webp)
 
-**本地+** - 付费功能
+**Local Plus** - 付费功能
 
-包括具有自动语言检测功能的Whisper和Parakeet模型：
+包含 Whisper 和 Parakeet 模型，并支持自动语言检测：
 
-**耳语模型**（99种语言）
-- 与本地选项相同的广泛语言支持
-- 针对不同语言环境的准确性进行了优化
+**Whisper Models**（99 种语言）
+- 与 Local 选项相同的广泛语言支持
+- 针对不同语言环境优化准确度
 
-**长尾小牡马模型**（25种欧洲语言）
-- NVIDIA 快速、轻量级的语音转文本引擎
-- **在 Mac 上进行会议统计比 Whisper 快 10 倍**
-- 从音频中自动检测语言
--支持保加利亚语、克罗地亚语、捷克语、丹麦语、荷兰语、英语、爱沙尼亚语、芬兰语、乌克兰语、德语、希腊语、匈牙利语、曼哈顿语、拉脱维亚语、立陶宛语、马耳他语和9种欧洲以上其他语言
+**Parakeet Models**（25 种欧洲语言）
+- NVIDIA 快速、轻量的语音转文本引擎
+- **Mac 上会议转写比 Whisper 快 10 倍**
+- 从音频自动检测语言
+- 支持保加利亚语、克罗地亚语、捷克语、丹麦语、荷兰语、英语、爱沙尼亚语、芬兰语、法语、德语、希腊语、匈牙利语、意大利语、拉脱维亚语、立陶宛语、马耳他语等 9 种以上欧洲语言
 
-**特点：**
-- 说话人分类（识别不同的说话人）
-- 针对Mac性能优化至494MB
-- 实时会议记录的理想选择
+**Features:**
+- 说话人分离（识别不同说话人）
+- 针对 Mac 性能优化至 494MB
+- 适合实时会议录制
 - 最适合欧洲语言工作负载
 
-**选择您的型号：**
-- **Parakeet**：处理速度更快，资源使用率相对，非常适合会议（25种欧洲语言）
-- **Whisper**：更广泛的语言覆盖范围，最高的准确性（50多种全球语言）
+**Choose your model:**
+- **Parakeet**：处理更快、资源占用更低，适合会议（25 种欧洲语言）
+- **Whisper**：更广的语言覆盖，最高准确度（50+ 种全球语言）
 
-两种型号都提供字级时钟、说话者识别和自动语言检测 - 所有这些都在 Mac 上本地处理。
+两种模型均提供词级时间戳、说话人识别和自动语言检测——全部在 Mac 上本地处理。
 
-![语音 - 本地+模型](/images/settings/Alter-Settings_02f_Voice-Local_Plus-Beta71.webp)
+![语音 - Local Plus 模型](/images/settings/Alter-Settings_02f_Voice-Local_Plus-Beta71.webp)
 
-### 3.配置文件设置
+### 3. 个人资料设置
 
-**个人资料**选项卡管理您的身份和偏好：
+**Profile** 选项卡管理你的身份与偏好：
 
-**账户邮箱**
-- 查看您当前帐户的电子邮件
-- 用于计费和帐户恢复
+**Account Email**
+- 查看当前账户邮箱
+- 用于账单和账户恢复
 
-**不协调整合**
-- 连接或断开您的 Discord 帐户
-- 实现特定于Discord的工作流程
+**Discord Integration**
+- 连接或断开 Discord 账户
+- 启用 Discord 专用工作流
 
-**我的个人资料**
-- 添加个人数据描述（帮助Alter提供更好的定制响应）
-- 习惯信息改变对话的目的
+**My Profile**
+- 添加个人资料描述（帮助 Alter 提供更贴合的回复）
+- Alter 在对话中使用的自定义信息
 
-**语言生成**
-- 设置者回复的首选语言（默认：英语）
-- 注意：这可能会因您使用的型号而异
+**Generation Language**
+- 设置 Alter 回复的首选语言（默认：English）
+- 注意：具体效果可能因所用模型而异
 
 ![个人资料设置](/images/settings/Alter-Settings_03_Profile-Beta71.webp)
 
-### 4.外观设置
+### 4. 外观设置 {#appearance}
 
-**外观**选项卡控制视觉外观和感觉：
+**Appearance** 选项卡控制视觉外观与风格：
 
-**主题选项**
-- **系统**：匹配您的Mac系统外观
-- **光**：强制光主题
-- **论证**：强制论证主题
+**Theme Options**
+- **System**：匹配 Mac 系统外观
+- **Light**：强制浅色主题
+- **Dark**：强制深色主题
 
-**定制**
-- **默认面板位置**：面板出现的位置默认（右上角）
-- **菜单字体大小**：调整文本大小以提高可执行性（默认值：16）
-- **消息文本字体大小**：设置聊天消息大小（默认值：15）
-- **显示缺口**：显示状态上升
-- **在菜单栏显示控制块**：在更改菜单栏显示控制块
-- **隐藏在屏幕截图中**：从屏幕截图和屏幕共享中排除Alter
+**Customization**
+- **Default Panel Position**：Center、Top Left、Top Right、Bottom Left、Bottom Right、Top Center 或 Last Position（新安装默认 Top Right）
+- **Menu Font Size**：调整文本大小以提高可读性（默认：16）
+- **Message Font Size**：设置聊天消息文本大小（默认：15）
+- **Display Notch**：显示状态指示器
+- **Show control block in menu bar**：在 Alter 菜单栏显示指示器
+- **Hide in screen captures**：从截图和屏幕共享中排除 Alter
 
-![外观设置-深色主题](/images/settings/Alter-Settings_04a_Appearance-Dark-Beta71.webp)
+![外观设置 - 深色主题](/images/settings/Alter-Settings_04a_Appearance-Dark-Beta71.webp)
 
-![外观设置-浅色主题](/images/settings/Alter-Settings_04b_Appearance-Light-Beta71.webp)
+![外观设置 - 浅色主题](/images/settings/Alter-Settings_04b_Appearance-Light-Beta71.webp)
 
-![外观设置-全视图](/images/settings/Alter-Settings_04c_Appearance-Full-Beta71.webp)
+![外观设置 - 完整视图](/images/settings/Alter-Settings_04c_Appearance-Full-Beta71.webp)
 
-### 5. 计费设置
+### 5. 账单设置
 
-**账单**选项卡显示您的订阅状态：
+**Billing** 选项卡显示你的订阅状态：
 
-**许可证信息**
-- 您当前的计划（例如专业计划）
-- 近
+**License Information**
+- 当前方案（例如 Pro Plan）
+- 到期日期
 - 更改或结束订阅选项
 
-**合理使用**
-- 剩余合理使用分配的视觉指示器
-- 显示重置时间表（例如，“20 天内重置”）
+**Fair Use**
+- 剩余 Fair Use 配额的视觉指示
+- 显示重置时间线（例如「20 天后重置」）
 
-![计费设置](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
+![账单设置](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
 
-### 6.权限设置
+### 6. 权限设置 {#permissions}
 
-**权限**选项卡管理系统访问和数据收集首选项：
+**Permissions** 选项卡管理系统访问和数据收集偏好：
 
-**系统权限**
-每个权限都可以通过快速访问按钮启用：
-- **登录时启动**：Mac启动时自动启动 Alter
-- **辅助功能**：键盘命令和窗口控制所需（检查辅助功能）
-- **系统优先设置**：允许访问系统设置（检查系统优先设置）
-- **屏幕录制**：获取屏幕内容以进行分析和获取（检查屏幕录制）
-- **麦克风**：启用语音输入和听写（检查麦克风）
+**System Permissions**
+每个权限都可通过快速访问按钮启用：
+- **Launch at Login**：Mac 启动时自动启动 Alter
+- **Accessibility**：键盘命令和窗口控制所需（Check Accessibility）
+- **System Preferences**：允许访问系统设置（Check System Preferences）
+- **Screen Recording**：捕获屏幕内容以进行分析和上下文感知（Check Screen Recording）
+- **Microphone**：启用语音输入和听写（Check Microphone）
 
-**分析**
-- **取消分析**：控制更改是否收集匿名用户使用数据。启用后，更改仅收集匿名用户界面交互和错误数据以改进产品，不会跟踪任何个人数据或内容。
+**Analytics**
+- **Disable Analytics**：控制 Alter 是否收集匿名使用数据。启用后，Alter 仅收集匿名 UI 交互和错误数据以改进产品——不会跟踪任何个人数据或内容。
 
 ![权限设置](/images/settings/Alter-Settings_06_Permissions-Beta71.webp)
 
-### 7.API密钥设置
+### 7. API Keys 设置 {#external-api-keys}
 
-**API密钥**选项卡允许您携带自己的模型：
+**API keys** 选项卡允许你使用自己的模型：
 
-**合作伙伴**
-- 与提供OpenAI兼容端点的合作伙伴服务集成
+**Partners**
+- 与提供 OpenAI 兼容端点的合作伙伴服务集成
 
-**定制创业**
-添加和管理理念 LLM 成长：
-- **添加一个**：创建新的自定义模型端点
-- **创建URL**：端点URL（例如，`http://localhost:1234/v1`）
-- **管理模型**：查看和测试每个企业的可用模型
+**Custom Providers**
+添加和管理自定义 LLM 提供商：
+- **Add Provider**：创建新的自定义模型端点
+- **Provider URL**：端点 URL（例如 `http://localhost:1234/v1`）
+- **Manage Models**：查看并测试各提供商的可用模型
 
-**支持的企业类型**
-添加自定义提供程序时，您可以选择：
-- **OpenAI**：OpenAI 的 API（GPT 模型）
-- **自定义**：通用OpenAI兼容端点
-- **Azure**：微软Azure OpenAI服务
-- **LM Studio**：通过LM Studio的本地模型
+**Supported Provider Types**
+添加自定义提供商时，可选择：
+- **OpenAI**：OpenAI API（GPT 模型）
+- **Custom**：通用 OpenAI 兼容端点
+- **Azure**：Microsoft Azure OpenAI Service
+- **LM Studio**：通过 LM Studio 的本地模型
 - **PrivateMode**：本地推理引擎
-- **Bifrost**：Bifrost API 成功
-- **米斯特拉尔**：米斯特拉尔人工智能模型
+- **Bifrost**：Bifrost API 提供商
+- **Mistral**：Mistral AI 模型
 - **Gemini**：Google Gemini API
-- **OpenRouter**：多模型路由器服务
-- **Ollama**：本地法学硕士框架
-- **奥龙**：奥龙提供者
+- **OpenRouter**：多模型路由服务
+- **Ollama**：本地 LLM 框架
+- **Osaurus**：Osaurus 提供商
 
-**添加巨头**
-1.点击“添加”按钮
-2.从下拉列表中选择创业类型
-3. 输入API端点URL
-4. 提供您的API密钥
-5.点击“保存”进行配置
+**Adding a Provider**
+1. 点击 "Add Provider" 按钮
+2. 从下拉菜单选择 Provider Type
+3. 输入 API 端点 URL
+4. 提供 API Key
+5. 点击 "Save" 完成配置
 
-![API轴 - 已配置成功](/images/settings/Alter-Settings_07a_APIkeys-Providers-Beta71.webp)
+![API Keys - 已配置提供商](/images/settings/Alter-Settings_07a_APIkeys-Providers-Beta71.webp)
 
-![API键 - 无事业](/images/settings/Alter-Settings_07b_APIkeys-Empty-Beta71.webp)
+![API Keys - 无提供商](/images/settings/Alter-Settings_07b_APIkeys-Empty-Beta71.webp)
 
-![API轴 - 重大配置](/images/settings/Alter-Settings_07c_APIkeys-Config-Beta71.webp)
+![API Keys - 提供商配置](/images/settings/Alter-Settings_07c_APIkeys-Config-Beta71.webp)
 
-![API斧-创建创业模式](/images/settings/Alter-Settings_07d_APIkeys-AddProvider-Beta71.webp)
+![API Keys - 添加提供商弹窗](/images/settings/Alter-Settings_07d_APIkeys-AddProvider-Beta71.webp)
 
-![API焦点 - 创业类型下拉列表](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
+![API Keys - 提供商类型下拉菜单](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
 
-### 8. 路由器设置
+### 8. Router 设置 {#router}
 
-***路由器选项卡配置默认 AI 端点：
+**Router** 选项卡配置默认 AI 端点：
 
-**OpenAI 兼容端点**
-- 为改变模型供电的默认端点
+**OpenAI Compatible Endpoint**
+- 为 Alter 模型提供服务的默认端点
 - 链接：https://alterhq.com/api
 
-**更改 API 密钥**
-- 生成并管理您的个人API密钥
+**Alter API Keys**
+- 生成并管理个人 API 密钥
 - 用于集成和第三方工具
 
-![路由器设置](/images/settings/Alter-Settings_08_Router-Beta71.webp)
+![Router 设置](/images/settings/Alter-Settings_08_Router-Beta71.webp)
+
+### 9. Computer use 设置 {#computer-use}
+
+**Computer use** 选项卡配置 Alter 的 UI 自动化代理如何驱动应用、浏览器，以及 **2.0.0-beta100** 引入的浮动实时预览。
+
+打开 **Settings**（⌘,），在侧边栏选择 **Computer use**——它位于 API 部分，带有 cursor-rays 图标，与 **API keys** 和 **Router** 并列。该选项卡分为三个与应用 UI 完全一致的部分：**Browser**、**Preview** 和 **Blocked apps**。
+
+#### Browser
+
+为 Computer Use 配置独立浏览器，使代理驱动的页面与日常浏览分离。
+
+**Agent browser** — *Computer use 代理驱动的浏览器*
+
+- **macOS default** — Computer Use 内的 `open_urls` 使用系统默认浏览器（开箱即用行为）
+- **Dedicated browser** — 选择已安装的浏览器（Chrome、Safari、Arc 等）。Computer Use 运行期间，代理打开的页面仅进入此浏览器。你自己打开的链接，以及 Computer Use **之外**的 `open_urls`，仍使用 macOS 默认浏览器。
+
+这样你可以在主浏览器中保持敏感站点登录状态，而代理使用隔离的配置文件。
+
+**Clean up when finished**
+
+- 启用后，Alter 会在**最后一次** Computer Use 会话结束后关闭代理打开的标签页
+- 对于无法关闭单个标签页的浏览器（例如 Firefox），改为**退出**代理浏览器——但**仅当代理启动它时**，不会退出你已打开的浏览器
+- 需要专用 **Agent browser**（选择 **macOS default** 时禁用）
+
+#### Preview
+
+浮动预览以画中画形式实时显示 Computer Use 正在控制的窗口。
+
+**Show preview automatically** — *Computer use 任务开始时显示浮动预览*
+
+- 开启（默认）：任务开始时打开预览
+- 关闭：任务仍在后台运行；可随时通过运行中任务的 Tool Inspector 中的 **Watch preview** 打开预览
+
+**Preview size** — *Small 或 Large 预设，或 Custom 以保留你拖拽后的尺寸*
+
+| Option | Width |
+|--------|-------|
+| **Small** | 320 pt 预设 |
+| **Large** | 560 pt 预设 |
+| **Custom** | 记住你拖拽预览角设置的尺寸 |
+
+预览保持固定宽高比；可用窗口上的 **Hide** 控件隐藏预览，而不会停止运行。
+
+#### Blocked apps
+
+Computer Use 拒绝**打开、读取或控制**此列表中的应用。密码管理器和其他敏感应用默认被阻止：
+
+- Keychain Access
+- Bitwarden
+- Passwords (macOS)
+- 1Password / 1Password 7
+
+**Add app…** — 从 `/Applications` 选择一个或多个 `.app` 包以阻止
+
+**Restore defaults** — 将列表重置为 Alter 内置的敏感应用默认值
+
+点击行上的减号按钮移除应用。若目标指向被阻止的应用，代理会报告阻止并停止尝试——仅在你有意让 Computer Use 控制该应用时才调整列表。
+
+没有应用被阻止时，该部分以次要文本显示 **No apps are blocked.**。
+
+#### 权限提醒
+
+Computer Use 需要 **Accessibility**（读取 AX 树并发送点击）和 **Screen Recording**（用于实时预览和 `computer_use_screenshot`）。首次运行前在 **Settings → Permissions** 中授予两者。若仍有问题，打开 **Settings → Doctor** 查看汇总的权限报告。
+
+<Tip>
+  后台运行、Edge Bar 会话卡片和预览行为详见 [Background Computer Use](/apps-tools/computer-use-background)。权限问题：[Tools Not Working](/common-issues/tool-not-working) 或 **Settings → Doctor**。
+</Tip>
+
+### 10. Shortcuts 设置 {#shortcuts}
+
+**Shortcuts** 选项卡是可搜索的编辑器，涵盖所有 Alter 键盘快捷键。打开 **Settings → Shortcuts**（位于侧边栏 **General** 部分下）。
+
+#### 搜索与导航
+
+- **Search shortcuts** — 按操作名称、描述、类别或按键组合筛选
+- **⌘F** — Shortcuts 选项卡处于前台时聚焦搜索
+- **Esc** — 搜索聚焦时清空搜索框
+
+每行显示操作名称、简短描述和 **recorder** 控件。点击 recorder 并按下所需按键。若将快捷键改为非默认值，会出现 **reset** 按钮（↺）以恢复出厂绑定。
+
+#### Global
+
+可在任意应用中使用的系统级快捷键（受 macOS 权限约束）：
+
+| Action | Default | Notes |
+|--------|---------|-------|
+| **Open QuickHub** / **Open notch** | **⌘⇧Space** | 标签取决于 **QuickHub Mode** |
+| **Open QuickHub and Attach** | 双击 **⌘** + attach pickers | 见下方 QuickHub attach |
+| **Open or Focus the Hub** | **⌘⇧H** | |
+| **New Hub Chat** | **⌥Space** | |
+| **Dictation Shortcut** | **Fn** | recorder 为空时回退到 Fn |
+| **Meeting Shortcut** | **⌘⇧M** | 切换会议录制 |
+| **Live captions** | **⌘⇧↓** | |
+| **Live Notepad** | **⌘⇧→** | |
+
+#### Open QuickHub and Attach
+
+**Open QuickHub and Attach** 在快捷键 recorder 旁有两个额外选择器：
+
+- **Attach behavior** — **Attach Left** 或 **Attach Right**（默认 **Attach Right**）
+- **Shortcut** — 双击触发：**Double tap ⌘**（默认）、**Double tap ⌥**、**Double tap ⌃**、**Double tap ⇧** 或 **None**
+
+双击所选修饰键以打开 QuickHub 并停靠到选定侧。详见 [QuickHub Mode](/getting-started/quickhub-mode)。
+
+#### Hub & QuickHub
+
+适用于当前活跃对话界面的共享快捷键：
+
+| Action | Default |
+|--------|---------|
+| **Command Palette** | **⌘K** |
+| **New Chat or Tab** | **⌘T** |
+| **Close Chat or Tab** | **⌘W** |
+| **Delete Conversation** | **⌘Delete** |
+| **Previous Chat or Tab** | **⌘⌥←** |
+| **Next Chat or Tab** | **⌘⌥→** |
+| **Clear All Contexts** | **⌘⇧X** |
+| **Quick Actions** | **⌘/** |
+| **Retry Last Message** | **⌘R** |
+
+#### QuickHub
+
+浮动 QuickHub 面板专用的附加与导航快捷键：
+
+| Action | Default |
+|--------|---------|
+| **Open in Hub** | **⌘O** |
+| **Attach Left** | **⌃⌘←** |
+| **Attach Right** | **⌃⌘→** |
+| **Detach Window** | **⌃⌘↓** |
+| **Pin Window** | **⌘⌥P** |
+
+#### Hub
+
+Hub 窗口快捷键，包括工作区和导出操作：
+
+| Action | Default |
+|--------|---------|
+| **New Workspace** | **⌘⌥N** |
+| **Create Workspace from Context** | **⌘J** |
+| **Switch to Workspace** | **⌘⌥O** |
+| **Save Conversation as Markdown** | **⌘⇧S** |
+| **Close All Tabs** | **⌘⌥W** |
+| **Close Window** | **⌘⇧W** |
+| **Search** | **⌘F** |
+| **Jump to Tab 1-9** | **⌘1**–**⌘9**（只读显示） |
+
+#### Windows
+
+打开 Alter 的辅助窗口：
+
+| Action | Default |
+|--------|---------|
+| **Alter Hub** | **⌘⇧H** |
+| **Action Editor** | **⌘⇧E** |
+| **Tools Manager** | **⌘⇧T** |
+| **Settings** | **⌘,** |
+
+#### Conversation
+
+QuickHub 和 Hub 对话内的输入与滚动行为：
+
+| Action | Default |
+|--------|---------|
+| **Cycle Mode** | **⇧Tab** |
+| **Scroll Up** | **Page Up** |
+| **Scroll Down** | **Page Down** |
+
+#### Tools
+
+**Tools** 部分列出已配置 quick-action 工具的**只读**快捷键。要编辑，点击 **Open Quick Actions**——Alter 会打开 **Tools Manager** 的 Quick Actions 部分（**⌘⇧T** 或 `alter://toolsManager?section=quickActions`）。
+
+#### 冲突与重置
+
+macOS 和其他应用可能占用相同按键组合。若快捷键不生效：
+
+1. 在 **System Settings → Keyboard → Keyboard Shortcuts** 中检查冲突
+2. 在 Alter 的 recorder 中选择未使用的组合
+3. 点击 ↺ reset 按钮恢复该行的 Alter 默认值
+
+完整清单超出设置 UI 范围，见 [Shortcuts reference](/references/shortcuts)。若只需更改全局打开快捷键，[How-To: Change Hotkey](/how-to/change-hotkey) 是更聚焦的指南。
+
+### 11. Marketplace 设置 {#marketplace}
+
+**Marketplace** 选项卡（位于设置侧边栏 **Account** 下）控制你的公开 Alter Marketplace 个人资料和通知偏好。此处保存的内容可能出现在 agent 列表和社区页面；仅本地的 Alter 设置不受影响。
+
+#### Public Profile
+
+- **Display Name** — 公开资料上显示的用户名
+- **Bio** — 最多 **160 个字符**；实时计数器显示 `count/160`
+- **Avatar** — 点击相机徽章选择图片；**Remove** 清除当前头像
+- **Save Profile** — 上传更改（未编辑时禁用）
+
+保存时个人资料数据会同步到 Alter 账户服务。错误以红色显示在表单下方。
+
+#### Social Links
+
+Marketplace 个人资料上显示的可选 URL：
+
+- **Website**
+- **GitHub**
+- **Twitter / X**
+- **LinkedIn**
+- **Discord**
+- **YouTube**
+
+字段留空则公开隐藏该链接。值与账户个人资料一起存储。
+
+#### Notifications
+
+- **Comment notifications** — *当有人评论你的 agent 或回复你时收到通知。*
+
+关闭可静音 Marketplace 评论提醒，同时保持公开资料可见。
+
+### 12. Doctor 设置 {#doctor}
+
+**Doctor**（位于设置侧边栏 **System** 下）对 Alter 运行健康与权限诊断。工具莫名失败、语音处理异常，或需要脱敏报告联系支持时使用。
+
+打开该选项卡时 Doctor 会自动运行，然后显示摘要和详细部分。
+
+#### 摘要标题
+
+- **Alter Doctor** 标题及 **last checked** 时间
+- 总体状态标签：**OK**、**Warning**、**Failed** 或 **Idle**
+- 计数标签：**OK**、**Idle**、**Warn**、**Fail**
+
+#### Refresh 与 Copy Report
+
+- **Refresh** — 重新运行所有检查（运行时显示进度指示器）
+- **Copy Report** — 将**脱敏**纯文本报告复制到剪贴板（主目录路径缩短为 `~`；JWT/类 token 字符串被替换）。按钮短暂显示 **Copied**
+
+联系支持时，可将报告粘贴到 Discord 或邮件中；如相关，一并附上 [shared task trace](/workflows/share-task-traces)。
+
+#### 诊断部分
+
+**Environment**
+
+- **macOS** — 操作系统版本字符串
+- **Architecture** — `arm64` 或 `x86_64`
+
+**Application**
+
+- **Version** — 短版本号、构建号和配置（Debug/Release）
+- **Application Support** — Alter 支持目录是否存在
+
+**Permissions**
+
+- **Accessibility** — 选区读取和应用控制所需。未授予时链接到 **Settings → Permissions**
+- **Screen Recording** — 会议/屏幕上下文和 Computer Use 预览所需
+- **Microphone** — 听写和会议音频所需
+- **Automation** — AppleScript 风格自动化所需的 System Events 访问。点击 **Check Automation** 前为 **Idle**；Alter 会提示权限并刷新报告
+
+**Voice Processor**
+
+- **Selected processor** — 当前语音引擎（Apple、cloud、Whisper 等），链接到 **Settings → Voice**
+- **Plan access** — 你的订阅是否支持所选处理器
+- **Local model** / **Local model runtime**（仅 Apple Silicon + Whisper）— 下载和加载状态
+
+**Storage**
+
+Application Support、Alter Prompts、Caches、WebKit 和 HTTP Storage 路径的磁盘使用量。
+
+**Database**
+
+本地 Core Data 架构状态：最新、需要迁移或尚无存储。
+
+**Actions**
+
+已加载的 Alter Actions 数量（已启用、用户编写、总计）。
+
+**Tools**
+
+- **Activated tools** — 数量，含 **Open the Tools Manager** 快捷方式至 Active Tools 部分
+- **MCP configuration** — 已连接应用和远程 MCP 服务器
+- **MCP clients** — 各服务器运行时状态（running、stopped、error）
+
+**Search**
+
+- **Conversations** / **Transcripts** — 已索引记录数；重新索引时为 **Warning**
+- **Notes** — Apple Notes 工具是否活跃
+
+#### 部分操作
+
+部分包含页脚按钮：
+
+- **Open Permissions**、**Open Voice**、**Open Billing** — 跳转到相应设置选项卡
+- **Open the Tools Manager** — 深链到 MCP 或 active tools 部分
+- **Check Automation** — 触发 System Events 权限检查（Permissions 部分）
+
+#### Doctor 与 common-issues 页面
+
+| Situation | Start here |
+|-----------|------------|
+| 广泛的「出问题了」 | **Settings → Doctor** |
+| 热键失效 | [Keyboard Shortcut Not Working](/common-issues/hotkey-not-working) |
+| 麦克风不转写 | [Microphone Not Working](/common-issues/mic-not-transcribing) |
+| Tool 或 MCP 失败 | [Tools Not Working](/common-issues/tool-not-working) + Doctor **Tools** 部分 |
+| Computer Use 权限错误 | Doctor **Permissions** + [Computer use settings](/how-to/settings-guide#computer-use) |
 
 ## 相关文档
 
-- [开始使用改变](/getting-started/getting-started-path)
-- [听写和语音](/workflows/dictation)
-- [选择你的生成模型](/how-to/choose-generative-model)
-- [API网关和路由器服务](/api-router/api-gateway)
+- [Getting Started with Alter](/getting-started/getting-started-path)
+- [Dictation & Voice](/workflows/dictation)
+- [Choosing Your Generative Model](/how-to/choose-generative-model)
+- [API Gateway & Router Service](/api-router/api-gateway)
+- [Computer Use overview](/apps-tools/computer-use)
+- [Background Computer Use](/apps-tools/computer-use-background)
+- [QuickHub Mode](/getting-started/quickhub-mode)
+- [Edge Bar](/getting-started/edge-bar)
+- [Share task traces](/workflows/share-task-traces)
+- [Shortcuts reference](/references/shortcuts)

@@ -1,0 +1,138 @@
+---
+title: "Computer Use im Hintergrund"
+description: "Computer-Use-Aufgaben im Hintergrund ausführen, während Sie weiterarbeiten — mit Live-Vorschau und Edge-Bar-Sitzungssteuerung"
+---
+
+Computer Use im Hintergrund lässt Alter Apps auf Ihrem Mac steuern, **ohne Ihren Bildschirm zu übernehmen**. Sie tippen, lesen und wechseln Fenster weiter, während der Agent in einem Hintergrundfenster arbeitet. Eine schwebende Live-Vorschau und eine Edge-Bar-Sitzungskarte zeigen den Fortschritt — und Sie können den Lauf jederzeit stoppen.
+
+Dies ist die Standarderfahrung für den **Computer Use**-Agenten (`computer_use_task`), eingeführt in **2.0.0-beta100**.
+
+## Wann Hintergrundmodus nutzen
+
+Nutzen Sie Computer Use im Hintergrund, wenn:
+
+- Alter eine Seite scrapen, ein Formular ausfüllen oder in einer App navigieren soll, **während Sie Ihre eigene Arbeit fortsetzen**
+- Die Aufgabe mehrere Minuten dauern kann und Sie QuickHub nicht am Zielfenster angeheftet wollen
+- Sie UI-Automatisierung auf einem Fenster ausführen müssen, das **nicht** Ihre vorderste App ist
+
+Vordergrund-Computer Use (QuickHub am Ziel angeheftet) existiert noch für ältere Flows. Für fast alle neuen Aufgaben beschreiben Sie die vollständige Aufgabe in einem **Computer Use**-Ziel.
+
+<Card title="Primäre Oberfläche" icon="cursorarrow.rays" href="/de/apps-tools/computer-use">
+  Beginnen Sie mit der [Computer-Use-Übersicht](/de/apps-tools/computer-use) — übergeben Sie ein `goal` an `computer_use_task`.
+</Card>
+
+## Wie ein Hintergrundlauf funktioniert
+
+Wenn Sie (oder der Parent-Agent) **Computer Use** aufrufen, tut Alter:
+
+1. **Startet sofort eine Edge-Bar-Sitzung** — bevor der Subagent sein Zielfenster auflöst
+2. **Setzt `edgebarOnly`-Präsentation** — QuickHub heftet sich nicht an die Ziel-App, kein Overlay auf dem Fenster
+3. **Führt einen dedizierten Subagenten** aus, der mit UI-Tools (`read_screen_ax`, `perform`, `scroll` usw.) bis zu **600 Sekunden** (10 Minuten) schleift
+4. **Leitet Eingaben an das Zielfenster im Hintergrund** via `BackgroundInputDriver`
+5. **Verfolgt das aktive Zielfenster** und spiegelt es in Sitzungskarte und Live-Vorschau
+
+Globale Shortcuts wie **⌘C**, **⌘V**, **⌘Tab** werden vom Agenten **nicht** genutzt.
+
+## Edge-Bar-Sitzungskarte
+
+Während ein Lauf aktiv ist, erscheint eine **Computer Use**-Sitzung in der **Edge Bar** (erfordert [QuickHub-Modus](/de/getting-started/quickhub-mode)). Jede Karte zeigt:
+
+- **Ziel** — der angeforderte Aufgabentext
+- **Status** — was der Agent tut
+- **Ziel-App** — Name, Icon und Fenstertitel nach Bindung
+- **Stopp** — bricht den Subagenten sofort ab
+
+Abgeschlossene, fehlgeschlagene oder gestoppte Sitzungen wechseln in einen Endzustand und verschwinden nach kurzer Verzögerung.
+
+## Live-Vorschaufenster
+
+Die **schwebende Vorschau** ist ein Picture-in-Picture-Fenster mit Live-Screenshot des vom Agenten gesteuerten Fensters (~15 fps).
+
+### Vorschau automatisch anzeigen
+
+Standardmäßig öffnet sich die Vorschau beim Start einer Computer-Use-Aufgabe. Deaktivieren unter **Einstellungen → Computer use → Vorschau automatisch anzeigen**.
+
+### Watch preview
+
+Wenn die Vorschau verborgen ist, öffnen Sie sie über den **Tool Inspector** der laufenden Aufgabe: **Computer Use**-Lauf wählen, **Watch preview** klicken.
+
+### Vorschaugröße
+
+Wählen Sie **Klein**, **Groß** oder **Benutzerdefiniert** unter **Einstellungen → Computer use → Vorschaugröße**. Bis zu **sechs** gleichzeitige Sitzungen können im Vorschau-Picker erscheinen.
+
+## Hintergrund-Eingaberouting
+
+`BackgroundInputDriver` sendet Mausklicks, Tastatur und Scrollen an den Zielprozess, ohne die App in den Vordergrund zu holen:
+
+| Route | Wann genutzt |
+|-------|--------------|
+| **SkyLight** | Bevorzugt wenn der Window Server Ereignisse liefern kann |
+| **Per-PID** | Sendet Ereignisse direkt an den Zielprozess |
+| **HID-Fallback** | Letzter Ausweg |
+
+**Chromium-Apps** (Chrome, Edge, Brave, Arc, Electron) und **Safari** nutzen Tastatur-Scrollen im Hintergrund.
+
+## Fensterziel während Hintergrundläufen
+
+UI-Tools lösen `windowID` in dieser Reihenfolge auf:
+
+1. **Explizites `windowID`** im Tool-Aufruf
+2. **Verfolgtes Ziel** — Fenster zuletzt via `open_app`, `open_urls` oder vorherigem Tool geöffnet
+3. **Sitzungs-Fallback** — während `edgebarOnly` aktiv, das an die Live-Vorschau gebundene Fenster
+4. **Vorderstes Fenster** — nur außerhalb einer Hintergrundsitzung
+
+## Agent-Browser
+
+Webseiten, die der Agent mit `open_urls` öffnet, gehen zum **Agent-Browser**, wenn unter **Einstellungen → Computer use → Agent browser** konfiguriert.
+
+Mit **Beim Beenden aufräumen** schließt Alter Agent-Tabs, wenn die letzte Sitzung endet.
+
+## Stopp, Abbruch und Timeout
+
+| Aktion | Wirkung |
+|--------|---------|
+| **Stopp** (Vorschau oder Karte) | Bricht Subagent ab; Parent-Agent erhält Zusammenfassung |
+| **600-s-Timeout** | Subagent stoppt |
+| **Verwerfen** (abgeschlossene Sitzung) | Entfernt Karte aus Edge Bar |
+
+Alter startet Computer Use nach Stopp nicht automatisch neu.
+
+## Einstellungen
+
+Konfigurieren unter **Einstellungen → Computer use**:
+
+- **Agent browser**
+- **Clean up when finished** / Beim Beenden aufräumen
+- **Show preview automatically**
+- **Preview size**
+- **Blocked apps**
+
+Vollständige Referenz: [Einstellungen → Computer use](/de/how-to/settings-guide#computer-use).
+
+## Fehlerbehebung
+
+### Vorschau erscheint nie
+
+- Prüfen Sie **Vorschau automatisch anzeigen** oder **Watch preview** im Tool Inspector
+- Edge Bar muss verfügbar sein (QuickHub-Modus an)
+
+### Agent handelt am falschen Fenster
+
+- Spezifisches `windowID` im Ziel angeben
+- Agent soll `list_windows` einmal aufrufen
+
+### Blockierte App-Fehler
+
+Passwortmanager sind standardmäßig blockiert. Anpassen: **Einstellungen → Computer use → Blocked apps**.
+
+### Berechtigungsfehler
+
+Erfordert **Barrierefreiheit** und **Bildschirmaufnahme**. Gewähren unter **Einstellungen → Berechtigungen** oder **Einstellungen → Doctor**.
+
+## Verwandte Docs
+
+- [Computer-Use-Übersicht](/de/apps-tools/computer-use)
+- [Computer-Use-Agent-Tools](/de/apps-tools/computer-use-agent-tools)
+- [Perform](/de/apps-tools/computer-use-perform) · [Scroll](/de/apps-tools/computer-use-scroll) · [Wait](/de/apps-tools/computer-use-wait)
+- [Einstellungen → Computer use](/de/how-to/settings-guide#computer-use)
+- [Tools funktionieren nicht](/de/common-issues/tool-not-working)

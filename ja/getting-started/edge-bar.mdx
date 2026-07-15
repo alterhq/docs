@@ -1,0 +1,84 @@
+---
+title: "Edge Bar"
+description: "画面端からクイック操作 — 会議、QuickHub、チャット、Computer Use セッション"
+---
+
+**Edge Bar** は、有効な画面端にポインタを移すと表示される縦型ランチャーです。会議、QuickHub、新規チャット、添付へのワンクリックアクセスを提供します。**バックグラウンド Computer Use** 実行中は、セッションカードとライブプレビューもここに表示されます。
+
+Edge Bar には **QuickHub モード** が必要です。QuickHub モードをオフにすると Edge Bar 設定は無効になり、ランチャーは表示されません。[QuickHub モード](/getting-started/quickhub-mode) を参照してください。
+
+## Edge Bar を使う場面
+
+- 任意のアプリから **マウス操作** で QuickHub を開いたり会議を始めたい
+- **複数モニター** で外側（またはすべての内側）端にトリガーが欲しい
+- **Computer Use** をバックグラウンドで実行し、セッション状態、停止、**Watch preview** を近くに置きたい
+- フローティング QuickHub ではなく端ランチャーにファイルをドラッグしたい
+
+キーボード：**⌘⇧Space**（**QuickHub を開く**）または **設定 → ショートカット → グローバル** の **QuickHub を開いて添付**。Edge Bar はこれらを補完し、置き換えません。
+
+## Edge Bar の表示
+
+1. **設定 → 一般 → Edge Bar** で少なくとも一端を有効化
+2. **画面の内側の端**（ノッチではなくディスプレイの端）にポインタを移動
+3. 近づくとランチャーが**表示**される
+4. アイコンをクリックして実行
+5. 端に沿って**縦にドラッグ**して位置変更（**端とモニターごと**に記憶）
+
+**単一ディスプレイ**では左右端が常に利用可能。**複数ディスプレイ**ではデフォルトで**外側**端のみ。**すべてのモニター端**で各モニターの端を有効化可能。
+
+## Edge Bar のアクション
+
+会議未録画中（上から下）：
+
+| アクション | 内容 |
+|--------|------|
+| **会議を開始** | マイクとシステム音声で録画開始 |
+| **動画を要約** | アクティブなブラウザ動画を要約 |
+| **QuickHub を開く** | フローティング QuickHub を開く |
+| **新規チャット** | 新しい QuickHub 会話を開始 |
+| **添付** | 最前面アプリの横に QuickHub を添付 |
+
+**会議録画中**：**会議を開始**（停止/切替）、**Live Notepad**、**Live Captions**、その下に **新規チャット** と **添付**。
+
+**ディクテーション中**：**会議を開始**、**新規チャット**、**添付**。
+
+## Computer Use セッション
+
+バックグラウンド **Computer Use** 実行中、**Edge Bar セッションカード**が表示され、目標、ステータス、対象アプリ、**停止** が示されます。
+
+[バックグラウンド Computer Use](/apps-tools/computer-use-background) を参照。
+
+## ドロップターゲット
+
+Edge Bar 表示中は QuickHub と同じコンテンツを**ドラッグ＆ドロップ**可能。
+
+## Edge Bar の設定
+
+**設定 → 一般**（⌘,）の **Edge Bar** セクション。**QuickHub モード** オフ時はすべて無効。
+
+<Tip>
+  詳細は **設定 → 一般** と **設定 → ショートカット** — [Alter 設定の構成](/how-to/settings-guide#general)。
+</Tip>
+
+## トラブルシューティング
+
+**Edge Bar が表示されない** — **QuickHub モード** と少なくとも一端の有効化を確認。
+
+**Computer Use カードがない** — QuickHub モードとアクティブな `computer_use_task` が必要。
+
+## 関連ドキュメント
+
+<CardGroup cols={2}>
+  <Card title="QuickHub モード" icon="square.on.square" href="/getting-started/quickhub-mode">
+    デフォルト UI、添付/切り離し、ショートカット
+  </Card>
+  <Card title="バックグラウンド Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use-background">
+    Edge Bar セッションとライブプレビュー
+  </Card>
+  <Card title="一般設定" icon="gear" href="/how-to/settings-guide#general">
+    QuickHub モードと Edge Bar 切替
+  </Card>
+  <Card title="ウィンドウタイプ" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    QuickHub・Hub・パネル概要
+  </Card>
+</CardGroup>

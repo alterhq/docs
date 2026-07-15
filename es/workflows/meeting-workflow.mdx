@@ -1,110 +1,16 @@
 ---
-title: "No te pierdas nunca los elementos de acción de las reuniones"
-description: "Cómo grabar, transcribir y extraer automáticamente tareas de sus reuniones"
+title: "No pierdas puntos de acción de reuniones"
+description: "Redirección — el contenido de reuniones está en la guía Meetings"
 ---
 
 <Info>
-  **Perfecto para:** Profesionales ocupados, líderes de equipos y cualquier persona que quiera concentrarse en la conversación en lugar de tomar notas.
+  Esta página se movió. Setup, Sprecherzuordnung und Follow-up-Prompts stehen jetzt an einem Ort.
 </Info>
 
-## El problema
+Ver **[Meetings](/workflows/meetings)** para:
 
-Estás en reuniones consecutivas todo el día. Cuando llegas al tercero, no recuerdas:
-- Lo que se decidió en la primera reunión.
-- ¿Quién aceptó hacer qué?
-- ¿Cuáles son tus elementos de acción reales?
-
-Podrías tomar notas durante las reuniones, pero luego no estarás completamente presente en la conversación.
-
-## La solución: deja que Alter se encargue de ello
-
-Alter detecta automáticamente cuando estás en reuniones y crea transcripciones con capacidad de búsqueda con identificación del orador. Luego puede pedirle que extraiga elementos de acción, decisiones y puntos clave.
-
-## Ejemplo del mundo real
-
-**Sarah, Gerente de Producto:**
-> "Solía pasar 30 minutos después de cada reunión escribiendo notas. Ahora Alter registra todo y solo pregunto '¿Cuáles son mis acciones?' y '¿Qué decisiones tomamos sobre la API?' Me ahorra horas cada semana".
-
-## Cómo configurarlo
-
-<Steps>
-  <Step title="Enable auto-recording">
-    1. Abra Modificar configuración (`Cmd + ,`)
-    2. Vaya a la pestaña **Dictado**
-    3. Active **Reuniones de grabación automática**
-    4. Establezca la duración mínima (predeterminada: 2 minutos)
-    
-Ahora Alter detectará automáticamente las llamadas de Zoom, Google Meet y Teams y le preguntará si desea grabar.
-  </Step>
-  
-<Step title="Choose your transcription quality">
-    **Opción 1: Procesamiento en la nube** (La más rápida y precisa)
-    - Utiliza IA en línea para la transcripción
-    - Mejor precisión para acentos y términos técnicos.
-    
-**Opción 2: Whisper Pro** (Privado, funciona sin conexión)
-    - Descargar un modelo local (recomendado: Whisper Large V3)
-    - Procesamiento 100% fuera de línea
-    - Ideal para reuniones confidenciales
-  </Step>
-  
-<Step title="Test with a sample meeting">
-    1. Únase a cualquier reunión (incluso a una prueba de Zoom consigo mismo)
-    2. Haga clic en **Grabar** cuando Alter lo solicite, o comience a grabar manualmente
-    3. Habla durante 2-3 minutos
-    4. Finalizar la reunión
-    5. Espere 10 segundos para la transcripción.
-  </Step>
-</Steps>
-
-## Cómo extraer valor de las transcripciones
-
-Una vez que tenga una transcripción, pruebe estas indicaciones:
-
-<CardGroup cols={2}>
-  <Card title="Get action items" icon="check-circle">
-    "Enumere todos los elementos de acción de esta reunión y quién es responsable de cada uno"
-  </Card>
-  <Card title="Summarize decisions" icon="gavel">
-    "¿Qué decisiones se tomaron? Enumerelas con contexto"
-  </Card>
-  <Card title="Find specific topics" icon="search">
-    "¿Qué dijimos sobre el presupuesto/cronograma/API?"
-  </Card>
-  <Card title="Create follow-up email" icon="envelope">
-    "Redactar un correo electrónico de seguimiento que resuma esta reunión para el equipo"
-  </Card>
-</CardGroup>
-
-## Consejos profesionales
-
-<Tip>
-  **Identificación del orador:** Alter utiliza IA para identificar diferentes oradores (Orador 1, Orador 2, etc.). Puede cambiarles el nombre manualmente después de la reunión si sabe quiénes son.
-</Tip>
-
-<Tip>
-  **Buscar en todas las reuniones:** Se pueden realizar búsquedas en todas las transcripciones. Escriba `#` en el cuadro emergente para buscar contenido de reuniones anteriores. Pregunte "¿Qué dijo John sobre la hoja de ruta en las reuniones de la semana pasada?"
-</Tip>
-
-<Tip>
-  **Subtítulos en vivo:** Active los subtítulos en vivo durante las reuniones (Configuración > Voz > Habilitar subtítulos en vivo) para seguir en tiempo real, especialmente útil si la calidad del audio es deficiente.
-</Tip>
-
-## Adónde van tus datos
-
-Todas las transcripciones se almacenan **localmente en tu Mac** en:
-```
-~/Library/Application Support/Alter/Transcripts
-```
-
-Nadie más puede acceder a ellos a menos que los compartas explícitamente.
-
-## Funciones relacionadas
-
-- [Cómo acceder a la configuración](/how-to/settings-guide) – Configurar las opciones de reunión y voz
-- [Solucionar problemas de transcripción del micrófono](/common-issues/mic-not-transcribing) – Solucionar problemas de captura
-- [Usar Administrador de herramientas](/how-to/tool-manager-guide) – Configurar herramientas para flujos de trabajo de seguimiento
-
----
-
-**¿Listo para probarlo?** Su próxima reunión es el momento perfecto para probarlo. ¡Simplemente active la grabación automática y vea cuánto más fácil se vuelve su seguimiento!
+- Grabación automática y manual
+- Emparejamiento de hablantes y calendarios (beta93+)
+- Transcripción en la nube con Soniox V5 (beta96+)
+- Subtítulos en vivo y gestión de transcripciones
+- Prompts para acciones, decisiones y correos de seguimiento

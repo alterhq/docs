@@ -1,29 +1,35 @@
 ---
-title: "Executar"
-description: "Execute ações de clique, preenchimento e atalho em elementos da UI"
+title: "Perform"
+description: "Executar ações de clique, preenchimento, digitação e atalho em elementos da UI"
 ---
 
-Use esta ferramenta para executar interações de UI concretas depois de identificar alvos com Get Active App Context.
+Use esta ferramenta para interações UI concretas após identificar alvos com Get Active App Context.
+
+<Tip>
+  Para trabalho UI em várias etapas, prefira o agente [**Computer Use**](/apps-tools/computer-use) (`computer_use_task`), que chama `perform` e [`perform_sequence`](/apps-tools/computer-use-agent-tools) automaticamente.
+</Tip>
 
 ## Ações suportadas
 
-- `click`: clique em um elemento de destino.
-- `fill`: insira texto em um campo de texto ou área de texto.
-- `shortcut`: envia atalhos de teclado (por exemplo `cmd+c`, `ctrl+shift+t`).
+- `click`: Clique no elemento (padrão).
+- `fill`: Texto em campo com `elementID`.
+- `type`: Digitação sem `elementID` (ex.: Calculadora).
+- `shortcut`: Atalhos (ex.: `cmd+c`).
 
 ## Entradas
 
-- `elementID` (obrigatório para `click` e `fill`): ID do elemento da saída Get Active App Context.
-- `text` (obrigatório para `fill`): valor a ser inserido na entrada alvo.
-- `shortcut` (obrigatório para `shortcut`): string de atalho.
-- `windowID` (opcional): direcione uma janela específica (`pid/title`) em vez da janela ativa.
+- `action` (opcional): `click`, `fill`, `type`, or `shortcut` (padrão `click`).
+- `elementID` (obrigatório para `click` and `fill`): ID do elemento do Get Active App Context.
+- `text` (obrigatório para `fill` and `type`): Valor ou teclas.
+- `shortcut` (obrigatório para `shortcut`): String de atalho.
+- `windowID` (opcional): Janela específica (`pid/title`).
 
 ## Notas
 
-- Os IDs dos elementos expiram com alterações na interface do usuário e no tempo da sessão. Releia o contexto se um elemento não for mais válido.
-- Para direcionamento de janela em segundo plano, use o mesmo `windowID` em todas as etapas de leitura de contexto e execução.
+- elementIDs expiram com mudanças de UI.
+- Use o mesmo `windowID` em etapas de fundo.
 
-## Bom emparelhamento
+## Veja também
 
-- [Obter contexto do aplicativo ativo](/apps-tools/computer-use-get-active-app-context)
-- [Espere](/apps-tools/computer-use-wait)
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Wait](/apps-tools/computer-use-wait)

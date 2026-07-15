@@ -1,0 +1,77 @@
+---
+title: "Compartir y exportar trazas de tarea"
+description: "Exportar conversaciones de tarea como markdown, compartir trazas con el equipo Alter y abrir chats de subagente desde el Tool Inspector"
+---
+
+Cuando Alter ejecuta una **herramienta que produce tareas** — **Computer Use**, **Flow** u otros agentes que generan una subconversación — el chat principal muestra una ejecución de herramienta en el **Tool Inspector**. Desde ahí puedes **abrir el hilo completo de la tarea**, **exportarlo como markdown** o **compartir una traza** con el equipo Alter para depuración.
+
+Este flujo es distinto de guardar una conversación Hub normal con **Guardar conversación como Markdown** (**⌘⇧S**). Las trazas de tarea capturan el intercambio del **subagente**, incluidas las llamadas a herramientas que disparó el mensaje principal.
+
+## Cuándo usar cada opción
+
+| Acción | Usar cuando |
+|--------|-------------|
+| **Abrir en pestaña** | Quieres leer la conversación de tarea completa dentro de Alter |
+| **Exportar chat** | Necesitas un archivo **.md** local |
+| **Compartir traza** | Algo falló o se comportó de forma inesperada |
+| **Guardar conversación como Markdown** (**⌘⇧S**) | Quieres exportar el chat **principal** Hub/QuickHub |
+
+## Dónde encontrar las acciones de tarea
+
+1. Ejecuta una herramienta productora de tareas (por ejemplo pide a Alter un objetivo **Computer Use**, o invoca **Flow**)
+2. En el **Hub** o **QuickHub**, abre el panel **Inspector**
+3. Selecciona la **ejecución de herramienta** — la fila de `computer_use_task`, Flow u otro agente
+4. Desplázate al bloque de acciones de **conversación de tarea**
+
+Tres acciones: **Abrir en pestaña**, **Exportar chat**, **Compartir traza**.
+
+Para ejecuciones **Computer Use** activas, el inspector puede mostrar **Watch preview** — ver [Computer Use en segundo plano](/apps-tools/computer-use-background).
+
+## Abrir en pestaña
+
+Salta a la **conversación de tarea de solo lectura** — el hilo del subagente con sus mensajes, llamadas y resultados.
+
+## Exportar chat
+
+Guarda la conversación de tarea como **documento Markdown** en **Descargas** (por defecto). Finder abre la carpeta contenedora.
+
+<Tip>
+  Para exportar la conversación **principal**, usa **Guardar conversación como Markdown** — **⌘⇧S** en **Configuración → Atajos → Hub**.
+</Tip>
+
+## Compartir traza
+
+Sube un paquete de diagnóstico a la API de Alter. Requiere **iniciar sesión**. Incluye título, markdown, nombre de herramienta, id de conversación y versión de la app.
+
+### Privacidad
+
+Las trazas son para **soporte y depuración**. Pueden incluir contenido de pantalla, títulos de ventana y rutas de archivos. No compartas contraseñas ni datos confidenciales.
+
+## Guardar conversación como Markdown (chat principal)
+
+**⌘⇧S** exporta la conversación Hub/QuickHub activa — no reemplaza **Exportar chat** del inspector.
+
+## Solución de problemas
+
+**Faltan acciones** — La herramienta debe producir una subconversación. Espera a que termine de iniciar.
+
+**Exportar chat pita sin hacer nada** — La conversación se liberó de memoria; vuelve a ejecutar la herramienta.
+
+**Error de inicio de sesión** — Inicia sesión en **Configuración → Perfil**.
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+    Agente basado en objetivos que produce conversaciones de tarea
+  </Card>
+  <Card title="Computer Use en segundo plano" icon="play.rectangle" href="/apps-tools/computer-use-background">
+    Watch preview y sesiones Edge Bar
+  </Card>
+  <Card title="Referencia de atajos" icon="keyboard" href="/references/shortcuts">
+    ⌘⇧S y atajos Hub
+  </Card>
+  <Card title="Ajustes Doctor" icon="stethoscope" href="/how-to/settings-guide#doctor">
+    Diagnóstico de permisos cuando las herramientas fallan
+  </Card>
+</CardGroup>

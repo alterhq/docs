@@ -1,0 +1,138 @@
+---
+title: "Computer Use em segundo plano"
+description: "Execute tarefas Computer Use em segundo plano enquanto continua trabalhando, com visualização ao vivo e controles de sessão Edge Bar"
+---
+
+Computer Use em segundo plano permite que o Alter controle apps no seu Mac **sem tomar sua tela**. Você continua digitando, lendo e alternando janelas enquanto o agente trabalha em uma janela em segundo plano. Uma visualização ao vivo flutuante e um cartão de sessão Edge Bar mostram o progresso — e você pode parar a execução a qualquer momento.
+
+Esta é a experiência padrão do agente **Computer Use** (`computer_use_task`), introduzida na **2.0.0-beta100**.
+
+## Quando usar o modo em segundo plano
+
+Use Computer Use em segundo plano quando:
+
+- Quiser que o Alter extraia uma página, preencha um formulário ou navegue em um app **enquanto você continua seu próprio trabalho**
+- A tarefa pode levar vários minutos e você não quer o QuickHub anexado à janela alvo
+- Precisar executar automação de UI em uma janela que **não** é seu app em primeiro plano
+
+Computer Use em primeiro plano (QuickHub anexado ao alvo) ainda existe para fluxos mais antigos. Para quase todas as tarefas novas, descreva a tarefa completa em um objetivo **Computer Use**.
+
+<Card title="Interface principal" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  Comece com a [visão geral do Computer Use](/apps-tools/computer-use) — passe um `goal` a `computer_use_task`.
+</Card>
+
+## Como funciona uma execução em segundo plano
+
+Quando você (ou o agente principal) invoca **Computer Use**, o Alter:
+
+1. **Inicia imediatamente uma sessão Edge Bar** — antes do subagente resolver sua janela alvo
+2. **Aplica apresentação `edgebarOnly`** — QuickHub não se anexa ao app alvo, sem overlay na janela
+3. **Executa um subagente dedicado** que faz loop com ferramentas UI (`read_screen_ax`, `perform`, `scroll`, etc.) por até **600 segundos** (10 minutos)
+4. **Encaminha entrada à janela alvo em segundo plano** via `BackgroundInputDriver`
+5. **Rastreia a janela alvo ativa** e a espelha no cartão de sessão e na visualização ao vivo
+
+Atalhos globais como **⌘C**, **⌘V**, **⌘Tab** **não** são usados pelo agente.
+
+## Cartão de sessão Edge Bar
+
+Enquanto uma execução está ativa, uma sessão **Computer Use** aparece na **Edge Bar** (requer [Modo QuickHub](/getting-started/quickhub-mode)). Cada cartão mostra:
+
+- **Objetivo** — o texto da tarefa solicitada
+- **Status** — o que o agente está fazendo
+- **App alvo** — nome, ícone e título da janela após vinculação
+- **Parar** — cancela o subagente imediatamente
+
+Sessões concluídas, com falha ou interrompidas passam a um estado final e desaparecem após um curto atraso.
+
+## Janela de visualização ao vivo
+
+A **visualização flutuante** é uma janela picture-in-picture com captura ao vivo da janela controlada pelo agente (~15 fps).
+
+### Mostrar visualização automaticamente
+
+Por padrão, a visualização abre ao iniciar uma tarefa Computer Use. Desative em **Configurações → Computer use → Mostrar visualização automaticamente**.
+
+### Watch preview
+
+Se a visualização estiver oculta, abra-a pelo **Tool Inspector** da tarefa em execução: selecione a execução **Computer Use**, clique em **Watch preview**.
+
+### Tamanho da visualização
+
+Escolha **Pequeno**, **Grande** ou **Personalizado** em **Configurações → Computer use → Tamanho da visualização**. Até **seis** sessões simultâneas podem aparecer no seletor de visualização.
+
+## Roteamento de entrada em segundo plano
+
+`BackgroundInputDriver` envia cliques do mouse, teclado e rolagem ao processo alvo sem trazer o app para o primeiro plano:
+
+| Rota | Quando usada |
+|-------|--------------|
+| **SkyLight** | Preferida quando o Window Server pode entregar eventos |
+| **Per-PID** | Envia eventos diretamente ao processo alvo |
+| **Fallback HID** | Último recurso |
+
+Apps **Chromium** (Chrome, Edge, Brave, Arc, Electron) e **Safari** usam rolagem por teclado em segundo plano.
+
+## Direcionamento de janela durante execuções em segundo plano
+
+Ferramentas UI resolvem `windowID` nesta ordem:
+
+1. **`windowID` explícito** na chamada da ferramenta
+2. **Alvo rastreado** — janela aberta por último via `open_app`, `open_urls` ou ferramenta anterior
+3. **Fallback de sessão** — enquanto `edgebarOnly` está ativo, a janela vinculada à visualização ao vivo
+4. **Janela em primeiro plano** — apenas fora de uma sessão em segundo plano
+
+## Navegador do agente
+
+Páginas web que o agente abre com `open_urls` vão para o **navegador do agente** quando configurado em **Configurações → Computer use → Navegador do agente**.
+
+Com **Limpar ao terminar** ativado, o Alter fecha abas do agente quando a última sessão termina.
+
+## Parar, cancelar e timeout
+
+| Ação | Efeito |
+|--------|--------|
+| **Parar** (visualização ou cartão) | Cancela o subagente; o agente principal recebe um resumo |
+| **Timeout de 600 s** | Subagente para |
+| **Dispensar** (sessão concluída) | Remove o cartão da Edge Bar |
+
+O Alter não reinicia Computer Use automaticamente após parar.
+
+## Configurações
+
+Configure em **Configurações → Computer use**:
+
+- **Navegador do agente**
+- **Limpar ao terminar**
+- **Mostrar visualização automaticamente**
+- **Tamanho da visualização**
+- **Apps bloqueados**
+
+Referência completa: [Configurações → Computer use](/how-to/settings-guide#computer-use).
+
+## Solução de problemas
+
+### Visualização nunca aparece
+
+- Verifique **Mostrar visualização automaticamente** ou **Watch preview** no Tool Inspector
+- A Edge Bar deve estar disponível (Modo QuickHub ativado)
+
+### Agente age na janela errada
+
+- Especifique um `windowID` no objetivo
+- Peça ao agente para chamar `list_windows` uma vez
+
+### Erro de app bloqueado
+
+Gerenciadores de senha são bloqueados por padrão. Ajuste em **Configurações → Computer use → Apps bloqueados**.
+
+### Erros de permissão
+
+Requer **Acessibilidade** e **Gravação de tela**. Conceda em **Configurações → Permissões** ou **Configurações → Doctor**.
+
+## Documentos relacionados
+
+- [Visão geral Computer Use](/apps-tools/computer-use)
+- [Ferramentas agente Computer Use](/apps-tools/computer-use-agent-tools)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait)
+- [Configurações → Computer use](/how-to/settings-guide#computer-use)
+- [Ferramentas não funcionam](/common-issues/tool-not-working)

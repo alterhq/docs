@@ -1,0 +1,40 @@
+---
+title: "バックグラウンド Computer Use"
+description: "作業を続けながらバックグラウンドで Computer Use タスクを実行 — ライブプレビューと Edge Bar セッション制御付き"
+---
+
+バックグラウンド Computer Use では、Alter が Mac 上のアプリを**画面を占有せず**操作します。エージェントがバックグラウンドウィンドウで動作中も入力やウィンドウ切替を続けられます。フローティングライブプレビューと Edge Bar セッションカードで進捗を確認し、いつでも停止できます。
+
+**Computer Use** エージェント（`computer_use_task`）のデフォルト体験で、**2.0.0-beta100** で導入されました。
+
+<Card title="主要インターフェース" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  [Computer Use 概要](/apps-tools/computer-use) から — `goal` を `computer_use_task` に渡す。
+</Card>
+
+## バックグラウンド実行の流れ
+
+Alter は Edge Bar セッションを即開始 → `edgebarOnly` → UI ツールで最大 **600 秒**ループ → `BackgroundInputDriver` → 対象ウィンドウを追跡。
+
+**⌘C**、**⌘V**、**⌘Tab** はエージェントが**使用しません**。
+
+## Edge Bar セッションカード
+
+目標、ステータス、対象アプリ、**停止**を表示。[QuickHub モード](/getting-started/quickhub-mode) が必要。
+
+## ライブプレビュー
+
+ピクチャインピクチャ（約 15 fps）。**設定 → Computer use** で自動表示とサイズ。**Watch preview** は Tool Inspector から。
+
+## 設定
+
+**設定 → Computer use**：エージェントブラウザ、終了時クリーンアップ、自動プレビュー、サイズ、ブロックアプリ。[設定 → Computer use](/how-to/settings-guide#computer-use)。
+
+## トラブルシューティング
+
+**アクセシビリティ**と**画面収録**が必要。[ツールが動作しない](/common-issues/tool-not-working) を参照。
+
+## 関連ドキュメント
+
+- [Computer Use 概要](/apps-tools/computer-use)
+- [Computer Use エージェントツール](/apps-tools/computer-use-agent-tools)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait)

@@ -163,6 +163,29 @@ description: "フローによってツールが自動的に選択および調整
 
 ---
 
+## Ask Anything のデフォルト（beta100+）
+
+他のアクションを選ばず入力すると **Ask Anything** が実行されます。**2.0.0-beta100** 以降、**Flow**、**Computer Use**、**Ask User** がデフォルトで有効です。
+
+| ツール | 役割 |
+|--------|------|
+| **Flow** | 有効なツールをオーケストレーション |
+| **Computer Use** | 画面自動化（`computer_use_task`） |
+| **Ask User** | 確認用の選択肢質問 |
+
+**Tools Manager**（**⌘⇧T**）で連携を有効化してください。
+
+### 任意：ツールを減らして高速化
+
+<Steps>
+  <Step title="Action Editor">**⌘⇧E**</Step>
+  <Step title="Ask Anything">アクションを選択</Step>
+  <Step title="Tools">不要なら **Computer Use** と **Ask User** を無効化</Step>
+  <Step title="保存">保存</Step>
+</Steps>
+
+---
+
 <AccordionGroup>
   <Accordion icon="link" title="上級: Tool 命令によるチェーン">
     フローは、タスクに複数の手順が必要な場合には、ツールを自動的にチェーンします。
