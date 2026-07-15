@@ -35,8 +35,8 @@ Every tool you enable consumes space in your context window. When you have 10+ t
   <Step title="Open Settings">
     Press **⌘ ,** (Command + Comma) or click **Settings** in the menu
   </Step>
-  <Step title="Go to Tool Manager">
-    Navigate to the **Tool Manager** tab
+  <Step title="Open Tools Manager">
+    Press **⌘⇧T** or choose **Tools Manager** from the menu bar
   </Step>
   <Step title="Enable Flow">
     Under **Local Tools > Alter**, toggle **Flow** on
@@ -44,7 +44,7 @@ Every tool you enable consumes space in your context window. When you have 10+ t
 </Steps>
 
 <Note>
-  Remember: Flow can only orchestrate tools that are already enabled. Enable the specific tools you need (Calendar, Gmail, Slack, etc.) in addition to Flow itself.
+  Remember: Flow can only orchestrate tools that are already enabled. Enable the specific tools you need (Calendar, Mail, Messages, etc.) in addition to Flow itself.
 </Note>
 
 ---
@@ -90,7 +90,7 @@ When you send a request with Flow enabled, it follows this process:
     Flow automatically:
     1. Uses the **Calendar** tool to find your 3pm meeting
     2. Identifies the attendees from the meeting
-    3. Uses the **Gmail** tool to compose an email
+    3. Uses the **Mail** tool to compose an email
     4. Sends the cancellation and explanation
     
     All in one natural language request.
@@ -137,29 +137,40 @@ When you send a request with Flow enabled, it follows this process:
 
 ---
 
-## Best Practice: Configure "Ask Anything"
+## Ask Anything defaults (beta100+)
 
-The **Ask Anything** action is Alter's default — it's used when you type in the prompt box without selecting a specific action.
+The **Ask Anything** action runs when you type in the prompt box without selecting another action. As of **2.0.0-beta100**, it ships with three tools enabled by default:
+
+| Tool | Role |
+|------|------|
+| **Flow** | Search and orchestrate your enabled tools for multi-step tasks |
+| **Computer Use** | Goal-based screen automation (`computer_use_task`) for UI work |
+| **Ask User** | Clarifying multiple-choice questions when the model needs input |
+
+These defaults mean new sessions can route to Mac apps, screen automation, and Flow without extra setup. Enable the underlying integrations (Mail, Calendar, etc.) in **Tools Manager** (**⌘⇧T**) — Flow only orchestrates tools you have turned on.
+
+### Optional: reduce tools for speed
+
+If you want smaller payloads and faster replies, you can narrow Ask Anything to **Flow only**:
 
 <Steps>
   <Step title="Open Action Editor">
-    Go to **Settings > Actions**
+    Press **⌘⇧E** or choose **Action Editor** from the menu bar
   </Step>
   <Step title="Find Ask Anything">
-    Look for the **"Ask Anything"** action
+    Select the **Ask Anything** action
   </Step>
-  <Step title="Click Advanced">
-    Expand the **Advanced** section
-  </Step>
-  <Step title="Select Only Flow">
-    In the **Tools** section, select only **Flow** (deselect all other tools)
+  <Step title="Open Tools">
+    In the **Tools** tab, disable **Computer Use** and **Ask User** if you do not need them
   </Step>
   <Step title="Save">
     Save your changes
   </Step>
 </Steps>
 
-Now your default interactions will use Flow's orchestration instead of loading all enabled tools into every request.
+<Note>
+  **Computer Use** and **Ask User** are intentional defaults for most users. Remove them only when you want a lighter, Flow-only default.
+</Note>
 
 ---
 
@@ -234,7 +245,7 @@ Now your default interactions will use Flow's orchestration instead of loading a
 
 <CardGroup cols={3}>
   <Card title="Be Specific" icon="pencil">
-    <p><strong>Good:</strong> "Send a Slack message to the engineering channel"</p>
+    <p><strong>Good:</strong> "Send a Messages text to the engineering group"</p>
     <p><strong>Vague:</strong> "Message the team"</p>
     <p>Specific requests help Flow select the right tool.</p>
   </Card>
@@ -255,7 +266,7 @@ Now your default interactions will use Flow's orchestration instead of loading a
     Rephrase your request with more specific details:
     
     - **Instead of:** "Check my messages"
-    - **Try:** "Check my unread Slack messages in the general channel"
+    - **Try:** "Check my unread Messages in the general chat"
     
     The more specific you are, the better Flow can match your intent to the right tool.
   </Accordion>
@@ -263,7 +274,7 @@ Now your default interactions will use Flow's orchestration instead of loading a
   <Accordion icon="question" title="Flow Can't Find a Tool">
     Make sure the tool is:
     - **Enabled** in Tool Manager (Flow can't use disabled tools)
-    - **Properly configured** (e.g., authenticated with Gmail)
+    - **Properly configured** (e.g., Mail or Messages permissions granted)
     - **Not restricted** by your action settings
   </Accordion>
   

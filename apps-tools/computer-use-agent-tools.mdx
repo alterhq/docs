@@ -1,0 +1,282 @@
+---
+title: "Agent tools reference"
+description: "LLM-only tools used inside the Computer Use subagent — read_screen_ax, perform_sequence, list_windows, and more"
+---
+
+These tools are registered for Alter's **Computer Use** subagent (`computer_use_task`). They are **LLM-only** — designed for the model to call during a background UI loop, not for manual one-off execution in most cases.
+
+The subagent also receives the primitive tools [Perform](/apps-tools/computer-use-perform), [Scroll](/apps-tools/computer-use-scroll), and [Wait](/apps-tools/computer-use-wait). This page covers the **agent-specific** tools and shared window-targeting rules.
+
+<Card title="Start here" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  Read the [Computer Use overview](/apps-tools/computer-use) for how to invoke the agent with a `goal` string.
+</Card>
+
+## Shared workflow
+
+### Window ID formats
+
+`list_windows` returns two ID styles:
+
+| Format | Example | Notes |
+|--------|---------|-------|
+| `pid/title` | `4280/Mail — Inbox` | Human-readable; title can change |
+| Stable `pid/windowNumber` | `4280/12345` | Preferred when available — survives title changes |
+
+Pass the same `windowID` to `read_screen_ax`, `perform`, `perform_sequence`, `scroll`, and `computer_use_screenshot` for every step on that window.
+
+### Resolution order
+
+When `windowID` is omitted:
+
+1. Explicit `windowID` in the tool call
+2. **Tracked target** — window recorded by `open_app`, `open_urls`, or prior tools in this conversation
+3. **Session fallback** — during a background run, the window shown in the live preview (prevents drift when you refocus another app)
+4. **Frontmost window**
+
+### Blocked apps
+
+Computer Use refuses to open, read, or control apps on your blocklist (**Settings → Computer use → Blocked apps**). Password managers are blocked by default. Tools return a clear error so the agent stops looping and reports the block to you.
+
+### Standalone vs inside the agent
+
+| Context | Available? |
+|---------|------------|
+| Inside `computer_use_task` subagent | Yes — full set below |
+| Ask Anything parent agent | Indirectly — parent should call `computer_use_task`, not chain these manually |
+| Tool Manager manual run | Possible for debugging; not the primary workflow |
+
+Workspace tools (`workspace_read`, `workspace_bash`, etc.) are **not** available inside Computer Use.
+
+---
+
+## `read_screen_ax`
+
+**Display name:** Read Screen (AX)
+
+Returns the **accessibility tree** of a window as text. Interactive elements include an **`@elementID`** suffix for use with `perform` and `perform_sequence`. **No screenshot** and no vision analysis — strict AX-only.
+
+### Parameters
+
+| Parameter | Required | Default | Description |
+|-----------|----------|---------|-------------|
+| `windowID` | No | tracked → session fallback → frontmost | `pid/title` or stable `pid/windowNumber` |
+
+### When the agent calls it
+
+- **First step** on a window (before any click or fill)
+- **After** navigation, dialogs, scrolling, or shortcuts that change the UI
+- **Before** choosing combobox/list options that were not visible in the prior read
+
+### Output
+
+Wrapped in `<activeAppContext>…</activeAppContext>`. During Computer Use runs, matching apps may append `<appGuidance>` (Calculator, Discord, Spotify, X.com, etc.) with faster techniques.
+
+### Example
+
+Goal step: agent already opened Mail via `open_app` and received `windowID: 5123/Mail — Inbox`.
+
+```
+read_screen_ax({ "windowID": "5123/Mail — Inbox" })
+```
+
+Returns rows with element IDs such as `Unread message row 1@MessageRow_0` for subsequent `perform` clicks.
+
+### vs `get_active_app_context`
+
+[Get Active App Context](/apps-tools/computer-use-get-active-app-context) adds OCR from screenshots. The Computer Use agent prefers **`read_screen_ax`** for speed and privacy unless the goal requires visual capture via `computer_use_screenshot`.
+
+---
+
+## `perform_sequence`
+
+**Display name:** Perform Sequence
+
+Runs multiple UI actions in **one tool call** — faster than separate `perform` invocations when every target element is already visible in the current AX read.
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `steps` | Yes | Array of action objects (see below) |
+| `windowID` | No | Applied to every step |
+
+Each **step** object:
+
+| Field | Required for | Description |
+|-------|--------------|-------------|
+| `action` | — | `click` (default), `fill`, `type`, or `shortcut` |
+| `elementID` | `click`, `fill` | ID after `@` from `read_screen_ax` |
+| `text` | `fill`, `type` | Text to enter |
+| `shortcut` | `shortcut` | e.g. `cmd+k`, `escape`, `shift+enter` |
+
+### Batching rules
+
+- All `elementID` values must come from the **same** `read_screen_ax` result
+- Only batch actions that do not change layout between steps (multi-field form, calculator expression via `type`)
+- **Stop batching** before navigation, app switch, or opening menus/dialogs — then re-read
+- Execution **stops at the first failing step** and reports which step failed
+
+### Example
+
+Fill a three-field form visible in one read:
+
+```json
+{
+  "windowID": "5123/Signup",
+  "steps": [
+    { "action": "fill", "elementID": "FirstName", "text": "Alex" },
+    { "action": "fill", "elementID": "LastName", "text": "Rivera" },
+    { "action": "fill", "elementID": "Email", "text": "alex@example.com" }
+  ]
+}
+```
+
+Spotify quick search (after reading the main window):
+
+```json
+{
+  "steps": [
+    { "action": "shortcut", "shortcut": "cmd+k" },
+    { "action": "type", "text": "Debussy Clair de Lune" }
+  ]
+}
+```
+
+See [Perform](/apps-tools/computer-use-perform) for single-action semantics (`type` vs `fill`, shortcut format).
+
+---
+
+## `computer_use_screenshot`
+
+**Display name:** Computer Use Screenshot
+
+Captures a **specific app window** as PNG. Does **not** use global screenshot shortcuts, `screencapture`, or interactive region selection.
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `windowID` | No | Same resolution order as other tools |
+
+### When to use
+
+- Goal explicitly asks for screenshots or visual artifacts
+- **Avoid** for routine UI inspection — use `read_screen_ax` instead
+
+### Output
+
+Text metadata (`app`, `title`, `windowID`, dimensions) plus an image attachment for the model.
+
+### Example
+
+```
+computer_use_screenshot({ "windowID": "9042/Google Chrome — Dashboard" })
+```
+
+Fails if Screen Recording permission is missing or the window is minimized/hidden.
+
+---
+
+## `list_windows`
+
+**Display name:** List Windows
+
+Enumerates open windows from running applications. No parameters.
+
+### Returns
+
+For each window:
+
+- App name and bundle identifier
+- Window title
+- **Window ID** (`pid/title`)
+- **Stable Window ID** when available
+- PID
+- **⭐ (ACTIVE)** marker on the frontmost window
+
+### When the agent calls it
+
+- Target window is **not** the frontmost app and was not opened via `open_app` / `open_urls` in this run
+- **Once per run** is usually enough — reuse returned IDs instead of listing repeatedly
+
+### Example output (abbreviated)
+
+```
+Open Windows (42 total):
+
+Safari (com.apple.Safari):
+  - Window: "Apple — Homepage" ⭐ (ACTIVE)
+    Window ID: 4280/Apple — Homepage
+    Stable Window ID: 4280/87
+    PID: 4280
+```
+
+The agent then passes `4280/87` to `read_screen_ax` for a background scrape while you work in another app.
+
+---
+
+## `open_app`
+
+**Display name:** Open Application
+
+Launches or focuses a Mac application. Returns the target window ID for immediate follow-up — often **without** calling `list_windows`.
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `bundleId` | Yes | Bundle identifier (e.g. `com.apple.Calculator`) **or** human app name (`Calculator`, `Google Chrome`) — names are resolved automatically |
+
+### Behavior
+
+- **Background runs:** If the app is already running, Alter does not steal focus. New launches use non-activating open when possible and restore your previous frontmost app.
+- **Blocked apps:** Refused with blocklist error
+- **Success response** includes `Window ID` and optional `Stable Window ID` to pass to subsequent tools
+
+### Example
+
+```json
+{ "bundleId": "com.apple.Calculator" }
+```
+
+Response includes:
+
+```
+Target window: Calculator - Calculator
+Window ID: 6012/Calculator
+Pass this windowID to read_screen_ax, perform, perform_sequence, and scroll...
+```
+
+---
+
+## Primitive tools in the same agent
+
+These have dedicated pages; the subagent uses them with the same `windowID` rules:
+
+| Tool | Page | Agent notes |
+|------|------|-------------|
+| `perform` | [Perform](/apps-tools/computer-use-perform) | Single click/fill/type/shortcut; prefer `perform_sequence` when batching |
+| `scroll` | [Scroll](/apps-tools/computer-use-scroll) | `milliseconds` duration (default 3000); Chromium/Safari use keyboard scroll in background |
+| `wait` | [Wait](/apps-tools/computer-use-wait) | Use when AX read is empty or loading — not before every step |
+| `open_urls` | — | Opens URLs; routed to agent browser during Computer Use |
+
+`get_active_app_context` is **not** in the subagent tool set — use `read_screen_ax` instead.
+
+---
+
+## Troubleshooting
+
+| Issue | Guidance |
+|-------|----------|
+| `Window … not found` | Re-run `list_windows`; window may have closed |
+| `elementID` failures after batch | Layout changed — re-read with `read_screen_ax` |
+| Blocked app | Adjust blocklist or rephrase goal to skip that app |
+| Screenshot failed | Grant Screen Recording; ensure window is visible |
+| Global shortcuts ignored | Expected in background mode — agent uses `fill`/`type`, not ⌘C/⌘V |
+
+## Related docs
+
+- [Computer Use overview](/apps-tools/computer-use)
+- [Background Computer Use](/apps-tools/computer-use-background)
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait) · [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+- [Settings → Computer use](/how-to/settings-guide#computer-use)

@@ -3,19 +3,28 @@ title: "Overview"
 description: "Understand local tools and external integrations in Alter"
 ---
 
-Alter supports two integration paths:
+Alter connects to your Mac in two distinct ways:
 
-- Local tools that act directly in your Mac apps.
-- External services that connect through APIs.
+- **Mac Apps (local tools)** — First-party integrations with Mail, Calendar, Messages, Notes, Reminders, Contacts, Maps, DEVONthink, and Computer Use. These run on your Mac with system permissions; no third-party API keys required for the built-in apps.
+- **External integrations** — MCP servers, skills, and cloud connectors (Slack, Notion, GitHub, web search APIs, etc.) configured in **Tools Manager**.
 
 ## Choose the right integration type
 
-- Use local tools when you want fast, private actions on your Mac.
-- Use external integrations when you need cross-app automation.
+- Use **Mac Apps** when the workflow stays on your Mac (inbox triage, calendar updates, iMessage, screen automation).
+- Use **external integrations** when data or actions live in another service or the open web.
 
-## Local tools
+## Local tools (Mac Apps)
 
-Local tools run in your environment and are best for daily execution.
+Local tools run in your environment and are best for daily execution on Apple apps and Computer Use.
+
+<CardGroup cols={2}>
+  <Card title="Mac Apps nav" icon="apple" href="/apps-tools/mail">
+    Per-app references: Mail, Calendar, Messages, Notes, and more
+  </Card>
+  <Card title="Computer Use" icon="display" href="/apps-tools/computer-use">
+    Goal-based screen automation agent
+  </Card>
+</CardGroup>
 
 <CardGroup cols={2}>
   <Card title="Free to use" icon="gift">
@@ -48,10 +57,11 @@ Local tools run in your environment and are best for daily execution.
 
 ## External integrations
 
-External integrations connect Alter with services such as Slack, Notion, and GitHub.
+External integrations connect Alter with services such as Slack, Notion, GitHub, and research APIs via **Tools Manager → Remote MCP Servers** or installed skills.
 
-- Use these when your workflow spans multiple systems.
+- Use these when your workflow spans multiple systems outside macOS built-ins.
 - Enable only the services required for your current task.
+- Mac App workflows (Mail, Calendar, Messages) do **not** require external connectors — see the **Mac Apps** section in this tab.
 
 ## Popular workflow entry points
 

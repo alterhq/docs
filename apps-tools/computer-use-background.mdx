@@ -1,0 +1,159 @@
+---
+title: "Background Computer Use"
+description: "Run Computer Use tasks in the background while you keep working, with live preview and Edge Bar session controls"
+---
+
+Background Computer Use lets Alter drive apps on your Mac **without taking over your screen**. You keep typing, reading, and switching windows while the agent works in a background window. A floating live preview and Edge Bar session card show progress — and you can stop the run at any time.
+
+This is the default experience for the **Computer Use** agent (`computer_use_task`), introduced in **2.0.0-beta100**.
+
+## When to use background mode
+
+Use Background Computer Use when:
+
+- You want Alter to scrape a page, fill a form, or navigate an app **while you continue your own work**
+- The task may take several minutes and you do not want QuickHub attached to the target window
+- You need to run UI automation on a window that is **not** your frontmost app
+
+Foreground-style Computer Use (QuickHub attached to the target, overlay drawn on the app) still exists for older flows and some tool configurations. For almost all new work, describe the full task in one **Computer Use** goal and let the background agent handle it.
+
+<Card title="Primary interface" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+  Start with the [Computer Use overview](/apps-tools/computer-use) — pass a `goal` to `computer_use_task` and the agent self-loops with its tool set.
+</Card>
+
+## How a background run works
+
+When you (or the parent agent) invoke **Computer Use**, Alter:
+
+1. **Starts an Edge Bar session** immediately — before the subagent resolves its target window
+2. **Pushes `edgebarOnly` presentation** — QuickHub does not attach to the target app, and the on-screen overlay is not drawn on that window
+3. **Runs a dedicated subagent** that loops with UI tools (`read_screen_ax`, `perform`, `scroll`, and others) for up to **600 seconds** (10 minutes)
+4. **Routes input to the target window in the background** via `BackgroundInputDriver` — clicks, typing, and scrolls go to the agent's window, not your global keyboard focus
+5. **Tracks the active target window** and mirrors it into the session card and live preview as the agent switches apps
+
+You stay in control of your Mac. Global shortcuts like **⌘C**, **⌘V**, **⌘Tab**, or system screenshot keys are **not** used by the agent — they would hit whatever app you are actually using.
+
+## Edge Bar session card
+
+While a run is active, a **Computer Use** session appears in the **Edge Bar** (requires [QuickHub Mode](/getting-started/window-types-notch-hub-panels)). Each card shows:
+
+- **Goal** — the task text you asked for (truncated in the UI; hover for the full goal)
+- **Status** — what the agent is doing (for example "Reading AX", "Resolving target", or the latest action)
+- **Target app** — name, icon, and window title once the agent binds a window
+- **Stop** — cancels the subagent immediately; Alter summarizes what was done so far and does not auto-retry
+
+When a session completes, fails, or is stopped, the card updates to a terminal state (**Done**, **Needs attention**, or **Stopped**) and auto-dismisses after a short delay.
+
+<Tip>
+  Move your pointer to the inner edge of your screen to reveal the Edge Bar launcher. Computer Use sessions stack with other Edge Bar actions.
+</Tip>
+
+## Live preview window
+
+The **floating preview** is a picture-in-picture window that shows a live screenshot of the window the agent is controlling. It updates continuously (~15 fps) so you can verify behavior without bringing that app forward.
+
+### Show preview automatically
+
+By default, the preview opens when a Computer Use task starts. Turn this off in **Settings → Computer use → Show preview automatically**. Runs still execute in the background; only the floating window stays hidden until you open it.
+
+### Watch preview
+
+When the preview is hidden (either because you turned off auto-show or clicked **Hide** on the preview itself), open it from the **Tool Inspector** on the running task:
+
+1. Select the **Computer Use** tool run in the Hub inspector
+2. Click **Watch preview**
+
+This reopens the floating window and focuses the matching session.
+
+### Preview size
+
+Choose **Small**, **Large**, or **Custom** under **Settings → Computer use → Preview size**. **Custom** remembers the size you set by dragging the preview corner. The preview keeps a fixed aspect ratio; off-ratio target windows are letterboxed inside it.
+
+Up to **six** concurrent sessions can appear in the preview picker when multiple runs overlap.
+
+## Background input routing
+
+`BackgroundInputDriver` sends mouse clicks, keyboard events, and scroll gestures to the target app's process without activating that app in the foreground. Alter tries routes in order:
+
+| Route | When used |
+|-------|-----------|
+| **SkyLight** | Preferred when the window server can deliver events to the background process |
+| **Per-PID** | Posts events directly to the target process |
+| **HID fallback** | Last resort when other routes are unavailable |
+
+**Chromium-based apps** (Chrome, Edge, Brave, Arc, Electron apps) and **Safari** use keyboard-based scrolling in the background because native scroll events are unreliable in those engines. This is why scroll behavior may look different from foreground use but still reaches the correct window.
+
+## Window targeting during background runs
+
+UI tools resolve `windowID` in this order:
+
+1. **Explicit `windowID`** in the tool call (`pid/title` or stable `pid/windowNumber` from `list_windows`)
+2. **Tracked target** — window last opened via `open_app`, `open_urls`, or a prior tool in this conversation
+3. **Session fallback** — while `edgebarOnly` is active, the window bound to the live preview (so omitted `windowID` does not drift to whatever you clicked since the run started)
+4. **Frontmost window** — only outside a background session
+
+If you pass `windowID` on the initial `computer_use_task` call, the agent is instructed to reuse it for every `read_screen_ax`, `perform`, and `scroll` step.
+
+## Agent browser
+
+Web pages the agent opens with `open_urls` during a Computer Use run go to the **agent browser** when you configure one under **Settings → Computer use → Agent browser**. This isolates logins and tabs from your everyday browser.
+
+With **Clean up when finished** enabled, Alter closes agent-opened tabs (or quits the browser if the agent launched it) when the last session ends. Links you open yourself still use your macOS default browser.
+
+See [Settings → Computer use](/how-to/settings-guide#computer-use) for configuration details.
+
+## Stop, cancel, and timeout
+
+| Action | Effect |
+|--------|--------|
+| **Stop** (preview or session card) | Cancels the subagent; parent agent receives a message to summarize progress and ask how to proceed |
+| **600 s timeout** | Subagent stops; answer is prefixed with a timeout notice if partially complete |
+| **Dismiss** (completed session) | Removes the card from the Edge Bar; does not undo UI changes the agent made |
+
+Alter does not automatically rerun Computer Use after you stop it.
+
+## Settings
+
+Configure background behavior in **Settings → Computer use**:
+
+- **Agent browser** — dedicated browser for agent-driven URLs
+- **Clean up when finished** — close agent tabs when done
+- **Show preview automatically** — open floating preview on start
+- **Preview size** — Small / Large / Custom
+- **Blocked apps** — apps the agent must never open, read, or control
+
+Full label-by-label reference: [Settings → Computer use](/how-to/settings-guide#computer-use).
+
+## Troubleshooting
+
+### Preview never appears
+
+- Check **Show preview automatically** is on, or click **Watch preview** in the Tool Inspector
+- Confirm you did not click **Hide** on the preview — that persists until the next run or you reopen via **Watch preview**
+- Edge Bar must be available (QuickHub Mode on); the preview itself is independent of Edge Bar visibility
+
+### Agent acts on the wrong window
+
+- Include a specific `windowID` in your goal or the `computer_use_task` parameters
+- Ask the agent to call `list_windows` once and reuse stable IDs
+- Avoid switching the target app to fullscreen mid-run if the window bounds change unexpectedly
+
+### Blocked app errors
+
+Password managers and other sensitive apps are blocked by default. The agent reports that the app is on your blocklist. Remove it only if you intentionally want Computer Use to control that app: **Settings → Computer use → Blocked apps**.
+
+### Permission failures
+
+Background Computer Use requires **Accessibility** and **Screen Recording** (for preview capture). Grant both under **Settings → Permissions** or **Settings → Doctor**. See [Tools Not Working](/common-issues/tool-not-working).
+
+### Scroll or click seems ignored in a browser
+
+Chromium and Safari background scrolling uses keyboard simulation. If content still does not move, the agent should re-read the AX tree and try a shorter scroll duration or a different direction.
+
+## Related docs
+
+- [Computer Use overview](/apps-tools/computer-use) — `computer_use_task` goals, tool set, examples
+- [Computer Use agent tools](/apps-tools/computer-use-agent-tools) — `read_screen_ax`, `perform_sequence`, `list_windows`, and more
+- [Perform](/apps-tools/computer-use-perform) · [Scroll](/apps-tools/computer-use-scroll) · [Wait](/apps-tools/computer-use-wait) — primitive tools the subagent also uses
+- [Settings → Computer use](/how-to/settings-guide#computer-use)
+- [Tools Not Working](/common-issues/tool-not-working)

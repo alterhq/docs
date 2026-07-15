@@ -24,15 +24,26 @@ Click the three-dot menu icon (⋮) in the Alter notch and select **Settings**.
 
 ![Menu Bar Access](/images/settings/Alter-Menu_Bar-Menu.webp)
 
-### General Settings
+### General Settings {#general}
 
-In the **General** tab, you can configure core functionality and quick access options:
+In the **General** tab, you configure QuickHub Mode, Edge Bar, selection assist, default model parameters, and notification rules.
 
-**Quick Access**
-- **Open notch**: Enable keyboard shortcut to open the notch from anywhere on your screen
-- **Open or Focus the Hub**: Quickly switch to or launch the Alter Hub window (⌘ ⌥ H)
-- **New Hub Chat**: Start a fresh conversation session in the Hub (⌘ Space)
-- **Selection Button**: Show a quick action button accessible from anywhere
+#### Quick access
+
+- **Selection Button** — Show a quick access button next to the mouse cursor when selecting text
+- **QuickHub Mode** — Use QuickHub for all conversations instead of the notch (default **on** for new users). When off, global shortcuts label **Open notch** instead of **Open QuickHub**. See [QuickHub Mode](/getting-started/quickhub-mode).
+
+#### Edge Bar
+
+Edge Bar settings appear below QuickHub Mode and are **disabled when QuickHub Mode is off**.
+
+- **Left edge** / **Right edge** — Enable screen-edge launchers independently (default: right on, left off)
+- **All monitor edges** — Use selected left/right edges on every monitor, including edges between displays. When off, only outer edges on multi-monitor setups are eligible
+- **Opening distance** — Slider from **0%** (stick to the edge) to **100%** (default distance) in 25% steps
+
+The section footer explains reveal behavior and multi-monitor rules. Full walkthrough: [Edge Bar](/getting-started/edge-bar).
+
+Global shortcuts for opening QuickHub (**⌘⇧Space** default), the Hub (**⌘⇧H**), and new chats (**⌥Space**) are configured in **Settings → Shortcuts → Global**, not on this tab.
 
 **LLM Settings**
 - **Max Tokens**: Set the maximum length of AI responses 
@@ -44,7 +55,7 @@ In the **General** tab, you can configure core functionality and quick access op
 
 ![General Settings](/images/settings/Alter-Settings_01_General-Beta71.webp)
 
-### 2. Voice Settings
+### 2. Voice Settings {#voice}
 
 The **Voice** tab controls how Alter processes and responds to audio:
 
@@ -62,8 +73,8 @@ The **Voice** tab controls how Alter processes and responds to audio:
 **Voice Processor**
 Choose your voice processing model:
 - **Apple**: Built-in, optimized for privacy
-- **Local**: Run on your machine with downloaded models
-- **Cloud options**: Anthropic and other cloud providers with various capabilities
+- **Local / Local Plus**: Run on your Mac with downloaded Whisper or Parakeet models
+- **Cloud**: Online transcription via **Soniox V5** (beta96+); best accuracy for meetings when eligible
 
 ![Voice Settings](/images/settings/Alter-Settings_02_Voice-Beta71.webp)
 
@@ -85,8 +96,12 @@ These shortcuts allow you to activate Alter's voice features without switching w
 Configure automation for meetings and recordings:
 - **Meeting apps**: Select which apps to monitor for meetings
 - **Auto record meetings**: Automatically start recording when a meeting is detected
-- **Find speakers names**: Identify each speaker's name based on the meeting service you are using
+- **Find speakers names (experimental)**: Cloud-only speaker identification; enable calendar and Contacts matching (beta93+)
+- **Calendars for speaker matching**: Choose Apple calendars used to match events and suggest attendee names
+- **Contacts for speaker matching**: Resolve attendee emails to display names
 - **Keep dictation in pasteboard**: Retain voice input in clipboard
+
+**Cloud processor:** When **Cloud** is selected as the voice processor, meeting and dictation transcription uses the **Soniox V5** engine (beta96+) for improved accuracy. Requires login and cloud dictation eligibility.
 
 ![Voice Automation](/images/settings/Alter-Settings_02b_Voice-Automation-Beta71.webp)
 
@@ -188,7 +203,7 @@ The **Profile** tab manages your identity and preferences:
 
 ![Profile Settings](/images/settings/Alter-Settings_03_Profile-Beta71.webp)
 
-### 4. Appearance Settings
+### 4. Appearance Settings {#appearance}
 
 The **Appearance** tab controls the visual look and feel:
 
@@ -198,7 +213,7 @@ The **Appearance** tab controls the visual look and feel:
 - **Dark**: Force dark theme
 
 **Customization**
-- **Default Panel Position**: Where panels appear (Top Right default)
+- **Default Panel Position**: Center, Top Left, Top Right, Bottom Left, Bottom Right, Top Center, or Last Position (Top Right is the default for new installs)
 - **Menu Font Size**: Adjust text size for readability (default: 16)
 - **Message Font Size**: Set chat message text size (default: 15)
 - **Display Notch**: Show the status indicator
@@ -226,7 +241,7 @@ The **Billing** tab shows your subscription status:
 
 ![Billing Settings](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
 
-### 6. Permissions Settings
+### 6. Permissions Settings {#permissions}
 
 The **Permissions** tab manages system access and data collection preferences:
 
@@ -243,7 +258,7 @@ Each permission can be enabled with quick-access buttons:
 
 ![Permissions Settings](/images/settings/Alter-Settings_06_Permissions-Beta71.webp)
 
-### 7. API Keys Settings
+### 7. API Keys Settings {#external-api-keys}
 
 The **API keys** tab allows you to bring your own models:
 
@@ -287,7 +302,7 @@ When adding a custom provider, you can choose from:
 
 ![API Keys - Provider Type Dropdown](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
 
-### 8. Router Settings
+### 8. Router Settings {#router}
 
 The **Router** tab configures the default AI endpoint:
 
@@ -301,9 +316,313 @@ The **Router** tab configures the default AI endpoint:
 
 ![Router Settings](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
+### 9. Computer use Settings {#computer-use}
+
+The **Computer use** tab configures how Alter's UI automation agent drives apps, browsers, and the floating live preview introduced in **2.0.0-beta100**.
+
+Open **Settings** (⌘,) and select **Computer use** in the sidebar — it appears under the API section with the cursor-rays icon, alongside **API keys** and **Router**. The tab is organized into three sections that match the app UI exactly: **Browser**, **Preview**, and **Blocked apps**.
+
+#### Browser
+
+Give Computer Use its own browser so agent-driven pages stay separate from your daily browsing.
+
+**Agent browser** — *The browser the computer-use agent drives*
+
+- **macOS default** — `open_urls` inside Computer Use uses your system default browser (out-of-the-box behavior)
+- **Dedicated browser** — Pick an installed browser (Chrome, Safari, Arc, etc.). During a Computer Use run, pages the agent opens go into this browser only. Links you open yourself, and `open_urls` **outside** Computer Use, still use your macOS default.
+
+This lets you stay signed in to sensitive sites in your main browser while the agent uses an isolated profile.
+
+**Clean up when finished**
+
+- When enabled, Alter closes tabs the agent opened after the **last** Computer Use session ends
+- For browsers that cannot close individual tabs (for example Firefox), the agent browser is **quit** instead — but **only if the agent launched it**, never a browser you already had open
+- Requires a dedicated **Agent browser** (disabled when **macOS default** is selected)
+
+#### Preview
+
+The floating preview shows a live picture-in-picture of the window Computer Use is controlling.
+
+**Show preview automatically** — *Reveal the floating preview when a computer-use task starts*
+
+- On (default): preview opens when a task starts
+- Off: runs still happen in the background; open the preview anytime via **Watch preview** in the Tool Inspector on the running task
+
+**Preview size** — *Small or large presets, or Custom to keep the size you drag it to*
+
+| Option | Width |
+|--------|-------|
+| **Small** | 320 pt preset |
+| **Large** | 560 pt preset |
+| **Custom** | Remembers the size you set by dragging the preview corner |
+
+The preview keeps a fixed aspect ratio; you can hide it with the on-window **Hide** control without stopping the run.
+
+#### Blocked apps
+
+Computer Use refuses to **open, read, or control** apps on this list. Password managers and other sensitive apps are blocked by default:
+
+- Keychain Access
+- Bitwarden
+- Passwords (macOS)
+- 1Password / 1Password 7
+
+**Add app…** — Choose one or more `.app` bundles from `/Applications` to block
+
+**Restore defaults** — Reset the list to Alter's built-in sensitive-app defaults
+
+Remove an app with the minus button on its row. If a goal targets a blocked app, the agent reports the block and stops trying — adjust the list only when you intentionally want Computer Use to control that app.
+
+When no apps are blocked, the section shows **No apps are blocked.** in secondary text.
+
+#### Permissions reminder
+
+Computer Use requires **Accessibility** (to read AX trees and send clicks) and **Screen Recording** (for the live preview and `computer_use_screenshot`). Grant both under **Settings → Permissions** before your first run. If something still fails, open **Settings → Doctor** for a consolidated permission report.
+
+<Tip>
+  Background runs, Edge Bar session cards, and preview behavior are documented in [Background Computer Use](/apps-tools/computer-use-background). Permission issues: [Tools Not Working](/common-issues/tool-not-working) or **Settings → Doctor**.
+</Tip>
+
+### 10. Shortcuts Settings {#shortcuts}
+
+The **Shortcuts** tab is a searchable editor for every Alter keyboard shortcut. Open **Settings → Shortcuts** (under the **General** section in the sidebar).
+
+#### Search and navigation
+
+- **Search shortcuts** — Filter by action name, description, category, or key combination
+- **⌘F** — Focus search while the Shortcuts tab is frontmost
+- **Esc** — Clear the search field when search is focused
+
+Each row shows the action name, a short description, and a **recorder** control. Click the recorder and press your desired keys. If you change a shortcut from its default, a **reset** button (↺) appears to restore the factory binding.
+
+#### Global
+
+System-wide shortcuts that work from any app (subject to macOS permissions):
+
+| Action | Default | Notes |
+|--------|---------|-------|
+| **Open QuickHub** / **Open notch** | **⌘⇧Space** | Label depends on **QuickHub Mode** |
+| **Open QuickHub and Attach** | Double **⌘** + attach pickers | See QuickHub attach below |
+| **Open or Focus the Hub** | **⌘⇧H** | |
+| **New Hub Chat** | **⌥Space** | |
+| **Dictation Shortcut** | **Fn** | Empty recorder falls back to Fn |
+| **Meeting Shortcut** | **⌘⇧M** | Toggle meeting recording |
+| **Live captions** | **⌘⇧↓** | |
+| **Live Notepad** | **⌘⇧→** | |
+
+#### Open QuickHub and Attach
+
+**Open QuickHub and Attach** has two extra pickers beside the shortcut recorder:
+
+- **Attach behavior** — **Attach Left** or **Attach Right** (default **Attach Right**)
+- **Shortcut** — Double-tap trigger: **Double tap ⌘** (default), **Double tap ⌥**, **Double tap ⌃**, **Double tap ⇧**, or **None**
+
+Double-tap the chosen modifier to open QuickHub and dock it to the selected side. Documented in [QuickHub Mode](/getting-started/quickhub-mode).
+
+#### Hub & QuickHub
+
+Shared shortcuts that apply to whichever conversation surface is active:
+
+| Action | Default |
+|--------|---------|
+| **Command Palette** | **⌘K** |
+| **New Chat or Tab** | **⌘T** |
+| **Close Chat or Tab** | **⌘W** |
+| **Delete Conversation** | **⌘Delete** |
+| **Previous Chat or Tab** | **⌘⌥←** |
+| **Next Chat or Tab** | **⌘⌥→** |
+| **Clear All Contexts** | **⌘⇧X** |
+| **Quick Actions** | **⌘/** |
+| **Retry Last Message** | **⌘R** |
+
+#### QuickHub
+
+Attach and navigation shortcuts specific to the floating QuickHub panel:
+
+| Action | Default |
+|--------|---------|
+| **Open in Hub** | **⌘O** |
+| **Attach Left** | **⌃⌘←** |
+| **Attach Right** | **⌃⌘→** |
+| **Detach Window** | **⌃⌘↓** |
+| **Pin Window** | **⌘⌥P** |
+
+#### Hub
+
+Hub-window shortcuts including workspace and export actions:
+
+| Action | Default |
+|--------|---------|
+| **New Workspace** | **⌘⌥N** |
+| **Create Workspace from Context** | **⌘J** |
+| **Switch to Workspace** | **⌘⌥O** |
+| **Save Conversation as Markdown** | **⌘⇧S** |
+| **Close All Tabs** | **⌘⌥W** |
+| **Close Window** | **⌘⇧W** |
+| **Search** | **⌘F** |
+| **Jump to Tab 1-9** | **⌘1**–**⌘9** (read-only display) |
+
+#### Windows
+
+Open Alter's auxiliary windows:
+
+| Action | Default |
+|--------|---------|
+| **Alter Hub** | **⌘⇧H** |
+| **Action Editor** | **⌘⇧E** |
+| **Tools Manager** | **⌘⇧T** |
+| **Settings** | **⌘,** |
+
+#### Conversation
+
+Input and scroll behavior inside QuickHub and Hub conversations:
+
+| Action | Default |
+|--------|---------|
+| **Cycle Mode** | **⇧Tab** |
+| **Scroll Up** | **Page Up** |
+| **Scroll Down** | **Page Down** |
+
+#### Tools
+
+The **Tools** section lists **read-only** shortcuts for configured quick-action tools. To edit them, click **Open Quick Actions** — Alter opens **Tools Manager** to the Quick Actions section (**⌘⇧T** or `alter://toolsManager?section=quickActions`).
+
+#### Conflicts and reset
+
+macOS and other apps may claim the same key combinations. If a shortcut does not fire:
+
+1. Check **System Settings → Keyboard → Keyboard Shortcuts** for conflicts
+2. Pick an unused combination in Alter's recorder
+3. Click the ↺ reset button to restore Alter's default for that row
+
+For a full inventory beyond the settings UI, see [Shortcuts reference](/references/shortcuts). To change only the global open shortcut, [How-To: Change Hotkey](/how-to/change-hotkey) is a focused guide.
+
+### 11. Marketplace Settings {#marketplace}
+
+The **Marketplace** tab (under **Account** in the settings sidebar) controls your public Alter Marketplace profile and notification preferences. What you save here can appear on agent listings and community pages; local-only Alter settings are unaffected.
+
+#### Public Profile
+
+- **Display Name** — Username shown on your public profile
+- **Bio** — Up to **160 characters**; a live counter shows `count/160`
+- **Avatar** — Click the camera badge to pick an image; **Remove** clears the current avatar
+- **Save Profile** — Uploads changes (disabled until you edit something)
+
+Profile data syncs to Alter's account service when you save. Errors appear in red below the form.
+
+#### Social Links
+
+Optional URLs displayed on your marketplace profile:
+
+- **Website**
+- **GitHub**
+- **Twitter / X**
+- **LinkedIn**
+- **Discord**
+- **YouTube**
+
+Leave a field empty to hide that link publicly. Values are stored with your account profile.
+
+#### Notifications
+
+- **Comment notifications** — *Get notified when someone comments on your agents or replies to you.*
+
+Toggle off to silence marketplace comment alerts while keeping your public profile visible.
+
+### 12. Doctor Settings {#doctor}
+
+**Doctor** (under **System** in the settings sidebar) runs a health and permission diagnostic across Alter. Use it when tools fail mysteriously, voice processing misbehaves, or you need a redacted report for support.
+
+Doctor runs automatically when you open the tab, then shows a summary and detailed sections.
+
+#### Summary header
+
+- **Alter Doctor** title with **last checked** time
+- Overall status pill: **OK**, **Warning**, **Failed**, or **Idle**
+- Count pills: **OK**, **Idle**, **Warn**, **Fail**
+
+#### Refresh and Copy Report
+
+- **Refresh** — Re-run all checks (shows a progress indicator while running)
+- **Copy Report** — Copy a **redacted** plain-text report to the clipboard (home directory paths shortened to `~`; JWT/token-like strings replaced). Button briefly shows **Copied**
+
+Paste the report into Discord or email when contacting support alongside a [shared task trace](/workflows/share-task-traces) if relevant.
+
+#### Diagnostic sections
+
+**Environment**
+
+- **macOS** — Operating system version string
+- **Architecture** — `arm64` or `x86_64`
+
+**Application**
+
+- **Version** — Short version, build number, and configuration (Debug/Release)
+- **Application Support** — Whether Alter's support directory exists
+
+**Permissions**
+
+- **Accessibility** — Required for selection read and app control. Links to **Settings → Permissions** when not granted
+- **Screen Recording** — Required for meeting/screen context and Computer Use preview
+- **Microphone** — Required for dictation and meeting audio
+- **Automation** — System Events access for AppleScript-style automation. Starts as **Idle** until you click **Check Automation**; Alter prompts for permission and refreshes the report
+
+**Voice Processor**
+
+- **Selected processor** — Current speech engine (Apple, cloud, Whisper, etc.) with link to **Settings → Voice**
+- **Plan access** — Whether your subscription supports the selected processor
+- **Local model** / **Local model runtime** (Apple Silicon + Whisper only) — Download and load status
+
+**Storage**
+
+Disk usage for Application Support, Alter Prompts, Caches, WebKit, and HTTP Storage paths.
+
+**Database**
+
+Local Core Data schema status: up to date, needs migration, or no store yet.
+
+**Actions**
+
+Loaded Alter Actions count (enabled, user-authored, total).
+
+**Tools**
+
+- **Activated tools** — Count with **Open the Tools Manager** shortcut to the Active Tools section
+- **MCP configuration** — Connected apps and remote MCP servers
+- **MCP clients** — Per-server runtime status (running, stopped, error)
+
+**Search**
+
+- **Conversations** / **Transcripts** — Indexed record counts; **Warning** while re-indexing
+- **Notes** — Whether Apple Notes tools are active
+
+#### Section actions
+
+Some sections include footer buttons:
+
+- **Open Permissions**, **Open Voice**, **Open Billing** — Jump to the relevant settings tab
+- **Open the Tools Manager** — Deep-link to MCP or active tools sections
+- **Check Automation** — Trigger System Events permission check (Permissions section)
+
+#### Doctor vs common-issues pages
+
+| Situation | Start here |
+|-----------|------------|
+| Broad "something is wrong" | **Settings → Doctor** |
+| Hotkey stopped working | [Keyboard Shortcut Not Working](/common-issues/hotkey-not-working) |
+| Mic not transcribing | [Microphone Not Working](/common-issues/mic-not-transcribing) |
+| Tool or MCP failure | [Tools Not Working](/common-issues/tool-not-working) + Doctor **Tools** section |
+| Computer Use permission errors | Doctor **Permissions** + [Computer use settings](/how-to/settings-guide#computer-use) |
+
 ## Related Docs
 
 - [Getting Started with Alter](/getting-started/getting-started-path)
 - [Dictation & Voice](/workflows/dictation)
 - [Choosing Your Generative Model](/how-to/choose-generative-model)
 - [API Gateway & Router Service](/api-router/api-gateway)
+- [Computer Use overview](/apps-tools/computer-use)
+- [Background Computer Use](/apps-tools/computer-use-background)
+- [QuickHub Mode](/getting-started/quickhub-mode)
+- [Edge Bar](/getting-started/edge-bar)
+- [Share task traces](/workflows/share-task-traces)
+- [Shortcuts reference](/references/shortcuts)

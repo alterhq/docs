@@ -1,0 +1,134 @@
+---
+title: "Edge Bar"
+description: "Reveal quick actions from your screen edge — meetings, QuickHub, chats, and Computer Use sessions"
+---
+
+The **Edge Bar** is a vertical launcher that appears when you move your pointer to an enabled screen edge. It gives you one-click access to meetings, QuickHub, new chats, and attach — without hunting for a hotkey or the menu bar. During **Background Computer Use** runs, session cards and the live preview also live here.
+
+Edge Bar requires **QuickHub Mode**. If you turn QuickHub Mode off, Edge Bar settings are disabled and the launcher does not appear. See [QuickHub Mode](/getting-started/quickhub-mode) for the full interface model.
+
+## When to use Edge Bar
+
+Use Edge Bar when:
+
+- You want a **mouse-driven** way to open QuickHub or start a meeting from any app
+- You work across **multiple monitors** and want edge triggers on outer (or all inner) edges
+- You run **Computer Use** in the background and want session status, stop controls, and **Watch preview** nearby
+- You prefer dragging files onto the edge launcher instead of into a floating QuickHub window
+
+For keyboard-first access, use **⌘⇧Space** (**Open QuickHub**) or **Open QuickHub and Attach** from **Settings → Shortcuts → Global**. Edge Bar complements those shortcuts; it does not replace them.
+
+## How Edge Bar appears
+
+1. Enable at least one edge under **Settings → General → Edge Bar**
+2. Move your pointer to that **inner screen edge** (the edge of the display, not the notch)
+3. The launcher **reveals** as you approach — closer to the edge means more visible
+4. Click an icon to run that action
+5. **Drag the bar vertically** along the edge to reposition it; Alter remembers the position **per edge and per monitor**
+
+On a **single display**, enabled left and right edges are always available. On **multiple displays**, only **outer** edges are used by default (the left edge of your leftmost monitor and the right edge of your rightmost monitor). This avoids accidental triggers when moving the cursor between screens.
+
+Turn on **All monitor edges** to enable your selected left/right edges on **every** monitor, including edges **between** displays.
+
+## Edge Bar actions
+
+When no meeting is recording, the launcher shows these actions (top to bottom):
+
+| Action | What it does |
+|--------|----------------|
+| **Start Meeting** | Begin meeting recording with microphone and system audio |
+| **Summarize Video** | Summarize the active browser video (shown when a supported page is detected) |
+| **Open QuickHub** | Open the floating QuickHub window |
+| **New Chat** | Start a fresh QuickHub conversation |
+| **Attach** | Attach QuickHub to the side of the frontmost app |
+
+While a **meeting is recording**, the launcher switches to meeting controls: **Start Meeting** (stop/toggle), **Live Notepad**, **Live Captions**, then **New Chat** and **Attach** below a separator.
+
+During **dictation**, a shorter set appears: **Start Meeting**, **New Chat**, and **Attach**.
+
+## Computer Use sessions
+
+When a **Computer Use** task runs in the background, an **Edge Bar session card** appears alongside the launcher. Each card shows:
+
+- The task **goal** (truncated; hover for the full text)
+- **Status** — what the agent is doing (reading accessibility trees, clicking, scrolling, and so on)
+- **Target app** — icon, name, and window title once bound
+- **Stop** — cancel the run immediately
+
+Completed, failed, or stopped sessions update to a terminal state and auto-dismiss after a short delay. The **floating live preview** (picture-in-picture of the agent's target window) is managed from the same Edge Bar area — open it from the session card or from **Watch preview** in the Tool Inspector.
+
+See [Background Computer Use](/apps-tools/computer-use-background) for the full background-run workflow.
+
+## Drop target
+
+While the Edge Bar is visible, you can **drag and drop** onto it — the same content types QuickHub accepts (files, text, URLs, and other supported pasteboard items). Alter routes dropped items into the active or new QuickHub conversation, similar to dropping onto the QuickHub window itself.
+
+## Configure Edge Bar
+
+Open **Settings → General** (⌘,) and scroll to the **Edge Bar** section. All controls are disabled when **QuickHub Mode** is off.
+
+### Left edge / Right edge
+
+Toggle **Left edge** and **Right edge** independently. Defaults: **Right edge** on, **Left edge** off.
+
+### All monitor edges
+
+**All monitor edges** — *Use selected left/right edges on every monitor, including edges between displays.*
+
+When off (default), only outer edges on a multi-monitor setup are eligible. When on, every enabled edge on every connected display can reveal the launcher.
+
+### Opening distance
+
+**Opening distance** — *0% sticks to the edge; 100% uses the default distance.*
+
+A slider from **0%** to **100%** in **25%** steps controls how far from the edge the launcher begins to reveal:
+
+- **0%** — You must push the pointer against the physical edge; the bar stays tight to the bezel
+- **100%** (default) — Standard reveal distance; the launcher appears before you reach the absolute edge
+- Intermediate values (25%, 50%, 75%) blend between those extremes
+
+Use a lower value if you trigger Edge Bar accidentally when moving between apps; use a higher value if you want the launcher to appear sooner.
+
+<Tip>
+  Full Edge Bar and QuickHub Mode settings live under **Settings → General**. Shortcut customization is in **Settings → Shortcuts** — see [Configuring Alter Settings](/how-to/settings-guide#general).
+</Tip>
+
+## Troubleshooting
+
+**Edge Bar never appears**
+
+- Confirm **QuickHub Mode** is on (**Settings → General → QuickHub Mode**)
+- Enable at least **Left edge** or **Right edge**
+- On multiple monitors without **All monitor edges**, try the **outer** left or right edge of your display group
+- Check that another app is not capturing mouse events at the screen edge
+
+**Launcher appears on the wrong monitor**
+
+- Enable **All monitor edges** if you need inner edges between displays
+- Reposition the bar by dragging it vertically on the edge where you want it; positions are saved per monitor
+
+**Computer Use card missing**
+
+- Edge Bar sessions require QuickHub Mode and an active `computer_use_task` run
+- Open **Watch preview** from the Tool Inspector if the floating preview is hidden
+
+**Settings are grayed out**
+
+- Edge Bar requires QuickHub Mode. The footer reads: *Edge Bar requires QuickHub Mode to be enabled.*
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="QuickHub Mode" icon="square.on.square" href="/getting-started/quickhub-mode">
+    Default interface, attach/detach, and shortcuts
+  </Card>
+  <Card title="Background Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use-background">
+    Edge Bar session cards and live preview
+  </Card>
+  <Card title="General settings" icon="gear" href="/how-to/settings-guide#general">
+    QuickHub Mode and Edge Bar toggles
+  </Card>
+  <Card title="Window types" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    QuickHub, Hub, and panel overview
+  </Card>
+</CardGroup>

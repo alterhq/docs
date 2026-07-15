@@ -1,0 +1,146 @@
+---
+title: "QuickHub Mode"
+description: "Alter's default conversation interface — floating QuickHub vs the legacy notch"
+---
+
+**QuickHub Mode** is Alter's primary conversation interface. When enabled, every chat opens in **QuickHub** — a floating panel you can move, attach to app windows, or summon from the screen edge. New installs default to QuickHub Mode on (`useQuickHub = true` as of **2.0.0-beta100**).
+
+Turn QuickHub Mode off to return to the **notch**-centric experience: hover the camera notch to open the compact quick menu instead of QuickHub.
+
+## QuickHub vs the notch
+
+| | **QuickHub Mode on** (default) | **QuickHub Mode off** |
+|---|---|---|
+| Primary UI | Floating **QuickHub** panel | **Notch** hover menu |
+| Global open shortcut label | **Open QuickHub** | **Open notch** |
+| Edge Bar | Available | Disabled |
+| Attach to apps | Yes — dock beside any window | Limited notch layout |
+| Best for | Daily chat, attach workflows, Edge Bar | Minimal notch-only setup |
+
+QuickHub is not a separate product from the Hub — it is the **lightweight conversation surface**. Open any QuickHub chat in the full **Hub** window with **Open in Hub** (default **⌘O**) when you need tabs, sidebar, and workspace management.
+
+<Tip>
+  Most new users should leave **QuickHub Mode** enabled. The notch remains available in **Settings → Appearance → Display Notch** for status indication; it is no longer the only way to chat.
+</Tip>
+
+## Enable or disable QuickHub Mode
+
+1. Open **Settings** (⌘,)
+2. Go to **General**
+3. Toggle **QuickHub Mode** — *Use QuickHub for all conversations instead of the notch*
+
+When you disable QuickHub Mode, **Edge Bar** settings gray out and the screen-edge launcher stops appearing.
+
+## Opening QuickHub
+
+**From anywhere (global)**
+
+- **⌘⇧Space** — **Open QuickHub** (default; configurable in **Settings → Shortcuts → Global**)
+- **Open QuickHub and Attach** — opens QuickHub and attaches to a chosen side using your configured trigger (see below)
+- **Edge Bar** — move to an enabled screen edge and click **Open QuickHub** or **New Chat** — see [Edge Bar](/getting-started/edge-bar)
+
+**From the Hub**
+
+- **New Hub Chat** — **⌥Space** (default) starts a fresh Hub conversation; QuickHub conversations share the same shortcut categories under **Hub & QuickHub**
+
+## Attach, detach, and pin
+
+QuickHub can **dock beside** the frontmost app window so you chat while working in Mail, Safari, Xcode, or any other app.
+
+### Attach shortcuts
+
+Configure under **Settings → Shortcuts → QuickHub**:
+
+| Shortcut | Default | Action |
+|----------|---------|--------|
+| **Attach Left** | **⌃⌘←** | Dock QuickHub to the left side of the active app |
+| **Attach Right** | **⌃⌘→** | Dock QuickHub to the right side of the active app |
+| **Detach Window** | **⌃⌘↓** | Return QuickHub to its floating position |
+| **Pin Window** | **⌘⌥P** | Pin or unpin QuickHub so it stays above other windows |
+
+You can also click **Attach** from the **Edge Bar** launcher when QuickHub Mode is on.
+
+### Open QuickHub and Attach
+
+Under **Settings → Shortcuts → Global**, **Open QuickHub and Attach** combines open + attach in one gesture:
+
+- **Attach behavior** picker — **Attach Left** or **Attach Right** (default **Attach Right**)
+- **Shortcut** picker — choose the double-tap modifier that triggers attach-on-open:
+  - **Double tap ⌘** (default)
+  - **Double tap ⌥**
+  - **Double tap ⌃**
+  - **Double tap ⇧**
+  - **None** — disables the double-tap trigger; use the recorded shortcut only
+
+Double-tap the chosen modifier quickly to open QuickHub and attach to the selected side without pressing **⌃⌘←** or **⌃⌘→** separately.
+
+## Edge Bar dependency
+
+**Edge Bar** — the screen-edge launcher for meetings, chats, attach, and Computer Use session cards — **requires QuickHub Mode**. Edge hotspots summon QuickHub surfaces; they are not wired to the notch layout.
+
+If you rely on Edge Bar, keep QuickHub Mode enabled and configure edges under **Settings → General → Edge Bar**.
+
+## Impact on shortcut labels
+
+Several shortcuts change their **display name** when QuickHub Mode is toggled:
+
+- **Settings → Shortcuts → Global → Open QuickHub** vs **Open notch** — same shortcut slot (**⌘⇧Space** default), different label and description
+- **Hub & QuickHub** category shortcuts apply to whichever surface is active (Hub tab or QuickHub conversation)
+
+Search shortcuts in **Settings → Shortcuts** with **⌘F** while the Shortcuts tab is focused, or type in the **Search shortcuts** field at the top of the tab.
+
+## Typical workflows
+
+**Quick question while coding**
+
+Press **⌘⇧Space**, ask, press **Esc** or click away — QuickHub closes without opening the full Hub.
+
+**Side-by-side with an app**
+
+Press **⌃⌘→** (**Attach Right**) or use **Attach** from Edge Bar. QuickHub docks beside your editor or browser.
+
+**Long session → full Hub**
+
+Press **⌘O** (**Open in Hub**) to move the current QuickHub chat into a Hub tab with sidebar and history.
+
+**Background Computer Use**
+
+Start a Computer Use goal from QuickHub or the Hub. The agent runs in the background; session status appears in **Edge Bar** while you keep working. See [Background Computer Use](/apps-tools/computer-use-background).
+
+## Troubleshooting
+
+**⌘⇧Space opens the notch instead of QuickHub**
+
+- Enable **QuickHub Mode** under **Settings → General**
+- Confirm **Settings → Shortcuts → Global** shows **Open QuickHub**, not **Open notch**
+
+**Attach shortcuts do nothing**
+
+- QuickHub must be open or opening; attach targets the **frontmost** app window
+- Some full-screen or elevated-security apps block window docking — try **Detach Window** (**⌃⌘↓**) and use floating QuickHub instead
+
+**Edge Bar missing**
+
+- Edge Bar requires QuickHub Mode and at least one enabled edge — see [Edge Bar](/getting-started/edge-bar)
+
+**Double-tap ⌘ opens QuickHub attached when I only wanted Command**
+
+- Change **Open QuickHub and Attach → Shortcut** to **None**, or pick a modifier you rarely double-tap
+- Or disable **Open QuickHub and Attach** by clearing its recorded shortcut
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Edge Bar" icon="sidebar.right" href="/getting-started/edge-bar">
+    Screen-edge launcher and Computer Use sessions
+  </Card>
+  <Card title="Window types" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    QuickHub, Hub, and panels overview
+  </Card>
+  <Card title="Shortcuts settings" icon="keyboard" href="/how-to/settings-guide#shortcuts">
+    Full shortcut editor walkthrough
+  </Card>
+  <Card title="Shortcuts reference" icon="list" href="/references/shortcuts">
+    Complete default shortcut inventory
+  </Card>
+</CardGroup>

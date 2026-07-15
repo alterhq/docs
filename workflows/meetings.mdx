@@ -34,7 +34,7 @@ When a meeting is detected, Alter displays a subtle notification giving you the 
 
 <Steps>
   <Step title="Enable auto-record">
-    Settings → Dictation → **Auto Record Meetings**
+    Settings → Voice → **Auto Record Meetings**
   </Step>
   <Step title="Set threshold">
     Define minimum length (default: 120 seconds)
@@ -80,7 +80,7 @@ You can also manually control recordings:
 
 <Steps>
   <Step title="Start recording">
-    Click the mic icon on the notch – it turns into a red recording button
+    Click the mic icon in QuickHub (or the notch when QuickHub Mode is off) — it turns into a red recording button
   </Step>
   <Step title="Monitor">
     The mic animates during transcription
@@ -95,6 +95,29 @@ You can also manually control recordings:
 ## Speaker Identification
 
 Alter uses **Pyannote 4 (Community-1)**, state-of-the-art AI for speaker diarization.
+
+### Speaker name matching (beta93+)
+
+When cloud transcription is available, enable **Find speakers names (experimental)** in **Settings → Voice → Automation**. Alter can suggest real names instead of generic "Speaker 1" labels:
+
+- **Calendars for speaker matching** — Choose which Apple calendars to use. Alter matches the recording to calendar events and attendee lists.
+- **Contacts for speaker matching** — Grant Contacts access so attendee emails resolve to display names.
+- **Manual calendar event selection** — Link a transcript to a specific calendar event when auto-match is wrong.
+
+<Steps>
+  <Step title="Open Voice settings">
+    **Settings → Voice → Automation**
+  </Step>
+  <Step title="Enable speaker matching">
+    Turn on **Find speakers names (experimental)**
+  </Step>
+  <Step title="Select calendars">
+    Pick the calendars that hold your work meetings (or select all)
+  </Step>
+  <Step title="Grant Contacts">
+    Allow Contacts when prompted for attendee name resolution
+  </Step>
+</Steps>
 
 <CardGroup cols={3}>
   <Card title="Perfect ID" icon="check-circle">
@@ -117,6 +140,10 @@ Alter uses **Pyannote 4 (Community-1)**, state-of-the-art AI for speaker diariza
   </Card>
 </CardGroup>
 
+### Cloud transcription (Soniox V5)
+
+When you use the **Cloud** voice processor, Alter routes meeting transcription through the **Soniox V5** engine (beta96+) for higher accuracy on accents and technical vocabulary. Cloud processing requires login and fair-use eligibility; local **Whisper Pro** and **Parakeet** options remain fully offline.
+
 ### Fast Transcription with Whisper Pro
 
 <CardGroup cols={2}>
@@ -133,6 +160,31 @@ Alter uses **Pyannote 4 (Community-1)**, state-of-the-art AI for speaker diariza
     Ideal for back-to-back meetings
   </Card>
 </CardGroup>
+
+---
+
+## Get value from transcripts
+
+Once a meeting is transcribed, ask Alter for structured follow-up:
+
+<CardGroup cols={2}>
+  <Card title="Get action items" icon="check-circle">
+    "List all action items from this meeting and who is responsible for each"
+  </Card>
+  <Card title="Summarize decisions" icon="gavel">
+    "What decisions were made? List them with context"
+  </Card>
+  <Card title="Find specific topics" icon="search">
+    "What did we say about the budget, timeline, or API?"
+  </Card>
+  <Card title="Create follow-up email" icon="envelope">
+    "Draft a follow-up email summarizing this meeting for the team"
+  </Card>
+</CardGroup>
+
+<Tip>
+  Search across meetings: type `#` in the prompt box to search past conversations, or `>` for meeting transcript history.
+</Tip>
 
 ---
 
@@ -362,11 +414,8 @@ Alter provides intelligent suggestions:
   <Card title="Dictation" icon="microphone" href="/workflows/dictation">
     Voice processing options
   </Card>
-  <Card title="Settings" icon="settings" href="/how-to/settings-guide">
-    Configure meeting recording
-  </Card>
-  <Card title="Use Case: Meetings" icon="briefcase" href="/workflows/meeting-workflow">
-    Complete meeting workflow
+  <Card title="Settings" icon="settings" href="/how-to/settings-guide#voice">
+    Configure meeting recording and speaker matching
   </Card>
   <Card title="Keyboard Shortcuts" icon="keyboard" href="/references/shortcuts">
     Meeting-related shortcuts

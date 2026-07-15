@@ -35,7 +35,7 @@ Think of an Alter Action as a "specialized AI assistant" customized for a specif
 ![Options Menu](/images/tools/options-menu-action-editor.webp)
 
 ### Method 3: Keyboard Shortcut
-Press **⌘ E** (Command + E) to open the Action Editor directly
+Press **⌘⇧E** (Command + Shift + E) to open the Action Editor directly
 
 <Tip>
   The keyboard shortcut is the fastest method once you've memorized it.
@@ -158,6 +158,8 @@ Scope which tools are available for this action.
 - When empty: All tools are available
 - When configured: Only selected tools are available
 
+**Ask Anything defaults (beta100+):** The built-in **Ask Anything** action enables **Flow**, **Computer Use**, and **Ask User** out of the box. Customize or duplicate it if you want a narrower tool set.
+
 **Why Scope Tools?**
 - Reduce AI decision overhead (focus on relevant tools)
 - Speed up action execution
@@ -276,7 +278,7 @@ x-callback-url is an inter-app communication protocol that lets applications tri
 
 <Steps>
   <Step title="Open Action Editor">
-    Press **⌘ E**
+    Press **⌘⇧E**
   </Step>
   <Step title="Select Action">
     Choose the action you want to expose
@@ -335,7 +337,7 @@ alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 
 | Action | Shortcut |
 |--------|----------|
-| Open Action Editor | `⌘ E` |
+| Open Action Editor | `⌘⇧E` |
 | New Action | `Cmd + N` (in editor) |
 | Save Action | `Cmd + S` (in editor) |
 | Delete Action | `Cmd + Delete` (in editor) |
@@ -378,6 +380,6 @@ alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 
 ---
 
-**Ready to build?** Open Alter, press `⌘ E`, and start creating your first action!
+**Ready to build?** Open Alter, press **⌘⇧E**, and start creating your first action!
 
 **Want to automate across apps?** Use x-callback-urls to trigger actions from Safari, Shortcuts, Notes, or any app that supports URL schemes.

@@ -5,6 +5,10 @@ description: "Pause execution between Computer Use actions"
 
 Use Wait to add timing gaps between UI actions when pages, dialogs, or app states need time to update.
 
+<Tip>
+  Inside [**Computer Use**](/apps-tools/computer-use), the subagent calls `wait` only when an accessibility read is empty or still loading — not before every step. See the [agent tools reference](/apps-tools/computer-use-agent-tools).
+</Tip>
+
 ## What it does
 
 - Pauses execution for a given number of seconds.

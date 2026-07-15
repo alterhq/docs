@@ -1,22 +1,28 @@
 ---
 title: "Perform"
-description: "Run click, fill, and shortcut actions against UI elements"
+description: "Run click, fill, type, and shortcut actions against UI elements"
 ---
 
 Use this tool to execute concrete UI interactions after you identify targets with Get Active App Context.
 
+<Tip>
+  For multi-step UI work, prefer the [**Computer Use**](/apps-tools/computer-use) agent (`computer_use_task`), which calls `perform` and [`perform_sequence`](/apps-tools/computer-use-agent-tools) automatically. See the [agent tools reference](/apps-tools/computer-use-agent-tools) for batching rules.
+</Tip>
+
 ## Supported actions
 
-- `click`: click a target element.
-- `fill`: enter text into a text field or textarea.
-- `shortcut`: send keyboard shortcuts (for example `cmd+c`, `ctrl+shift+t`).
+- `click`: Click a target element (default).
+- `fill`: Enter text into a text field or textarea identified by `elementID`.
+- `type`: Type raw keystrokes into whatever currently has keyboard focus — no `elementID` needed (useful for apps without a fillable field, e.g. typing a full expression into Calculator).
+- `shortcut`: Send keyboard shortcuts (for example `cmd+c`, `ctrl+shift+t`).
 
 ## Inputs
 
-- `elementID` (required for `click` and `fill`): element ID from Get Active App Context output.
-- `text` (required for `fill`): value to insert in the target input.
-- `shortcut` (required for `shortcut`): shortcut string.
-- `windowID` (optional): target a specific window (`pid/title`) instead of the active one.
+- `action` (optional): `click`, `fill`, `type`, or `shortcut` (default `click`).
+- `elementID` (required for `click` and `fill`): Element ID from Get Active App Context output.
+- `text` (required for `fill` and `type`): Value to insert or keystrokes to type.
+- `shortcut` (required for `shortcut`): Shortcut string.
+- `windowID` (optional): Target a specific window (`pid/title`) instead of the active one.
 
 ## Notes
 

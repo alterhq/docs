@@ -5,16 +5,21 @@ description: "Scroll active app windows in Computer Use flows"
 
 Use Scroll when target content is outside the current viewport.
 
+<Tip>
+  The [**Computer Use**](/apps-tools/computer-use) agent calls `scroll` as part of its background loop. See [agent tools](/apps-tools/computer-use-agent-tools) for window targeting and [Background Computer Use](/apps-tools/computer-use-background) for non-blocking runs.
+</Tip>
+
 ## What it does
 
-- Scrolls in the frontmost app window.
+- Scrolls in the frontmost app window (or a specific background window when `windowID` is set).
 - Supports direction: `up`, `down`, `left`, `right`.
-- Runs for a timed duration.
+- Runs for a timed duration in milliseconds.
 
 ## Inputs
 
-- `seconds` (optional): duration to scroll (default 3, max 3600).
+- `milliseconds` (optional): Duration to scroll in milliseconds (default **3000**, max **3600000**).
 - `direction` (optional): `up`, `down`, `left`, or `right` (default `down`).
+- `windowID` (optional): Target a specific window (`pid/title` or stable `pid/windowNumber` from `list_windows`).
 
 ## Typical use
 

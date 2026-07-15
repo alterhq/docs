@@ -1,10 +1,10 @@
 ---
-title: "Window Types: Notch, Hub, and Panels"
-description: "Understand Alter's interface modes, including Notch interactions, The Hub, and the Quick Panel"
+title: "Window Types: QuickHub, Hub, and Panels"
+description: "Understand Alter's interface modes — QuickHub (default), the Hub, Edge Bar, and the legacy notch"
 ---
 
 <Info>
-  **Two interfaces, one powerful experience.** Use the Quick Panel for fast interactions and The Hub for deep work.
+  **QuickHub is the default.** New users get floating QuickHub for fast chat; use the Hub for deep work. See [QuickHub Mode](/getting-started/quickhub-mode) and [Edge Bar](/getting-started/edge-bar).
 </Info>
 
 ## Two Ways to Interact
@@ -13,8 +13,8 @@ description: "Understand Alter's interface modes, including Notch interactions, 
   <Card title="The Hub" icon="layout">
     Full workspace with tabs, sidebar, and comprehensive management
   </Card>
-  <Card title="Quick Panel" icon="message-square">
-    Lightweight floating panel for quick queries and voice commands
+  <Card title="QuickHub" icon="message-square">
+    Default floating panel for quick queries, attach workflows, and voice commands
   </Card>
 </CardGroup>
 
@@ -33,12 +33,16 @@ Alter provides two main interfaces for interacting with AI:
     - Reviewing meeting transcripts
   </Accordion>
   
-  <Accordion icon="message-circle" title="Quick Panel">
-    The lightweight floating panel accessible from the notch or hotkey. Perfect for:
+  <Accordion icon="message-circle" title="QuickHub">
+    The default lightweight panel (when **QuickHub Mode** is on). Open with **⌘⇧Space**, from the [Edge Bar](/getting-started/edge-bar), or attach beside any app with **⌃⌘←** / **⌃⌘→**. Perfect for:
     - Quick queries
     - Voice commands
     - Fast context additions
-    - Rapid interactions
+    - Side-by-side work with attach mode
+  </Accordion>
+
+  <Accordion icon="camera" title="The notch (legacy)">
+    When **QuickHub Mode** is off, hover the camera notch for the compact quick menu. Most users should keep QuickHub Mode enabled — see [QuickHub Mode](/getting-started/quickhub-mode).
   </Accordion>
 </AccordionGroup>
 
@@ -96,7 +100,8 @@ Alter provides two main interfaces for interacting with AI:
 | `Cmd + W` | Close active tab |
 | `Cmd + Option + →` | Next tab |
 | `Cmd + Option + ←` | Previous tab |
-| `Cmd + K` | Clear all contexts |
+| `Cmd + Shift + X` | Clear all contexts |
+| `Cmd + K` | Open Command Palette |
 | `Cmd + Delete` | Delete active conversation |
 
 ### Managing Contexts
@@ -109,7 +114,7 @@ Alter provides two main interfaces for interacting with AI:
     Use arrow keys to move between contexts
   </Step>
   <Step title="Clear">
-    Press `Cmd + K` to remove all contexts
+    Press `Cmd + Shift + X` to remove all contexts
   </Step>
 </Steps>
 
@@ -131,9 +136,9 @@ Toggle the Inspector using the sidebar icon or inspector button.
 
 ---
 
-## Quick Panel Interface
+## QuickHub Interface
 
-The Quick Panel (accessible from the notch) is divided into three sections:
+QuickHub (the default when **QuickHub Mode** is on) is divided into three sections:
 
 <CardGroup cols={3}>
   <Card title="1. Context" icon="layers">
@@ -149,7 +154,7 @@ The Quick Panel (accessible from the notch) is divided into three sections:
 
 ### Navigation
 
-Use keyboard shortcuts in the Quick Panel:
+Use keyboard shortcuts in QuickHub:
 - `←`, `↑`, `→`, `↓` - Navigate between objects
 - `Enter` - Select an object
 - `@` - Add elements to context
@@ -198,7 +203,8 @@ The **Context** section displays elements sent to Alter for reference.
 |-----|--------|
 | `←` `↑` `→` `↓` | Navigate contexts |
 | `Space` | Add/remove selected |
-| `Cmd + K` | Remove all contexts |
+| `Cmd + Shift + X` | Remove all contexts |
+| `Cmd + K` | Open Command Palette |
 
 ### Using Your Clipboard
 
@@ -358,6 +364,12 @@ Export as markdown for documentation or sharing:
 ## Related Resources
 
 <CardGroup cols={2}>
+  <Card title="QuickHub Mode" icon="square.on.square" href="/getting-started/quickhub-mode">
+    Default UX, attach/detach, and shortcuts
+  </Card>
+  <Card title="Edge Bar" icon="sidebar.right" href="/getting-started/edge-bar">
+    Screen-edge launcher and Computer Use sessions
+  </Card>
   <Card title="Core Features" icon="sparkles" href="/getting-started/core-features">
     Workspaces, Actions, and more
   </Card>

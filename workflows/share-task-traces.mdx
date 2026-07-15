@@ -1,0 +1,137 @@
+---
+title: "Share and Export Task Traces"
+description: "Export task conversations as markdown, share traces with the Alter team, and open subagent chats from the Tool Inspector"
+---
+
+When Alter runs a **task-producing tool** — **Computer Use**, **Flow**, or other agents that spawn a sub-conversation — the parent chat shows a tool run in the **Tool Inspector**. From there you can **open the full task thread**, **export it as markdown**, or **share a trace** with the Alter team for debugging.
+
+This workflow is separate from saving a normal Hub conversation with **Save Conversation as Markdown** (**⌘⇧S**). Task traces capture the **subagent's** back-and-forth, including tool calls the parent message triggered.
+
+## When to use each option
+
+| Action | Use when |
+|--------|----------|
+| **Open in tab** | You want to read the full task conversation inside Alter |
+| **Export Chat** | You need a local **.md** file for your records, docs, or offline review |
+| **Share trace** | Something failed or behaved unexpectedly — send diagnostics to the Alter team |
+| **Save Conversation as Markdown** (**⌘⇧S**) | You want the **parent** Hub/QuickHub chat exported, not just the task sub-thread |
+
+## Where to find task actions
+
+1. Run a task-producing tool (for example ask Alter to **Computer Use** a goal, or invoke **Flow**)
+2. In the **Hub** or **QuickHub**, open the **Inspector** panel for the conversation (sidebar inspector toggle)
+3. Select the **tool run** in the inspector — the row for `computer_use_task`, Flow, or another task agent
+4. Scroll to the **task conversation** action block (highlighted accent background)
+
+Three actions appear:
+
+- **Open in tab**
+- **Export Chat**
+- **Share trace**
+
+While a share is uploading, the button shows **Sharing trace...** and is disabled until the request completes.
+
+For **Computer Use** runs that are still active, the inspector may also show **Watch preview** to reopen the floating live preview — see [Background Computer Use](/apps-tools/computer-use-background).
+
+## Open in tab
+
+**Open in tab** jumps to the **read-only task conversation** — the subagent thread with its own messages, tool calls, and results. Use this when:
+
+- The parent reply summarized the outcome but you want step-by-step detail
+- You need to copy a specific tool argument or result from the sub-thread
+- You are reviewing a long **Computer Use** run before exporting
+
+The task tab opens in the Hub context. If you triggered the tool from QuickHub, **Open in Hub** (**⌘O**) first when you need the full tabbed Hub layout.
+
+## Export Chat
+
+**Export Chat** saves the task conversation as a **Markdown document**:
+
+1. Click **Export Chat** in the Tool Inspector
+2. Choose a location in the save panel (defaults to **Downloads**)
+3. Alter writes a `.md` file named from the task title (or **Task Chat** if untitled)
+4. Finder opens the containing folder
+
+The export includes the task title and formatted messages from the subagent conversation — the same content Alter uses for trace sharing, but saved **locally on your Mac**.
+
+<Tip>
+  To export the **parent** conversation (everything visible in the main chat, not just the subagent thread), use **Save Conversation as Markdown** — default **⌘⇧S** under **Settings → Shortcuts → Hub**.
+</Tip>
+
+## Share trace
+
+**Share trace** uploads a diagnostic bundle to Alter's API so the team can investigate bugs, permission failures, or unexpected agent behavior.
+
+### Requirements
+
+- You must be **signed in** to Alter (a valid account JWT). If you are logged out, sharing fails with an authentication error.
+- A task conversation must exist for the selected tool run — the inspector derives it from the tool result or the live task registry.
+
+### What is sent
+
+The upload includes:
+
+- **Title** — task conversation title
+- **Markdown** — formatted task messages (same as Export Chat)
+- **Tool name** — for example `computer_use_task` or a Flow tool id
+- **Task conversation id** — internal identifier linking parent and sub-thread
+- **App version** — Alter build string for reproduction
+
+On success, Alter shows **Trace Shared** — *The trace was shared with the Alter team.*
+
+On failure, **Share Trace Failed** displays the error (network, auth, or server).
+
+### Privacy expectations
+
+Traces are intended for **support and debugging**, not public sharing:
+
+- Content reflects what the **task subagent** saw and did — prompts, tool arguments, and results
+- **Screen content**, window titles, and file paths from Computer Use may appear in the markdown if the agent captured them
+- Home directory paths in Doctor reports are redacted when you use **Copy Report**, but task exports are **not** automatically redacted — review before sharing if the run touched sensitive apps
+
+Do not share traces that include passwords, financial data, or confidential documents unless you intend to expose that information to Alter support.
+
+## Save Conversation as Markdown (parent chat)
+
+**Save Conversation as Markdown** — default **⌘⇧S** — exports the **active Hub or QuickHub conversation** to markdown via the Hub menu or shortcut. It does **not** replace **Export Chat** on a tool run:
+
+- **⌘⇧S** → entire parent thread (your messages + assistant replies + tool summaries as shown in main chat)
+- **Export Chat** (inspector) → subagent task thread only
+
+Customize **Save Conversation as Markdown** in **Settings → Shortcuts → Hub**.
+
+## Troubleshooting
+
+**Task actions missing in the inspector**
+
+- The tool must be a **task-producing** run with an associated sub-conversation
+- Wait for the tool to finish starting — some agents register the task id after the first subagent message
+
+**Export Chat beeps and does nothing**
+
+- The task conversation was released from memory — re-run the tool or open the parent conversation while the task is still loaded
+
+**Share trace fails with login error**
+
+- Sign in under **Settings → Profile** or the account menu, then retry
+
+**I need a shareable public link**
+
+- **Share trace** uploads to Alter support; it does not copy a public URL to your clipboard. Use **Export Chat** and share the `.md` file through your own channels if you need a link outside Alter.
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use">
+    Goal-based agent that produces task conversations
+  </Card>
+  <Card title="Background Computer Use" icon="play.rectangle" href="/apps-tools/computer-use-background">
+    Watch preview and Edge Bar sessions
+  </Card>
+  <Card title="Shortcuts reference" icon="keyboard" href="/references/shortcuts">
+    ⌘⇧S and Hub shortcuts
+  </Card>
+  <Card title="Doctor settings" icon="stethoscope" href="/how-to/settings-guide#doctor">
+    Permission diagnostics when tools fail
+  </Card>
+</CardGroup>

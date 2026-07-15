@@ -1,30 +1,199 @@
 ---
 title: "Overview"
-description: "Screen-based automation and extraction with Computer Use tools"
+description: "Goal-based Computer Use agent for macOS UI automation — describe a task, Alter drives the apps"
 ---
 
-Computer Use gives Alter a UI execution layer for desktop workflows. It can inspect windows, interact with UI elements, and pace multi-step flows.
+Computer Use is Alter's **UI automation layer** for macOS. Instead of chaining low-level tools yourself, describe what you want in plain language and the **Computer Use** agent (`computer_use_task`) reads accessibility trees, clicks, scrolls, opens apps, and returns the result.
 
-## Tool set
+Since **2.0.0-beta100**, Computer Use runs **in the background** by default: you keep working while the agent operates a target window, with a live preview and Edge Bar session card. See [Background Computer Use](/apps-tools/computer-use-background) for the full non-blocking workflow.
 
-- [Get Active App Context](/apps-tools/computer-use-get-active-app-context)
+## The `computer_use_task` agent
+
+**Computer Use** is a goal-based subagent. You pass a single **`goal`** string; Alter spins up an internal task loop that calls UI tools until the job is done or you stop it.
+
+### Parameters
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `goal` | Yes | The complete UI task — name apps, URLs, negative constraints ("do not submit"), and what to return |
+| `windowID` | No | Target an existing window using `pid/title` or stable `pid/windowNumber` from `list_windows` |
+
+Example goal:
+
+```
+Open Calculator, compute 354+73, and return only the numeric result.
+Do not open any other apps.
+```
+
+Example with explicit window:
+
+```
+In windowID 4280/Mail — Inbox, read the subject lines of the first five unread messages and list them.
+```
+
+### How to invoke it
+
+**Ask Anything (default)** — Computer Use is enabled by default for new sessions alongside Flow and Ask User. Ask in natural language:
+
+> "Use Computer Use to fill the job application form in Safari but don't click Submit."
+
+Alter's parent agent calls `computer_use_task` with your request as the `goal`.
+
+**Tool Manager** — Enable **Computer Use** (`computer_use_task`) for custom Actions or MCP workflows. The tool is **LLM-only**: it is meant to be chosen by the model, not run manually with fixed parameters in most cases.
+
+## What the agent does
+
+When `computer_use_task` runs, Alter:
+
+1. Builds **system instructions** for the subagent (AX-first workflow, batching rules, safety constraints)
+2. Injects **live context** — today's date, your frontmost window ID, agent browser name, and your **app profile** (preferred Spotify vs YouTube for music, etc.)
+3. Starts a **background session** (Edge Bar card + optional live preview)
+4. Delegates to the **`task` primitive** with a fixed tool set and a **600 second** timeout
+5. Returns a **final answer** — full extracted data for scrape goals, short confirmation for action goals
+
+The subagent self-loops: read screen → act → re-read. It does **not** have workspace/bash/file tools; non-UI work stays with the parent orchestrator.
+
+## Tool set inside the subagent
+
+The Computer Use subagent receives these tools:
+
+| Tool | Role |
+|------|------|
+| `read_screen_ax` | Accessibility tree with `@elementID` tags (preferred over screenshots) |
+| `computer_use_screenshot` | Targeted app-window capture when visuals are required |
+| `perform` | Single click, fill, type, or shortcut |
+| `perform_sequence` | Batch multiple actions from one AX read |
+| `scroll` | Timed scroll in a background window |
+| `open_urls` | Open web pages (routed to agent browser when configured) |
+| `open_app` | Launch or focus a Mac app by bundle ID or name |
+| `list_windows` | Discover window IDs |
+| `wait` | Pause when AX read is empty or still loading |
+
+Full reference with parameters and examples: [Computer Use agent tools](/apps-tools/computer-use-agent-tools).
+
+## AX-first workflow
+
+The agent is tuned for **accessibility text**, not pixels:
+
+1. **`read_screen_ax`** with the target `windowID`
+2. **`perform`** or **`perform_sequence`** using `@elementID` values from that read
+3. **Re-read** after navigation, dialogs, scrolling, or shortcuts
+4. **`computer_use_screenshot`** only when the goal explicitly needs images — not for routine inspection
+
+**Batching:** When several clicks or fills target elements visible in the **same** read, the agent should use **`perform_sequence`** once instead of many `perform` calls. Re-read before any step that changes layout.
+
+**App guidance:** For apps like Calculator, Discord, Spotify, and X/Twitter, `read_screen_ax` may include an `<appGuidance>` block with faster techniques (for example Calculator `type` instead of clicking digits).
+
+## Background vs foreground presentation
+
+| Mode | Behavior |
+|------|----------|
+| **Background (`edgebarOnly`)** | Default for `computer_use_task`. QuickHub stays detached; overlay not drawn on target; input via `BackgroundInputDriver`; live preview + Edge Bar session |
+| **Foreground (attached)** | Legacy presentation for direct `perform` / `get_active_app_context` use outside the task agent; QuickHub may attach to the target window |
+
+All new goals should go through **`computer_use_task`** so you get background execution automatically.
+
+## Agent browser
+
+If you set **Settings → Computer use → Agent browser** to a dedicated browser, `open_urls` inside Computer Use opens pages there — not in your daily browser. This keeps agent logins separate. **Clean up when finished** closes agent tabs when the last session ends.
+
+## Writing effective goals
+
+### Name apps and constraints explicitly
+
+```
+Open Notes, create a new note titled "Q3 ideas", type three bullet points about
+team offsite ideas, and stop — do not share or sync the note anywhere else.
+```
+
+### Negative constraints
+
+The agent respects instructions **not** to submit, send, publish, post, buy, or confirm. Say so in the goal:
+
+```
+Fill the contact form on example.com with test data but do NOT click Submit.
+```
+
+### Extraction vs action goals
+
+| Goal type | Expected final answer |
+|-----------|----------------------|
+| **Extraction** (scrape links, list prices, copy text) | Complete content — every row/link/field, structured (list or markdown table), not a summary |
+| **Action** (toggle setting, send message) | Short confirmation of what was done |
+| **Blocked / partial** | Explanation of what failed plus any partial data gathered |
+
+### Example goals
+
+**Multi-app scrape**
+
+```
+Open https://news.ycombinator.com in the agent browser, extract the title and
+URL of each story on the front page, and return them as a markdown list.
+```
+
+**Form fill without submit**
+
+```
+In the frontmost Safari window, fill the newsletter signup with email test@example.com
+and name Test User. Stop before clicking Subscribe.
+```
+
+**Calculator**
+
+```
+Use Calculator to evaluate (128 * 7) + 45 and return only the final number.
+```
+
+## Manual tool chain (power users)
+
+Before the task agent, workflows chained primitive tools explicitly:
+
+1. `get_active_app_context` (or `read_screen_ax`)
+2. `perform`
+3. `scroll`
+4. `wait`
+
+That pattern still works in **Tool Manager** or custom Actions when you need **one** deterministic step without a subagent. For multi-step UI work, **`computer_use_task` is strongly preferred** — it batches actions, tracks windows, runs in the background, and applies app-specific recipes.
+
+| Use `computer_use_task` | Use primitives directly |
+|-------------------------|-------------------------|
+| Multi-step goals across apps or pages | Single click/fill you fully control |
+| Scraping, form fills, navigation | Debugging one Perform call in Tool Manager |
+| Default Ask Anything experience | Legacy Actions not yet migrated |
+
+Primitive references:
+
+- [Get Active App Context](/apps-tools/computer-use-get-active-app-context) — OCR-assisted read (agent prefers `read_screen_ax`)
 - [Perform](/apps-tools/computer-use-perform)
-- [Wait](/apps-tools/computer-use-wait)
 - [Scroll](/apps-tools/computer-use-scroll)
+- [Wait](/apps-tools/computer-use-wait)
 
-## Typical flow
+## Settings and permissions
 
-1. Read current UI state with **Get Active App Context**.
-2. Trigger UI actions with **Perform**.
-3. Use **Scroll** when the target element is off-screen.
-4. Add **Wait** between steps for loading or state transitions.
+- **Settings → Computer use** — agent browser, preview, blocked apps ([guide](/how-to/settings-guide#computer-use))
+- **Settings → Permissions** — Accessibility and Screen Recording required
+- **Settings → Doctor** — diagnose permission and automation issues
 
-## Best workflow
+## Troubleshooting
+
+| Symptom | What to try |
+|---------|-------------|
+| Tool not available | Enable **Computer Use** in Tool Manager; confirm Ask Anything defaults |
+| "Blocked" app error | App is on blocklist — **Settings → Computer use → Blocked apps** |
+| Wrong window | Pass `windowID`; ask agent to `list_windows` once |
+| Timeout at 10 min | Break goal into smaller tasks or stop and continue manually |
+| Stopped by user | Agent reports partial progress; confirm next step before re-running |
+
+See [Background Computer Use](/apps-tools/computer-use-background), [Tools Not Working](/common-issues/tool-not-working), and [Integrations troubleshooting](/apps-tools/integrations-troubleshooting).
+
+## Workflows
 
 - [Summarize your X feed with Computer Use](/workflows/summarize-x-feed-with-computer-use)
+- [Use Flow orchestration](/workflows/use-flow-orchestration) — Computer Use is a default Ask Anything tool
 
-## Setup and troubleshooting
+## Related docs
 
-- [Settings](/how-to/settings-guide)
-- [Manage tools](/how-to/tool-manager-guide)
-- [Tools Not Working](/common-issues/tool-not-working)
+- [Background Computer Use](/apps-tools/computer-use-background)
+- [Computer Use agent tools](/apps-tools/computer-use-agent-tools)
+- [Settings → Computer use](/how-to/settings-guide#computer-use)
+- [Tool Manager](/how-to/tool-manager-guide)
