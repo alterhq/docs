@@ -24,7 +24,7 @@ Click the three-dot menu icon (⋮) in the Alter notch and select **Settings**.
 
 ![Menu Bar Access](/images/settings/Alter-Menu_Bar-Menu.webp)
 
-### General Settings {#general}
+<h3 id="general">General Settings</h3>
 
 In the **General** tab, you configure QuickHub Mode, Edge Bar, selection assist, default model parameters, and notification rules.
 
@@ -55,7 +55,27 @@ Global shortcuts for opening QuickHub (**⌘⇧Space** default), the Hub (**⌘�
 
 ![General Settings](/images/settings/Alter-Settings_01_General-Beta71.webp)
 
-### 2. Voice Settings {#voice}
+<h3 id="memory">Memory Settings</h3>
+
+Open **Settings → Memory** from the General section in the left sidebar.
+
+**Use Memory**
+- Master switch for recall, automatic learning, and the Memory tool
+- Default: **on**
+- Turning Memory off preserves existing saved entries on your Mac
+
+**Ask before saving**
+- When **off** (default), facts you state directly in the current chat can save automatically after a turn
+- Facts learned from tools or recalled history still require approval
+- When **on**, every proposed save waits for your confirmation
+
+The Memory pane also lists every saved fact. Search, filter by scope or kind, open source chats or meetings, and forget entries you no longer want.
+
+**Just turned Memory on?** If the list is empty, run [Memory Catch-Up](/workflows/memory-catch-up) from a fresh Hub chat (**Give Memory a head start**) to seed facts from the last 30 days of chats and meetings before relying on everyday learning.
+
+For a full walkthrough, see [Manage Memory](/how-to/manage-memory), [Memory](/workflows/memory), and [Memory Catch-Up](/workflows/memory-catch-up).
+
+<h3 id="voice">2. Voice Settings</h3>
 
 The **Voice** tab controls how Alter processes and responds to audio:
 
@@ -203,7 +223,7 @@ The **Profile** tab manages your identity and preferences:
 
 ![Profile Settings](/images/settings/Alter-Settings_03_Profile-Beta71.webp)
 
-### 4. Appearance Settings {#appearance}
+<h3 id="appearance">4. Appearance Settings</h3>
 
 The **Appearance** tab controls the visual look and feel:
 
@@ -241,7 +261,7 @@ The **Billing** tab shows your subscription status:
 
 ![Billing Settings](/images/settings/Alter-Settings_05_Billing-Beta71.webp)
 
-### 6. Permissions Settings {#permissions}
+<h3 id="permissions">6. Permissions Settings</h3>
 
 The **Permissions** tab manages system access and data collection preferences:
 
@@ -258,7 +278,7 @@ Each permission can be enabled with quick-access buttons:
 
 ![Permissions Settings](/images/settings/Alter-Settings_06_Permissions-Beta71.webp)
 
-### 7. API Keys Settings {#external-api-keys}
+<h3 id="external-api-keys">7. API Keys Settings</h3>
 
 The **API keys** tab allows you to bring your own models:
 
@@ -302,7 +322,7 @@ When adding a custom provider, you can choose from:
 
 ![API Keys - Provider Type Dropdown](/images/settings/Alter-Settings_07e_APIkeys-ProviderTypes-Beta71.webp)
 
-### 8. Router Settings {#router}
+<h3 id="router">8. Router Settings</h3>
 
 The **Router** tab configures the default AI endpoint:
 
@@ -316,7 +336,7 @@ The **Router** tab configures the default AI endpoint:
 
 ![Router Settings](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
-### 9. Computer use Settings {#computer-use}
+<h3 id="computer-use">9. Computer use Settings</h3>
 
 The **Computer use** tab configures how Alter's UI automation agent drives apps, browsers, and the floating live preview introduced in **2.0.0-beta100**.
 
@@ -383,7 +403,7 @@ Computer Use requires **Accessibility** (to read AX trees and send clicks) and *
   Background runs, Edge Bar session cards, and preview behavior are documented in [Background Computer Use](/apps-tools/computer-use-background). Permission issues: [Tools Not Working](/common-issues/tool-not-working) or **Settings → Doctor**.
 </Tip>
 
-### 10. Shortcuts Settings {#shortcuts}
+<h3 id="shortcuts">10. Shortcuts Settings</h3>
 
 The **Shortcuts** tab is a searchable editor for every Alter keyboard shortcut. Open **Settings → Shortcuts** (under the **General** section in the sidebar).
 
@@ -497,7 +517,7 @@ macOS and other apps may claim the same key combinations. If a shortcut does not
 
 For a full inventory beyond the settings UI, see [Shortcuts reference](/references/shortcuts). To change only the global open shortcut, [How-To: Change Hotkey](/how-to/change-hotkey) is a focused guide.
 
-### 11. Marketplace Settings {#marketplace}
+<h3 id="marketplace">11. Marketplace Settings</h3>
 
 The **Marketplace** tab (under **Account** in the settings sidebar) controls your public Alter Marketplace profile and notification preferences. What you save here can appear on agent listings and community pages; local-only Alter settings are unaffected.
 
@@ -529,7 +549,7 @@ Leave a field empty to hide that link publicly. Values are stored with your acco
 
 Toggle off to silence marketplace comment alerts while keeping your public profile visible.
 
-### 12. Doctor Settings {#doctor}
+<h3 id="doctor">12. Doctor Settings</h3>
 
 **Doctor** (under **System** in the settings sidebar) runs a health and permission diagnostic across Alter. Use it when tools fail mysteriously, voice processing misbehaves, or you need a redacted report for support.
 

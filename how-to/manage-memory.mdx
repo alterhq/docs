@@ -1,0 +1,174 @@
+---
+title: "Manage Memory"
+description: "Configure Memory, review saved facts, open sources, and forget entries you no longer want"
+---
+
+## Goal
+
+Control what Alter remembers, review saved facts, and remove anything you no longer want in Memory.
+
+## Open Memory settings
+
+<Steps>
+  <Step title="Open Settings">
+    Use any of these paths:
+
+    - Menu bar → **Settings...**
+    - **⌘ ,** (Command + Comma)
+    - Hub or notch **⋯** menu → **Settings**
+  </Step>
+  <Step title="Select Memory">
+    In the left sidebar under **General**, choose **Memory**.
+  </Step>
+</Steps>
+
+The Memory pane has three areas:
+
+1. **Controls** at the top
+2. **Search and filters**
+3. **Your saved memory list**
+
+## Core controls
+
+### Use Memory
+
+**Use Memory** is the master switch.
+
+- **On:** Alter can recall saved facts, run automatic learning in eligible chats, and use the Memory tool.
+- **Off:** Alter stops using and saving Memory, but **keeps your existing entries** on disk.
+
+Turn this off when you want a clean break from recall without deleting what was already saved.
+
+### Ask before saving
+
+**Ask before saving** controls how new facts enter Memory during normal chats.
+
+| Setting | Current-chat facts you state directly | Facts from tools or recalled history |
+|---|---|---|
+| **Off** (default) | Can save automatically after a turn | Always need your approval |
+| **On** | Always need your approval | Always need your approval |
+
+When approval is required, Alter shows a confirmation sheet with the proposed fact, its kind, scope, and supporting sources.
+
+<Tip>
+  If you want maximum control, turn **Ask before saving** on. If you want Alter to learn quietly from what you say in chat, leave it off and rely on notifications plus **Undo**.
+</Tip>
+
+## Review saved memories
+
+Each row shows:
+
+- The saved fact
+- Its **kind** (Fact, Preference, Goal, Decision, Recent, or Experience)
+- Its **scope** (Personal, a workspace name, or Deleted workspace)
+- The date it was last updated
+
+### Search and filter
+
+Use the toolbar to narrow the list:
+
+- **Search** across fact text, kind, and scope label
+- **Scope** filter: All memories, Personal, a specific workspace, or Deleted workspaces
+- **Kind** filter: All kinds or one kind
+
+<Note>
+  **Deleted workspaces** appears when you still have memories from a workspace you removed. Those entries remain visible so you can forget them intentionally instead of leaving hidden orphans.
+</Note>
+
+### Inspect sources
+
+Many memories include one or more **sources**—the chat, meeting, or tool result that supported the save.
+
+1. Expand **N sources** under a memory.
+2. Choose a source to open the original chat or meeting in the Hub.
+
+If the underlying chat or transcript no longer exists, Alter keeps the saved memory and shows **Source unavailable**.
+
+## Forget a memory
+
+To remove one saved fact:
+
+1. Click the trash icon on the memory row.
+2. Confirm **Forget**.
+
+Forgetting removes the saved fact and its provenance links. It does **not** delete the original chat or meeting transcript.
+
+You can also ask Alter in chat to forget a specific goal or fact. Alter recalls the exact entry first, asks for confirmation, then removes it.
+
+## Undo an automatic save
+
+When Alter saves a fact automatically, it posts an in-app notification such as **Saved to Memory** or **Updated Memory**.
+
+- Choose **Undo** to reverse that specific save.
+- Choose **Dismiss** or let the notification time out to keep the memory.
+
+Undo is available only for the save that notification represents. If Undo fails because the memory changed again, open **Settings → Memory** to review the latest version.
+
+## What happens when you delete a workspace
+
+Deleting a workspace removes that workspace's saved memories as part of workspace cleanup.
+
+Personal memories are not affected. If any workspace memories could not be removed during deletion, they may appear later under **Deleted workspaces** in Memory settings.
+
+## Link Memory to an Alter Action
+
+Some workflows need explicit access to saved facts or historical chats and meetings.
+
+<Steps>
+  <Step title="Open the Action Editor">
+    Menu bar → **Action Editor**, or press **⌘⇧E**.
+  </Step>
+  <Step title="Open Tools">
+    Select the action, then open the **Tools** section.
+  </Step>
+  <Step title="Link Memory">
+    Find **Memory** and choose **Link Memory**.
+
+    If Memory is disabled globally, Alter offers **Turn On & Link**.
+  </Step>
+</Steps>
+
+Linking Memory does not turn it on for every action automatically. Only actions you link receive the Memory tool.
+
+Trusted Alter actions such as **Memory Catch-Up** ship with Memory already linked.
+
+## When Memory settings are empty
+
+**No saved memories yet** means Alter has not stored durable facts yet. That is normal on a fresh install or right after you turn Memory on.
+
+<Tip>
+  **Recommended first step:** Run [Memory Catch-Up](/workflows/memory-catch-up). Open a fresh Hub chat and choose **Give Memory a head start**. Alter reviews the last 30 days of your chats and meetings and saves durable facts without asking for each one. This is much faster than waiting for everyday post-turn learning to accumulate context.
+</Tip>
+
+Other ways to add your first memories:
+
+- Chat normally and share a preference or goal you want Alter to keep
+- Ask Alter to remember a specific fact, then confirm if prompted
+
+## Troubleshooting
+
+### Memory is temporarily unavailable
+
+If the list fails to load, choose **Try again**. This usually means Alter could not read the local Memory database at that moment.
+
+### Alter is not recalling what I expect
+
+Check these first:
+
+- **Use Memory** is on
+- You are in a persistent Ask Anything chat, not a transient task thread
+- The fact is in the scope for the current workspace
+- The fact was not already stated in the current conversation (the Memory Brief omits duplicates)
+
+For deeper behavior, see [Memory](/workflows/memory).
+
+### I turned Memory off but old facts still appear in Settings
+
+That is expected. Disabling Memory stops new recall and saves; it does not erase existing entries. Forget individual rows, or turn Memory back on if you only wanted to pause recall.
+
+## Related docs
+
+- [Memory overview](/workflows/memory)
+- [Memory Catch-Up](/workflows/memory-catch-up)
+- [Configuring Alter Settings](/how-to/settings-guide)
+- [Local data and privacy](/references/local-data-and-privacy)

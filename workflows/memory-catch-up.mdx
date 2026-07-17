@@ -1,0 +1,148 @@
+---
+title: "Memory Catch-Up"
+description: "The recommended way to seed Memory from your last 30 days of chats and meetings in one trusted review"
+---
+
+<Info>
+  **Memory Catch-Up** is the fastest way to start feeding Memory. It reviews your recent Alter activity, compares it with what is already saved, and adds or updates only durable facts worth keeping—without asking you to approve each one.
+</Info>
+
+## Why Catch-Up is the best first step
+
+Everyday Memory learns gradually—one candidate fact per completed Ask Anything turn. That works well once Memory already has context, but it is slow when you are starting from zero.
+
+**Memory Catch-Up** solves that bootstrap problem. In one run it:
+
+- Scans the **last 30 calendar days** of personal chats and meeting transcripts
+- Includes the **current workspace** when one is active
+- Compares candidates against saved Memory before writing anything
+- Saves high-confidence facts automatically as a trusted Alter action
+
+Think of Catch-Up as seeding the notebook. Everyday Memory keeps it updated afterward.
+
+## When to use it
+
+Run Memory Catch-Up when:
+
+- You just enabled **Use Memory** and want a head start
+- **Settings → Memory** is empty but you have weeks of Alter activity
+- You return after a break and want recent goals, decisions, and preferences captured
+- You switched to a new workspace and want project context from recent work
+- You would otherwise paste the same background into every new chat
+
+Catch-Up is a one-time-style backfill for the **last 30 calendar days**, not a continuous background indexer. You can run it again later if you want another 30-day refresh.
+
+## How to start Catch-Up
+
+<Steps>
+  <Step title="Open a fresh Hub chat">
+    Open the Hub and start a **new conversation** tab. Catch-Up is offered on an empty chat, not mid-thread.
+  </Step>
+  <Step title="Choose the suggestion">
+    Select **Give Memory a head start** from the welcome suggestions. It appears as a recommended card when Catch-Up is available and launches the built-in **Memory Catch-Up** action.
+  </Step>
+  <Step title="Let the review run">
+    Alter launches the trusted **Memory Catch-Up** action and begins reviewing chats and meetings immediately.
+  </Step>
+</Steps>
+
+Catch-Up appears only when the chat is writable, idle, and not already running another action or attached context.
+
+If Memory was disabled, Catch-Up turns **Use Memory** on for the run so the review can complete.
+
+## What Catch-Up reviews
+
+### Time window
+
+- **30 inclusive calendar dates** ending today in your local timezone
+- Example: if today is July 16, the window starts June 17
+
+### Sources
+
+| Source | Included |
+|---|---|
+| Personal chats | Yes |
+| Personal meeting transcripts | Yes |
+| Current workspace chats | Yes, when a workspace is active |
+| Current workspace meetings | Yes, when a workspace is active |
+| Other workspaces | No |
+
+Catch-Up exhaustively paginates through chats and meetings in that window. It does not stop after the first page of results.
+
+### What it saves
+
+Catch-Up looks for durable, high-confidence items such as:
+
+- Stable preferences
+- Active goals
+- Clear decisions
+- Useful facts
+- Meaningful recent changes
+
+It skips secrets, credentials, sensitive personal data, reminders, short-lived logistics, raw excerpts, and low-confidence guesses.
+
+Each saved item is one concise standalone fact with provenance from the matching scope.
+
+## What to expect during the run
+
+At the start, Alter tells you—in plain language—that it will review the last 30 days, compare against saved Memory, and save only genuinely new or updated details.
+
+During the run Alter:
+
+1. Reads chats in the date window
+2. Reads meetings in the date window
+3. Compares candidates against existing saved Memory
+4. **Remembers** new facts or **replaces** outdated ones when evidence is clear
+
+Catch-Up does **not**:
+
+- Ask you to approve each individual save
+- Delete or forget existing memories
+- Review workspaces other than the active one
+- Broaden the 30-day window
+
+When it finishes, you get a structured summary with counts and bullets for added or updated facts, plus a short plain-language explanation of how Memory works and a few example questions to try next.
+
+## After Catch-Up
+
+<CardGroup cols={2}>
+  <Card title="Verify in Settings" icon="slider" href="/how-to/manage-memory">
+    Open Settings → Memory to scan what was saved.
+  </Card>
+  <Card title="Ask naturally" icon="message" href="/workflows/memory">
+    Try "What are my current goals?" or "What did we decide about onboarding?"
+  </Card>
+</CardGroup>
+
+Recommended follow-ups:
+
+1. Forget anything that is wrong or no longer relevant in **Settings → Memory**
+2. Turn on **Ask before saving** if you want tighter control over future automatic saves
+3. Link Memory to custom actions that should reuse saved facts or search history
+
+## Catch-Up vs everyday Memory
+
+Use both: Catch-Up to **seed** Memory from history, everyday Memory to **maintain** it as you work.
+
+| | Everyday Memory | Memory Catch-Up |
+|---|---|---|
+| Trigger | Each completed Ask Anything turn, or explicit Memory tool use | You start it from a new Hub chat |
+| Scope of history | Current turn or explicit recall queries | Fixed last 30 days of chats and meetings |
+| Approvals | Depends on source and settings | Trusted action saves without per-item approval |
+| Deletes | You can forget items | Cannot forget during Catch-Up |
+| Best for | Ongoing learning after Memory has context | Bootstrapping, refreshing, or filling gaps from recent history |
+
+## Privacy notes
+
+Catch-Up reads local chats and transcripts already stored on your Mac. Saved results remain local Memory entries.
+
+The review itself uses your configured generative model to compare and phrase concise facts. Treat that like any other Alter action that calls a model.
+
+See also [Local data and privacy](/references/local-data-and-privacy).
+
+## Related docs
+
+- [Memory overview](/workflows/memory)
+- [Manage Memory](/how-to/manage-memory)
+- [Meetings](/workflows/meetings)
+- [Alter Actions](/workflows/alter-actions)

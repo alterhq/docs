@@ -65,6 +65,8 @@
               {
                 "group": "Capture and Knowledge",
                 "pages": [
+                  "workflows/memory",
+                  "workflows/memory-catch-up",
                   "workflows/manage-notes-with-alter",
                   "workflows/summarize-x-feed-with-computer-use",
                   "workflows/local-model-privacy"
@@ -151,6 +153,7 @@
                 "group": "Manage and configure",
                 "pages": [
                   "how-to/settings-guide",
+                  "how-to/manage-memory",
                   "how-to/tool-manager-guide",
                   "how-to/managing-context-window"
                 ]

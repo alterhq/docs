@@ -1,0 +1,241 @@
+---
+title: "Memory"
+description: "Let Alter remember useful facts across chats, workspaces, and meetings—then recall them when you need them"
+---
+
+<Info>
+  **Memory** is Alter's durable recall layer. It saves concise facts you care about, brings the most relevant ones into new chats automatically, and can search your past conversations and meeting transcripts when saved Memory is not enough.
+</Info>
+
+## What Memory is
+
+Memory is not a copy of every chat or meeting. Alter stores **short, standalone facts**—preferences, goals, decisions, and similar details—that are likely to help in future conversations.
+
+Think of it as a notebook Alter keeps for you:
+
+- **Personal Memory** travels with you across workspaces. Use it for durable facts about you, your style, and cross-project preferences.
+- **Workspace Memory** stays with one workspace. Use it for project goals, conventions, decisions, and recent project changes.
+
+Your original chats and meeting transcripts stay in Alter's normal history. Memory links back to those sources when useful, but does not replace them.
+
+## Getting started with Memory
+
+The fastest way to make Memory useful is not to repeat yourself in every new chat—it is to **seed Memory from history you already have**.
+
+<Tip>
+  **Start with Memory Catch-Up.** In a fresh Hub chat, choose **Give Memory a head start**. Alter reviews the last 30 days of your chats and meetings, compares useful details with what is already saved, and adds or updates durable facts in one trusted pass—without asking you to approve each item.
+</Tip>
+
+Run Catch-Up when:
+
+- You turn **Use Memory** on for the first time
+- Memory settings are empty but you have weeks of Alter activity
+- You return after a break and want recent goals and decisions captured
+- You open a new workspace and want project context from recent work
+
+Catch-Up is a one-time-style backfill for the last 30 calendar days. After that, everyday Memory learning keeps facts current as you chat.
+
+Full walkthrough: [Memory Catch-Up](/workflows/memory-catch-up)
+
+## How Memory helps in everyday work
+
+<CardGroup cols={2}>
+  <Card title="Start faster" icon="bolt">
+    Relevant saved facts are added to new Ask Anything chats so you do not repeat yourself.
+  </Card>
+  <Card title="Stay oriented" icon="compass">
+    Ask about current goals, decisions, or what came up in recent meetings.
+  </Card>
+  <Card title="Keep projects separate" icon="folder">
+    Workspace Memory keeps one project's context from mixing into another.
+  </Card>
+  <Card title="Look back when needed" icon="clock-rotate-left">
+    Alter can search prior chats and transcripts when a saved fact is not enough.
+  </Card>
+</CardGroup>
+
+## What gets remembered
+
+Alter classifies saved facts into a few kinds:
+
+| Kind | Good for | Examples |
+|---|---|---|
+| **Preference** | Stable ways you like things done | "Prefer concise bullet summaries" |
+| **Fact** | Durable information worth keeping | "Our staging app is at staging.example.com" |
+| **Goal** | Active priorities or plans | "Ship onboarding redesign by August" |
+| **Decision** | Choices you have already made | "Use Postgres for the analytics store" |
+| **Recent** | Meaningful changes worth noting | "Switched default model to Claude Sonnet" |
+| **Experience** | Validated lessons from past work | Usually curated through recall, not casual chat |
+
+Alter is selective. It skips secrets, credentials, sensitive personal data, temporary logistics, reminders, raw transcript dumps, and details that are easy to look up again.
+
+## How Memory works
+
+Memory uses three cooperating layers:
+
+### 1. Memory Brief (automatic recall)
+
+In persistent **Ask Anything** chats, Alter may attach a small Memory Brief to your latest message before the model responds.
+
+- The brief is built locally from saved Memory—no extra model call.
+- It is capped at about **240 tokens** so it stays lightweight.
+- Priority favors pinned preferences, durable facts, goals, decisions, and recent changes from both Personal and the active workspace.
+- Facts already present in the current conversation are omitted.
+- If the conversation is already near its context limit, the brief is skipped.
+
+The brief helps Alter answer with continuity. It does not change what is stored in Memory.
+
+### 2. Automatic learning after a turn
+
+After a completed Ask Anything response, Alter can run a small background review of that turn.
+
+- At most **one** candidate fact is considered per turn.
+- Facts from your message in the current chat can save automatically when **Ask before saving** is off.
+- Facts learned from tool output or older recalled history still require your approval.
+- When a save happens without approval, Alter shows a notification with **Undo**.
+
+This review never posts a chat message and never blocks the response you already received.
+
+### 3. Memory tool (explicit recall and edits)
+
+When Memory is available in a conversation, Alter can use the **Memory** tool to:
+
+- **Recall** saved facts, recent chats, or meeting transcripts
+- **Analyze** a recalled source in full when an excerpt is not enough
+- **Remember** one concise new fact
+- **Replace** an outdated saved fact
+- **Forget** a saved fact when you explicitly ask to remove it
+
+Reading and analysis never write to Memory on their own.
+
+<Note>
+  **Memory Catch-Up** is the built-in way to bootstrap Memory from recent history. Custom actions and some Hub flows can also link this tool explicitly. See [Memory Catch-Up](/workflows/memory-catch-up) and [Manage Memory](/how-to/manage-memory).
+</Note>
+
+## Personal vs workspace scope
+
+| Scope | Stored as | Visible when | Best for |
+|---|---|---|---|
+| **Personal** | User-wide facts | Ask Anything across workspaces | Preferences, profile facts, cross-project goals |
+| **Workspace** | Facts tied to one workspace | Chats in that workspace | Project conventions, workspace goals, local decisions |
+
+Rules that matter in practice:
+
+- If you do not specify a scope when saving, Alter prefers the **current workspace** because it is the narrower boundary.
+- Use **Personal** explicitly when a fact should follow you everywhere.
+- Deleting a workspace removes that workspace's saved memories.
+- Memories from deleted workspaces remain visible under **Deleted workspaces** in Settings so you can review or forget them.
+
+## Where Memory is available
+
+Memory is designed for normal, user-owned Ask Anything conversations.
+
+| Context | Memory Brief | Automatic learning | Memory tool |
+|---|---|---|---|
+| Persistent Ask Anything chat | Yes, when enabled | Yes, when enabled | Yes, when enabled |
+| QuickHub / Hub chat with workspace | Yes | Yes | Personal + workspace scope |
+| Transient or task conversations | No | No | No |
+| Read-only conversations | Brief only if readable | No writes | Read-only recall |
+| Memory disabled in Settings | No | No | No |
+
+Custom **Alter Actions** can link the Memory tool in the Action Editor. Memory is not added as a global fallback tool for every action.
+
+## Talking to Alter about Memory
+
+You do not need special syntax. Natural requests work:
+
+- "What are my current goals?"
+- "What do you remember about me?"
+- "What did we decide about onboarding?"
+- "Remember that I prefer tab-indented code."
+- "Forget the goal about migrating to Kubernetes—we cancelled it."
+- "What came up in my meetings this week about pricing?"
+
+Helpful habits:
+
+- Ask Alter to **recall** before correcting or deleting a specific saved fact.
+- Say **forget** or **remove** when a goal or plan is done and should leave Memory.
+- Ask for a **source** or **open the meeting** when you want provenance, not just the saved summary.
+
+## Memory Catch-Up
+
+**Memory Catch-Up** is Alter's recommended way to feed Memory from existing history—not just from what you say in the next chat.
+
+In a fresh Hub chat, Alter may suggest **Give Memory a head start**. That launches the trusted bundled **Memory Catch-Up** action, which:
+
+- Reviews the last **30 calendar days** of personal chats and meetings
+- Includes the current workspace's chats and meetings when a workspace is active
+- Exhaustively paginates through that window—other workspaces stay out of scope
+- Compares useful details against what is already saved
+- **Remembers** new facts or **replaces** outdated ones when evidence is clear
+- Saves without per-item approval because it is a trusted Alter action with a fixed review window
+
+Catch-Up cannot delete or forget memories. If Memory was disabled, starting Catch-Up turns **Use Memory** on for the run.
+
+| | Everyday Memory | Memory Catch-Up |
+|---|---|---|
+| Best for | Ongoing learning as you chat | Bootstrapping or refreshing from the last 30 days |
+| History reviewed | Current turn or explicit recall | Fixed 30-day window of chats and meetings |
+| Per-item approval | Depends on source and settings | Trusted action saves without asking each time |
+| Deletes | You can forget items | Cannot forget during Catch-Up |
+
+See the full walkthrough: [Memory Catch-Up](/workflows/memory-catch-up).
+
+## Privacy and local storage
+
+<Info>
+  Saved Memory stays on your Mac with your other Alter data. It is not cloud-synced as a separate Memory backup.
+</Info>
+
+What that means:
+
+- Saved facts live in Alter's local database on the device where they were created.
+- Forgetting a memory removes the saved fact and its provenance links, not your underlying chat or transcript.
+- When you use a cloud model, the active conversation—including any Memory Brief or recalled content sent to the model—follows that provider's normal request path.
+- Disabling **Use Memory** stops recall and new saves, but keeps existing entries so you can turn Memory back on later.
+
+For broader local-data guidance, see [Local data and privacy](/references/local-data-and-privacy).
+
+## Settings at a glance
+
+Open **Settings → Memory** (brain icon in the General section of Settings).
+
+| Setting | Default | What it does |
+|---|---|---|
+| **Use Memory** | On | Enables recall, automatic learning, and the Memory tool |
+| **Ask before saving** | Off | When off, facts from the current chat can save automatically; facts from tools or recalled history still need approval |
+
+The Memory settings screen also lets you search, filter, inspect sources, and forget individual entries.
+
+Full management guide: [Manage Memory](/how-to/manage-memory).
+
+## Use cases
+
+### Keep preferences consistent
+
+Tell Alter once how you like answers formatted, which stack you use, or which calendar matters. Personal preferences can be pinned and surface often in the Memory Brief.
+
+### Track goals and decisions per project
+
+In a workspace for a product or client, save active goals and decisions there. Ask "What are my goals for this project?" without re-explaining the workspace.
+
+### Resume after meetings
+
+After recorded meetings, ask "What did we decide in recent meetings about X?" Alter can search transcripts and saved Memory together.
+
+### Onboard Memory on a busy Mac
+
+Run **Memory Catch-Up** from a new Hub chat (**Give Memory a head start**) to backfill the last 30 days of chats and meetings in one pass. Then refine anything in Settings and let everyday learning keep Memory current.
+
+### Give an action durable context
+
+In the Action Editor, link **Memory** to an action that should read saved facts or search prior chats and meetings for that workflow.
+
+## Related docs
+
+- [Memory Catch-Up](/workflows/memory-catch-up) — recommended way to seed Memory from the last 30 days
+- [Manage Memory](/how-to/manage-memory) — settings, review, forget, and sources
+- [Meetings](/workflows/meetings) — transcripts Memory can search
+- [Alter Actions](/workflows/alter-actions) — link Memory to custom workflows
+- [Workspaces](/getting-started/workspaces-basics) — project-scoped Memory
+- [Managing the context window](/how-to/managing-context-window) — how brief recall differs from full context
