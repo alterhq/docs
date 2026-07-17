@@ -1,0 +1,174 @@
+---
+title: "管理 Memory"
+description: "配置 Memory，审查已保存事实，打开来源，并忘记你不再想保留的条目"
+---
+
+## 目标
+
+控制 Alter 会记住什么，审查已保存的事实，并移除任何你不再希望留在 Memory 里的内容。
+
+## 打开 Memory 设置
+
+<Steps>
+  <Step title="打开 Settings">
+    你可以通过以下任一路径进入：
+
+    - 菜单栏 → **Settings...**
+    - **⌘ ,**（Command + 逗号）
+    - Hub 或缺口菜单 **⋯** → **Settings**
+  </Step>
+  <Step title="选择 Memory">
+    在左侧边栏的 **General** 下，选择 **Memory**。
+  </Step>
+</Steps>
+
+Memory 面板分成三个区域：
+
+1. 顶部的**控制项**
+2. **搜索与筛选**
+3. **已保存 Memory 列表**
+
+## 核心控制项
+
+### Use Memory
+
+**Use Memory** 是总开关。
+
+- **On：** Alter 可以召回已保存事实，在符合条件的聊天里执行自动学习，并使用 Memory 工具。
+- **Off：** Alter 会停止使用和保存 Memory，但**不会删除你磁盘上已有的条目**。
+
+如果你只是想暂时停用召回，不想删掉之前保存的内容，就把它关掉。
+
+### Ask before saving
+
+**Ask before saving** 控制的是，在正常聊天中，新事实如何进入 Memory。
+
+| 设置 | 你在当前聊天中直接陈述的事实 | 来自 Tools 或召回历史的事实 |
+|---|---|---|
+| **Off**（默认） | 一轮回复后可自动保存 | 始终需要你的批准 |
+| **On** | 始终需要你的批准 | 始终需要你的批准 |
+
+当需要批准时，Alter 会显示确认面板，列出拟保存的事实、它的类型、范围，以及支撑它的来源。
+
+<Tip>
+  如果你想获得最强控制权，就打开 **Ask before saving**。如果你希望 Alter 从聊天中安静地学习你说过的话，就保持关闭，并通过通知和 **Undo** 来兜底。
+</Tip>
+
+## 审查已保存的 Memory
+
+每一行会显示：
+
+- 已保存的事实
+- 它的**类型**（Fact、Preference、Goal、Decision、Recent 或 Experience）
+- 它的**范围**（Personal、某个 workspace 名称，或 Deleted workspace）
+- 它最近一次更新的日期
+
+### 搜索与筛选
+
+使用工具栏缩小列表范围：
+
+- **Search**：按事实文本、类型和范围标签搜索
+- **Scope** 筛选：全部 Memory、Personal、某个特定 workspace，或 Deleted workspaces
+- **Kind** 筛选：全部类型或某一种类型
+
+<Note>
+  当你删除过某个 workspace，但它还有残留的 Memory 时，**Deleted workspaces** 就会出现。这样这些条目仍然可见，你可以有意识地忘记它们，而不是让它们变成隐藏的孤儿数据。
+</Note>
+
+### 查看来源
+
+很多 Memory 都会附带一个或多个**来源**，也就是支撑这次保存的聊天、会议，或工具结果。
+
+1. 展开某条 Memory 下方的 **N sources**
+2. 选择其中一个来源，在 Hub 中打开原始聊天或会议
+
+如果底层聊天或转录已经不存在，Alter 仍会保留该 Memory，并显示 **Source unavailable**。
+
+## 忘记一条 Memory
+
+删除一条已保存事实的方法：
+
+1. 点击该 Memory 行上的垃圾桶图标
+2. 确认 **Forget**
+
+forget 会移除这条已保存事实及其来源链接，但**不会**删除原始聊天或会议转录。
+
+你也可以在聊天里直接让 Alter 忘记某个具体目标或事实。Alter 会先召回准确的条目，请你确认，然后再移除它。
+
+## 撤销一次自动保存
+
+当 Alter 自动保存一条事实时，它会弹出应用内通知，例如 **Saved to Memory** 或 **Updated Memory**。
+
+- 选择 **Undo** 可以撤销那一次具体保存
+- 选择 **Dismiss**，或等待通知自动消失，则保留该条 Memory
+
+Undo 只对这条通知代表的那次保存有效。如果 Undo 失败，是因为该条 Memory 后来又发生了变化，请打开 **Settings → Memory** 审查最新版本。
+
+## 删除 workspace 时会发生什么
+
+删除一个 workspace 时，该 workspace 的已保存 Memory 会作为清理流程的一部分一起删除。
+
+Personal Memory 不受影响。如果某些 workspace Memory 在删除过程中没能被移除，它们之后可能会出现在 Memory 设置里的 **Deleted workspaces** 下。
+
+## 将 Memory 链接到 Alter Action
+
+有些工作流需要显式访问已保存事实，或者访问历史聊天与会议。
+
+<Steps>
+  <Step title="打开 Action Editor">
+    菜单栏 → **Action Editor**，或按 **⌘⇧E**。
+  </Step>
+  <Step title="打开 Tools">
+    选中该 action，然后展开 **Tools** 部分。
+  </Step>
+  <Step title="链接 Memory">
+    找到 **Memory**，然后选择 **Link Memory**。
+
+    如果全局 Memory 已禁用，Alter 会提供 **Turn On & Link**。
+  </Step>
+</Steps>
+
+链接 Memory 并不会自动为所有 action 打开它。只有你明确链接过的 action 才会获得 Memory 工具。
+
+像 **Memory Catch-Up** 这样的受信任 Alter action，出厂时就已经链接了 Memory。
+
+## 当 Memory 设置还是空的
+
+**No saved memories yet** 表示 Alter 还没有保存任何长期事实。在全新安装，或你刚打开 Memory 时，这都很正常。
+
+<Tip>
+  **推荐的第一步：** 运行 [Memory Catch-Up](/zh/workflows/memory-catch-up)。打开一个新的 Hub 聊天，然后选择 **为 Memory 抢先起步**。Alter 会审查你最近 30 天的聊天和会议，并一次性保存长期有效的事实，不需要逐条询问。这比等待每轮回复后的日常学习慢慢积累上下文快得多。
+</Tip>
+
+添加第一批 Memory 的其他方式：
+
+- 正常聊天，并说出你希望 Alter 保留的偏好或目标
+- 直接要求 Alter 记住某个具体事实，然后在需要时确认
+
+## 故障排查
+
+### Memory 暂时不可用
+
+如果列表加载失败，请选择 **Try again**。这通常意味着 Alter 当时无法读取本地的 Memory 数据库。
+
+### Alter 没有召回我预期的内容
+
+先检查这几项：
+
+- **Use Memory** 已打开
+- 你所在的是持久的 Ask Anything 聊天，而不是临时任务线程
+- 这条事实属于当前 workspace 可见的范围
+- 这条事实没有已经出现在当前对话里，Memory Brief 会省略重复项
+
+更深入的行为说明见：[Memory](/zh/workflows/memory)。
+
+### 我把 Memory 关掉了，但旧事实还在 Settings 里出现
+
+这是预期行为。禁用 Memory 会停止新的召回和保存，但不会抹掉已有条目。你可以逐条 forget，或者如果你只是想暂停召回，就重新打开 Memory。
+
+## 相关文档
+
+- [Memory 概览](/zh/workflows/memory)
+- [Memory Catch-Up](/zh/workflows/memory-catch-up)
+- [配置 Alter Settings](/zh/how-to/settings-guide)
+- [本地数据与隐私](/zh/references/local-data-and-privacy)

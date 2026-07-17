@@ -1,0 +1,241 @@
+---
+title: "Memory"
+description: "Deixa o Alter recordar factos úteis entre chats, workspaces e reuniões, e recuperá-los quando precisares"
+---
+
+<Info>
+  **Memory** é a camada de recordação duradoura do Alter. Guarda factos curtos que te interessam, traz automaticamente os mais relevantes para novos chats e pode pesquisar conversas anteriores e transcrições de reuniões quando a Memory guardada não chega.
+</Info>
+
+## O que é a Memory
+
+Memory não é uma cópia de cada chat ou reunião. O Alter armazena **factos curtos e autónomos**, como preferências, objectivos, decisões e detalhes semelhantes, que provavelmente vão ajudar em conversas futuras.
+
+Pensa nela como um caderno que o Alter mantém para ti:
+
+- **Personal Memory** acompanha-te entre workspaces. Usa-a para factos duradouros sobre ti, o teu estilo e preferências que atravessam projectos.
+- **Workspace Memory** fica num único workspace. Usa-a para objectivos de projecto, convenções, decisões e alterações recentes do projecto.
+
+Os teus chats originais e as transcrições de reuniões continuam no histórico normal do Alter. A Memory liga de volta a essas fontes quando é útil, mas não as substitui.
+
+## Primeiros passos com Memory
+
+A forma mais rápida de tornar a Memory útil não é repetires-te em cada novo chat. É **alimentar a Memory com o histórico que já tens**.
+
+<Tip>
+  **Começa por Memory Catch-Up.** Num chat novo do Hub, escolhe **Dar vantagem à Memory**. O Alter revê os últimos 30 dias dos teus chats e reuniões, compara os detalhes úteis com o que já está guardado e adiciona ou actualiza factos duradouros numa única passagem de confiança, sem pedir aprovação para cada item.
+</Tip>
+
+Executa o Catch-Up quando:
+
+- Activas **Use Memory** pela primeira vez
+- As definições de Memory estão vazias mas já tens semanas de actividade no Alter
+- Voltas depois de uma pausa e queres captar objectivos e decisões recentes
+- Abres um workspace novo e queres contexto de projecto a partir de trabalho recente
+
+O Catch-Up é um preenchimento pontual para os últimos 30 dias de calendário. Depois disso, a aprendizagem diária da Memory mantém os factos actualizados enquanto conversas.
+
+Guia completo: [Memory Catch-Up](/pt/workflows/memory-catch-up)
+
+## Como a Memory ajuda no trabalho do dia a dia
+
+<CardGroup cols={2}>
+  <Card title="Começar mais depressa" icon="bolt">
+    Factos guardados relevantes são adicionados a novos chats Ask Anything para não teres de te repetir.
+  </Card>
+  <Card title="Manter a orientação" icon="compass">
+    Pergunta por objectivos actuais, decisões ou pelo que surgiu em reuniões recentes.
+  </Card>
+  <Card title="Separar projectos" icon="folder">
+    A Workspace Memory evita que o contexto de um projecto se misture com outro.
+  </Card>
+  <Card title="Voltar atrás quando for preciso" icon="clock-rotate-left">
+    O Alter pode pesquisar chats e transcrições anteriores quando um facto guardado não basta.
+  </Card>
+</CardGroup>
+
+## O que fica lembrado
+
+O Alter classifica os factos guardados em alguns tipos:
+
+| Tipo | Bom para | Exemplos |
+|---|---|---|
+| **Preference** | Formas estáveis de como gostas que as coisas sejam feitas | "Prefer concise bullet summaries" |
+| **Fact** | Informação duradoura que vale a pena guardar | "Our staging app is at staging.example.com" |
+| **Goal** | Prioridades ou planos activos | "Ship onboarding redesign by August" |
+| **Decision** | Escolhas que já tomaste | "Use Postgres for the analytics store" |
+| **Recent** | Alterações relevantes que convém registar | "Switched default model to Claude Sonnet" |
+| **Experience** | Lições validadas a partir de trabalho anterior | Normalmente curadas por recall, não por conversa casual |
+
+O Alter é selectivo. Ignora segredos, credenciais, dados pessoais sensíveis, logística temporária, lembretes, excertos brutos de transcrições e detalhes fáceis de voltar a consultar.
+
+## Como a Memory funciona
+
+A Memory usa três camadas que cooperam entre si:
+
+### 1. Memory Brief (recall automático)
+
+Em chats persistentes de **Ask Anything**, o Alter pode anexar um pequeno Memory Brief à tua última mensagem antes de o modelo responder.
+
+- O brief é construído localmente a partir da Memory guardada, sem chamada extra ao modelo.
+- Fica limitado a cerca de **240 tokens** para continuar leve.
+- A prioridade favorece preferências afixadas, factos duradouros, objectivos, decisões e alterações recentes de Personal e do workspace activo.
+- Factos já presentes na conversa actual são omitidos.
+- Se a conversa já estiver perto do limite de contexto, o brief é ignorado.
+
+O brief ajuda o Alter a responder com continuidade. Não altera o que está guardado na Memory.
+
+### 2. Aprendizagem automática após um turno
+
+Depois de uma resposta de Ask Anything concluída, o Alter pode executar uma pequena revisão em segundo plano desse turno.
+
+- No máximo é considerado **um** facto candidato por turno.
+- Factos da tua mensagem no chat actual podem guardar-se automaticamente quando **Ask before saving** está desligado.
+- Factos aprendidos a partir de resultados de Tools ou de histórico recuperado continuam a exigir aprovação.
+- Quando há uma gravação sem aprovação, o Alter mostra uma notificação com **Undo**.
+
+Esta revisão nunca publica uma mensagem no chat nem bloqueia a resposta que já recebeste.
+
+### 3. Ferramenta Memory (recall e edições explícitas)
+
+Quando a Memory está disponível numa conversa, o Alter pode usar a ferramenta **Memory** para:
+
+- **Recall** factos guardados, chats recentes ou transcrições de reuniões
+- **Analyze** uma fonte recuperada por inteiro quando um excerto não basta
+- **Remember** um único facto novo e conciso
+- **Replace** um facto guardado que ficou desactualizado
+- **Forget** um facto guardado quando pedes explicitamente para o remover
+
+Ler e analisar não escrevem na Memory por si só.
+
+<Note>
+  **Memory Catch-Up** é a forma integrada de arrancar a Memory a partir do histórico recente. Acções personalizadas e alguns fluxos do Hub também podem ligar esta ferramenta de forma explícita. Vê [Memory Catch-Up](/pt/workflows/memory-catch-up) e [Gerir Memory](/pt/how-to/manage-memory).
+</Note>
+
+## Personal vs. âmbito de Workspace
+
+| Âmbito | Guardado como | Visível quando | Melhor para |
+|---|---|---|---|
+| **Personal** | Factos ao nível do utilizador | Ask Anything entre workspaces | Preferências, factos de perfil, objectivos entre projectos |
+| **Workspace** | Factos ligados a um workspace | Chats nesse workspace | Convenções de projecto, objectivos do workspace, decisões locais |
+
+Regras que importam na prática:
+
+- Se não especificares um âmbito ao guardar, o Alter prefere o **workspace actual**, porque é o limite mais estreito.
+- Usa **Personal** explicitamente quando um facto te deve acompanhar em todo o lado.
+- Apagar um workspace remove as memories guardadas desse workspace.
+- Memories de workspaces apagados continuam visíveis em **Deleted workspaces** nas Settings para que as possas rever ou esquecer.
+
+## Onde a Memory está disponível
+
+Memory foi pensada para conversas normais de Ask Anything, pertencentes ao utilizador.
+
+| Contexto | Memory Brief | Aprendizagem automática | Ferramenta Memory |
+|---|---|---|---|
+| Chat persistente de Ask Anything | Sim, quando activada | Sim, quando activada | Sim, quando activada |
+| Chat de QuickHub / Hub com workspace | Sim | Sim | Âmbito Personal + Workspace |
+| Conversas transitórias ou de tarefa | Não | Não | Não |
+| Conversas só de leitura | Brief apenas se puder ser lido | Sem escrita | Recall só de leitura |
+| Memory desactivada nas Settings | Não | Não | Não |
+
+As **Alter Actions** personalizadas podem ligar a ferramenta Memory no Action Editor. A Memory não é adicionada como ferramenta de fallback global a todas as acções.
+
+## Falar com o Alter sobre Memory
+
+Não precisas de sintaxe especial. Pedidos naturais funcionam:
+
+- "What are my current goals?"
+- "What do you remember about me?"
+- "What did we decide about onboarding?"
+- "Remember that I prefer tab-indented code."
+- "Forget the goal about migrating to Kubernetes, we cancelled it."
+- "What came up in my meetings this week about pricing?"
+
+Hábitos úteis:
+
+- Pede ao Alter para fazer **recall** antes de corrigires ou apagares um facto guardado específico.
+- Diz **forget** ou **remove** quando um objectivo ou plano terminou e deve sair da Memory.
+- Pede uma **source** ou **open the meeting** quando queres a proveniência, não apenas o resumo guardado.
+
+## Memory Catch-Up
+
+**Memory Catch-Up** é a forma recomendada pelo Alter para alimentar a Memory a partir do histórico existente, não apenas a partir do que disseres no próximo chat.
+
+Num chat novo do Hub, o Alter pode sugerir **Dar vantagem à Memory**. Isso inicia a acção integrada e de confiança **Memory Catch-Up**, que:
+
+- Revê os últimos **30 dias de calendário** de chats e reuniões pessoais
+- Inclui chats e reuniões do workspace actual quando há um workspace activo
+- Pagina exaustivamente por essa janela, deixando outros workspaces fora do âmbito
+- Compara detalhes úteis com o que já está guardado
+- **Remember** factos novos ou **replace** factos desactualizados quando a evidência é clara
+- Guarda sem aprovação por item porque é uma Alter Action de confiança com uma janela fixa de revisão
+
+O Catch-Up não consegue apagar nem esquecer memories. Se a Memory estivesse desactivada, iniciar o Catch-Up activa **Use Memory** durante a execução.
+
+| | Memory do dia a dia | Memory Catch-Up |
+|---|---|---|
+| Melhor para | Aprendizagem contínua enquanto conversas | Arranque ou actualização a partir dos últimos 30 dias |
+| Histórico revisto | Turno actual ou recall explícito | Janela fixa de 30 dias de chats e reuniões |
+| Aprovação por item | Depende da fonte e das Settings | A acção de confiança guarda sem perguntar sempre |
+| Eliminações | Podes esquecer itens | Não pode esquecer durante o Catch-Up |
+
+Guia completo: [Memory Catch-Up](/pt/workflows/memory-catch-up).
+
+## Privacidade e armazenamento local
+
+<Info>
+  A Memory guardada fica no teu Mac com os outros dados do Alter. Não é sincronizada para a cloud como uma cópia de segurança separada da Memory.
+</Info>
+
+Isto significa:
+
+- Os factos guardados vivem na base de dados local do Alter no dispositivo onde foram criados.
+- Esquecer uma memory remove o facto guardado e as ligações de proveniência, não o chat ou a transcrição subjacente.
+- Quando usas um modelo cloud, a conversa activa, incluindo qualquer Memory Brief ou conteúdo recuperado enviado para o modelo, segue o percurso normal de pedidos desse fornecedor.
+- Desactivar **Use Memory** pára o recall e novas gravações, mas mantém as entradas existentes para poderes voltar a activar a Memory mais tarde.
+
+Para orientação mais ampla sobre dados locais, vê [Dados locais e privacidade](/pt/references/local-data-and-privacy).
+
+## Settings num relance
+
+Abre **Settings → Memory**. Vais encontrá-la pelo ícone de cérebro na secção General das Settings.
+
+| Definição | Predefinição | O que faz |
+|---|---|---|
+| **Use Memory** | Ligado | Activa recall, aprendizagem automática e a ferramenta Memory |
+| **Ask before saving** | Desligado | Quando está desligado, factos do chat actual podem guardar-se automaticamente. Factos vindos de Tools ou de histórico recuperado continuam a precisar de aprovação |
+
+A página de Memory nas Settings também te permite pesquisar, filtrar, inspeccionar fontes e esquecer entradas individuais.
+
+Guia completo de gestão: [Gerir Memory](/pt/how-to/manage-memory).
+
+## Casos de uso
+
+### Manter preferências consistentes
+
+Diz uma vez ao Alter como gostas das respostas formatadas, que stack usas ou que calendário importa. Preferências Personal podem ser afixadas e aparecem frequentemente no Memory Brief.
+
+### Acompanhar objectivos e decisões por projecto
+
+Num workspace de produto ou cliente, guarda aí os objectivos e decisões activos. Depois pergunta "What are my goals for this project?" sem voltares a explicar o workspace.
+
+### Retomar depois de reuniões
+
+Depois de reuniões gravadas, pergunta "What did we decide in recent meetings about X?" O Alter pode pesquisar transcrições e Memory guardada em conjunto.
+
+### Colocar a Memory em marcha num Mac cheio de actividade
+
+Executa **Memory Catch-Up** a partir de um chat novo do Hub, usando **Dar vantagem à Memory**, para preencher os últimos 30 dias de chats e reuniões de uma só vez. Depois afina o que for preciso nas Settings e deixa a aprendizagem diária manter a Memory actualizada.
+
+### Dar contexto duradouro a uma acção
+
+No Action Editor, liga **Memory** a uma acção que deva ler factos guardados ou pesquisar chats e reuniões anteriores para esse workflow.
+
+## Documentos relacionados
+
+- [Memory Catch-Up](/pt/workflows/memory-catch-up) — forma recomendada de alimentar a Memory com os últimos 30 dias
+- [Gerir Memory](/pt/how-to/manage-memory) — definições, revisão, esquecimento e fontes
+- [Reuniões](/pt/workflows/meetings) — transcrições que a Memory pode pesquisar
+- [Alter Actions](/pt/workflows/alter-actions) — ligar a Memory a workflows personalizados
+- [Workspaces](/pt/getting-started/workspaces-basics) — Memory com âmbito de projecto
+- [Gerir a janela de contexto](/pt/how-to/managing-context-window) — como o recall breve difere do contexto completo

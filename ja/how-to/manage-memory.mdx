@@ -1,0 +1,174 @@
+---
+title: "Memory を管理"
+description: "Memory を設定し、保存済みの事実を確認し、ソースを開き、不要になった項目を忘れます"
+---
+
+## 目的
+
+Alter が何を覚えるかを自分で管理し、保存済みの事実を確認し、Memory に残したくないものを取り除きます。
+
+## Memory 設定を開く
+
+<Steps>
+  <Step title="Settings を開く">
+    次のどれかの方法で開けます。
+
+    - メニューバー → **Settings...**
+    - **⌘ ,**（Command + カンマ）
+    - Hub またはノッチの **⋯** メニュー → **Settings**
+  </Step>
+  <Step title="Memory を選ぶ">
+    左側サイドバーの **General** の下で **Memory** を選びます。
+  </Step>
+</Steps>
+
+Memory ペインは 3 つの領域に分かれています。
+
+1. 上部の**コントロール**
+2. **検索とフィルタ**
+3. **保存済み Memory 一覧**
+
+## 基本コントロール
+
+### Use Memory
+
+**Use Memory** は全体のオンオフを決めるスイッチです。
+
+- **On:** Alter は保存済みの事実をリコールし、対象チャットで自動学習を行い、Memory ツールを使えます。
+- **Off:** Alter は Memory の利用と保存を止めますが、**既存の項目はディスク上に残したまま**です。
+
+すでに保存した内容を消さずに、しばらくリコールだけ止めたいときはこれをオフにします。
+
+### Ask before saving
+
+**Ask before saving** は、通常のチャット中に新しい事実がどう Memory に入るかを決めます。
+
+| 設定 | 現在のチャットであなたが直接述べた事実 | Tools やリコール履歴から来た事実 |
+|---|---|---|
+| **Off**（デフォルト） | ターン後に自動保存されることがある | 常に承認が必要 |
+| **On** | 常に承認が必要 | 常に承認が必要 |
+
+承認が必要な場合、Alter は提案された事実、その種類、スコープ、裏付けソースを示す確認シートを表示します。
+
+<Tip>
+  細かく管理したいなら **Ask before saving** をオンにします。チャット中に話した内容から静かに学習してほしいならオフのままにして、通知と **Undo** で確認するのが向いています。
+</Tip>
+
+## 保存済み Memory を確認する
+
+各行には次の情報が表示されます。
+
+- 保存された事実
+- **種類**。Fact、Preference、Goal、Decision、Recent、Experience
+- **スコープ**。Personal、workspace 名、または Deleted workspace
+- 最終更新日
+
+### 検索とフィルタ
+
+ツールバーを使って一覧を絞り込めます。
+
+- **Search**: 事実テキスト、種類、スコープ名で検索
+- **Scope** フィルタ: すべての Memory、Personal、特定の workspace、または Deleted workspaces
+- **Kind** フィルタ: すべての種類、または 1 種類だけ
+
+<Note>
+  **Deleted workspaces** は、削除した workspace に由来する Memory がまだ残っているときに表示されます。見えないまま孤立させるのではなく、自分で確認して forget できるようにするためです。
+</Note>
+
+### ソースを確認する
+
+多くの Memory には 1 つ以上の**ソース**があります。保存の根拠になったチャット、会議、またはツール結果です。
+
+1. Memory の下にある **N sources** を展開します
+2. ソースを 1 つ選んで、元のチャットや会議を Hub で開きます
+
+元のチャットや文字起こしがすでに存在しない場合でも、Alter は保存済み Memory を保持し、**Source unavailable** と表示します。
+
+## Memory を忘れる
+
+保存済み事実を 1 件削除するには:
+
+1. その Memory 行のゴミ箱アイコンをクリックします
+2. **Forget** を確認します
+
+forget すると、保存済み事実とその出典リンクは削除されます。元のチャットや会議の文字起こしは削除されません。
+
+チャットの中で、特定の目標や事実を忘れるよう Alter に頼むこともできます。Alter はまず正確な項目をリコールし、確認を取ってから削除します。
+
+## 自動保存を Undo する
+
+Alter が事実を自動保存すると、**Saved to Memory** や **Updated Memory** のようなアプリ内通知が表示されます。
+
+- **Undo** を選ぶと、その保存だけを取り消せます
+- **Dismiss** を選ぶか、通知が自然に消えるまで待つと、その Memory は保持されます
+
+Undo が効くのは、その通知が表している保存に対してだけです。もしその後に Memory がもう一度更新されて Undo に失敗した場合は、**Settings → Memory** を開いて最新状態を確認してください。
+
+## workspace を削除するとどうなるか
+
+workspace を削除すると、その workspace に紐づく保存済み Memory も workspace のクリーンアップの一部として削除されます。
+
+Personal Memory は影響を受けません。削除時に取り除けなかった workspace Memory がある場合、あとで Memory 設定の **Deleted workspaces** に表示されることがあります。
+
+## Memory を Alter Action にリンクする
+
+保存済み事実や、過去のチャットや会議への明示的なアクセスが必要なワークフローもあります。
+
+<Steps>
+  <Step title="Action Editor を開く">
+    メニューバー → **Action Editor**、または **⌘⇧E** を押します。
+  </Step>
+  <Step title="Tools を開く">
+    action を選択し、**Tools** セクションを開きます。
+  </Step>
+  <Step title="Memory をリンクする">
+    **Memory** を見つけて **Link Memory** を選びます。
+
+    Memory がグローバルに無効なら、Alter は **Turn On & Link** を提示します。
+  </Step>
+</Steps>
+
+Memory をリンクしても、すべての action に自動で有効になるわけではありません。Memory ツールを受け取るのは、リンクした action だけです。
+
+**Memory Catch-Up** のような信頼済み Alter action には、最初から Memory がリンクされています。
+
+## Memory 設定が空の場合
+
+**No saved memories yet** は、Alter がまだ長く残す事実を保存していないという意味です。新規インストール直後や、Memory をオンにした直後なら普通の状態です。
+
+<Tip>
+  **最初のおすすめ:** [Memory Catch-Up](/ja/workflows/memory-catch-up) を実行します。新しい Hub チャットを開き、**Memory に先行スタートを与える** を選びます。Alter が直近 30 日のチャットと会議を見直し、長く残す価値のある事実を一括で保存します。日常のターン後学習を待って文脈がたまるのを待つより、こちらの方がずっと速いです。
+</Tip>
+
+最初の Memory を追加する別の方法:
+
+- 普通にチャットして、残しておきたい好みや目標を伝える
+- 覚えてほしい具体的な事実を Alter に頼み、必要なら確認する
+
+## トラブルシューティング
+
+### Memory が一時的に使えない
+
+一覧の読み込みに失敗したら **Try again** を選んでください。多くの場合、その時点で Alter がローカル Memory データベースを読めなかっただけです。
+
+### 期待した内容を Alter がリコールしない
+
+まず次を確認します。
+
+- **Use Memory** がオン
+- 一時的なタスクスレッドではなく、永続的な Ask Anything チャットにいる
+- その事実が現在の workspace で見えるスコープにある
+- その事実が現在の会話ですでに述べられていない。Memory Brief は重複を省く
+
+詳しい挙動は [Memory](/ja/workflows/memory) を参照してください。
+
+### Memory をオフにしたのに、古い事実が Settings に残っている
+
+これは正常です。Memory を無効にすると新しいリコールと保存は止まりますが、既存の項目は消えません。必要なら各行を forget するか、単にリコールを一時停止したかっただけなら Memory を再びオンにしてください。
+
+## 関連ドキュメント
+
+- [Memory の概要](/ja/workflows/memory)
+- [Memory Catch-Up](/ja/workflows/memory-catch-up)
+- [Alter Settings を設定する](/ja/how-to/settings-guide)
+- [ローカルデータとプライバシー](/ja/references/local-data-and-privacy)

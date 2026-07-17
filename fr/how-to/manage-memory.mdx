@@ -1,0 +1,174 @@
+---
+title: "Gérer Memory"
+description: "Configurez Memory, examinez les faits enregistrés, ouvrez les sources et oubliez les entrées que vous ne voulez plus"
+---
+
+## Objectif
+
+Contrôler ce qu'Alter mémorise, examiner les faits enregistrés et retirer ce que vous ne voulez plus dans Memory.
+
+## Ouvrir les paramètres Memory
+
+<Steps>
+  <Step title="Ouvrir Settings">
+    Utilisez l'un de ces chemins :
+
+    - Barre de menu → **Settings...**
+    - **⌘ ,** (Command + Virgule)
+    - Hub ou menu encoche **⋯** → **Settings**
+  </Step>
+  <Step title="Sélectionner Memory">
+    Dans la barre latérale gauche sous **General**, choisissez **Memory**.
+  </Step>
+</Steps>
+
+Le volet Memory comporte trois zones :
+
+1. **Contrôles** en haut
+2. **Recherche et filtres**
+3. **Liste de vos memories enregistrées**
+
+## Contrôles principaux
+
+### Use Memory
+
+**Use Memory** est l'interrupteur principal.
+
+- **Activé :** Alter peut rappeler des faits enregistrés, lancer l'apprentissage automatique dans les chats éligibles et utiliser le Tool Memory.
+- **Désactivé :** Alter arrête d'utiliser et d'enregistrer Memory, mais **conserve vos entrées existantes** sur le disque.
+
+Désactivez quand vous voulez une pause nette du recall sans supprimer ce qui est déjà enregistré.
+
+### Ask before saving
+
+**Ask before saving** contrôle comment les nouveaux faits entrent dans Memory pendant les chats normaux.
+
+| Paramètre | Faits du chat actuel que vous énoncez directement | Faits depuis Tools ou historique rappelé |
+|---|---|---|
+| **Désactivé** (défaut) | Peuvent s'enregistrer automatiquement après un tour | Exigent toujours votre approbation |
+| **Activé** | Exigent toujours votre approbation | Exigent toujours votre approbation |
+
+Quand l'approbation est requise, Alter affiche une feuille de confirmation avec le fait proposé, son type, sa portée et ses sources.
+
+<Tip>
+  Pour un contrôle maximal, activez **Ask before saving**. Pour qu'Alter apprenne discrètement de ce que vous dites en chat, laissez-le désactivé et comptez sur les notifications plus **Undo**.
+</Tip>
+
+## Examiner les memories enregistrées
+
+Chaque ligne affiche :
+
+- Le fait enregistré
+- Son **type** (Fact, Preference, Goal, Decision, Recent ou Experience)
+- Sa **portée** (Personal, nom de workspace ou Deleted workspace)
+- La date de dernière mise à jour
+
+### Recherche et filtres
+
+Utilisez la barre d'outils pour affiner la liste :
+
+- **Search** dans le texte du fait, le type et l'étiquette de portée
+- Filtre **Scope** : All memories, Personal, un workspace précis ou Deleted workspaces
+- Filtre **Kind** : All kinds ou un type
+
+<Note>
+  **Deleted workspaces** apparaît quand vous avez encore des memories d'un workspace supprimé. Ces entrées restent visibles pour que vous puissiez les oublier intentionnellement au lieu de laisser des orphelins cachés.
+</Note>
+
+### Inspecter les sources
+
+Beaucoup de memories incluent une ou plusieurs **sources** — le chat, la réunion ou le résultat Tool qui a soutenu la sauvegarde.
+
+1. Développez **N sources** sous une memory.
+2. Choisissez une source pour ouvrir le chat ou la réunion d'origine dans le Hub.
+
+Si le chat ou la transcription sous-jacent n'existe plus, Alter conserve la memory enregistrée et affiche **Source unavailable**.
+
+## Oublier une memory
+
+Pour retirer un fait enregistré :
+
+1. Cliquez sur l'icône corbeille sur la ligne.
+2. Confirmez **Forget**.
+
+Oublier retire le fait enregistré et ses liens de provenance. Cela **ne supprime pas** le chat ou la transcription de réunion d'origine.
+
+Vous pouvez aussi demander à Alter en chat d'oublier un objectif ou fait précis. Alter rappelle d'abord l'entrée exacte, demande confirmation, puis la retire.
+
+## Annuler une sauvegarde automatique
+
+Quand Alter enregistre un fait automatiquement, il affiche une notification in-app comme **Saved to Memory** ou **Updated Memory**.
+
+- Choisissez **Undo** pour annuler cette sauvegarde précise.
+- Choisissez **Dismiss** ou laissez expirer la notification pour conserver la memory.
+
+Undo n'est disponible que pour la sauvegarde que représente cette notification. Si Undo échoue parce que la memory a changé à nouveau, ouvrez **Settings → Memory** pour voir la dernière version.
+
+## Supprimer un workspace
+
+Supprimer un workspace retire les memories enregistrées de ce workspace dans le cadre du nettoyage.
+
+Les memories Personal ne sont pas affectées. Si certaines memories workspace n'ont pas pu être retirées à la suppression, elles peuvent apparaître plus tard sous **Deleted workspaces** dans les paramètres Memory.
+
+## Lier Memory à une Alter Action
+
+Certains workflows ont besoin d'un accès explicite aux faits enregistrés ou aux chats et réunions historiques.
+
+<Steps>
+  <Step title="Ouvrir l'Action Editor">
+    Barre de menu → **Action Editor**, ou **⌘⇧E**.
+  </Step>
+  <Step title="Ouvrir Tools">
+    Sélectionnez l'action, puis la section **Tools**.
+  </Step>
+  <Step title="Lier Memory">
+    Trouvez **Memory** et choisissez **Link Memory**.
+
+    Si Memory est désactivée globalement, Alter propose **Turn On & Link**.
+  </Step>
+</Steps>
+
+Lier Memory ne l'active pas pour toutes les actions. Seules les actions que vous liez reçoivent le Tool Memory.
+
+Des actions Alter de confiance comme **Memory Catch-Up** incluent déjà Memory liée.
+
+## Quand les paramètres Memory sont vides
+
+**No saved memories yet** signifie qu'Alter n'a pas encore stocké de faits durables. C'est normal sur une installation fraîche ou juste après activation de Memory.
+
+<Tip>
+  **Première étape recommandée :** Lancez [Memory Catch-Up](/fr/workflows/memory-catch-up). Ouvrez un nouveau chat Hub et choisissez **Donner une longueur d'avance à Memory**. Alter examine les 30 derniers jours de chats et réunions et enregistre des faits durables sans demander chacun. C'est bien plus rapide qu'attendre l'apprentissage post-tour quotidien.
+</Tip>
+
+Autres moyens d'ajouter vos premières memories :
+
+- Discutez normalement et partagez une préférence ou un objectif à conserver
+- Demandez à Alter de retenir un fait précis, puis confirmez si demandé
+
+## Dépannage
+
+### Memory temporairement indisponible
+
+Si la liste ne charge pas, choisissez **Try again**. Cela signifie généralement qu'Alter n'a pas pu lire la base Memory locale à ce moment.
+
+### Alter ne rappelle pas ce que j'attends
+
+Vérifiez d'abord :
+
+- **Use Memory** est activé
+- Vous êtes dans un chat Ask Anything persistant, pas un fil de tâche transitoire
+- Le fait est dans la portée du workspace actuel
+- Le fait n'était pas déjà énoncé dans la conversation actuelle (le Memory Brief omet les doublons)
+
+Pour le comportement détaillé, voir [Memory](/fr/workflows/memory).
+
+### J'ai désactivé Memory mais d'anciens faits apparaissent encore dans Settings
+
+C'est attendu. Désactiver Memory arrête recall et nouvelles sauvegardes ; cela n'efface pas les entrées existantes. Oubliez les lignes individuelles, ou réactivez Memory si vous vouliez seulement mettre le recall en pause.
+
+## Docs connexes
+
+- [Vue d'ensemble Memory](/fr/workflows/memory)
+- [Memory Catch-Up](/fr/workflows/memory-catch-up)
+- [Configurer les paramètres Alter](/fr/how-to/settings-guide)
+- [Données locales et confidentialité](/fr/references/local-data-and-privacy)

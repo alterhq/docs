@@ -192,7 +192,9 @@
               },
               {
                 "group": "Assets",
-                "pages": ["references/image-library"]
+                "pages": [
+                  "references/image-library"
+                ]
               }
             ]
           },
@@ -201,7 +203,9 @@
             "groups": [
               {
                 "group": "Getting Started",
-                "pages": ["references/api-router-overview"]
+                "pages": [
+                  "references/api-router-overview"
+                ]
               },
               {
                 "group": "Gateway & Router",
@@ -221,7 +225,9 @@
               },
               {
                 "group": "Reference",
-                "pages": ["references/api-model-names"]
+                "pages": [
+                  "references/api-model-names"
+                ]
               }
             ],
             "openapi": "openapi.json"
@@ -282,6 +288,8 @@
               {
                 "group": "Captura e Conhecimento",
                 "pages": [
+                  "pt/workflows/memory",
+                  "pt/workflows/memory-catch-up",
                   "pt/workflows/manage-notes-with-alter",
                   "pt/workflows/summarize-x-feed-with-computer-use",
                   "pt/workflows/local-model-privacy"
@@ -366,6 +374,7 @@
                 "group": "Gerenciar e configurar",
                 "pages": [
                   "pt/how-to/settings-guide",
+                  "pt/how-to/manage-memory",
                   "pt/how-to/tool-manager-guide",
                   "pt/how-to/managing-context-window"
                 ]
@@ -404,7 +413,9 @@
               },
               {
                 "group": "Ativos",
-                "pages": ["pt/references/image-library"]
+                "pages": [
+                  "pt/references/image-library"
+                ]
               }
             ]
           },
@@ -413,7 +424,9 @@
             "groups": [
               {
                 "group": "Começando",
-                "pages": ["pt/references/api-router-overview"]
+                "pages": [
+                  "pt/references/api-router-overview"
+                ]
               },
               {
                 "group": "Gateway e roteador",
@@ -433,7 +446,9 @@
               },
               {
                 "group": "Referência",
-                "pages": ["pt/references/api-model-names"]
+                "pages": [
+                  "pt/references/api-model-names"
+                ]
               }
             ],
             "openapi": "openapi.json"
@@ -494,6 +509,8 @@
               {
                 "group": "Capture et connaissance",
                 "pages": [
+                  "fr/workflows/memory",
+                  "fr/workflows/memory-catch-up",
                   "fr/workflows/manage-notes-with-alter",
                   "fr/workflows/summarize-x-feed-with-computer-use",
                   "fr/workflows/local-model-privacy"
@@ -578,6 +595,7 @@
                 "group": "Gérer et configurer",
                 "pages": [
                   "fr/how-to/settings-guide",
+                  "fr/how-to/manage-memory",
                   "fr/how-to/tool-manager-guide",
                   "fr/how-to/managing-context-window"
                 ]
@@ -616,7 +634,9 @@
               },
               {
                 "group": "Actifs",
-                "pages": ["fr/references/image-library"]
+                "pages": [
+                  "fr/references/image-library"
+                ]
               }
             ]
           },
@@ -625,7 +645,9 @@
             "groups": [
               {
                 "group": "Commencer",
-                "pages": ["fr/references/api-router-overview"]
+                "pages": [
+                  "fr/references/api-router-overview"
+                ]
               },
               {
                 "group": "Passerelle et routeur",
@@ -645,7 +667,9 @@
               },
               {
                 "group": "Référence",
-                "pages": ["fr/references/api-model-names"]
+                "pages": [
+                  "fr/references/api-model-names"
+                ]
               }
             ],
             "openapi": "openapi.json"
@@ -706,6 +730,8 @@
               {
                 "group": "Captura y conocimiento",
                 "pages": [
+                  "es/workflows/memory",
+                  "es/workflows/memory-catch-up",
                   "es/workflows/manage-notes-with-alter",
                   "es/workflows/summarize-x-feed-with-computer-use",
                   "es/workflows/local-model-privacy"
@@ -790,6 +816,7 @@
                 "group": "Administrar y configurar",
                 "pages": [
                   "es/how-to/settings-guide",
+                  "es/how-to/manage-memory",
                   "es/how-to/tool-manager-guide",
                   "es/how-to/managing-context-window"
                 ]
@@ -828,7 +855,9 @@
               },
               {
                 "group": "Activos",
-                "pages": ["es/references/image-library"]
+                "pages": [
+                  "es/references/image-library"
+                ]
               }
             ]
           },
@@ -837,7 +866,9 @@
             "groups": [
               {
                 "group": "Empezando",
-                "pages": ["es/references/api-router-overview"]
+                "pages": [
+                  "es/references/api-router-overview"
+                ]
               },
               {
                 "group": "Puerta de enlace y enrutador",
@@ -857,7 +888,9 @@
               },
               {
                 "group": "Referencia",
-                "pages": ["es/references/api-model-names"]
+                "pages": [
+                  "es/references/api-model-names"
+                ]
               }
             ],
             "openapi": "openapi.json"
@@ -918,6 +951,8 @@
               {
                 "group": "Erfassung und Wissen",
                 "pages": [
+                  "de/workflows/memory",
+                  "de/workflows/memory-catch-up",
                   "de/workflows/manage-notes-with-alter",
                   "de/workflows/summarize-x-feed-with-computer-use",
                   "de/workflows/local-model-privacy"
@@ -1002,6 +1037,7 @@
                 "group": "Verwalten und konfigurieren",
                 "pages": [
                   "de/how-to/settings-guide",
+                  "de/how-to/manage-memory",
                   "de/how-to/tool-manager-guide",
                   "de/how-to/managing-context-window"
                 ]
@@ -1040,7 +1076,9 @@
               },
               {
                 "group": "Vermögenswerte",
-                "pages": ["de/references/image-library"]
+                "pages": [
+                  "de/references/image-library"
+                ]
               }
             ]
           },
@@ -1049,7 +1087,9 @@
             "groups": [
               {
                 "group": "Erste Schritte",
-                "pages": ["de/references/api-router-overview"]
+                "pages": [
+                  "de/references/api-router-overview"
+                ]
               },
               {
                 "group": "Gateway und Router",
@@ -1069,7 +1109,9 @@
               },
               {
                 "group": "Referenz",
-                "pages": ["de/references/api-model-names"]
+                "pages": [
+                  "de/references/api-model-names"
+                ]
               }
             ],
             "openapi": "openapi.json"
@@ -1130,6 +1172,8 @@
               {
                 "group": "捕获和知识",
                 "pages": [
+                  "zh/workflows/memory",
+                  "zh/workflows/memory-catch-up",
                   "zh/workflows/manage-notes-with-alter",
                   "zh/workflows/summarize-x-feed-with-computer-use",
                   "zh/workflows/local-model-privacy"
@@ -1214,6 +1258,7 @@
                 "group": "管理和配置",
                 "pages": [
                   "zh/how-to/settings-guide",
+                  "zh/how-to/manage-memory",
                   "zh/how-to/tool-manager-guide",
                   "zh/how-to/managing-context-window"
                 ]
@@ -1252,7 +1297,9 @@
               },
               {
                 "group": "资产",
-                "pages": ["zh/references/image-library"]
+                "pages": [
+                  "zh/references/image-library"
+                ]
               }
             ]
           },
@@ -1261,7 +1308,9 @@
             "groups": [
               {
                 "group": "入门",
-                "pages": ["zh/references/api-router-overview"]
+                "pages": [
+                  "zh/references/api-router-overview"
+                ]
               },
               {
                 "group": "网关和路由器",
@@ -1281,7 +1330,9 @@
               },
               {
                 "group": "参考",
-                "pages": ["zh/references/api-model-names"]
+                "pages": [
+                  "zh/references/api-model-names"
+                ]
               }
             ],
             "openapi": "openapi.json"
@@ -1342,6 +1393,8 @@
               {
                 "group": "捕獲と知識",
                 "pages": [
+                  "ja/workflows/memory",
+                  "ja/workflows/memory-catch-up",
                   "ja/workflows/manage-notes-with-alter",
                   "ja/workflows/summarize-x-feed-with-computer-use",
                   "ja/workflows/local-model-privacy"
@@ -1426,6 +1479,7 @@
                 "group": "管理と構成",
                 "pages": [
                   "ja/how-to/settings-guide",
+                  "ja/how-to/manage-memory",
                   "ja/how-to/tool-manager-guide",
                   "ja/how-to/managing-context-window"
                 ]
@@ -1464,7 +1518,9 @@
               },
               {
                 "group": "資産",
-                "pages": ["ja/references/image-library"]
+                "pages": [
+                  "ja/references/image-library"
+                ]
               }
             ]
           },
@@ -1473,7 +1529,9 @@
             "groups": [
               {
                 "group": "はじめる",
-                "pages": ["ja/references/api-router-overview"]
+                "pages": [
+                  "ja/references/api-router-overview"
+                ]
               },
               {
                 "group": "ゲートウェイとルーター",
@@ -1493,7 +1551,9 @@
               },
               {
                 "group": "参照",
-                "pages": ["ja/references/api-model-names"]
+                "pages": [
+                  "ja/references/api-model-names"
+                ]
               }
             ],
             "openapi": "openapi.json"

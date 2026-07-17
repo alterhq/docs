@@ -1,0 +1,148 @@
+---
+title: "Memory Catch-Up"
+description: "Le moyen recommandé d'amorcer Memory à partir de vos 30 derniers jours de chats et réunions en une revue de confiance"
+---
+
+<Info>
+  **Memory Catch-Up** est le moyen le plus rapide de commencer à alimenter Memory. Il examine votre activité Alter récente, la compare avec ce qui est déjà enregistré, et ajoute ou met à jour uniquement les faits durables à conserver — sans vous demander d'approuver chacun.
+</Info>
+
+## Pourquoi Catch-Up est la meilleure première étape
+
+La Memory quotidienne apprend progressivement — un fait candidat par tour Ask Anything terminé. Cela fonctionne bien une fois que Memory a déjà du contexte, mais c'est lent quand vous partez de zéro.
+
+**Memory Catch-Up** résout ce problème d'amorçage. En une exécution il :
+
+- Scanne les **30 derniers jours calendaires** de chats personnels et transcriptions de réunion
+- Inclut le **workspace actuel** quand un workspace est actif
+- Compare les candidats à Memory enregistrée avant toute écriture
+- Enregistre automatiquement les faits à haute confiance comme action Alter de confiance
+
+Pensez à Catch-Up comme à remplir le carnet. La Memory quotidienne le met à jour ensuite.
+
+## Quand l'utiliser
+
+Lancez Memory Catch-Up quand :
+
+- Vous venez d'activer **Use Memory** et voulez une longueur d'avance
+- **Settings → Memory** est vide mais vous avez des semaines d'activité Alter
+- Vous revenez après une pause et voulez capturer objectifs, décisions et préférences récents
+- Vous passez à un nouveau workspace et voulez le contexte projet du travail récent
+- Vous colleriez sinon le même contexte dans chaque nouveau chat
+
+Catch-Up est un remplissage ponctuel pour les **30 derniers jours calendaires**, pas un indexeur continu en arrière-plan. Vous pouvez le relancer plus tard pour un autre rafraîchissement sur 30 jours.
+
+## Comment démarrer Catch-Up
+
+<Steps>
+  <Step title="Ouvrir un nouveau chat Hub">
+    Ouvrez le Hub et démarrez un **nouvel onglet de conversation**. Catch-Up est proposé sur un chat vide, pas en milieu de fil.
+  </Step>
+  <Step title="Choisir la suggestion">
+    Sélectionnez **Donner une longueur d'avance à Memory** dans les suggestions d'accueil. Elle apparaît comme carte recommandée quand Catch-Up est disponible et lance l'action intégrée **Memory Catch-Up**.
+  </Step>
+  <Step title="Laisser la revue s'exécuter">
+    Alter lance l'action de confiance **Memory Catch-Up** et commence immédiatement à examiner chats et réunions.
+  </Step>
+</Steps>
+
+Catch-Up n'apparaît que quand le chat est inscriptible, inactif, et ne lance pas déjà une autre action ou contexte attaché.
+
+Si Memory était désactivée, Catch-Up active **Use Memory** pour la durée de l'exécution afin que la revue puisse se terminer.
+
+## Ce que Catch-Up examine
+
+### Fenêtre temporelle
+
+- **30 dates calendaires inclusives** se terminant aujourd'hui dans votre fuseau horaire local
+- Exemple : si aujourd'hui est le 16 juillet, la fenêtre commence le 17 juin
+
+### Sources
+
+| Source | Inclus |
+|---|---|
+| Chats personnels | Oui |
+| Transcriptions de réunion personnelles | Oui |
+| Chats du workspace actuel | Oui, quand un workspace est actif |
+| Réunions du workspace actuel | Oui, quand un workspace est actif |
+| Autres workspaces | Non |
+
+Catch-Up pagine exhaustivement chats et réunions dans cette fenêtre. Il ne s'arrête pas après la première page de résultats.
+
+### Ce qu'il enregistre
+
+Catch-Up cherche des éléments durables et à haute confiance tels que :
+
+- Préférences stables
+- Objectifs actifs
+- Décisions claires
+- Faits utiles
+- Changements récents significatifs
+
+Il ignore secrets, identifiants, données personnelles sensibles, rappels, logistique éphémère, extraits bruts et suppositions à faible confiance.
+
+Chaque élément enregistré est un fait concis autonome avec provenance de la portée correspondante.
+
+## À quoi s'attendre pendant l'exécution
+
+Au début, Alter vous indique — en langage clair — qu'il va examiner les 30 derniers jours, comparer à Memory enregistrée, et ne sauvegarder que des détails genuinely nouveaux ou mis à jour.
+
+Pendant l'exécution Alter :
+
+1. Lit les chats dans la fenêtre de dates
+2. Lit les réunions dans la fenêtre de dates
+3. Compare les candidats à Memory enregistrée existante
+4. **Remember** de nouveaux faits ou **replace** les obsolètes quand la preuve est claire
+
+Catch-Up **ne** :
+
+- Vous demande pas d'approuver chaque sauvegarde individuelle
+- Supprime ni n'oublie des memories existantes
+- Examine pas d'autres workspaces que l'actif
+- Élargit pas la fenêtre de 30 jours
+
+À la fin, vous recevez un résumé structuré avec comptages et puces pour les faits ajoutés ou mis à jour, plus une courte explication en langage clair du fonctionnement de Memory et quelques exemples de questions à essayer ensuite.
+
+## Après Catch-Up
+
+<CardGroup cols={2}>
+  <Card title="Vérifier dans Settings" icon="slider" href="/fr/how-to/manage-memory">
+    Ouvrez Settings → Memory pour parcourir ce qui a été enregistré.
+  </Card>
+  <Card title="Demander naturellement" icon="message" href="/fr/workflows/memory">
+    Essayez « Quels sont mes objectifs actuels ? » ou « Qu'avons-nous décidé pour l'onboarding ? »
+  </Card>
+</CardGroup>
+
+Suivis recommandés :
+
+1. Oubliez ce qui est faux ou plus pertinent dans **Settings → Memory**
+2. Activez **Ask before saving** si vous voulez un contrôle plus strict sur les sauvegardes automatiques futures
+3. Liez Memory à des actions personnalisées qui doivent réutiliser des faits enregistrés ou chercher dans l'historique
+
+## Catch-Up vs Memory quotidienne
+
+Utilisez les deux : Catch-Up pour **amorcer** Memory depuis l'historique, Memory quotidienne pour la **maintenir** en travaillant.
+
+| | Memory quotidienne | Memory Catch-Up |
+|---|---|---|
+| Déclencheur | Chaque tour Ask Anything terminé, ou usage explicite du Tool Memory | Vous le démarrez depuis un nouveau chat Hub |
+| Portée de l'historique | Tour actuel ou requêtes recall explicites | 30 derniers jours fixes de chats et réunions |
+| Approbations | Dépend de la source et des paramètres | Action de confiance sauvegarde sans approbation par élément |
+| Suppressions | Vous pouvez oublier des éléments | Ne peut pas oublier pendant Catch-Up |
+| Idéal pour | Apprentissage continu une fois Memory amorcée | Amorçage, rafraîchissement ou comblement de lacunes récentes |
+
+## Notes de confidentialité
+
+Catch-Up lit les chats et transcriptions locaux déjà stockés sur votre Mac. Les résultats enregistrés restent des entrées Memory locales.
+
+La revue elle-même utilise votre modèle génératif configuré pour comparer et formuler des faits concis. Traitez cela comme toute autre action Alter qui appelle un modèle.
+
+Voir aussi [Données locales et confidentialité](/fr/references/local-data-and-privacy).
+
+## Docs connexes
+
+- [Vue d'ensemble Memory](/fr/workflows/memory)
+- [Gérer Memory](/fr/how-to/manage-memory)
+- [Réunions](/fr/workflows/meetings)
+- [Alter Actions](/fr/workflows/alter-actions)

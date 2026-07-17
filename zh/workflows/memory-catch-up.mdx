@@ -1,0 +1,148 @@
+---
+title: "Memory Catch-Up"
+description: "通过一次受信任的审查，把你最近 30 天的聊天和会议内容填充进 Memory。这是推荐的起步方式"
+---
+
+<Info>
+  **Memory Catch-Up** 是开始为 Memory 提供内容的最快方式。它会审查你最近的 Alter 活动，把结果与已保存内容比较，只添加或更新那些值得长期保留的事实，而且不需要你逐条批准。
+</Info>
+
+## 为什么 Catch-Up 是最好的第一步
+
+日常 Memory 学习是渐进式的。每完成一轮 Ask Anything，对它来说最多只会产生一个候选事实。等 Memory 已经有一些上下文时，这样很好用；但如果你是从零开始，它会比较慢。
+
+**Memory Catch-Up** 解决的就是这个冷启动问题。一次运行里，它会：
+
+- 扫描最近 **30 个日历日** 的个人聊天和会议转录
+- 当有活动 workspace 时，也包含**当前 workspace**
+- 在写入前，把候选内容与已保存的 Memory 做比较
+- 作为受信任的 Alter action，自动保存高置信度事实
+
+你可以把 Catch-Up 当成是先把笔记本填上一层基础。之后，日常 Memory 会继续维护它。
+
+## 什么时候该使用它
+
+适合运行 Memory Catch-Up 的情况：
+
+- 你刚打开 **Use Memory**，想先打好基础
+- **Settings → Memory** 还是空的，但你已经有几周的 Alter 活动
+- 你中断一段时间后回来，希望补上最近的目标、决策和偏好
+- 你切换到一个新的 workspace，希望带入最近工作的项目背景
+- 否则你会在每个新聊天里都粘贴同样的背景说明
+
+Catch-Up 是针对**最近 30 个日历日**的一次性回填，不是持续运行的后台索引器。如果你之后还想再做一次最近 30 天的刷新，也可以再次运行它。
+
+## 如何启动 Catch-Up
+
+<Steps>
+  <Step title="打开一个新的 Hub 聊天">
+    打开 Hub，并启动一个**新对话**标签页。Catch-Up 只会出现在空白聊天中，不会在进行中的线程中间出现。
+  </Step>
+  <Step title="选择建议卡片">
+    从欢迎建议中选择 **为 Memory 抢先起步**。当 Catch-Up 可用时，它会作为推荐卡片出现，并启动内置的 **Memory Catch-Up** action。
+  </Step>
+  <Step title="等待审查运行">
+    Alter 会启动受信任的 **Memory Catch-Up** action，并立即开始审查聊天和会议。
+  </Step>
+</Steps>
+
+Catch-Up 只会在聊天可写、处于空闲状态，且没有正在运行其他 action 或附加上下文时显示。
+
+如果 Memory 原本被禁用，Catch-Up 会在本次运行中打开 **Use Memory**，这样审查才能顺利完成。
+
+## Catch-Up 会审查什么
+
+### 时间窗口
+
+- 以你的本地时区为准，包含今天在内的 **30 个日历日期**
+- 例如，如果今天是 7 月 16 日，窗口就从 6 月 17 日开始
+
+### 来源
+
+| 来源 | 是否包含 |
+|---|---|
+| 个人聊天 | 是 |
+| 个人会议转录 | 是 |
+| 当前 workspace 聊天 | 是，有活动 workspace 时 |
+| 当前 workspace 会议 | 是，有活动 workspace 时 |
+| 其他 workspace | 否 |
+
+Catch-Up 会在这个窗口内完整分页读取聊天和会议，不会只读第一页结果就停下。
+
+### 它会保存什么
+
+Catch-Up 会查找长期有效、置信度高的内容，例如：
+
+- 稳定偏好
+- 当前目标
+- 明确决策
+- 有用事实
+- 有意义的近期变化
+
+它会跳过机密、凭证、敏感个人数据、提醒、短期事务、原始摘录，以及低置信度猜测。
+
+每一条保存结果都会是一条简洁、可独立理解的事实，并带有来自相应范围的来源依据。
+
+## 运行过程中可以期待什么
+
+开始时，Alter 会用直白语言告诉你，它将审查最近 30 天，把结果与已保存的 Memory 比较，并且只保存真正新增或已更新的关键信息。
+
+运行过程中，Alter 会：
+
+1. 读取时间窗口内的聊天
+2. 读取时间窗口内的会议
+3. 将候选事实与现有已保存 Memory 比较
+4. 在证据明确时，**Remember** 新事实，或 **Replace** 过时事实
+
+Catch-Up **不会**：
+
+- 要求你逐条批准每一次保存
+- 删除或 forget 现有 Memory
+- 审查当前 workspace 以外的其他 workspace
+- 扩大这个 30 天窗口
+
+完成后，你会收到一个结构化摘要，其中包含新增或更新事实的计数和要点列表，以及一段简短的自然语言说明，解释 Memory 如何工作，并给出几个下一步可以尝试的问题。
+
+## Catch-Up 之后
+
+<CardGroup cols={2}>
+  <Card title="在 Settings 中核对" icon="slider" href="/zh/how-to/manage-memory">
+    打开 Settings → Memory，快速查看刚刚保存了什么。
+  </Card>
+  <Card title="自然提问" icon="message" href="/zh/workflows/memory">
+    试试“我当前有哪些目标？”或者“我们关于 onboarding 做了什么决定？”
+  </Card>
+</CardGroup>
+
+推荐后续动作：
+
+1. 在 **Settings → Memory** 中 forget 任何错误或不再相关的条目
+2. 如果你想对后续自动保存有更严的控制，就打开 **Ask before saving**
+3. 把 Memory 链接到那些需要复用已保存事实或搜索历史的自定义 action
+
+## Catch-Up 与日常 Memory 的区别
+
+两者最好一起使用。Catch-Up 负责用历史**填充** Memory，日常 Memory 负责在你工作过程中持续**维护**它。
+
+| | 日常 Memory | Memory Catch-Up |
+|---|---|---|
+| 触发方式 | 每完成一轮 Ask Anything，或显式使用 Memory 工具时 | 由你从新的 Hub 聊天手动启动 |
+| 历史范围 | 当前轮次或显式召回查询 | 固定的最近 30 天聊天与会议 |
+| 批准方式 | 取决于来源和设置 | 受信任 action 保存，不需逐条批准 |
+| 删除 | 你可以 forget 条目 | Catch-Up 期间不能 forget |
+| 最适合 | 在 Memory 已有基础后持续学习 | 冷启动、刷新，或补齐近期历史空缺 |
+
+## 隐私说明
+
+Catch-Up 读取的是已经存储在你 Mac 本地的聊天和转录。保存结果仍然会作为本地 Memory 条目保留。
+
+审查过程本身会使用你已配置的生成式模型来比较内容并表述简洁事实。把它视为一次普通的 Alter action 模型调用即可。
+
+另见：[本地数据与隐私](/zh/references/local-data-and-privacy)。
+
+## 相关文档
+
+- [Memory 概览](/zh/workflows/memory)
+- [管理 Memory](/zh/how-to/manage-memory)
+- [会议](/zh/workflows/meetings)
+- [Alter Actions](/zh/workflows/alter-actions)

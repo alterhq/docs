@@ -1,0 +1,241 @@
+---
+title: "Memory"
+description: "让 Alter 在聊天、workspace 和会议之间记住有用事实，并在你需要时把它们召回出来"
+---
+
+<Info>
+  **Memory** 是 Alter 的持久召回层。它会保存你关心的简洁事实，自动把最相关的内容带入新的聊天；当已保存的 Memory 还不够时，它还可以搜索你过去的聊天和会议转录。
+</Info>
+
+## 什么是 Memory
+
+Memory 不是每一段聊天或每一次会议的完整副本。Alter 保存的是**简短、可独立理解的事实**，比如偏好、目标、决定，以及其他在今后对话里很可能有帮助的信息。
+
+你可以把它理解成 Alter 为你维护的一本笔记本：
+
+- **Personal Memory** 会跟随你跨越不同 workspace。适合保存关于你本人、你的工作风格，以及跨项目偏好的长期事实。
+- **Workspace Memory** 只留在单个 workspace 中。适合保存项目目标、约定、决策，以及最近的项目变更。
+
+你原始的聊天和会议转录仍然保留在 Alter 的正常历史记录里。Memory 会在合适的时候回链到这些来源，但不会替代它们。
+
+## 开始使用 Memory
+
+让 Memory 变得有用的最快方式，不是每次新聊天都重复同样的背景，而是**先用你已经有的历史来填充 Memory**。
+
+<Tip>
+  **先从 Memory Catch-Up 开始。** 在一个新的 Hub 聊天里，选择 **为 Memory 抢先起步**。Alter 会查看你最近 30 天的聊天和会议，把其中有用的细节与已保存内容进行比较，然后一次性添加或更新长期有效的事实，而且不需要你逐条批准。
+</Tip>
+
+适合运行 Catch-Up 的情况：
+
+- 你第一次打开 **Use Memory**
+- Memory 设置还是空的，但你已经用 Alter 活跃了几周
+- 你中断一段时间后回来，希望把最近的目标和决策补进来
+- 你打开一个新的 workspace，希望带入最近工作的项目背景
+
+Catch-Up 是针对过去 30 个日历日的一次性回填。之后，日常的 Memory 学习会随着你的聊天继续更新这些事实。
+
+完整说明见：[Memory Catch-Up](/zh/workflows/memory-catch-up)
+
+## Memory 如何帮助日常工作
+
+<CardGroup cols={2}>
+  <Card title="更快开始" icon="bolt">
+    已保存的相关事实会加入新的 Ask Anything 聊天，你不必反复交代背景。
+  </Card>
+  <Card title="保持方向感" icon="compass">
+    你可以直接询问当前目标、做过的决策，或最近会议里提到了什么。
+  </Card>
+  <Card title="让项目彼此分开" icon="folder">
+    Workspace Memory 会把一个项目的上下文留在那个项目里，不会混到别的项目。
+  </Card>
+  <Card title="需要时回看历史" icon="clock-rotate-left">
+    当已保存的事实不够用时，Alter 可以搜索以前的聊天和转录。
+  </Card>
+</CardGroup>
+
+## 会记住什么
+
+Alter 会把保存的事实分成几种类型：
+
+| 类型 | 适合保存 | 示例 |
+|---|---|---|
+| **Preference** | 你稳定偏好的做事方式 | "更喜欢简洁的要点摘要" |
+| **Fact** | 值得长期保留的事实信息 | "我们的 staging 应用在 staging.example.com" |
+| **Goal** | 当前仍在推进的优先事项或计划 | "在 8 月前发布 onboarding 改版" |
+| **Decision** | 已经做出的选择 | "分析存储使用 Postgres" |
+| **Recent** | 值得记下的重要近期变化 | "已将默认模型切换为 Claude Sonnet" |
+| **Experience** | 从过去工作中验证过的经验 | 通常通过召回后整理得到，不是随手聊天就保存 |
+
+Alter 会做筛选。它会跳过机密、凭证、敏感个人数据、临时事务、提醒事项、原始转录堆砌，以及以后很容易再查到的细节。
+
+## Memory 如何工作
+
+Memory 由三层协作完成：
+
+### 1. Memory Brief（自动召回）
+
+在持久的 **Ask Anything** 聊天中，Alter 可能会在模型回答前，把一个小型 Memory Brief 附加到你的最新消息上。
+
+- 这个 brief 会在本地由已保存的 Memory 生成，不会额外发起模型调用。
+- 它的上限大约是 **240 tokens**，所以很轻量。
+- 优先级会偏向置顶偏好、长期事实、目标、决策，以及来自 Personal 和当前 workspace 的近期变化。
+- 当前对话里已经出现过的事实不会重复加入。
+- 如果对话已经接近上下文上限，就会跳过这个 brief。
+
+这个 brief 会帮助 Alter 带着连续性回答，但不会改变 Memory 中实际保存的内容。
+
+### 2. 每轮回复后的自动学习
+
+当一次 Ask Anything 回复完成后，Alter 可以在后台对这一轮做一次小型复查。
+
+- 每一轮最多只会考虑**一个**候选事实。
+- 如果 **Ask before saving** 关闭，当前聊天里由你直接说出的事实可以自动保存。
+- 从 Tools 输出或较早召回历史中学到的事实，仍然需要你批准。
+- 如果发生了无需批准的保存，Alter 会显示带有 **Undo** 的通知。
+
+这项复查不会往聊天里再发一条消息，也不会阻塞你已经收到的回复。
+
+### 3. Memory 工具（显式召回和编辑）
+
+当一个对话里可以使用 Memory 时，Alter 可以调用 **Memory** 工具来：
+
+- **Recall** 已保存的事实、最近的聊天或会议转录
+- **Analyze** 完整分析某个召回来源，当片段内容还不够时
+- **Remember** 一条简洁的新事实
+- **Replace** 一条已经过时的已保存事实
+- **Forget** 一条你明确要求移除的已保存事实
+
+读取和分析本身不会自动写入 Memory。
+
+<Note>
+  **Memory Catch-Up** 是用最近历史为 Memory 打基础的内置方式。自定义 action 和一些 Hub 流程也可以显式链接这个工具。参见 [Memory Catch-Up](/zh/workflows/memory-catch-up) 和 [管理 Memory](/zh/how-to/manage-memory)。
+</Note>
+
+## Personal 与 workspace 范围
+
+| 范围 | 保存为 | 何时可见 | 最适合 |
+|---|---|---|---|
+| **Personal** | 用户级事实 | 跨 workspace 的 Ask Anything | 偏好、个人资料事实、跨项目目标 |
+| **Workspace** | 绑定到单个 workspace 的事实 | 该 workspace 中的聊天 | 项目约定、workspace 目标、本地决策 |
+
+实际使用中有几条规则很重要：
+
+- 如果你保存时没有明确指定范围，Alter 会优先选择**当前 workspace**，因为这是更窄的边界。
+- 如果某条事实应该在所有地方都跟着你，请显式使用 **Personal**。
+- 删除一个 workspace 时，该 workspace 的已保存 Memory 也会一起删除。
+- 来自已删除 workspace 的 Memory 仍会在 Settings 里的 **Deleted workspaces** 下显示，方便你审查或忘记它们。
+
+## 哪里可以使用 Memory
+
+Memory 的设计目标，是服务于普通的、由用户发起的 Ask Anything 对话。
+
+| 场景 | Memory Brief | 自动学习 | Memory 工具 |
+|---|---|---|---|
+| 持久 Ask Anything 聊天 | 是，开启时可用 | 是，开启时可用 | 是，开启时可用 |
+| 带 workspace 的 QuickHub / Hub 聊天 | 是 | 是 | Personal + workspace 范围 |
+| 临时对话或任务型对话 | 否 | 否 | 否 |
+| 只读对话 | 仅可读时提供 brief | 不可写入 | 只读召回 |
+| 在 Settings 中禁用 Memory | 否 | 否 | 否 |
+
+自定义 **Alter Actions** 可以在 Action Editor 的 **Tools** 部分链接 Memory 工具。Memory 不会作为全局兜底工具自动加入每一个 action。
+
+## 和 Alter 聊 Memory
+
+你不需要任何特殊语法。自然表达就可以：
+
+- "我当前有哪些目标？"
+- "你记得我哪些信息？"
+- "我们关于 onboarding 做过什么决定？"
+- "记住，我更喜欢 tab 缩进的代码。"
+- "把迁移到 Kubernetes 的那个目标忘掉吧，我们取消了。"
+- "这周我的会议里关于定价提到了什么？"
+
+几个有用的习惯：
+
+- 如果你要更正或删除某条已保存事实，先让 Alter **recall** 它。
+- 当某个目标或计划已经完成、不该继续留在 Memory 里时，直接说 **forget** 或 **remove**。
+- 如果你想看来源而不只是保存后的摘要，可以要求它提供 **source**，或者直接说 **open the meeting**。
+
+## Memory Catch-Up
+
+**Memory Catch-Up** 是 Alter 推荐的方式，用已有历史来喂给 Memory，而不是只依赖你在下一次聊天里新说的话。
+
+在一个新的 Hub 聊天中，Alter 可能会建议你选择 **为 Memory 抢先起步**。这会启动内置且受信任的 **Memory Catch-Up** action，它会：
+
+- 查看最近 **30 个日历日** 的个人聊天和会议
+- 当有活动 workspace 时，也包含当前 workspace 的聊天和会议
+- 在这个时间窗口内完整分页读取，其他 workspace 不在范围内
+- 把有用的细节与已保存的内容进行比较
+- 当证据足够明确时，**Remember** 新事实，或 **Replace** 过时事实
+- 因为它是带固定审查窗口的受信任 Alter action，所以保存时不需要逐条批准
+
+Catch-Up 不能删除或 forget 任何 Memory。如果 Memory 原本是关闭的，启动 Catch-Up 时会先打开 **Use Memory**，以便这次运行完成。
+
+| | 日常 Memory | Memory Catch-Up |
+|---|---|---|
+| 最适合 | 随着聊天持续学习 | 从最近 30 天快速打底或刷新 |
+| 审查的历史 | 当前轮次或显式召回 | 固定的 30 天聊天和会议窗口 |
+| 是否逐条批准 | 取决于来源和设置 | 受信任 action 保存，不会每条都询问 |
+| 删除 | 你可以 forget 条目 | Catch-Up 期间不能 forget |
+
+完整说明见：[Memory Catch-Up](/zh/workflows/memory-catch-up)。
+
+## 隐私与本地存储
+
+<Info>
+  已保存的 Memory 会和其他 Alter 数据一起保留在你的 Mac 上。它不会作为单独的 Memory 备份同步到云端。
+</Info>
+
+这意味着：
+
+- 已保存事实位于创建它们的那台设备上的 Alter 本地数据库中。
+- forget 某条 Memory 会移除该保存事实及其来源链接，不会删除底层聊天或转录本身。
+- 当你使用云模型时，活动对话会按照对应提供商的正常请求路径发送，其中也包括发给模型的 Memory Brief 或召回内容。
+- 关闭 **Use Memory** 会停止召回和新的保存，但已有条目会保留，这样你以后还可以重新打开 Memory。
+
+更完整的本地数据说明见：[本地数据与隐私](/zh/references/local-data-and-privacy)。
+
+## Settings 一览
+
+打开 **Settings → Memory**（在 Settings 的 General 区域里，图标是大脑）。
+
+| 设置 | 默认值 | 作用 |
+|---|---|---|
+| **Use Memory** | On | 启用召回、自动学习和 Memory 工具 |
+| **Ask before saving** | Off | 关闭时，当前聊天中的事实可自动保存；来自 Tools 或召回历史的事实仍需批准 |
+
+Memory 设置页面还可以让你搜索、筛选、检查来源，以及忘记单个条目。
+
+完整管理指南见：[管理 Memory](/zh/how-to/manage-memory)。
+
+## 使用场景
+
+### 让偏好保持一致
+
+告诉 Alter 一次，你喜欢怎样的回答格式、你使用什么技术栈，或者你最关心哪个日历。Personal 偏好可以被置顶，并经常出现在 Memory Brief 中。
+
+### 按项目跟踪目标和决策
+
+如果你在某个产品或客户的 workspace 中工作，就把正在推进的目标和已经做出的决策保存在那里。这样你可以直接问“我这个项目的目标是什么？”，不用再重讲 workspace 背景。
+
+### 在会议后接着推进
+
+在有录音的会议之后，你可以问“最近几次会议里关于 X 做了什么决定？” Alter 可以同时搜索转录和已保存的 Memory。
+
+### 在繁忙的 Mac 上快速启用 Memory
+
+从新的 Hub 聊天运行 **Memory Catch-Up**，也就是选择 **为 Memory 抢先起步**，一次性回填最近 30 天的聊天和会议。然后你可以在 Settings 里微调，再让日常学习继续把 Memory 保持最新。
+
+### 给 action 提供长期上下文
+
+在 Action Editor 里，把 **Memory** 链接到某个需要读取已保存事实，或需要为该工作流搜索过往聊天和会议的 action 上。
+
+## 相关文档
+
+- [Memory Catch-Up](/zh/workflows/memory-catch-up) — 从最近 30 天历史填充 Memory 的推荐方式
+- [管理 Memory](/zh/how-to/manage-memory) — 设置、审查、忘记和来源
+- [会议](/zh/workflows/meetings) — Memory 可以搜索的转录来源
+- [Alter Actions](/zh/workflows/alter-actions) — 把 Memory 链接到自定义工作流
+- [使用工作空间来完成更大的任务](/zh/getting-started/workspaces-basics) — 项目范围内的 Memory
+- [管理上下文窗口](/zh/how-to/managing-context-window) — 简短召回与完整上下文的区别

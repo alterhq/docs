@@ -1,0 +1,174 @@
+---
+title: "Memory verwalten"
+description: "Konfiguriere Memory, prüfe gespeicherte Fakten, öffne Quellen und vergiss Einträge, die du nicht mehr behalten willst"
+---
+
+## Ziel
+
+Steuere, was Alter behält, prüfe gespeicherte Fakten und entferne alles, was du nicht mehr in Memory haben willst.
+
+## Memory-Einstellungen öffnen
+
+<Steps>
+  <Step title="Settings öffnen">
+    Nutze einen dieser Wege:
+
+    - Menüleiste → **Settings...**
+    - **⌘ ,** (Command + Comma)
+    - Hub- oder Notch-Menü **⋯** → **Settings**
+  </Step>
+  <Step title="Memory auswählen">
+    Wähle in der linken Seitenleiste unter **General** den Punkt **Memory**.
+  </Step>
+</Steps>
+
+Der Memory-Bereich hat drei Zonen:
+
+1. **Steuerungen** oben
+2. **Suche und Filter**
+3. **Deine Liste gespeicherter Memories**
+
+## Zentrale Steuerungen
+
+### Use Memory
+
+**Use Memory** ist der Hauptschalter.
+
+- **Ein:** Alter kann gespeicherte Fakten abrufen, in geeigneten Chats automatisch lernen und das Memory-Tool verwenden.
+- **Aus:** Alter hört auf, Memory zu verwenden und zu speichern, behält aber **deine vorhandenen Einträge** auf der Festplatte.
+
+Schalte das aus, wenn du Recall pausieren willst, ohne bereits gespeicherte Inhalte zu löschen.
+
+### Ask before saving
+
+**Ask before saving** steuert, wie neue Fakten bei normalen Chats in Memory gelangen.
+
+| Einstellung | Fakten aus dem aktuellen Chat, die du direkt nennst | Fakten aus Tools oder abgerufenem Verlauf |
+|---|---|---|
+| **Aus** (Standard) | Können nach einem Turn automatisch gespeichert werden | Brauchen immer deine Freigabe |
+| **Ein** | Brauchen immer deine Freigabe | Brauchen immer deine Freigabe |
+
+Wenn eine Freigabe nötig ist, zeigt Alter ein Bestätigungsfenster mit dem vorgeschlagenen Fakt, seiner Art, seinem Bereich und den unterstützenden Quellen.
+
+<Tip>
+  Wenn du maximale Kontrolle willst, schalte **Ask before saving** ein. Wenn Alter still aus dem lernen soll, was du im Chat sagst, lass die Option aus und verlass dich auf Benachrichtigungen plus **Undo**.
+</Tip>
+
+## Gespeicherte Memories prüfen
+
+Jede Zeile zeigt:
+
+- Den gespeicherten Fakt
+- Seine **Art** (Fact, Preference, Goal, Decision, Recent oder Experience)
+- Seinen **Bereich** (Personal, einen Workspace-Namen oder Deleted workspace)
+- Das Datum der letzten Aktualisierung
+
+### Suchen und filtern
+
+Nutze die Toolbar, um die Liste einzugrenzen:
+
+- **Search** über Fakttext, Art und Bereichslabel
+- **Scope**-Filter: All memories, Personal, ein bestimmter Workspace oder Deleted workspaces
+- **Kind**-Filter: All kinds oder eine einzelne Art
+
+<Note>
+  **Deleted workspaces** erscheint, wenn du noch Memories aus einem gelöschten Workspace hast. Diese Einträge bleiben sichtbar, damit du sie bewusst vergessen kannst, statt versteckte Altlasten zu hinterlassen.
+</Note>
+
+### Quellen prüfen
+
+Viele Memories enthalten eine oder mehrere **sources**, also den Chat, das Meeting oder das Tool-Ergebnis, das die Speicherung gestützt hat.
+
+1. Klappe **N sources** unter einer Memory auf.
+2. Wähle eine Quelle, um den ursprünglichen Chat oder das Meeting im Hub zu öffnen.
+
+Wenn der zugrunde liegende Chat oder das Transkript nicht mehr existiert, behält Alter die gespeicherte Memory und zeigt **Source unavailable** an.
+
+## Eine Memory vergessen
+
+So entfernst du einen gespeicherten Fakt:
+
+1. Klicke auf das Papierkorb-Symbol in der Zeile.
+2. Bestätige **Forget**.
+
+Beim Vergessen werden der gespeicherte Fakt und seine Herkunftslinks entfernt. Der ursprüngliche Chat oder das Meeting-Transkript wird **nicht** gelöscht.
+
+Du kannst Alter auch im Chat bitten, ein bestimmtes Ziel oder einen Fakt zu vergessen. Alter ruft zuerst den genauen Eintrag ab, fragt nach Bestätigung und entfernt ihn dann.
+
+## Einen automatischen Speicher-Vorgang rückgängig machen
+
+Wenn Alter einen Fakt automatisch speichert, erscheint eine In-App-Benachrichtigung wie **Saved to Memory** oder **Updated Memory**.
+
+- Wähle **Undo**, um genau diese Speicherung rückgängig zu machen.
+- Wähle **Dismiss** oder lass die Benachrichtigung auslaufen, wenn du die Memory behalten willst.
+
+Undo gilt nur für den Speicher-Vorgang dieser Benachrichtigung. Wenn Undo fehlschlägt, weil sich die Memory inzwischen wieder geändert hat, öffne **Settings → Memory**, um die aktuelle Version zu prüfen.
+
+## Was passiert, wenn du einen Workspace löschst
+
+Wenn du einen Workspace löschst, werden dessen gespeicherte Memories im Rahmen der Workspace-Bereinigung entfernt.
+
+Personal Memories sind davon nicht betroffen. Falls einzelne Workspace-Memories beim Löschen nicht entfernt werden konnten, können sie später unter **Deleted workspaces** in den Memory-Einstellungen erscheinen.
+
+## Memory mit einer Alter Action verknüpfen
+
+Einige Workflows brauchen expliziten Zugriff auf gespeicherte Fakten oder frühere Chats und Meetings.
+
+<Steps>
+  <Step title="Action Editor öffnen">
+    Menüleiste → **Action Editor**, oder drücke **⌘⇧E**.
+  </Step>
+  <Step title="Tools öffnen">
+    Wähle die Action aus und öffne danach den Bereich **Tools**.
+  </Step>
+  <Step title="Memory verknüpfen">
+    Suche **Memory** und wähle **Link Memory**.
+
+    Wenn Memory global deaktiviert ist, bietet Alter **Turn On & Link** an.
+  </Step>
+</Steps>
+
+Durch das Verknüpfen wird Memory nicht automatisch für jede Action aktiviert. Nur Actions, die du verknüpfst, erhalten das Memory-Tool.
+
+Vertrauenswürdige Alter-Actions wie **Memory Catch-Up** werden bereits mit verknüpfter Memory ausgeliefert.
+
+## Wenn die Memory-Einstellungen leer sind
+
+**No saved memories yet** bedeutet, dass Alter noch keine dauerhaften Fakten gespeichert hat. Das ist bei einer frischen Installation oder direkt nach dem Einschalten von Memory normal.
+
+<Tip>
+  **Empfohlener erster Schritt:** Führe [Memory Catch-Up](/de/workflows/memory-catch-up) aus. Öffne einen neuen Hub-Chat und wähle **Memory einen Vorsprung geben**. Alter prüft die letzten 30 Tage deiner Chats und Meetings und speichert dauerhafte Fakten, ohne jeden einzelnen abzufragen. Das geht deutlich schneller, als auf das tägliche Lernen nach jedem Turn zu warten.
+</Tip>
+
+Weitere Wege, deine ersten Memories hinzuzufügen:
+
+- Chatte normal und nenne eine Präferenz oder ein Ziel, das Alter behalten soll
+- Bitte Alter, sich einen bestimmten Fakt zu merken, und bestätige bei Bedarf
+
+## Fehlerbehebung
+
+### Memory ist vorübergehend nicht verfügbar
+
+Wenn die Liste nicht lädt, wähle **Try again**. Das bedeutet meistens, dass Alter die lokale Memory-Datenbank in diesem Moment nicht lesen konnte.
+
+### Alter ruft nicht das ab, was ich erwarte
+
+Prüfe zuerst:
+
+- **Use Memory** ist eingeschaltet
+- Du befindest dich in einem beständigen Ask Anything-Chat, nicht in einem flüchtigen Task-Thread
+- Der Fakt liegt im Bereich des aktuellen Workspace
+- Der Fakt wurde nicht bereits in der aktuellen Unterhaltung genannt, da der Memory Brief Duplikate auslässt
+
+Mehr zum Verhalten findest du unter [Memory](/de/workflows/memory).
+
+### Ich habe Memory ausgeschaltet, aber alte Fakten erscheinen noch in Settings
+
+Das ist erwartetes Verhalten. Wenn du Memory deaktivierst, stoppen neuer Recall und neue Speicherungen, vorhandene Einträge werden aber nicht gelöscht. Vergiss einzelne Zeilen oder schalte Memory wieder ein, wenn du Recall nur pausieren wolltest.
+
+## Verwandte Dokumente
+
+- [Memory-Überblick](/de/workflows/memory)
+- [Memory Catch-Up](/de/workflows/memory-catch-up)
+- [Alter Settings konfigurieren](/de/how-to/settings-guide)
+- [Lokale Daten und Datenschutz](/de/references/local-data-and-privacy)

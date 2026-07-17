@@ -1,0 +1,241 @@
+---
+title: "Memory"
+description: "Lass Alter nützliche Fakten über Chats, Workspaces und Meetings hinweg behalten und dann abrufen, wenn du sie brauchst"
+---
+
+<Info>
+  **Memory** ist Alters dauerhafte Erinnerungsebene. Sie speichert kurze Fakten, die dir wichtig sind, bringt die relevantesten automatisch in neue Chats ein und kann deine früheren Unterhaltungen und Meeting-Transkripte durchsuchen, wenn gespeicherte Memory nicht ausreicht.
+</Info>
+
+## Was Memory ist
+
+Memory ist keine Kopie jedes Chats oder Meetings. Alter speichert **kurze, eigenständige Fakten** wie Präferenzen, Ziele, Entscheidungen und ähnliche Details, die in späteren Gesprächen wahrscheinlich helfen.
+
+Stell es dir wie ein Notizbuch vor, das Alter für dich führt:
+
+- **Personal Memory** begleitet dich über Workspaces hinweg. Nutze sie für dauerhafte Fakten über dich, deinen Stil und projektübergreifende Präferenzen.
+- **Workspace Memory** bleibt in einem einzelnen Workspace. Nutze sie für Projektziele, Konventionen, Entscheidungen und aktuelle Projektänderungen.
+
+Deine ursprünglichen Chats und Meeting-Transkripte bleiben in Alters normalem Verlauf. Memory verweist bei Bedarf auf diese Quellen, ersetzt sie aber nicht.
+
+## Erste Schritte mit Memory
+
+Am schnellsten wird Memory nützlich, wenn du dich nicht in jedem neuen Chat wiederholen musst, sondern **Memory aus deinem vorhandenen Verlauf füllst**.
+
+<Tip>
+  **Starte mit Memory Catch-Up.** Wähle in einem neuen Hub-Chat **Memory einen Vorsprung geben**. Alter prüft die letzten 30 Tage deiner Chats und Meetings, vergleicht nützliche Details mit bereits gespeicherten Einträgen und ergänzt oder aktualisiert dauerhafte Fakten in einem vertrauenswürdigen Durchlauf, ohne dass du jeden einzelnen Punkt bestätigen musst.
+</Tip>
+
+Führe Catch-Up aus, wenn:
+
+- Du **Use Memory** zum ersten Mal aktivierst
+- Die Memory-Einstellungen leer sind, du aber schon seit Wochen mit Alter arbeitest
+- Du nach einer Pause zurückkommst und aktuelle Ziele und Entscheidungen festhalten willst
+- Du einen neuen Workspace öffnest und Projektkontext aus jüngerer Arbeit übernehmen willst
+
+Catch-Up ist eine einmalige Auffüllung für die letzten 30 Kalendertage. Danach hält das tägliche Lernen von Memory die Fakten beim Chatten aktuell.
+
+Vollständige Anleitung: [Memory Catch-Up](/de/workflows/memory-catch-up)
+
+## Wie Memory im Alltag hilft
+
+<CardGroup cols={2}>
+  <Card title="Schneller starten" icon="bolt">
+    Relevante gespeicherte Fakten werden neuen Ask Anything-Chats hinzugefügt, damit du dich nicht wiederholen musst.
+  </Card>
+  <Card title="Den Überblick behalten" icon="compass">
+    Frage nach aktuellen Zielen, Entscheidungen oder dem, was in jüngsten Meetings besprochen wurde.
+  </Card>
+  <Card title="Projekte trennen" icon="folder">
+    Workspace Memory verhindert, dass sich der Kontext eines Projekts mit einem anderen vermischt.
+  </Card>
+  <Card title="Bei Bedarf zurückblicken" icon="clock-rotate-left">
+    Alter kann frühere Chats und Transkripte durchsuchen, wenn ein gespeicherter Fakt nicht ausreicht.
+  </Card>
+</CardGroup>
+
+## Was erinnert wird
+
+Alter ordnet gespeicherte Fakten einigen wenigen Arten zu:
+
+| Art | Geeignet für | Beispiele |
+|---|---|---|
+| **Preference** | Stabile Arten, wie du Dinge erledigt haben möchtest | "Prefer concise bullet summaries" |
+| **Fact** | Dauerhafte Informationen, die sich zu behalten lohnen | "Our staging app is at staging.example.com" |
+| **Goal** | Aktive Prioritäten oder Pläne | "Ship onboarding redesign by August" |
+| **Decision** | Entscheidungen, die bereits getroffen wurden | "Use Postgres for the analytics store" |
+| **Recent** | Wichtige Änderungen, die festgehalten werden sollten | "Switched default model to Claude Sonnet" |
+| **Experience** | Bestätigte Erkenntnisse aus früherer Arbeit | Meist über Recall kuratiert, nicht aus lockerem Chat |
+
+Alter geht selektiv vor. Secrets, Zugangsdaten, sensible persönliche Daten, kurzfristige Organisation, Erinnerungen, rohe Transkript-Auszüge und Details, die sich leicht erneut nachschlagen lassen, werden übersprungen.
+
+## Wie Memory funktioniert
+
+Memory besteht aus drei zusammenarbeitenden Ebenen:
+
+### 1. Memory Brief (automatischer Recall)
+
+In beständigen **Ask Anything**-Chats kann Alter vor der Antwort des Modells einen kleinen Memory Brief an deine letzte Nachricht anhängen.
+
+- Der Brief wird lokal aus gespeicherter Memory erstellt, ohne zusätzlichen Modellaufruf.
+- Er ist auf etwa **240 Tokens** begrenzt, damit er leichtgewichtig bleibt.
+- Vorrang haben angeheftete Präferenzen, dauerhafte Fakten, Ziele, Entscheidungen und aktuelle Änderungen aus Personal und dem aktiven Workspace.
+- Fakten, die bereits in der aktuellen Unterhaltung stehen, werden ausgelassen.
+- Wenn die Unterhaltung schon nahe an ihrem Kontextlimit ist, wird der Brief übersprungen.
+
+Der Brief hilft Alter, mit Kontinuität zu antworten. Er ändert nicht, was in Memory gespeichert ist.
+
+### 2. Automatisches Lernen nach einem Turn
+
+Nach einer abgeschlossenen Ask Anything-Antwort kann Alter im Hintergrund einen kleinen Review dieses Turns ausführen.
+
+- Pro Turn wird höchstens **ein** Kandidatenfakt betrachtet.
+- Fakten aus deiner Nachricht im aktuellen Chat können automatisch gespeichert werden, wenn **Ask before saving** ausgeschaltet ist.
+- Fakten aus Tool-Ausgaben oder älterem abgerufenem Verlauf brauchen weiterhin deine Freigabe.
+- Wenn ohne Freigabe gespeichert wird, zeigt Alter eine Benachrichtigung mit **Undo**.
+
+Dieser Review postet nie eine Chat-Nachricht und blockiert nie die Antwort, die du schon erhalten hast.
+
+### 3. Memory-Tool (expliziter Recall und Bearbeitungen)
+
+Wenn Memory in einer Unterhaltung verfügbar ist, kann Alter das **Memory**-Tool verwenden, um:
+
+- **Recall** gespeicherte Fakten, aktuelle Chats oder Meeting-Transkripte abzurufen
+- **Analyze** eine abgerufene Quelle vollständig zu analysieren, wenn ein Auszug nicht reicht
+- **Remember** einen einzelnen neuen kurzen Fakt zu speichern
+- **Replace** einen veralteten gespeicherten Fakt zu ersetzen
+- **Forget** einen gespeicherten Fakt zu entfernen, wenn du ausdrücklich darum bittest
+
+Lesen und Analysieren schreiben nicht von selbst in Memory.
+
+<Note>
+  **Memory Catch-Up** ist der eingebaute Weg, Memory aus jüngerer Historie zu starten. Benutzerdefinierte Actions und einige Hub-Flows können dieses Tool ebenfalls explizit verknüpfen. Siehe [Memory Catch-Up](/de/workflows/memory-catch-up) und [Memory verwalten](/de/how-to/manage-memory).
+</Note>
+
+## Personal vs. Workspace-Bereich
+
+| Bereich | Gespeichert als | Sichtbar in | Am besten für |
+|---|---|---|---|
+| **Personal** | Nutzerweite Fakten | Ask Anything über Workspaces hinweg | Präferenzen, Profilfakten, projektübergreifende Ziele |
+| **Workspace** | Fakten, die an einen Workspace gebunden sind | Chats in diesem Workspace | Projektkonventionen, Workspace-Ziele, lokale Entscheidungen |
+
+Regeln, die in der Praxis wichtig sind:
+
+- Wenn du beim Speichern keinen Bereich angibst, bevorzugt Alter den **aktuellen Workspace**, weil das die engere Grenze ist.
+- Nutze **Personal** ausdrücklich, wenn ein Fakt dir überallhin folgen soll.
+- Wenn du einen Workspace löschst, werden die gespeicherten Memories dieses Workspace entfernt.
+- Memories aus gelöschten Workspaces bleiben unter **Deleted workspaces** in Settings sichtbar, damit du sie prüfen oder vergessen kannst.
+
+## Wo Memory verfügbar ist
+
+Memory ist für normale, nutzereigene Ask Anything-Unterhaltungen gedacht.
+
+| Kontext | Memory Brief | Automatisches Lernen | Memory-Tool |
+|---|---|---|---|
+| Beständiger Ask Anything-Chat | Ja, wenn aktiviert | Ja, wenn aktiviert | Ja, wenn aktiviert |
+| QuickHub / Hub-Chat mit Workspace | Ja | Ja | Personal- und Workspace-Bereich |
+| Flüchtige oder Aufgaben-Unterhaltungen | Nein | Nein | Nein |
+| Schreibgeschützte Unterhaltungen | Brief nur, wenn lesbar | Keine Schreibvorgänge | Schreibgeschützter Recall |
+| Memory in Settings deaktiviert | Nein | Nein | Nein |
+
+Benutzerdefinierte **Alter Actions** können das Memory-Tool im Action Editor verknüpfen. Memory wird nicht als globales Fallback-Tool zu jeder Action hinzugefügt.
+
+## Mit Alter über Memory sprechen
+
+Du brauchst keine besondere Syntax. Natürliche Fragen funktionieren:
+
+- "What are my current goals?"
+- "What do you remember about me?"
+- "What did we decide about onboarding?"
+- "Remember that I prefer tab-indented code."
+- "Forget the goal about migrating to Kubernetes, we cancelled it."
+- "What came up in my meetings this week about pricing?"
+
+Hilfreiche Gewohnheiten:
+
+- Bitte Alter erst um **recall**, bevor du einen bestimmten gespeicherten Fakt korrigierst oder löschst.
+- Sage **forget** oder **remove**, wenn ein Ziel oder Plan abgeschlossen ist und aus Memory verschwinden soll.
+- Bitte um eine **source** oder **open the meeting**, wenn du die Herkunft sehen willst und nicht nur die gespeicherte Zusammenfassung.
+
+## Memory Catch-Up
+
+**Memory Catch-Up** ist Alters empfohlener Weg, Memory aus vorhandenem Verlauf zu füllen, nicht nur aus dem, was du im nächsten Chat sagst.
+
+In einem neuen Hub-Chat schlägt Alter möglicherweise **Memory einen Vorsprung geben** vor. Das startet die vertrauenswürdige integrierte Action **Memory Catch-Up**, die:
+
+- Die letzten **30 Kalendertage** persönlicher Chats und Meetings prüft
+- Chats und Meetings des aktuellen Workspace einbezieht, wenn ein Workspace aktiv ist
+- Diese Zeitspanne vollständig durchpaginiert, andere Workspaces bleiben außen vor
+- Nützliche Details mit bereits gespeicherten Einträgen vergleicht
+- Neue Fakten **remembert** oder veraltete ersetzt, wenn die Belege klar sind
+- Ohne Freigabe pro Eintrag speichert, weil es eine vertrauenswürdige Alter-Action mit festem Prüfzeitraum ist
+
+Catch-Up kann keine Memories löschen oder vergessen. Wenn Memory deaktiviert war, schaltet Catch-Up **Use Memory** für diesen Lauf ein.
+
+| | Alltägliche Memory | Memory Catch-Up |
+|---|---|---|
+| Am besten für | Laufendes Lernen beim Chatten | Bootstrapping oder Auffrischen aus den letzten 30 Tagen |
+| Geprüfter Verlauf | Aktueller Turn oder expliziter Recall | Fester 30-Tage-Zeitraum aus Chats und Meetings |
+| Freigabe pro Eintrag | Hängt von Quelle und Einstellungen ab | Vertrauenswürdige Action speichert ohne Nachfragen |
+| Löschen | Du kannst Einträge vergessen | Während Catch-Up nicht möglich |
+
+Vollständige Anleitung: [Memory Catch-Up](/de/workflows/memory-catch-up).
+
+## Datenschutz und lokale Speicherung
+
+<Info>
+  Gespeicherte Memory bleibt zusammen mit deinen anderen Alter-Daten auf deinem Mac. Sie wird nicht als separates Memory-Backup in die Cloud synchronisiert.
+</Info>
+
+Das bedeutet konkret:
+
+- Gespeicherte Fakten liegen in Alters lokaler Datenbank auf dem Gerät, auf dem sie erstellt wurden.
+- Wenn du eine Memory vergisst, werden der gespeicherte Fakt und seine Herkunftslinks entfernt, nicht aber der zugrunde liegende Chat oder das Transkript.
+- Wenn du ein Cloud-Modell verwendest, folgt die aktive Unterhaltung, einschließlich Memory Brief oder abgerufenem Inhalt, den du an das Modell sendest, dem normalen Request-Pfad dieses Anbieters.
+- Wenn du **Use Memory** deaktivierst, stoppen Recall und neue Speicherungen, bestehende Einträge bleiben aber erhalten, damit du Memory später wieder einschalten kannst.
+
+Weitere Hinweise zu lokalen Daten findest du unter [Lokale Daten und Datenschutz](/de/references/local-data-and-privacy).
+
+## Settings im Überblick
+
+Öffne **Settings → Memory**. Du findest den Bereich über das Gehirn-Symbol im Abschnitt General von Settings.
+
+| Einstellung | Standard | Wirkung |
+|---|---|---|
+| **Use Memory** | Ein | Aktiviert Recall, automatisches Lernen und das Memory-Tool |
+| **Ask before saving** | Aus | Wenn aus, können Fakten aus dem aktuellen Chat automatisch gespeichert werden. Fakten aus Tools oder abgerufenem Verlauf brauchen weiter Freigabe |
+
+Der Memory-Bereich in Settings lässt dich außerdem suchen, filtern, Quellen prüfen und einzelne Einträge vergessen.
+
+Vollständige Verwaltungsanleitung: [Memory verwalten](/de/how-to/manage-memory).
+
+## Anwendungsfälle
+
+### Präferenzen konsistent halten
+
+Sag Alter einmal, wie Antworten formatiert sein sollen, welchen Stack du nutzt oder welcher Kalender wichtig ist. Personal-Präferenzen können angeheftet werden und tauchen oft im Memory Brief auf.
+
+### Ziele und Entscheidungen pro Projekt verfolgen
+
+Speichere in einem Workspace für ein Produkt oder einen Kunden aktive Ziele und Entscheidungen. Frage "What are my goals for this project?" ohne den Workspace neu erklären zu müssen.
+
+### Nach Meetings wieder einsteigen
+
+Nach aufgezeichneten Meetings kannst du fragen "What did we decide in recent meetings about X?" Alter kann dann Transkripte und gespeicherte Memory gemeinsam durchsuchen.
+
+### Memory auf einem geschäftigen Mac einführen
+
+Führe **Memory Catch-Up** aus einem neuen Hub-Chat aus, über **Memory einen Vorsprung geben**, um die letzten 30 Tage an Chats und Meetings in einem Durchlauf aufzufüllen. Passe danach alles in Settings an und lass das alltägliche Lernen Memory aktuell halten.
+
+### Einer Action dauerhaften Kontext geben
+
+Verknüpfe im Action Editor **Memory** mit einer Action, die gespeicherte Fakten lesen oder frühere Chats und Meetings für diesen Workflow durchsuchen soll.
+
+## Verwandte Dokumente
+
+- [Memory Catch-Up](/de/workflows/memory-catch-up) — empfohlener Weg, Memory aus den letzten 30 Tagen zu füllen
+- [Memory verwalten](/de/how-to/manage-memory) — Settings, Prüfung, Vergessen und Quellen
+- [Meetings](/de/workflows/meetings) — Transkripte, die Memory durchsuchen kann
+- [Alter Actions](/de/workflows/alter-actions) — Memory mit benutzerdefinierten Workflows verknüpfen
+- [Workspaces](/de/getting-started/workspaces-basics) — projektbezogene Memory
+- [Kontextfenster verwalten](/de/how-to/managing-context-window) — wie kurzer Recall sich vom vollen Kontext unterscheidet
