@@ -1,0 +1,239 @@
+---
+title: "Split Panel"
+description: "Travaillez dans deux volets de conversation du Hub côte à côte et faites le pont du contexte entre eux"
+---
+
+**Split Panel** (appelé **Split Right** dans les menus et raccourcis) divise le Hub Alter en deux volets de conversation indépendants. Gardez la recherche, le matériel source ou la trace d'une tâche agent dans un volet pendant que vous rédigez, comparez ou itérez dans l'autre — sans copier le texte à la main.
+
+<Info>
+  Split Panel est une fonctionnalité **réservée au Hub**. QuickHub reste un panneau flottant unique ; ouvrez un chat dans le Hub (**⌘⇧H** ou **Ouvrir dans le Hub**) pour utiliser la disposition fractionnée.
+</Info>
+
+## Ce que fait Split Panel
+
+Lorsque le fractionnement est actif, le Hub affiche :
+
+1. **Volet gauche (principal)** — vos onglets de conversation d'origine
+2. **Volet droit (secondaire)** — un second ensemble d'onglets, focalisable indépendamment
+
+Chaque volet possède sa propre barre d'onglets, zone d'invite, bande de contexte et sélection de modèle. Faites glisser le séparateur entre les volets pour redimensionner. La disposition fractionnée persiste lorsque vous quittez et rouvrez Alter.
+
+| | **Volet unique** | **Split Panel** |
+|---|---|---|
+| Disposition | Une colonne de conversation | Deux colonnes redimensionnables |
+| Onglets | Une barre d'onglets | Barres d'onglets séparées par volet |
+| Contexte | Local à chaque onglet | Peut être **ponté** vers l'autre volet |
+| Inspector | Disponible (**⌃⌘I**) | Disponible (**⌃⌘I**) — s'ouvre en superposition à droite |
+| Largeur minimale | Largeur Hub normale | ~700 px au total (340 px minimum par volet) |
+
+## Quand utiliser Split Panel
+
+Split Panel brille lorsqu'une conversation alimente une autre :
+
+- **Recherche → brouillon** — gardez des notes sources ou une longue transcription dans le volet gauche ; rédigez le résultat dans un nouveau chat à droite
+- **Comparer des approches** — exécutez deux fils de modèle sur le même problème et croisez les réponses
+- **Lire en discutant** — prévisualisez un PDF ou un fichier markdown dans le volet droit pendant que vous posez des questions à gauche
+- **Suivre le travail d'un agent** — ouvrez une trace `task` ou `computer_use_task` dans l'autre volet pour suivre la progression sans perdre votre fil principal
+
+<Tip>
+  Split Panel s'appuie sur le système de **contexte** d'Alter. Le principal bénéfice est de déplacer conversations, fichiers, extraits et pièces jointes entre volets comme contexte — pas seulement de voir deux chats à la fois.
+</Tip>
+
+---
+
+## Ouvrir et fermer le fractionnement
+
+### Split Right
+
+<Steps>
+  <Step title="Bouton de la barre d'onglets">
+    Dans le Hub, cliquez sur l'icône **Split Right** (bouton colonnes fractionnées) à côté du bouton **+** de la barre d'onglets du volet gauche
+  </Step>
+  <Step title="Raccourci clavier">
+    Appuyez sur **⌘⌥N** (par défaut) — configurable dans **Settings → Shortcuts → Hub & QuickHub → Split Right**
+  </Step>
+  <Step title="Menu Fenêtre">
+    Choisissez **Window → Split Right**
+  </Step>
+  <Step title="Command Palette">
+    Appuyez sur **⌘K**, tapez `split` et choisissez **Split Right**
+  </Step>
+</Steps>
+
+**Split Right** ouvre un **nouveau chat** dans le volet droit et y déplace le focus clavier. Le nouvel onglet hérite du modèle de votre onglet actuel du volet gauche.
+
+Si le fractionnement est déjà ouvert, **Split Right** focalise le volet droit au lieu de créer un autre fractionnement.
+
+### Close Split
+
+<Steps>
+  <Step title="Barre d'onglets secondaire">
+    Cliquez sur **×** dans la barre d'onglets du volet droit
+  </Step>
+  <Step title="Raccourci clavier">
+    Appuyez sur **⌃⌘↓** (par défaut) — **Close Split** dans **Settings → Shortcuts → Hub & QuickHub**
+  </Step>
+  <Step title="Menu Fenêtre ou Command Palette">
+    Choisissez **Close Split** dans le menu **Window** ou la Command Palette **⌘K**
+  </Step>
+</Steps>
+
+Fermer le fractionnement **fusionne** tous les onglets du volet droit dans le volet gauche. Vos conversations sont conservées ; seule la disposition se ferme.
+
+---
+
+## Naviguer entre les volets
+
+| Raccourci (par défaut) | Action |
+|---|---|
+| **⌃⌘←** | Focaliser le volet gauche |
+| **⌃⌘→** | Focaliser le volet droit |
+| **⌃⌘⇧←** | Déplacer l'onglet actif vers le volet gauche |
+| **⌃⌘⇧→** | Déplacer l'onglet actif vers le volet droit |
+| **⌘⌥←** / **⌘⌥→** | Onglet précédent / suivant **dans le volet focalisé** |
+
+Vous pouvez aussi faire glisser des onglets entre volets ou utiliser le menu contextuel des onglets :
+
+- **Open in Split** — ouvre le fractionnement (si nécessaire) et déplace l'onglet vers l'autre volet
+- **Move to Other Pane** — déplace l'onglet lorsque le fractionnement est déjà actif
+
+Configurez tous les raccourcis de fractionnement sous **Settings → Shortcuts → Hub & QuickHub**.
+
+---
+
+## Faire le pont du contexte entre les volets
+
+Le pontage de contexte est le workflow central de Split Panel. Le contexte copié ou ajouté dans l'autre volet devient une **copie indépendante** dans la bande de contexte de l'onglet de destination — prête à être `@`-mentionnée, inspectée ou envoyée avec votre prochaine invite.
+
+### Ajouter une conversation entière comme contexte
+
+Transformez une conversation entière dans un volet en contexte pour le chat de l'autre volet :
+
+<Steps>
+  <Step title="Depuis un onglet">
+    Clic droit sur un onglet de conversation → **Open as Context in Split** (ouvre le fractionnement automatiquement) ou **Add as Context to Other Pane** (lorsque le fractionnement est déjà ouvert)
+  </Step>
+  <Step title="Depuis la barre latérale">
+    Avec le fractionnement ouvert, focalisez le volet qui doit **recevoir** le contexte. Clic droit sur une conversation dans la barre latérale → **Add as Context**
+  </Step>
+  <Step title="Depuis le menu @">
+    Tapez **`@`** dans la zone d'invite. Lorsque le fractionnement est actif, une section **Other Pane** liste la conversation ouverte dans le volet opposé. Sélectionnez-la pour joindre un instantané.
+  </Step>
+</Steps>
+
+L'instantané inclut la conversation complète formatée en markdown. Vous ne pouvez pas attacher la même conversation à elle-même deux fois.
+
+### Faire glisser des cartes de contexte
+
+Lorsque le fractionnement est ouvert :
+
+1. Sélectionnez une ou plusieurs **cartes de contexte** dans la conversation (fichiers, extraits, contexte d'application, etc.)
+2. Faites-les glisser vers la zone d'invite ou la bande de contexte de l'autre volet
+3. Alter les copie dans l'onglet de destination
+
+Fonctionne pour les fichiers, sélections de texte, images, événements de calendrier, instantanés d'application et la plupart des autres types de contexte.
+
+<Warning>
+  Le contexte **Workspace** ne peut pas être transféré entre volets. Attachez les fichiers liés au workspace individuellement, ou ouvrez le workspace séparément dans l'onglet de destination.
+</Warning>
+
+### Clic droit dans une conversation
+
+Depuis les messages de l'un ou l'autre volet :
+
+| Élément | Action du menu | Résultat |
+|---|---|---|
+| Cartes de contexte | **Add to Other Pane** | Copie la carte dans la bande de contexte de l'autre volet |
+| Images | **Add to Other Pane** | Ajoute l'image comme contexte dans l'autre volet |
+| Pièces jointes de document | **Add to Other Pane** | Ajoute le fichier comme contexte |
+| Pièces jointes de document | **Open in Other Pane** | Ouvre un onglet d'aperçu de document en lecture seule dans l'autre volet |
+| Appels d'outil `task` / `computer_use_task` | **Open in Other Pane** (menu contextuel) | Ouvre la trace de tâche en lecture seule dans l'autre volet |
+
+**Raccourcis clic-modificateur :**
+
+- **⌥-clic** sur une pièce jointe de document — aperçu dans l'autre volet (info-bulle : *Click to open · ⌥-click to preview in split*)
+- **⌥-clic** sur une carte `task` ou `computer_use_task` — ouvre la trace de tâche dans l'autre volet
+
+Si le fractionnement n'est pas ouvert, les actions **Open as Context in Split** et **Open in Other Pane** ouvrent d'abord le fractionnement pour vous.
+
+### Déposer des fichiers sur l'autre volet
+
+Vous pouvez aussi faire glisser des fichiers depuis le Finder vers la zone de conversation de l'autre volet. Ils sont ajoutés à la bande de contexte de cet onglet comme un dépôt Hub normal.
+
+---
+
+## Workflows typiques
+
+### Recherche à gauche, rédaction à droite
+
+<Steps>
+  <Step title="Commencer dans le Hub">
+    Ouvrez le Hub (**⌘⇧H**) avec votre conversation de recherche à gauche
+  </Step>
+  <Step title="Fractionner">
+    Appuyez sur **⌘⌥N** pour ouvrir un nouveau chat à droite
+  </Step>
+  <Step title="Pontage du contexte">
+    Clic droit sur l'onglet gauche → **Add as Context to Other Pane**, ou tapez **`@`** et choisissez la conversation **Other Pane**
+  </Step>
+  <Step title="Rédiger">
+    Invitez le volet droit : « À partir de la recherche jointe, rédigez un résumé d'une page avec trois recommandations. »
+  </Step>
+</Steps>
+
+### Prévisualiser un document en discutant
+
+<Steps>
+  <Step title="Demander dans un volet">
+    Menez une conversation qui produit ou référence une pièce jointe de document
+  </Step>
+  <Step title="Ouvrir en split">
+    **⌥-clic** sur la carte de document, ou clic droit → **Open in Other Pane**
+  </Step>
+  <Step title="Continuer à poser des questions">
+    Le document s'ouvre comme onglet d'aperçu en lecture seule dans l'autre volet pendant que vous continuez à inviter dans le premier
+  </Step>
+</Steps>
+
+### Suivre une tâche agent sans perdre votre place
+
+<Steps>
+  <Step title="Démarrer une tâche">
+    Demandez à Alter d'exécuter un `task` multi-étapes ou un job Computer Use dans votre volet principal
+  </Step>
+  <Step title="Ouvrir la trace en split">
+    **⌥-clic** sur la carte d'appel d'outil de tâche, ou clic droit → **Open in Other Pane**
+  </Step>
+  <Step title="Surveiller">
+    Suivez la conversation de tâche en lecture seule dans le volet droit pendant que vous enfilez des relances ou démarrez un chat connexe à gauche
+  </Step>
+</Steps>
+
+---
+
+## Limitations et conseils
+
+- Les **onglets en lecture seule** (aperçus de documents, traces de tâches) ne peuvent pas recevoir de dépôts de contexte — utilisez un onglet de conversation normal dans ce volet comme destination
+- **Le contexte copié est indépendant** — les modifications, le mode suivi et les suppressions dans un volet ne se synchronisent pas vers la source
+- **Modèle par volet** — pendant le fractionnement, chaque volet mémorise son propre choix de modèle
+- **Inspector** — disponible pendant le fractionnement (**⌃⌘I**) ; s'ouvre comme panneau à droite aux côté des volets fractionnés
+- **QuickHub** — les actions de fractionnement depuis QuickHub ouvrent ou focalisent automatiquement la fenêtre Hub si nécessaire
+
+---
+
+## Ressources connexes
+
+<CardGroup cols={2}>
+  <Card title="Types de fenêtres" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Disposition du Hub, onglets et section de contexte
+  </Card>
+  <Card title="Comprendre le contexte" icon="layers" href="/getting-started/understand-context-and-apps">
+    Ce qu'est le contexte et comment Alter l'utilise
+  </Card>
+  <Card title="Ajouter du contexte" icon="plus" href="/how-to/add-context">
+    Fichiers, applications et mentions @
+  </Card>
+  <Card title="Raccourcis clavier" icon="keyboard" href="/references/shortcuts">
+    Référence complète des raccourcis, y compris les commandes de fractionnement
+  </Card>
+</CardGroup>

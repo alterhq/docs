@@ -1,0 +1,239 @@
+---
+title: "Split Panel"
+description: "In zwei Hub-Konversationsbereichen nebeneinander arbeiten und Kontext zwischen ihnen überbrücken"
+---
+
+**Split Panel** (in Menüs und Tastenkürzeln **Split Right** genannt) teilt den Alter Hub in zwei unabhängige Konversationsbereiche. Behalten Sie Recherche, Quellmaterial oder einen Agenten-Task-Trace in einem Bereich, während Sie im anderen schreiben, vergleichen oder iterieren — ohne Text von Hand zu kopieren.
+
+<Info>
+  Split Panel ist eine **nur-Hub**-Funktion. QuickHub bleibt ein einzelnes schwebendes Panel; öffnen Sie einen Chat im Hub (**⌘⇧H** oder **Open in Hub**), um das Split-Layout zu nutzen.
+</Info>
+
+## Was Split Panel leistet
+
+Wenn Split aktiv ist, zeigt der Hub:
+
+1. **Linker Bereich (primär)** — Ihre ursprünglichen Konversations-Tabs
+2. **Rechter Bereich (sekundär)** — ein zweiter Satz Tabs, unabhängig fokussierbar
+
+Jeder Bereich hat eine eigene Tab-Leiste, ein Eingabefeld, eine Kontextleiste und eine Modellauswahl. Ziehen Sie den Trenner zwischen den Bereichen, um die Größe anzupassen. Das Split-Layout bleibt erhalten, wenn Sie Alter beenden und wieder öffnen.
+
+| | **Einzelner Bereich** | **Split Panel** |
+|---|---|---|
+| Layout | Eine Konversationsspalte | Zwei Spalten, in der Größe veränderbar |
+| Tabs | Eine Tab-Leiste | Separate Tab-Leisten pro Bereich |
+| Kontext | Lokal pro Tab | Kann in den **anderen Bereich überbrückt** werden |
+| Inspector | Verfügbar (**⌃⌘I**) | Verfügbar (**⌃⌘I**) — öffnet als Overlay am rechten Rand |
+| Mindestbreite | Normale Hub-Breite | ~700 px gesamt (340 px Mindestbreite pro Bereich) |
+
+## Wann Split Panel sinnvoll ist
+
+Split Panel glänzt, wenn eine Konversation in eine andere einfließt:
+
+- **Recherche → Entwurf** — behalten Sie Quellnotizen oder ein langes Transkript im linken Bereich; schreiben Sie die Ausgabe in einem frischen Chat rechts
+- **Ansätze vergleichen** — führen Sie zwei Modell-Threads zum gleichen Problem und vergleichen Sie Antworten
+- **Lesen während Sie chatten** — zeigen Sie eine PDF- oder Markdown-Datei im rechten Bereich, während Sie links Fragen stellen
+- **Agentenarbeit verfolgen** — öffnen Sie einen `task`- oder `computer_use_task`-Trace im anderen Bereich, um den Fortschritt zu beobachten, ohne Ihren Hauptthread zu verlieren
+
+<Tip>
+  Split Panel baut auf Alters **Kontext**-System auf. Der Hauptgewinn liegt darin, Konversationen, Dateien, Snippets und Anhänge als Kontext zwischen Bereichen zu verschieben — nicht nur zwei Chats gleichzeitig zu sehen.
+</Tip>
+
+---
+
+## Split öffnen und schließen
+
+### Split Right
+
+<Steps>
+  <Step title="Tab-Leisten-Schaltfläche">
+    Klicken Sie im Hub auf das **Split Right**-Symbol (Split-Spalten-Schaltfläche) neben der **+**-Tab-Schaltfläche im linken Bereich
+  </Step>
+  <Step title="Tastenkürzel">
+    Drücken Sie **⌘⌥N** (Standard) — konfigurierbar unter **Settings → Shortcuts → Hub & QuickHub → Split Right**
+  </Step>
+  <Step title="Fenstermenü">
+    Wählen Sie **Window → Split Right**
+  </Step>
+  <Step title="Command Palette">
+    Drücken Sie **⌘K**, tippen Sie `split` und wählen Sie **Split Right**
+  </Step>
+</Steps>
+
+**Split Right** öffnet einen **neuen Chat** im rechten Bereich und verschiebt den Tastaturfokus dorthin. Der neue Tab übernimmt das Modell Ihres aktuellen Tabs im linken Bereich.
+
+Wenn Split bereits geöffnet ist, fokussiert **Split Right** den rechten Bereich, anstatt ein weiteres Split zu erstellen.
+
+### Close Split
+
+<Steps>
+  <Step title="Sekundäre Tab-Leiste">
+    Klicken Sie auf **×** in der Tab-Leiste des rechten Bereichs
+  </Step>
+  <Step title="Tastenkürzel">
+    Drücken Sie **⌃⌘↓** (Standard) — **Close Split** unter **Settings → Shortcuts → Hub & QuickHub**
+  </Step>
+  <Step title="Fenstermenü oder Command Palette">
+    Wählen Sie **Close Split** im **Window**-Menü oder in der **⌘K**-Command Palette
+  </Step>
+</Steps>
+
+Beim Schließen von Split werden **alle Tabs des rechten Bereichs in den linken Bereich zusammengeführt**. Ihre Konversationen bleiben erhalten; nur das Layout schließt sich.
+
+---
+
+## Zwischen Bereichen navigieren
+
+| Tastenkürzel (Standard) | Aktion |
+|---|---|
+| **⌃⌘←** | Linken Bereich fokussieren |
+| **⌃⌘→** | Rechten Bereich fokussieren |
+| **⌃⌘⇧←** | Aktiven Tab in den linken Bereich verschieben |
+| **⌃⌘⇧→** | Aktiven Tab in den rechten Bereich verschieben |
+| **⌘⌥←** / **⌘⌥→** | Vorheriger / nächster Tab **im fokussierten Bereich** |
+
+Sie können Tabs auch zwischen Bereichen ziehen oder das Tab-Kontextmenü verwenden:
+
+- **Open in Split** — öffnet Split (falls nötig) und verschiebt den Tab in den anderen Bereich
+- **Move to Other Pane** — verschiebt den Tab, wenn Split bereits aktiv ist
+
+Konfigurieren Sie alle Split-Tastenkürzel unter **Settings → Shortcuts → Hub & QuickHub**.
+
+---
+
+## Kontext zwischen Bereichen überbrücken
+
+Das Überbrücken von Kontext ist der Kern-Workflow von Split Panel. Kontext, der in den anderen Bereich kopiert oder hinzugefügt wird, wird zu einer **unabhängigen Kopie** in der Kontextleiste des Ziel-Tabs — bereit zum `@`-Erwähnen, Inspizieren oder Senden mit Ihrer nächsten Eingabeaufforderung.
+
+### Eine ganze Konversation als Kontext hinzufügen
+
+Verwandeln Sie eine gesamte Konversation in einem Bereich in Kontext für den Chat im anderen Bereich:
+
+<Steps>
+  <Step title="Von einem Tab">
+    Rechtsklick auf einen Konversations-Tab → **Open as Context in Split** (öffnet Split automatisch) oder **Add as Context to Other Pane** (wenn Split bereits geöffnet ist)
+  </Step>
+  <Step title="Aus der Seitenleiste">
+    Mit geöffnetem Split fokussieren Sie den Bereich, der Kontext **empfangen** soll. Rechtsklick auf eine Konversation in der Seitenleiste → **Add as Context**
+  </Step>
+  <Step title="Über das @-Menü">
+    Tippen Sie **`@`** in das Eingabefeld. Wenn Split aktiv ist, listet ein Abschnitt **Other Pane** die Konversation im gegenüberliegenden Bereich. Wählen Sie sie, um einen Snapshot anzuhängen.
+  </Step>
+</Steps>
+
+Der Snapshot enthält die vollständige Konversation im Markdown-Format. Sie können dieselbe Konversation nicht zweimal an sich selbst anhängen.
+
+### Kontextkarten ziehen
+
+Wenn Split geöffnet ist:
+
+1. Wählen Sie eine oder mehrere **Kontextkarten** in der Konversation (Dateien, Snippets, App-Kontext usw.)
+2. Ziehen Sie sie in den Eingabebereich oder die Kontextleiste des anderen Bereichs
+3. Alter kopiert sie in den Ziel-Tab
+
+Funktioniert für Dateien, Textauswahlen, Bilder, Kalenderereignisse, App-Snapshots und die meisten anderen Kontexttypen.
+
+<Warning>
+  **Workspace**-Kontext kann nicht zwischen Bereichen übertragen werden. Hängen Sie workspace-gestützte Dateien einzeln an, oder öffnen Sie den Workspace im Ziel-Tab separat.
+</Warning>
+
+### Rechtsklick innerhalb einer Konversation
+
+Aus Nachrichten in beiden Bereichen:
+
+| Element | Menüaktion | Ergebnis |
+|---|---|---|
+| Kontextkarten | **Add to Other Pane** | Kopiert die Karte in die Kontextleiste des anderen Bereichs |
+| Bilder | **Add to Other Pane** | Fügt das Bild als Kontext im anderen Bereich hinzu |
+| Dokumentanhänge | **Add to Other Pane** | Fügt die Datei als Kontext hinzu |
+| Dokumentanhänge | **Open in Other Pane** | Öffnet einen schreibgeschützten Dokumentvorschau-Tab im anderen Bereich |
+| `task` / `computer_use_task`-Toolaufrufe | **Open in Other Pane** (Kontextmenü) | Öffnet den schreibgeschützten Task-Trace im anderen Bereich |
+
+**Modifikator-Klick-Kürzel:**
+
+- **⌥-Klick** auf einen Dokumentanhang — Vorschau im anderen Bereich (Tooltip: *Click to open · ⌥-click to preview in split*)
+- **⌥-Klick** auf eine `task`- oder `computer_use_task`-Karte — öffnet den Task-Trace im anderen Bereich
+
+Wenn Split nicht geöffnet ist, öffnen **Open as Context in Split** und **Open in Other Pane** Split zuerst für Sie.
+
+### Dateien auf den anderen Bereich ablegen
+
+Sie können Dateien auch aus dem Finder in den Konversationsbereich des anderen Bereichs ziehen. Sie werden wie ein normaler Hub-Drop in die Kontextleiste dieses Tabs aufgenommen.
+
+---
+
+## Typische Workflows
+
+### Recherche links, Schreiben rechts
+
+<Steps>
+  <Step title="Im Hub starten">
+    Öffnen Sie den Hub (**⌘⇧H**) mit Ihrer Recherchekonversation links
+  </Step>
+  <Step title="Split">
+    Drücken Sie **⌘⌥N**, um einen frischen Chat rechts zu öffnen
+  </Step>
+  <Step title="Kontext überbrücken">
+    Rechtsklick auf den linken Tab → **Add as Context to Other Pane**, oder tippen Sie **`@`** und wählen Sie die **Other Pane**-Konversation
+  </Step>
+  <Step title="Entwurf">
+    Fordern Sie den rechten Bereich auf: „Erstelle anhand der angehängten Recherche eine einseitige Zusammenfassung mit drei Empfehlungen."
+  </Step>
+</Steps>
+
+### Dokumentvorschau während des Chattens
+
+<Steps>
+  <Step title="In einem Bereich fragen">
+    Führen Sie eine Konversation, die einen Dokumentanhang erzeugt oder referenziert
+  </Step>
+  <Step title="In Split öffnen">
+    **⌥-Klick** auf die Dokumentkarte, oder Rechtsklick → **Open in Other Pane**
+  </Step>
+  <Step title="Weiterfragen">
+    Das Dokument öffnet sich als schreibgeschützter Vorschau-Tab im anderen Bereich, während Sie im ersten Bereich weiter prompten
+  </Step>
+</Steps>
+
+### Agenten-Task verfolgen, ohne den Faden zu verlieren
+
+<Steps>
+  <Step title="Task starten">
+    Bitten Sie Alter, einen mehrstufigen `task`- oder Computer-Use-Job in Ihrem Hauptbereich auszuführen
+  </Step>
+  <Step title="Trace in Split öffnen">
+    **⌥-Klick** auf die Task-Toolaufruf-Karte, oder Rechtsklick → **Open in Other Pane**
+  </Step>
+  <Step title="Beobachten">
+    Verfolgen Sie die schreibgeschützte Task-Konversation im rechten Bereich, während Sie links Follow-ups einreihen oder einen verwandten Chat starten
+  </Step>
+</Steps>
+
+---
+
+## Einschränkungen und Tipps
+
+- **Schreibgeschützte Tabs** (Dokumentvorschauen, Task-Traces) können keine Kontext-Drops empfangen — verwenden Sie einen normalen Konversations-Tab in diesem Bereich als Ziel
+- **Kopierter Kontext ist unabhängig** — Bearbeitungen, Follow-Modus und Entfernungen in einem Bereich synchronisieren nicht zurück zur Quelle
+- **Modell pro Bereich** — während Split merkt sich jeder Bereich seine eigene Modellauswahl
+- **Inspector** — während Split verfügbar (**⌃⌘I**); öffnet als Panel am rechten Rand neben den Split-Bereichen
+- **QuickHub** — Split-Aktionen aus QuickHub öffnen oder fokussieren bei Bedarf automatisch das Hub-Fenster
+
+---
+
+## Verwandte Ressourcen
+
+<CardGroup cols={2}>
+  <Card title="Fenstertypen" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Hub-Layout, Tabs und der Kontextbereich
+  </Card>
+  <Card title="Kontext verstehen" icon="layers" href="/getting-started/understand-context-and-apps">
+    Was Kontext ist und wie Alter ihn nutzt
+  </Card>
+  <Card title="Kontext hinzufügen" icon="plus" href="/how-to/add-context">
+    Dateien, Apps und @-Erwähnungen
+  </Card>
+  <Card title="Tastenkürzel" icon="keyboard" href="/references/shortcuts">
+    Vollständige Tastenkürzel-Referenz inklusive Split-Befehle
+  </Card>
+</CardGroup>

@@ -1,0 +1,239 @@
+---
+title: "Split Panel"
+description: "Work in two Hub conversation panes side by side and bridge context between them"
+---
+
+**Split Panel** (called **Split Right** in menus and shortcuts) divides the Alter Hub into two independent conversation panes. Keep research, source material, or an agent task trace in one pane while you write, compare, or iterate in the other — without copying text by hand.
+
+<Info>
+  Split Panel is a **Hub-only** feature. QuickHub stays a single floating panel; open a chat in the Hub (**⌘⇧H** or **Open in Hub**) to use split layout.
+</Info>
+
+## What Split Panel does
+
+When split is active, the Hub shows:
+
+1. **Left pane (primary)** — your original conversation tabs
+2. **Right pane (secondary)** — a second set of tabs, focused independently
+
+Each pane has its own tab bar, prompt box, context strip, and model selection. Drag the divider between panes to resize. Split layout persists when you quit and reopen Alter.
+
+| | **Single pane** | **Split Panel** |
+|---|---|---|
+| Layout | One conversation column | Two columns, resizable |
+| Tabs | One tab bar | Separate tab bars per pane |
+| Context | Local to each tab | Can **bridge** to the other pane |
+| Inspector | Available (**⌃⌘I**) | Available (**⌃⌘I**) — opens as a trailing overlay |
+| Minimum width | Normal Hub width | ~700 px total (340 px per pane minimum) |
+
+## When to use Split Panel
+
+Split Panel shines when one conversation feeds another:
+
+- **Research → draft** — keep source notes or a long transcript in the left pane; write the output in a fresh chat on the right
+- **Compare approaches** — run two model threads on the same problem and cross-reference answers
+- **Read while you chat** — preview a PDF or markdown file in the right pane while asking questions in the left
+- **Follow agent work** — open a `task` or `computer_use_task` trace in the other pane to watch progress without losing your main thread
+
+<Tip>
+  Split Panel is built around Alter's **context** system. The main payoff is moving conversations, files, snippets, and attachments between panes as context — not just seeing two chats at once.
+</Tip>
+
+---
+
+## Open and close split
+
+### Split Right
+
+<Steps>
+  <Step title="Tab bar button">
+    In the Hub, click the **Split Right** icon (split-columns button) next to the **+** tab button on the left pane
+  </Step>
+  <Step title="Keyboard shortcut">
+    Press **⌘⌥N** (default) — configurable in **Settings → Shortcuts → Hub & QuickHub → Split Right**
+  </Step>
+  <Step title="Window menu">
+    Choose **Window → Split Right**
+  </Step>
+  <Step title="Command Palette">
+    Press **⌘K**, type `split`, and choose **Split Right**
+  </Step>
+</Steps>
+
+Split Right opens a **new chat** in the right pane and moves keyboard focus there. The new tab inherits the model from your current left-pane tab.
+
+If split is already open, **Split Right** focuses the right pane instead of creating another split.
+
+### Close Split
+
+<Steps>
+  <Step title="Secondary tab bar">
+    Click the **×** on the right pane's tab bar
+  </Step>
+  <Step title="Keyboard shortcut">
+    Press **⌃⌘↓** (default) — **Close Split** in **Settings → Shortcuts → Hub & QuickHub**
+  </Step>
+  <Step title="Window menu or Command Palette">
+    Choose **Close Split** from the **Window** menu or **⌘K** command palette
+  </Step>
+</Steps>
+
+Closing split **merges** all right-pane tabs into the left pane. Your conversations are preserved; only the layout closes.
+
+---
+
+## Navigate between panes
+
+| Shortcut (default) | Action |
+|---|---|
+| **⌃⌘←** | Focus left pane |
+| **⌃⌘→** | Focus right pane |
+| **⌃⌘⇧←** | Move active tab to left pane |
+| **⌃⌘⇧→** | Move active tab to right pane |
+| **⌘⌥←** / **⌘⌥→** | Previous / next tab **within the focused pane** |
+
+You can also drag tabs between panes or use the tab context menu:
+
+- **Open in Split** — opens split (if needed) and moves the tab to the other pane
+- **Move to Other Pane** — moves the tab when split is already active
+
+Configure all split shortcuts under **Settings → Shortcuts → Hub & QuickHub**.
+
+---
+
+## Bridge context between panes
+
+Context bridging is Split Panel's core workflow. Context copied or added to the other pane becomes an **independent copy** in the destination tab's context strip — ready to `@`-mention, inspect, or send with your next prompt.
+
+### Add a whole conversation as context
+
+Turn an entire conversation in one pane into context for the chat in the other pane:
+
+<Steps>
+  <Step title="From a tab">
+    Right-click a conversation tab → **Open as Context in Split** (opens split automatically) or **Add as Context to Other Pane** (when split is already open)
+  </Step>
+  <Step title="From the sidebar">
+    With split open, focus the pane that should **receive** context. Right-click a conversation in the sidebar → **Add as Context**
+  </Step>
+  <Step title="From the @ menu">
+    Type **`@`** in the prompt box. When split is active, an **Other Pane** section lists the conversation open in the opposite pane. Select it to attach a snapshot.
+  </Step>
+</Steps>
+
+The snapshot includes the full conversation formatted as markdown. You cannot attach the same conversation to itself twice.
+
+### Drag context cards
+
+When split is open:
+
+1. Select one or more **context cards** in the conversation (files, snippets, app context, etc.)
+2. Drag them to the other pane's prompt area or context strip
+3. Alter copies them into the destination tab
+
+Works for files, text selections, images, calendar events, app snapshots, and most other context types.
+
+<Warning>
+  **Workspace** context cannot be transferred between panes. Attach workspace-backed files individually, or open the workspace in the destination tab separately.
+</Warning>
+
+### Right-click inside a conversation
+
+From messages in either pane:
+
+| Item | Menu action | Result |
+|---|---|---|
+| Context cards | **Add to Other Pane** | Copies the card to the other pane's context strip |
+| Images | **Add to Other Pane** | Adds the image as context in the other pane |
+| Document attachments | **Add to Other Pane** | Adds the file as context |
+| Document attachments | **Open in Other Pane** | Opens a read-only document preview tab in the other pane |
+| `task` / `computer_use_task` tool calls | **Open in Other Pane** (context menu) | Opens the task's read-only trace in the other pane |
+
+**Modifier-click shortcuts:**
+
+- **⌥-click** a document attachment — preview in the other pane (tooltip: *Click to open · ⌥-click to preview in split*)
+- **⌥-click** a `task` or `computer_use_task` card — open the task trace in the other pane
+
+If split is not open, **Open as Context in Split** and **Open in Other Pane** actions open split for you first.
+
+### Drop files on the other pane
+
+You can also drag files from Finder onto the other pane's conversation area. They are added to that tab's context strip like a normal Hub drop.
+
+---
+
+## Typical workflows
+
+### Research on the left, write on the right
+
+<Steps>
+  <Step title="Start in the Hub">
+    Open the Hub (**⌘⇧H**) with your research conversation on the left
+  </Step>
+  <Step title="Split">
+    Press **⌘⌥N** to open a fresh chat on the right
+  </Step>
+  <Step title="Bridge context">
+    Right-click the left tab → **Add as Context to Other Pane**, or type **`@`** and pick the **Other Pane** conversation
+  </Step>
+  <Step title="Draft">
+    Prompt the right pane: "Using the attached research, draft a one-page summary with three recommendations."
+  </Step>
+</Steps>
+
+### Preview a document while chatting
+
+<Steps>
+  <Step title="Ask in one pane">
+    Run a conversation that produces or references a document attachment
+  </Step>
+  <Step title="Open in split">
+    **⌥-click** the document card, or right-click → **Open in Other Pane**
+  </Step>
+  <Step title="Keep asking">
+    The document opens as a read-only preview tab in the other pane while you continue prompting in the first
+  </Step>
+</Steps>
+
+### Watch an agent task without losing your place
+
+<Steps>
+  <Step title="Start a task">
+    Ask Alter to run a multi-step `task` or Computer Use job in your main pane
+  </Step>
+  <Step title="Open trace in split">
+    **⌥-click** the task tool-call card, or right-click → **Open in Other Pane**
+  </Step>
+  <Step title="Monitor">
+    Follow the read-only task conversation in the right pane while you queue follow-ups or start a related chat on the left
+  </Step>
+</Steps>
+
+---
+
+## Limitations and tips
+
+- **Read-only tabs** (document previews, task traces) cannot receive context drops — use a normal conversation tab in that pane as the destination
+- **Copied context is independent** — edits, follow mode, and removals in one pane do not sync back to the source
+- **Model per pane** — while split, each pane remembers its own model choice
+- **Inspector** — available while split (**⌃⌘I**); opens as a trailing panel alongside the split panes
+- **QuickHub** — split actions from QuickHub open or focus the Hub window automatically when needed
+
+---
+
+## Related resources
+
+<CardGroup cols={2}>
+  <Card title="Window Types" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Hub layout, tabs, and the context section
+  </Card>
+  <Card title="Understand Context" icon="layers" href="/getting-started/understand-context-and-apps">
+    What context is and how Alter uses it
+  </Card>
+  <Card title="Add Context" icon="plus" href="/how-to/add-context">
+    Files, apps, and @ mentions
+  </Card>
+  <Card title="Keyboard Shortcuts" icon="keyboard" href="/references/shortcuts">
+    Full shortcut reference including split commands
+  </Card>
+</CardGroup>

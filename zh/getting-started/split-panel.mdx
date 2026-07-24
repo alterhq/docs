@@ -1,0 +1,239 @@
+---
+title: "Split Panel"
+description: "在 Hub 中并排使用两个对话面板，并在它们之间桥接上下文"
+---
+
+**Split Panel**（在菜单和快捷键中称为 **Split Right**）将 Alter Hub 分为两个独立的对话面板。在一个面板中保留研究资料、源材料或智能体任务追踪，同时在另一个面板中写作、比较或迭代 — 无需手动复制文本。
+
+<Info>
+  Split Panel 是 **仅限 Hub** 的功能。QuickHub 保持为单个浮动面板；在 Hub 中打开聊天（**⌘⇧H** 或 **Open in Hub**）以使用分屏布局。
+</Info>
+
+## Split Panel 的功能
+
+分屏激活时，Hub 显示：
+
+1. **左面板（主面板）** — 您原有的对话标签页
+2. **右面板（次面板）** — 第二组标签页，可独立聚焦
+
+每个面板都有自己的标签栏、提示框、上下文条和模型选择。拖动面板之间的分隔线可调整大小。退出并重新打开 Alter 后，分屏布局会保留。
+
+| | **单面板** | **Split Panel** |
+|---|---|---|
+| 布局 | 一列对话 | 两列，可调整大小 |
+| 标签页 | 一个标签栏 | 每个面板独立的标签栏 |
+| 上下文 | 各标签页本地 | 可**桥接**到另一面板 |
+| Inspector | 可用（**⌃⌘I**） | 可用（**⌃⌘I**）— 作为右侧叠加层打开 |
+| 最小宽度 | 正常 Hub 宽度 | 总计约 700 px（每面板最小 340 px） |
+
+## 何时使用 Split Panel
+
+当一个对话为另一个对话提供输入时，Split Panel 特别有用：
+
+- **研究 → 起草** — 在左面板保留源笔记或长转录；在右侧新聊天中撰写输出
+- **比较方案** — 对同一问题运行两个模型线程并交叉参考答案
+- **边聊边读** — 在右面板预览 PDF 或 markdown 文件，同时在左侧提问
+- **跟踪智能体工作** — 在另一面板打开 `task` 或 `computer_use_task` 追踪，在不丢失主线程的情况下观察进度
+
+<Tip>
+  Split Panel 围绕 Alter 的**上下文**系统构建。主要价值在于将对话、文件、片段和附件作为上下文在面板之间移动 — 而不仅仅是同时看到两个聊天。
+</Tip>
+
+---
+
+## 打开和关闭分屏
+
+### Split Right
+
+<Steps>
+  <Step title="标签栏按钮">
+    在 Hub 中，点击左面板标签栏 **+** 按钮旁的 **Split Right** 图标（分栏按钮）
+  </Step>
+  <Step title="键盘快捷键">
+    按 **⌘⌥N**（默认）— 可在 **Settings → Shortcuts → Hub & QuickHub → Split Right** 中配置
+  </Step>
+  <Step title="窗口菜单">
+    选择 **Window → Split Right**
+  </Step>
+  <Step title="Command Palette">
+    按 **⌘K**，输入 `split`，选择 **Split Right**
+  </Step>
+</Steps>
+
+**Split Right** 在右面板打开**新聊天**并将键盘焦点移至该处。新标签页继承您当前左面板标签页的模型。
+
+如果分屏已打开，**Split Right** 会聚焦右面板，而不是创建另一个分屏。
+
+### Close Split
+
+<Steps>
+  <Step title="次面板标签栏">
+    点击右面板标签栏上的 **×**
+  </Step>
+  <Step title="键盘快捷键">
+    按 **⌃⌘↓**（默认）— **Close Split** 位于 **Settings → Shortcuts → Hub & QuickHub**
+  </Step>
+  <Step title="窗口菜单或 Command Palette">
+    从 **Window** 菜单或 **⌘K** Command Palette 选择 **Close Split**
+  </Step>
+</Steps>
+
+关闭分屏会**合并**右面板的所有标签页到左面板。您的对话会保留；仅布局关闭。
+
+---
+
+## 在面板之间导航
+
+| 快捷键（默认） | 操作 |
+|---|---|
+| **⌃⌘←** | 聚焦左面板 |
+| **⌃⌘→** | 聚焦右面板 |
+| **⌃⌘⇧←** | 将活动标签页移至左面板 |
+| **⌃⌘⇧→** | 将活动标签页移至右面板 |
+| **⌘⌥←** / **⌘⌥→** | **聚焦面板内**的上一个 / 下一个标签页 |
+
+您也可以拖动标签页在面板之间移动，或使用标签页上下文菜单：
+
+- **Open in Split** — 打开分屏（如需要）并将标签页移至另一面板
+- **Move to Other Pane** — 分屏已激活时移动标签页
+
+在 **Settings → Shortcuts → Hub & QuickHub** 下配置所有分屏快捷键。
+
+---
+
+## 在面板之间桥接上下文
+
+上下文桥接是 Split Panel 的核心工作流。复制或添加到另一面板的上下文会成为目标标签页上下文条中的**独立副本** — 可用于 `@` 提及、检查或与下一条提示一起发送。
+
+### 将整个对话添加为上下文
+
+将一面板中的整个对话转换为另一面板的聊天上下文：
+
+<Steps>
+  <Step title="从标签页">
+    右键点击对话标签页 → **Open as Context in Split**（自动打开分屏）或 **Add as Context to Other Pane**（分屏已打开时）
+  </Step>
+  <Step title="从侧边栏">
+    分屏打开后，聚焦应**接收**上下文的面板。右键点击侧边栏中的对话 → **Add as Context**
+  </Step>
+  <Step title="从 @ 菜单">
+    在提示框中输入 **`@`**。分屏激活时，**Other Pane** 部分会列出对面板中打开的对话。选择它以附加快照。
+  </Step>
+</Steps>
+
+快照包含格式化为 markdown 的完整对话。您不能将同一对话附加到自身两次。
+
+### 拖动上下文卡片
+
+分屏打开时：
+
+1. 在对话中选择一个或多个**上下文卡片**（文件、片段、应用上下文等）
+2. 将它们拖到另一面板的提示区域或上下文条
+3. Alter 将它们复制到目标标签页
+
+适用于文件、文本选择、图像、日历事件、应用快照和大多数其他上下文类型。
+
+<Warning>
+  **Workspace** 上下文无法在面板之间传输。请单独附加 workspace 支持的文件，或在目标标签页中单独打开 workspace。
+</Warning>
+
+### 在对话内右键点击
+
+来自任一面板的消息：
+
+| 项目 | 菜单操作 | 结果 |
+|---|---|---|
+| 上下文卡片 | **Add to Other Pane** | 将卡片复制到另一面板的上下文条 |
+| 图像 | **Add to Other Pane** | 在另一面板中将图像添加为上下文 |
+| 文档附件 | **Add to Other Pane** | 将文件添加为上下文 |
+| 文档附件 | **Open in Other Pane** | 在另一面板中打开只读文档预览标签页 |
+| `task` / `computer_use_task` 工具调用 | **Open in Other Pane**（上下文菜单） | 在另一面板中打开只读任务追踪 |
+
+**修饰键点击快捷方式：**
+
+- **⌥-点击**文档附件 — 在另一面板中预览（工具提示：*Click to open · ⌥-click to preview in split*）
+- **⌥-点击** `task` 或 `computer_use_task` 卡片 — 在另一面板中打开任务追踪
+
+如果分屏未打开，**Open as Context in Split** 和 **Open in Other Pane** 操作会先为您打开分屏。
+
+### 将文件拖放到另一面板
+
+您也可以将 Finder 中的文件拖到另一面板的对话区域。它们会像正常的 Hub 拖放一样添加到该标签页的上下文条。
+
+---
+
+## 典型工作流
+
+### 左侧研究，右侧写作
+
+<Steps>
+  <Step title="在 Hub 中开始">
+    打开 Hub（**⌘⇧H**），左侧为研究对话
+  </Step>
+  <Step title="分屏">
+    按 **⌘⌥N** 在右侧打开新聊天
+  </Step>
+  <Step title="桥接上下文">
+    右键点击左侧标签页 → **Add as Context to Other Pane**，或输入 **`@`** 并选择 **Other Pane** 对话
+  </Step>
+  <Step title="起草">
+    提示右面板："使用附加的研究资料，起草一页摘要并给出三条建议。"
+  </Step>
+</Steps>
+
+### 聊天时预览文档
+
+<Steps>
+  <Step title="在一个面板中提问">
+    进行产生或引用文档附件的对话
+  </Step>
+  <Step title="在分屏中打开">
+    **⌥-点击**文档卡片，或右键 → **Open in Other Pane**
+  </Step>
+  <Step title="继续提问">
+    文档在另一面板中以只读预览标签页打开，同时您在第一个面板中继续提示
+  </Step>
+</Steps>
+
+### 跟踪智能体任务而不丢失位置
+
+<Steps>
+  <Step title="启动任务">
+    请 Alter 在主面板中运行多步骤 `task` 或 Computer Use 作业
+  </Step>
+  <Step title="在分屏中打开追踪">
+    **⌥-点击**任务工具调用卡片，或右键 → **Open in Other Pane**
+  </Step>
+  <Step title="监控">
+    在右面板中跟踪只读任务对话，同时在左侧排队后续问题或开始相关聊天
+  </Step>
+</Steps>
+
+---
+
+## 限制和提示
+
+- **只读标签页**（文档预览、任务追踪）无法接收上下文拖放 — 请使用该面板中的普通对话标签页作为目标
+- **复制的上下文是独立的** — 一个面板中的编辑、跟随模式和移除不会同步回源
+- **每面板一个模型** — 分屏时，每个面板记住自己的模型选择
+- **Inspector** — 分屏时可用（**⌃⌘I**）；作为尾随面板在分屏面板旁打开
+- **QuickHub** — 从 QuickHub 执行的分屏操作会在需要时自动打开或聚焦 Hub 窗口
+
+---
+
+## 相关资源
+
+<CardGroup cols={2}>
+  <Card title="窗口类型" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Hub 布局、标签页和上下文部分
+  </Card>
+  <Card title="理解上下文" icon="layers" href="/getting-started/understand-context-and-apps">
+    什么是上下文以及 Alter 如何使用它
+  </Card>
+  <Card title="添加上下文" icon="plus" href="/how-to/add-context">
+    文件、应用和 @ 提及
+  </Card>
+  <Card title="键盘快捷键" icon="keyboard" href="/references/shortcuts">
+    完整快捷键参考，包括分屏命令
+  </Card>
+</CardGroup>

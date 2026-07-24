@@ -1,0 +1,239 @@
+---
+title: "Split Panel"
+description: "Trabalhe em dois painéis de conversação do Hub lado a lado e faça ponte de contexto entre eles"
+---
+
+**Split Panel** (chamado **Split Right** nos menus e atalhos) divide o Hub do Alter em dois painéis de conversação independentes. Mantenha pesquisa, material de origem ou o rastro de uma tarefa de agente num painel enquanto escreve, compara ou itera no outro — sem copiar texto manualmente.
+
+<Info>
+  Split Panel é um recurso **apenas do Hub**. O QuickHub continua sendo um painel flutuante único; abra um chat no Hub (**⌘⇧H** ou **Abrir no Hub**) para usar o layout dividido.
+</Info>
+
+## O que o Split Panel faz
+
+Quando o split está ativo, o Hub mostra:
+
+1. **Painel esquerdo (primário)** — suas abas de conversação originais
+2. **Painel direito (secundário)** — um segundo conjunto de abas, com foco independente
+
+Cada painel tem sua própria barra de abas, caixa de prompt, faixa de contexto e seleção de modelo. Arraste o divisor entre os painéis para redimensionar. O layout dividido persiste quando você fecha e reabre o Alter.
+
+| | **Painel único** | **Split Panel** |
+|---|---|---|
+| Layout | Uma coluna de conversação | Duas colunas redimensionáveis |
+| Abas | Uma barra de abas | Barras de abas separadas por painel |
+| Contexto | Local a cada aba | Pode ser **conectado** ao outro painel |
+| Inspector | Disponível (**⌃⌘I**) | Disponível (**⌃⌘I**) — abre como sobreposição à direita |
+| Largura mínima | Largura normal do Hub | ~700 px no total (340 px mínimo por painel) |
+
+## Quando usar Split Panel
+
+Split Panel brilha quando uma conversação alimenta outra:
+
+- **Pesquisa → rascunho** — mantenha notas de origem ou uma transcrição longa no painel esquerdo; escreva o resultado num chat novo à direita
+- **Comparar abordagens** — execute dois threads de modelo no mesmo problema e cruze respostas
+- **Ler enquanto conversa** — visualize um PDF ou arquivo markdown no painel direito enquanto faz perguntas à esquerda
+- **Acompanhar trabalho do agente** — abra um rastro `task` ou `computer_use_task` no outro painel para ver o progresso sem perder seu fio principal
+
+<Tip>
+  Split Panel é construído em torno do sistema de **contexto** do Alter. A principal vantagem é mover conversações, arquivos, trechos e anexos entre painéis como contexto — não apenas ver dois chats ao mesmo tempo.
+</Tip>
+
+---
+
+## Abrir e fechar o split
+
+### Split Right
+
+<Steps>
+  <Step title="Botão da barra de abas">
+    No Hub, clique no ícone **Split Right** (botão de colunas divididas) ao lado do botão **+** da barra de abas do painel esquerdo
+  </Step>
+  <Step title="Atalho de teclado">
+    Pressione **⌘⌥N** (padrão) — configurável em **Settings → Shortcuts → Hub & QuickHub → Split Right**
+  </Step>
+  <Step title="Menu Janela">
+    Escolha **Window → Split Right**
+  </Step>
+  <Step title="Command Palette">
+    Pressione **⌘K**, digite `split` e escolha **Split Right**
+  </Step>
+</Steps>
+
+**Split Right** abre um **chat novo** no painel direito e move o foco do teclado para lá. A nova aba herda o modelo da sua aba atual do painel esquerdo.
+
+Se o split já estiver aberto, **Split Right** foca o painel direito em vez de criar outro split.
+
+### Close Split
+
+<Steps>
+  <Step title="Barra de abas secundária">
+    Clique em **×** na barra de abas do painel direito
+  </Step>
+  <Step title="Atalho de teclado">
+    Pressione **⌃⌘↓** (padrão) — **Close Split** em **Settings → Shortcuts → Hub & QuickHub**
+  </Step>
+  <Step title="Menu Janela ou Command Palette">
+    Escolha **Close Split** no menu **Window** ou na Command Palette **⌘K**
+  </Step>
+</Steps>
+
+Fechar o split **mescla** todas as abas do painel direito no painel esquerdo. Suas conversações são preservadas; apenas o layout fecha.
+
+---
+
+## Navegar entre painéis
+
+| Atalho (padrão) | Ação |
+|---|---|
+| **⌃⌘←** | Focar painel esquerdo |
+| **⌃⌘→** | Focar painel direito |
+| **⌃⌘⇧←** | Mover aba ativa para o painel esquerdo |
+| **⌃⌘⇧→** | Mover aba ativa para o painel direito |
+| **⌘⌥←** / **⌘⌥→** | Aba anterior / próxima **no painel focado** |
+
+Você também pode arrastar abas entre painéis ou usar o menu de contexto da aba:
+
+- **Open in Split** — abre o split (se necessário) e move a aba para o outro painel
+- **Move to Other Pane** — move a aba quando o split já está ativo
+
+Configure todos os atalhos de split em **Settings → Shortcuts → Hub & QuickHub**.
+
+---
+
+## Fazer ponte de contexto entre painéis
+
+A ponte de contexto é o fluxo central do Split Panel. Contexto copiado ou adicionado ao outro painel torna-se uma **cópia independente** na faixa de contexto da aba de destino — pronta para `@`-mencionar, inspecionar ou enviar com seu próximo prompt.
+
+### Adicionar uma conversação inteira como contexto
+
+Transforme uma conversação inteira num painel em contexto para o chat do outro painel:
+
+<Steps>
+  <Step title="De uma aba">
+    Clique com o botão direito numa aba de conversação → **Open as Context in Split** (abre o split automaticamente) ou **Add as Context to Other Pane** (quando o split já está aberto)
+  </Step>
+  <Step title="Da barra lateral">
+    Com o split aberto, foque o painel que deve **receber** contexto. Clique com o botão direito numa conversação na barra lateral → **Add as Context**
+  </Step>
+  <Step title="Do menu @">
+    Digite **`@`** na caixa de prompt. Quando o split está ativo, uma seção **Other Pane** lista a conversação aberta no painel oposto. Selecione-a para anexar um instantâneo.
+  </Step>
+</Steps>
+
+O instantâneo inclui a conversação completa formatada como markdown. Você não pode anexar a mesma conversação a si mesma duas vezes.
+
+### Arrastar cartões de contexto
+
+Quando o split está aberto:
+
+1. Selecione um ou mais **cartões de contexto** na conversação (arquivos, trechos, contexto de app, etc.)
+2. Arraste-os para a área de prompt ou faixa de contexto do outro painel
+3. O Alter copia-os para a aba de destino
+
+Funciona para arquivos, seleções de texto, imagens, eventos de calendário, instantâneos de app e a maioria dos outros tipos de contexto.
+
+<Warning>
+  Contexto de **Workspace** não pode ser transferido entre painéis. Anexe arquivos vinculados ao workspace individualmente, ou abra o workspace separadamente na aba de destino.
+</Warning>
+
+### Clique com o botão direito dentro de uma conversação
+
+A partir de mensagens em qualquer painel:
+
+| Item | Ação do menu | Resultado |
+|---|---|---|
+| Cartões de contexto | **Add to Other Pane** | Copia o cartão para a faixa de contexto do outro painel |
+| Imagens | **Add to Other Pane** | Adiciona a imagem como contexto no outro painel |
+| Anexos de documento | **Add to Other Pane** | Adiciona o arquivo como contexto |
+| Anexos de documento | **Open in Other Pane** | Abre uma aba de visualização de documento somente leitura no outro painel |
+| Chamadas de ferramenta `task` / `computer_use_task` | **Open in Other Pane** (menu de contexto) | Abre o rastro de tarefa somente leitura no outro painel |
+
+**Atalhos de clique com modificador:**
+
+- **⌥-clique** num anexo de documento — visualização no outro painel (tooltip: *Click to open · ⌥-click to preview in split*)
+- **⌥-clique** num cartão `task` ou `computer_use_task` — abre o rastro de tarefa no outro painel
+
+Se o split não estiver aberto, as ações **Open as Context in Split** e **Open in Other Pane** abrem o split primeiro.
+
+### Soltar arquivos no outro painel
+
+Você também pode arrastar arquivos do Finder para a área de conversação do outro painel. Eles são adicionados à faixa de contexto dessa aba como um drop normal do Hub.
+
+---
+
+## Fluxos de trabalho típicos
+
+### Pesquisa à esquerda, escrita à direita
+
+<Steps>
+  <Step title="Começar no Hub">
+    Abra o Hub (**⌘⇧H**) com sua conversação de pesquisa à esquerda
+  </Step>
+  <Step title="Dividir">
+    Pressione **⌘⌥N** para abrir um chat novo à direita
+  </Step>
+  <Step title="Fazer ponte de contexto">
+    Clique com o botão direito na aba esquerda → **Add as Context to Other Pane**, ou digite **`@`** e escolha a conversação **Other Pane**
+  </Step>
+  <Step title="Rascunhar">
+    Solicite ao painel direito: "Usando a pesquisa anexada, redija um resumo de uma página com três recomendações."
+  </Step>
+</Steps>
+
+### Visualizar um documento enquanto conversa
+
+<Steps>
+  <Step title="Perguntar num painel">
+    Mantenha uma conversação que produz ou referencia um anexo de documento
+  </Step>
+  <Step title="Abrir em split">
+    **⌥-clique** no cartão de documento, ou clique com o botão direito → **Open in Other Pane**
+  </Step>
+  <Step title="Continuar perguntando">
+    O documento abre como aba de visualização somente leitura no outro painel enquanto você continua promptando no primeiro
+  </Step>
+</Steps>
+
+### Acompanhar uma tarefa de agente sem perder o fio
+
+<Steps>
+  <Step title="Iniciar uma tarefa">
+    Peça ao Alter para executar um `task` multi-etapas ou um trabalho de Computer Use no seu painel principal
+  </Step>
+  <Step title="Abrir rastro em split">
+    **⌥-clique** no cartão de chamada de ferramenta de tarefa, ou clique com o botão direito → **Open in Other Pane**
+  </Step>
+  <Step title="Monitorar">
+    Acompanhe a conversação de tarefa somente leitura no painel direito enquanto enfileira follow-ups ou inicia um chat relacionado à esquerda
+  </Step>
+</Steps>
+
+---
+
+## Limitações e dicas
+
+- **Abas somente leitura** (visualizações de documento, rastros de tarefa) não podem receber drops de contexto — use uma aba de conversação normal nesse painel como destino
+- **Contexto copiado é independente** — edições, modo seguir e remoções num painel não sincronizam de volta à origem
+- **Modelo por painel** — enquanto o split está ativo, cada painel lembra sua própria escolha de modelo
+- **Inspector** — disponível com split (**⌃⌘I**); abre como painel à direita junto aos painéis divididos
+- **QuickHub** — ações de split a partir do QuickHub abrem ou focam automaticamente a janela do Hub quando necessário
+
+---
+
+## Recursos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Tipos de janela" icon="layout" href="/getting-started/window-types-notch-hub-panels">
+    Layout do Hub, abas e seção de contexto
+  </Card>
+  <Card title="Entender contexto" icon="layers" href="/getting-started/understand-context-and-apps">
+    O que é contexto e como o Alter o usa
+  </Card>
+  <Card title="Adicionar contexto" icon="plus" href="/how-to/add-context">
+    Arquivos, apps e menções @
+  </Card>
+  <Card title="Atalhos de teclado" icon="keyboard" href="/references/shortcuts">
+    Referência completa de atalhos, incluindo comandos de split
+  </Card>
+</CardGroup>
