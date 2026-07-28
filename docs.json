@@ -106,6 +106,9 @@
                 "group": "Integrations",
                 "pages": [
                   "apps-tools/integrations-overview",
+                  "apps-tools/gateways",
+                  "apps-tools/gateways-discord",
+                  "apps-tools/gateways-telegram",
                   "apps-tools/integrations-troubleshooting"
                 ]
               },

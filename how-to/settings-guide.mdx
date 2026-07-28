@@ -336,7 +336,50 @@ The **Router** tab configures the default AI endpoint:
 
 ![Router Settings](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
-<h3 id="computer-use">9. Computer use Settings</h3>
+<h3 id="gateways">9. Gateways Settings</h3>
+
+The **Gateways** tab (under **Integrations** in the settings sidebar, alongside **API keys** and **Router**) connects Alter to **Discord** and **Telegram** bots.
+
+Open **Settings** (⌘,) → **Integrations** → **Gateways**. Full setup walkthroughs:
+
+- [Gateways overview](/apps-tools/gateways)
+- [Set up a Discord gateway](/apps-tools/gateways-discord)
+- [Set up a Telegram gateway](/apps-tools/gateways-telegram)
+
+**List and add gateways**
+
+- **Add gateway** — Create a **Discord** or **Telegram** connection.
+- Each row shows the gateway **Name**, platform, and an enabled/disabled indicator.
+
+**Keep gateways online with the lid closed** (MacBook)
+
+At the top of the Gateways page:
+
+- **Toggle** — When on (default), Alter keeps active gateway bots connected while the MacBook lid is closed. Normal sleep returns when the last gateway stops.
+- **Allow…** — One-time administrator permission to change a protected macOS sleep setting (`pmset disablesleep`). Required the first time lid-closed availability activates while a gateway is running.
+- **Options…** — Opens **Lid-closed availability**:
+  - **Gateway availability** status (for example *Keeping this Mac awake*, *Paused for low battery*)
+  - **Pause below** — Battery floor while unplugged (default 20%, range 5–50%). Alter restores normal sleep at or below this level and re-enables after charging above it.
+  - **Pause in Low Power Mode** — Always on; honors the system power-saving preference.
+  - **Remove administrator permission…** — Revokes the installed permission. Turning the main toggle off does **not** remove permission.
+
+**Per-gateway fields**
+
+| Section | Fields |
+|---------|--------|
+| General | **Name**, **Enabled** |
+| Connection (Discord) | **Bot token**, **Server ID (optional)**, **Allowed Discord user IDs**, **Require a mention in servers** |
+| Connection (Telegram) | **Bot token**, **Allowed Telegram user or chat IDs** |
+| Behavior | **Default action** — action used for new conversations on this gateway |
+| Footer | **Delete gateway**, **Save and restart**, connection status |
+
+Bot tokens are stored in the macOS Keychain. After **Save and restart**, the status line shows whether the bot connected (for example **Connected as @username**).
+
+<Tip>
+  Gateways are not the same as **Settings → Router** (OpenAI-compatible API). See [API Gateway Guide](/api-router/api-gateway) for third-party app integrations via the API.
+</Tip>
+
+<h3 id="computer-use">10. Computer use Settings</h3>
 
 The **Computer use** tab configures how Alter's UI automation agent drives apps, browsers, and the floating live preview introduced in **2.0.0-beta100**.
 
@@ -403,7 +446,7 @@ Computer Use requires **Accessibility** (to read AX trees and send clicks) and *
   Background runs, Edge Bar session cards, and preview behavior are documented in [Background Computer Use](/apps-tools/computer-use-background). Permission issues: [Tools Not Working](/common-issues/tool-not-working) or **Settings → Doctor**.
 </Tip>
 
-<h3 id="shortcuts">10. Shortcuts Settings</h3>
+<h3 id="shortcuts">11. Shortcuts Settings</h3>
 
 The **Shortcuts** tab is a searchable editor for every Alter keyboard shortcut. Open **Settings → Shortcuts** (under the **General** section in the sidebar).
 
@@ -517,7 +560,7 @@ macOS and other apps may claim the same key combinations. If a shortcut does not
 
 For a full inventory beyond the settings UI, see [Shortcuts reference](/references/shortcuts). To change only the global open shortcut, [How-To: Change Hotkey](/how-to/change-hotkey) is a focused guide.
 
-<h3 id="marketplace">11. Marketplace Settings</h3>
+<h3 id="marketplace">12. Marketplace Settings</h3>
 
 The **Marketplace** tab (under **Account** in the settings sidebar) controls your public Alter Marketplace profile and notification preferences. What you save here can appear on agent listings and community pages; local-only Alter settings are unaffected.
 
@@ -549,7 +592,7 @@ Leave a field empty to hide that link publicly. Values are stored with your acco
 
 Toggle off to silence marketplace comment alerts while keeping your public profile visible.
 
-<h3 id="doctor">12. Doctor Settings</h3>
+<h3 id="doctor">13. Doctor Settings</h3>
 
 **Doctor** (under **System** in the settings sidebar) runs a health and permission diagnostic across Alter. Use it when tools fail mysteriously, voice processing misbehaves, or you need a redacted report for support.
 
@@ -640,6 +683,7 @@ Some sections include footer buttons:
 - [Dictation & Voice](/workflows/dictation)
 - [Choosing Your Generative Model](/how-to/choose-generative-model)
 - [API Gateway & Router Service](/api-router/api-gateway)
+- [Gateways](/apps-tools/gateways)
 - [Computer Use overview](/apps-tools/computer-use)
 - [Background Computer Use](/apps-tools/computer-use-background)
 - [QuickHub Mode](/getting-started/quickhub-mode)

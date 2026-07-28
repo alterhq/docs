@@ -1,0 +1,215 @@
+---
+title: "Gateways"
+description: "Talk to Alter from Discord and Telegram while Alter runs on your Mac"
+---
+
+<Info>
+  **Gateways** connect Alter to **Discord** and **Telegram** bots so you can chat with Alter from those apps. Each gateway runs locally on your Mac — Alter must be open and running for messages to be processed.
+</Info>
+
+<Warning>
+  **Gateways** (Discord/Telegram bots) are different from the **API Gateway** in **Settings → Router**, which exposes an OpenAI-compatible endpoint for third-party apps. See [API Gateway Guide](/api-router/api-gateway) for that feature.
+</Warning>
+
+## What Gateways do
+
+Gateways let you use Alter from chat platforms you already have open:
+
+- **Discord** — DM the bot or mention it in a server channel (when configured).
+- **Telegram** — Message the bot in a private chat or group.
+
+Each gateway instance has its own name, **Default action**, access controls, and connection settings. Conversations are stored in Alter on your Mac the same way as Hub chats — gateways are another way to start and continue those conversations.
+
+When someone sends a message, Alter:
+
+1. Receives it through the platform bot connection.
+2. Runs the selected **Alter Action** (for example **Ask Anything**).
+3. Streams the reply back into the Discord channel or Telegram chat.
+4. Can download incoming attachments and upload output files from tool runs.
+
+## Open Gateways settings
+
+<Steps>
+  <Step title="Open Settings">
+    Press **⌘,** (Command + Comma), click the Alter menu bar icon and choose **Settings...**, or open **Settings** from the notch **⋯** menu.
+  </Step>
+  <Step title="Go to Integrations → Gateways">
+    In the settings sidebar, open **Integrations**, then select **Gateways**.
+  </Step>
+</Steps>
+
+You can also deep-link directly: `com.wearedevx.alter://settings?id=gateways`
+
+The Gateways page shows every configured gateway. Use **Add gateway** to create a **Discord** or **Telegram** connection.
+
+## Setup guides
+
+<CardGroup cols={2}>
+  <Card title="Discord gateway" icon="discord" href="/apps-tools/gateways-discord">
+    Create a Discord bot, enable intents, invite it to your server, and connect it in Alter.
+  </Card>
+  <Card title="Telegram gateway" icon="telegram" href="/apps-tools/gateways-telegram">
+    Create a bot with BotFather and paste the token into Alter.
+  </Card>
+</CardGroup>
+
+## Gateway settings reference
+
+Every gateway shares these fields:
+
+| Field | Description |
+|-------|-------------|
+| **Name** | Label shown in the gateway list (for example "Team Discord" or "Personal Telegram"). |
+| **Enabled** | Turn the connection on or off. A bot token is required before enabling. |
+| **Default action** | The Alter Action used when a new conversation starts on this gateway. |
+| **Start server discussions in threads** (Discord only) | When on, each new top-level server message starts a Discord thread and a separate Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. |
+| **Save and restart** | Saves credentials and reconnects the bot. |
+
+Platform-specific **Connection** fields are documented in the setup guides:
+
+- [Discord connection fields](/apps-tools/gateways-discord#connect-in-alter)
+- [Telegram connection fields](/apps-tools/gateways-telegram#connect-in-alter)
+
+After saving an enabled gateway, Alter shows a status line such as **Connected as @username** or an error you can act on.
+
+## Keep gateways online with the lid closed
+
+On a MacBook, closing the lid normally puts the Mac to sleep and disconnects gateway bots. Alter can keep active gateways available while the lid is closed.
+
+At the top of **Settings → Integrations → Gateways**:
+
+| Control | Description |
+|---------|-------------|
+| **Keep gateways online with the lid closed** | When on (default), Alter prevents sleep while at least one gateway is enabled and connected. Normal sleep returns when the last gateway stops. |
+| **Allow…** | Shown when administrator permission is needed. Alter asks once to install a protected `pmset` permission so it can toggle the macOS sleep setting while gateways run. |
+| **Options…** | Opens **Lid-closed availability** — status, battery safeguards, and permission management. |
+
+### Battery safeguards
+
+Alter pauses lid-closed availability automatically to protect battery life:
+
+- **Pause below** — While the Mac is unplugged and discharging, Alter restores normal sleep at or below this level (default **20%**, adjustable from **5%** to **50%** in 5% steps). Lid-closed availability turns back on after charging above the limit.
+- **Pause in Low Power Mode** — Always honored while macOS Low Power Mode is on.
+
+Turning the main toggle off keeps the installed administrator permission, so you can enable it again without another prompt. Use **Remove administrator permission…** in **Options…** when you want to revoke it entirely.
+
+<Warning>
+  Lid-closed availability changes a protected macOS sleep setting. Alter also runs a safety monitor that restores normal sleep if the app stops unexpectedly. Gateways still require Alter to be running — this feature keeps the Mac awake, not Alter closed.
+</Warning>
+
+## Which actions work on Gateways?
+
+Actions **opt in** to external platforms. In the **Action Editor**, open **Model → Gateways → Allowed gateways**:
+
+- **`discord`** — available on Discord gateways only
+- **`telegram`** — available on Telegram gateways only
+- **`*`** — available on every gateway
+- **Empty** — local-only (Hub, QuickHub, etc.)
+
+<Tip>
+  The bundled **Ask Anything** action is enabled on **Discord** and **Telegram** by default — it is the usual **Default action** for new gateways. Custom actions need `discord`, `telegram`, or `*` under **Allowed gateways**.
+</Tip>
+
+People can still switch actions per conversation with `/new [action]` as long as that action is allowed on the platform.
+
+## Chat commands and controls
+
+Both Discord and Telegram support the same text commands (type them as regular messages). On Telegram, commands also work with a bot suffix such as `/help@YourBotName`.
+
+| Command | What it does |
+|---------|--------------|
+| `/help` or `/start` | List available commands and show quick-action buttons |
+| `/status` | Show the default action and whether a conversation is selected |
+| `/actions` | List actions enabled for this platform (Discord: up to 40; Telegram picker: up to 20) |
+| `/new [action]` or `/action [action]` | Start a new conversation with the given action |
+| `/chats [limit] [page]` | List saved Alter conversations (limit 1–25, default 10 for text commands) |
+| `/use <number>` | Select a conversation from the last `/chats` page |
+| `/history [limit]` | Show recent messages from the selected conversation (limit 1–40, default 12) |
+| `/stop` | Stop Alter's current response in this channel or chat |
+
+On **Discord**, Alter also registers native slash commands (`/help`, `/new`, `/actions`, `/chats`, `/history`, `/stop`, `/status`) when the bot connects. If you set a **Server ID**, commands register for that server only; otherwise they register globally for the bot application.
+
+Both platforms also expose **buttons** for common tasks — for example **New chat**, **Choose action**, and **Past chats** on `/help`. Telegram uses inline keyboards; Discord uses message components. When an action uses the **Ask User** tool, Alter presents multiple-choice questions through those same interactive controls (and accepts typed replies for "Other" answers).
+
+Any message that is not a command is treated as a chat turn in the current conversation.
+
+## Daily usage
+
+1. Keep **Alter running** on your Mac with the gateway **Enabled**. On a MacBook, turn on **Keep gateways online with the lid closed** if you want bots to stay connected with the lid shut.
+2. Message the bot on Discord or Telegram (or `@mention` it in Discord servers when **Require a mention in servers** is on).
+3. Alter shows a **Thinking…** placeholder while the action runs, then updates with the streamed reply. In Telegram DMs, Alter can stream through Telegram's native draft preview when supported; in groups it edits a regular message instead.
+4. Attach files in Discord or Telegram — Alter downloads them for the turn and can upload output files from tools. **Voice messages** and **audio files** are transcribed using your selected voice processor (**Settings → Voice**) and sent to Alter as text; longer audio is also attached as a meeting-style transcript context.
+5. Use `/stop`, the **Stop** button (Telegram groups and Discord), or wait for the turn to finish before sending another message in the same channel or chat.
+
+### One response at a time
+
+Alter handles **one in-flight response per channel or chat**. If a second message arrives while Alter is still responding, the bot replies that Alter is already responding in that channel or chat. Wait for the current turn to finish, then send again.
+
+### Conversation continuity
+
+Each Discord channel or Telegram chat can have one active Alter conversation. Use `/new` to start fresh, or `/chats` and `/use` to resume an existing Alter conversation from your Mac.
+
+On Discord, enabling **Start server discussions in threads** gives each new top-level server message its own thread and Alter chat. Replies inside an existing thread continue that chat instead of starting another.
+
+## Privacy and data
+
+- Bot tokens are stored in the **macOS Keychain**, not in plain-text settings files.
+- Gateway configuration (names, access lists, default actions) is stored locally in Alter's preferences on your Mac.
+- Per-channel state (selected conversation, pending action) is stored under Alter's Application Support folder.
+- Message processing uses the same local Alter stack as the Hub — there is no separate cloud relay for gateway traffic.
+
+See also [Local data and privacy](/references/local-data-and-privacy).
+
+## Troubleshooting
+
+### Connection and tokens
+
+| Symptom | What to try |
+|---------|-------------|
+| *A Discord/Telegram bot token is required before enabling this gateway.* | Paste a token in **Connection → Bot token** before turning **Enabled** on. |
+| *Discord rejected the bot token* | Copy a fresh token from the [Discord Developer Portal](https://discord.com/developers/applications) → your app → **Bot** → **Reset Token**. |
+| *Enable Message Content Intent…* (Discord code 4014) | In the Developer Portal, open your app → **Bot** → enable **Message Content Intent** under **Privileged Gateway Intents**. See [Discord privileged intents](https://discord.com/developers/docs/events/gateway#privileged-intents). |
+| *Telegram rejected the bot token* | Copy a fresh token from [@BotFather](https://t.me/BotFather) (`/token` for an existing bot). |
+| *Telegram polling is already active for this bot token* | Only one client can poll a bot token at a time. Disable other Alter Telegram gateways using the same token, remove any webhook on the bot, or revoke and replace the token in BotFather. |
+| *Telegram is rate-limiting this gateway* | Wait a moment and try again. Alter retries automatically; avoid rapid repeated saves or restarts. |
+| *…is still connecting. Check the token and network connection.* | Confirm the token, network access, and that Alter remains open. Click **Save and restart**. |
+
+### Usage
+
+| Symptom | What to try |
+|---------|-------------|
+| Bot online but no replies in a Discord server | If **Require a mention in servers** is on, `@mention` the bot. Confirm the bot has **Send Messages** and **Read Message History** in that channel. If **Start server discussions in threads** is on, also grant **Create Public Threads** and **Send Messages in Threads**. |
+| *I couldn't start a Discord thread for this discussion* | Threads only start from server text or announcement channels. Check thread permissions above, or turn off **Start server discussions in threads**. |
+| Messages ignored on Discord | Check **Server ID (optional)** matches the server you are using. Confirm your user ID is in **Allowed Discord user IDs** if that list is not empty. |
+| Messages ignored on Telegram | Confirm your user or chat ID is listed in **Allowed Telegram user or chat IDs** if that list is not empty. |
+| *Action '…' is not enabled for Discord/Telegram* | Open the action in **Action Editor → Model → Gateways** and add the platform or `*`. |
+| *No actions are enabled for Discord/Telegram* | Enable at least one action for the platform, and set a valid **Default action** on the gateway. |
+| *Alter is already responding…* | Wait for the current turn to finish (turns can run up to about 10 minutes), or send `/stop` / tap **Stop**. |
+
+### Lid-closed availability
+
+| Symptom | What to try |
+|---------|-------------|
+| Gateways disconnect when the MacBook lid closes | Turn on **Keep gateways online with the lid closed** in **Settings → Integrations → Gateways** and click **Allow…** when prompted. |
+| *Administrator permission needed* | Click **Allow…** or open **Options…** → **Allow Alter to keep gateways online…** and approve the one-time macOS prompt. |
+| Status shows *Paused for low battery* | Plug in or charge above the **Pause below** threshold in **Options…**. Alter restores lid-closed availability automatically after charging. |
+| Status shows *Paused for Low Power Mode* | Turn off Low Power Mode, or accept normal sleep until it is off. |
+| Gateways still stop when Alter quits | Lid-closed availability keeps the Mac awake — Alter must still be open and running. |
+
+### Platform notes
+
+- **Alter must be running** — closing Alter stops gateway bots until you reopen the app. On a MacBook, **Keep gateways online with the lid closed** keeps the Mac awake while gateways run, but Alter still needs to stay open.
+- **Bot messages are ignored** on both platforms.
+- **Discord** adds 👀 while processing your message, then ✅ or ❌ when the turn finishes. User-added reactions are not treated as commands or chat input.
+- **Telegram** uses long polling for `message` and `callback_query` updates (inline keyboard taps). After a turn completes, Alter may react with 👍 or 👎 on your message. Group chats show a **Stop** button during active turns.
+
+For broader tool and permission issues, use **Settings → Doctor** or [Tools not working](/common-issues/tool-not-working).
+
+## Related pages
+
+- [Set up a Discord gateway](/apps-tools/gateways-discord)
+- [Set up a Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions](/workflows/alter-actions) — configure actions and gateway availability
+- [Alter Settings](/how-to/settings-guide)
+- [Integrations overview](/apps-tools/integrations-overview)
+- [API Gateway Guide](/api-router/api-gateway) — OpenAI-compatible API (separate from chat Gateways)
