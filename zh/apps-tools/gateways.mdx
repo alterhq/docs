@@ -1,0 +1,215 @@
+---
+title: "Gateways"
+description: "当 Alter 在 Mac 上运行时，从 Discord 和 Telegram 与 Alter 对话"
+---
+
+<Info>
+  **Gateways** 将 Alter 连接到 **Discord** 和 **Telegram** 机器人，让你可以从这些 App 与 Alter 聊天。每个 Gateway 都在 Mac 上本地运行 — Alter 必须保持打开并运行，消息才会被处理。
+</Info>
+
+<Warning>
+  **Gateways**（Discord/Telegram 机器人）与 **设置 → Router** 中的 **API Gateway** 不同，后者为第三方 App 提供 OpenAI 兼容端点。该功能请参阅 [API Gateway 指南](/api-router/api-gateway)。
+</Warning>
+
+## Gateways 做什么
+
+Gateways 让你从已打开的聊天平台使用 Alter：
+
+- **Discord** — 向机器人发私信，或在服务器频道中 @ 提及它（配置后）。
+- **Telegram** — 在私聊或群组中向机器人发消息。
+
+每个 Gateway 实例有自己的名称、**默认 Action**、访问控制和连接设置。对话与 Hub 聊天一样保存在 Mac 上的 Alter 中 — Gateways 是开始和继续这些对话的另一种方式。
+
+当有人发送消息时，Alter：
+
+1. 通过平台机器人连接接收消息。
+2. 运行选定的 **Alter Action**（例如 **Ask Anything**）。
+3. 将回复流式传回 Discord 频道或 Telegram 聊天。
+4. 可下载传入附件，并上传工具运行产生的输出文件。
+
+## 打开 Gateways 设置
+
+<Steps>
+  <Step title="打开设置">
+    按 **⌘,**（Command + 逗号），点击菜单栏中的 Alter 图标并选择 **设置...**，或从 notch 的 **⋯** 菜单打开 **设置**。
+  </Step>
+  <Step title="前往 集成 → Gateways">
+    在设置侧边栏中打开 **集成**，然后选择 **Gateways**。
+  </Step>
+</Steps>
+
+也可以直接深链：`com.wearedevx.alter://settings?id=gateways`
+
+Gateways 页面显示所有已配置的 Gateway。使用 **添加 Gateway** 创建 **Discord** 或 **Telegram** 连接。
+
+## 设置指南
+
+<CardGroup cols={2}>
+  <Card title="Discord gateway" icon="discord" href="/apps-tools/gateways-discord">
+    创建 Discord 机器人、启用 intents、邀请到服务器，并在 Alter 中连接。
+  </Card>
+  <Card title="Telegram gateway" icon="telegram" href="/apps-tools/gateways-telegram">
+    通过 BotFather 创建机器人，并将 token 粘贴到 Alter。
+  </Card>
+</CardGroup>
+
+## Gateway 设置参考
+
+所有 Gateway 共享以下字段：
+
+| 字段 | 说明 |
+|-------|-------------|
+| **名稱** | Gateway 列表中显示的标签（例如「Team Discord」或「Personal Telegram」）。 |
+| **已启用** | 开启或关闭连接。启用前需要 bot token。 |
+| **默认 Action** | 在此 Gateway 上开始新对话时使用的 Alter Action。 |
+| **在线程中開始服务器討論**（仅 Discord） | 开启后，每条新的服务器顶层消息会创建一个 Discord 主题线程和独立的 Alter 聊天。已在线程内的消息继续该聊天。私信不受影响。 |
+| **保存并重启** | 保存凭据并重新连接机器人。 |
+
+平台特定的 **连接** 字段见设置指南：
+
+- [Discord 连接字段](/apps-tools/gateways-discord#connect-in-alter)
+- [Telegram 连接字段](/apps-tools/gateways-telegram#connect-in-alter)
+
+保存已启用的 Gateway 后，Alter 会显示状态行，例如 **已连接为 @username**，或可操作的错误信息。
+
+## 合盖時保持 Gateways 在线
+
+在 MacBook 上，合上盖子通常会让 Mac 进入睡眠并断开 Gateway 机器人。Alter 可以在合盖时保持活跃的 Gateway 可用。
+
+在 **設定 → 集成 → Gateways** 顶部：
+
+| 控件 | 说明 |
+|---------|-------------|
+| **合盖時保持 Gateways 在线** | 开启时（默认），只要至少有一个 Gateway 已启用并连接，Alter 就会阻止睡眠。最后一个 Gateway 停止后恢复正常睡眠。 |
+| **允许…** | 需要管理者权限时显示。Alter 会一次性请求安装受保护的 `pmset` 权限，以便在 Gateway 运行时切换 macOS 睡眠设置。 |
+| **选项…** | 打开 **合盖可用性** — 状态、电池保护和权限管理。 |
+
+### 电池保护
+
+Alter 会自动暂停合盖可用性以保护电池续航：
+
+- **低于此值時暫停** — Mac 未插电且放电时，Alter 在此电量或以下恢复正常睡眠（默认 **20%**，可在 **5%** 到 **50%** 之间以 5% 步进调整）。充电超过该阈值后，合盖可用性会重新开启。
+- **低電力模式下暫停** — macOS 低电量模式开启时始终生效。
+
+关闭主开关会保留已安装的管理员权限，以便再次启用时无需重新提示。若要完全撤销，请在 **选项…** 中使用 **移除管理者权限…**。
+
+<Warning>
+  合盖可用性会修改受保护的 macOS 睡眠设置。Alter 还会运行安全监控，在 App 意外停止时恢复正常睡眠。Gateways 仍要求 Alter 保持运行 — 此功能是让 Mac 保持唤醒，而不是让 Alter 在关闭时继续工作。
+</Warning>
+
+## 哪些 Action 可用于 Gateways？
+
+Action 需**主动选择**外部平台。在 **Action Editor** 中打开 **Model → Gateways → 允许的 Gateways**：
+
+- **`discord`** — 仅在 Discord Gateway 上可用
+- **`telegram`** — 仅在 Telegram Gateway 上可用
+- **`*`** — 在所有 Gateway 上可用
+- **留空** — 仅本地（Hub、QuickHub 等）
+
+<Tip>
+  内置 **Ask Anything** Action 默认在 **Discord** 和 **Telegram** 上启用 — 通常是新 Gateway 的 **默认 Action**。自定义 Action 需要在 **允许的 Gateways** 中添加 `discord`、`telegram` 或 `*`。
+</Tip>
+
+只要 Action 在该平台上被允许，用户仍可通过 `/new [action]` 按对话切换 Action。
+
+## 聊天命令与控制
+
+Discord 和 Telegram 支持相同的文本命令（作为普通消息输入）。在 Telegram 上，命令也可带机器人后缀，例如 `/help@YourBotName`。
+
+| 命令 | 作用 |
+|---------|--------------|
+| `/help` 或 `/start` | 列出可用命令并显示快捷操作按钮 |
+| `/status` | 显示 default action 及是否已选择对话 |
+| `/actions` | 列出此平台启用的 Action（Discord：最多 40；Telegram 选择器：最多 20） |
+| `/new [action]` 或 `/action [action]` | 使用指定 Action 开始新对话 |
+| `/chats [limit] [page]` | 列出已保存的 Alter 对话（限制 1–25，文本命令默认 10） |
+| `/use <number>` | 从最近一次 `/chats` 页面选择对话 |
+| `/history [limit]` | 显示所选对话的最近消息（限制 1–40，默认 12） |
+| `/stop` | 停止 Alter 在此频道或聊天中的当前回复 |
+
+在 **Discord** 上，机器人连接时 Alter 还会注册原生斜杠命令（`/help`、`/new`、`/actions`、`/chats`、`/history`、`/stop`、`/status`）。若设置了 **Server ID**，命令仅在该服务器注册；否则为机器人应用全局注册。
+
+两个平台还提供常用任务的**按钮** — 例如 `/help` 中的 **New chat**、**Choose action** 和 **Past chats**。Telegram 使用内联键盘；Discord 使用消息组件。当 Action 使用 **Ask User** 工具时，Alter 通过相同交互控件呈现多选题（并接受「Other」答案的文字回复）。
+
+非命令消息会被视为当前对话中的一轮聊天。
+
+## 日常使用
+
+1. 在 Mac 上保持 **Alter 运行**，并启用 Gateway（**已启用**）。在 MacBook 上，若希望合盖时机器人保持连接，请开启 **合盖時保持 Gateways 在线**。
+2. 在 Discord 或 Telegram 向机器人发消息（或在 Discord 服务器中 `@mention`，当 **在服务器中需要 @提及** 开启时）。
+3. Alter 在 Action 运行期间显示 **Thinking…** 占位符，然后更新为流式回复。在 Telegram 私聊中，若支持，Alter 可通过 Telegram 原生草稿预览流式输出；在群组中会编辑普通消息。
+4. 在 Discord 或 Telegram 附加文件 — Alter 会下载供该轮使用，并可上传工具输出文件。**语音消息**和**音频文件**会使用所选语音处理器（**设置 → Voice**）转写并以文本发送给 Alter；较长音频也会作为会议式转写上下文附加。
+5. 使用 `/stop`、**Stop** 按钮（Telegram 群组和 Discord），或等待当前轮次结束后再在同一频道或聊天中发送下一条消息。
+
+### 一次只处理一条回复
+
+Alter 每个频道或聊天**同时只处理一条进行中的回复**。若 Alter 仍在回复时又收到消息，机器人会提示 Alter 已在该频道或聊天中回复。请等待当前轮次结束后再发送。
+
+### 对话连续性
+
+每个 Discord 频道或 Telegram 聊天可有一个活跃的 Alter 对话。使用 `/new` 重新开始，或使用 `/chats` 和 `/use` 从 Mac 恢复已有 Alter 对话。
+
+在 Discord 上，启用 **在线程中開始服务器討論** 后，每条新的服务器顶层消息会有独立线程和 Alter 聊天。在已有线程内的回复会继续该聊天，而不是再开一个。
+
+## 隐私与数据
+
+- Bot 令牌 存储在 **macOS Keychain** 中，而非明文设置文件。
+- Gateway 配置（名称、访问列表、default action）本地保存在 Mac 上 Alter 的偏好设置中。
+- 按频道状态（所选对话、待处理 Action）保存在 Alter 的 Application Support 文件夹中。
+- 消息处理使用与 Hub 相同的本地 Alter 栈 — Gateway 流量没有单独的云端中继。
+
+另请参阅 [本地数据与隐私](/references/local-data-and-privacy)。
+
+## 故障排除
+
+### 连接与 token
+
+| 症状 | 可尝试 |
+|---------|-------------|
+| *A Discord/Telegram bot token is required before enabling this gateway.* | 在开启 **已启用** 前，将 token 粘贴到 **连接 → Bot 令牌**。 |
+| *Discord rejected the bot token* | 从 [Discord Developer Portal](https://discord.com/developers/applications) → 你的应用 → **Bot** → **Reset Token** 复制新 token。 |
+| *Enable Message Content Intent…*（Discord 错误 4014） | 在 Developer Portal 打开应用 → **Bot** → 在 **Privileged Gateway Intents** 下启用 **Message Content Intent**。见 [Discord privileged intents](https://discord.com/developers/docs/events/gateway#privileged-intents)。 |
+| *Telegram rejected the bot token* | 从 [@BotFather](https://t.me/BotFather) 复制新 token（现有机器人用 `/token`）。 |
+| *Telegram polling is already active for this bot token* | 同一时间只能有一个客户端 polling 同一 bot token。禁用使用相同 token 的其他 Alter Telegram Gateway，移除机器人上的 webhook，或在 BotFather 中撤销并更换 token。 |
+| *Telegram is rate-limiting this gateway* | 稍等再试。Alter 会自动重试；避免频繁保存或重启。 |
+| *…is still connecting. Check the token and network connection.* | 确认 token、网络访问及 Alter 保持打开。点击 **保存并重启**。 |
+
+### 使用
+
+| 症状 | 可尝试 |
+|---------|-------------|
+| 机器人在线但 Discord 服务器无回复 | 若 **在服务器中需要 @提及** 开启，请 `@mention` 机器人。确认机器人在该频道有 **Send Messages** 和 **Read Message History**。若 **在线程中開始服务器討論** 开启，还需授予 **Create Public Threads** 和 **Send Messages in Threads**。 |
+| *I couldn't start a Discord thread for this discussion* | 线程只能从服务器文字或公告频道开始。检查上述线程权限，或关闭 **在线程中開始服务器討論**。 |
+| Discord 上消息被忽略 | 检查 **服务器 ID（可选）** 是否与你使用的服务器一致。若 **允许的 Discord 使用者 ID** 非空，确认你的 user ID 在列表中。 |
+| Telegram 上消息被忽略 | 若 **允许的 Telegram 使用者或聊天 ID** 非空，确认你的 user 或 chat ID 在列表中。 |
+| *Action '…' is not enabled for Discord/Telegram* | 在 **Action Editor → Model → Gateways** 中打开该 Action 并添加平台或 `*`。 |
+| *No actions are enabled for Discord/Telegram* | 至少为该平台启用一个 Action，并在 Gateway 上设置有效的 **默认 Action**。 |
+| *Alter is already responding…* | 等待当前轮次结束（最长约 10 分钟），或发送 `/stop` / 点击 **Stop**。 |
+
+### 合盖可用性
+
+| 症状 | 可尝试 |
+|---------|-------------|
+| MacBook 合盖后 Gateway 断开 | 在 **設定 → 集成 → Gateways** 中开启 **合盖時保持 Gateways 在线**，并在提示时点击 **允许…**。 |
+| *需要管理者权限* | 点击 **允许…**，或打开 **选项…** → **允許 Alter 保持 Gateways 在线…** 并批准一次性 macOS 提示。 |
+| 状态显示 *Paused for low battery* | 插电或充电至 **选项…** 中 **低于此值時暫停** 阈值以上。充电后 Alter 会自动恢复合盖可用性。 |
+| 状态显示 *Paused for Low Power Mode* | 关闭低电量模式，或接受正常睡眠直到其关闭。 |
+| 退出 Alter 后 Gateway 仍停止 | 合盖可用性仅保持 Mac 唤醒 — Alter 仍须保持打开并运行。 |
+
+### 平台说明
+
+- **Alter 必须运行** — 关闭 Alter 会停止 Gateway 机器人，直到重新打开 App。在 MacBook 上，**合盖時保持 Gateways 在线** 在 Gateway 运行期间保持 Mac 唤醒，但 Alter 仍需保持打开。
+- **两个平台都会忽略机器人消息**。
+- **Discord** 处理消息时添加 👀，轮次结束时添加 ✅ 或 ❌。用户添加的反应不会被视为命令或聊天输入。
+- **Telegram** 对 `message` 和 `callback_query` 更新（内联键盘点击）使用 long polling。轮次完成后，Alter 可能对你的消息回复 👍 或 👎。群聊在活跃轮次期间显示 **Stop** 按钮。
+
+更广泛的工具与权限问题，请使用 **设置 → Doctor** 或 [Tools not working](/common-issues/tool-not-working)。
+
+## 相关页面
+
+- [设置 Discord gateway](/apps-tools/gateways-discord)
+- [设置 Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions](/workflows/alter-actions) — 配置 Action 与 Gateway 可用性
+- [Alter Settings](/how-to/settings-guide)
+- [集成概览](/apps-tools/integrations-overview)
+- [API Gateway 指南](/api-router/api-gateway) — OpenAI 兼容 API（与聊天 Gateways 不同）

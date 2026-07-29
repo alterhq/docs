@@ -1,0 +1,219 @@
+---
+title: "Configurar um Discord gateway"
+description: "Crie um bot Discord e ligue-o aos Gateways do Alter"
+---
+
+Use este guia para criar um bot Discord, conceder as permissões de que o Alter precisa e ligá-lo em **Definições → Integrations → Gateways**.
+
+<Info>
+  O Alter liga-se ao Discord como **bot** com um **bot token**. Cria o bot no [Discord Developer Portal](https://discord.com/developers/applications); o Alter não gera um URL de convite — adiciona o bot ao servidor a partir do portal.
+</Info>
+
+## Antes de começar
+
+- Conta Discord com permissão para criar aplicações (e adicionar bots ao servidor de destino).
+- **Alter** instalado e a correr no Mac.
+- Alguns minutos para copiar tokens e IDs — trate bot tokens como passwords.
+
+Referências oficiais:
+
+- [Discord Developer Portal](https://discord.com/developers/applications)
+- [Discord quick start — overview of apps](https://discord.com/developers/docs/quick-start/overview-of-apps)
+
+## Passo 1 — Criar uma aplicação Discord
+
+<Steps>
+  <Step title="Abrir o Developer Portal">
+    Aceda a [discord.com/developers/applications](https://discord.com/developers/applications) e inicie sessão.
+  </Step>
+  <Step title="New Application">
+    Clique **New Application**, escolha um nome (por exemplo `Alter`) e confirme.
+
+    <Frame>
+      ![Discord Developer Portal — General Information page after creating an application](/images/gateways/discord/create-app.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Abrir a página Bot">
+    Na barra lateral esquerda, selecione **Bot** e clique **Add Bot** (ou **Reset Token** se já tiver criado um).
+
+    <Frame>
+      ![Discord Developer Portal — Bot page with Add Bot button](/images/gateways/discord/add-bot.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+</Steps>
+
+## Passo 2 — Ativar Message Content Intent
+
+O Alter tem de ler texto de mensagens em servidores e DMs. O Discord exige ativar isto explicitamente no Developer Portal.
+
+<Steps>
+  <Step title="Abrir definições Bot">
+    Na aplicação, vá a **Bot**.
+  </Step>
+  <Step title="Ativar Message Content Intent">
+    Em **Privileged Gateway Intents**, ative **Message Content Intent**.
+
+    <Frame>
+      ![Discord Developer Portal — Privileged Gateway Intents with Message Content Intent enabled](/images/gateways/discord/message-content-intent.png)
+    </Frame>
+
+    *Source: [PyCord docs — Gateway Intents](https://docs.pycord.dev/en/master/intents.html)*
+  </Step>
+  <Step title="Guardar alterações">
+    Confirme os avisos. Sem este intent, o Alter não consegue ler mensagens e mostra um erro como *Enable Message Content Intent for this bot*.
+  </Step>
+</Steps>
+
+## Passo 3 — Copiar o bot token
+
+<Steps>
+  <Step title="Revelar o token">
+    Na página **Bot**, clique **Reset Token** (primeira configuração) ou **Copy** em **Token**.
+
+    <Frame>
+      ![Discord Developer Portal — Token do bot section with Reset Token](/images/gateways/discord/created-bot.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Guardar em segurança">
+    Cole o token temporariamente num local seguro — vai introduzi-lo no Alter num passo posterior. Se vazar, use **Reset Token** no portal e atualize o Alter.
+  </Step>
+</Steps>
+
+<Warning>
+  Nunca partilhe ou faça commit do bot token. Quem o tiver pode controlar o bot.
+</Warning>
+
+## Passo 4 — Convidar o bot para o servidor
+
+O Alter não cria um link de convite na app. Gere um no Developer Portal:
+
+<Steps>
+  <Step title="Abrir OAuth2 URL Generator">
+    Na barra lateral da aplicação, vá a **OAuth2** → **URL Generator**.
+  </Step>
+  <Step title="Selecionar scopes">
+    Em **Scopes**, marque **bot**.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator with bot scope selected](/images/gateways/discord/oauth2-bot-scope.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+  <Step title="Selecionar permissões do bot">
+    Em **Bot Permissions**, ative:
+
+    - **View Channels**
+    - **Send Messages**
+    - **Read Message History**
+    - **Attach Files**
+    - **Create Public Threads** e **Send Messages in Threads** (opcional — só necessário se ativar **Iniciar discussões do servidor em threads** no Alter)
+
+    Isto permite ao Alter ler mensagens, responder, enviar ficheiros de saída de tools e, opcionalmente, criar threads de discussão em canais de servidor.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator bot permissions](/images/gateways/discord/oauth2-bot-permissions.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot). Select the permissions listed above — not Administrator.*
+  </Step>
+  <Step title="Copiar e abrir o URL gerado">
+    Copie o URL na parte inferior, abra-o no browser, escolha o servidor e autorize o bot.
+
+    O Discord documenta este fluxo em [Adding bots to servers](https://discord.com/developers/docs/topics/oauth2#bot-authorization-flow).
+
+    <Frame>
+      ![Discord bot authorization page when opening the generated invite URL](/images/gateways/discord/bot-auth-page.png)
+    </Frame>
+
+    *Source: [discord.js guide — Adding Your App](https://discordjs.guide/preparations/adding-your-app)*
+  </Step>
+</Steps>
+
+<Tip>
+  Precisa de **Manage Server** (ou equivalente) no servidor Discord de destino para concluir o convite.
+</Tip>
+
+## Passo 5 — Opcional: copiar Server e user IDs
+
+Use isto se quiser restringir que servidor ou utilizadores podem falar com o Alter.
+
+<Steps>
+  <Step title="Ativar Developer Mode no Discord">
+    No cliente Discord: **User Settings → Advanced → Developer Mode** → on.
+
+    Consulte [Discord's ID documentation](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID).
+  </Step>
+  <Step title="Copiar Server ID">
+    Clique com o botão direito no ícone do servidor → **Copy Server ID**. Cole no campo **ID do servidor (opcional)** do Alter para ignorar mensagens de outros servidores.
+  </Step>
+  <Step title="Copiar user IDs">
+    Clique com o botão direito num utilizador → **Copy User ID**. Use IDs separados por vírgulas em **IDs de utilizador Discord permitidos** para permitir apenas essas pessoas.
+  </Step>
+</Steps>
+
+Deixe **Server ID** e **IDs de utilizador Discord permitidos** vazios para permitir quem conseguir enviar mensagem ao bot (sujeito às permissões de canal Discord).
+
+## Connect in Alter
+
+<Steps>
+  <Step title="Abrir definições Gateways">
+    Abra **Definições** (⌘,) → **Integrations** → **Gateways**. Consulte a [visão geral Gateways](/apps-tools/gateways#open-gateways-settings) para outras formas de abrir Settings.
+  </Step>
+  <Step title="Adicionar um Discord gateway">
+    Clique **Adicionar gateway** → **Discord**. O Alter cria uma nova entrada na lista.
+  </Step>
+  <Step title="Preencher campos Connection">
+    | Field | What to enter |
+    |-------|----------------|
+    | **Nome** | Etiqueta reconhecível (por exemplo `Discord — Work server`). |
+    | **Token do bot** | Token do **Passo 3**. O Alter aceita tokens com ou sem prefixo `Bot `. |
+    | **ID do servidor (opcional)** | Guild ID do **Passo 5**, ou deixe vazio para qualquer servidor onde o bot esteja. Quando definido, o Alter regista slash commands apenas nesse servidor. |
+    | **ID do canal de mensagem de prontidão (opcional)** | ID de canal onde o Alter publica «Hey, I'm up and running.» após ligação bem-sucedida. |
+    | **IDs de utilizador Discord permitidos** | User IDs separados por vírgulas, ou vazio para acesso aberto. Use `*` para permitir todos explicitamente. |
+    | **Exigir menção em servidores** | Quando ativo, o bot só responde em canais de servidor quando `@mentioned`. DMs não são afetadas. |
+  </Step>
+  <Step title="Escolher Ação predefinida e comportamento de threads">
+    **Ask Anything** é a predefinição e funciona no Discord de imediato. Para action personalizada, adicione `discord` ou `*` em **Action Editor → Model → Gateways → Gateways permitidos**.
+
+    Em **Behavior**, opcionalmente ative **Iniciar discussões do servidor em threads** para cada nova mensagem de topo do servidor ter o seu thread Discord e chat Alter. Mensagens já dentro de um thread continuam esse chat. DMs não mudam. Se usar isto, conceda **Create Public Threads** e **Send Messages in Threads** ao convidar o bot (**Passo 4**).
+  </Step>
+  <Step title="Ativar e guardar">
+    Ligue **Ativado** e clique **Guardar e reiniciar**. Aguarde um estado como **Ligado como bot …** ou **Ligado como @…**.
+  </Step>
+</Steps>
+
+Se a ligação falhar, consulte [Resolução de problemas Gateways](/apps-tools/gateways#troubleshooting).
+
+## Testar o bot
+
+<Steps>
+  <Step title="Confirmar que o Alter está a correr">
+    Gateways só funcionam com o Alter aberto no Mac.
+  </Step>
+  <Step title="Enviar /help">
+    Num DM ou canal de servidor, envie `/help` (ou use o slash command `/help` do Discord). O bot deve listar comandos e mostrar botões **New chat**, **Choose action** e **Past chats**.
+  </Step>
+  <Step title="Enviar uma mensagem">
+    Envie uma mensagem normal (ou `@mention` o bot num servidor se **Exigir menção em servidores** estiver ativo). O Alter deve reagir com 👀, mostrar **Thinking…** e transmitir a resposta, reagindo com ✅ ou ❌ quando terminar.
+  </Step>
+  <Step title="Experimentar /new">
+    Execute `/new` para nova conversa com a **Ação predefinida**, ou `/new ask-anything` para uma action ID específica.
+  </Step>
+  <Step title="Experimentar mensagens de voz">
+    Envie uma **voice message** Discord ou anexe um ficheiro de áudio. O Alter transcreve com o processador de voz selecionado (**Definições → Voice**) e envia o texto à action ativa.
+  </Step>
+</Steps>
+
+## Páginas relacionadas
+
+- [Visão geral Gateways](/apps-tools/gateways)
+- [Configurar um Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions — Gateways permitidos](/workflows/alter-actions)
+- [Alter Settings](/how-to/settings-guide)

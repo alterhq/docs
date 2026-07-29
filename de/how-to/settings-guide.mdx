@@ -336,7 +336,50 @@ Der Tab **Router** konfiguriert den Standard-KI-Endpunkt:
 
 ![Router-Einstellungen](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
-<h3 id="computer-use">9. Computer-use-Einstellungen</h3>
+<h3 id="gateways">9. Gateways-Einstellungen</h3>
+
+Der Tab **Gateways** (unter **Integrationen** in der Seitenleiste, neben **API keys** und **Router**) verbindet Alter mit **Discord**- und **Telegram**-Bots.
+
+Öffnen Sie **Einstellungen** (⌘,) → **Integrationen** → **Gateways**. Vollständige Einrichtungsanleitungen:
+
+- [Gateways overview](/apps-tools/gateways)
+- [Discord gateway einrichten](/apps-tools/gateways-discord)
+- [Telegram gateway einrichten](/apps-tools/gateways-telegram)
+
+**Gateways auflisten und hinzufügen**
+
+- **Gateway hinzufügen** — Erstellen Sie eine **Discord**- oder **Telegram**-Verbindung.
+- Jede Zeile zeigt den **Name** des Gateways, die Plattform und einen Aktiviert/Deaktiviert-Indikator.
+
+**Gateways bei geschlossenem Deckel online halten** (MacBook)
+
+Oben auf der Gateways-Seite:
+
+- **Toggle** — Wenn aktiviert (Standard), hält Alter aktive Gateway-Bots verbunden, während der MacBook-Deckel geschlossen ist. Normaler Ruhezustand kehrt zurück, wenn das letzte Gateway stoppt.
+- **Erlauben…** — Einmalige Administratorberechtigung zum Ändern einer geschützten macOS-Ruhezustandseinstellung (`pmset disablesleep`). Erforderlich, wenn die Verfügbarkeit bei geschlossenem Deckel zum ersten Mal mit laufendem Gateway aktiviert wird.
+- **Optionen…** — Öffnet **Verfügbarkeit bei geschlossenem Deckel**:
+  - **Gateway availability** Status (z. B. *Keeping this Mac awake*, *Paused for low battery*)
+  - **Pausieren unter** — Batteriegrenze im Akkubetrieb (Standard 20 %, Bereich 5–50 %). Alter stellt normalen Ruhezustand bei oder unter diesem Wert wieder her und aktiviert nach dem Laden darüber erneut.
+  - **Im Energiesparmodus pausieren** — Immer aktiv; respektiert die Energiespareinstellung des Systems.
+  - **Administratorberechtigung entfernen…** — Widerruft die installierte Berechtigung. Das Ausschalten des Hauptschalters **entfernt die Berechtigung nicht**.
+
+**Felder pro Gateway**
+
+| Section | Fields |
+|---------|--------|
+| General | **Name**, **Aktiviert** |
+| Connection (Discord) | **Bot-Token**, **Server-ID (optional)**, **Erlaubte Discord-Benutzer-IDs**, **Erwähnung in Servern erfordern** |
+| Connection (Telegram) | **Bot-Token**, **Erlaubte Telegram-Benutzer- oder Chat-IDs** |
+| Behavior | **Standardaktion** — Aktion für neue Unterhaltungen auf diesem Gateway |
+| Footer | **Delete gateway**, **Speichern und neu starten**, connection status |
+
+Bot-Tokens werden im macOS Keychain gespeichert. Nach **Speichern und neu starten** zeigt die Statuszeile, ob der Bot verbunden ist (z. B. **Verbunden als @username**).
+
+<Tip>
+  Gateways sind nicht dasselbe wie **Einstellungen → Router** (OpenAI-kompatible API). Siehe [API Gateway Guide](/de/api-router/api-gateway) für Drittanbieter-App-Integrationen über die API.
+</Tip>
+
+<h3 id="computer-use">10. Computer-use-Einstellungen</h3>
 
 Der Tab **Computer use** konfiguriert, wie Alters UI-Automatisierungsagent Apps, Browser und die schwebende Live-Vorschau steuert, die in **2.0.0-beta100** eingeführt wurde.
 
@@ -403,7 +446,7 @@ Computer Use erfordert **Barrierefreiheit** (zum Lesen von AX-Bäumen und Senden
   Hintergrundläufe, Edge-Bar-Sitzungskarten und Vorschauverhalten sind in [Computer Use im Hintergrund](/de/apps-tools/computer-use-background) dokumentiert. Berechtigungsprobleme: [Tools funktionieren nicht](/de/common-issues/tool-not-working) oder **Einstellungen → Doctor**.
 </Tip>
 
-<h3 id="shortcuts">10. Tastenkürzel-Einstellungen</h3>
+<h3 id="shortcuts">11. Tastenkürzel-Einstellungen</h3>
 
 Der Tab **Shortcuts** ist ein durchsuchbarer Editor für alle Alter-Tastenkürzel. Öffnen Sie **Einstellungen → Shortcuts** (unter **General** in der Seitenleiste).
 
@@ -491,7 +534,7 @@ Alters Hilfsfenster öffnen:
 | **Alter Hub** | **⌘⇧H** |
 | **Action Editor** | **⌘⇧E** |
 | **Tools Manager** | **⌘⇧T** |
-| **Settings** | **⌘,** |
+| **Einstellungen** | **⌘,** |
 
 #### Conversation
 
@@ -517,7 +560,7 @@ macOS und andere Apps können dieselben Tastenkombinationen belegen. Wenn ein Sh
 
 Für eine vollständige Übersicht über die Einstellungs-UI hinaus siehe [Shortcuts-Referenz](/de/references/shortcuts). Nur den globalen Öffnen-Shortcut ändern: [Hotkey ändern](/de/how-to/change-hotkey) ist eine fokussierte Anleitung.
 
-<h3 id="marketplace">11. Marketplace-Einstellungen</h3>
+<h3 id="marketplace">12. Marketplace-Einstellungen</h3>
 
 Der Tab **Marketplace** (unter **Account** in der Einstellungs-Seitenleiste) steuert Ihr öffentliches Alter-Marketplace-Profil und Benachrichtigungseinstellungen. Was Sie hier speichern, kann in Agent-Listings und Community-Seiten erscheinen; rein lokale Alter-Einstellungen sind davon unberührt.
 
@@ -549,7 +592,7 @@ Leer lassen, um den Link öffentlich auszublenden. Werte werden mit Ihrem Kontop
 
 Ausschalten, um Marketplace-Kommentar-Alerts zu stummschalten, während Ihr öffentliches Profil sichtbar bleibt.
 
-<h3 id="doctor">12. Doctor-Einstellungen</h3>
+<h3 id="doctor">13. Doctor-Einstellungen</h3>
 
 **Doctor** (unter **System** in der Einstellungs-Seitenleiste) führt eine Gesundheits- und Berechtigungsdiagnose für Alter aus. Nutzen Sie ihn, wenn Tools mysteriös ausfallen, die Sprachverarbeitung sich falsch verhält oder Sie einen geschwärzten Bericht für den Support brauchen.
 
@@ -640,6 +683,7 @@ Einige Abschnitte haben Fußzeilen-Schaltflächen:
 - [Diktat & Stimme](/de/workflows/dictation)
 - [Generatives Modell wählen](/de/how-to/choose-generative-model)
 - [API-Gateway & Router](/de/api-router/api-gateway)
+- [Gateways](/apps-tools/gateways)
 - [Computer Use Übersicht](/de/apps-tools/computer-use)
 - [Computer Use im Hintergrund](/de/apps-tools/computer-use-background)
 - [QuickHub-Modus](/de/getting-started/quickhub-mode)

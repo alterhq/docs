@@ -1,0 +1,219 @@
+---
+title: "设置 Discord gateway"
+description: "创建 Discord 机器人并将其连接到 Alter Gateways"
+---
+
+使用本指南创建Discord机器人，授予Alter所需的权限，并将其连接到**設定 → 集成 → Gateways**下。
+
+<Info>
+  Alter connects to Discord as a **bot** using a **bot token**. You create the bot in the [Discord Developer Portal](https://discord.com/developers/applications); Alter does not generate an invite URL for you — you add the bot to your server from the portal.
+</Info>
+
+## 开始之前
+
+- 一个 Discord 帐户，有权创建应用程序（并将机器人添加到目标服务器）。
+- **Alter** 在您的 Mac 上安装并运行。
+- 几分钟即可复制令牌和 ID — 将机器人令牌视为密码。
+
+官方参考：
+
+- [Discord Developer Portal](https://discord.com/developers/applications)
+- [Discord quick start — overview of apps](https://discord.com/developers/docs/quick-start/overview-of-apps)
+
+## 步骤 1 — 创建一个 Discord 应用程序
+
+<Steps>
+  <Step title="Open the Developer Portal">
+    Go to [discord.com/developers/applications](https://discord.com/developers/applications) and sign in.
+  </Step>
+  <Step title="New Application">
+    Click **New Application**, choose a name (for example `Alter`), and confirm.
+
+    <Frame>
+      ![Discord Developer Portal — General Information page after creating an application](/images/gateways/discord/create-app.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Open the Bot page">
+    In the left sidebar, select **Bot**, then click **Add Bot** (or **Reset Token** if you already created one).
+
+    <Frame>
+      ![Discord Developer Portal — Bot page with Add Bot button](/images/gateways/discord/add-bot.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+</Steps>
+
+## 步骤 2 — 启用 Message Content Intent
+
+Alter 必须读取服务器和 DM 中的消息文本。 Discord 要求您在 Developer Portal 中显式打开此功能。
+
+<Steps>
+  <Step title="Open Bot settings">
+    In your application, go to **Bot**.
+  </Step>
+  <Step title="Enable Message Content Intent">
+    Under **Privileged Gateway Intents**, turn on **Message Content Intent**.
+
+    <Frame>
+      ![Discord Developer Portal — Privileged Gateway Intents with Message Content Intent enabled](/images/gateways/discord/message-content-intent.png)
+    </Frame>
+
+    *Source: [PyCord docs — Gateway Intents](https://docs.pycord.dev/en/master/intents.html)*
+  </Step>
+  <Step title="Save changes">
+    Confirm any prompts. Without this intent, Alter cannot read messages and shows an error such as *Enable Message Content Intent for this bot*.
+  </Step>
+</Steps>
+
+## 步骤 3 — 复制机器人令牌
+
+<Steps>
+  <Step title="Reveal the token">
+    On the **Bot** page, click **Reset Token** (first-time setup) or **Copy** under **Token**.
+
+    <Frame>
+      ![Discord Developer Portal — Bot 令牌 section with Reset Token](/images/gateways/discord/created-bot.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Store it securely">
+    Paste the token somewhere safe temporarily — you will enter it in Alter in a later step. If it leaks, use **Reset Token** in the portal and update Alter.
+  </Step>
+</Steps>
+
+<Warning>
+  Never commit or share your bot token. Anyone with the token can control your bot.
+</Warning>
+
+## 步骤 4 — 邀请机器人到您的服务器
+
+Alter 不会在应用程序内构建邀请链接。在Developer Portal中生成一个：
+
+<Steps>
+  <Step title="Open OAuth2 URL Generator">
+    In your application sidebar, go to **OAuth2** → **URL Generator**.
+  </Step>
+  <Step title="Select scopes">
+    Under **Scopes**, check **bot**.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator with bot scope selected](/images/gateways/discord/oauth2-bot-scope.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+  <Step title="Select bot permissions">
+    Under **Bot Permissions**, enable:
+
+    - **View Channels**
+    - **Send Messages**
+    - **Read Message History**
+    - **Attach Files**
+    - **Create Public Threads** and **Send Messages in Threads** (optional — only needed if you enable **在线程中開始服务器討論** in Alter)
+
+    These let Alter read your messages, reply, send file outputs from tool runs, and optionally create discussion threads in server channels.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator bot permissions](/images/gateways/discord/oauth2-bot-permissions.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot). Select the permissions listed above — not Administrator.*
+  </Step>
+  <Step title="Copy and open the generated URL">
+    Copy the URL at the bottom, open it in your browser, choose your server, and authorize the bot.
+
+    Discord documents this flow in [Adding bots to servers](https://discord.com/developers/docs/topics/oauth2#bot-authorization-flow).
+
+    <Frame>
+      ![Discord bot authorization page when opening the generated invite URL](/images/gateways/discord/bot-auth-page.png)
+    </Frame>
+
+    *Source: [discord.js guide — Adding Your App](https://discordjs.guide/preparations/adding-your-app)*
+  </Step>
+</Steps>
+
+<Tip>
+  You need **Manage Server** (or equivalent) on the target Discord server to complete the invite.
+</Tip>
+
+## 步骤 5 — 可选：复制服务器和用户 ID
+
+如果您想限制哪些服务器或用户可以与 Alter 通信，请使用这些。
+
+<Steps>
+  <Step title="Enable Developer Mode in Discord">
+    In the Discord client: **User Settings → Advanced → Developer Mode** → on.
+
+    See [Discord's ID documentation](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID).
+  </Step>
+  <Step title="Copy Server ID">
+    Right-click your server icon → **Copy Server ID**. Paste this into Alter's **服务器 ID（可选）** field to ignore messages from other servers.
+  </Step>
+  <Step title="Copy user IDs">
+    Right-click a user → **Copy User ID**. Use comma-separated IDs in **允许的 Discord 使用者 ID** to allow only those people.
+  </Step>
+</Steps>
+
+将 **Server ID** 和 **允许的 Discord 使用者 ID** 留空，以允许任何可以向机器人发送消息的人（受Discord 频道权限的约束）。
+
+## 连接Alter
+
+<Steps>
+  <Step title="Open Gateways settings">
+    Open **设置** (⌘,) → **集成** → **Gateways**. See the [Gateways overview](/apps-tools/gateways#open-gateways-settings) for other ways to open Settings.
+  </Step>
+  <Step title="Add a Discord gateway">
+    Click **添加 Gateway** → **Discord**. Alter creates a new gateway entry in the list.
+  </Step>
+  <Step title="Fill in Connection fields">
+    | Field | What to enter |
+    |-------|----------------|
+    | **名稱** | A label you will recognize (for example `Discord — Work server`). |
+    | **Bot 令牌** | The token from **Step 3**. Alter accepts tokens with or without a leading `Bot ` prefix. |
+    | **服务器 ID（可选）** | Your guild ID from **Step 5**, or leave empty for any server the bot is in. When set, Alter also registers slash commands for that server only. |
+    | **就緒訊息頻道 ID（可选）** | A channel ID where Alter posts “Hey, I'm up and running.” after a successful connection. |
+    | **允许的 Discord 使用者 ID** | Comma-separated user IDs, or leave empty for open access. Use `*` to allow everyone explicitly. |
+    | **在服务器中需要 @提及** | When on, the bot only responds in server channels when `@mentioned`. Direct messages are unaffected. |
+  </Step>
+  <Step title="Choose 默认 Action and thread behavior">
+    **Ask Anything** is the default and works on Discord out of the box. For a custom action, add `discord` or `*` under **Action Editor → Model → Gateways → 允许的 Gateways**.
+
+    Under **Behavior**, optionally turn on **在线程中開始服务器討論** so each new top-level server message gets its own Discord thread and Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. If you use this, grant **Create Public Threads** and **Send Messages in Threads** when inviting the bot (**Step 4**).
+  </Step>
+  <Step title="Enable and save">
+    Turn **已启用** on, then click **保存并重启**. Wait for a status such as **已连接为 bot …** or **已连接为 @…**.
+  </Step>
+</Steps>
+
+如果连接失败，请参见[Gateways troubleshooting](/apps-tools/gateways#troubleshooting)。
+
+## 测试机器人
+
+<Steps>
+  <Step title="Confirm Alter is running">
+    Gateways only work while Alter is open on your Mac.
+  </Step>
+  <Step title="Send /help">
+    In a DM or server channel, send `/help` (or use Discord's `/help` slash command). The bot should list commands and show **New chat**, **Choose action**, and **Past chats** buttons.
+  </Step>
+  <Step title="Send a message">
+    Send a normal message (or `@mention` the bot in a server if **在服务器中需要 @提及** is enabled). Alter should react with 👀, show a **Thinking…** placeholder, then stream the answer and react with ✅ or ❌ when done.
+  </Step>
+  <Step title="Try /new">
+    Run `/new` to start a fresh conversation with the **默认 Action**, or `/new ask-anything` to target a specific action ID.
+  </Step>
+  <Step title="Try voice messages">
+    Send a Discord **voice message** or attach an audio file. Alter transcribes it with your selected voice processor (**设置 → Voice**) and sends the text to the active action.
+  </Step>
+</Steps>
+
+## 相关页面
+
+- [Gateways overview](/apps-tools/gateways)
+- [Set up a Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions — 允许的 Gateways](/workflows/alter-actions)
+- [Alter Settings](/how-to/settings-guide)

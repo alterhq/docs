@@ -1,0 +1,215 @@
+---
+title: "Gateways"
+description: "Alter が Mac 上で動作している間、Discord と Telegram から Alter と会話する"
+---
+
+<Info>
+  **Gateways** は Alter を **Discord** と **Telegram** のボットに接続し、これらのアプリから Alter とチャットできるようにします。各 Gateway は Mac 上でローカルに動作します — メッセージを処理するには Alter が開いたまま実行されている必要があります。
+</Info>
+
+<Warning>
+  **Gateways**（Discord/Telegram ボット）は、サードパーティアプリ向けに OpenAI 互換エンドポイントを提供する **設定 → Router** の **API Gateway** とは異なります。その機能については [API Gateway ガイド](/api-router/api-gateway) を参照してください。
+</Warning>
+
+## Gateways の機能
+
+Gateways を使うと、すでに開いているチャットプラットフォームから Alter を利用できます：
+
+- **Discord** — ボットに DM を送るか、サーバーチャンネルでメンションする（設定済みの場合）。
+- **Telegram** — プライベートチャットまたはグループでボットにメッセージを送る。
+
+各 Gateway インスタンスには、名前、**デフォルト Action**、アクセス制御、接続設定があります。会話は Hub チャットと同様に Mac 上の Alter に保存されます — Gateway は会話を開始・継続する別の方法です。
+
+誰かがメッセージを送ると、Alter は次のように動作します：
+
+1. プラットフォームのボット接続経由で受信する。
+2. 選択された **Alter Action**（例：**Ask Anything**）を実行する。
+3. 返信を Discord チャンネルまたは Telegram チャットにストリーミングで返す。
+4. 受信した添付ファイルをダウンロードし、ツール実行の出力ファイルをアップロードできる。
+
+## Gateways 設定を開く
+
+<Steps>
+  <Step title="Settings を開く">
+    **⌘,**（Command + カンマ）を押すか、メニューバーの Alter アイコンから **設定...** を選ぶか、notch の **⋯** メニューから **設定** を開きます。
+  </Step>
+  <Step title="Integrations → Gateways へ">
+    設定サイドバーで **Integrations** を開き、**Gateways** を選択します。
+  </Step>
+</Steps>
+
+直接ディープリンクも利用できます：`com.wearedevx.alter://settings?id=gateways`
+
+Gateways ページには構成済みの Gateway がすべて表示されます。**Gateway を追加** で **Discord** または **Telegram** 接続を作成します。
+
+## セットアップガイド
+
+<CardGroup cols={2}>
+  <Card title="Discord gateway" icon="discord" href="/apps-tools/gateways-discord">
+    Discord ボットを作成し、intent を有効化してサーバーに招待し、Alter で接続します。
+  </Card>
+  <Card title="Telegram gateway" icon="telegram" href="/apps-tools/gateways-telegram">
+    BotFather でボットを作成し、トークンを Alter に貼り付けます。
+  </Card>
+</CardGroup>
+
+## Gateway 設定リファレンス
+
+すべての Gateway で共通のフィールド：
+
+| フィールド | 説明 |
+|-------|-------------|
+| **名前** | Gateway 一覧に表示されるラベル（例：「Team Discord」「Personal Telegram」）。 |
+| **有効** | 接続のオン/オフ。有効化前に bot token が必要です。 |
+| **デフォルト Action** | この Gateway で新しい会話が始まるときに使う Alter Action。 |
+| **サーバーでの議論をスレッドで開始**（Discord のみ） | オンにすると、サーバーの新しいトップレベルメッセージごとに Discord スレッドと別の Alter チャットが開始されます。既存スレッド内のメッセージはそのチャットを継続します。DM は変わりません。 |
+| **保存して再起動** | 認証情報を保存し、ボットを再接続します。 |
+
+プラットフォーム固有の **接続** フィールドはセットアップガイドに記載されています：
+
+- [Discord 接続フィールド](/apps-tools/gateways-discord#connect-in-alter)
+- [Telegram 接続フィールド](/apps-tools/gateways-telegram#connect-in-alter)
+
+有効な Gateway を保存すると、Alter は **@username として接続済み** のようなステータス行、または対処可能なエラーを表示します。
+
+## 蓋を閉じたまま Gateways をオンラインに保つ
+
+MacBook では、蓋を閉じると通常 Mac がスリープし、Gateway ボットが切断されます。Alter は蓋を閉じたままでもアクティブな Gateway を利用可能にできます。
+
+**設定 → Integrations → Gateways** の上部：
+
+| コントロール | 説明 |
+|---------|-------------|
+| **蓋を閉じたまま Gateways をオンラインに保つ** | オン（デフォルト）のとき、少なくとも 1 つの Gateway が有効かつ接続されている間、Alter はスリープを防ぎます。最後の Gateway が停止すると通常のスリープに戻ります。 |
+| **許可…** | 管理者権限が必要なときに表示されます。Gateway 実行中に macOS のスリープ設定を切り替えるため、保護された `pmset` 権限を 1 回インストールするよう Alter が求めます。 |
+| **オプション…** | **蓋を閉じた状態での可用性** を開きます — ステータス、バッテリー保護、権限管理。 |
+
+### バッテリー保護
+
+Alter はバッテリー寿命を守るため、蓋を閉じた状態の可用性を自動的に一時停止します：
+
+- **以下で一時停止** — Mac がバッテリー駆動で放電中、このレベル以下になると Alter は通常のスリープを復元します（デフォルト **20%**、**5%** から **50%** まで 5% 刻みで調整可能）。制限を超えて充電すると、蓋を閉じた可用性が再びオンになります。
+- **低電力モードで一時停止** — macOS の Low Power Mode がオンの間は常に尊重されます。
+
+メインのトグルをオフにしても、インストール済みの管理者権限は保持されるため、再度オンにするときに再プロンプトは不要です。完全に取り消す場合は **オプション…** の **管理者権限を削除…** を使用します。
+
+<Warning>
+  蓋を閉じた可用性は、保護された macOS のスリープ設定を変更します。Alter はアプリが予期せず停止した場合に通常のスリープを復元する安全モニターも実行します。Gateway には引き続き Alter の実行が必要です — この機能は Mac を起きたままにするもので、Alter を閉じたままにするものではありません。
+</Warning>
+
+## Gateway で使える Action
+
+Action は外部プラットフォームに**オプトイン**します。**Action Editor** で **Model → Gateways → 許可された Gateways** を開きます：
+
+- **`discord`** — Discord Gateway のみ
+- **`telegram`** — Telegram Gateway のみ
+- **`*`** — すべての Gateway
+- **空** — ローカルのみ（Hub、QuickHub など）
+
+<Tip>
+  同梱の **Ask Anything** Action はデフォルトで **Discord** と **Telegram** で有効です — 新しい Gateway の一般的な **デフォルト Action** です。カスタム Action には **許可された Gateways** に `discord`、`telegram`、または `*` が必要です。
+</Tip>
+
+その Action がプラットフォームで許可されていれば、ユーザーは `/new [action]` で会話ごとに Action を切り替えられます。
+
+## チャットコマンドと操作
+
+Discord と Telegram は同じテキストコマンドをサポートします（通常のメッセージとして入力）。Telegram では `/help@YourBotName` のようなボット接尾辞でも動作します。
+
+| コマンド | 機能 |
+|---------|--------------|
+| `/help` または `/start` | 利用可能なコマンドを一覧表示し、クイックアクションボタンを表示 |
+| `/status` | default action と会話が選択されているかを表示 |
+| `/actions` | このプラットフォームで有効な Action を一覧（Discord：最大 40、Telegram ピッカー：最大 20） |
+| `/new [action]` または `/action [action]` | 指定した Action で新しい会話を開始 |
+| `/chats [limit] [page]` | 保存された Alter 会話を一覧（制限 1–25、テキストコマンドのデフォルト 10） |
+| `/use <number>` | 直前の `/chats` ページから会話を選択 |
+| `/history [limit]` | 選択中の会話の最近のメッセージを表示（制限 1–40、デフォルト 12） |
+| `/stop` | このチャンネルまたはチャットでの Alter の現在の応答を停止 |
+
+**Discord** では、ボット接続時に Alter はネイティブのスラッシュコマンド（`/help`、`/new`、`/actions`、`/chats`、`/history`、`/stop`、`/status`）も登録します。**Server ID** を設定すると、そのサーバー専用に登録されます。未設定の場合はボットアプリ全体にグローバル登録されます。
+
+両プラットフォームとも、よく使う操作の**ボタン**を提供します — 例：`/help` の **New chat**、**Choose action**、**Past chats**。Telegram はインラインキーボード、Discord はメッセージコンポーネントを使用します。Action が **Ask User** ツールを使う場合、Alter は同じインタラクティブコントロールで多肢選択質問を提示し（「Other」回答の入力も受け付けます）。
+
+コマンド以外のメッセージは、現在の会話でのチャットターンとして扱われます。
+
+## 日常の使い方
+
+1. Mac で **Alter を実行**し、Gateway を **有効** にします。MacBook では、蓋を閉じたままボットを接続したい場合は **蓋を閉じたまま Gateways をオンラインに保つ** をオンにします。
+2. Discord または Telegram でボットにメッセージを送ります（**サーバーでメンションを必須にする** がオンの Discord サーバーでは `@mention`）。
+3. Alter は Action 実行中 **Thinking…** プレースホルダーを表示し、その後ストリーミング応答で更新します。Telegram DM では対応環境で Telegram ネイティブの下書きプレビュー経由でストリーミングできます。グループでは通常メッセージを編集します。
+4. Discord または Telegram でファイルを添付 — Alter はターン用にダウンロードし、ツールの出力ファイルをアップロードできます。**Voice messages** と **audio files** は選択した音声プロセッサ（**設定 → Voice**）で文字起こしされ、テキストとして Alter に送られます。長い音声は会議形式の文字起こしコンテキストとしても添付されます。
+5. `/stop`、**Stop** ボタン（Telegram グループと Discord）、または同じチャンネル/チャットで次のメッセージを送る前にターンの完了を待ちます。
+
+### 一度に 1 件の応答
+
+Alter は**チャンネルまたはチャットごとに 1 件の進行中応答**を処理します。Alter がまだ応答中に 2 件目のメッセージが届くと、ボットはそのチャンネル/チャットで既に応答中であると返します。現在のターンが終わるまで待ってから再送してください。
+
+### 会話の継続性
+
+各 Discord チャンネルまたは Telegram チャットには 1 つのアクティブな Alter 会話があります。`/new` で新規開始、`/chats` と `/use` で Mac 上の既存 Alter 会話を再開できます。
+
+Discord で **サーバーでの議論をスレッドで開始** を有効にすると、各新しいサーバートップレベルメッセージに専用スレッドと Alter チャットが付きます。既存スレッド内の返信は、新しいものを始めずにそのチャットを継続します。
+
+## プライバシーとデータ
+
+- Bot トークン は平文の設定ファイルではなく **macOS Keychain** に保存されます。
+- Gateway 設定（名前、アクセスリスト、default action）は Mac 上の Alter 設定にローカル保存されます。
+- チャンネルごとの状態（選択中の会話、保留中の Action）は Alter の Application Support フォルダに保存されます。
+- メッセージ処理は Hub と同じローカル Alter スタックを使用 — Gateway トラフィック用の別クラウド中継はありません。
+
+[ローカルデータとプライバシー](/references/local-data-and-privacy) も参照してください。
+
+## トラブルシューティング
+
+### 接続とトークン
+
+| 症状 | 試すこと |
+|---------|-------------|
+| *A Discord/Telegram bot token is required before enabling this gateway.* | **有効** をオンにする前に **接続 → Bot トークン** にトークンを貼り付けます。 |
+| *Discord rejected the bot token* | [Discord Developer Portal](https://discord.com/developers/applications) → アプリ → **Bot** → **Reset Token** から新しいトークンをコピーします。 |
+| *Enable Message Content Intent…*（Discord コード 4014） | Developer Portal でアプリ → **Bot** → **Privileged Gateway Intents** で **Message Content Intent** を有効化します。[Discord privileged intents](https://discord.com/developers/docs/events/gateway#privileged-intents) を参照。 |
+| *Telegram rejected the bot token* | [@BotFather](https://t.me/BotFather) から新しいトークンをコピー（既存ボットは `/token`）。 |
+| *Telegram polling is already active for this bot token* | 1 つの bot token を同時に polling できるクライアントは 1 つのみ。同じトークンを使う他の Alter Telegram Gateway を無効化するか、ボットの webhook を削除するか、BotFather でトークンを失効・置換します。 |
+| *Telegram is rate-limiting this gateway* | 少し待って再試行。Alter は自動リトライします。連続した保存や再起動は避けてください。 |
+| *…is still connecting. Check the token and network connection.* | トークン、ネットワーク、Alter が開いたままか確認。**保存して再起動** をクリック。 |
+
+### 利用
+
+| 症状 | 試すこと |
+|---------|-------------|
+| ボットはオンラインだが Discord サーバーで返信なし | **サーバーでメンションを必須にする** がオンの場合、ボットを `@mention`。**Send Messages** と **Read Message History** を確認。**サーバーでの議論をスレッドで開始** がオンの場合、**Create Public Threads** と **Send Messages in Threads** も付与。 |
+| *I couldn't start a Discord thread for this discussion* | スレッドはサーバーのテキストまたはアナウンスチャンネルからのみ開始。**サーバーでの議論をスレッドで開始** をオフにするか、上記スレッド権限を確認。 |
+| Discord でメッセージが無視される | **サーバー ID（任意）** が使用中のサーバーと一致するか確認。**許可された Discord ユーザー ID** が空でない場合、user ID が含まれるか確認。 |
+| Telegram でメッセージが無視される | **許可された Telegram ユーザーまたはチャット ID** が空でない場合、user/chat ID がリストにあるか確認。 |
+| *Action '…' is not enabled for Discord/Telegram* | **Action Editor → Model → Gateways** で Action を開き、プラットフォームまたは `*` を追加。 |
+| *No actions are enabled for Discord/Telegram* | プラットフォーム用に少なくとも 1 つの Action を有効化し、Gateway に有効な **デフォルト Action** を設定。 |
+| *Alter is already responding…* | 現在のターン終了を待つ（最大約 10 分）、または `/stop` 送信 / **Stop** タップ。 |
+
+### 蓋を閉じた状態での可用性
+
+| 症状 | 試すこと |
+|---------|-------------|
+| MacBook の蓋を閉じると Gateway が切断 | **設定 → Integrations → Gateways** で **蓋を閉じたまま Gateways をオンラインに保つ** をオンにし、プロンプトで **許可…** をクリック。 |
+| *管理者権限が必要です* | **許可…** をクリック、または **オプション…** → **Alter に Gateways をオンラインに保つことを許可…** で macOS の 1 回限りプロンプトを承認。 |
+| ステータスが *Paused for low battery* | 電源接続または **オプション…** の **以下で一時停止** 閾値以上まで充電。充電後 Alter が自動的に蓋を閉じた可用性を復元。 |
+| ステータスが *Paused for Low Power Mode* | Low Power Mode をオフにするか、オフになるまで通常スリープを受け入れる。 |
+| Alter 終了後も Gateway が停止 | 蓋を閉じた可用性は Mac を起きたままにするだけ — Alter も開いたまま実行されている必要があります。 |
+
+### プラットフォームの注意
+
+- **Alter は実行中である必要があります** — Alter を終了すると Gateway ボットも停止し、再起動まで再開されません。MacBook では **蓋を閉じたまま Gateways をオンラインに保つ** が Gateway 実行中に Mac を起きたままにしますが、Alter も開いたままである必要があります。
+- **両プラットフォームでボットメッセージは無視されます**。
+- **Discord** は処理中に 👀 を付け、ターン終了時に ✅ または ❌ を付けます。ユーザーが追加したリアクションはコマンドやチャット入力として扱われません。
+- **Telegram** は `message` と `callback_query` 更新（インラインキーボードタップ）に long polling を使用。ターン完了後、Alter は 👍 または 👎 でリアクションすることがあります。グループチャットではアクティブなターン中に **Stop** ボタンが表示されます。
+
+より広いツール・権限の問題は **設定 → Doctor** または [Tools not working](/common-issues/tool-not-working) を使用してください。
+
+## 関連ページ
+
+- [Discord gateway を設定](/apps-tools/gateways-discord)
+- [Telegram gateway を設定](/apps-tools/gateways-telegram)
+- [Alter Actions](/workflows/alter-actions) — Action と Gateway 可用性の設定
+- [Alter Settings](/how-to/settings-guide)
+- [Integrations 概要](/apps-tools/integrations-overview)
+- [API Gateway ガイド](/api-router/api-gateway) — OpenAI 互換 API（チャット Gateways とは別）

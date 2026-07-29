@@ -14,13 +14,13 @@ description: "好みに合わせて Alter をカスタマイズし、アカウ�
 設定を開くには 3 つの方法があります。
 
 **オプション 1: メニュー バー**
-メニュー バーの Alter アイコンをクリックし、ドロップダウン メニューから **Settings...** を選択します。
+メニュー バーの Alter アイコンをクリックし、ドロップダウン メニューから **設定...** を選択します。
 
 **オプション 2: キーボード ショートカット**
 **⌘ , (Command + カンマ)** を押して、設定を直接開きます。
 
 **オプション 3: ノッチ メニュー**
-Alter ノッチにある 3 点メニュー アイコン (⋮) をクリックし、**Settings** を選択します。
+Alter ノッチにある 3 点メニュー アイコン (⋮) をクリックし、**設定** を選択します。
 
 ![メニュー バーへのアクセス](/images/settings/Alter-Menu_Bar-Menu.webp)
 
@@ -336,11 +336,54 @@ Whisper と Parakeet モデルの両方と自動言語検出を含みます:
 
 ![Router 設定](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
-<h3 id="computer-use">9. Computer use 設定</h3>
+<h3 id="gateways">9. Gateways 設定</h3>
+
+**Gateways** タブ（設定サイドバーの **Integrations** 内、**API keys** と **Router** の横）は、Alter を **Discord** と **Telegram** ボットに接続します。
+
+**設定**（⌘,）→ **Integrations** → **Gateways** を開きます。完全なセットアップ手順：
+
+- [Gateways overview](/apps-tools/gateways)
+- [Discord gateway を設定](/apps-tools/gateways-discord)
+- [Telegram gateway を設定](/apps-tools/gateways-telegram)
+
+**gateway の一覧と追加**
+
+- **Gateway を追加** — **Discord** または **Telegram** 接続を作成します。
+- 各行に gateway **名前**、プラットフォーム、有効/無効インジケーターが表示されます。
+
+**蓋を閉じたまま Gateways をオンラインに保つ**（MacBook）
+
+Gateways ページ上部：
+
+- **Toggle** — オン（デフォルト）の場合、MacBook の蓋を閉じても Alter はアクティブな gateway ボットを接続したままにします。最後の gateway が停止すると通常のスリープに戻ります。
+- **許可…** — 保護された macOS スリープ設定（`pmset disablesleep`）を変更するための一度限りの管理者権限。gateway 実行中に蓋閉じ可用性が初めて有効になるときに必要です。
+- **オプション…** — **蓋を閉じた状態での可用性** を開きます：
+  - **Gateway availability** ステータス（例：*Keeping this Mac awake*、*Paused for low battery*）
+  - **以下で一時停止** — バッテリー駆動時の下限（デフォルト 20%、範囲 5–50%）。このレベル以下で通常スリープに戻し、充電が閾値を超えると再有効化します。
+  - **低電力モードで一時停止** — 常に有効。システムの低電力モード設定に従います。
+  - **管理者権限を削除…** — インストール済み権限を取り消します。メインのトグルをオフにしても権限は**削除されません**。
+
+**gateway ごとのフィールド**
+
+| Section | Fields |
+|---------|--------|
+| General | **名前**, **有効** |
+| Connection (Discord) | **Bot トークン**, **サーバー ID（任意）**, **許可された Discord ユーザー ID**, **サーバーでメンションを必須にする** |
+| Connection (Telegram) | **Bot トークン**, **許可された Telegram ユーザーまたはチャット ID** |
+| Behavior | **デフォルト Action** — この gateway で新しい会話に使う action |
+| Footer | **Delete gateway**, **保存して再起動**, connection status |
+
+Bot トークン は macOS Keychain に保存されます。**保存して再起動** 後、ステータス行にボット接続の成否が表示されます（例：**@username として接続済み**）。
+
+<Tip>
+  Gateways は **設定 → Router**（OpenAI 互換 API）とは別物です。API 経由のサードパーティアプリ連携は [API Gateway ガイド](/ja/api-router/api-gateway) を参照してください。
+</Tip>
+
+<h3 id="computer-use">10. Computer use 設定</h3>
 
 **Computer use** タブでは、Alter の UI 自動化エージェントがアプリ、ブラウザ、**2.0.0-beta100** で導入されたフローティングライブプレビューをどのように操作するかを構成します。
 
-**Settings**（⌘,）を開き、サイドバーで **Computer use** を選択します。**API keys** と **Router** と並び、API セクションの下にカーソル光線アイコンで表示されます。タブはアプリ UI と完全に一致する 3 セクションに分かれています: **Browser**、**Preview**、**Blocked apps**。
+**設定**（⌘,）を開き、サイドバーで **Computer use** を選択します。**API keys** と **Router** と並び、API セクションの下にカーソル光線アイコンで表示されます。タブはアプリ UI と完全に一致する 3 セクションに分かれています: **Browser**、**Preview**、**Blocked apps**。
 
 #### Browser
 
@@ -397,13 +440,13 @@ Computer Use はこのリストのアプリの**開く、読み取り、制御**
 
 #### Permissions reminder
 
-Computer Use には **Accessibility**（AX ツリーの読み取りとクリック送信）と **Screen Recording**（ライブプレビューと `computer_use_screenshot`）が必要です。初回実行前に **Settings → Permissions** で両方を付与してください。まだ失敗する場合は、統合された権限レポートのため **Settings → Doctor** を開いてください。
+Computer Use には **Accessibility**（AX ツリーの読み取りとクリック送信）と **Screen Recording**（ライブプレビューと `computer_use_screenshot`）が必要です。初回実行前に **Settings → Permissions** で両方を付与してください。まだ失敗する場合は、統合された権限レポートのため **設定 → Doctor** を開いてください。
 
 <Tip>
-  バックグラウンド実行、Edge Bar セッションカード、プレビュー動作は [Background Computer Use](/apps-tools/computer-use-background) に記載されています。権限の問題: [Tools Not Working](/common-issues/tool-not-working) または **Settings → Doctor**。
+  バックグラウンド実行、Edge Bar セッションカード、プレビュー動作は [Background Computer Use](/apps-tools/computer-use-background) に記載されています。権限の問題: [Tools Not Working](/common-issues/tool-not-working) または **設定 → Doctor**。
 </Tip>
 
-<h3 id="shortcuts">10. Shortcuts 設定</h3>
+<h3 id="shortcuts">11. Shortcuts 設定</h3>
 
 **Shortcuts** タブは、すべての Alter キーボードショートカットを検索・編集できるエディターです。**Settings → Shortcuts**（サイドバーの **General** セクション下）を開きます。
 
@@ -491,7 +534,7 @@ Alter の補助ウィンドウを開く:
 | **Alter Hub** | **⌘⇧H** |
 | **Action Editor** | **⌘⇧E** |
 | **Tools Manager** | **⌘⇧T** |
-| **Settings** | **⌘,** |
+| **設定** | **⌘,** |
 
 #### Conversation
 
@@ -517,7 +560,7 @@ macOS や他のアプリが同じキー組み合わせを占有している場�
 
 設定 UI を超えた完全な一覧は [Shortcuts reference](/references/shortcuts) を参照。グローバルな開くショートカットのみ変更する場合は、[How-To: Change Hotkey](/how-to/change-hotkey) が焦点を絞ったガイドです。
 
-<h3 id="marketplace">11. Marketplace 設定</h3>
+<h3 id="marketplace">12. Marketplace 設定</h3>
 
 **Marketplace** タブ（設定サイドバーの **Account** 下）では、公開 Alter Marketplace プロフィールと通知設定を制御します。ここで保存した内容はエージェント一覧やコミュニティページに表示される場合があります。ローカルのみの Alter 設定には影響しません。
 
@@ -549,7 +592,7 @@ Marketplace プロフィールに表示される任意の URL:
 
 オフにすると Marketplace のコメントアラートをミュートしつつ、公開プロフィールは表示されたままにできます。
 
-<h3 id="doctor">12. Doctor 設定</h3>
+<h3 id="doctor">13. Doctor 設定</h3>
 
 **Doctor**（設定サイドバーの **System** 下）は、Alter 全体のヘルスと権限診断を実行します。ツールが原因不明で失敗する、音声処理がおかしい、サポート用の編集済みレポートが必要なときに使用します。
 
@@ -589,7 +632,7 @@ Marketplace プロフィールに表示される任意の URL:
 
 **Voice Processor**
 
-- **Selected processor** — 現在の音声エンジン（Apple、cloud、Whisper など）と **Settings → Voice** へのリンク
+- **Selected processor** — 現在の音声エンジン（Apple、cloud、Whisper など）と **設定 → Voice** へのリンク
 - **Plan access** — サブスクリプションが選択プロセッサーをサポートするか
 - **Local model** / **Local model runtime**（Apple Silicon + Whisper のみ）— ダウンロードと読み込み状態
 
@@ -628,7 +671,7 @@ Application Support、Alter Prompts、Caches、WebKit、HTTP Storage パスの�
 
 | Situation | Start here |
 |-----------|------------|
-| 広い「何かおかしい」 | **Settings → Doctor** |
+| 広い「何かおかしい」 | **設定 → Doctor** |
 | ホットキーが動かない | [Keyboard Shortcut Not Working](/common-issues/hotkey-not-working) |
 | マイクが文字起こししない | [Microphone Not Working](/common-issues/mic-not-transcribing) |
 | ツールまたは MCP の失敗 | [Tools Not Working](/common-issues/tool-not-working) + Doctor の **Tools** セクション |
@@ -640,6 +683,7 @@ Application Support、Alter Prompts、Caches、WebKit、HTTP Storage パスの�
 - [Dictation & Voice](/workflows/dictation)
 - [Choosing Your Generative Model](/how-to/choose-generative-model)
 - [API Gateway & Router Service](/api-router/api-gateway)
+- [Gateways](/apps-tools/gateways)
 - [Computer Use overview](/apps-tools/computer-use)
 - [Background Computer Use](/apps-tools/computer-use-background)
 - [QuickHub Mode](/getting-started/quickhub-mode)

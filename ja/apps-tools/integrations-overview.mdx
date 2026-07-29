@@ -6,12 +6,26 @@ description: "Alter のローカルツールと外部連携を理解する"
 Alter は 2 つの方法で Mac に接続します：
 
 - **Mac Apps（ローカルツール）** — Mail、Calendar、Messages、Notes、Reminders、Contacts、Maps、DEVONthink、Computer Use のファーストパーティ連携。Mac 上でシステム権限で動作；組み込みアプリにサードパーティ API キーは不要。
+- **Gateways** — Alter が Mac 上で動作している間、Discord と Telegram から Alter とチャットするボット。**設定 → Integrations → Gateways** で設定。
 - **外部連携** — **Tools Manager** で設定する MCP サーバー、スキル、クラウドコネクタ（Slack、Notion、GitHub、Web 検索 API など）。
 
 ## 適切な連携タイプを選ぶ
 
 - ワークフローが Mac 上に留まる場合（受信トレイ、カレンダー、iMessage、画面自動化）は **Mac Apps** を使用。
+- Hub を開かずに **Discord** や **Telegram** から Alter と話したい場合は **Gateways**。
 - データやアクションが別サービスやオープン Web にある場合は **外部連携** を使用。
+
+<CardGroup cols={2}>
+  <Card title="Gateways" icon="comments" href="/apps-tools/gateways">
+    Discord と Telegram ボットを Alter に接続
+  </Card>
+  <Card title="Discord セットアップ" icon="discord" href="/apps-tools/gateways-discord">
+    Discord ボットのステップバイステップ設定
+  </Card>
+  <Card title="Telegram セットアップ" icon="telegram" href="/apps-tools/gateways-telegram">
+    BotFather によるステップバイステップ設定
+  </Card>
+</CardGroup>
 
 ## ローカルツール（Mac Apps）
 

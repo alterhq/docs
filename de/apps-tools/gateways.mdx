@@ -1,0 +1,215 @@
+---
+title: "Gateways"
+description: "Sprechen Sie mit Alter über Discord und Telegram, während Alter auf Ihrem Mac läuft"
+---
+
+<Info>
+  **Gateways** verbinden Alter mit **Discord**- und **Telegram**-Bots, damit Sie mit Alter aus diesen Apps chatten können. Jedes Gateway läuft lokal auf Ihrem Mac — Alter muss geöffnet und aktiv sein, damit Nachrichten verarbeitet werden.
+</Info>
+
+<Warning>
+  **Gateways** (Discord-/Telegram-Bots) unterscheiden sich vom **API Gateway** unter **Einstellungen → Router**, das einen OpenAI-kompatiblen Endpunkt für Drittanbieter-Apps bereitstellt. Siehe [API Gateway Guide](/api-router/api-gateway) für diese Funktion.
+</Warning>
+
+## Was Gateways tun
+
+Mit Gateways nutzen Sie Alter über Chat-Plattformen, die Sie bereits geöffnet haben:
+
+- **Discord** — Senden Sie dem Bot eine DM oder erwähnen Sie ihn in einem Serverkanal (wenn konfiguriert).
+- **Telegram** — Schreiben Sie dem Bot in einem privaten Chat oder einer Gruppe.
+
+Jede Gateway-Instanz hat einen eigenen Namen, **Standardaktion**, Zugriffskontrollen und Verbindungseinstellungen. Unterhaltungen werden in Alter auf Ihrem Mac wie Hub-Chats gespeichert — Gateways sind ein weiterer Weg, diese Unterhaltungen zu starten und fortzusetzen.
+
+Wenn jemand eine Nachricht sendet, Alter:
+
+1. Empfängt sie über die Plattform-Bot-Verbindung.
+2. Führt die ausgewählte **Alter Action** aus (zum Beispiel **Ask Anything**).
+3. Streamt die Antwort zurück in den Discord-Kanal oder Telegram-Chat.
+4. Kann eingehende Anhänge herunterladen und Ausgabedateien von Tool-Ausführungen hochladen.
+
+## Gateways-Einstellungen öffnen
+
+<Steps>
+  <Step title="Settings öffnen">
+    Drücken Sie **⌘,** (Command + Komma), klicken Sie auf das Alter-Symbol in der Menüleiste und wählen Sie **Einstellungen...**, oder öffnen Sie **Einstellungen** über das **⋯**-Menü im Notch.
+  </Step>
+  <Step title="Zu Integrations → Gateways gehen">
+    Öffnen Sie in der Einstellungs-Seitenleiste **Integrationen** und wählen Sie **Gateways**.
+  </Step>
+</Steps>
+
+Sie können auch direkt verlinken: `com.wearedevx.alter://settings?id=gateways`
+
+Die Gateways-Seite zeigt alle konfigurierten Gateways. Verwenden Sie **Gateway hinzufügen**, um eine **Discord**- oder **Telegram**-Verbindung anzulegen.
+
+## Einrichtungsanleitungen
+
+<CardGroup cols={2}>
+  <Card title="Discord gateway" icon="discord" href="/apps-tools/gateways-discord">
+    Erstellen Sie einen Discord-Bot, aktivieren Sie Intents, laden Sie ihn auf Ihren Server ein und verbinden Sie ihn in Alter.
+  </Card>
+  <Card title="Telegram gateway" icon="telegram" href="/apps-tools/gateways-telegram">
+    Erstellen Sie einen Bot mit BotFather und fügen Sie das Token in Alter ein.
+  </Card>
+</CardGroup>
+
+## Referenz der Gateway-Einstellungen
+
+Alle Gateways teilen diese Felder:
+
+| Feld | Beschreibung |
+|-------|-------------|
+| **Name** | Bezeichnung in der Gateway-Liste (zum Beispiel „Team Discord“ oder „Personal Telegram“). |
+| **Aktiviert** | Schaltet die Verbindung ein oder aus. Ein Bot-Token ist vor der Aktivierung erforderlich. |
+| **Standardaktion** | Die Alter Action, die startet, wenn eine neue Unterhaltung auf diesem Gateway beginnt. |
+| **Serverdiskussionen in Threads starten** (nur Discord) | Wenn aktiv, startet jede neue Top-Level-Servernachricht einen Discord-Thread und einen separaten Alter-Chat. Nachrichten in einem bestehenden Thread setzen diesen Chat fort. DMs bleiben unverändert. |
+| **Speichern und neu starten** | Speichert Anmeldedaten und verbindet den Bot neu. |
+
+Plattformspezifische **Verbindung**-Felder sind in den Einrichtungsanleitungen dokumentiert:
+
+- [Discord-Verbindungsfelder](/apps-tools/gateways-discord#connect-in-alter)
+- [Telegram-Verbindungsfelder](/apps-tools/gateways-telegram#connect-in-alter)
+
+Nach dem Speichern eines aktivierten Gateways zeigt Alter eine Statuszeile wie **Verbunden als @username** oder einen behebbaren Fehler.
+
+## Gateways bei geschlossenem Deckel online halten
+
+Auf einem MacBook legt das Schließen des Deckels den Mac normalerweise in den Ruhezustand und trennt Gateway-Bots. Alter kann aktive Gateways bei geschlossenem Deckel verfügbar halten.
+
+Oben auf **Einstellungen → Integrationen → Gateways**:
+
+| Steuerung | Beschreibung |
+|---------|-------------|
+| **Gateways bei geschlossenem Deckel online halten** | Wenn aktiv (Standard), verhindert Alter den Ruhezustand, solange mindestens ein Gateway aktiviert und verbunden ist. Normaler Ruhezustand kehrt zurück, wenn das letzte Gateway stoppt. |
+| **Erlauben…** | Wird angezeigt, wenn Administratorrechte benötigt werden. Alter fragt einmalig nach, eine geschützte `pmset`-Berechtigung zu installieren, um die macOS-Ruhezustandseinstellung während laufender Gateways umzuschalten. |
+| **Optionen…** | Öffnet **Verfügbarkeit bei geschlossenem Deckel** — Status, Batterieschutz und Berechtigungsverwaltung. |
+
+### Batterieschutz
+
+Alter pausiert die Verfügbarkeit bei geschlossenem Deckel automatisch, um die Akkulaufzeit zu schützen:
+
+- **Pausieren unter** — Während der Mac entladen und nicht am Netz ist, stellt Alter den normalen Ruhezustand ab diesem Niveau wieder her (Standard **20%**, einstellbar von **5%** bis **50%** in 5%-Schritten). Verfügbarkeit bei geschlossenem Deckel kehrt nach dem Laden über dem Limit zurück.
+- **Im Energiesparmodus pausieren** — Wird immer beachtet, solange macOS Low Power Mode aktiv ist.
+
+Das Ausschalten des Hauptschalters behält die installierte Administratorberechtigung, damit Sie sie ohne erneute Abfrage wieder aktivieren können. Verwenden Sie **Administratorberechtigung entfernen…** in **Optionen…**, um sie vollständig zu entziehen.
+
+<Warning>
+  Verfügbarkeit bei geschlossenem Deckel ändert eine geschützte macOS-Ruhezustandseinstellung. Alter führt außerdem einen Sicherheitsmonitor aus, der den normalen Ruhezustand wiederherstellt, wenn die App unerwartet stoppt. Gateways erfordern weiterhin, dass Alter läuft — diese Funktion hält den Mac wach, nicht Alter geschlossen.
+</Warning>
+
+## Welche Actions funktionieren auf Gateways?
+
+Actions **melden sich an** für externe Plattformen. Im **Action Editor** öffnen Sie **Model → Gateways → Erlaubte Gateways**:
+
+- **`discord`** — nur auf Discord-Gateways verfügbar
+- **`telegram`** — nur auf Telegram-Gateways verfügbar
+- **`*`** — auf allen Gateways verfügbar
+- **Leer** — nur lokal (Hub, QuickHub usw.)
+
+<Tip>
+  Die mitgelieferte **Ask Anything**-Action ist standardmäßig auf **Discord** und **Telegram** aktiviert — sie ist die übliche **Standardaktion** für neue Gateways. Benutzerdefinierte Actions benötigen `discord`, `telegram` oder `*` unter **Erlaubte Gateways**.
+</Tip>
+
+Nutzer können Actions pro Unterhaltung weiterhin mit `/new [action]` wechseln, solange die Action auf der Plattform erlaubt ist.
+
+## Chat-Befehle und Steuerung
+
+Discord und Telegram unterstützen dieselben Textbefehle (als normale Nachrichten eingeben). Auf Telegram funktionieren Befehle auch mit Bot-Suffix wie `/help@YourBotName`.
+
+| Befehl | Funktion |
+|---------|--------------|
+| `/help` oder `/start` | Listet verfügbare Befehle und zeigt Schnellaktions-Buttons |
+| `/status` | Zeigt die Default Action und ob eine Unterhaltung ausgewählt ist |
+| `/actions` | Listet für diese Plattform aktivierte Actions (Discord: bis 40; Telegram-Auswahl: bis 20) |
+| `/new [action]` oder `/action [action]` | Startet eine neue Unterhaltung mit der angegebenen Action |
+| `/chats [limit] [page]` | Listet gespeicherte Alter-Unterhaltungen (Limit 1–25, Standard 10 für Textbefehle) |
+| `/use <number>` | Wählt eine Unterhaltung von der letzten `/chats`-Seite |
+| `/history [limit]` | Zeigt aktuelle Nachrichten der ausgewählten Unterhaltung (Limit 1–40, Standard 12) |
+| `/stop` | Stoppt Alters aktuelle Antwort in diesem Kanal oder Chat |
+
+Auf **Discord** registriert Alter beim Verbinden auch native Slash-Befehle (`/help`, `/new`, `/actions`, `/chats`, `/history`, `/stop`, `/status`). Wenn Sie eine **Server ID** setzen, registrieren sich Befehle nur für diesen Server; andernfalls global für die Bot-Anwendung.
+
+Beide Plattformen bieten **Buttons** für häufige Aufgaben — zum Beispiel **New chat**, **Choose action** und **Past chats** bei `/help`. Telegram nutzt Inline-Tastaturen; Discord nutzt Nachrichtenkomponenten. Wenn eine Action das **Ask User**-Tool verwendet, stellt Alter Mehrfachauswahlfragen über dieselben interaktiven Steuerelemente bereit (und akzeptiert getippte Antworten für „Other“).
+
+Jede Nachricht, die kein Befehl ist, wird als Chat-Zug in der aktuellen Unterhaltung behandelt.
+
+## Tägliche Nutzung
+
+1. Halten Sie **Alter auf Ihrem Mac aktiv** mit aktiviertem Gateway (**Aktiviert**). Auf einem MacBook aktivieren Sie **Gateways bei geschlossenem Deckel online halten**, wenn Bots bei geschlossenem Deckel verbunden bleiben sollen.
+2. Schreiben Sie dem Bot auf Discord oder Telegram (oder `@mention` auf Discord-Servern, wenn **Erwähnung in Servern erfordern** aktiv ist).
+3. Alter zeigt **Thinking…** während die Action läuft und aktualisiert dann mit der gestreamten Antwort. In Telegram-DMs kann Alter über die native Entwurfsvorschau streamen, wenn unterstützt; in Gruppen bearbeitet es stattdessen eine normale Nachricht.
+4. Hängen Sie Dateien in Discord oder Telegram an — Alter lädt sie für den Zug herunter und kann Ausgabedateien von Tools hochladen. **Voice messages** und **audio files** werden mit Ihrem gewählten Sprachprozessor (**Einstellungen → Voice**) transkribiert und als Text an Alter gesendet; längeres Audio wird auch als Meeting-Transkript-Kontext angehängt.
+5. Verwenden Sie `/stop`, den **Stop**-Button (Telegram-Gruppen und Discord) oder warten Sie, bis der Zug endet, bevor Sie erneut im selben Kanal oder Chat schreiben.
+
+### Eine Antwort gleichzeitig
+
+Alter verarbeitet **eine laufende Antwort pro Kanal oder Chat**. Kommt eine zweite Nachricht, während Alter noch antwortet, meldet der Bot, dass Alter in diesem Kanal oder Chat bereits antwortet. Warten Sie, bis der aktuelle Zug endet, und senden Sie erneut.
+
+### Unterhaltungskontinuität
+
+Jeder Discord-Kanal oder Telegram-Chat kann eine aktive Alter-Unterhaltung haben. Verwenden Sie `/new` für einen Neustart oder `/chats` und `/use`, um eine bestehende Alter-Unterhaltung auf Ihrem Mac fortzusetzen.
+
+Auf Discord gibt **Serverdiskussionen in Threads starten** jeder neuen Top-Level-Servernachricht einen eigenen Thread und Alter-Chat. Antworten in einem bestehenden Thread setzen diesen Chat fort, statt einen neuen zu starten.
+
+## Datenschutz und Daten
+
+- Bot-Tokens werden im **macOS Keychain** gespeichert, nicht in Klartext-Einstellungsdateien.
+- Gateway-Konfiguration (Namen, Zugriffslisten, Default Actions) wird lokal in Alters Einstellungen auf Ihrem Mac gespeichert.
+- Kanalstatus (ausgewählte Unterhaltung, ausstehende Action) liegt im Application-Support-Ordner von Alter.
+- Die Nachrichtenverarbeitung nutzt denselben lokalen Alter-Stack wie der Hub — es gibt kein separates Cloud-Relay für Gateway-Traffic.
+
+Siehe auch [Lokale Daten und Datenschutz](/references/local-data-and-privacy).
+
+## Fehlerbehebung
+
+### Verbindung und Tokens
+
+| Symptom | Was versuchen |
+|---------|-------------|
+| *A Discord/Telegram bot token is required before enabling this gateway.* | Token in **Verbindung → Bot-Token** einfügen, bevor **Aktiviert** aktiviert wird. |
+| *Discord rejected the bot token* | Frisches Token aus dem [Discord Developer Portal](https://discord.com/developers/applications) → Ihre App → **Bot** → **Reset Token** kopieren. |
+| *Enable Message Content Intent…* (Discord-Code 4014) | Im Developer Portal App öffnen → **Bot** → **Message Content Intent** unter **Privileged Gateway Intents** aktivieren. Siehe [Discord privileged intents](https://discord.com/developers/docs/events/gateway#privileged-intents). |
+| *Telegram rejected the bot token* | Frisches Token von [@BotFather](https://t.me/BotFather) kopieren (`/token` für bestehenden Bot). |
+| *Telegram polling is already active for this bot token* | Nur ein Client kann ein Bot-Token gleichzeitig abfragen. Andere Alter-Telegram-Gateways mit demselben Token deaktivieren, Webhook am Bot entfernen oder Token in BotFather widerrufen und ersetzen. |
+| *Telegram is rate-limiting this gateway* | Kurz warten und erneut versuchen. Alter wiederholt automatisch; häufiges Speichern oder Neustarten vermeiden. |
+| *…is still connecting. Check the token and network connection.* | Token, Netzwerkzugriff und dass Alter geöffnet bleibt prüfen. **Speichern und neu starten** klicken. |
+
+### Nutzung
+
+| Symptom | Was versuchen |
+|---------|-------------|
+| Bot online, aber keine Antworten auf Discord-Server | Wenn **Erwähnung in Servern erfordern** aktiv ist, Bot `@mention`. Prüfen, ob der Bot **Send Messages** und **Read Message History** im Kanal hat. Wenn **Serverdiskussionen in Threads starten** aktiv ist, auch **Create Public Threads** und **Send Messages in Threads** gewähren. |
+| *I couldn't start a Discord thread for this discussion* | Threads starten nur in Server-Text- oder Ankündigungskanälen. Thread-Berechtigungen prüfen oder **Serverdiskussionen in Threads starten** deaktivieren. |
+| Nachrichten auf Discord ignoriert | **Server-ID (optional)** muss zum genutzten Server passen. User-ID in **Erlaubte Discord-Benutzer-IDs** prüfen, wenn die Liste nicht leer ist. |
+| Nachrichten auf Telegram ignoriert | User- oder Chat-ID in **Erlaubte Telegram-Benutzer- oder Chat-IDs** prüfen, wenn die Liste nicht leer ist. |
+| *Action '…' is not enabled for Discord/Telegram* | Action in **Action Editor → Model → Gateways** öffnen und Plattform oder `*` hinzufügen. |
+| *No actions are enabled for Discord/Telegram* | Mindestens eine Action für die Plattform aktivieren und gültige **Standardaktion** am Gateway setzen. |
+| *Alter is already responding…* | Aktuellen Zug abwarten (bis ca. 10 Minuten) oder `/stop` senden / **Stop** tippen. |
+
+### Verfügbarkeit bei geschlossenem Deckel
+
+| Symptom | Was versuchen |
+|---------|-------------|
+| Gateways trennen sich beim Schließen des MacBook-Deckels | **Gateways bei geschlossenem Deckel online halten** in **Einstellungen → Integrationen → Gateways** aktivieren und **Erlauben…** bestätigen. |
+| *Administratorberechtigung erforderlich* | **Erlauben…** klicken oder **Optionen…** → **Alter erlauben, Gateways online zu halten…** und einmalige macOS-Abfrage bestätigen. |
+| Status zeigt *Paused for low battery* | Netzteil anschließen oder über **Pausieren unter**-Schwelle in **Optionen…** laden. Alter stellt Verfügbarkeit bei geschlossenem Deckel nach dem Laden automatisch wieder her. |
+| Status zeigt *Paused for Low Power Mode* | Low Power Mode deaktivieren oder normalen Ruhezustand akzeptieren, bis er aus ist. |
+| Gateways stoppen beim Beenden von Alter | Verfügbarkeit bei geschlossenem Deckel hält den Mac wach — Alter muss weiterhin geöffnet und aktiv sein. |
+
+### Plattformhinweise
+
+- **Alter muss laufen** — beim Schließen von Alter stoppen Gateway-Bots, bis Sie die App wieder öffnen. Auf einem MacBook hält **Gateways bei geschlossenem Deckel online halten** den Mac wach, während Gateways laufen, aber Alter muss geöffnet bleiben.
+- **Bot-Nachrichten werden ignoriert** auf beiden Plattformen.
+- **Discord** fügt 👀 während der Verarbeitung hinzu, dann ✅ oder ❌ am Zugende. Nutzer-Reaktionen gelten nicht als Befehle oder Chat-Eingabe.
+- **Telegram** nutzt Long Polling für `message`- und `callback_query`-Updates (Inline-Tastatur-Taps). Nach einem Zug kann Alter mit 👍 oder 👎 auf Ihre Nachricht reagieren. Gruppenchats zeigen während aktiver Züge einen **Stop**-Button.
+
+Für breitere Tool- und Berechtigungsprobleme **Einstellungen → Doctor** oder [Tools not working](/common-issues/tool-not-working) verwenden.
+
+## Verwandte Seiten
+
+- [Discord gateway einrichten](/apps-tools/gateways-discord)
+- [Telegram gateway einrichten](/apps-tools/gateways-telegram)
+- [Alter Actions](/workflows/alter-actions) — Actions und Gateway-Verfügbarkeit konfigurieren
+- [Alter Settings](/how-to/settings-guide)
+- [Integrations-Übersicht](/apps-tools/integrations-overview)
+- [API Gateway Guide](/api-router/api-gateway) — OpenAI-kompatible API (getrennt von Chat-Gateways)

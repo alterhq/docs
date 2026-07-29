@@ -14,13 +14,13 @@ Aprende a personalizar Alter según tus preferencias, gestionar tu cuenta, confi
 Hay tres formas de abrir Configuración:
 
 **Opción 1: Barra de menú**
-Haz clic en el icono de Alter en la barra de menú y selecciona **Settings...** en el menú desplegable.
+Haz clic en el icono de Alter en la barra de menú y selecciona **Configuración...** en el menú desplegable.
 
 **Opción 2: Atajo de teclado**
 Pulsa **⌘ , (Comando + Coma)** para abrir Configuración directamente.
 
 **Opción 3: Menú de la muesca**
-Haz clic en el icono de menú de tres puntos (⋮) en la muesca de Alter y selecciona **Settings**.
+Haz clic en el icono de menú de tres puntos (⋮) en la muesca de Alter y selecciona **Configuración**.
 
 ![Acceso a la barra de menú](/images/settings/Alter-Menu_Bar-Menu.webp)
 
@@ -336,11 +336,54 @@ La pestaña **Router** configura el endpoint de IA predeterminado:
 
 ![Ajustes de Router](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
-<h3 id="computer-use">9. Ajustes de Computer use</h3>
+<h3 id="gateways">9. Configuración Gateways</h3>
+
+La pestaña **Gateways** (bajo **Integraciones** en la barra lateral, junto a **API keys** y **Router**) conecta Alter con bots de **Discord** y **Telegram**.
+
+Abra **Configuración** (⌘,) → **Integraciones** → **Gateways**. Guías completas:
+
+- [Gateways overview](/apps-tools/gateways)
+- [Configurar un Discord gateway](/apps-tools/gateways-discord)
+- [Configurar un Telegram gateway](/apps-tools/gateways-telegram)
+
+**Listar y añadir gateways**
+
+- **Añadir gateway** — Cree una conexión **Discord** o **Telegram**.
+- Cada fila muestra el **Nombre** del gateway, la plataforma y un indicador activado/desactivado.
+
+**Mantener Gateways en línea con la tapa cerrada** (MacBook)
+
+En la parte superior de la página Gateways:
+
+- **Toggle** — Cuando está activado (predeterminado), Alter mantiene conectados los bots gateway con la tapa del MacBook cerrada. El reposo normal vuelve cuando el último gateway se detiene.
+- **Permitir…** — Permiso de administrador único para cambiar un ajuste protegido de macOS (`pmset disablesleep`). Necesario la primera vez que la disponibilidad con tapa cerrada se activa con un gateway en ejecución.
+- **Opciones…** — Abre **Disponibilidad con tapa cerrada**:
+  - **Gateway availability** estado (por ejemplo *Keeping this Mac awake*, *Paused for low battery*)
+  - **Pausar por debajo de** — Umbral de batería sin corriente (20 % predeterminado, rango 5–50 %). Alter restaura el reposo normal en o por debajo de ese nivel y reactiva tras cargar por encima.
+  - **Pausar en Modo de bajo consumo** — Siempre activo; respeta la preferencia de ahorro de energía del sistema.
+  - **Eliminar permiso de administrador…** — Revoca el permiso instalado. Desactivar el interruptor principal **no elimina** el permiso.
+
+**Campos por gateway**
+
+| Section | Fields |
+|---------|--------|
+| General | **Nombre**, **Activado** |
+| Connection (Discord) | **Token del bot**, **ID del servidor (opcional)**, **IDs de usuario de Discord permitidos**, **Requerir mención en servidores** |
+| Connection (Telegram) | **Token del bot**, **IDs de usuario o chat de Telegram permitidos** |
+| Behavior | **Acción predeterminada** — acción usada para nuevas conversaciones en este gateway |
+| Footer | **Delete gateway**, **Guardar y reiniciar**, connection status |
+
+Los bot tokens se guardan en el Keychain de macOS. Tras **Guardar y reiniciar**, la línea de estado indica si el bot se conectó (por ejemplo **Conectado como @username**).
+
+<Tip>
+  Los Gateways no son lo mismo que **Configuración → Router** (API compatible con OpenAI). Consulte [Guía de API Gateway](/es/api-router/api-gateway) para integraciones de apps de terceros vía la API.
+</Tip>
+
+<h3 id="computer-use">10. Ajustes de Computer use</h3>
 
 La pestaña **Computer use** configura cómo el agente de automatización de UI de Alter controla apps, navegadores y la vista previa flotante en vivo introducida en **2.0.0-beta100**.
 
-Abre **Settings** (⌘,) y selecciona **Computer use** en la barra lateral — aparece bajo la sección API con el icono de cursor con rayos, junto a **API keys** y **Router**. La pestaña se organiza en tres secciones que coinciden exactamente con la UI de la app: **Browser**, **Preview** y **Blocked apps**.
+Abre **Configuración** (⌘,) y selecciona **Computer use** en la barra lateral — aparece bajo la sección API con el icono de cursor con rayos, junto a **API keys** y **Router**. La pestaña se organiza en tres secciones que coinciden exactamente con la UI de la app: **Browser**, **Preview** y **Blocked apps**.
 
 #### Browser
 
@@ -397,13 +440,13 @@ Cuando no hay apps bloqueadas, la sección muestra **No apps are blocked.** en t
 
 #### Recordatorio de permisos
 
-Computer Use requiere **Accessibility** (para leer árboles AX y enviar clics) y **Screen Recording** (para la vista previa en vivo y `computer_use_screenshot`). Concede ambos en **Settings → Permissions** antes de tu primera ejecución. Si algo sigue fallando, abre **Settings → Doctor** para un informe consolidado de permisos.
+Computer Use requiere **Accessibility** (para leer árboles AX y enviar clics) y **Screen Recording** (para la vista previa en vivo y `computer_use_screenshot`). Concede ambos en **Settings → Permissions** antes de tu primera ejecución. Si algo sigue fallando, abre **Configuración → Doctor** para un informe consolidado de permisos.
 
 <Tip>
-  Las ejecuciones en segundo plano, las tarjetas de sesión de Edge Bar y el comportamiento de la vista previa están documentados en [Computer Use en segundo plano](/apps-tools/computer-use-background). Problemas de permisos: [Las herramientas no funcionan](/common-issues/tool-not-working) o **Settings → Doctor**.
+  Las ejecuciones en segundo plano, las tarjetas de sesión de Edge Bar y el comportamiento de la vista previa están documentados en [Computer Use en segundo plano](/apps-tools/computer-use-background). Problemas de permisos: [Las herramientas no funcionan](/common-issues/tool-not-working) o **Configuración → Doctor**.
 </Tip>
 
-<h3 id="shortcuts">10. Ajustes de Shortcuts</h3>
+<h3 id="shortcuts">11. Ajustes de Shortcuts</h3>
 
 La pestaña **Shortcuts** es un editor con búsqueda de todos los atajos de teclado de Alter. Abre **Settings → Shortcuts** (bajo la sección **General** en la barra lateral).
 
@@ -491,7 +534,7 @@ Abre las ventanas auxiliares de Alter:
 | **Alter Hub** | **⌘⇧H** |
 | **Action Editor** | **⌘⇧E** |
 | **Tools Manager** | **⌘⇧T** |
-| **Settings** | **⌘,** |
+| **Configuración** | **⌘,** |
 
 #### Conversation
 
@@ -517,7 +560,7 @@ macOS y otras apps pueden reclamar las mismas combinaciones de teclas. Si un ata
 
 Para un inventario completo más allá de la UI de ajustes, consulta [Referencia de atajos](/references/shortcuts). Para cambiar solo el atajo global de apertura, [Cambiar la tecla de acceso rápido](/how-to/change-hotkey) es una guía enfocada.
 
-<h3 id="marketplace">11. Ajustes de Marketplace</h3>
+<h3 id="marketplace">12. Ajustes de Marketplace</h3>
 
 La pestaña **Marketplace** (bajo **Account** en la barra lateral de ajustes) controla tu perfil público de Alter Marketplace y las preferencias de notificaciones. Lo que guardes aquí puede aparecer en listados de agentes y páginas de la comunidad; los ajustes locales de Alter no se ven afectados.
 
@@ -549,7 +592,7 @@ Deja un campo vacío para ocultar ese enlace públicamente. Los valores se almac
 
 Desactívalo para silenciar alertas de comentarios del marketplace manteniendo visible tu perfil público.
 
-<h3 id="doctor">12. Ajustes de Doctor</h3>
+<h3 id="doctor">13. Ajustes de Doctor</h3>
 
 **Doctor** (bajo **System** en la barra lateral de ajustes) ejecuta un diagnóstico de salud y permisos en Alter. Úsalo cuando las herramientas fallen sin motivo aparente, el procesamiento de voz se comporte mal o necesites un informe redactado para soporte.
 
@@ -589,7 +632,7 @@ Pega el informe en Discord o correo al contactar soporte, junto con un [trace de
 
 **Voice Processor**
 
-- **Selected processor** — Motor de voz actual (Apple, cloud, Whisper, etc.) con enlace a **Settings → Voice**
+- **Selected processor** — Motor de voz actual (Apple, cloud, Whisper, etc.) con enlace a **Configuración → Voice**
 - **Plan access** — Si tu suscripción admite el procesador seleccionado
 - **Local model** / **Local model runtime** (solo Apple Silicon + Whisper) — Estado de descarga y carga
 
@@ -628,7 +671,7 @@ Algunas secciones incluyen botones en el pie:
 
 | Situation | Start here |
 |-----------|------------|
-| "Algo va mal" en general | **Settings → Doctor** |
+| "Algo va mal" en general | **Configuración → Doctor** |
 | El atajo dejó de funcionar | [El atajo de teclado no funciona](/common-issues/hotkey-not-working) |
 | El micrófono no transcribe | [El micrófono no funciona](/common-issues/mic-not-transcribing) |
 | Fallo de herramienta o MCP | [Las herramientas no funcionan](/common-issues/tool-not-working) + sección **Tools** de Doctor |
@@ -640,6 +683,7 @@ Algunas secciones incluyen botones en el pie:
 - [Dictado y voz](/workflows/dictation)
 - [Elegir tu modelo generativo](/how-to/choose-generative-model)
 - [API Gateway y servicio Router](/api-router/api-gateway)
+- [Gateways](/apps-tools/gateways)
 - [Resumen de Computer Use](/apps-tools/computer-use)
 - [Computer Use en segundo plano](/apps-tools/computer-use-background)
 - [Modo QuickHub](/getting-started/quickhub-mode)

@@ -1,0 +1,215 @@
+---
+title: "Gateways"
+description: "Parlez à Alter depuis Discord et Telegram pendant qu'Alter s'exécute sur votre Mac"
+---
+
+<Info>
+  **Gateways** connectent Alter aux bots **Discord** et **Telegram** pour converser avec Alter depuis ces apps. Chaque gateway s'exécute localement sur votre Mac — Alter doit être ouvert et en cours d'exécution pour que les messages soient traités.
+</Info>
+
+<Warning>
+  **Gateways** (bots Discord/Telegram) sont différents de l'**API Gateway** dans **Préférences → Router**, qui expose un endpoint compatible OpenAI pour les apps tierces. Consultez le [Guide API Gateway](/api-router/api-gateway) pour cette fonctionnalité.
+</Warning>
+
+## Ce que font les Gateways
+
+Les Gateways vous permettent d'utiliser Alter depuis les plateformes de chat que vous avez déjà ouvertes :
+
+- **Discord** — Envoyez un DM au bot ou mentionnez-le dans un canal de serveur (lorsqu'il est configuré).
+- **Telegram** — Envoyez un message au bot dans un chat privé ou un groupe.
+
+Chaque instance de gateway a son propre nom, **Action par défaut**, contrôles d'accès et paramètres de connexion. Les conversations sont stockées dans Alter sur votre Mac comme les chats Hub — les gateways sont un autre moyen de démarrer et de poursuivre ces conversations.
+
+Lorsque quelqu'un envoie un message, Alter :
+
+1. Le reçoit via la connexion bot de la plateforme.
+2. Exécute l'**Alter Action** sélectionnée (par exemple **Ask Anything**).
+3. Diffuse la réponse dans le canal Discord ou le chat Telegram.
+4. Peut télécharger les pièces jointes entrantes et envoyer les fichiers de sortie des exécutions d'outils.
+
+## Ouvrir les paramètres Gateways
+
+<Steps>
+  <Step title="Ouvrir Préférences">
+    Appuyez sur **⌘,** (Command + Virgule), cliquez sur l'icône Alter dans la barre de menus et choisissez **Préférences…**, ou ouvrez **Préférences** depuis le menu **⋯** du notch.
+  </Step>
+  <Step title="Aller à Integrations → Gateways">
+    Dans la barre latérale des paramètres, ouvrez **Intégrations**, puis sélectionnez **Gateways**.
+  </Step>
+</Steps>
+
+Vous pouvez aussi utiliser le lien direct : `com.wearedevx.alter://settings?id=gateways`
+
+La page Gateways affiche tous les gateways configurés. Utilisez **Ajouter un Gateway** pour créer une connexion **Discord** ou **Telegram**.
+
+## Guides de configuration
+
+<CardGroup cols={2}>
+  <Card title="Discord gateway" icon="discord" href="/apps-tools/gateways-discord">
+    Créez un bot Discord, activez les intents, invitez-le sur votre serveur et connectez-le dans Alter.
+  </Card>
+  <Card title="Telegram gateway" icon="telegram" href="/apps-tools/gateways-telegram">
+    Créez un bot avec BotFather et collez le token dans Alter.
+  </Card>
+</CardGroup>
+
+## Référence des paramètres gateway
+
+Tous les gateways partagent ces champs :
+
+| Champ | Description |
+|-------|-------------|
+| **Nom** | Libellé affiché dans la liste des gateways (par exemple « Team Discord » ou « Personal Telegram »). |
+| **Activé** | Active ou désactive la connexion. Un bot token est requis avant l'activation. |
+| **Action par défaut** | L'Alter Action utilisée lorsqu'une nouvelle conversation démarre sur ce gateway. |
+| **Démarrer les discussions serveur dans des fils** (Discord uniquement) | Quand activé, chaque nouveau message de premier niveau dans un serveur démarre un fil Discord et un chat Alter séparé. Les messages déjà dans un fil continuent ce chat. Les DM restent inchangés. |
+| **Enregistrer et redémarrer** | Enregistre les identifiants et reconnecte le bot. |
+
+Les champs **Connexion** spécifiques à la plateforme sont documentés dans les guides de configuration :
+
+- [Champs de connexion Discord](/apps-tools/gateways-discord#connect-in-alter)
+- [Champs de connexion Telegram](/apps-tools/gateways-telegram#connect-in-alter)
+
+Après avoir enregistré un gateway activé, Alter affiche une ligne d'état comme **Connecté en tant que @username** ou une erreur sur laquelle vous pouvez agir.
+
+## Maintenir les Gateways en ligne avec le couvercle fermé
+
+Sur un MacBook, fermer le couvercle met normalement le Mac en veille et déconnecte les bots gateway. Alter peut maintenir les gateways actifs disponibles lorsque le couvercle est fermé.
+
+En haut de **Préférences → Intégrations → Gateways** :
+
+| Contrôle | Description |
+|---------|-------------|
+| **Maintenir les Gateways en ligne avec le couvercle fermé** | Quand activé (par défaut), Alter empêche la mise en veille tant qu'au moins un gateway est activé et connecté. La veille normale revient lorsque le dernier gateway s'arrête. |
+| **Autoriser…** | Affiché lorsqu'une autorisation administrateur est nécessaire. Alter demande une fois d'installer une permission `pmset` protégée pour basculer le réglage de veille macOS pendant l'exécution des gateways. |
+| **Options…** | Ouvre **Disponibilité couvercle fermé** — statut, protections batterie et gestion des autorisations. |
+
+### Protections batterie
+
+Alter met en pause la disponibilité couvercle fermé automatiquement pour protéger l'autonomie :
+
+- **Mettre en pause en dessous de** — Lorsque le Mac est débranché et en décharge, Alter rétablit la veille normale à ou en dessous de ce niveau (par défaut **20%**, réglable de **5%** à **50%** par pas de 5 %). La disponibilité couvercle fermé se réactive après une charge au-dessus de la limite.
+- **Mettre en pause en mode Économie d'énergie** — Toujours respecté tant que le Low Power Mode macOS est activé.
+
+Désactiver l'interrupteur principal conserve l'autorisation administrateur installée, pour pouvoir la réactiver sans nouvelle invite. Utilisez **Retirer l'autorisation administrateur…** dans **Options…** pour la révoquer entièrement.
+
+<Warning>
+  La disponibilité couvercle fermé modifie un réglage de veille macOS protégé. Alter exécute aussi un moniteur de sécurité qui rétablit la veille normale si l'app s'arrête de façon inattendue. Les Gateways exigent toujours qu'Alter soit en cours d'exécution — cette fonctionnalité maintient le Mac éveillé, pas Alter fermé.
+</Warning>
+
+## Quelles actions fonctionnent sur les Gateways ?
+
+Les actions **optent** pour les plateformes externes. Dans l'**Action Editor**, ouvrez **Model → Gateways → Gateways autorisés** :
+
+- **`discord`** — disponible sur les gateways Discord uniquement
+- **`telegram`** — disponible sur les gateways Telegram uniquement
+- **`*`** — disponible sur tous les gateways
+- **Vide** — local uniquement (Hub, QuickHub, etc.)
+
+<Tip>
+  L'action incluse **Ask Anything** est activée sur **Discord** et **Telegram** par défaut — c'est la **Action par défaut** habituelle pour les nouveaux gateways. Les actions personnalisées ont besoin de `discord`, `telegram` ou `*` dans **Gateways autorisés**.
+</Tip>
+
+Les utilisateurs peuvent toujours changer d'action par conversation avec `/new [action]` tant que cette action est autorisée sur la plateforme.
+
+## Commandes et contrôles de chat
+
+Discord et Telegram prennent en charge les mêmes commandes texte (saisissez-les comme messages normaux). Sur Telegram, les commandes fonctionnent aussi avec un suffixe bot comme `/help@YourBotName`.
+
+| Commande | Action |
+|---------|--------------|
+| `/help` ou `/start` | Liste les commandes disponibles et affiche les boutons d'action rapide |
+| `/status` | Affiche la default action et si une conversation est sélectionnée |
+| `/actions` | Liste les actions activées pour cette plateforme (Discord : jusqu'à 40 ; sélecteur Telegram : jusqu'à 20) |
+| `/new [action]` ou `/action [action]` | Démarre une nouvelle conversation avec l'action indiquée |
+| `/chats [limit] [page]` | Liste les conversations Alter enregistrées (limite 1–25, défaut 10 pour les commandes texte) |
+| `/use <number>` | Sélectionne une conversation depuis la dernière page `/chats` |
+| `/history [limit]` | Affiche les messages récents de la conversation sélectionnée (limite 1–40, défaut 12) |
+| `/stop` | Arrête la réponse en cours d'Alter dans ce canal ou chat |
+
+Sur **Discord**, Alter enregistre aussi les slash commands natifs (`/help`, `/new`, `/actions`, `/chats`, `/history`, `/stop`, `/status`) lorsque le bot se connecte. Si vous définissez un **Server ID**, les commandes s'enregistrent uniquement pour ce serveur ; sinon, elles s'enregistrent globalement pour l'application bot.
+
+Les deux plateformes exposent aussi des **boutons** pour les tâches courantes — par exemple **New chat**, **Choose action** et **Past chats** sur `/help`. Telegram utilise des claviers inline ; Discord utilise des composants de message. Lorsqu'une action utilise l'outil **Ask User**, Alter présente des questions à choix multiples via ces mêmes contrôles interactifs (et accepte les réponses saisies pour les réponses « Other »).
+
+Tout message qui n'est pas une commande est traité comme un tour de chat dans la conversation en cours.
+
+## Utilisation quotidienne
+
+1. Gardez **Alter en cours d'exécution** sur votre Mac avec le gateway **Activé**. Sur un MacBook, activez **Maintenir les Gateways en ligne avec le couvercle fermé** si vous voulez que les bots restent connectés couvercle fermé.
+2. Envoyez un message au bot sur Discord ou Telegram (ou `@mention` sur les serveurs Discord lorsque **Exiger une mention dans les serveurs** est activé).
+3. Alter affiche un placeholder **Thinking…** pendant l'exécution de l'action, puis se met à jour avec la réponse diffusée. Dans les DM Telegram, Alter peut diffuser via l'aperçu brouillon natif de Telegram lorsque pris en charge ; dans les groupes, il modifie un message normal.
+4. Joignez des fichiers dans Discord ou Telegram — Alter les télécharge pour le tour et peut envoyer les fichiers de sortie des outils. Les **voice messages** et **audio files** sont transcrits avec votre processeur vocal sélectionné (**Préférences → Voice**) et envoyés à Alter sous forme de texte ; l'audio plus long est aussi joint comme contexte de transcription type réunion.
+5. Utilisez `/stop`, le bouton **Stop** (groupes Telegram et Discord), ou attendez la fin du tour avant d'envoyer un autre message dans le même canal ou chat.
+
+### Une réponse à la fois
+
+Alter gère **une réponse en cours par canal ou chat**. Si un second message arrive pendant qu'Alter répond encore, le bot indique qu'Alter répond déjà dans ce canal ou chat. Attendez la fin du tour en cours, puis renvoyez.
+
+### Continuité des conversations
+
+Chaque canal Discord ou chat Telegram peut avoir une conversation Alter active. Utilisez `/new` pour repartir à zéro, ou `/chats` et `/use` pour reprendre une conversation Alter existante sur votre Mac.
+
+Sur Discord, activer **Démarrer les discussions serveur dans des fils** donne à chaque nouveau message de premier niveau du serveur son propre fil et chat Alter. Les réponses dans un fil existant continuent ce chat au lieu d'en démarrer un autre.
+
+## Confidentialité et données
+
+- Les bot tokens sont stockés dans le **macOS Keychain**, pas dans des fichiers de paramètres en texte clair.
+- La configuration gateway (noms, listes d'accès, default actions) est stockée localement dans les préférences Alter sur votre Mac.
+- L'état par canal (conversation sélectionnée, action en attente) est stocké dans le dossier Application Support d'Alter.
+- Le traitement des messages utilise la même pile Alter locale que le Hub — il n'y a pas de relais cloud séparé pour le trafic gateway.
+
+Voir aussi [Données locales et confidentialité](/references/local-data-and-privacy).
+
+## Dépannage
+
+### Connexion et tokens
+
+| Symptôme | Que faire |
+|---------|-------------|
+| *A Discord/Telegram bot token is required before enabling this gateway.* | Collez un token dans **Connexion → Jeton du bot** avant d'activer **Activé**. |
+| *Discord rejected the bot token* | Copiez un token neuf depuis le [Discord Developer Portal](https://discord.com/developers/applications) → votre app → **Bot** → **Reset Token**. |
+| *Enable Message Content Intent…* (Discord code 4014) | Dans le Developer Portal, ouvrez votre app → **Bot** → activez **Message Content Intent** sous **Privileged Gateway Intents**. Voir [Discord privileged intents](https://discord.com/developers/docs/events/gateway#privileged-intents). |
+| *Telegram rejected the bot token* | Copiez un token neuf depuis [@BotFather](https://t.me/BotFather) (`/token` pour un bot existant). |
+| *Telegram polling is already active for this bot token* | Un seul client peut interroger un bot token à la fois. Désactivez les autres gateways Telegram Alter utilisant le même token, supprimez tout webhook sur le bot, ou révoquez et remplacez le token dans BotFather. |
+| *Telegram is rate-limiting this gateway* | Attendez un moment et réessayez. Alter réessaie automatiquement ; évitez les enregistrements ou redémarrages répétés en rafale. |
+| *…is still connecting. Check the token and network connection.* | Vérifiez le token, l'accès réseau et qu'Alter reste ouvert. Cliquez **Enregistrer et redémarrer**. |
+
+### Utilisation
+
+| Symptôme | Que faire |
+|---------|-------------|
+| Bot en ligne mais pas de réponses sur un serveur Discord | Si **Exiger une mention dans les serveurs** est activé, `@mention` le bot. Vérifiez que le bot a **Send Messages** et **Read Message History** dans ce canal. Si **Démarrer les discussions serveur dans des fils** est activé, accordez aussi **Create Public Threads** et **Send Messages in Threads**. |
+| *I couldn't start a Discord thread for this discussion* | Les fils ne démarrent que depuis des canaux texte ou d'annonces du serveur. Vérifiez les permissions de fil ci-dessus, ou désactivez **Démarrer les discussions serveur dans des fils**. |
+| Messages ignorés sur Discord | Vérifiez que **ID du serveur (facultatif)** correspond au serveur utilisé. Confirmez que votre user ID est dans **ID utilisateur Discord autorisés** si la liste n'est pas vide. |
+| Messages ignorés sur Telegram | Confirmez que votre user ou chat ID est listé dans **ID utilisateur ou chat Telegram autorisés** si la liste n'est pas vide. |
+| *Action '…' is not enabled for Discord/Telegram* | Ouvrez l'action dans **Action Editor → Model → Gateways** et ajoutez la plateforme ou `*`. |
+| *No actions are enabled for Discord/Telegram* | Activez au moins une action pour la plateforme et définissez une **Action par défaut** valide sur le gateway. |
+| *Alter is already responding…* | Attendez la fin du tour en cours (jusqu'à environ 10 minutes), ou envoyez `/stop` / appuyez sur **Stop**. |
+
+### Disponibilité couvercle fermé
+
+| Symptôme | Que faire |
+|---------|-------------|
+| Les Gateways se déconnectent à la fermeture du MacBook | Activez **Maintenir les Gateways en ligne avec le couvercle fermé** dans **Préférences → Intégrations → Gateways** et cliquez **Autoriser…** lorsque demandé. |
+| *Autorisation administrateur requise* | Cliquez **Autoriser…** ou ouvrez **Options…** → **Autoriser Alter à maintenir les Gateways en ligne…** et approuvez l'invite macOS unique. |
+| Le statut affiche *Paused for low battery* | Branchez ou chargez au-dessus du seuil **Mettre en pause en dessous de** dans **Options…**. Alter rétablit la disponibilité couvercle fermé automatiquement après la charge. |
+| Le statut affiche *Paused for Low Power Mode* | Désactivez le Low Power Mode, ou acceptez la veille normale jusqu'à ce qu'il soit désactivé. |
+| Les Gateways s'arrêtent quand Alter quitte | La disponibilité couvercle fermé maintient le Mac éveillé — Alter doit toujours rester ouvert et en cours d'exécution. |
+
+### Notes de plateforme
+
+- **Alter doit être en cours d'exécution** — fermer Alter arrête les bots gateway jusqu'à la réouverture de l'app. Sur un MacBook, **Maintenir les Gateways en ligne avec le couvercle fermé** maintient le Mac éveillé pendant l'exécution des gateways, mais Alter doit rester ouvert.
+- **Les messages de bots sont ignorés** sur les deux plateformes.
+- **Discord** ajoute 👀 pendant le traitement de votre message, puis ✅ ou ❌ à la fin du tour. Les réactions ajoutées par les utilisateurs ne sont pas traitées comme commandes ou entrée de chat.
+- **Telegram** utilise le long polling pour les mises à jour `message` et `callback_query` (appuis clavier inline). Après un tour, Alter peut réagir avec 👍 ou 👎 à votre message. Les chats de groupe affichent un bouton **Stop** pendant les tours actifs.
+
+Pour des problèmes plus larges d'outils et d'autorisations, utilisez **Préférences → Doctor** ou [Tools not working](/common-issues/tool-not-working).
+
+## Pages connexes
+
+- [Configurer un Discord gateway](/apps-tools/gateways-discord)
+- [Configurer un Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions](/workflows/alter-actions) — configurer les actions et la disponibilité gateway
+- [Alter Settings](/how-to/settings-guide)
+- [Vue d'ensemble des intégrations](/apps-tools/integrations-overview)
+- [Guide API Gateway](/api-router/api-gateway) — API compatible OpenAI (séparée des Gateways de chat)

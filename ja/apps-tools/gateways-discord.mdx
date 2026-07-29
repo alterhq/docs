@@ -1,0 +1,219 @@
+---
+title: "Discord gateway を設定"
+description: "Discord ボットを作成し、Alter Gateways に接続する"
+---
+
+このガイドを使用して、Discord ボットを作成し、Alter に必要な権限を付与し、**設定 → Integrations → Gateways** で接続します。
+
+<Info>
+  Alter connects to Discord as a **bot** using a **bot token**. You create the bot in the [Discord Developer Portal](https://discord.com/developers/applications); Alter does not generate an invite URL for you — you add the bot to your server from the portal.
+</Info>
+
+## 始める前に
+
+- アプリケーションを作成する (およびターゲット サーバーにボットを追加する) 権限を持つ Discord アカウント。
+- **Alter** が Mac にインストールされ、実行されています。
+- トークンと ID をコピーするのに数分 — ボット トークンをパスワードのように扱います。
+
+公式参考文献:
+
+- [Discord Developer Portal](https://discord.com/developers/applications)
+- [Discord quick start — overview of apps](https://discord.com/developers/docs/quick-start/overview-of-apps)
+
+## ステップ 1 — Discord アプリケーションを作成する
+
+<Steps>
+  <Step title="Open the Developer Portal">
+    Go to [discord.com/developers/applications](https://discord.com/developers/applications) and sign in.
+  </Step>
+  <Step title="New Application">
+    Click **New Application**, choose a name (for example `Alter`), and confirm.
+
+    <Frame>
+      ![Discord Developer Portal — General Information page after creating an application](/images/gateways/discord/create-app.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Open the Bot page">
+    In the left sidebar, select **Bot**, then click **Add Bot** (or **Reset Token** if you already created one).
+
+    <Frame>
+      ![Discord Developer Portal — Bot page with Add Bot button](/images/gateways/discord/add-bot.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+</Steps>
+
+## ステップ 2 — Message Content Intent を有効にする
+
+Alter はサーバーと DM のメッセージ テキストを読み取る必要があります。 Discord では、Developer Portal でこれを明示的にオンにする必要があります。
+
+<Steps>
+  <Step title="Open Bot settings">
+    In your application, go to **Bot**.
+  </Step>
+  <Step title="Enable Message Content Intent">
+    Under **Privileged Gateway Intents**, turn on **Message Content Intent**.
+
+    <Frame>
+      ![Discord Developer Portal — Privileged Gateway Intents with Message Content Intent enabled](/images/gateways/discord/message-content-intent.png)
+    </Frame>
+
+    *Source: [PyCord docs — Gateway Intents](https://docs.pycord.dev/en/master/intents.html)*
+  </Step>
+  <Step title="Save changes">
+    Confirm any prompts. Without this intent, Alter cannot read messages and shows an error such as *Enable Message Content Intent for this bot*.
+  </Step>
+</Steps>
+
+## ステップ 3 — ボット トークンをコピーする
+
+<Steps>
+  <Step title="Reveal the token">
+    On the **Bot** page, click **Reset Token** (first-time setup) or **Copy** under **Token**.
+
+    <Frame>
+      ![Discord Developer Portal — Bot トークン section with Reset Token](/images/gateways/discord/created-bot.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Store it securely">
+    Paste the token somewhere safe temporarily — you will enter it in Alter in a later step. If it leaks, use **Reset Token** in the portal and update Alter.
+  </Step>
+</Steps>
+
+<Warning>
+  Never commit or share your bot token. Anyone with the token can control your bot.
+</Warning>
+
+## ステップ 4 — ボットをサーバーに招待する
+
+Alter はアプリ内に招待リンクを構築しません。 Developer Portal で 1 つを生成します。
+
+<Steps>
+  <Step title="Open OAuth2 URL Generator">
+    In your application sidebar, go to **OAuth2** → **URL Generator**.
+  </Step>
+  <Step title="Select scopes">
+    Under **Scopes**, check **bot**.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator with bot scope selected](/images/gateways/discord/oauth2-bot-scope.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+  <Step title="Select bot permissions">
+    Under **Bot Permissions**, enable:
+
+    - **View Channels**
+    - **Send Messages**
+    - **Read Message History**
+    - **Attach Files**
+    - **Create Public Threads** and **Send Messages in Threads** (optional — only needed if you enable **サーバーでの議論をスレッドで開始** in Alter)
+
+    These let Alter read your messages, reply, send file outputs from tool runs, and optionally create discussion threads in server channels.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator bot permissions](/images/gateways/discord/oauth2-bot-permissions.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot). Select the permissions listed above — not Administrator.*
+  </Step>
+  <Step title="Copy and open the generated URL">
+    Copy the URL at the bottom, open it in your browser, choose your server, and authorize the bot.
+
+    Discord documents this flow in [Adding bots to servers](https://discord.com/developers/docs/topics/oauth2#bot-authorization-flow).
+
+    <Frame>
+      ![Discord bot authorization page when opening the generated invite URL](/images/gateways/discord/bot-auth-page.png)
+    </Frame>
+
+    *Source: [discord.js guide — Adding Your App](https://discordjs.guide/preparations/adding-your-app)*
+  </Step>
+</Steps>
+
+<Tip>
+  You need **Manage Server** (or equivalent) on the target Discord server to complete the invite.
+</Tip>
+
+## ステップ 5 — オプション: サーバー ID とユーザー ID をコピーします
+
+Alter と通信できるサーバーまたはユーザーを制限したい場合は、これらを使用します。
+
+<Steps>
+  <Step title="Enable Developer Mode in Discord">
+    In the Discord client: **User Settings → Advanced → Developer Mode** → on.
+
+    See [Discord's ID documentation](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID).
+  </Step>
+  <Step title="Copy Server ID">
+    Right-click your server icon → **Copy Server ID**. Paste this into Alter's **サーバー ID（任意）** field to ignore messages from other servers.
+  </Step>
+  <Step title="Copy user IDs">
+    Right-click a user → **Copy User ID**. Use comma-separated IDs in **許可された Discord ユーザー ID** to allow only those people.
+  </Step>
+</Steps>
+
+ボットにメッセージを送信できる人を許可するには、**Server ID** と **許可された Discord ユーザー ID** を空のままにしておきます (Discord チャネルの権限に従う)。
+
+## Alter で接続
+
+<Steps>
+  <Step title="Gateways 設定を開く">
+    **設定** (⌘,) → **Integrations** → **Gateways** を開きます。他の開き方は [Gateways 概要](/apps-tools/gateways#open-gateways-settings) を参照してください。
+  </Step>
+  <Step title="Discord Gateway を追加">
+    **Gateway を追加** → **Discord** をクリックします。Alter がリストに新しい Gateway エントリを作成します。
+  </Step>
+  <Step title="接続フィールドを入力">
+    | フィールド | 入力内容 |
+    |-------|----------------|
+    | **名前** | 識別しやすいラベル（例：`Discord — 仕事用サーバー`）。 |
+    | **Bot トークン** | **ステップ 3** のトークン。先頭の `Bot ` プレフィックスの有無どちらも Alter は受け付けます。 |
+    | **サーバー ID（任意）** | **ステップ 5** の guild ID、または bot が参加している任意のサーバー向けに空のまま。設定すると Alter はそのサーバー専用に slash コマンドを登録します。 |
+    | **準備完了メッセージチャンネル ID（任意）** | 接続成功後に Alter が「Hey, I'm up and running.»を投稿するチャンネル ID。 |
+    | **許可された Discord ユーザー ID** | カンマ区切りのユーザー ID、または空でオープンアクセス。`*` で全員を明示的に許可。 |
+    | **サーバーでメンションを必須にする** | オンの場合、サーバーチャンネルでは `@mention` 時のみ応答します。DM は変わりません。 |
+  </Step>
+  <Step title="デフォルト Action とスレッド動作を選択">
+    **Ask Anything** がデフォルトで、Discord ですぐ使えます。カスタム Action には **Action Editor → Model → Gateways → 許可された Gateways** に `discord` または `*` を追加します。
+
+    **動作** で、必要に応じて **サーバーでの議論をスレッドで開始** をオンにすると、各新しいサーバートップレベルメッセージに専用 Discord スレッドと Alter チャットが付きます。既存スレッド内のメッセージはそのチャットを継続します。DM は変わりません。使用する場合は bot 招待時（**ステップ 4**）に **Create Public Threads** と **Send Messages in Threads** を付与してください。
+  </Step>
+  <Step title="有効化して保存">
+    **有効** をオンにし、**保存して再起動** をクリックします。**接続済み bot …** や **@… として接続済み** などのステータスを待ちます。
+  </Step>
+</Steps>
+
+接続に失敗する場合は [Gateways トラブルシューティング](/apps-tools/gateways#troubleshooting) を参照してください。
+
+## ボットをテスト
+
+<Steps>
+  <Step title="Alter が実行中であることを確認">
+    Gateways は Alter が Mac 上で開いている間のみ動作します。
+  </Step>
+  <Step title="/help を送信">
+    DM またはサーバーチャンネルで `/help` を送信（または Discord の `/help` slash コマンドを使用）。bot がコマンドを一覧表示し、**New chat**、**Choose action**、**Past chats** ボタンを表示するはずです。
+  </Step>
+  <Step title="メッセージを送信">
+    通常メッセージを送信（**サーバーでメンションを必須にする** がオンのサーバーでは bot を `@mention`）。Alter は 👀 で反応し、**Thinking…** を表示してから回答をストリームし、完了時に ✅ または ❌ で反応します。
+  </Step>
+  <Step title="/new を試す">
+    `/new` で **デフォルト Action** の新しい会話を開始、または `/new ask-anything` で特定の Action ID を指定。
+  </Step>
+  <Step title="音声メッセージを試す">
+    Discord **ボイスメッセージ** を送るか、音声ファイルを添付します。Alter は選択した音声プロセッサ（**設定 → Voice**）で文字起こしし、テキストをアクティブ Action に送ります。
+  </Step>
+</Steps>
+
+## 関連ページ
+
+- [Gateways overview](/apps-tools/gateways)
+- [Set up a Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions — 許可された Gateways](/workflows/alter-actions)
+- [Alter Settings](/how-to/settings-guide)

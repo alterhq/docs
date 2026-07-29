@@ -1,0 +1,219 @@
+---
+title: "Discord gateway einrichten"
+description: "Erstellen Sie einen Discord-Bot und verbinden Sie ihn mit Alter Gateways"
+---
+
+Verwenden Sie diese Anleitung, um einen Discord-Bot zu erstellen, die Berechtigungen zu erteilen, die Alter benötigt, und ihn unter **Einstellungen → Integrationen → Gateways** zu verbinden.
+
+<Info>
+  Alter connects to Discord as a **bot** using a **bot token**. You create the bot in the [Discord Developer Portal](https://discord.com/developers/applications); Alter does not generate an invite URL for you — you add the bot to your server from the portal.
+</Info>
+
+## Bevor Sie beginnen
+
+- Ein Discord-Konto mit der Berechtigung zum Erstellen von Anwendungen (und zum Hinzufügen von Bots zu Ihrem Zielserver).
+- **Alter** auf Ihrem Mac installiert und ausgeführt.
+- Ein paar Minuten zum Kopieren von Tokens und IDs – behandeln Sie Bot-Tokens wie Passwörter.
+
+Offizielle Referenzen:
+
+- [Discord Developer Portal](https://discord.com/developers/applications)
+- [Discord quick start — overview of apps](https://discord.com/developers/docs/quick-start/overview-of-apps)
+
+## Schritt 1 – Erstellen Sie eine Discord-Anwendung
+
+<Steps>
+  <Step title="Open the Developer Portal">
+    Go to [discord.com/developers/applications](https://discord.com/developers/applications) and sign in.
+  </Step>
+  <Step title="New Application">
+    Click **New Application**, choose a name (for example `Alter`), and confirm.
+
+    <Frame>
+      ![Discord Developer Portal — General Information page after creating an application](/images/gateways/discord/create-app.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Open the Bot page">
+    In the left sidebar, select **Bot**, then click **Add Bot** (or **Reset Token** if you already created one).
+
+    <Frame>
+      ![Discord Developer Portal — Bot page with Add Bot button](/images/gateways/discord/add-bot.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+</Steps>
+
+## Schritt 2 – Message Content Intent aktivieren
+
+Alter muss Nachrichtentexte in Servern und DMs lesen. Discord erfordert, dass Sie dies explizit im Developer Portal aktivieren.
+
+<Steps>
+  <Step title="Open Bot settings">
+    In your application, go to **Bot**.
+  </Step>
+  <Step title="Enable Message Content Intent">
+    Under **Privileged Gateway Intents**, turn on **Message Content Intent**.
+
+    <Frame>
+      ![Discord Developer Portal — Privileged Gateway Intents with Message Content Intent enabled](/images/gateways/discord/message-content-intent.png)
+    </Frame>
+
+    *Source: [PyCord docs — Gateway Intents](https://docs.pycord.dev/en/master/intents.html)*
+  </Step>
+  <Step title="Save changes">
+    Confirm any prompts. Without this intent, Alter cannot read messages and shows an error such as *Enable Message Content Intent for this bot*.
+  </Step>
+</Steps>
+
+## Schritt 3 – Kopieren Sie das Bot-Token
+
+<Steps>
+  <Step title="Reveal the token">
+    On the **Bot** page, click **Reset Token** (first-time setup) or **Copy** under **Token**.
+
+    <Frame>
+      ![Discord Developer Portal — Bot-Token section with Reset Token](/images/gateways/discord/created-bot.png)
+    </Frame>
+
+    *Source: [discord.js guide — Application Setup](https://discordjs.guide/preparations/app-setup)*
+  </Step>
+  <Step title="Store it securely">
+    Paste the token somewhere safe temporarily — you will enter it in Alter in a later step. If it leaks, use **Reset Token** in the portal and update Alter.
+  </Step>
+</Steps>
+
+<Warning>
+  Never commit or share your bot token. Anyone with the token can control your bot.
+</Warning>
+
+## Schritt 4 – Laden Sie den Bot auf Ihren Server ein
+
+Alter erstellt keinen Einladungslink innerhalb der App. Generieren Sie eines im Developer Portal:
+
+<Steps>
+  <Step title="Open OAuth2 URL Generator">
+    In your application sidebar, go to **OAuth2** → **URL Generator**.
+  </Step>
+  <Step title="Select scopes">
+    Under **Scopes**, check **bot**.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator with bot scope selected](/images/gateways/discord/oauth2-bot-scope.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot)*
+  </Step>
+  <Step title="Select bot permissions">
+    Under **Bot Permissions**, enable:
+
+    - **View Channels**
+    - **Send Messages**
+    - **Read Message History**
+    - **Attach Files**
+    - **Create Public Threads** and **Send Messages in Threads** (optional — only needed if you enable **Serverdiskussionen in Threads starten** in Alter)
+
+    These let Alter read your messages, reply, send file outputs from tool runs, and optionally create discussion threads in server channels.
+
+    <Frame>
+      ![Discord Developer Portal — OAuth2 URL Generator bot permissions](/images/gateways/discord/oauth2-bot-permissions.png)
+    </Frame>
+
+    *Source: [Stack Overflow — permanent OAuth invite for a Discord bot](https://stackoverflow.com/questions/68218211/how-do-you-create-a-permanent-oauth-invite-for-your-discord-bot). Select the permissions listed above — not Administrator.*
+  </Step>
+  <Step title="Copy and open the generated URL">
+    Copy the URL at the bottom, open it in your browser, choose your server, and authorize the bot.
+
+    Discord documents this flow in [Adding bots to servers](https://discord.com/developers/docs/topics/oauth2#bot-authorization-flow).
+
+    <Frame>
+      ![Discord bot authorization page when opening the generated invite URL](/images/gateways/discord/bot-auth-page.png)
+    </Frame>
+
+    *Source: [discord.js guide — Adding Your App](https://discordjs.guide/preparations/adding-your-app)*
+  </Step>
+</Steps>
+
+<Tip>
+  You need **Manage Server** (or equivalent) on the target Discord server to complete the invite.
+</Tip>
+
+## Schritt 5 – Optional: Server- und Benutzer-IDs kopieren
+
+Verwenden Sie diese, wenn Sie einschränken möchten, welcher Server oder welche Benutzer mit Alter kommunizieren können.
+
+<Steps>
+  <Step title="Enable Developer Mode in Discord">
+    In the Discord client: **User Settings → Advanced → Developer Mode** → on.
+
+    See [Discord's ID documentation](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID).
+  </Step>
+  <Step title="Copy Server ID">
+    Right-click your server icon → **Copy Server ID**. Paste this into Alter's **Server-ID (optional)** field to ignore messages from other servers.
+  </Step>
+  <Step title="Copy user IDs">
+    Right-click a user → **Copy User ID**. Use comma-separated IDs in **Erlaubte Discord-Benutzer-IDs** to allow only those people.
+  </Step>
+</Steps>
+
+Lassen Sie **Server ID** und **Erlaubte Discord-Benutzer-IDs** leer, um jedem zu erlauben, dem Bot eine Nachricht zu senden (vorbehaltlich der Kanalberechtigungen Discord).
+
+## Verbinden Sie sich in Alter
+
+<Steps>
+  <Step title="Gateways-Einstellungen öffnen">
+    Öffnen Sie **Einstellungen** (⌘,) → **Integrationen** → **Gateways**. Weitere Wege finden Sie in der [Gateways-Übersicht](/apps-tools/gateways#open-gateways-settings).
+  </Step>
+  <Step title="Discord-Gateway hinzufügen">
+    Klicken Sie **Gateway hinzufügen** → **Discord**. Alter legt einen neuen Gateway-Eintrag in der Liste an.
+  </Step>
+  <Step title="Verbindungsfelder ausfüllen">
+    | Feld | Eingabe |
+    |-------|----------------|
+    | **Name** | Eine Bezeichnung, die Sie wiedererkennen (zum Beispiel `Discord — Arbeitsserver`). |
+    | **Bot-Token** | Das Token aus **Schritt 3**. Alter akzeptiert Tokens mit oder ohne führendes `Bot `-Präfix. |
+    | **Server-ID (optional)** | Ihre Guild-ID aus **Schritt 5** oder leer lassen für jeden Server, auf dem der Bot ist. Wenn gesetzt, registriert Alter Slash-Befehle nur für diesen Server. |
+    | **Kanal-ID für Bereitschaftsnachricht (optional)** | Eine Kanal-ID, in der Alter nach erfolgreicher Verbindung „Hey, I'm up and running.“ postet. |
+    | **Erlaubte Discord-Benutzer-IDs** | Kommagetrennte Benutzer-IDs oder leer lassen für offenen Zugriff. Verwenden Sie `*`, um explizit alle zu erlauben. |
+    | **Erwähnung in Servern erfordern** | Wenn aktiv, antwortet der Bot in Serverkanälen nur bei `@mention`. Direktnachrichten sind unverändert. |
+  </Step>
+  <Step title="Standardaktion und Thread-Verhalten wählen">
+    **Ask Anything** ist die Voreinstellung und funktioniert sofort auf Discord. Für eine benutzerdefinierte Action fügen Sie `discord` oder `*` unter **Action Editor → Model → Gateways → Erlaubte Gateways** hinzu.
+
+    Unter **Verhalten** können Sie optional **Serverdiskussionen in Threads starten** aktivieren, damit jede neue Top-Level-Servernachricht einen eigenen Discord-Thread und Alter-Chat erhält. Nachrichten in einem bestehenden Thread setzen diesen Chat fort. DMs bleiben unverändert. Wenn Sie dies nutzen, gewähren Sie beim Einladen des Bots (**Schritt 4**) **Create Public Threads** und **Send Messages in Threads**.
+  </Step>
+  <Step title="Aktivieren und speichern">
+    Schalten Sie **Aktiviert** ein und klicken Sie **Speichern und neu starten**. Warten Sie auf einen Status wie **Verbunden als bot …** oder **Verbunden als @…**.
+  </Step>
+</Steps>
+
+Wenn die Verbindung fehlschlägt, siehe [Gateways-Fehlerbehebung](/apps-tools/gateways#troubleshooting).
+
+## Testen Sie den Bot
+
+<Steps>
+  <Step title="Alter läuft bestätigen">
+    Gateways funktionieren nur, während Alter auf Ihrem Mac geöffnet ist.
+  </Step>
+  <Step title="/help senden">
+    Senden Sie in einer DM oder einem Serverkanal `/help` (oder nutzen Sie Discords `/help`-Slash-Befehl). Der Bot sollte Befehle auflisten und Schaltflächen **New chat**, **Choose action** und **Past chats** anzeigen.
+  </Step>
+  <Step title="Nachricht senden">
+    Senden Sie eine normale Nachricht (oder `@mention` Sie den Bot in einem Server, wenn **Erwähnung in Servern erfordern** aktiv ist). Alter reagiert mit 👀, zeigt **Thinking…** und streamt die Antwort; danach ✅ oder ❌.
+  </Step>
+  <Step title="/new ausprobieren">
+    Führen Sie `/new` aus, um eine neue Unterhaltung mit der **Standardaktion** zu starten, oder `/new ask-anything` für eine bestimmte Action-ID.
+  </Step>
+  <Step title="Sprachnachrichten testen">
+    Senden Sie eine Discord-**Sprachnachricht** oder hängen Sie eine Audiodatei an. Alter transkribiert sie mit Ihrem gewählten Sprachprozessor (**Einstellungen → Voice**) und sendet den Text an die aktive Action.
+  </Step>
+</Steps>
+
+## Verwandte Seiten
+
+- [Gateways overview](/apps-tools/gateways)
+- [Set up a Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions — Erlaubte Gateways](/workflows/alter-actions)
+- [Alter Settings](/how-to/settings-guide)
