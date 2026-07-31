@@ -177,11 +177,14 @@ Laissez **Server ID** et **ID utilisateur Discord autorisés** vides pour autori
     | **ID du canal de message de disponibilité (facultatif)** | ID de canal où Alter publie « Hey, I'm up and running. » après connexion réussie. |
     | **ID utilisateur Discord autorisés** | User IDs séparés par des virgules, ou vide pour accès ouvert. Utilisez `*` pour autoriser tout le monde explicitement. |
     | **Exiger une mention dans les serveurs** | Quand activé, le bot ne répond dans les canaux serveur que lorsqu'il est `@mentioned`. Les DM ne sont pas affectés. |
+
+
+    Un lien **Guide de configuration gateway Discord** en bas de la section Connection ouvre cette page dans votre navigateur.
   </Step>
   <Step title="Choisir Action par défaut et comportement des fils">
-    **Ask Anything** est la valeur par défaut et fonctionne sur Discord immédiatement. Pour une action personnalisée, ajoutez `discord` ou `*` sous **Action Editor → Model → Gateways → Gateways autorisés**.
+    **Ask Anything** est la valeur par défaut et fonctionne sur Discord immédiatement. Pour une action personnalisée, définissez **Disponibilité** sur **Discord** ou **Tous** sous **Action Editor → Gateways**.
 
-    Sous **Behavior**, activez éventuellement **Démarrer les discussions serveur dans des fils** pour que chaque nouveau message de premier niveau du serveur ait son fil Discord et chat Alter. Les messages déjà dans un fil continuent ce chat. Les DM restent inchangés. Si vous utilisez ceci, accordez **Create Public Threads** et **Send Messages in Threads** lors de l'invitation du bot (**Étape 4**).
+    Sous **Behavior**, **Démarrer les discussions serveur dans des fils** est **activé par défaut** pour les nouveaux gateways Discord — chaque nouveau message de premier niveau dans un serveur obtient son propre fil Discord et chat Alter. Les messages déjà dans un fil continuent ce chat. Les MP sont inchangés. Désactivez si vous préférez les réponses dans le canal principal. Si vous le gardez activé, accordez **Create Public Threads** et **Send Messages in Threads** lors de l'invitation du bot (**Étape 4**).
   </Step>
   <Step title="Activer et enregistrer">
     Activez **Activé**, puis cliquez **Enregistrer et redémarrer**. Attendez un statut du type **Connecté en tant que bot …** ou **Connecté en tant que @…**.
@@ -214,5 +217,5 @@ Si la connexion échoue, voir [Dépannage Gateways](/apps-tools/gateways#trouble
 
 - [Vue d'ensemble Gateways](/apps-tools/gateways)
 - [Configurer un Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions — Gateways autorisés](/workflows/alter-actions)
+- [Alter Actions — Disponibilité des Gateways](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

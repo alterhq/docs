@@ -368,9 +368,10 @@ Gateways ページ上部：
 | Section | Fields |
 |---------|--------|
 | General | **名前**, **有効** |
-| Connection (Discord) | **Bot トークン**, **サーバー ID（任意）**, **許可された Discord ユーザー ID**, **サーバーでメンションを必須にする** |
-| Connection (Telegram) | **Bot トークン**, **許可された Telegram ユーザーまたはチャット ID** |
-| Behavior | **デフォルト Action** — この gateway で新しい会話に使う action |
+| Connection (Discord) | **Bot トークン**, **サーバー ID（任意）**, **準備完了メッセージチャンネル ID（任意）**, **許可された Discord ユーザー ID**, **サーバーでメンションを必須にする**, **Discord Gateway セットアップガイド** リンク |
+| Connection (Telegram) | **Bot トークン**, **許可された Telegram ユーザーまたはチャット ID**, **Telegram Gateway セットアップガイド** リンク |
+| Behavior | **デフォルト Action** — この gateway で新しい会話に使う Action；**サーバーでの議論をスレッドで開始**（Discord のみ、新しい Gateway ではデフォルトでオン） |
+| 利用可能な Action | このプラットフォームで有効な Action を一覧；クリックで **Action Editor → Gateways** を開く |
 | Footer | **Delete gateway**, **保存して再起動**, connection status |
 
 Bot トークン は macOS Keychain に保存されます。**保存して再起動** 後、ステータス行にボット接続の成否が表示されます（例：**@username として接続済み**）。
@@ -630,6 +631,12 @@ Marketplace プロフィールに表示される任意の URL:
 - **Microphone** — ディクテーションと会議オーディオに必要
 - **Automation** — AppleScript 風自動化のための System Events アクセス。**Check Automation** をクリックするまで **Idle** で開始；Alter が権限を促しレポートを更新
 
+**Gateways**
+
+- **Configured gateways** — Gateway がない場合 **Idle**
+- Gateway ごと：**connection** ステータス（connected、connecting、reconnecting、failed、disabled）と **設定 → Integrations → Gateways** へのショートカット
+- Gateway ごと：**access** — 有効な Gateway に allowlist がない場合 **Warning**；設定済み ID に限定されている場合 **OK**
+
 **Voice Processor**
 
 - **Selected processor** — 現在の音声エンジン（Apple、cloud、Whisper など）と **設定 → Voice** へのリンク
@@ -675,6 +682,7 @@ Application Support、Alter Prompts、Caches、WebKit、HTTP Storage パスの�
 | ホットキーが動かない | [Keyboard Shortcut Not Working](/common-issues/hotkey-not-working) |
 | マイクが文字起こししない | [Microphone Not Working](/common-issues/mic-not-transcribing) |
 | ツールまたは MCP の失敗 | [Tools Not Working](/common-issues/tool-not-working) + Doctor の **Tools** セクション |
+| Gateway 接続またはアクセスの問題 | Doctor **Gateways** セクション + [Gateways トラブルシューティング](/apps-tools/gateways#troubleshooting) |
 | Computer Use の権限エラー | Doctor の **Permissions** + [Computer use settings](/how-to/settings-guide#computer-use) |
 
 ## 関連ドキュメント

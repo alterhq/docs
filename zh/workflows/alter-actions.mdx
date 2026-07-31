@@ -184,6 +184,25 @@ Explanation detail: {{ detailLevel }};
   - **0.5** - 平衡（默认）
   - **1.0** - 创意（不可预测，探索性）
 
+### 8. Gateways
+
+选择此 Action 是否可通过 **Discord** 和 **Telegram** Gateway 使用。
+
+**可用性** — 单选选项：
+
+| 设置 | 效果 |
+|---------|--------|
+| **无** | 仅本地（Hub、QuickHub 等） |
+| **Discord** | 可通过 Discord Gateway 使用 |
+| **Telegram** | 可通过 Telegram Gateway 使用 |
+| **全部** | 可通过所有 Gateway 使用 |
+
+内置 **Ask Anything** Action 默认为 **全部**。自定义 Action 默认 **无**，直到启用某平台或 **全部**。若只要本地使用，将 Ask Anything 设为 **无**。
+
+在 Gateway 上，**无参数 Action**（无输入字段）从 **Choose action** 选择后会立即运行；**有参数 Action** 会等待用户下一条消息。
+
+参见 [Gateways](/apps-tools/gateways) 了解设置、聊天命令和 Gateway 设置。
+
 ## 最佳实践
 
 <CardGroup cols={2}>

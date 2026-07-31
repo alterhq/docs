@@ -62,7 +62,7 @@ Gateways ページには構成済みの Gateway がすべて表示されます�
 | **名前** | Gateway 一覧に表示されるラベル（例：「Team Discord」「Personal Telegram」）。 |
 | **有効** | 接続のオン/オフ。有効化前に bot token が必要です。 |
 | **デフォルト Action** | この Gateway で新しい会話が始まるときに使う Alter Action。 |
-| **サーバーでの議論をスレッドで開始**（Discord のみ） | オンにすると、サーバーの新しいトップレベルメッセージごとに Discord スレッドと別の Alter チャットが開始されます。既存スレッド内のメッセージはそのチャットを継続します。DM は変わりません。 |
+| **サーバーでの議論をスレッドで開始**（Discord のみ） | オンにすると、サーバーの新しいトップレベルメッセージごとに Discord スレッドと別の Alter チャットが開始されます。既存スレッド内のメッセージはそのチャットを継続します。DM は変わりません。 新しい Discord Gateway では**デフォルトでオン**です。 |
 | **保存して再起動** | 認証情報を保存し、ボットを再接続します。 |
 
 プラットフォーム固有の **接続** フィールドはセットアップガイドに記載されています：
@@ -99,20 +99,29 @@ Alter はバッテリー寿命を守るため、蓋を閉じた状態の可用�
 
 ## Gateway で使える Action
 
-Action は外部プラットフォームに**オプトイン**します。**Action Editor** で **Model → Gateways → 許可された Gateways** を開きます：
+可用性 で外部プラットフォームに**オプトイン**します。**Action Editor** で **Gateways** セクションを開き、**可用性** を選択します：
 
-- **`discord`** — Discord Gateway のみ
-- **`telegram`** — Telegram Gateway のみ
-- **`*`** — すべての Gateway
-- **空** — ローカルのみ（Hub、QuickHub など）
+| 設定 | Action の実行場所 |
+|---------|------------------------|
+| **なし** | ローカルのみ（Hub、QuickHub など） |
+| **Discord** | Discord Gateway のみ |
+| **Telegram** | Telegram Gateway のみ |
+| **すべて** | すべての Gateway |
 
 <Tip>
-  同梱の **Ask Anything** Action はデフォルトで **Discord** と **Telegram** で有効です — 新しい Gateway の一般的な **デフォルト Action** です。カスタム Action には **許可された Gateways** に `discord`、`telegram`、または `*` が必要です。
+  同梱の **Ask Anything** Action は **すべて** がデフォルトです — 新しい Gateway の一般的な **デフォルト Action** です。ローカルのみにしたい場合は Ask Anything を **なし** に設定してください。カスタム Action は **なし** から始まり、プラットフォームまたは **すべて** を有効にするまで Gateway では使えません。
 </Tip>
 
-その Action がプラットフォームで許可されていれば、ユーザーは `/new [action]` で会話ごとに Action を切り替えられます。
+**設定 → Integrations → Gateways** では、各 Gateway にそのプラットフォーム向けの **利用可能な Action** リストが表示されます。有効な Action を確認し、リストから **Action Editor → Gateways** を直接開けます。
 
-## チャットコマンドと操作
+プラットフォームで許可されている Action なら、`/new [action]` や **Choose action** ピッカーで会話ごとに Action を切り替えられます。
+
+### パラメータなしとパラメータありの Action
+
+**Choose action**（または `/actions`）で Action を選んだとき：
+
+- **パラメータなし Action**（Action Editor に入力フィールドがない）は**すぐに開始** — 設定済みプロンプトで Action を実行します（Hub のワンクリック起動と同じ）。
+- **パラメータあり Action**（入力フィールドあり）は**新しい会話**を開始し、ユーザーが入力を送るまで次のメッセージを待ちます。## チャットコマンドと操作
 
 Discord と Telegram は同じテキストコマンドをサポートします（通常のメッセージとして入力）。Telegram では `/help@YourBotName` のようなボット接尾辞でも動作します。
 
@@ -182,8 +191,9 @@ Discord で **サーバーでの議論をスレッドで開始** を有効にす
 | *I couldn't start a Discord thread for this discussion* | スレッドはサーバーのテキストまたはアナウンスチャンネルからのみ開始。**サーバーでの議論をスレッドで開始** をオフにするか、上記スレッド権限を確認。 |
 | Discord でメッセージが無視される | **サーバー ID（任意）** が使用中のサーバーと一致するか確認。**許可された Discord ユーザー ID** が空でない場合、user ID が含まれるか確認。 |
 | Telegram でメッセージが無視される | **許可された Telegram ユーザーまたはチャット ID** が空でない場合、user/chat ID がリストにあるか確認。 |
-| *Action '…' is not enabled for Discord/Telegram* | **Action Editor → Model → Gateways** で Action を開き、プラットフォームまたは `*` を追加。 |
+| *Action '…' is not enabled for Discord/Telegram* | **Action Editor → Gateways** で Action を開き、**可用性** をプラットフォームまたは **すべて** に設定。 |
 | *No actions are enabled for Discord/Telegram* | プラットフォーム用に少なくとも 1 つの Action を有効化し、Gateway に有効な **デフォルト Action** を設定。 |
+| *That action is no longer available on Discord/Telegram* | このプラットフォーム向けに Action が無効化されたか削除されました。別の Action を選ぶか、**Action Editor → Gateways** で再有効化してください。 |
 | *Alter is already responding…* | 現在のターン終了を待つ（最大約 10 分）、または `/stop` 送信 / **Stop** タップ。 |
 
 ### 蓋を閉じた状態での可用性
@@ -209,7 +219,7 @@ Discord で **サーバーでの議論をスレッドで開始** を有効にす
 
 - [Discord gateway を設定](/apps-tools/gateways-discord)
 - [Telegram gateway を設定](/apps-tools/gateways-telegram)
-- [Alter Actions](/workflows/alter-actions) — Action と Gateway 可用性の設定
+- [Alter Actions — Gateway 可用性](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)
 - [Integrations 概要](/apps-tools/integrations-overview)
 - [API Gateway ガイド](/api-router/api-gateway) — OpenAI 互換 API（チャット Gateways とは別）

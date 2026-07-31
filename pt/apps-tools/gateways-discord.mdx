@@ -178,11 +178,14 @@ Deixe **Server ID** e **IDs de utilizador Discord permitidos** vazios para permi
     | **ID do canal de mensagem de prontidão (opcional)** | ID de canal onde o Alter publica «Hey, I'm up and running.» após ligação bem-sucedida. |
     | **IDs de utilizador Discord permitidos** | User IDs separados por vírgulas, ou vazio para acesso aberto. Use `*` para permitir todos explicitamente. |
     | **Exigir menção em servidores** | Quando ativo, o bot só responde em canais de servidor quando `@mentioned`. DMs não são afetadas. |
+
+
+    Uma ligação **Guia de configuração Discord gateway** no final da secção Connection abre esta página no browser.
   </Step>
   <Step title="Escolher Ação predefinida e comportamento de threads">
-    **Ask Anything** é a predefinição e funciona no Discord de imediato. Para action personalizada, adicione `discord` ou `*` em **Action Editor → Model → Gateways → Gateways permitidos**.
+    **Ask Anything** é a predefinição e funciona no Discord de imediato. Para action personalizada, defina **Disponibilidade** como **Discord** ou **Todos** em **Action Editor → Gateways**.
 
-    Em **Behavior**, opcionalmente ative **Iniciar discussões do servidor em threads** para cada nova mensagem de topo do servidor ter o seu thread Discord e chat Alter. Mensagens já dentro de um thread continuam esse chat. DMs não mudam. Se usar isto, conceda **Create Public Threads** e **Send Messages in Threads** ao convidar o bot (**Passo 4**).
+    Em **Behavior**, **Iniciar discussões do servidor em threads** está **ativo por predefinição** para novos gateways Discord — cada nova mensagem de topo do servidor tem o seu thread Discord e chat Alter. Mensagens já dentro de um thread continuam esse chat. DMs não mudam. Desative se preferir respostas no canal principal. Se mantiver ativo, conceda **Create Public Threads** e **Send Messages in Threads** ao convidar o bot (**Passo 4**).
   </Step>
   <Step title="Ativar e guardar">
     Ligue **Ativado** e clique **Guardar e reiniciar**. Aguarde um estado como **Ligado como bot …** ou **Ligado como @…**.
@@ -215,5 +218,5 @@ Se a ligação falhar, consulte [Resolução de problemas Gateways](/apps-tools/
 
 - [Visão geral Gateways](/apps-tools/gateways)
 - [Configurar um Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions — Gateways permitidos](/workflows/alter-actions)
+- [Alter Actions — Disponibilidade em Gateways](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

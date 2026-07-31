@@ -184,12 +184,24 @@ Seleccione el modelo de IA y ajuste el nivel de creatividad.
   - **0,5** - Equilibrado (predeterminado)
   - **1.0** - Creativo (impredecible, exploratorio)
 
-**Section Gateways**
+### 8. Gateways
 
-- **Gateways permitidos** — Lista separada por comas: `discord`, `telegram` o `*` para todos los gateways. Déjalo vacío para mantener la acción solo local (Hub, QuickHub, etc.).
-- La acción incluida **Ask Anything** incluye **Discord** y **Telegram** por defecto. Las acciones personalizadas necesitan el nombre de la plataforma o `*` en **Gateways permitidos**.
+Elige si esta action está disponible desde los Gateways **Discord** y **Telegram**.
 
-Consulta [Gateways](/apps-tools/gateways) para configuración y comandos de chat.
+**Disponibilidad** — opciones de radio:
+
+| Ajuste | Efecto |
+|---------|--------|
+| **Ninguno** | Solo local (Hub, QuickHub, etc.) |
+| **Discord** | Disponible desde gateways Discord |
+| **Telegram** | Disponible desde gateways Telegram |
+| **Todos** | Disponible desde todos los gateways |
+
+La action incluida **Ask Anything** tiene **Todos** por defecto. Las actions personalizadas empiezan en **Ninguno** hasta activar una plataforma o **Todos**. Pon Ask Anything en **Ninguno** si la quieres solo local.
+
+En Gateways, las **actions sin parámetros** (sin campos de entrada) se ejecutan de inmediato al elegirlas en **Choose action**; las **actions parametrizadas** esperan el siguiente mensaje del usuario.
+
+Consulta [Gateways](/apps-tools/gateways) para configuración, comandos de chat y ajustes de gateway.(/apps-tools/gateways) para configuración y comandos de chat.
 
 ## Mejores prácticas
 

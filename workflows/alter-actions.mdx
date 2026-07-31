@@ -186,12 +186,24 @@ Select AI model and adjust creativity level.
   - **0.5** - Balanced (default)
   - **1.0** - Creative (unpredictable, exploratory)
 
-**Gateways subsection**
+### 8. Gateways
 
-- **Allowed gateways** — Comma-separated list: `discord`, `telegram`, or `*` for every gateway. Leave empty to keep the action local-only (Hub, QuickHub, etc.).
-- The bundled **Ask Anything** action includes **Discord** and **Telegram** by default. Custom actions need the platform name or `*` in **Allowed gateways**.
+Choose whether this action is available from **Discord** and **Telegram** Gateways.
 
-See [Gateways](/apps-tools/gateways) for setup and chat commands.
+**Availability** — Radio options:
+
+| Setting | Effect |
+|---------|--------|
+| **None** | Local-only (Hub, QuickHub, etc.) |
+| **Discord** | Available from Discord gateways |
+| **Telegram** | Available from Telegram gateways |
+| **All** | Available from every gateway |
+
+The bundled **Ask Anything** action defaults to **All**. Custom actions start on **None** until you enable a platform or **All**. Set Ask Anything to **None** if you want it local-only.
+
+On Gateways, **parameterless actions** (no input fields) run immediately when picked from **Choose action**; **parameterized actions** wait for the user's next message.
+
+See [Gateways](/apps-tools/gateways) for setup, chat commands, and gateway settings.
 
 ## Best Practices
 

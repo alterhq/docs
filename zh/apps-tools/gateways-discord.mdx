@@ -180,9 +180,9 @@ Alter 不会在应用程序内构建邀请链接。在Developer Portal中生成�
     | **在服务器中需要 @提及** | When on, the bot only responds in server channels when `@mentioned`. Direct messages are unaffected. |
   </Step>
   <Step title="Choose 默认 Action and thread behavior">
-    **Ask Anything** is the default and works on Discord out of the box. For a custom action, add `discord` or `*` under **Action Editor → Model → Gateways → 允许的 Gateways**.
+    **Ask Anything** 是默认 Action，在 Discord 上开箱即用。对于自定义 Action，在 **Action Editor → Gateways** 中将 **可用性** 设为 **Discord** 或 **全部**。
 
-    Under **Behavior**, optionally turn on **在线程中開始服务器討論** so each new top-level server message gets its own Discord thread and Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. If you use this, grant **Create Public Threads** and **Send Messages in Threads** when inviting the bot (**Step 4**).
+    在 **Behavior** 下，新 Discord Gateway **默认开启** **在主题中发起服务器讨论** — 每条新的服务器顶层消息都会创建独立的 Discord 主题和 Alter 会话。已在主题内的消息继续该会话。私信不变。若希望在主频道回复可关闭。若保持开启，邀请 bot 时请授予 **Create Public Threads** 和 **Send Messages in Threads**（**步骤 4**）。
   </Step>
   <Step title="Enable and save">
     Turn **已启用** on, then click **保存并重启**. Wait for a status such as **已连接为 bot …** or **已连接为 @…**.
@@ -215,5 +215,5 @@ Alter 不会在应用程序内构建邀请链接。在Developer Portal中生成�
 
 - [Gateways overview](/apps-tools/gateways)
 - [Set up a Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions — 允许的 Gateways](/workflows/alter-actions)
+- [Alter Actions — Gateway 可用性](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

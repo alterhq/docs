@@ -336,7 +336,51 @@ Whisper 在广泛使用的语言上表现优异，但对于训练数据较少的
 
 ![Router 设置](/images/settings/Alter-Settings_08_Router-Beta71.webp)
 
-<h3 id="computer-use">9. Computer use 设置</h3>
+<h3 id="gateways">9. Gateways 设置</h3>
+
+**Gateways** 选项卡（设置侧边栏 **Integrations** 下，与 **API keys** 和 **Router** 并列）将 Alter 连接到 **Discord** 和 **Telegram** 机器人。
+
+打开 **设置**（⌘,）→ **Integrations** → **Gateways**。完整设置 walkthrough：
+
+- [Gateways 概览](/apps-tools/gateways)
+- [设置 Discord Gateway](/apps-tools/gateways-discord)
+- [设置 Telegram Gateway](/apps-tools/gateways-telegram)
+
+**列出并添加 Gateway**
+
+- **Add gateway** — 创建 **Discord** 或 **Telegram** 连接。
+- 每行显示 Gateway **Name**、平台和启用/禁用指示器。
+
+**合盖时保持 Gateways 在线**（MacBook）
+
+在 Gateways 页面顶部：
+
+- **Toggle** — 开启时（默认），MacBook 合盖后 Alter 仍保持 Gateway 机器人连接。最后一个 Gateway 停止后恢复正常睡眠。
+- **Allow…** — 一次性管理员权限，用于更改受保护的 macOS 睡眠设置（`pmset disablesleep`）。Gateway 运行中首次启用合盖可用性时需要。
+- **Options…** — 打开 **Lid-closed availability**：
+  - **Gateway availability** 状态（例如 *Keeping this Mac awake*、*Paused for low battery*）
+  - **Pause below** — 未插电时的电池下限（默认 20%，范围 5–50%）。Alter 在此电量或以下恢复正常睡眠，充电超过阈值后重新启用。
+  - **Pause in Low Power Mode** — 始终启用；遵循系统低电量模式偏好。
+  - **Remove administrator permission…** — 撤销已安装的权限。关闭主开关**不会**移除权限。
+
+**每个 Gateway 的字段**
+
+| Section | Fields |
+|---------|--------|
+| General | **Name**, **Enabled** |
+| Connection (Discord) | **Bot token**, **Server ID (optional)**, **Ready message channel ID (optional)**, **Allowed Discord user IDs**, **Require a mention in servers**, **Discord Gateway 设置指南** 链接 |
+| Connection (Telegram) | **Bot token**, **Allowed Telegram user or chat IDs**, **Telegram Gateway 设置指南** 链接 |
+| Behavior | **默认 Action** — 此 Gateway 新会话使用的 Action；**在主题中发起服务器讨论**（仅 Discord，新 Gateway 默认开启） |
+| 可用 Action | 列出此平台已启用的 Action；点击可在 **Action Editor → Gateways** 中打开 |
+| Footer | **Delete gateway**, **Save and restart**, connection status |
+
+Bot token 存储在 macOS Keychain 中。**Save and restart** 后，状态行显示机器人是否已连接（例如 **Connected as @username**）。
+
+<Tip>
+  Gateways 与 **设置 → Router**（OpenAI 兼容 API）不同。第三方应用通过 API 的集成请参阅 [API Gateway Guide](/api-router/api-gateway)。
+</Tip>
+
+<h3 id="computer-use">10. Computer use 设置</h3>
 
 **Computer use** 选项卡配置 Alter 的 UI 自动化代理如何驱动应用、浏览器，以及 **2.0.0-beta100** 引入的浮动实时预览。
 
@@ -403,7 +447,7 @@ Computer Use 需要 **Accessibility**（读取 AX 树并发送点击）和 **Scr
   后台运行、Edge Bar 会话卡片和预览行为详见 [Background Computer Use](/apps-tools/computer-use-background)。权限问题：[Tools Not Working](/common-issues/tool-not-working) 或 **设置 → Doctor**。
 </Tip>
 
-<h3 id="shortcuts">10. Shortcuts 设置</h3>
+<h3 id="shortcuts">11. Shortcuts 设置</h3>
 
 **Shortcuts** 选项卡是可搜索的编辑器，涵盖所有 Alter 键盘快捷键。打开 **Settings → Shortcuts**（位于侧边栏 **General** 部分下）。
 
@@ -517,7 +561,7 @@ macOS 和其他应用可能占用相同按键组合。若快捷键不生效：
 
 完整清单超出设置 UI 范围，见 [Shortcuts reference](/references/shortcuts)。若只需更改全局打开快捷键，[How-To: Change Hotkey](/how-to/change-hotkey) 是更聚焦的指南。
 
-<h3 id="marketplace">11. Marketplace 设置</h3>
+<h3 id="marketplace">12. Marketplace 设置</h3>
 
 **Marketplace** 选项卡（位于设置侧边栏 **Account** 下）控制你的公开 Alter Marketplace 个人资料和通知偏好。此处保存的内容可能出现在 agent 列表和社区页面；仅本地的 Alter 设置不受影响。
 
@@ -549,7 +593,7 @@ Marketplace 个人资料上显示的可选 URL：
 
 关闭可静音 Marketplace 评论提醒，同时保持公开资料可见。
 
-<h3 id="doctor">12. Doctor 设置</h3>
+<h3 id="doctor">13. Doctor 设置</h3>
 
 **Doctor**（位于设置侧边栏 **System** 下）对 Alter 运行健康与权限诊断。工具莫名失败、语音处理异常，或需要脱敏报告联系支持时使用。
 
@@ -586,6 +630,12 @@ Marketplace 个人资料上显示的可选 URL：
 - **Screen Recording** — 会议/屏幕上下文和 Computer Use 预览所需
 - **Microphone** — 听写和会议音频所需
 - **Automation** — AppleScript 风格自动化所需的 System Events 访问。点击 **Check Automation** 前为 **Idle**；Alter 会提示权限并刷新报告
+
+**Gateways**
+
+- **Configured gateways** — 无 Gateway 时为 **Idle**
+- 每个 Gateway：**connection** 状态（connected、connecting、reconnecting、failed 或 disabled），可快捷进入 **设置 → Integrations → Gateways**
+- 每个 Gateway：**access** — 已启用 Gateway 未配置 allowlist 时为 **Warning**；访问限制在已配置 ID 时为 **OK**
 
 **Voice Processor**
 
@@ -632,6 +682,7 @@ Application Support、Alter Prompts、Caches、WebKit 和 HTTP Storage 路径的
 | 热键失效 | [Keyboard Shortcut Not Working](/common-issues/hotkey-not-working) |
 | 麦克风不转写 | [Microphone Not Working](/common-issues/mic-not-transcribing) |
 | Tool 或 MCP 失败 | [Tools Not Working](/common-issues/tool-not-working) + Doctor **Tools** 部分 |
+| Gateway 连接或访问问题 | Doctor **Gateways** 部分 + [Gateways 故障排除](/apps-tools/gateways#troubleshooting) |
 | Computer Use 权限错误 | Doctor **Permissions** + [Computer use settings](/how-to/settings-guide#computer-use) |
 
 ## 相关文档

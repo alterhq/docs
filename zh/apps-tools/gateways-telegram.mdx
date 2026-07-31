@@ -209,7 +209,7 @@ Telegram 对人和对话都使用数字 ID：
     | **允许的 Telegram 使用者或聊天 ID** | Comma-separated user IDs, chat IDs, or `@usernames`. Leave empty to allow anyone who can message the bot. Use `*` to allow everyone explicitly. |
   </Step>
   <Step title="Choose 默认 Action">
-    **Ask Anything** is the default and works on Telegram out of the box. For a custom action, add `telegram` or `*` under **Action Editor → Model → Gateways → 允许的 Gateways**.
+    **Ask Anything** 是默认 Action，在 Telegram 上开箱即用。对于自定义 Action，在 **Action Editor → Gateways** 中将 **可用性** 设为 **Telegram** 或 **全部**。
   </Step>
   <Step title="Enable and save">
     Turn **已启用** on, then click **保存并重启**. Wait for **已连接为 @your_bot_username**.
@@ -245,5 +245,5 @@ Telegram 对人和对话都使用数字 ID：
 
 - [Gateways overview](/apps-tools/gateways)
 - [Set up a Discord gateway](/apps-tools/gateways-discord)
-- [Alter Actions — 允许的 Gateways](/workflows/alter-actions)
+- [Alter Actions — Gateway 可用性](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

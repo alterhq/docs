@@ -62,7 +62,7 @@ Todos os gateways partilham estes campos:
 | **Nome** | Etiqueta mostrada na lista de gateways (por exemplo «Team Discord» ou «Personal Telegram»). |
 | **Ativado** | Liga ou desliga a ligação. É necessário um bot token antes de ativar. |
 | **Ação predefinida** | A Alter Action usada quando uma nova conversa começa neste gateway. |
-| **Iniciar discussões do servidor em threads** (apenas Discord) | Quando ativo, cada nova mensagem de topo num servidor inicia um thread Discord e um chat Alter separado. Mensagens já dentro de um thread continuam esse chat. DMs não mudam. |
+| **Iniciar discussões do servidor em threads** (apenas Discord) | Quando ativo, cada nova mensagem de topo num servidor inicia um thread Discord e um chat Alter separado. Mensagens já dentro de um thread continuam esse chat. DMs não mudam. **Ativo por predefinição** para novos gateways Discord. |
 | **Guardar e reiniciar** | Guarda credenciais e reconecta o bot. |
 
 Campos de **Ligação** específicos da plataforma estão documentados nos guias de configuração:
@@ -99,20 +99,29 @@ Desligar o interruptor principal mantém a permissão de administrador instalada
 
 ## Que actions funcionam nos Gateways?
 
-As actions **optam** por plataformas externas. No **Action Editor**, abra **Model → Gateways → Gateways permitidos**:
+As actions **optam** por plataformas externas. No **Action Editor**, abra a secção **Gateways** e escolha **Disponibilidade**:
 
-- **`discord`** — disponível apenas em gateways Discord
-- **`telegram`** — disponível apenas em gateways Telegram
-- **`*`** — disponível em todos os gateways
-- **Vazio** — apenas local (Hub, QuickHub, etc.)
+| Definição | Onde a action corre |
+|---------|------------------------|
+| **Nenhum** | Apenas local (Hub, QuickHub, etc.) |
+| **Discord** | Apenas gateways Discord |
+| **Telegram** | Apenas gateways Telegram |
+| **Todos** | Todos os gateways |
 
 <Tip>
-  A action incluída **Ask Anything** está ativa em **Discord** e **Telegram** por predefinição — é a **Ação predefinida** habitual para novos gateways. Actions personalizadas precisam de `discord`, `telegram` ou `*` em **Gateways permitidos**.
+  A action incluída **Ask Anything** tem **Todos** por predefinição — é a **Ação predefinida** habitual para novos gateways. Defina **Nenhum** no Ask Anything se quiser apenas local. Actions personalizadas começam em **Nenhum** até ativar uma plataforma ou **Todos**.
 </Tip>
 
-As pessoas ainda podem mudar de action por conversa com `/new [action]` desde que essa action seja permitida na plataforma.
+Em **Definições → Integrations → Gateways**, cada gateway mostra uma lista **Ações disponíveis** para a sua plataforma. Use-a para confirmar quais actions estão ativas e abrir **Action Editor → Gateways** para qualquer action listada.
 
-## Comandos de chat e controlos
+As pessoas ainda podem mudar de action por conversa com `/new [action]` ou o seletor **Choose action**, desde que essa action seja permitida na plataforma.
+
+### Actions sem parâmetros vs. com parâmetros
+
+Quando alguém escolhe uma action em **Choose action** (ou `/actions`):
+
+- **Actions sem parâmetros** (sem campos de entrada no Action Editor) começam **de imediato** — o Alter executa a action com o prompt configurado, como um arranque com um clique no Hub.
+- **Actions com parâmetros** (com campos de entrada) iniciam uma **nova conversa** e aguardam a mensagem seguinte para o utilizador fornecer esses inputs.## Comandos de chat e controlos
 
 Discord e Telegram suportam os mesmos comandos de texto (escreva-os como mensagens normais). No Telegram, os comandos também funcionam com sufixo de bot como `/help@YourBotName`.
 
@@ -182,8 +191,9 @@ Consulte também [Dados locais e privacidade](/references/local-data-and-privacy
 | *I couldn't start a Discord thread for this discussion* | Threads só começam em canais de texto ou anúncios do servidor. Verifique permissões de thread acima ou desative **Iniciar discussões do servidor em threads**. |
 | Mensagens ignoradas no Discord | Verifique se **ID do servidor (opcional)** corresponde ao servidor usado. Confirme que o seu user ID está em **IDs de utilizador Discord permitidos** se a lista não estiver vazia. |
 | Mensagens ignoradas no Telegram | Confirme que o seu user ou chat ID está em **IDs de utilizador ou chat Telegram permitidos** se a lista não estiver vazia. |
-| *Action '…' is not enabled for Discord/Telegram* | Abra a action em **Action Editor → Model → Gateways** e adicione a plataforma ou `*`. |
-| *No actions are enabled for Discord/Telegram* | Ative pelo menos uma action para a plataforma e defina uma **Ação predefinida** válida no gateway. |
+| *Action '…' is not enabled for Discord/Telegram* | Abra a action em **Action Editor → Gateways** e defina **Disponibilidade** para a plataforma ou **Todos**. |
+| *No actions are enabled for Discord/Telegram* | Ative pelo menos uma action para a plataforma em **Action Editor → Gateways** e defina uma **Ação predefinida** válida no gateway. A lista **Ações disponíveis** do gateway fica vazia até pelo menos uma action optar por entrar. |
+| *That action is no longer available on Discord/Telegram* | A action foi desativada para esta plataforma ou removida. Escolha outra action ou reative-a em **Action Editor → Gateways**. |
 | *Alter is already responding…* | Aguarde o fim do turno atual (turnos podem durar até cerca de 10 minutos) ou envie `/stop` / toque **Stop**. |
 
 ### Disponibilidade com tampa fechada
@@ -203,13 +213,13 @@ Consulte também [Dados locais e privacidade](/references/local-data-and-privacy
 - **Discord** adiciona 👀 enquanto processa a mensagem, depois ✅ ou ❌ quando o turno termina. Reações adicionadas por utilizadores não são tratadas como comandos ou entrada de chat.
 - **Telegram** usa long polling para atualizações `message` e `callback_query` (toques em teclado inline). Após um turno, o Alter pode reagir com 👍 ou 👎 à sua mensagem. Chats de grupo mostram botão **Stop** durante turnos ativos.
 
-Para problemas mais amplos de tools e permissões, use **Definições → Doctor** ou [Tools not working](/common-issues/tool-not-working).
+Para problemas mais amplos de tools e permissões, use **Definições → Doctor** ou [Tools not working](/common-issues/tool-not-working). O Doctor inclui uma secção **Gateways** com **connection** status por gateway (connected, reconnecting, failed) e avisos de **access** quando nenhuma allowlist está configurada num gateway ativo. O Doctor inclui uma secção **Gateways** com **connection** status por gateway (connected, reconnecting, failed) e avisos de **access** quando nenhuma allowlist está configurada num gateway ativo.
 
 ## Páginas relacionadas
 
 - [Configurar um Discord gateway](/apps-tools/gateways-discord)
 - [Configurar um Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions](/workflows/alter-actions) — configurar actions e disponibilidade em gateways
+- [Alter Actions — Disponibilidade em Gateways](/workflows/alter-actions#gateways) — configurar actions e disponibilidade em gateways
 - [Alter Settings](/how-to/settings-guide)
 - [Visão geral das integrações](/apps-tools/integrations-overview)
 - [Guia do API Gateway](/api-router/api-gateway) — API compatível com OpenAI (separada dos Gateways de chat)

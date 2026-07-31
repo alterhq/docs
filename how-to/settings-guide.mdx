@@ -368,9 +368,10 @@ At the top of the Gateways page:
 | Section | Fields |
 |---------|--------|
 | General | **Name**, **Enabled** |
-| Connection (Discord) | **Bot token**, **Server ID (optional)**, **Allowed Discord user IDs**, **Require a mention in servers** |
-| Connection (Telegram) | **Bot token**, **Allowed Telegram user or chat IDs** |
-| Behavior | **Default action** — action used for new conversations on this gateway |
+| Connection (Discord) | **Bot token**, **Server ID (optional)**, **Ready message channel ID (optional)**, **Allowed Discord user IDs**, **Require a mention in servers**, **Discord gateway setup guide** link |
+| Connection (Telegram) | **Bot token**, **Allowed Telegram user or chat IDs**, **Telegram gateway setup guide** link |
+| Behavior | **Default action** — action used for new conversations on this gateway; **Start server discussions in threads** (Discord only, on by default for new gateways) |
+| Available actions | Lists actions enabled for this platform; click one to open **Action Editor → Gateways** |
 | Footer | **Delete gateway**, **Save and restart**, connection status |
 
 Bot tokens are stored in the macOS Keychain. After **Save and restart**, the status line shows whether the bot connected (for example **Connected as @username**).
@@ -630,6 +631,12 @@ Paste the report into Discord or email when contacting support alongside a [shar
 - **Microphone** — Required for dictation and meeting audio
 - **Automation** — System Events access for AppleScript-style automation. Starts as **Idle** until you click **Check Automation**; Alter prompts for permission and refreshes the report
 
+**Gateways**
+
+- **Configured gateways** — **Idle** when no gateways exist
+- Per gateway: **connection** status (connected, connecting, reconnecting, failed, or disabled) with a shortcut to **Settings → Integrations → Gateways**
+- Per gateway: **access** — **Warning** when an enabled gateway has no allowlist; **OK** when access is limited to configured IDs
+
 **Voice Processor**
 
 - **Selected processor** — Current speech engine (Apple, cloud, Whisper, etc.) with link to **Settings → Voice**
@@ -675,6 +682,7 @@ Some sections include footer buttons:
 | Hotkey stopped working | [Keyboard Shortcut Not Working](/common-issues/hotkey-not-working) |
 | Mic not transcribing | [Microphone Not Working](/common-issues/mic-not-transcribing) |
 | Tool or MCP failure | [Tools Not Working](/common-issues/tool-not-working) + Doctor **Tools** section |
+| Gateway connection or access issues | Doctor **Gateways** section + [Gateways troubleshooting](/apps-tools/gateways#troubleshooting) |
 | Computer Use permission errors | Doctor **Permissions** + [Computer use settings](/how-to/settings-guide#computer-use) |
 
 ## Related Docs

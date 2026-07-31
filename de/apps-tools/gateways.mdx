@@ -62,7 +62,9 @@ Alle Gateways teilen diese Felder:
 | **Name** | Bezeichnung in der Gateway-Liste (zum Beispiel „Team Discord“ oder „Personal Telegram“). |
 | **Aktiviert** | Schaltet die Verbindung ein oder aus. Ein Bot-Token ist vor der Aktivierung erforderlich. |
 | **Standardaktion** | Die Alter Action, die startet, wenn eine neue Unterhaltung auf diesem Gateway beginnt. |
-| **Serverdiskussionen in Threads starten** (nur Discord) | Wenn aktiv, startet jede neue Top-Level-Servernachricht einen Discord-Thread und einen separaten Alter-Chat. Nachrichten in einem bestehenden Thread setzen diesen Chat fort. DMs bleiben unverändert. |
+| **Serverdiskussionen in Threads starten** (nur Discord) | Wenn aktiv, startet jede neue Top-Level-Servernachricht einen Discord-Thread und einen separaten Alter-Chat. Nachrichten in einem bestehenden Thread setzen diesen Chat fort. DMs bleiben unverändert. **Standardmäßig aktiv** für neue Discord-Gateways. |
+| **Verfügbare Aktionen** | Listet jede für die Plattform dieses Gateways aktivierte Aktion. Klicken Sie eine Aktion an, um sie in **Action Editor → Gateways** zu öffnen. Die aktuelle **Standardaktion** ist mit **Standard** gekennzeichnet. |
+| **Einrichtungsanleitung** (Abschnitt Connection) | Link zur Discord- oder Telegram-Einrichtungsanleitung für diese Plattform. |
 | **Speichern und neu starten** | Speichert Anmeldedaten und verbindet den Bot neu. |
 
 Plattformspezifische **Verbindung**-Felder sind in den Einrichtungsanleitungen dokumentiert:
@@ -99,18 +101,29 @@ Das Ausschalten des Hauptschalters behält die installierte Administratorberecht
 
 ## Welche Actions funktionieren auf Gateways?
 
-Actions **melden sich an** für externe Plattformen. Im **Action Editor** öffnen Sie **Model → Gateways → Erlaubte Gateways**:
+Actions **melden sich an** für externe Plattformen. Im **Action Editor** öffnen Sie den Abschnitt **Gateways** und wählen **Verfügbarkeit**:
 
-- **`discord`** — nur auf Discord-Gateways verfügbar
-- **`telegram`** — nur auf Telegram-Gateways verfügbar
-- **`*`** — auf allen Gateways verfügbar
-- **Leer** — nur lokal (Hub, QuickHub usw.)
+| Einstellung | Wo die Aktion läuft |
+|---------|------------------------|
+| **Keine** | Nur lokal (Hub, QuickHub usw.) |
+| **Discord** | Nur Discord-Gateways |
+| **Telegram** | Nur Telegram-Gateways |
+| **Alle** | Jedes Gateway |
 
 <Tip>
-  Die mitgelieferte **Ask Anything**-Action ist standardmäßig auf **Discord** und **Telegram** aktiviert — sie ist die übliche **Standardaktion** für neue Gateways. Benutzerdefinierte Actions benötigen `discord`, `telegram` oder `*` unter **Erlaubte Gateways**.
+  Die mitgelieferte **Ask Anything**-Aktion ist standardmäßig auf **Alle** — sie ist die übliche **Standardaktion** für neue Gateways. Setzen Sie Ask Anything auf **Keine**, wenn sie nur lokal sein soll. Benutzerdefinierte Aktionen starten auf **Keine**, bis Sie eine Plattform oder **Alle** aktivieren.
 </Tip>
 
-Nutzer können Actions pro Unterhaltung weiterhin mit `/new [action]` wechseln, solange die Action auf der Plattform erlaubt ist.
+Unter **Einstellungen → Integrations → Gateways** zeigt jedes Gateway eine Liste **Verfügbare Aktionen** für seine Plattform. Damit prüfen Sie, welche Aktionen aktiv sind, und springen direkt zu **Action Editor → Gateways** für jede gelistete Aktion.
+
+Nutzer können pro Unterhaltung weiter mit `/new [action]` oder dem **Choose action**-Picker die Aktion wechseln, solange die Aktion auf der Plattform erlaubt ist.
+
+### Parameterlose vs. parametrisierte Aktionen
+
+Wenn jemand eine Aktion über **Choose action** (oder `/actions`) wählt:
+
+- **Parameterlose Aktionen** (keine Eingabefelder im Action Editor) starten **sofort** — Alter führt die Aktion mit ihrem konfigurierten Prompt aus, wie ein Klick-Start im Hub.
+- **Parametrisierte Aktionen** (mit Eingabefeldern) starten eine **neue Unterhaltung** und warten auf die nächste Nachricht, damit der Nutzer die Eingaben liefert.
 
 ## Chat-Befehle und Steuerung
 
@@ -182,8 +195,9 @@ Siehe auch [Lokale Daten und Datenschutz](/references/local-data-and-privacy).
 | *I couldn't start a Discord thread for this discussion* | Threads starten nur in Server-Text- oder Ankündigungskanälen. Thread-Berechtigungen prüfen oder **Serverdiskussionen in Threads starten** deaktivieren. |
 | Nachrichten auf Discord ignoriert | **Server-ID (optional)** muss zum genutzten Server passen. User-ID in **Erlaubte Discord-Benutzer-IDs** prüfen, wenn die Liste nicht leer ist. |
 | Nachrichten auf Telegram ignoriert | User- oder Chat-ID in **Erlaubte Telegram-Benutzer- oder Chat-IDs** prüfen, wenn die Liste nicht leer ist. |
-| *Action '…' is not enabled for Discord/Telegram* | Action in **Action Editor → Model → Gateways** öffnen und Plattform oder `*` hinzufügen. |
+| *Action '…' is not enabled for Discord/Telegram* | Action in **Action Editor → Gateways** öffnen und **Verfügbarkeit** auf die Plattform oder **Alle** setzen. |
 | *No actions are enabled for Discord/Telegram* | Mindestens eine Action für die Plattform aktivieren und gültige **Standardaktion** am Gateway setzen. |
+| *That action is no longer available on Discord/Telegram* | Die Aktion wurde für diese Plattform deaktiviert oder entfernt. Wählen Sie eine andere Aktion oder aktivieren Sie sie wieder in **Action Editor → Gateways**. |
 | *Alter is already responding…* | Aktuellen Zug abwarten (bis ca. 10 Minuten) oder `/stop` senden / **Stop** tippen. |
 
 ### Verfügbarkeit bei geschlossenem Deckel
@@ -209,7 +223,7 @@ Für breitere Tool- und Berechtigungsprobleme **Einstellungen → Doctor** oder 
 
 - [Discord gateway einrichten](/apps-tools/gateways-discord)
 - [Telegram gateway einrichten](/apps-tools/gateways-telegram)
-- [Alter Actions](/workflows/alter-actions) — Actions und Gateway-Verfügbarkeit konfigurieren
+- [Alter Actions — Gateway-Verfügbarkeit](/workflows/alter-actions#gateways) — Actions und Gateway-Verfügbarkeit konfigurieren
 - [Alter Settings](/how-to/settings-guide)
 - [Integrations-Übersicht](/apps-tools/integrations-overview)
 - [API Gateway Guide](/api-router/api-gateway) — OpenAI-kompatible API (getrennt von Chat-Gateways)

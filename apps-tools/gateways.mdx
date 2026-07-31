@@ -62,7 +62,9 @@ Every gateway shares these fields:
 | **Name** | Label shown in the gateway list (for example "Team Discord" or "Personal Telegram"). |
 | **Enabled** | Turn the connection on or off. A bot token is required before enabling. |
 | **Default action** | The Alter Action used when a new conversation starts on this gateway. |
-| **Start server discussions in threads** (Discord only) | When on, each new top-level server message starts a Discord thread and a separate Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. |
+| **Start server discussions in threads** (Discord only) | When on, each new top-level server message starts a Discord thread and a separate Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. **On by default** for new Discord gateways. |
+| **Available actions** | Lists every action enabled for this gateway's platform. Click an action to open it in **Action Editor → Gateways**. The current **Default action** is labeled **Default**. |
+| **Setup guide** (Connection section) | Link to the Discord or Telegram setup guide for this platform. |
 | **Save and restart** | Saves credentials and reconnects the bot. |
 
 Platform-specific **Connection** fields are documented in the setup guides:
@@ -99,18 +101,29 @@ Turning the main toggle off keeps the installed administrator permission, so you
 
 ## Which actions work on Gateways?
 
-Actions **opt in** to external platforms. In the **Action Editor**, open **Model → Gateways → Allowed gateways**:
+Actions **opt in** to external platforms. In the **Action Editor**, open the **Gateways** section and choose **Availability**:
 
-- **`discord`** — available on Discord gateways only
-- **`telegram`** — available on Telegram gateways only
-- **`*`** — available on every gateway
-- **Empty** — local-only (Hub, QuickHub, etc.)
+| Setting | Where the action runs |
+|---------|------------------------|
+| **None** | Local-only (Hub, QuickHub, etc.) |
+| **Discord** | Discord gateways only |
+| **Telegram** | Telegram gateways only |
+| **All** | Every gateway |
 
 <Tip>
-  The bundled **Ask Anything** action is enabled on **Discord** and **Telegram** by default — it is the usual **Default action** for new gateways. Custom actions need `discord`, `telegram`, or `*` under **Allowed gateways**.
+  The bundled **Ask Anything** action defaults to **All** — it is the usual **Default action** for new gateways. Set **None** on Ask Anything if you want it local-only. Custom actions start on **None** until you enable a platform or **All**.
 </Tip>
 
-People can still switch actions per conversation with `/new [action]` as long as that action is allowed on the platform.
+In **Settings → Integrations → Gateways**, each gateway shows an **Available actions** list for its platform. Use it to confirm which actions are enabled and jump straight into **Action Editor → Gateways** for any listed action.
+
+People can still switch actions per conversation with `/new [action]` or the **Choose action** picker as long as that action is allowed on the platform.
+
+### Parameterless vs parameterized actions
+
+When someone picks an action from **Choose action** (or `/actions`):
+
+- **Parameterless actions** (no input fields in the Action Editor) start **immediately** — Alter runs the action using its configured prompt, the same as a one-click launch in the Hub.
+- **Parameterized actions** (with input fields) start a **new conversation** and wait for the next message so the user can supply those inputs.
 
 ## Chat commands and controls
 
@@ -182,8 +195,9 @@ See also [Local data and privacy](/references/local-data-and-privacy).
 | *I couldn't start a Discord thread for this discussion* | Threads only start from server text or announcement channels. Check thread permissions above, or turn off **Start server discussions in threads**. |
 | Messages ignored on Discord | Check **Server ID (optional)** matches the server you are using. Confirm your user ID is in **Allowed Discord user IDs** if that list is not empty. |
 | Messages ignored on Telegram | Confirm your user or chat ID is listed in **Allowed Telegram user or chat IDs** if that list is not empty. |
-| *Action '…' is not enabled for Discord/Telegram* | Open the action in **Action Editor → Model → Gateways** and add the platform or `*`. |
-| *No actions are enabled for Discord/Telegram* | Enable at least one action for the platform, and set a valid **Default action** on the gateway. |
+| *Action '…' is not enabled for Discord/Telegram* | Open the action in **Action Editor → Gateways** and set **Availability** to the platform or **All**. |
+| *No actions are enabled for Discord/Telegram* | Enable at least one action for the platform in **Action Editor → Gateways**, and set a valid **Default action** on the gateway. The gateway's **Available actions** list stays empty until at least one action opts in. |
+| *That action is no longer available on Discord/Telegram* | The action was disabled for this platform or removed. Pick another action or re-enable it in **Action Editor → Gateways**. |
 | *Alter is already responding…* | Wait for the current turn to finish (turns can run up to about 10 minutes), or send `/stop` / tap **Stop**. |
 
 ### Lid-closed availability
@@ -203,13 +217,13 @@ See also [Local data and privacy](/references/local-data-and-privacy).
 - **Discord** adds 👀 while processing your message, then ✅ or ❌ when the turn finishes. User-added reactions are not treated as commands or chat input.
 - **Telegram** uses long polling for `message` and `callback_query` updates (inline keyboard taps). After a turn completes, Alter may react with 👍 or 👎 on your message. Group chats show a **Stop** button during active turns.
 
-For broader tool and permission issues, use **Settings → Doctor** or [Tools not working](/common-issues/tool-not-working).
+For broader tool and permission issues, use **Settings → Doctor** or [Tools not working](/common-issues/tool-not-working). Doctor includes a **Gateways** section with per-gateway **connection** status (connected, reconnecting, failed) and **access** warnings when no allowlist is configured on an enabled gateway.
 
 ## Related pages
 
 - [Set up a Discord gateway](/apps-tools/gateways-discord)
 - [Set up a Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions](/workflows/alter-actions) — configure actions and gateway availability
+- [Alter Actions — Gateway availability](/workflows/alter-actions#gateways) — configure actions and gateway availability
 - [Alter Settings](/how-to/settings-guide)
 - [Integrations overview](/apps-tools/integrations-overview)
 - [API Gateway Guide](/api-router/api-gateway) — OpenAI-compatible API (separate from chat Gateways)

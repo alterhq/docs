@@ -178,9 +178,12 @@ Deje **Server ID** y **IDs de usuario de Discord permitidos** vacíos para permi
     | **ID del canal de mensaje de disponibilidad (opcional)** | Un ID de canal donde Alter publica «Hey, I'm up and running.» tras conectarse correctamente. |
     | **IDs de usuario de Discord permitidos** | IDs de usuario separados por comas, o vacío para acceso abierto. Usa `*` para permitir explícitamente a todos. |
     | **Requerir mención en servidores** | Cuando está activo, el bot solo responde en canales de servidor al `@mention`. Los DM no cambian. |
+
+
+    Un enlace **Guía de configuración gateway Discord** al final de la sección Connection abre esta página en el navegador.
   </Step>
   <Step title="Elegir Acción predeterminada y comportamiento de hilos">
-    **Ask Anything** es la predeterminada y funciona en Discord de inmediato. Para una acción personalizada, añade `discord` o `*` en **Action Editor → Model → Gateways → Gateways permitidos**.
+    **Ask Anything** es la predeterminada y funciona en Discord de inmediato. Para una action personalizada, establece **Disponibilidad** en **Discord** o **Todos** en **Action Editor → Gateways**.
 
     En **Comportamiento**, opcionalmente activa **Iniciar discusiones del servidor en hilos** para que cada mensaje nuevo de nivel superior en un servidor tenga su propio hilo de Discord y chat de Alter. Los mensajes ya dentro de un hilo continúan ese chat. Los DM no cambian. Si lo usas, concede **Create Public Threads** y **Send Messages in Threads** al invitar al bot (**Paso 4**).
   </Step>
@@ -215,5 +218,5 @@ Si la conexión falla, consulta [Solución de problemas de Gateways](/apps-tools
 
 - [Gateways overview](/apps-tools/gateways)
 - [Set up a Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions — Gateways permitidos](/workflows/alter-actions)
+- [Alter Actions — Disponibilidad en Gateways](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

@@ -209,7 +209,7 @@ Alter accepte également les valeurs `@username` (par exemple `@sam`) si la pers
     | **ID utilisateur ou chat Telegram autorisés** | User IDs, chat IDs ou `@usernames` séparés par des virgules. Laissez vide pour autoriser quiconque peut écrire au bot. Utilisez `*` pour autoriser tout le monde explicitement. |
   </Step>
   <Step title="Choisir Action par défaut">
-    **Ask Anything** est la valeur par défaut et fonctionne sur Telegram immédiatement. Pour une action personnalisée, ajoutez `telegram` ou `*` sous **Action Editor → Model → Gateways → Gateways autorisés**.
+    **Ask Anything** est la valeur par défaut et fonctionne sur Telegram immédiatement. Pour une action personnalisée, définissez **Disponibilité** sur **Telegram** ou **Tous** sous **Action Editor → Gateways**.
   </Step>
   <Step title="Activer et enregistrer">
     Activez **Activé**, puis cliquez **Enregistrer et redémarrer**. Attendez **Connecté en tant que @your_bot_username**.
@@ -245,5 +245,5 @@ Si la connexion échoue, voir [Dépannage Gateways](/apps-tools/gateways#trouble
 
 - [Vue d'ensemble Gateways](/apps-tools/gateways)
 - [Configurer un Discord gateway](/apps-tools/gateways-discord)
-- [Alter Actions — Gateways autorisés](/workflows/alter-actions)
+- [Alter Actions — Disponibilité des Gateways](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

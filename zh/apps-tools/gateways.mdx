@@ -99,18 +99,29 @@ Alter 会自动暂停合盖可用性以保护电池续航：
 
 ## 哪些 Action 可用于 Gateways？
 
-Action 需**主动选择**外部平台。在 **Action Editor** 中打开 **Model → Gateways → 允许的 Gateways**：
+Action 需**主动选择**外部平台。在 **Action Editor** 中打开 **Gateways** 部分，选择 **可用性**：
 
-- **`discord`** — 仅在 Discord Gateway 上可用
-- **`telegram`** — 仅在 Telegram Gateway 上可用
-- **`*`** — 在所有 Gateway 上可用
-- **留空** — 仅本地（Hub、QuickHub 等）
+| 设置 | Action 运行位置 |
+|---------|------------------------|
+| **无** | 仅本地（Hub、QuickHub 等） |
+| **Discord** | 仅 Discord Gateway |
+| **Telegram** | 仅 Telegram Gateway |
+| **全部** | 所有 Gateway |
 
 <Tip>
-  内置 **Ask Anything** Action 默认在 **Discord** 和 **Telegram** 上启用 — 通常是新 Gateway 的 **默认 Action**。自定义 Action 需要在 **允许的 Gateways** 中添加 `discord`、`telegram` 或 `*`。
+  内置 **Ask Anything** Action 默认为 **全部** — 是新 Gateway 的常用 **默认 Action**。若只要本地使用，将 Ask Anything 设为 **无**。自定义 Action 默认 **无**，直到启用某平台或 **全部**。
 </Tip>
 
-只要 Action 在该平台上被允许，用户仍可通过 `/new [action]` 按对话切换 Action。
+在 **设置 → Integrations → Gateways** 中，每个 Gateway 显示其平台的 **可用 Action** 列表。可用来确认已启用的 Action，并直接进入 **Action Editor → Gateways** 编辑任一 listed Action。
+
+只要 Action 在该平台可用，仍可用 `/new [action]` 或 **Choose action** 选择器按会话切换 Action。
+
+### 无参数与有参数 Action
+
+当用户从 **Choose action**（或 `/actions`）选择 Action 时：
+
+- **无参数 Action**（Action Editor 中无输入字段）会**立即开始** — Alter 用已配置的 prompt 运行 Action，与 Hub 中一键启动相同。
+- **有参数 Action**（含输入字段）会开始**新会话**，并等待下一条消息以便用户提供输入。
 
 ## 聊天命令与控制
 
@@ -182,8 +193,9 @@ Alter 每个频道或聊天**同时只处理一条进行中的回复**。若 Alt
 | *I couldn't start a Discord thread for this discussion* | 线程只能从服务器文字或公告频道开始。检查上述线程权限，或关闭 **在线程中開始服务器討論**。 |
 | Discord 上消息被忽略 | 检查 **服务器 ID（可选）** 是否与你使用的服务器一致。若 **允许的 Discord 使用者 ID** 非空，确认你的 user ID 在列表中。 |
 | Telegram 上消息被忽略 | 若 **允许的 Telegram 使用者或聊天 ID** 非空，确认你的 user 或 chat ID 在列表中。 |
-| *Action '…' is not enabled for Discord/Telegram* | 在 **Action Editor → Model → Gateways** 中打开该 Action 并添加平台或 `*`。 |
-| *No actions are enabled for Discord/Telegram* | 至少为该平台启用一个 Action，并在 Gateway 上设置有效的 **默认 Action**。 |
+| *Action '…' is not enabled for Discord/Telegram* | 在 **Action Editor → Gateways** 中打开该 Action，将 **可用性** 设为该平台或 **全部**。 |
+| *No actions are enabled for Discord/Telegram* | 在 **Action Editor → Gateways** 中至少为该平台启用一个 Action，并在 Gateway 上设置有效的 **默认 Action**。在至少一个 Action 主动启用之前，Gateway 的 **可用 Action** 列表为空。 |
+| *That action is no longer available on Discord/Telegram* | 该 Action 已在此平台禁用或已删除。请选择其他 Action，或在 **Action Editor → Gateways** 中重新启用。 |
 | *Alter is already responding…* | 等待当前轮次结束（最长约 10 分钟），或发送 `/stop` / 点击 **Stop**。 |
 
 ### 合盖可用性
@@ -209,7 +221,7 @@ Alter 每个频道或聊天**同时只处理一条进行中的回复**。若 Alt
 
 - [设置 Discord gateway](/apps-tools/gateways-discord)
 - [设置 Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions](/workflows/alter-actions) — 配置 Action 与 Gateway 可用性
+- [Alter Actions — Gateway 可用性](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)
 - [集成概览](/apps-tools/integrations-overview)
 - [API Gateway 指南](/api-router/api-gateway) — OpenAI 兼容 API（与聊天 Gateways 不同）

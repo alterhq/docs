@@ -178,11 +178,13 @@ Leave **Server ID** and **Allowed Discord user IDs** empty to allow anyone who c
     | **Ready message channel ID (optional)** | A channel ID where Alter posts “Hey, I'm up and running.” after a successful connection. |
     | **Allowed Discord user IDs** | Comma-separated user IDs, or leave empty for open access. Use `*` to allow everyone explicitly. |
     | **Require a mention in servers** | When on, the bot only responds in server channels when `@mentioned`. Direct messages are unaffected. |
+
+    A **Discord gateway setup guide** link at the bottom of the Connection section opens this page in your browser.
   </Step>
   <Step title="Choose Default action and thread behavior">
-    **Ask Anything** is the default and works on Discord out of the box. For a custom action, add `discord` or `*` under **Action Editor → Model → Gateways → Allowed gateways**.
+    **Ask Anything** is the default and works on Discord out of the box. For a custom action, set **Availability** to **Discord** or **All** under **Action Editor → Gateways**.
 
-    Under **Behavior**, optionally turn on **Start server discussions in threads** so each new top-level server message gets its own Discord thread and Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. If you use this, grant **Create Public Threads** and **Send Messages in Threads** when inviting the bot (**Step 4**).
+    Under **Behavior**, **Start server discussions in threads** is **on by default** for new Discord gateways — each new top-level server message gets its own Discord thread and Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. Turn it off if you prefer replies in the main channel. If you keep it on, grant **Create Public Threads** and **Send Messages in Threads** when inviting the bot (**Step 4**).
   </Step>
   <Step title="Enable and save">
     Turn **Enabled** on, then click **Save and restart**. Wait for a status such as **Connected as bot …** or **Connected as @…**.
@@ -215,5 +217,5 @@ If connection fails, see [Gateways troubleshooting](/apps-tools/gateways#trouble
 
 - [Gateways overview](/apps-tools/gateways)
 - [Set up a Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions — Allowed gateways](/workflows/alter-actions)
+- [Alter Actions — Gateway availability](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

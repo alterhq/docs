@@ -209,7 +209,7 @@ Alter は、その人が公開ユーザー名を持っている場合、`@userna
     | **許可された Telegram ユーザーまたはチャット ID** | Comma-separated user IDs, chat IDs, or `@usernames`. Leave empty to allow anyone who can message the bot. Use `*` to allow everyone explicitly. |
   </Step>
   <Step title="Choose デフォルト Action">
-    **Ask Anything** is the default and works on Telegram out of the box. For a custom action, add `telegram` or `*` under **Action Editor → Model → Gateways → 許可された Gateways**.
+    **Ask Anything** がデフォルトで、Telegram ですぐ使えます。カスタム Action には **Action Editor → Gateways** で **可用性** を **Telegram** または **すべて** に設定します。
   </Step>
   <Step title="Enable and save">
     Turn **有効** on, then click **保存して再起動**. Wait for **接続済み @your_bot_username**.
@@ -245,5 +245,5 @@ Alter は、その人が公開ユーザー名を持っている場合、`@userna
 
 - [Gateways overview](/apps-tools/gateways)
 - [Set up a Discord gateway](/apps-tools/gateways-discord)
-- [Alter Actions — 許可された Gateways](/workflows/alter-actions)
+- [Alter Actions — Gateway 可用性](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

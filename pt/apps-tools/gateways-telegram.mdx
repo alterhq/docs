@@ -207,9 +207,12 @@ Alter também aceita valores `@username` (por exemplo `@sam`) se a pessoa tiver 
     | **Nome** | A label you will recognize (for example `Telegram — Personal`). |
     | **Token do bot** | The token from BotFather (**Step 1**). |
     | **IDs de utilizador ou chat Telegram permitidos** | Comma-separated user IDs, chat IDs, or `@usernames`. Leave empty to allow anyone who can message the bot. Use `*` to allow everyone explicitly. |
+
+
+    Uma ligação **Guia de configuração Telegram gateway** no final da secção Connection abre esta página no browser.
   </Step>
   <Step title="Choose Ação predefinida">
-    **Ask Anything** is the default and works on Telegram out of the box. For a custom action, add `telegram` or `*` under **Action Editor → Model → Gateways → Gateways permitidos**.
+    **Ask Anything** é a predefinição e funciona no Telegram de imediato. Para action personalizada, defina **Disponibilidade** como **Telegram** ou **Todos** em **Action Editor → Gateways**.
   </Step>
   <Step title="Enable and save">
     Turn **Ativado** on, then click **Guardar e reiniciar**. Wait for **Ligado como @your_bot_username**.
@@ -245,5 +248,5 @@ Se a conexão falhar, consulte [Gateways troubleshooting](/apps-tools/gateways#t
 
 - [Gateways overview](/apps-tools/gateways)
 - [Set up a Discord gateway](/apps-tools/gateways-discord)
-- [Alter Actions — Gateways permitidos](/workflows/alter-actions)
+- [Alter Actions — Disponibilidade em Gateways](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

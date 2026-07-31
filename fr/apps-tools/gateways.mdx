@@ -99,20 +99,29 @@ Désactiver l'interrupteur principal conserve l'autorisation administrateur inst
 
 ## Quelles actions fonctionnent sur les Gateways ?
 
-Les actions **optent** pour les plateformes externes. Dans l'**Action Editor**, ouvrez **Model → Gateways → Gateways autorisés** :
+Les actions **optent** pour les plateformes externes. Dans l'**Action Editor**, ouvrez la section **Gateways** et choisissez **Disponibilité** :
 
-- **`discord`** — disponible sur les gateways Discord uniquement
-- **`telegram`** — disponible sur les gateways Telegram uniquement
-- **`*`** — disponible sur tous les gateways
-- **Vide** — local uniquement (Hub, QuickHub, etc.)
+| Réglage | Où l'action s'exécute |
+|---------|------------------------|
+| **Aucun** | Local uniquement (Hub, QuickHub, etc.) |
+| **Discord** | Gateways Discord uniquement |
+| **Telegram** | Gateways Telegram uniquement |
+| **Tous** | Tous les gateways |
 
 <Tip>
-  L'action incluse **Ask Anything** est activée sur **Discord** et **Telegram** par défaut — c'est la **Action par défaut** habituelle pour les nouveaux gateways. Les actions personnalisées ont besoin de `discord`, `telegram` ou `*` dans **Gateways autorisés**.
+  L'action incluse **Ask Anything** est sur **Tous** par défaut — c'est l'**Action par défaut** habituelle pour les nouveaux gateways. Mettez **Aucun** sur Ask Anything pour la garder locale uniquement. Les actions personnalisées commencent sur **Aucun** jusqu'à ce que vous activiez une plateforme ou **Tous**.
 </Tip>
 
-Les utilisateurs peuvent toujours changer d'action par conversation avec `/new [action]` tant que cette action est autorisée sur la plateforme.
+Dans **Préférences → Integrations → Gateways**, chaque gateway affiche une liste **Actions disponibles** pour sa plateforme. Utilisez-la pour confirmer quelles actions sont activées et ouvrir **Action Editor → Gateways** pour toute action listée.
 
-## Commandes et contrôles de chat
+Les utilisateurs peuvent toujours changer d'action par conversation avec `/new [action]` ou le sélecteur **Choose action**, tant que l'action est autorisée sur la plateforme.
+
+### Actions sans paramètres vs. paramétrées
+
+Quand quelqu'un choisit une action via **Choose action** (ou `/actions`) :
+
+- Les **actions sans paramètres** (aucun champ de saisie dans l'Action Editor) démarrent **immédiatement** — Alter exécute l'action avec son prompt configuré, comme un lancement en un clic dans le Hub.
+- Les **actions paramétrées** (avec champs de saisie) démarrent une **nouvelle conversation** et attendent le message suivant pour que l'utilisateur fournisse ces entrées.## Commandes et contrôles de chat
 
 Discord et Telegram prennent en charge les mêmes commandes texte (saisissez-les comme messages normaux). Sur Telegram, les commandes fonctionnent aussi avec un suffixe bot comme `/help@YourBotName`.
 
@@ -182,8 +191,9 @@ Voir aussi [Données locales et confidentialité](/references/local-data-and-pri
 | *I couldn't start a Discord thread for this discussion* | Les fils ne démarrent que depuis des canaux texte ou d'annonces du serveur. Vérifiez les permissions de fil ci-dessus, ou désactivez **Démarrer les discussions serveur dans des fils**. |
 | Messages ignorés sur Discord | Vérifiez que **ID du serveur (facultatif)** correspond au serveur utilisé. Confirmez que votre user ID est dans **ID utilisateur Discord autorisés** si la liste n'est pas vide. |
 | Messages ignorés sur Telegram | Confirmez que votre user ou chat ID est listé dans **ID utilisateur ou chat Telegram autorisés** si la liste n'est pas vide. |
-| *Action '…' is not enabled for Discord/Telegram* | Ouvrez l'action dans **Action Editor → Model → Gateways** et ajoutez la plateforme ou `*`. |
-| *No actions are enabled for Discord/Telegram* | Activez au moins une action pour la plateforme et définissez une **Action par défaut** valide sur le gateway. |
+| *Action '…' is not enabled for Discord/Telegram* | Ouvrez l'action dans **Action Editor → Gateways** et définissez **Disponibilité** sur la plateforme ou **Tous**. |
+| *No actions are enabled for Discord/Telegram* | Activez au moins une action pour la plateforme dans **Action Editor → Gateways**, et définissez une **Action par défaut** valide sur le gateway. La liste **Actions disponibles** du gateway reste vide tant qu'aucune action n'opt-in. |
+| *That action is no longer available on Discord/Telegram* | L'action a été désactivée pour cette plateforme ou supprimée. Choisissez une autre action ou réactivez-la dans **Action Editor → Gateways**. |
 | *Alter is already responding…* | Attendez la fin du tour en cours (jusqu'à environ 10 minutes), ou envoyez `/stop` / appuyez sur **Stop**. |
 
 ### Disponibilité couvercle fermé

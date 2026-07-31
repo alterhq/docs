@@ -184,12 +184,24 @@ AIモデルを選択し、創造性レベルを調整します。
   - **0.5** - バランス済み (デフォルト)
   - **1.0** - クリエイティブ (予測不可能、探索的)
 
-**Gateways セクション**
+### 8. Gateways
 
-- **許可された Gateways** — カンマ区切りリスト：`discord`、`telegram`、またはすべての gateway 用に `*`。空のままにするとローカルのみ（Hub、QuickHub など）。
-- 同梱の **Ask Anything** Action にはデフォルトで **Discord** と **Telegram** が含まれます。カスタム Action には **許可された Gateways** にプラットフォーム名または `*` が必要です。
+この Action を **Discord** と **Telegram** Gateway から利用可能にするか選択します。
 
-設定とチャットコマンドについては [Gateways](/apps-tools/gateways) を参照してください。
+**可用性** — ラジオオプション：
+
+| 設定 | 効果 |
+|---------|--------|
+| **なし** | ローカルのみ（Hub、QuickHub など） |
+| **Discord** | Discord Gateway から利用可能 |
+| **Telegram** | Telegram Gateway から利用可能 |
+| **すべて** | すべての Gateway から利用可能 |
+
+同梱の **Ask Anything** Action は **すべて** がデフォルトです。カスタム Action は **なし** から始まり、プラットフォームまたは **すべて** を有効にするまで Gateway では使えません。ローカルのみにしたい場合は Ask Anything を **なし** に設定してください。
+
+Gateway では、**パラメータなし Action**（入力フィールドなし）は **Choose action** から選ぶとすぐ実行されます。**パラメータあり Action** はユーザーの次のメッセージを待ちます。
+
+セットアップ、チャットコマンド、Gateway 設定については [Gateways](/apps-tools/gateways) を参照してください。
 
 ## ベストプラクティス
 

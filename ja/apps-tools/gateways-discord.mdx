@@ -178,11 +178,13 @@ Alter と通信できるサーバーまたはユーザーを制限したい場�
     | **準備完了メッセージチャンネル ID（任意）** | 接続成功後に Alter が「Hey, I'm up and running.»を投稿するチャンネル ID。 |
     | **許可された Discord ユーザー ID** | カンマ区切りのユーザー ID、または空でオープンアクセス。`*` で全員を明示的に許可。 |
     | **サーバーでメンションを必須にする** | オンの場合、サーバーチャンネルでは `@mention` 時のみ応答します。DM は変わりません。 |
+
+    Connection セクション下部の **Discord Gateway セットアップガイド** リンクで、このページをブラウザで開けます。
   </Step>
   <Step title="デフォルト Action とスレッド動作を選択">
-    **Ask Anything** がデフォルトで、Discord ですぐ使えます。カスタム Action には **Action Editor → Model → Gateways → 許可された Gateways** に `discord` または `*` を追加します。
+    **Ask Anything** がデフォルトで、Discord ですぐ使えます。カスタム Action には **Action Editor → Gateways** で **可用性** を **Discord** または **すべて** に設定します。
 
-    **動作** で、必要に応じて **サーバーでの議論をスレッドで開始** をオンにすると、各新しいサーバートップレベルメッセージに専用 Discord スレッドと Alter チャットが付きます。既存スレッド内のメッセージはそのチャットを継続します。DM は変わりません。使用する場合は bot 招待時（**ステップ 4**）に **Create Public Threads** と **Send Messages in Threads** を付与してください。
+    **動作** では、新しい Discord Gateway では **サーバーでの議論をスレッドで開始** が**デフォルトでオン** — 各新しいサーバートップレベルメッセージに専用 Discord スレッドと Alter チャットが付きます。既存スレッド内のメッセージはそのチャットを継続します。DM は変わりません。メインチャンネルで返信したい場合はオフにしてください。オンのまま使う場合は、ボット招待時（**ステップ 4**）に **Create Public Threads** と **Send Messages in Threads** を付与してください。
   </Step>
   <Step title="有効化して保存">
     **有効** をオンにし、**保存して再起動** をクリックします。**接続済み bot …** や **@… として接続済み** などのステータスを待ちます。
@@ -215,5 +217,5 @@ Alter と通信できるサーバーまたはユーザーを制限したい場�
 
 - [Gateways overview](/apps-tools/gateways)
 - [Set up a Telegram gateway](/apps-tools/gateways-telegram)
-- [Alter Actions — 許可された Gateways](/workflows/alter-actions)
+- [Alter Actions — Gateway 可用性](/workflows/alter-actions#gateways)
 - [Alter Settings](/how-to/settings-guide)

@@ -368,9 +368,10 @@ No topo da página Gateways:
 | Section | Fields |
 |---------|--------|
 | General | **Nome**, **Ativado** |
-| Connection (Discord) | **Token do bot**, **ID do servidor (opcional)**, **IDs de utilizador Discord permitidos**, **Exigir menção em servidores** |
-| Connection (Telegram) | **Token do bot**, **IDs de utilizador ou chat Telegram permitidos** |
-| Behavior | **Ação predefinida** — action usada para novas conversas neste gateway |
+| Connection (Discord) | **Token do bot**, **ID do servidor (opcional)**, **ID do canal de mensagem de prontidão (opcional)**, **IDs de utilizador Discord permitidos**, **Exigir menção em servidores**, ligação **Guia de configuração Discord gateway** |
+| Connection (Telegram) | **Token do bot**, **IDs de utilizador ou chat Telegram permitidos**, ligação **Guia de configuração Telegram gateway** |
+| Behavior | **Ação predefinida** — action usada para novas conversas neste gateway; **Iniciar discussões do servidor em threads** (apenas Discord, ativo por predefinição para novos gateways) |
+| Ações disponíveis | Lista actions ativas nesta plataforma; clique numa para abrir **Action Editor → Gateways** |
 | Footer | **Delete gateway**, **Guardar e reiniciar**, connection status |
 
 Token do bots ficam no Keychain macOS. Após **Guardar e reiniciar**, a linha de estado indica se o bot ligou (por exemplo **Ligado como @username**).
@@ -631,6 +632,12 @@ Cole o relatório no Discord ou e-mail ao contatar o suporte, junto com um [trac
 - **Microphone** — Necessário para ditado e áudio de reunião
 - **Automation** — Acesso a System Events para automação estilo AppleScript. Começa como **Idle** até você clicar **Check Automation**; o Alter solicita permissão e atualiza o relatório
 
+**Gateways**
+
+- **Configured gateways** — **Idle** quando não existem gateways
+- Por gateway: **connection** status (connected, connecting, reconnecting, failed ou disabled) com atalho para **Definições → Integrations → Gateways**
+- Por gateway: **access** — **Warning** quando um gateway ativo não tem allowlist; **OK** quando o acesso está limitado a IDs configurados
+
 **Voice Processor**
 
 - **Selected processor** — Motor de fala atual (Apple, cloud, Whisper, etc.) com link para **Definições → Voice**
@@ -675,7 +682,8 @@ Algumas seções incluem botões no rodapé:
 | "Algo está errado" de forma ampla | **Definições → Doctor** |
 | Atalho parou de funcionar | [Atalho de teclado não funciona](/common-issues/hotkey-not-working) |
 | Microfone não transcreve | [Microfone não funciona](/common-issues/mic-not-transcribing) |
-| Falha de ferramenta ou MCP | [Ferramentas não funcionam](/common-issues/tool-not-working) + seção **Tools** do Doctor |
+| Falha de ferramenta ou MCP |
+| Problemas de ligação ou acesso a gateway | Secção **Gateways** do Doctor + [Resolução de problemas Gateways](/apps-tools/gateways#troubleshooting) | [Ferramentas não funcionam](/common-issues/tool-not-working) + seção **Tools** do Doctor |
 | Erros de permissão do Computer Use | **Permissions** do Doctor + [Configurações de Computer use](/how-to/settings-guide#computer-use) |
 
 ## Documentos relacionados
