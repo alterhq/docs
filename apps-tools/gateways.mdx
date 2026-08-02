@@ -11,12 +11,17 @@ description: "Talk to Alter from Discord and Telegram while Alter runs on your M
   **Gateways** (Discord/Telegram bots) are different from the **API Gateway** in **Settings → Router**, which exposes an OpenAI-compatible endpoint for third-party apps. See [API Gateway Guide](/api-router/api-gateway) for that feature.
 </Warning>
 
+<Info>
+  **Buzz gateway (internal)** — Internal Alter builds also support a [Buzz gateway](/apps-tools/gateways-buzz) for the dev team. It is not available in public releases yet.
+</Info>
+
 ## What Gateways do
 
 Gateways let you use Alter from chat platforms you already have open:
 
 - **Discord** — DM the bot or mention it in a server channel (when configured).
 - **Telegram** — Message the bot in a private chat or group.
+- **Buzz** *(internal)* — Message a dedicated Nostr identity in an accessible Buzz channel, forum, thread, or direct conversation. See [Buzz gateway (internal)](/apps-tools/gateways-buzz).
 
 Each gateway instance has its own name, **Default action**, access controls, and connection settings. Conversations are stored in Alter on your Mac the same way as Hub chats — gateways are another way to start and continue those conversations.
 
@@ -40,7 +45,7 @@ When someone sends a message, Alter:
 
 You can also deep-link directly: `com.wearedevx.alter://settings?id=gateways`
 
-The Gateways page shows every configured gateway. Use **Add gateway** to create a **Discord** or **Telegram** connection.
+The Gateways page shows every configured gateway. Use **Add gateway** to create a **Discord** or **Telegram** connection. Internal builds also offer **Buzz**.
 
 ## Setup guides
 
@@ -50,6 +55,9 @@ The Gateways page shows every configured gateway. Use **Add gateway** to create 
   </Card>
   <Card title="Telegram gateway" icon="telegram" href="/apps-tools/gateways-telegram">
     Create a bot with BotFather and paste the token into Alter.
+  </Card>
+  <Card title="Buzz gateway (internal)" icon="message-square" href="/apps-tools/gateways-buzz">
+    Join a Buzz community with an invitation link — dev team only, internal builds.
   </Card>
 </CardGroup>
 
@@ -63,12 +71,14 @@ Every gateway shares these fields:
 | **Enabled** | Turn the connection on or off. A bot token is required before enabling. |
 | **Default action** | The Alter Action used when a new conversation starts on this gateway. |
 | **Start server discussions in threads** (Discord only) | When on, each new top-level server message starts a Discord thread and a separate Alter chat. Messages already inside a thread continue that chat. Direct messages are unchanged. **On by default** for new Discord gateways. |
+| **Start Buzz discussions in threads** (Buzz only, internal) | When on, each triggering top-level shared-channel message starts a Buzz thread and separate Alter chat. **On by default** for new Buzz gateways. |
 | **Available actions** | Lists every action enabled for this gateway's platform. Click an action to open it in **Action Editor → Gateways**. The current **Default action** is labeled **Default**. |
 | **Setup guide** (Connection section) | Link to the Discord or Telegram setup guide for this platform. |
 | **Save and restart** | Saves credentials and reconnects the bot. |
 
 Platform-specific **Connection** fields are documented in the setup guides:
 
+- [Buzz connection fields](/apps-tools/gateways-buzz#step-1--connect-in-alter) *(internal)*
 - [Discord connection fields](/apps-tools/gateways-discord#connect-in-alter)
 - [Telegram connection fields](/apps-tools/gateways-telegram#connect-in-alter)
 
@@ -106,6 +116,7 @@ Actions **opt in** to external platforms. In the **Action Editor**, open the **G
 | Setting | Where the action runs |
 |---------|------------------------|
 | **None** | Local-only (Hub, QuickHub, etc.) |
+| **Buzz** *(internal)* | Buzz gateways only |
 | **Discord** | Discord gateways only |
 | **Telegram** | Telegram gateways only |
 | **All** | Every gateway |
@@ -221,6 +232,7 @@ For broader tool and permission issues, use **Settings → Doctor** or [Tools no
 
 ## Related pages
 
+- [Set up a Buzz gateway (internal)](/apps-tools/gateways-buzz)
 - [Set up a Discord gateway](/apps-tools/gateways-discord)
 - [Set up a Telegram gateway](/apps-tools/gateways-telegram)
 - [Alter Actions — Gateway availability](/workflows/alter-actions#gateways) — configure actions and gateway availability

@@ -109,6 +109,7 @@
                   "apps-tools/gateways",
                   "apps-tools/gateways-discord",
                   "apps-tools/gateways-telegram",
+                  "apps-tools/gateways-buzz",
                   "apps-tools/integrations-troubleshooting"
                 ]
               },

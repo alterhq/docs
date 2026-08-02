@@ -188,18 +188,22 @@ Select AI model and adjust creativity level.
 
 ### 8. Gateways
 
-Choose whether this action is available from **Discord** and **Telegram** Gateways.
+Choose the exact gateway connections that can use this action. Every configured Buzz, Discord, and Telegram gateway has its own toggle, so two accounts on the same platform can have different access.
 
-**Availability** — Radio options:
+<Info>
+  **Buzz gateway (internal)** — Buzz appears only in internal Alter builds for the dev team. See [Buzz gateway (internal)](/apps-tools/gateways-buzz).
+</Info>
+
+**Availability** — Gateway toggles:
 
 | Setting | Effect |
 |---------|--------|
-| **None** | Local-only (Hub, QuickHub, etc.) |
-| **Discord** | Available from Discord gateways |
-| **Telegram** | Available from Telegram gateways |
-| **All** | Available from every gateway |
+| All toggles off | Local-only (Hub, QuickHub, etc.) |
+| A gateway on | Available only from that named gateway connection |
+| Several gateways on | Available from exactly those connections, even across platforms |
+| All toggles on | Available from every currently configured gateway |
 
-The bundled **Ask Anything** action defaults to **All**. Custom actions start on **None** until you enable a platform or **All**. Set Ask Anything to **None** if you want it local-only.
+The bundled **Ask Anything** action initially appears on all compatible gateways. Custom actions start local-only until you enable one or more gateway toggles. Changing any toggle saves an explicit list of gateway connections, so a gateway added later does not inherit that action automatically.
 
 On Gateways, **parameterless actions** (no input fields) run immediately when picked from **Choose action**; **parameterized actions** wait for the user's next message.
 

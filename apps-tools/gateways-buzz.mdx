@@ -1,0 +1,172 @@
+---
+title: "Buzz gateway (internal)"
+description: "Join a Buzz community with Alter using an invitation link — dev team only"
+---
+
+<Warning>
+  **Internal — dev team only.** Buzz gateway support is available in internal Alter builds for the Alter dev team. It is not yet available in public releases.
+</Warning>
+
+Use this guide to join a Buzz community with Alter under **Settings → Integrations → Gateways**. The gateway runs on your Mac and can receive Buzz messages, continue conversations in threads or direct messages, exchange files, and send scheduled action output to a Buzz destination.
+
+<Info>
+  Alter connects directly to your Buzz relay. It does not install or run Buzz Desktop, and it does not need a public endpoint on your Mac.
+</Info>
+
+## Before you start
+
+- An **internal Alter build** with Buzz gateway support.
+- **Alter** installed and running on your Mac.
+- A Buzz community invitation link from an owner or administrator.
+- Permission to give the Alter identity access to the intended community and channels.
+
+<Note>
+  Alter creates a dedicated Nostr identity and stores its private key in the macOS Keychain. It never puts the key in the invitation URL, process arguments, or gateway configuration.
+</Note>
+
+## Step 1 — Connect in Alter
+
+<Steps>
+  <Step title="Open Gateways settings">
+    Open **Settings** (⌘,) → **Integrations** → **Gateways**.
+  </Step>
+  <Step title="Add a Buzz gateway">
+    Click **Add gateway** → **Buzz**.
+  </Step>
+  <Step title="Name the agent">
+    Enter the public **Agent name** colleagues will see and mention in Buzz. This is separate from the gateway's local name in Alter.
+  </Step>
+  <Step title="Paste the invitation">
+    Paste the full **Buzz invite link**, then click **Connect Alter**. A link normally looks like `https://your-community.example/invite/...`.
+
+    If the community has a joining policy, review its Terms and Privacy links, complete any required age confirmation, then click **Accept and join**.
+  </Step>
+  <Step title="Save and start the gateway">
+    After Alter joins and loads the available destinations, choose the desired channels, enable the gateway, then click **Save and restart**.
+  </Step>
+</Steps>
+
+Create separate Buzz gateways for agents that need different identities, channel access, actions, workspaces, personas, or tool permissions. Each gateway keeps its own public agent name and Nostr key.
+
+Use **Advanced connection settings** only for local development, an identity supplied by an administrator, or recovery. It exposes the community URL, private key, optional owner auth tag, and manual validation action.
+
+## Step 2 — Set access and conversation behavior
+
+New Buzz gateways use conservative defaults: shared-channel messages require a mention, and each new top-level discussion starts a thread.
+
+| Field | Behavior |
+|-------|----------|
+| **Agent name** | Public Buzz profile name for this gateway's dedicated identity. Changing it and saving republishes the profile without affecting other Buzz gateways. |
+| **Channels** | Choose **All accessible channels** or **Selected channels**. Selection can only narrow the destinations returned by Buzz membership. |
+| **Default scheduled destination** | Destination used for automatic action output when the action does not select one explicitly. Leave it at **None** if scheduled output must always name a destination. |
+| **Allowed Nostr pubkeys or npubs** | Optional comma-separated sender allowlist. Leave it empty to allow any existing member of an enabled destination, or enter public keys/`npub` values to restrict access further. |
+| **Require a mention in shared channels** | When on, Alter ignores every shared-channel message unless the gateway identity is mentioned, including replies in an existing thread. Direct messages and scheduled outbound messages do not need a mention. **On by default.** |
+| **Start Buzz discussions in threads** | When on, each triggering top-level shared-channel message gets a separate Buzz reply thread and Alter conversation. Mentioned replies inside that thread continue it. Direct messages remain private. **On by default.** |
+| **Limit this Buzz agent to its default action** | Keeps `/new`, `/actions`, and restored chats inside the configured action's persona, workspace, and tool permissions. Turn it off only when this identity should expose every action enabled for this specific gateway. **On by default.** |
+
+<Warning>
+  A dedicated identity can expose local actions and their permitted Mac data to Buzz participants. Keep the channel selection and sender allowlist limited to the people who should be able to invoke those actions.
+</Warning>
+
+## Step 3 — Choose actions and save
+
+<Steps>
+  <Step title="Choose a default action">
+    **Ask Anything** is available by default. For a custom action, open **Action Editor → Gateways** and turn on this named Buzz gateway. Other Buzz gateways remain independent.
+  </Step>
+  <Step title="Enable and save">
+    Turn **Enabled** on and click **Save and restart**. The status changes to the connected identity after the relay authenticates the live subscription.
+  </Step>
+</Steps>
+
+## Test the gateway
+
+<Steps>
+  <Step title="Confirm Alter is running">
+    Buzz gateway processing happens on your Mac. Keep Alter open. On a MacBook, enable **Keep gateways online with the lid closed** if you want the gateway to remain available while plugged in with the lid shut.
+  </Step>
+  <Step title="Send /help">
+    In a shared Buzz destination, mention the gateway identity and send `/help`. In a direct message, `/help` works without a mention. Alter replies with the available text commands.
+  </Step>
+  <Step title="Send a mentioned message">
+    In a shared channel, mention the gateway identity and ask a short question. Mention the gateway again for each follow-up in the thread. Alter adds activity feedback, creates or continues the Buzz thread, and edits its draft reply while the action runs.
+  </Step>
+  <Step title="Try a direct message and a file">
+    Send a direct message or attach a file from an accessible Buzz conversation. Alter keeps direct-message routing private, downloads the attachment for the action, and can upload files produced by tools.
+  </Step>
+</Steps>
+
+## Send scheduled action output to Buzz
+
+An action can send its automatic opening response to a Buzz stream, forum, or direct conversation.
+
+<Steps>
+  <Step title="Enable the action for Buzz">
+    Open the action in **Action Editor → Gateways** and turn on the enabled Buzz gateway.
+  </Step>
+  <Step title="Turn on scheduled gateway delivery">
+    Enable **Start scheduled conversations on a gateway**, choose the enabled Buzz gateway, then choose a **Destination**.
+  </Step>
+  <Step title="Save and test the schedule">
+    Save the action and run or wait for its schedule. Alter posts a new top-level Buzz message with any output attachments. Scheduled sends are serialized per destination so overlapping runs do not interleave.
+  </Step>
+</Steps>
+
+If a saved destination is no longer accessible, load channels again and choose a current destination before the next scheduled run.
+
+## Commands
+
+Buzz accepts the same text workflow as the other chat gateways:
+
+| Command | What it does |
+|---------|--------------|
+| `/help` or `/start` | Show Buzz gateway help. |
+| `/status` | Show the live gateway state and the selected conversation's action. |
+| `/actions` | List actions enabled for Buzz. |
+| `/new [action]` or `/action [action]` | Start a new conversation with the default or named action. |
+| `/chats [limit] [page]` | List saved Alter conversations. |
+| `/use <number>` | Select a conversation from the last `/chats` page. |
+| `/history [limit]` | Show recent messages from the selected conversation. |
+| `/stop` | Stop the active response in this Buzz conversation. |
+
+When an action asks a question, reply with the numbered choice, a comma-separated set of choices for multi-select, free text for **Other**, or the submit/cancel instruction shown in the Buzz message.
+
+## Limitations
+
+- **Internal builds only** — Buzz gateway is not available in public Alter releases yet.
+- **Alter must be running** — Like Discord and Telegram gateways, Buzz processing happens locally on your Mac.
+- **No Buzz Desktop required** — Alter bundles a pinned Buzz CLI and gateway helper; it does not install Buzz Desktop.
+- **Mention-only shared channels by default** — Every shared-channel message, including thread replies, must mention the gateway identity unless you turn **Require a mention in shared channels** off.
+- **Default action lock** — With **Limit this Buzz agent to its default action** on (default), `/new`, `/actions`, and restored chats cannot switch to another action.
+- **One response at a time** — Alter handles one in-flight response per Buzz conversation, same as other gateways.
+- **Text commands only on Buzz** — Unlike Discord slash commands or Telegram inline keyboards, Buzz uses text commands and numbered replies for interactive prompts.
+
+## Troubleshooting
+
+| Symptom | What to try |
+|---------|-------------|
+| An invitation is rejected | Ask a Buzz owner or administrator for a fresh link. The invitation may be expired or out of uses. |
+| A joining policy appears | Open the linked documents, accept the policy, and complete the age confirmation when required by that community. |
+| Alter shows a public key and asks for Buzz access | Give that public key to a Buzz administrator and add it to the relay and intended destinations. Never share the private key. |
+| Validation succeeds but a destination is missing | Confirm that the gateway identity is a member, then click **Validate and load channels** and save again. |
+| Shared-channel messages are ignored | Mention the gateway identity, check **Allowed Nostr pubkeys or npubs**, and confirm the channel is enabled. |
+| Direct messages are ignored | Confirm Buzz reports the direct conversation as accessible. Alter only accepts direct messages whose participant set matches discovered Buzz membership. |
+| Scheduled output has no destination | Choose a destination in the action's **Gateways** schedule settings or set **Default scheduled destination** on the gateway. |
+| The gateway keeps reconnecting | Check the relay URL, network connection, membership, and owner auth tag. Alter reconnects with overlap so accepted events are not silently skipped. |
+
+Use **Settings → Doctor → Gateways** for the latest connection and access status.
+
+## Privacy and packaging
+
+- The private key and optional owner auth tag are stored in the macOS Keychain.
+- Messages, attachments, and action processing use Alter on your Mac. The gateway does not move your private actions into a cloud-hosted Alter service.
+- Alter bundles only the pinned Buzz command-line client and a small signed gateway helper. It does not bundle Buzz Desktop or its interface assets.
+- Incoming relay events are authenticated, signature-checked, and restricted to discovered Buzz memberships before Alter runs an action.
+
+## Related pages
+
+- [Gateways overview](/apps-tools/gateways)
+- [Set up a Discord gateway](/apps-tools/gateways-discord)
+- [Set up a Telegram gateway](/apps-tools/gateways-telegram)
+- [Alter Actions — Gateway availability](/workflows/alter-actions#gateways)
+- [Local data and privacy](/references/local-data-and-privacy)

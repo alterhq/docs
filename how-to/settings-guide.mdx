@@ -338,17 +338,18 @@ The **Router** tab configures the default AI endpoint:
 
 <h3 id="gateways">9. Gateways Settings</h3>
 
-The **Gateways** tab (under **Integrations** in the settings sidebar, alongside **API keys** and **Router**) connects Alter to **Discord** and **Telegram** bots.
+The **Gateways** tab (under **Integrations** in the settings sidebar, alongside **API keys** and **Router**) connects Alter to **Discord** and **Telegram** bots. Internal builds also support **Buzz**.
 
 Open **Settings** (⌘,) → **Integrations** → **Gateways**. Full setup walkthroughs:
 
 - [Gateways overview](/apps-tools/gateways)
+- [Set up a Buzz gateway (internal)](/apps-tools/gateways-buzz)
 - [Set up a Discord gateway](/apps-tools/gateways-discord)
 - [Set up a Telegram gateway](/apps-tools/gateways-telegram)
 
 **List and add gateways**
 
-- **Add gateway** — Create a **Discord** or **Telegram** connection.
+- **Add gateway** — Create a **Discord** or **Telegram** connection. Internal builds also offer **Buzz**.
 - Each row shows the gateway **Name**, platform, and an enabled/disabled indicator.
 
 **Keep gateways online with the lid closed** (MacBook)
@@ -368,9 +369,10 @@ At the top of the Gateways page:
 | Section | Fields |
 |---------|--------|
 | General | **Name**, **Enabled** |
+| Connection (Buzz, internal) | **Agent name**, **Buzz invite link**, **Connect Alter**, **Advanced connection settings** (community URL, Nostr private key, optional owner auth tag), channel selection, **Default scheduled destination**, **Allowed Nostr pubkeys or npubs**, **Require a mention in shared channels**, **Buzz gateway setup guide** link |
 | Connection (Discord) | **Bot token**, **Server ID (optional)**, **Ready message channel ID (optional)**, **Allowed Discord user IDs**, **Require a mention in servers**, **Discord gateway setup guide** link |
 | Connection (Telegram) | **Bot token**, **Allowed Telegram user or chat IDs**, **Telegram gateway setup guide** link |
-| Behavior | **Default action** — action used for new conversations on this gateway; **Start server discussions in threads** (Discord only, on by default for new gateways) |
+| Behavior | **Default action** — action used for new conversations on this gateway; **Start server discussions in threads** (Discord only, on by default for new gateways); **Start Buzz discussions in threads** and **Limit this Buzz agent to its default action** (Buzz only, internal) |
 | Available actions | Lists actions enabled for this platform; click one to open **Action Editor → Gateways** |
 | Footer | **Delete gateway**, **Save and restart**, connection status |
 
