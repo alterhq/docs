@@ -102,7 +102,7 @@ Escolha seu modelo de processamento de voz:
 
 Configure atalhos de teclado para acesso rápido à voz de qualquer lugar:
 
-- **Keyboard Shortcut**: Inicia/para a entrada de voz e fala comandos. Personalize a tecla de ativação para operação hands-free. Segure para falar com o prompt; toque para ditado.
+- **Keyboard Shortcut**: Inicia/para a entrada de voz e fala comandos. Personalize a tecla de ativação para operação hands-free. Segure para falar com o prompt; toque para ditado. Atalhos apenas com modificadores são suportados — por exemplo **⌘**, **Control** esquerdo ou direito, ou **Option** esquerdo ou direito sozinhos.
 - **Meeting Shortcut**: Acesso rápido a comandos de voz específicos de reunião
 - **Live Captions**: Ativa sobreposição de transcrição ao vivo enquanto você fala
 - **Live Notepad**: Abre o painel live notepad para capturar entrada de voz diretamente nas notas
@@ -304,6 +304,8 @@ Ao adicionar um provedor personalizado, você pode escolher entre:
 - **OpenRouter**: Serviço roteador multi-modelo
 - **Ollama**: Framework LLM local
 - **Osaurus**: Provedor Osaurus
+
+Para fornecedores **LM Studio**, **OpenRouter**, **Ollama**, **Bifrost** e **Gemini**, o Alter deteta automaticamente a janela de contexto, capacidade de thinking e suporte a visão de cada modelo ao atualizar a lista — sem entrada manual de metadados.
 
 **Adding a Provider**
 1. Clique no botão "Add Provider"

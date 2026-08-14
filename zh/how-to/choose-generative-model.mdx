@@ -31,6 +31,32 @@ description: "如何在 Alter 中选择和配置 AI 模型"
 使用 `/` 选择模型后会立即成为默认模型，并在您选择其他模型前一直保持生效。
 
 
+
+
+切换器分为 **Current**、**Favorites** 和 **Other models**。每行显示上下文长度、Vision 支持，以及 — 当模型支持时 — **Thinking effort** 控件。
+
+## Thinking effort
+
+支持的模型提供分级的思考级别 — 通常为 **Low**、**Balanced** 和 **Max**。选择与任务匹配的级别：
+
+| 级别 | 最适合 |
+|-------|------------|
+| **Low** | 快速回复、简单编辑、轻量跟进 |
+| **Balanced** | 日常聊天和大多数 Action（可用时为默认） |
+| **Max** | 深度分析、复杂规划和较难编码任务 |
+
+可通过以下方式更改 thinking effort：
+
+- Hub 或 QuickHub 中的 **模型切换器** — 点击行上的 effort 徽章，或在行高亮时使用 **←** / **→**
+- **Action Editor → Model** — 为 Action 固定模型设置 effort
+
+Alter **按模型** 记住您的选择，并在未来的聊天和 Action 中复用。在支持的提供商上，推理上下文会在后续轮次间保留。
+
+<Tip>
+  并非每个模型都提供 thinking effort。若某行没有 effort 徽章，则模型以固定深度运行或不提供分级推理。
+</Tip>
+
+
 #### Alter Cloud 的型号列表
 
 通过其统一路由器改变提供对10个项目** 92个多个型号的访问。使用`/models`端点入口当前型号，或参见**[API网关指南](/api-router/api-gateway)**了解详细的型号信息。

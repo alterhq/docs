@@ -175,6 +175,28 @@ Each Discord channel or Telegram chat can have one active Alter conversation. Us
 
 On Discord, enabling **Start server discussions in threads** gives each new top-level server message its own thread and Alter chat. Replies inside an existing thread continue that chat instead of starting another.
 
+## Scheduled action output on Gateways
+
+Scheduled Alter Actions can post their automatic opening response to a connected gateway instead of staying Hub-only.
+
+<Steps>
+  <Step title="Enable the action on a gateway">
+    Open the action in **Action Editor → Gateways** and set **Availability** to the platform, enable the gateway toggles you need, or use **All**.
+  </Step>
+  <Step title="Turn on scheduled gateway delivery">
+    Enable **Start scheduled conversations on a gateway**, choose an enabled **Discord**, **Telegram**, or **Buzz** *(internal)* gateway, then choose a **Destination** (server channel, Telegram chat, or Buzz stream/forum/DM).
+  </Step>
+  <Step title="Save and test">
+    Save the action and run or wait for its schedule. Alter delivers the opening response to the selected destination with any output attachments.
+  </Step>
+</Steps>
+
+<Tip>
+  **Buzz only:** Set **Default scheduled destination** on the gateway when an action should fall back to a destination without naming one each time. See [Buzz gateway (internal)](/apps-tools/gateways-buzz#send-scheduled-action-output-to-buzz).
+</Tip>
+
+If a saved destination is no longer accessible, refresh destinations in the Action Editor or gateway settings before the next scheduled run.
+
 ## Privacy and data
 
 - Bot tokens are stored in the **macOS Keychain**, not in plain-text settings files.

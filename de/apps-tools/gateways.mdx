@@ -164,6 +164,28 @@ Jeder Discord-Kanal oder Telegram-Chat kann eine aktive Alter-Unterhaltung haben
 
 Auf Discord gibt **Serverdiskussionen in Threads starten** jeder neuen Top-Level-Servernachricht einen eigenen Thread und Alter-Chat. Antworten in einem bestehenden Thread setzen diesen Chat fort, statt einen neuen zu starten.
 
+## Geplante Action-Ausgabe auf Gateways
+
+Geplante Alter Actions können ihre automatische Eröffnungsantwort an ein verbundenes Gateway posten, statt nur im Hub zu bleiben.
+
+<Steps>
+  <Step title="Action auf einem Gateway aktivieren">
+    Öffnen Sie die Action in **Action Editor → Gateways** und setzen Sie **Availability** auf die Plattform, aktivieren Sie die benötigten Gateway-Schalter oder nutzen Sie **All**.
+  </Step>
+  <Step title="Geplante Gateway-Zustellung aktivieren">
+    Aktivieren Sie **Start scheduled conversations on a gateway**, wählen Sie ein aktiviertes **Discord**-, **Telegram**- oder **Buzz**-Gateway *(intern)* und dann ein **Destination** (Serverkanal, Telegram-Chat oder Buzz-Stream/Forum/DM).
+  </Step>
+  <Step title="Speichern und testen">
+    Speichern Sie die Action und führen Sie den Zeitplan aus oder warten Sie darauf. Alter liefert die Eröffnungsantwort an das gewählte Ziel mit Ausgabe-Anhängen.
+  </Step>
+</Steps>
+
+<Tip>
+  **Nur Buzz:** Setzen Sie **Default scheduled destination** am Gateway, wenn eine Action ohne jedes Mal benannte Ziel auf ein Fallback zurückfallen soll. Siehe [Buzz gateway (internal)](/apps-tools/gateways-buzz#send-scheduled-action-output-to-buzz).
+</Tip>
+
+Wenn ein gespeichertes Ziel nicht mehr erreichbar ist, aktualisieren Sie Ziele im Action Editor oder in den Gateway-Einstellungen vor dem nächsten geplanten Lauf.
+
 ## Datenschutz und Daten
 
 - Bot-Tokens werden im **macOS Keychain** gespeichert, nicht in Klartext-Einstellungsdateien.

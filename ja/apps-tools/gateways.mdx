@@ -160,6 +160,28 @@ Alter は**チャンネルまたはチャットごとに 1 件の進行中応答
 
 Discord で **サーバーでの議論をスレッドで開始** を有効にすると、各新しいサーバートップレベルメッセージに専用スレッドと Alter チャットが付きます。既存スレッド内の返信は、新しいものを始めずにそのチャットを継続します。
 
+## Gateways へのスケジュール Action 出力
+
+スケジュールされた Alter Actions は、Hub のみではなく、接続された gateway に自動的な開始応答を投稿できます。
+
+<Steps>
+  <Step title="gateway で Action を有効化">
+    **Action Editor → Gateways** で Action を開き、**Availability** をプラットフォームに設定し、必要な gateway トグルを有効にするか **All** を使用します。
+  </Step>
+  <Step title="スケジュール gateway 配信を有効化">
+    **Start scheduled conversations on a gateway** を有効にし、有効な **Discord**、**Telegram**、または **Buzz** *(内部)* gateway を選び、**Destination**（サーバーチャンネル、Telegram チャット、または Buzz ストリーム/フォーラム/DM）を選択します。
+  </Step>
+  <Step title="保存してテスト">
+    Action を保存し、スケジュールを実行または待機します。Alter は選択した宛先に開始応答と出力添付を配信します。
+  </Step>
+</Steps>
+
+<Tip>
+  **Buzz のみ:** Action が毎回宛先を指定せずにフォールバックする場合は、gateway で **Default scheduled destination** を設定します。[Buzz gateway (internal)](/apps-tools/gateways-buzz#send-scheduled-action-output-to-buzz) を参照。
+</Tip>
+
+保存済みの宛先にアクセスできなくなった場合は、次のスケジュール実行前に Action Editor または gateway 設定で宛先を更新してください。
+
 ## プライバシーとデータ
 
 - Bot トークン は平文の設定ファイルではなく **macOS Keychain** に保存されます。

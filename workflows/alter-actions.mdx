@@ -171,20 +171,26 @@ The built-in **Memory Catch-Up** action ships with Memory already linked. It is 
 
 ### 7. Model
 
-Select AI model and adjust creativity level.
+Select AI model, thinking effort, and creativity level.
 
 ![Model Tab](/images/tools/action-editor-07-model.webp)
 
 **Fields:**
 
-- **Model** - Choose specific AI model for this action
-  - Leave empty to use user's default model setting
-  - Or select: Claude, GPT-4, local model, etc.
+- **Model** — Searchable picker grouped into **Current**, **Favorites**, and **Other models**. Leave empty to use the user's default model setting, or pin a specific model for this action.
+  - Each row shows context length, vision support, and favorites
+  - When the model supports it, adjust **Thinking effort** (**Low**, **Balanced**, **Max**) inline
 
 - **Temperature** - Adjust creativity vs. precision
   - **0.0** - Deterministic (consistent, predictable)
   - **0.5** - Balanced (default)
   - **1.0** - Creative (unpredictable, exploratory)
+
+Alter remembers thinking effort **per model** across Hub, QuickHub, and the Action Editor.
+
+<Tip>
+  Use **⌘F** in the Action Editor sidebar to search actions. Click the filter icon to narrow by background jobs, schedules, warnings, modified actions, or **Folders** (action categories). Folder filters include **All** and **None** shortcuts.
+</Tip>
 
 ### 8. Gateways
 
@@ -207,7 +213,9 @@ The bundled **Ask Anything** action initially appears on all compatible gateways
 
 On Gateways, **parameterless actions** (no input fields) run immediately when picked from **Choose action**; **parameterized actions** wait for the user's next message.
 
-See [Gateways](/apps-tools/gateways) for setup, chat commands, and gateway settings.
+**Scheduled gateway delivery** — When an action runs on a schedule, enable **Start scheduled conversations on a gateway**, choose an enabled **Discord**, **Telegram**, or **Buzz** *(internal)* gateway, then pick a **Destination** (channel, chat, or Buzz stream). Alter posts the action's opening response there instead of only running locally. Buzz gateways can also set a **Default scheduled destination** in **Settings → Integrations → Gateways**.
+
+See [Gateways](/apps-tools/gateways) for setup, chat commands, scheduled delivery, and gateway settings.
 
 ## Best Practices
 

@@ -160,6 +160,28 @@ Cada canal Discord ou chat Telegram pode ter uma conversa Alter ativa. Use `/new
 
 No Discord, ativar **Iniciar discussões do servidor em threads** dá a cada nova mensagem de topo do servidor o seu thread e chat Alter. Respostas dentro de um thread existente continuam esse chat em vez de iniciar outro.
 
+## Saída programada de actions em Gateways
+
+Alter Actions programadas podem publicar a resposta inicial automática num gateway ligado em vez de ficarem apenas no Hub.
+
+<Steps>
+  <Step title="Ativar a action num gateway">
+    Abra a action em **Action Editor → Gateways** e defina **Availability** para a plataforma, ative os toggles de gateway necessários ou use **All**.
+  </Step>
+  <Step title="Ativar entrega programada via gateway">
+    Ative **Start scheduled conversations on a gateway**, escolha um gateway **Discord**, **Telegram** ou **Buzz** *(interno)* ativado e depois um **Destination** (canal de servidor, chat Telegram ou stream/fórum/DM Buzz).
+  </Step>
+  <Step title="Guardar e testar">
+    Guarde a action e execute ou aguarde o horário. O Alter entrega a resposta inicial ao destino selecionado com anexos de saída.
+  </Step>
+</Steps>
+
+<Tip>
+  **Apenas Buzz:** Defina **Default scheduled destination** no gateway quando uma action deve recorrer a um destino sem o nomear de cada vez. Ver [Buzz gateway (internal)](/apps-tools/gateways-buzz#send-scheduled-action-output-to-buzz).
+</Tip>
+
+Se um destino guardado deixar de estar acessível, atualize destinos no Action Editor ou nas definições do gateway antes da próxima execução programada.
+
 ## Privacidade e dados
 
 - Token do bots são guardados no **macOS Keychain**, não em ficheiros de definições em texto simples.

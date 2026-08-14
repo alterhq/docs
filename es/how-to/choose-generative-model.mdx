@@ -30,6 +30,29 @@ De forma predeterminada, Alter está configurado con `/best`, nuestro modelo de 
 
 Puede seleccionar un modelo con `/`; se convierte en su modelo predeterminado inmediatamente y se mantiene activo hasta que elija otro.
 
+El selector agrupa **Current**, **Favorites** y **Other models**. Cada fila muestra longitud de contexto, soporte de visión y — cuando el modelo lo admite — un control de **Thinking effort**.
+
+## Thinking effort
+
+Los modelos compatibles ofrecen niveles de razonamiento graduados — normalmente **Low**, **Balanced** y **Max**. Elija el nivel que encaje con su tarea:
+
+| Nivel | Mejor para |
+|-------|------------|
+| **Low** | Respuestas rápidas, ediciones simples, seguimientos ligeros |
+| **Balanced** | Chat cotidiano y la mayoría de actions (predeterminado cuando está disponible) |
+| **Max** | Análisis profundo, planificación compleja y tareas de código difíciles |
+
+Cambie thinking effort desde:
+
+- El **selector de modelos** en Hub o QuickHub — haga clic en la insignia de esfuerzo en una fila, o use **←** / **→** con una fila resaltada
+- **Action Editor → Model** — establezca el esfuerzo para el modelo fijado de una action
+
+Alter recuerda su elección **por modelo** y la reutiliza en futuros chats y actions. El contexto de razonamiento se conserva en turnos de seguimiento con proveedores compatibles, para seguir iterando sin perder profundidad.
+
+<Tip>
+  No todos los modelos exponen thinking effort. Si una fila no tiene insignia de esfuerzo, el modelo funciona con profundidad fija o sin razonamiento graduado.
+</Tip>
+
 
 #### Lista de modelos a través de Alter Cloud
 

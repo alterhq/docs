@@ -57,131 +57,20 @@ Configurez les métadonnées de base et le contexte d'exécution.
 - **Workspace** – Attribuer à un Workspace spécifique (facultatif)
 - **Inclure le profil** : Inclure les informations de profil utilisateur dans le contexte de l'IA
 
-**Options de visibilité :**
-- **Afficher uniquement lors de l'exécution** - L'action n'apparaît que si une application est en cours d'exécution
-- **Afficher uniquement lorsqu'il est actif** - L'action n'apparaît que si une application a le focus
-- **Contexte de l'Workspace** – Choisissez quel(s) espace(s) de travail voient cette action
+- **Modèle** — Sélecteur recherchable regroupé en **Current**, **Favorites** et **Other models**. Laissez vide pour le modèle par défaut de l'utilisateur, ou épinglez un modèle pour cette action.
+  - Chaque ligne affiche la longueur de contexte, la prise en charge de la vision et les favoris
+  - Quand le modèle le permet, ajustez **Thinking effort** (**Low**, **Balanced**, **Max**) en ligne
 
-<Note>
-  Chaque action obtient automatiquement un UUID unique.
-</Note>
-
-### 2. Invite système
-
-Définir les instructions et les paramètres d'IA pour le modèle.
-
-![Onglet Invite système](/images/tools/action-editor-02-systemprompt.webp)
-
-**Invite système** - Instructions de base de l'IA décrivant le comportement et l'expertise de l'IA.
-
-**Exemple:**
-```
-# IDENTITY AND PURPOSE
-You are an expert software engineer who explains code clearly
-and accessibly to developers of all skill levels.
-
-# STEPS
-1. Analyze the provided code
-2. Identify its purpose and key components
-3. Explain each section in simple terms
-
-# OUTPUT INSTRUCTIONS
-- Use markdown formatting
-- Include code examples where helpful
-- Keep language clear and non-technical
-```
-
-**Paramètres** - Définissez les champs de saisie que les utilisateurs peuvent personnaliser avant l'exécution (saisie de texte, sélections déroulantes, etc.).
-
-### 3. Invite utilisateur
-
-Modèle pour l'invite destinée à l'utilisateur qui est envoyée à l'IA.
-
-![Onglet Invite utilisateur](/images/tools/action-editor-03-userprompt.webp)
-
-**Utilisation de variables contextuelles :**
-
-Enveloppez les variables dans `{{ }}` pour insérer du contenu dynamique :
-
-```
-Please explain this code:
-
-{{ textSelection }}
-
-Explanation detail: {{ detailLevel }};
-```
-
-**Variables de contexte disponibles :**
-- `{{ textSelection }}` - Texte actuellement sélectionné
-- `{{ filePath }}` - Chemin d'accès au fichier sélectionné
-- `{{ clipboard }}` - Contenu du presse-papiers
-- Paramètres personnalisés que vous avez définis dans l'invite système
-
-### 4. Quand montrer
-
-Contrôlez quand et où cette action apparaît.
-
-![Quand afficher l'onglet](/images/tools/action-editor-04-whentoshow.webp)
-
-**Conditions de visibilité :**
-
-- **Applications installées** - Afficher l'action uniquement dans des applications spécifiques (VSCode, Xcode, Safari, etc.)
-- **L'application est en cours d'exécution** - L'action nécessite que l'application soit en cours d'exécution
-- **L'application a le focus** - L'action ne fonctionne que lorsque l'application est au premier plan
-- **L'onglet du navigateur Web contient** - Afficher l'action lors de la navigation dans des domaines spécifiques
-- **A du contenu** – Afficher l'action uniquement lorsque le contexte est disponible
-
-### 5. Automatisation
-
-Configurez le comportement d'exécution, les planifications et le traitement en arrière-plan.
-
-![Onglet Automatisation](/images/tools/action-editor-05-automation.webp)
-
-**Champs :**
-
-- **Tâche en arrière-plan** - Exécutez une action en arrière-plan sans afficher l'interface utilisateur
-- **Programmes** – Exécuter l'action à des heures précises (par exemple, "Tous les lundis à 9 h 00")
-- **Action rapide** - Exécutez automatiquement la prochaine "Action rapide" une fois cette opération terminée.
-
-Utilisez-le pour l'enchaînement d'actions : première action → sortie → l'action suivante s'exécute automatiquement.
-
-### 6. Tools
-
-Déterminez quels Tools sont disponibles pour cette action.
-
-![Onglet Tools](/images/tools/action-editor-06-tools.webp)
-
-**Configuration du Tool :**
-
-- ** Désactiver les Tools ** – Désactivez des Tools individuels pour restreindre les fonctionnalités.
-- Lorsqu'il est vide : tous les Tools sont disponibles
-- Une fois configuré : seuls les Tools sélectionnés sont disponibles
-
-**Memory :** Liez le Tool **Memory** quand une action doit lire des faits enregistrés ou chercher dans des chats et réunions passés. Memory n'est pas activée pour toutes les actions par défaut. Voir [Memory](/fr/workflows/memory) et [Gérer Memory](/fr/how-to/manage-memory).
-
-L'action intégrée **Memory Catch-Up** inclut déjà Memory liée. C'est le moyen de confiance d'Alter pour amorcer Memory depuis les 30 derniers jours de chats et réunions — recommandé quand vous activez Memory pour la première fois ou voulez remplir l'historique récent. Voir [Memory Catch-Up](/fr/workflows/memory-catch-up).
-
-**Pourquoi les Tools Scope ?**
-- Réduire les frais de décision liés à l’IA (concentrez-vous sur les Tools pertinents)
-- Accélérez l’exécution des actions
-- Améliorer la sécurité (limiter les actions auxquelles les actions peuvent accéder)
-
-### 7. Modèle
-
-Sélectionnez le modèle d'IA et ajustez le niveau de créativité.
-
-![Onglet Modèle](/images/tools/action-editor-07-model.webp)
-
-**Champs :**
-
-- **Modèle** : choisissez un modèle d'IA spécifique pour cette action
-  - Laissez vide pour utiliser le paramètre de modèle par défaut de l'utilisateur
-  - Ou sélectionnez : Claude, GPT-4, modèle local, etc.
-
-- **Température** – Ajustez la créativité par rapport à la précision
-  - **0,0** – Déterministe (cohérent, prévisible)
+- **Température** – Ajustez la créativité par rapport à la précision
+  - **0,0** – Déterministe (cohérent, prévisible)
   - **0,5** - Équilibré (par défaut)
   - **1.0** – Créatif (imprévisible, exploratoire)
+
+Alter mémorise thinking effort **par modèle** dans le Hub, QuickHub et l'Action Editor.
+
+<Tip>
+  Utilisez **⌘F** dans la barre latérale de l'Action Editor pour rechercher des actions. Cliquez sur l'icône de filtre pour restreindre par tâches d'arrière-plan, planifications, avertissements, actions modifiées ou **Folders** (catégories d'actions). Les filtres de dossiers incluent les raccourcis **All** et **None**.
+</Tip>
 
 ### 8. Gateways
 
@@ -200,7 +89,9 @@ L'action incluse **Ask Anything** est sur **Tous** par défaut. Les actions pers
 
 Sur les Gateways, les **actions sans paramètres** (sans champs de saisie) s'exécutent immédiatement via **Choose action** ; les **actions paramétrées** attendent le message suivant de l'utilisateur.
 
-Voir [Gateways](/apps-tools/gateways) pour la configuration, les commandes de chat et les réglages gateway.(/apps-tools/gateways) pour la configuration et les commandes de chat.
+**Livraison programmée via gateway** — Lorsqu'une action s'exécute selon un planning, activez **Start scheduled conversations on a gateway**, choisissez un gateway **Discord**, **Telegram** ou **Buzz** *(interne)* activé, puis une **Destination** (canal, chat ou stream Buzz). Alter y publie la réponse d'ouverture de l'action au lieu de l'exécuter uniquement en local. Les gateways Buzz peuvent aussi définir une **Default scheduled destination** dans **Préférences → Integrations → Gateways**.
+
+Voir [Gateways](/apps-tools/gateways) pour la configuration, les commandes de chat, la livraison programmée et les réglages gateway.
 
 ## Meilleures pratiques
 

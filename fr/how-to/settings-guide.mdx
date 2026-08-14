@@ -102,7 +102,7 @@ Choisissez votre modèle de traitement vocal :
 
 Configurez les raccourcis clavier pour un accès vocal rapide depuis n'importe où :
 
-- **Keyboard Shortcut** : démarrez/arrêtez la saisie vocale et parlez des commandes. Personnalisez la touche d'activation pour un usage mains libres. Maintenez pour parler à l'invite, appuyez pour la dictée.
+- **Keyboard Shortcut** : démarrez/arrêtez la saisie vocale et parlez des commandes. Personnalisez la touche d'activation pour un usage mains libres. Maintenez pour parler à l'invite, appuyez pour la dictée. Les raccourcis modificateur seuls sont pris en charge — par exemple **⌘**, **Control** gauche ou droit, ou **Option** gauche ou droite seule.
 - **Meeting Shortcut** : accès rapide aux commandes vocales spécifiques aux réunions
 - **Live Captions** : activez la superposition de transcription en direct pendant que vous parlez
 - **Live Notepad** : ouvrez le panneau live notepad pour capturer la saisie vocale directement dans les notes
@@ -304,6 +304,8 @@ Lors de l'ajout d'un fournisseur personnalisé, vous pouvez choisir parmi :
 - **OpenRouter** : service routeur multi-modèles
 - **Ollama** : framework LLM local
 - **Osaurus** : fournisseur Osaurus
+
+Pour les fournisseurs **LM Studio**, **OpenRouter**, **Ollama**, **Bifrost** et **Gemini**, Alter détecte automatiquement la fenêtre de contexte, la capacité de thinking et la prise en charge de la vision de chaque modèle lors de l'actualisation de la liste — sans saisie manuelle de métadonnées.
 
 **Adding a Provider**
 1. Cliquez sur le bouton « Add Provider »

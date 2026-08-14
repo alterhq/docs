@@ -102,7 +102,7 @@ Choose your voice processing model:
 
 Configure keyboard shortcuts for quick voice access from anywhere:
 
-- **Keyboard Shortcut** : Start/stop voice input and speak commands. Customize the activation key for hands-free operation. Hold to speak to prompt, tap for dictation.
+- **Keyboard Shortcut** : Start/stop voice input and speak commands. Customize the activation key for hands-free operation. Hold to speak to prompt, tap for dictation. Modifier-only shortcuts are supported — for example **⌘**, left or right **Control**, or left or right **Option** alone.
 - **Meeting Shortcut** : Quick access to meeting-specific voice commands
 - **Live Captions** : Enable live transcription overlay while speaking
 - **Live Notepad** : Open the live notepad panel to capture voice input directly into notes
@@ -304,6 +304,8 @@ When adding a custom provider, you can choose from:
 - **OpenRouter**: Multi-model router service
 - **Ollama**: Local LLM framework
 - **Osaurus**: Osaurus provider
+
+For **LM Studio**, **OpenRouter**, **Ollama**, **Bifrost**, and **Gemini** providers, Alter automatically detects each model's context window, thinking capability, and vision support when you refresh the model list — no manual metadata entry required.
 
 **Adding a Provider**
 1. Click "Add Provider" button

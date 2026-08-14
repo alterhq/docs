@@ -169,20 +169,26 @@ Explanation detail: {{ detailLevel }};
 
 ### 7.モデル
 
-AIモデルを選択し、創造性レベルを調整します。
+AI モデル、thinking effort、創造性レベルを調整します。
 
 ![モデルタブ](/images/tools/action-editor-07-model.webp)
 
 **フィールド:**
 
-- **モデル** - このアクションに特定の AI モデルを選択します
-  - ユーザーの大丈夫のモデル設定を使用して、そのままにしておきます
-  - または、クロード、GPT-4、ローカルモデルなどを選択します。
+- **モデル** — **Current**、**Favorites**、**Other models** にグループ化された検索可能ピッカー。空のままにするとユーザーのデフォルトモデル、またはこの Action 用にモデルを固定。
+  - 各行にコンテキスト長、Vision 対応、お気に入りを表示
+  - モデルが対応する場合、**Thinking effort**（**Low**、**Balanced**、**Max**）をインライン調整
 
 - **温度** - 創造性と精度を調整します
   - **0.0** - 決定的 (一貫性、予測可能)
   - **0.5** - バランス済み (デフォルト)
   - **1.0** - クリエイティブ (予測不可能、探索的)
+
+Alter は Hub、QuickHub、Action Editor 全体で thinking effort を**モデルごと**に記憶します。
+
+<Tip>
+  Action Editor サイドバーで **⌘F** を使って Action を検索。フィルターアイコンでバックグラウンドジョブ、スケジュール、警告、変更済み Action、**Folders**（Action カテゴリ）を絞り込み。フォルダーフィルターには **All** / **None** ショートカットがあります。
+</Tip>
 
 ### 8. Gateways
 
@@ -201,7 +207,9 @@ AIモデルを選択し、創造性レベルを調整します。
 
 Gateway では、**パラメータなし Action**（入力フィールドなし）は **Choose action** から選ぶとすぐ実行されます。**パラメータあり Action** はユーザーの次のメッセージを待ちます。
 
-セットアップ、チャットコマンド、Gateway 設定については [Gateways](/apps-tools/gateways) を参照してください。
+**スケジュール gateway 配信** — Action がスケジュールで実行される場合、**Start scheduled conversations on a gateway** を有効にし、有効な **Discord**、**Telegram**、または **Buzz** *(内部)* gateway を選び、**Destination**（チャンネル、チャット、または Buzz ストリーム）を選択します。Alter はローカルのみではなく、そこに Action の開始応答を投稿します。Buzz gateway は **設定 → Integrations → Gateways** で **Default scheduled destination** も設定できます。
+
+[Gatesways](/apps-tools/gateways) — セットアップ、チャットコマンド、スケジュール配信、Gateway 設定。
 
 ## ベストプラクティス
 

@@ -140,49 +140,20 @@ Explanation detail: {{ detailLevel }};
 
 **字段：**
 
-- **后台作业** - 在后台运行操作而不显示UI
-- **时间表** - 在特定时间执行操作（例如，“每周一上午 9 点”）
-- **快速操作** - 完成后自动执行下一个“快速操作”
-
-将此用于操作链接：第一个操作 → 输出 → 下一个操作自动执行。
-
-### 6. 工具
-
-可用于此操作的工具范围。
-
-![工具选项卡](/images/tools/action-editor-06-tools.webp)
-
-**工具配置：**
-
-- **禁用工具** - 关闭单个工具以限制功能
-- 空时：所有工具都可用
-- 配置后：仅选定的工具可用
-
-**Memory：** 当操作需要读取已保存的事实或搜索以前的聊天和会议时，链接 **Memory** 工具。Memory 默认不会为每个操作启用。请参阅 [Memory](/zh/workflows/memory) 和 [管理 Memory](/zh/how-to/manage-memory)。
-
-内置 **Memory Catch-Up** 操作已链接 Memory。这是 Alter 从过去 30 天聊天和会议中填充 Memory 的可信方式——首次启用 Memory 或回填近期历史时推荐使用。请参阅 [Memory Catch-Up](/zh/workflows/memory-catch-up)。
-
-**为什么选择范围工具？**
-- 减少人工智能决策开销（关注相关工具）
-- 加快行动执行速度
-- 提高安全性（限制可以访问的操作）
-
-### 7. 模型
-
-选择AI模型并调整创造力水平。
-
-![模型选项卡](/images/tools/action-editor-07-model.webp)
-
-**字段：**
-
-- **模型** - 为此选择操作特定的AI模型
-  - 留空以使用用户的默认模型设置
-  - 或选择：Claude、GPT-4、本地模型等。
+- **模型** — 可搜索选择器，分为 **Current**、**Favorites** 和 **Other models**。留空则使用用户默认模型，或为该 Action 固定特定模型。
+  - 每行显示上下文长度、Vision 支持和收藏
+  - 当模型支持时，内联调整 **Thinking effort**（**Low**、**Balanced**、**Max**）
 
 - **温度** - 调整创造力与精度
   - **0.0** - 确定性（一致、可预测）
   - **0.5** - 平衡（默认）
   - **1.0** - 创意（不可预测，探索性）
+
+Alter 在 Hub、QuickHub 和 Action Editor 中**按模型**记住 thinking effort。
+
+<Tip>
+  在 Action Editor 侧边栏使用 **⌘F** 搜索 Action。点击筛选图标可按后台任务、计划、警告、已修改 Action 或 **Folders**（Action 类别）筛选。文件夹筛选包含 **All** 和 **None** 快捷方式。
+</Tip>
 
 ### 8. Gateways
 
@@ -201,7 +172,9 @@ Explanation detail: {{ detailLevel }};
 
 在 Gateway 上，**无参数 Action**（无输入字段）从 **Choose action** 选择后会立即运行；**有参数 Action** 会等待用户下一条消息。
 
-参见 [Gateways](/apps-tools/gateways) 了解设置、聊天命令和 Gateway 设置。
+**计划 gateway 投递** — 当 Action 按计划运行时，启用 **Start scheduled conversations on a gateway**，选择已启用的 **Discord**、**Telegram** 或 **Buzz** *(内部)* gateway，然后选择 **Destination**（频道、聊天或 Buzz 流）。Alter 将 Action 的开场响应发布到该处，而不仅本地运行。Buzz gateway 还可在 **设置 → Integrations → Gateways** 设置 **Default scheduled destination**。
+
+参见 [Gateways](/apps-tools/gateways) 了解设置、聊天命令、计划投递和 Gateway 设置。
 
 ## 最佳实践
 

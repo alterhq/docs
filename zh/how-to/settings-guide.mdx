@@ -102,7 +102,7 @@ Memory 面板还会列出每个已保存的事实。搜索、按范围或类型�
 
 配置键盘快捷键，以便从任意位置快速使用语音功能：
 
-- **Keyboard Shortcut**：开始/停止语音输入并说出命令。自定义激活键以实现免提操作。按住说话以提示，点按进行听写。
+- **Keyboard Shortcut**：开始/停止语音输入并说出命令。自定义激活键以实现免提操作。按住说话以提示，点按进行听写。支持仅修饰键快捷键 — 例如单独使用 **⌘**、左或右 **Control**、左或右 **Option**。
 - **Meeting Shortcut**：快速访问会议专用语音命令
 - **Live Captions**：说话时启用实时转写叠加层
 - **Live Notepad**：打开 Live Notepad 面板，将语音输入直接捕获到笔记中
@@ -304,6 +304,8 @@ Whisper 在广泛使用的语言上表现优异，但对于训练数据较少的
 - **OpenRouter**：多模型路由服务
 - **Ollama**：本地 LLM 框架
 - **Osaurus**：Osaurus 提供商
+
+对于 **LM Studio**、**OpenRouter**、**Ollama**、**Bifrost** 和 **Gemini** 提供商，Alter 在刷新模型列表时会自动检测每个模型的上下文窗口、thinking 能力和 Vision 支持 — 无需手动输入元数据。
 
 **Adding a Provider**
 1. 点击 "Add Provider" 按钮

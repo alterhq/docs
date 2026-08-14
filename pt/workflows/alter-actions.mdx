@@ -169,20 +169,26 @@ A acção integrada **Memory Catch-Up** inclui Memory já ligada. É a forma fi�
 
 ### 7. Modelo
 
-Selecione modelo de IA e ajuste o nível de criatividade.
+Selecione o modelo de IA, thinking effort e o nível de criatividade.
 
 ![Modelo de Página](/images/tools/action-editor-07-model.webp)
 
 **Campos:**
 
-- **Modelo** - Escolha modelo específico de IA para esta ação
-  - Deixar em branco para usar a configuração padrão do modelo do usuário
-  - Ou selecione: Claude, GPT-4, modelo local, etc.
+- **Modelo** — Seletor pesquisável agrupado em **Current**, **Favorites** e **Other models**. Deixe vazio para o modelo predefinido do utilizador, ou fixe um modelo para esta action.
+  - Cada linha mostra comprimento de contexto, suporte a visão e favoritos
+  - Quando o modelo suporta, ajuste **Thinking effort** (**Low**, **Balanced**, **Max**) inline
 
 - **Temperatura** - Ajustar a criatividade vs. precisão
   - **0.0** - Determinativo (consistente, previsível)
   - **0.5** - Saldo (padrão)
   - **1.0** - Criativo (imprevisível, exploratório)
+
+O Alter memoriza thinking effort **por modelo** no Hub, QuickHub e Action Editor.
+
+<Tip>
+  Use **⌘F** na barra lateral do Action Editor para pesquisar actions. Clique no ícone de filtro para restringir por trabalhos em segundo plano, horários, avisos, actions modificadas ou **Folders** (categorias de actions). Filtros de pastas incluem atalhos **All** e **None**.
+</Tip>
 
 ### 8. Gateways
 
@@ -201,7 +207,9 @@ A action incluída **Ask Anything** tem **Todos** por predefinição. Actions pe
 
 Nos Gateways, **actions sem parâmetros** (sem campos de entrada) executam de imediato quando escolhidas em **Choose action**; **actions com parâmetros** aguardam a mensagem seguinte do utilizador.
 
-Consulte [Gateways](/apps-tools/gateways) para configuração, comandos de chat e definições de gateway.(/apps-tools/gateways) para configuração e comandos de chat.
+**Entrega programada via gateway** — Quando uma action corre num horário, ative **Start scheduled conversations on a gateway**, escolha um gateway **Discord**, **Telegram** ou **Buzz** *(interno)* ativado e depois um **Destination** (canal, chat ou stream Buzz). O Alter publica a resposta inicial da action aí em vez de correr apenas localmente. Gateways Buzz também podem definir **Default scheduled destination** em **Definições → Integrations → Gateways**.
+
+Consulte [Gateways](/apps-tools/gateways) para configuração, comandos de chat, entrega programada e definições de gateway.
 
 ## Melhores Práticas
 

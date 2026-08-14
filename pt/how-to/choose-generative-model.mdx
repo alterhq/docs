@@ -31,6 +31,32 @@ Por padrão, Alter é configurado com `/best` , nosso roteador de modelo interno
 Você pode definir o modelo padrão ao escolher com `/`; ele entra em vigor imediatamente e permanece ativo até você selecionar outro modelo.
 
 
+
+
+O seletor agrupa **Current**, **Favorites** e **Other models**. Cada linha mostra comprimento de contexto, suporte a visão e — quando o modelo suporta — um controlo **Thinking effort**.
+
+## Thinking effort
+
+Modelos compatíveis oferecem níveis de raciocínio graduados — normalmente **Low**, **Balanced** e **Max**. Escolha o nível adequado à tarefa:
+
+| Nível | Melhor para |
+|-------|-------------|
+| **Low** | Respostas rápidas, edições simples, follow-ups leves |
+| **Balanced** | Chat quotidiano e a maioria das actions (predefinição quando disponível) |
+| **Max** | Análise profunda, planeamento complexo e tarefas de código difíceis |
+
+Altere thinking effort a partir de:
+
+- O **seletor de modelos** no Hub ou QuickHub — clique no badge de esforço numa linha, ou use **←** / **→** com uma linha destacada
+- **Action Editor → Model** — defina o esforço para o modelo fixado de uma action
+
+O Alter memoriza a escolha **por modelo** e reutiliza-a em futuros chats e actions. O contexto de raciocínio é preservado em turnos de seguimento com fornecedores compatíveis.
+
+<Tip>
+  Nem todos os modelos expõem thinking effort. Se uma linha não tiver badge de esforço, o modelo funciona com profundidade fixa ou sem raciocínio graduado.
+</Tip>
+
+
 #### Lista dos modelos via Alter Cloud
 
 Alter fornece acesso a **92+ modelos em 10 provedores** através de seu roteador unificado. Use o endpoint `/models` para listar modelos atuais, ou veja o **[Guia de Gateway API](/api-router/api-gateway)** para informações detalhadas do modelo.

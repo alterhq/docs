@@ -27,6 +27,29 @@ Standardmäßig ist Alter mit `/best` eingerichtet, unserem internen Modellroute
 
 Wählen Sie ein Modell mit `/` aus, und es wird sofort Ihr Standardmodell. Es bleibt aktiv, bis Sie ein anderes Modell auswählen.
 
+Der Wechsler gruppiert **Current**, **Favorites** und **Other models**. Jede Zeile zeigt Kontextlänge, Vision-Unterstützung und — wenn das Modell es unterstützt — eine **Thinking effort**-Steuerung.
+
+## Thinking effort
+
+Unterstützte Modelle bieten abgestufte Denkstufen — typischerweise **Low**, **Balanced** und **Max**. Wählen Sie die Stufe passend zu Ihrer Aufgabe:
+
+| Stufe | Am besten für |
+|-------|---------------|
+| **Low** | Schnelle Antworten, einfache Bearbeitungen, leichte Folgefragen |
+| **Balanced** | Alltäglicher Chat und die meisten Actions (Standard, wenn verfügbar) |
+| **Max** | Tiefgehende Analyse, komplexe Planung und schwierigere Coding-Aufgaben |
+
+Thinking effort ändern Sie über:
+
+- Den **Modellwechsler** im Hub oder QuickHub — klicken Sie auf das Effort-Badge in einer Zeile oder nutzen Sie **←** / **→**, während eine Zeile hervorgehoben ist
+- **Action Editor → Model** — Effort für das angeheftete Modell einer Action festlegen
+
+Alter merkt sich Ihre Wahl **pro Modell** und verwendet sie in künftigen Chats und Actions wieder. Der Reasoning-Kontext bleibt bei unterstützten Anbietern über Folge-Turns erhalten, sodass Sie iterieren können, ohne an Tiefe zu verlieren.
+
+<Tip>
+  Nicht jedes Modell bietet Thinking effort. Fehlt ein Effort-Badge, läuft das Modell mit fester Tiefe oder ohne abgestuftes Reasoning.
+</Tip>
+
 #### Liste der Modelle über Alter Cloud
 
 Alter bietet Zugriff auf **92+ Modelle von 10 Anbietern** über seinen einheitlichen Router. Verwenden Sie den `/models`-Endpunkt, um die aktuellen Modelle aufzulisten, oder sehen Sie sich den **[API Gateway Guide](/de/api-router/api-gateway)** für detaillierte Modellinformationen an.

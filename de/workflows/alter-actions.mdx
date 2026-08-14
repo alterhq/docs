@@ -168,20 +168,26 @@ Die integrierte **Memory Catch-Up**-Action bringt Memory bereits verknüpft mit.
 
 ### 7. Modell
 
-Wählen Sie das AI-Modell und passen Sie das Kreativitätsniveau an.
+Wählen Sie das AI-Modell, Thinking effort und das Kreativitätsniveau.
 
 ![Modell Tab](/images/tools/action-editor-07-model.webp)
 
 **Felder:**
 
-- **Modell** - Wählen Sie ein bestimmtes AI-Modell für diese Aktion
-  - Leer lassen, um die Standardeinstellung des Benutzers zu verwenden
-  - Oder auswählen: Claude, GPT-4, lokales Modell usw.
+- **Modell** — Durchsuchbare Auswahl gruppiert in **Current**, **Favorites** und **Other models**. Leer lassen für das Standardmodell des Nutzers oder ein bestimmtes Modell für diese Action anheften.
+  - Jede Zeile zeigt Kontextlänge, Vision-Unterstützung und Favoriten
+  - Wenn das Modell es unterstützt, **Thinking effort** (**Low**, **Balanced**, **Max**) inline anpassen
 
 - **Temperatur** - Kreativität im Vergleich zur Präzision anpassen
   - **0.0** - Deterministisch (konsistent, vorhersehbar)
   - **0.5** - Ausgewogen (Standard)
   - **1.0** - Kreativ (unvorhersehbar, erkundend)
+
+Alter merkt sich Thinking effort **pro Modell** in Hub, QuickHub und Action Editor.
+
+<Tip>
+  Nutzen Sie **⌘F** in der Action-Editor-Seitenleiste zum Suchen von Actions. Klicken Sie auf das Filtersymbol, um nach Hintergrundjobs, Zeitplänen, Warnungen, geänderten Actions oder **Folders** (Action-Kategorien) zu filtern. Ordnerfilter bieten **All**- und **None**-Kurzbefehle.
+</Tip>
 
 ### 8. Gateways
 
@@ -200,7 +206,9 @@ Die mitgelieferte **Ask Anything**-Aktion ist standardmäßig auf **Alle**. Benu
 
 Auf Gateways starten **parameterlose Aktionen** (ohne Eingabefelder) sofort über **Choose action**; **parametrisierte Aktionen** warten auf die nächste Nachricht des Nutzers.
 
-Siehe [Gateways](/apps-tools/gateways) für Einrichtung, Chat-Befehle und Gateway-Einstellungen.(/apps-tools/gateways) für Einrichtung und Chat-Befehle.
+**Geplante Gateway-Zustellung** — Läuft eine Action nach Zeitplan, aktivieren Sie **Start scheduled conversations on a gateway**, wählen Sie ein aktiviertes **Discord**-, **Telegram**- oder **Buzz**-Gateway *(intern)* und dann ein **Destination** (Kanal, Chat oder Buzz-Stream). Alter postet die Eröffnungsantwort der Action dort, statt nur lokal zu laufen. Buzz-Gateways können auch ein **Default scheduled destination** unter **Einstellungen → Integrations → Gateways** setzen.
+
+Siehe [Gateways](/apps-tools/gateways) für Einrichtung, Chat-Befehle, geplante Zustellung und Gateway-Einstellungen.
 
 ## Best Practices
 

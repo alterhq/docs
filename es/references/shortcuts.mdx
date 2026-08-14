@@ -79,6 +79,18 @@ When a QuickHub or Hub conversation is focused (**Settings → Shortcuts → Con
 - **Shift + Tab**: Cycle input mode
 - **Page Up** / **Page Down**: Scroll the conversation or result list one page
 
+#### Buscar en la conversación
+
+Cuando una pestaña de conversación está activa en el Hub o QuickHub:
+
+| Atajo | Acción |
+|-------|--------|
+| **⌘F** | **Buscar en la conversación…** — buscar en el chat abierto |
+| **⌘G** | **Buscar siguiente** coincidencia |
+| **⇧⌘G** | **Buscar anterior** coincidencia |
+
+**Buscar en la conversación** también está en el menú **Edición**. Solo busca texto de mensajes en la conversación actual — no todo el historial del Hub.
+
 ### Tools (per-tool shortcuts)
 
 Tool-specific shortcuts are **not** in `AppShortcuts.swift` — they are configured per enabled tool:
@@ -119,7 +131,8 @@ Common window shortcuts from **Settings → Shortcuts → Windows**:
 
 ### Alter Hub Window
 
-- **Cmd + F**: Focus search (arrow keys to navigate results)
+- **⇧⌘F** (predeterminado): **Buscar en todas las conversaciones…** — enfocar la búsqueda de la barra lateral del Hub y buscar en chats guardados y transcripciones de reuniones (**Configuración → Shortcuts → Hub → Buscar en todas las conversaciones**)
+- **⌘F**: **Buscar en la conversación…** cuando una pestaña de conversación está enfocada (véase [Buscar en la conversación](#buscar-en-la-conversación) arriba)
 - **Cmd + B**: Toggle sidebar visibility
 - **Cmd + T**: New tab (start new chat)
 - **Cmd + J**: Create workspace (requires active context)

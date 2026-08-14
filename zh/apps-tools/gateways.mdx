@@ -162,6 +162,28 @@ Alter 每个频道或聊天**同时只处理一条进行中的回复**。若 Alt
 
 在 Discord 上，启用 **在线程中開始服务器討論** 后，每条新的服务器顶层消息会有独立线程和 Alter 聊天。在已有线程内的回复会继续该聊天，而不是再开一个。
 
+## Gateways 上的计划 Action 输出
+
+计划的 Alter Actions 可以将自动开场响应发布到已连接的 gateway，而不仅限于 Hub。
+
+<Steps>
+  <Step title="在 gateway 上启用 Action">
+    在 **Action Editor → Gateways** 中打开 Action，将 **Availability** 设为平台、启用所需的 gateway 开关，或使用 **All**。
+  </Step>
+  <Step title="开启计划 gateway 投递">
+    启用 **Start scheduled conversations on a gateway**，选择已启用的 **Discord**、**Telegram** 或 **Buzz** *(内部)* gateway，然后选择 **Destination**（服务器频道、Telegram 聊天或 Buzz 流/论坛/DM）。
+  </Step>
+  <Step title="保存并测试">
+    保存 Action 并运行或等待计划。Alter 将开场响应及输出附件投递到所选目标。
+  </Step>
+</Steps>
+
+<Tip>
+  **仅 Buzz：** 当 Action 应回退到默认目标而无需每次命名时，在 gateway 上设置 **Default scheduled destination**。参见 [Buzz gateway (internal)](/apps-tools/gateways-buzz#send-scheduled-action-output-to-buzz)。
+</Tip>
+
+若保存的目标不再可访问，请在下次计划运行前于 Action Editor 或 gateway 设置中刷新目标。
+
 ## 隐私与数据
 
 - Bot 令牌 存储在 **macOS Keychain** 中，而非明文设置文件。

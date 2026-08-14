@@ -79,6 +79,18 @@ When a QuickHub or Hub conversation is focused (**Settings → Shortcuts → Con
 - **Shift + Tab**: Cycle input mode
 - **Page Up** / **Page Down**: Scroll the conversation or result list one page
 
+#### 在对话中查找
+
+当 Hub 或 QuickHub 中的对话标签页处于活动状态时：
+
+| 快捷键 | 操作 |
+|--------|------|
+| **⌘F** | **在对话中查找…** — 在打开的聊天中搜索 |
+| **⌘G** | **查找下一个** |
+| **⇧⌘G** | **查找上一个** |
+
+**在对话中查找** 也可从 **编辑** 菜单使用。它仅搜索当前对话中的消息文本 — 而非全部 Hub 历史。
+
 ### Tools (per-tool shortcuts)
 
 Tool-specific shortcuts are **not** in `AppShortcuts.swift` — they are configured per enabled tool:
@@ -119,7 +131,8 @@ Common window shortcuts from **Settings → Shortcuts → Windows**:
 
 ### Alter Hub Window
 
-- **Cmd + F**: Focus search (arrow keys to navigate results)
+- **⇧⌘F**（默认）: **搜索所有对话…** — 聚焦 Hub 侧边栏搜索（**设置 → Shortcuts → Hub → 搜索所有对话**）
+- **⌘F**: **在对话中查找…** — 当对话标签页聚焦时
 - **Cmd + B**: Toggle sidebar visibility
 - **Cmd + T**: New tab (start new chat)
 - **Cmd + J**: Create workspace (requires active context)

@@ -21,7 +21,30 @@ Use this when you want better results for a specific task, not just the default 
 
 ## Set your default model
 
-Use `/` to pick a model. The selected model becomes your default model immediately and stays active until you choose another one.
+Use `/` in the prompt box to open the model switcher, or press **/** anywhere in a Hub or QuickHub conversation. The selected model becomes your default immediately and stays active until you choose another one.
+
+The switcher groups **Current**, **Favorites**, and **Other models**. Each row shows context length, vision support, and — when the model supports it — a **Thinking effort** control.
+
+## Thinking effort
+
+Supported models advertise graded thinking levels — typically **Low**, **Balanced**, and **Max**. Choose the level that matches your task:
+
+| Level | Best for |
+|-------|----------|
+| **Low** | Quick replies, simple edits, lightweight follow-ups |
+| **Balanced** | Everyday chat and most actions (default when available) |
+| **Max** | Deep analysis, complex planning, and harder coding tasks |
+
+Change thinking effort from:
+
+- The **model switcher** in Hub or QuickHub — click the effort badge on a row, or use **←** / **→** while a row is highlighted
+- **Action Editor → Model** — set effort for a specific action's pinned model
+
+Alter remembers your choice **per model** and reuses it in future chats and actions. Reasoning context is preserved across follow-up turns on supported providers, so you can keep iterating without losing depth.
+
+<Tip>
+  Not every model exposes thinking effort. If a row has no effort badge, the model either runs at a fixed depth or does not advertise graded reasoning.
+</Tip>
 
 ## Practical model choices
 
