@@ -1,0 +1,264 @@
+---
+title: "Coding tools"
+description: "通过 ChatGPT、Cursor、OpenCode 和 Claude Code 从 Alter 运行本地编程会话"
+---
+
+<Info>
+  **Coding tools** 让 Alter 在 Mac 上启动和管理**持久的本地编程会话**。在 Hub、QuickHub 或自定义 Action 中用自然语言提问 — Alter 在后台启动会话，并在 turn 完成时**将结果带回同一对话**。
+</Info>
+
+Alter 不会取代您的编程智能体。它编排您已在使用的工具 — **ChatGPT**（Codex）、**Cursor Agent CLI**、**OpenCode** 和 **Claude Code** — 让您从一个地方规划、委派、引导和审查。
+
+## 您可以做什么
+
+- 针对项目文件夹或独立的 scratch 会话启动编程任务
+- 在同一 Alter 聊天中通过后续消息继续同一会话
+- 引导、停止运行中的任务或回答审批提示（取决于提供商）
+- 在 Action Editor 中按 Action 限定 Coding tools 范围
+- 启用多个集成时通过 **Flow** 路由编程请求
+
+## 前提条件
+
+在运行编程智能体之前，安装并登录您需要的提供商。
+
+| 提供商 | Alter 需要什么 | 登录 |
+|--------|----------------|------|
+| **ChatGPT** | 带捆绑 Codex CLI 的 [ChatGPT](https://chatgpt.com) 桌面应用（`ChatGPT.app` 或 `Codex.app`） | 应用中的 ChatGPT 账户 |
+| **Cursor** | [Cursor Agent CLI](https://cursor.com)（`agent` 在 PATH 中） | CLI 中的 Cursor 账户 |
+| **OpenCode** | [OpenCode CLI](https://opencode.ai)（`opencode` 在 PATH 中） | 在 OpenCode 中配置的提供商凭据 |
+| **Claude** | [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)（`claude` 在 PATH 中） | 在终端运行 `claude auth login` |
+
+<Note>
+  Alter 从标准安装位置（`/Applications`、`~/.local/bin`、Homebrew 和登录 shell 的 `PATH`）检测这些工具。如果缺少某个提供商，请在 **Tools Manager** 中打开其应用详情页查看安装说明。
+</Note>
+
+## 从 Marketplace 开始（推荐）
+
+Alter 在 [Alter Marketplace](https://alterhq.com/marketplace) 发布**专用编程智能体**。每个智能体是预构建的 Alter Action，限定于一个编程提供商 — 包含系统提示、工具链接和默认值 — 您无需自行配置 Coding tools。
+
+<Steps>
+  <Step title="打开 Marketplace">
+    按 **⌘⇧T** 并在 **Marketplace** 下选择 **Browse**，或在 [alterhq.com/marketplace](https://alterhq.com/marketplace) 打开列表。
+  </Step>
+  <Step title="下载智能体">
+    选择适合您编程工具的智能体并点击 **Download**。Alter 将其作为已启用的 Action 导入到 **Installed** 下。
+  </Step>
+  <Step title="运行一次">
+    点击 **立即试用** 或从 Hub 运行该 Action。首次使用时，Alter 会打开 **设置工具**，并在您确认后启用所需的编程集成。
+  </Step>
+  <Step title="开始编程">
+    描述任务 — 当 Alter 尚无 Workspace 上下文时，请包含项目路径。
+  </Step>
+</Steps>
+
+### Marketplace 编程智能体
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    **可用** — 用于 ChatGPT（Codex）的编程智能体。包含 ChatGPT Settings、Run/List/Read/Control/Manage ChatGPT Task。
+  </Card>
+  <Card title="Cursor Agent" icon="terminal" href="https://alterhq.com/marketplace/cursor-agent">
+    **即将推出** — 从 Alter 运行 Cursor Agent CLI 会话。
+  </Card>
+  <Card title="Claude Agent" icon="code" href="https://alterhq.com/marketplace/claude-agent">
+    **即将推出** — 从 Alter 运行 Claude Code CLI 会话。
+  </Card>
+  <Card title="OpenCode Agent" icon="server" href="https://alterhq.com/marketplace/opencode-agent">
+    **即将推出** — 从 Alter 运行 OpenCode CLI 和 Terminal 会话。
+  </Card>
+</CardGroup>
+
+已上线的 **[ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)** 列表位于 **Programming** 类别。它预链接了这些工具：
+
+- **ChatGPT Settings** — 列出模型并读取或设置默认值
+- **Run ChatGPT Task** — 启动或继续 Codex 会话
+- **List ChatGPT Tasks** — 在本对话或整个 ChatGPT 中查找会话
+- **Read ChatGPT Task** — 检查状态、活动或输出
+- **Control ChatGPT Task** — 引导、停止或回答审批提示
+- **Manage ChatGPT Task** — 重命名或归档会话
+
+首次成功运行后，ChatGPT 编程集成会在 **Tools Manager → Local Tools → Coding** 中保持启用，供其他 Action 和 Hub 聊天使用。
+
+<Tip>
+  想要自定义工作流？在 Action Editor 中复制 Marketplace 智能体，或在下方手动启用 Coding tools 并按 Action 限定范围。参见 [Alter Actions](/zh/workflows/alter-actions)。
+</Tip>
+
+## 在 Tools Manager 中手动启用
+
+当您想在 **Ask Anything**、自定义 Action 或 **Flow** 中使用 Coding tools，且不想安装 Marketplace 智能体时，使用此路径。
+
+<Steps>
+  <Step title="打开 Tools Manager">
+    按 **⌘⇧T** 或从菜单栏选择 **Tools Manager**。
+  </Step>
+  <Step title="打开 Local Tools">
+    在侧边栏选择 **Local Tools**。
+  </Step>
+  <Step title="连接提供商">
+    在 **Coding** 下连接 **ChatGPT**、**Cursor**、**OpenCode** 和/或 **Claude**。仅开启您使用的提供商。
+  </Step>
+  <Step title="用一个提示测试">
+    在 Hub 中问一些简单的问题，例如「List the README headings in this repo」，并确认任务卡片出现。
+  </Step>
+</Steps>
+
+<Tip>
+  **Flow** 可以自动发现已启用的编程提供商。若希望 Alter 为混合请求选择正确的编程工具，请在 **Local Tools → Alter** 下启用 **Flow**。参见 [使用 Flow 进行 Tool 编排](/zh/workflows/use-flow-orchestration)。
+</Tip>
+
+## 编程任务如何运行
+
+<Steps>
+  <Step title="您在 Alter 中提问">
+    描述您想要的更改、错误或审查 — 当 Alter 尚无 Workspace 上下文时，请包含项目路径。
+  </Step>
+  <Step title="Alter 启动后台会话">
+    提供商在 Mac 上异步运行。Alter 在对话中显示**编程任务卡片**，包含状态、任务 ID 以及可用的 **Open in…** 链接。
+  </Step>
+  <Step title="Alter 等待 turn 完成">
+    您无需轮询 ChatGPT、Cursor、OpenCode 或终端。可在 Alter 或 Mac 上其他地方继续工作。
+  </Step>
+  <Step title="结果返回本聊天">
+    当会话完成、失败或需要输入时，Alter 在同一对话中插入 **external task** 消息并继续线程，以便模型可以总结输出或对其采取行动。
+  </Step>
+</Steps>
+
+<Warning>
+  **保持 Alter 运行**，编程任务处于活动状态时务必如此。若在 ChatGPT 或 Cursor 任务仍在运行时退出，Alter 会警告您，因为它必须留在菜单栏中才能交付结果和审批请求。
+</Warning>
+
+## Workspace 权限
+
+Coding tools 使用从活动 Workspace 权限映射的**受限权限配置文件**。它们可以在**授权的项目目录**中编辑和测试，而无需 Alter **Full Access**。
+
+| Alter Workspace 权限 | 典型编程访问 |
+|---------------------|--------------|
+| Read-only | 在授权文件夹中读取和规划 |
+| Read/write | 在授权文件夹中编辑文件 |
+| Full Access | 编辑文件并通过外部智能体运行项目范围内的命令 |
+
+这与 Alter 直接的 **`workspace_bash`** 工具分开，后者仍需要 Workspace 上的 **Full Access**。当您希望专用智能体实现更改时，优先使用 Coding tools；轻量级的聊天内编辑请使用 Workspace 文件工具。
+
+当 Alter 首次需要访问文件夹时，会提示您授权该会话的项目路径。
+
+## 提供商对比
+
+| | **ChatGPT** | **Cursor** | **OpenCode** | **Claude** |
+|---|-------------|------------|--------------|------------|
+| **运行方式** | ChatGPT 桌面应用（Codex） | Cursor Agent CLI | OpenCode CLI / 服务器 | Claude Code CLI |
+| **Turn 中途引导** | 是 | 是 | 是 | 否 — 等待 turn 完成后再继续 |
+| **停止 / 中断** | 是 | 是 | 是 | 是 |
+| **回答审批** | 是 | 是 | 是 | 无法从 Alter 在 turn 中途回答 |
+| **接管 Terminal 会话** | — | — | 是 | — |
+| **模型 / effort 设置** | 模型 + thinking effort | 模型 | 模型 + effort 变体 | 模型 + effort |
+| **Open 链接标签** | Open in ChatGPT | Open in Agent CLI | Open in OpenCode | Open in terminal |
+
+### ChatGPT (Codex) {#chatgpt-codex}
+
+最适合已使用 **ChatGPT 桌面应用**进行智能体编程的用户。Alter 与应用的 Codex 运行时通信，尽可能同步在 ChatGPT 其他地方启动的任务，并可以从 Hub 引导或回答 ChatGPT 审批提示。
+
+### Cursor {#cursor}
+
+最适合常驻 **Cursor** 并希望 Alter 委派给 **Agent CLI**（`agent`）的用户。Alter 可以引导运行中的 turn、处理审批问题，并在 Cursor 的智能体 UI 中打开会话。在 **Tools Manager → Cursor** 中，**Run without confirmations** 允许 Cursor 在可写项目上执行命令而无需逐步审批（只读项目仍限于提问和规划）。
+
+### OpenCode {#opencode}
+
+最适合 **OpenCode CLI** 用户，希望 Alter 继续 Terminal 中启动的会话或接管现有 OpenCode 服务器会话。OpenCode 的模型变体映射到每次运行的 **effort**。
+
+### Claude Code {#claude-code}
+
+最适合在 Terminal 中标准化使用 **`claude`** 的用户。Alter 以 Claude 所需权限启动 print 模式 turn；您通过 `claude auth login` 进行身份验证。Claude turn **无法在中途安全引导** — 等待 turn 完成，然后请 Alter 用后续提示继续同一会话。
+
+## 模型可用的工具
+
+每个已连接的提供商向 Alter 的模型暴露一致的工具集：
+
+| 工具模式 | 用途 |
+|----------|------|
+| `*_run_task` | 启动或继续会话（`prompt`、可选 `task_id`、`cwd`、`model`、`effort`） |
+| `*_list_tasks` | 列出会话；一个聊天中有多个任务时使用 `conversation_only=true` |
+| `*_read_task` | 检查会话的状态、活动或输出 |
+| `*_control_task` | 引导、停止、批准、拒绝或回答问题（在支持的情况下） |
+| `*_manage_task` | 重命名或归档会话 |
+| `*_settings` | 列出模型、读取默认值或为未来或特定任务设置模型/effort |
+
+您很少需要自己调用这些 — 用自然语言描述结果，让 Alter 或 **Flow** 选择正确的工具。
+
+## 与 Workspace 和 Action 配合使用
+
+**Workspaces** — 当任务涉及 Alter 应引用的代码库时附加 Workspace。Coding tools 遵循 Workspace 的授权根目录和权限级别。
+
+**Actions** — 在 Action Editor 的 **Tools** 选项卡中，仅启用该 Action 需要的编程提供商。例如，「Ship patch」Action 可能启用 **Cursor** 和 **Flow**，但禁用 **ChatGPT**。
+
+**Ask Anything** — 默认 Action **不会**自动启用 Coding tools。安装 [Marketplace 编程智能体](#get-started-from-the-marketplace-recommended)、在 **Tools Manager** 中启用提供商，或复制 **Ask Anything** 并在 **Tools** 选项卡中添加 Coding tools。
+
+## 示例提示
+
+- "Use Cursor to add unit tests for `UserStore` in `/Users/me/code/myapp`."
+- "Continue the OpenCode session we started for the auth refactor."
+- "Ask ChatGPT to fix the TypeScript errors in this workspace and summarize what changed."
+- "Run Claude Code on the docs folder — update the README install section only."
+
+## 任务卡片与检查器
+
+会话运行期间：
+
+- 对话显示**编程任务卡片**，包含提供商、标题、状态和链接
+- 打开 **Tool Inspector**（Hub 检查器栏）查看参数、实时状态和 **Open in…** 操作
+- 任务完成、失败或需要输入时会出现通知
+
+当任务需要审批或回答时，在**同一 Alter 对话**中回复 — Alter 会将您的选择转发到运行中的会话。
+
+## 故障排除
+
+<AccordionGroup>
+  <Accordion icon="store" title="Marketplace 智能体首次运行未启用工具">
+    确认 Action 首次运行时您在 **设置工具** 面板中点击了 **启用**。如果跳过了某个工具，请打开 **Tools Manager → Local Tools → Coding** 手动连接提供商，或重新运行 Action 并接受设置提示。
+  </Accordion>
+
+  <Accordion icon="circle-exclamation" title="Tools Manager 中找不到提供商">
+    安装该提供商的桌面应用或 CLI，然后重启 Alter。确认二进制文件可在 Terminal 中执行（`agent --version`、`opencode --version`、`claude --version`，或打开 ChatGPT.app）。
+  </Accordion>
+
+  <Accordion icon="lock" title="Alter 请求文件夹访问">
+    在提示时批准项目路径。Coding tools 仅触及您为该 Workspace 或任务授权的目录。
+  </Accordion>
+
+  <Accordion icon="arrow-path" title="后续消息未继续同一会话">
+    用自然语言引用较早的任务（「continue the Cursor task for the API refactor」）。当主题匹配时 Alter 会重用 `task_id`；若一个聊天中存在多个会话，它会首先列出限定于该对话的任务。
+  </Accordion>
+
+  <Accordion icon="hand" title="Claude 无法在中途引导">
+    这是预期行为。等待 Claude turn 完成或停止它，然后将下一条指令作为同一会话的继续发送。
+  </Accordion>
+
+  <Accordion icon="power" title="结果未送达">
+    确认 Alter 仍在菜单栏中运行且原始对话处于打开状态。退出 Alter 会停止 ChatGPT、OpenCode 和 Claude 未交付的后台工作；Cursor 任务在退出时也会停止。
+  </Accordion>
+</AccordionGroup>
+
+## 相关文档
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    下载已上线的 Marketplace 编程智能体
+  </Card>
+  <Card title="Tools Manager" icon="toolbox" href="/zh/how-to/tool-manager-guide">
+    连接集成并管理 Coding 类别
+  </Card>
+  <Card title="使用 Flow" icon="wand-magic-sparkles" href="/zh/workflows/use-flow-orchestration">
+    路由编程请求而无需加载每个工具
+  </Card>
+  <Card title="Alter Actions" icon="play" href="/zh/workflows/alter-actions">
+    按 Action 限定 Coding tools 范围
+  </Card>
+  <Card title="Workspaces" icon="folder-tree" href="/zh/getting-started/workspaces-basics">
+    索引代码库并设置权限级别
+  </Card>
+  <Card title="集成概览" icon="plug" href="/zh/apps-tools/integrations-overview#coding-tools">
+    Coding tools 如何与 Mac Apps 和外部集成配合
+  </Card>
+  <Card title="工具不工作" icon="wrench" href="/zh/common-issues/tool-not-working">
+    通用集成故障排除
+  </Card>
+</CardGroup>

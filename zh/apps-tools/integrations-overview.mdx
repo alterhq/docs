@@ -18,13 +18,33 @@ Alter 通过两种方式连接您的 Mac：
 本地工具在您的环境中运行，最适合 Apple 应用和 Computer Use 的日常执行。
 
 <CardGroup cols={2}>
-  <Card title="Mac 应用导航" icon="apple" href="/apps-tools/mail">
+  <Card title="Mac 应用导航" icon="apple" href="/zh/apps-tools/mail">
     各应用参考：Mail、Calendar、Messages、Notes 等
   </Card>
-  <Card title="Computer Use" icon="display" href="/apps-tools/computer-use">
+  <Card title="Coding tools" icon="terminal" href="/zh/workflows/coding-tools">
+    从 Alter 使用 ChatGPT、Cursor、OpenCode 和 Claude Code
+  </Card>
+  <Card title="Computer Use" icon="display" href="/zh/apps-tools/computer-use">
     基于目标的屏幕自动化智能体
   </Card>
 </CardGroup>
+
+## Coding tools {#coding-tools}
+
+**Tools Manager → Local Tools** 中的 **Coding** 类别将 Alter 连接到您已在 Mac 上运行的本地编程智能体：
+
+- **ChatGPT** — 通过 ChatGPT 桌面应用（Codex）的持久任务
+- **Cursor** — 通过 Cursor Agent CLI 的会话
+- **OpenCode** — CLI 和 Terminal 会话，包括 Alter 外启动的工作
+- **Claude** — Claude Code CLI 会话
+
+**推荐：** 从 [Alter Marketplace](https://alterhq.com/marketplace) 安装专用智能体 — 已上线的 [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) 现已可用；Cursor、Claude 和 OpenCode 智能体即将推出。首次运行时，Alter 会自动启用所需的编程工具。
+
+Alter 从 Hub 或 Action 在后台启动这些会话，然后**将结果返回同一对话**。Coding tools 使用从 Workspace 映射的受限权限配置文件 — 对于授权的项目文件夹，它们不需要 Alter **Full Access**。
+
+<Card title="Coding tools 工作流" icon="code" href="/zh/workflows/coding-tools">
+  设置、权限、提供商对比和故障排除
+</Card>
 
 <CardGroup cols={2}>
   <Card title="免费使用" icon="gift">

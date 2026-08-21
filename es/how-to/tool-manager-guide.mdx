@@ -30,6 +30,25 @@ En lugar de cargar todas las Tools en cada solicitud, Flow:
 
 Habilite Flow en Tool Manager en **Local Tools > Alter**.
 
+## Coding tools
+
+**Tools Manager → Local Tools → Coding** enumera cuatro integraciones locales de coding:
+
+| Proveedor | Conectar cuando |
+|----------|--------------|
+| **ChatGPT** | Usa la app de escritorio ChatGPT para coding agentico |
+| **Cursor** | Tiene instalado Cursor Agent CLI (`agent`) |
+| **OpenCode** | Usa OpenCode CLI, incluidas sesiones de terminal |
+| **Claude** | Usa Claude Code (`claude`) en Terminal |
+
+**Camino más rápido:** instale un agente especializado en **[Marketplace → Browse](https://alterhq.com/marketplace)** — por ejemplo el [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) en vivo. En la primera ejecución, Alter le pide habilitar la herramienta de coding vinculada. Vea [Coding tools — onboarding Marketplace](/es/workflows/coding-tools#get-started-from-the-marketplace-recommended).
+
+Conecte solo los proveedores que necesita. Cada uno expone herramientas run, list, control y settings al modelo de Alter cuando está habilitado para la action actual.
+
+<Card title="Guía de coding tools" icon="terminal" href="/es/workflows/coding-tools">
+  Requisitos previos, permisos de workspace y diferencias entre proveedores
+</Card>
+
 ## Solución de problemas
 
 - Vuelva a autenticar la conexión del proveedor.

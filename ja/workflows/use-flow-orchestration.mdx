@@ -106,6 +106,18 @@ description: "フローによってツールが自動的に選択および調整
     
 変換ステップでは、関連情報のみが抽出されます。
   </Tab>
+
+  <Tab title="コーディング委任">
+    **リクエスト:** 「Use Cursor to add error handling to the network layer in this repo」
+
+    Flow は自動的に:
+    1. ローカルコーディングセッションが必要だと認識
+    2. **Cursor** を選択（**Local Tools → Coding** で有効な場合）
+    3. バックグラウンドタスクを開始しタスクカードを返す
+    4. Cursor 完了時に diff 要約を会話に戻す
+
+    依頼前に **Tools Manager** で使うコーディングプロバイダーを有効にしてください。[Coding tools](/ja/workflows/coding-tools) を参照。
+  </Tab>
 </Tabs>
 
 ---

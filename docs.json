@@ -80,6 +80,7 @@
                   "workflows/manage-reminders-with-alter",
                   "workflows/workspaces-actions",
                   "workflows/use-flow-orchestration",
+                  "workflows/coding-tools",
                   "workflows/share-task-traces",
                   "workflows/alter-actions",
                   "workflows/url-callbacks"
@@ -243,7 +244,7 @@
         "language": "pt",
         "tabs": [
           {
-            "tab": "Come\u00e7ando",
+            "tab": "Começando",
             "groups": [
               {
                 "group": "Comece aqui",
@@ -275,7 +276,7 @@
             "tab": "Fluxos de trabalho",
             "groups": [
               {
-                "group": "Comunica\u00e7\u00e3o",
+                "group": "Comunicação",
                 "pages": [
                   "pt/workflows/manage-mail-with-alter",
                   "pt/workflows/send-messages-with-alter",
@@ -283,7 +284,7 @@
                 ]
               },
               {
-                "group": "Planejamento e Reuni\u00f5es",
+                "group": "Planejamento e Reuniões",
                 "pages": [
                   "pt/workflows/manage-calendar-with-alter",
                   "pt/workflows/plan-places-and-routes-with-alter-maps",
@@ -302,11 +303,12 @@
                 ]
               },
               {
-                "group": "Automa\u00e7\u00e3o",
+                "group": "Automação",
                 "pages": [
                   "pt/workflows/manage-reminders-with-alter",
                   "pt/workflows/workspaces-actions",
                   "pt/workflows/use-flow-orchestration",
+                  "pt/workflows/coding-tools",
                   "pt/workflows/share-task-traces",
                   "pt/workflows/alter-actions",
                   "pt/workflows/url-callbacks"
@@ -330,7 +332,7 @@
             "tab": "Aplicativos e ferramentas",
             "groups": [
               {
-                "group": "Integra\u00e7\u00f5es",
+                "group": "Integrações",
                 "pages": [
                   "pt/apps-tools/integrations-overview",
                   "pt/apps-tools/gateways",
@@ -369,7 +371,7 @@
             "tab": "Como fazer",
             "groups": [
               {
-                "group": "Tarefas R\u00e1pidas",
+                "group": "Tarefas Rápidas",
                 "pages": [
                   "pt/how-to/change-hotkey",
                   "pt/how-to/choose-language",
@@ -391,7 +393,7 @@
             ]
           },
           {
-            "tab": "Solu\u00e7\u00e3o de problemas",
+            "tab": "Solução de problemas",
             "groups": [
               {
                 "group": "Problemas comuns",
@@ -407,10 +409,10 @@
             ]
           },
           {
-            "tab": "Refer\u00eancia",
+            "tab": "Referência",
             "groups": [
               {
-                "group": "Refer\u00eancia r\u00e1pida",
+                "group": "Referência rápida",
                 "pages": [
                   "pt/references/faq-core",
                   "pt/references/general-faq",
@@ -432,7 +434,7 @@
             "tab": "API do Roteador",
             "groups": [
               {
-                "group": "Come\u00e7ando",
+                "group": "Começando",
                 "pages": [
                   "pt/references/api-router-overview"
                 ]
@@ -446,7 +448,7 @@
                 ]
               },
               {
-                "group": "Integra\u00e7\u00f5es de aplicativos",
+                "group": "Integrações de aplicativos",
                 "pages": [
                   "pt/api-router/app-integrations",
                   "pt/api-router/typingmind",
@@ -454,7 +456,7 @@
                 ]
               },
               {
-                "group": "Refer\u00eancia",
+                "group": "Referência",
                 "pages": [
                   "pt/references/api-model-names"
                 ]
@@ -508,7 +510,7 @@
                 ]
               },
               {
-                "group": "Planification et r\u00e9unions",
+                "group": "Planification et réunions",
                 "pages": [
                   "fr/workflows/manage-calendar-with-alter",
                   "fr/workflows/plan-places-and-routes-with-alter-maps",
@@ -532,6 +534,7 @@
                   "fr/workflows/manage-reminders-with-alter",
                   "fr/workflows/workspaces-actions",
                   "fr/workflows/use-flow-orchestration",
+                  "fr/workflows/coding-tools",
                   "fr/workflows/share-task-traces",
                   "fr/workflows/alter-actions",
                   "fr/workflows/url-callbacks"
@@ -555,7 +558,7 @@
             "tab": "Applications et outils",
             "groups": [
               {
-                "group": "Int\u00e9grations",
+                "group": "Intégrations",
                 "pages": [
                   "fr/apps-tools/integrations-overview",
                   "fr/apps-tools/gateways",
@@ -594,7 +597,7 @@
             "tab": "Comment",
             "groups": [
               {
-                "group": "T\u00e2ches rapides",
+                "group": "Tâches rapides",
                 "pages": [
                   "fr/how-to/change-hotkey",
                   "fr/how-to/choose-language",
@@ -605,7 +608,7 @@
                 ]
               },
               {
-                "group": "G\u00e9rer et configurer",
+                "group": "Gérer et configurer",
                 "pages": [
                   "fr/how-to/settings-guide",
                   "fr/how-to/manage-memory",
@@ -616,10 +619,10 @@
             ]
           },
           {
-            "tab": "D\u00e9pannage",
+            "tab": "Dépannage",
             "groups": [
               {
-                "group": "Probl\u00e8mes courants",
+                "group": "Problèmes courants",
                 "pages": [
                   "fr/common-issues/mic-not-transcribing",
                   "fr/common-issues/hotkey-not-working",
@@ -632,10 +635,10 @@
             ]
           },
           {
-            "tab": "R\u00e9f\u00e9rence",
+            "tab": "Référence",
             "groups": [
               {
-                "group": "R\u00e9f\u00e9rence rapide",
+                "group": "Référence rapide",
                 "pages": [
                   "fr/references/faq-core",
                   "fr/references/general-faq",
@@ -671,7 +674,7 @@
                 ]
               },
               {
-                "group": "Int\u00e9grations d'applications",
+                "group": "Intégrations d'applications",
                 "pages": [
                   "fr/api-router/app-integrations",
                   "fr/api-router/typingmind",
@@ -679,7 +682,7 @@
                 ]
               },
               {
-                "group": "R\u00e9f\u00e9rence",
+                "group": "Référence",
                 "pages": [
                   "fr/references/api-model-names"
                 ]
@@ -696,7 +699,7 @@
             "tab": "Empezando",
             "groups": [
               {
-                "group": "Comience aqu\u00ed",
+                "group": "Comience aquí",
                 "pages": [
                   "es/index",
                   "es/quickstart",
@@ -725,7 +728,7 @@
             "tab": "Flujos de trabajo",
             "groups": [
               {
-                "group": "Comunicaci\u00f3n",
+                "group": "Comunicación",
                 "pages": [
                   "es/workflows/manage-mail-with-alter",
                   "es/workflows/send-messages-with-alter",
@@ -733,7 +736,7 @@
                 ]
               },
               {
-                "group": "Planificaci\u00f3n y Reuniones",
+                "group": "Planificación y Reuniones",
                 "pages": [
                   "es/workflows/manage-calendar-with-alter",
                   "es/workflows/plan-places-and-routes-with-alter-maps",
@@ -752,18 +755,19 @@
                 ]
               },
               {
-                "group": "Automatizaci\u00f3n",
+                "group": "Automatización",
                 "pages": [
                   "es/workflows/manage-reminders-with-alter",
                   "es/workflows/workspaces-actions",
                   "es/workflows/use-flow-orchestration",
+                  "es/workflows/coding-tools",
                   "es/workflows/share-task-traces",
                   "es/workflows/alter-actions",
                   "es/workflows/url-callbacks"
                 ]
               },
               {
-                "group": "Investigaci\u00f3n web",
+                "group": "Investigación web",
                 "pages": [
                   "es/workflows/web-research-getting-started",
                   "es/workflows/native-web-search-in-alter-routers",
@@ -816,10 +820,10 @@
             ]
           },
           {
-            "tab": "C\u00f3mo",
+            "tab": "Cómo",
             "groups": [
               {
-                "group": "Tareas r\u00e1pidas",
+                "group": "Tareas rápidas",
                 "pages": [
                   "es/how-to/change-hotkey",
                   "es/how-to/choose-language",
@@ -841,7 +845,7 @@
             ]
           },
           {
-            "tab": "Soluci\u00f3n de problemas",
+            "tab": "Solución de problemas",
             "groups": [
               {
                 "group": "Problemas comunes",
@@ -860,7 +864,7 @@
             "tab": "Referencia",
             "groups": [
               {
-                "group": "Referencia r\u00e1pida",
+                "group": "Referencia rápida",
                 "pages": [
                   "es/references/faq-core",
                   "es/references/general-faq",
@@ -947,7 +951,7 @@
             ]
           },
           {
-            "tab": "Arbeitsabl\u00e4ufe",
+            "tab": "Arbeitsabläufe",
             "groups": [
               {
                 "group": "Kommunikation",
@@ -982,6 +986,7 @@
                   "de/workflows/manage-reminders-with-alter",
                   "de/workflows/workspaces-actions",
                   "de/workflows/use-flow-orchestration",
+                  "de/workflows/coding-tools",
                   "de/workflows/share-task-traces",
                   "de/workflows/alter-actions",
                   "de/workflows/url-callbacks"
@@ -1069,7 +1074,7 @@
             "tab": "Fehlerbehebung",
             "groups": [
               {
-                "group": "H\u00e4ufige Probleme",
+                "group": "Häufige Probleme",
                 "pages": [
                   "de/common-issues/mic-not-transcribing",
                   "de/common-issues/hotkey-not-working",
@@ -1096,7 +1101,7 @@
                 ]
               },
               {
-                "group": "Verm\u00f6genswerte",
+                "group": "Vermögenswerte",
                 "pages": [
                   "de/references/image-library"
                 ]
@@ -1143,10 +1148,10 @@
         "language": "zh",
         "tabs": [
           {
-            "tab": "\u5165\u95e8",
+            "tab": "入门",
             "groups": [
               {
-                "group": "\u4ece\u8fd9\u91cc\u5f00\u59cb",
+                "group": "从这里开始",
                 "pages": [
                   "zh/index",
                   "zh/quickstart",
@@ -1172,10 +1177,10 @@
             ]
           },
           {
-            "tab": "\u5de5\u4f5c\u6d41\u7a0b",
+            "tab": "工作流程",
             "groups": [
               {
-                "group": "\u6c9f\u901a",
+                "group": "沟通",
                 "pages": [
                   "zh/workflows/manage-mail-with-alter",
                   "zh/workflows/send-messages-with-alter",
@@ -1183,7 +1188,7 @@
                 ]
               },
               {
-                "group": "\u89c4\u5212\u548c\u4f1a\u8bae",
+                "group": "规划和会议",
                 "pages": [
                   "zh/workflows/manage-calendar-with-alter",
                   "zh/workflows/plan-places-and-routes-with-alter-maps",
@@ -1192,7 +1197,7 @@
                 ]
               },
               {
-                "group": "\u6355\u83b7\u548c\u77e5\u8bc6",
+                "group": "捕获和知识",
                 "pages": [
                   "zh/workflows/memory",
                   "zh/workflows/memory-catch-up",
@@ -1202,18 +1207,19 @@
                 ]
               },
               {
-                "group": "\u81ea\u52a8\u5316",
+                "group": "自动化",
                 "pages": [
                   "zh/workflows/manage-reminders-with-alter",
                   "zh/workflows/workspaces-actions",
                   "zh/workflows/use-flow-orchestration",
+                  "zh/workflows/coding-tools",
                   "zh/workflows/share-task-traces",
                   "zh/workflows/alter-actions",
                   "zh/workflows/url-callbacks"
                 ]
               },
               {
-                "group": "\u7f51\u7edc\u7814\u7a76",
+                "group": "网络研究",
                 "pages": [
                   "zh/workflows/web-research-getting-started",
                   "zh/workflows/native-web-search-in-alter-routers",
@@ -1227,10 +1233,10 @@
             ]
           },
           {
-            "tab": "\u5e94\u7528\u7a0b\u5e8f\u548c\u5de5\u5177",
+            "tab": "应用程序和工具",
             "groups": [
               {
-                "group": "\u96c6\u6210",
+                "group": "集成",
                 "pages": [
                   "zh/apps-tools/integrations-overview",
                   "zh/apps-tools/gateways",
@@ -1240,7 +1246,7 @@
                 ]
               },
               {
-                "group": "Mac \u5e94\u7528\u7a0b\u5e8f",
+                "group": "Mac 应用程序",
                 "pages": [
                   "zh/apps-tools/mail",
                   "zh/apps-tools/calendar",
@@ -1252,7 +1258,7 @@
                 ]
               },
               {
-                "group": "\u7535\u8111\u4f7f\u7528",
+                "group": "电脑使用",
                 "pages": [
                   "zh/apps-tools/computer-use",
                   "zh/apps-tools/computer-use-background",
@@ -1266,10 +1272,10 @@
             ]
           },
           {
-            "tab": "\u5982\u4f55",
+            "tab": "如何",
             "groups": [
               {
-                "group": "\u5feb\u901f\u4efb\u52a1",
+                "group": "快速任务",
                 "pages": [
                   "zh/how-to/change-hotkey",
                   "zh/how-to/choose-language",
@@ -1280,7 +1286,7 @@
                 ]
               },
               {
-                "group": "\u7ba1\u7406\u548c\u914d\u7f6e",
+                "group": "管理和配置",
                 "pages": [
                   "zh/how-to/settings-guide",
                   "zh/how-to/manage-memory",
@@ -1291,10 +1297,10 @@
             ]
           },
           {
-            "tab": "\u6545\u969c\u6392\u9664",
+            "tab": "故障排除",
             "groups": [
               {
-                "group": "\u5e38\u89c1\u95ee\u9898",
+                "group": "常见问题",
                 "pages": [
                   "zh/common-issues/mic-not-transcribing",
                   "zh/common-issues/hotkey-not-working",
@@ -1307,10 +1313,10 @@
             ]
           },
           {
-            "tab": "\u53c2\u8003",
+            "tab": "参考",
             "groups": [
               {
-                "group": "\u5feb\u901f\u53c2\u8003",
+                "group": "快速参考",
                 "pages": [
                   "zh/references/faq-core",
                   "zh/references/general-faq",
@@ -1321,7 +1327,7 @@
                 ]
               },
               {
-                "group": "\u8d44\u4ea7",
+                "group": "资产",
                 "pages": [
                   "zh/references/image-library"
                 ]
@@ -1329,16 +1335,16 @@
             ]
           },
           {
-            "tab": "API\u8def\u7531\u5668",
+            "tab": "API路由器",
             "groups": [
               {
-                "group": "\u5165\u95e8",
+                "group": "入门",
                 "pages": [
                   "zh/references/api-router-overview"
                 ]
               },
               {
-                "group": "\u7f51\u5173\u548c\u8def\u7531\u5668",
+                "group": "网关和路由器",
                 "pages": [
                   "zh/api-router/api-gateway",
                   "zh/api-router/development",
@@ -1346,7 +1352,7 @@
                 ]
               },
               {
-                "group": "\u5e94\u7528\u7a0b\u5e8f\u96c6\u6210",
+                "group": "应用程序集成",
                 "pages": [
                   "zh/api-router/app-integrations",
                   "zh/api-router/typingmind",
@@ -1354,7 +1360,7 @@
                 ]
               },
               {
-                "group": "\u53c2\u8003",
+                "group": "参考",
                 "pages": [
                   "zh/references/api-model-names"
                 ]
@@ -1368,10 +1374,10 @@
         "language": "ja",
         "tabs": [
           {
-            "tab": "\u306f\u3058\u3081\u308b",
+            "tab": "はじめる",
             "groups": [
               {
-                "group": "\u3053\u3053\u304b\u3089\u59cb\u3081\u307e\u3057\u3087\u3046",
+                "group": "ここから始めましょう",
                 "pages": [
                   "ja/index",
                   "ja/quickstart",
@@ -1397,10 +1403,10 @@
             ]
           },
           {
-            "tab": "\u30ef\u30fc\u30af\u30d5\u30ed\u30fc",
+            "tab": "ワークフロー",
             "groups": [
               {
-                "group": "\u30b3\u30df\u30e5\u30cb\u30b1\u30fc\u30b7\u30e7\u30f3",
+                "group": "コミュニケーション",
                 "pages": [
                   "ja/workflows/manage-mail-with-alter",
                   "ja/workflows/send-messages-with-alter",
@@ -1408,7 +1414,7 @@
                 ]
               },
               {
-                "group": "\u4f01\u753b\u3068\u6253\u3061\u5408\u308f\u305b",
+                "group": "企画と打ち合わせ",
                 "pages": [
                   "ja/workflows/manage-calendar-with-alter",
                   "ja/workflows/plan-places-and-routes-with-alter-maps",
@@ -1417,7 +1423,7 @@
                 ]
               },
               {
-                "group": "\u6355\u7372\u3068\u77e5\u8b58",
+                "group": "捕獲と知識",
                 "pages": [
                   "ja/workflows/memory",
                   "ja/workflows/memory-catch-up",
@@ -1427,11 +1433,12 @@
                 ]
               },
               {
-                "group": "\u30aa\u30fc\u30c8\u30e1\u30fc\u30b7\u30e7\u30f3",
+                "group": "オートメーション",
                 "pages": [
                   "ja/workflows/manage-reminders-with-alter",
                   "ja/workflows/workspaces-actions",
                   "ja/workflows/use-flow-orchestration",
+                  "ja/workflows/coding-tools",
                   "ja/workflows/share-task-traces",
                   "ja/workflows/alter-actions",
                   "ja/workflows/url-callbacks"
@@ -1452,10 +1459,10 @@
             ]
           },
           {
-            "tab": "\u30a2\u30d7\u30ea\u3068\u30c4\u30fc\u30eb",
+            "tab": "アプリとツール",
             "groups": [
               {
-                "group": "\u7d71\u5408",
+                "group": "統合",
                 "pages": [
                   "ja/apps-tools/integrations-overview",
                   "ja/apps-tools/gateways",
@@ -1465,7 +1472,7 @@
                 ]
               },
               {
-                "group": "Mac \u30a2\u30d7\u30ea",
+                "group": "Mac アプリ",
                 "pages": [
                   "ja/apps-tools/mail",
                   "ja/apps-tools/calendar",
@@ -1477,7 +1484,7 @@
                 ]
               },
               {
-                "group": "\u30b3\u30f3\u30d4\u30e5\u30fc\u30bf\u306e\u4f7f\u7528",
+                "group": "コンピュータの使用",
                 "pages": [
                   "ja/apps-tools/computer-use",
                   "ja/apps-tools/computer-use-background",
@@ -1491,10 +1498,10 @@
             ]
           },
           {
-            "tab": "\u65b9\u6cd5",
+            "tab": "方法",
             "groups": [
               {
-                "group": "\u30af\u30a4\u30c3\u30af\u30bf\u30b9\u30af",
+                "group": "クイックタスク",
                 "pages": [
                   "ja/how-to/change-hotkey",
                   "ja/how-to/choose-language",
@@ -1505,7 +1512,7 @@
                 ]
               },
               {
-                "group": "\u7ba1\u7406\u3068\u69cb\u6210",
+                "group": "管理と構成",
                 "pages": [
                   "ja/how-to/settings-guide",
                   "ja/how-to/manage-memory",
@@ -1516,10 +1523,10 @@
             ]
           },
           {
-            "tab": "\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0",
+            "tab": "トラブルシューティング",
             "groups": [
               {
-                "group": "\u3088\u304f\u3042\u308b\u554f\u984c",
+                "group": "よくある問題",
                 "pages": [
                   "ja/common-issues/mic-not-transcribing",
                   "ja/common-issues/hotkey-not-working",
@@ -1532,10 +1539,10 @@
             ]
           },
           {
-            "tab": "\u53c2\u7167",
+            "tab": "参照",
             "groups": [
               {
-                "group": "\u30af\u30a4\u30c3\u30af\u30ea\u30d5\u30a1\u30ec\u30f3\u30b9",
+                "group": "クイックリファレンス",
                 "pages": [
                   "ja/references/faq-core",
                   "ja/references/general-faq",
@@ -1546,7 +1553,7 @@
                 ]
               },
               {
-                "group": "\u8cc7\u7523",
+                "group": "資産",
                 "pages": [
                   "ja/references/image-library"
                 ]
@@ -1554,16 +1561,16 @@
             ]
           },
           {
-            "tab": "API\u30eb\u30fc\u30bf\u30fc",
+            "tab": "APIルーター",
             "groups": [
               {
-                "group": "\u306f\u3058\u3081\u308b",
+                "group": "はじめる",
                 "pages": [
                   "ja/references/api-router-overview"
                 ]
               },
               {
-                "group": "\u30b2\u30fc\u30c8\u30a6\u30a7\u30a4\u3068\u30eb\u30fc\u30bf\u30fc",
+                "group": "ゲートウェイとルーター",
                 "pages": [
                   "ja/api-router/api-gateway",
                   "ja/api-router/development",
@@ -1571,7 +1578,7 @@
                 ]
               },
               {
-                "group": "\u30a2\u30d7\u30ea\u306e\u7d71\u5408",
+                "group": "アプリの統合",
                 "pages": [
                   "ja/api-router/app-integrations",
                   "ja/api-router/typingmind",
@@ -1579,7 +1586,7 @@
                 ]
               },
               {
-                "group": "\u53c2\u7167",
+                "group": "参照",
                 "pages": [
                   "ja/references/api-model-names"
                 ]

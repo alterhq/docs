@@ -30,6 +30,25 @@ description: "通过清晰的故障排除步骤安全地连接和管理集成"
 
 在**本地工具 > 更改**下的工具管理器中启用流程。
 
+## Coding tools
+
+**Tools Manager → Local Tools → Coding** 列出四个本地编程集成：
+
+| 提供商 | 何时连接 |
+|--------|----------|
+| **ChatGPT** | 您使用 ChatGPT 桌面应用进行智能体编程 |
+| **Cursor** | 已安装 Cursor Agent CLI（`agent`） |
+| **OpenCode** | 您使用 OpenCode CLI，包括 Terminal 会话 |
+| **Claude** | 您在 Terminal 中使用 Claude Code（`claude`） |
+
+**最快路径：** 从 **[Marketplace → Browse](https://alterhq.com/marketplace)** 安装专用智能体 — 例如已上线的 [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)。首次运行时，Alter 会提示您启用链接的编程工具。参见 [Coding tools — Marketplace 入门](/zh/workflows/coding-tools#get-started-from-the-marketplace-recommended)。
+
+仅连接您需要的提供商。每个提供商在为当前 Action 启用时，会向 Alter 的模型暴露 run、list、control 和 settings 工具。
+
+<Card title="Coding tools 指南" icon="terminal" href="/zh/workflows/coding-tools">
+  前提条件、Workspace 权限和提供商差异
+</Card>
+
 ## 故障排除
 
 - 重新验证提供商连接。

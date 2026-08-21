@@ -30,6 +30,25 @@ description: "明確なトラブルシューティング手順により、統合
 
 **Local Tools > Alter** の Tool マネージャーで Flow を有効にします。
 
+## Coding tools
+
+**Tools Manager → Local Tools → Coding** には 4 つのローカルコーディング統合が一覧表示されます：
+
+| プロバイダー | 接続する場合 |
+|-------------|--------------|
+| **ChatGPT** | ChatGPT デスクトップアプリでエージェント型コーディングを使う |
+| **Cursor** | Cursor Agent CLI（`agent`）をインストール済み |
+| **OpenCode** | OpenCode CLI（ターミナルセッション含む）を使う |
+| **Claude** | ターミナルで Claude Code（`claude`）を使う |
+
+**最速の方法:** **[Marketplace → Browse](https://alterhq.com/marketplace)** から専用エージェントをインストール — 例：公開中の [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)。初回実行時、Alter がリンクされたコーディングツールの有効化を促します。[Coding tools — Marketplace オンボーディング](/ja/workflows/coding-tools#get-started-from-the-marketplace-recommended) を参照。
+
+必要なプロバイダーのみ接続してください。各プロバイダーは現在の Action で有効な場合、Alter のモデルに run、list、control、settings ツールを公開します。
+
+<Card title="Coding tools ガイド" icon="terminal" href="/ja/workflows/coding-tools">
+  前提条件、Workspace 権限、プロバイダー差異
+</Card>
+
 ## トラブルシューティング
 
 - プロバイダ接続を再認証します。

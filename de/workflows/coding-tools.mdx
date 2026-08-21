@@ -1,0 +1,264 @@
+---
+title: "Coding-Tools"
+description: "Lokale Coding-Sitzungen von Alter über ChatGPT, Cursor, OpenCode und Claude Code ausführen"
+---
+
+<Info>
+  **Coding-Tools** ermöglichen es Alter, **persistente lokale Coding-Sitzungen** auf Ihrem Mac zu starten und zu verwalten. Fragen Sie in natürlicher Sprache im Hub, QuickHub oder über eine benutzerdefinierte Action — Alter startet die Sitzung im Hintergrund und **bringt das Ergebnis in dieselbe Unterhaltung zurück**, wenn der Turn abgeschlossen ist.
+</Info>
+
+Alter ersetzt Ihren Coding-Agenten nicht. Es orchestriert die Tools, die Sie bereits nutzen — **ChatGPT** (Codex), **Cursor Agent CLI**, **OpenCode** und **Claude Code** — damit Sie von einem Ort aus planen, delegieren, steuern und prüfen können.
+
+## Was Sie tun können
+
+- Eine Coding-Aufgabe gegen einen Projektordner oder eine losgelöste Scratch-Sitzung starten
+- Dieselbe Sitzung über Folgenachrichten in einem Alter-Chat fortsetzen
+- Laufende Aufgaben steuern, stoppen oder Genehmigungsaufforderungen beantworten (anbieterabhängig)
+- Coding-Tools pro Action im Action Editor einschränken
+- Coding-Anfragen über **Flow** leiten, wenn Sie mehrere Integrationen aktiviert haben
+
+## Voraussetzungen
+
+Installieren und melden Sie sich bei den Anbietern an, die Sie vor dem Ausführen eines Coding-Agenten benötigen.
+
+| Anbieter | Was Alter benötigt | Anmeldung |
+|----------|-------------------|-----------|
+| **ChatGPT** | [ChatGPT](https://chatgpt.com)-Desktop-App (`ChatGPT.app` oder `Codex.app`) mit der gebündelten Codex-CLI | Ihr ChatGPT-Konto in der App |
+| **Cursor** | [Cursor Agent CLI](https://cursor.com) (`agent` in Ihrem PATH) | Cursor-Konto in der CLI |
+| **OpenCode** | [OpenCode CLI](https://opencode.ai) (`opencode` in Ihrem PATH) | In OpenCode konfigurierte Anmeldedaten |
+| **Claude** | [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) (`claude` in Ihrem PATH) | `claude auth login` im Terminal ausführen |
+
+<Note>
+  Alter erkennt diese Tools an Standard-Installationsorten (`/Applications`, `~/.local/bin`, Homebrew und Ihrer Login-Shell-`PATH`). Fehlt ein Anbieter, öffnen Sie die App-Detailseite im **Tools Manager** für Installationshinweise.
+</Note>
+
+## Über den Marketplace starten (empfohlen)
+
+Alter veröffentlicht **spezialisierte Coding-Agenten** auf dem [Alter Marketplace](https://alterhq.com/marketplace). Jeder Agent ist eine vorkonfigurierte Alter Action, die auf einen Coding-Anbieter ausgerichtet ist — Systemprompt, Tool-Verknüpfungen und Standardwerte inklusive — damit Sie Coding-Tools nicht selbst verdrahten müssen.
+
+<Steps>
+  <Step title="Marketplace öffnen">
+    Drücken Sie **⌘⇧T** und wählen Sie **Browse** unter **Marketplace**, oder öffnen Sie eine Listung unter [alterhq.com/marketplace](https://alterhq.com/marketplace).
+  </Step>
+  <Step title="Agent herunterladen">
+    Wählen Sie den Agenten für Ihr Coding-Tool und klicken Sie auf **Download**. Alter importiert ihn als aktivierte Action unter **Installed**.
+  </Step>
+  <Step title="Einmal ausführen">
+    Klicken Sie auf **Jetzt ausprobieren** oder führen Sie die Action aus dem Hub aus. Bei der ersten Nutzung öffnet Alter **Werkzeuge einrichten** und aktiviert die erforderliche Coding-Integration, wenn Sie bestätigen.
+  </Step>
+  <Step title="Mit dem Coden beginnen">
+    Beschreiben Sie die Aufgabe — geben Sie einen Projektpfad an, wenn Alter noch keinen Workspace-Kontext hat.
+  </Step>
+</Steps>
+
+### Marketplace-Coding-Agenten
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    **Verfügbar** — Programmier-Agent für ChatGPT (Codex). Enthält ChatGPT Settings, Run/List/Read/Control/Manage ChatGPT Task.
+  </Card>
+  <Card title="Cursor Agent" icon="terminal" href="https://alterhq.com/marketplace/cursor-agent">
+    **Demnächst** — Cursor Agent CLI-Sitzungen aus Alter.
+  </Card>
+  <Card title="Claude Agent" icon="code" href="https://alterhq.com/marketplace/claude-agent">
+    **Demnächst** — Claude Code CLI-Sitzungen aus Alter.
+  </Card>
+  <Card title="OpenCode Agent" icon="server" href="https://alterhq.com/marketplace/opencode-agent">
+    **Demnächst** — OpenCode CLI- und Terminal-Sitzungen aus Alter.
+  </Card>
+</CardGroup>
+
+Die live **[ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)**-Listung ist in der Kategorie **Programming**. Sie enthält diese vorverknüpften Tools:
+
+- **ChatGPT Settings** — Modelle auflisten und Standardwerte lesen oder setzen
+- **Run ChatGPT Task** — Codex-Sitzung starten oder fortsetzen
+- **List ChatGPT Tasks** — Sitzungen in dieser Unterhaltung oder in ChatGPT finden
+- **Read ChatGPT Task** — Status, Aktivität oder Ausgabe prüfen
+- **Control ChatGPT Task** — steuern, stoppen oder Genehmigungsaufforderungen beantworten
+- **Manage ChatGPT Task** — Sitzungen umbenennen oder archivieren
+
+Nach dem ersten erfolgreichen Lauf bleibt die ChatGPT-Coding-Integration in **Tools Manager → Local Tools → Coding** für andere Actions und Hub-Chats aktiviert.
+
+<Tip>
+  Bevorzugen Sie einen benutzerdefinierten Workflow? Duplizieren Sie einen Marketplace-Agenten im Action Editor, oder aktivieren Sie Coding-Tools manuell unten und schränken Sie sie pro Action ein. Siehe [Alter Actions](/de/workflows/alter-actions).
+</Tip>
+
+## Manuell im Tools Manager aktivieren
+
+Nutzen Sie diesen Pfad, wenn Sie Coding-Tools in **Ask Anything**, einer benutzerdefinierten Action oder **Flow** verwenden möchten, ohne einen Marketplace-Agenten zu installieren.
+
+<Steps>
+  <Step title="Tools Manager öffnen">
+    Drücken Sie **⌘⇧T** oder wählen Sie **Tools Manager** in der Menüleiste.
+  </Step>
+  <Step title="Local Tools öffnen">
+    Wählen Sie in der Seitenleiste **Local Tools**.
+  </Step>
+  <Step title="Anbieter verbinden">
+    Verbinden Sie unter **Coding** **ChatGPT**, **Cursor**, **OpenCode** und/oder **Claude**. Schalten Sie nur die Anbieter ein, die Sie nutzen.
+  </Step>
+  <Step title="Mit einem Prompt testen">
+    Fragen Sie im Hub etwas Kleines wie „List the README headings in this repo“ und bestätigen Sie, dass die Task-Karte erscheint.
+  </Step>
+</Steps>
+
+<Tip>
+  **Flow** kann aktivierte Coding-Anbieter automatisch erkennen. Aktivieren Sie **Flow** unter **Local Tools → Alter**, wenn Alter das richtige Coding-Tool für gemischte Anfragen wählen soll. Siehe [Flow zur Orchestrierung von Tools verwenden](/de/workflows/use-flow-orchestration).
+</Tip>
+
+## Wie eine Coding-Aufgabe abläuft
+
+<Steps>
+  <Step title="Sie fragen in Alter">
+    Beschreiben Sie die Änderung, den Bug oder die Prüfung — geben Sie den Projektpfad an, wenn Alter noch keinen Workspace-Kontext hat.
+  </Step>
+  <Step title="Alter startet eine Hintergrundsitzung">
+    Der Anbieter läuft asynchron auf Ihrem Mac. Alter zeigt eine **Coding-Task-Karte** in der Unterhaltung mit Status, Task-ID und einem Link **Open in…**, sofern verfügbar.
+  </Step>
+  <Step title="Alter wartet auf Abschluss des Turns">
+    Sie müssen ChatGPT, Cursor, OpenCode oder ein Terminal nicht abfragen. Arbeiten Sie weiter in Alter oder anderswo auf Ihrem Mac.
+  </Step>
+  <Step title="Ergebnis kehrt in diesen Chat zurück">
+    Wenn die Sitzung abgeschlossen ist, fehlschlägt oder Eingabe benötigt, fügt Alter eine **external task**-Nachricht in dieselbe Unterhaltung ein und setzt den Thread fort, damit das Modell die Ausgabe zusammenfassen oder darauf reagieren kann.
+  </Step>
+</Steps>
+
+<Warning>
+  **Alter laufen lassen**, solange Coding-Aufgaben aktiv sind. Beenden Sie Alter nicht, während ChatGPT- oder Cursor-Aufgaben noch laufen — Alter warnt Sie, weil es in der Menüleiste bleiben muss, um Ergebnisse und Genehmigungsanfragen zuzustellen.
+</Warning>
+
+## Workspace-Berechtigungen
+
+Coding-Tools verwenden ein **eingeschränktes Berechtigungsprofil**, das aus Ihrer aktiven Workspace-Berechtigung abgeleitet wird. Sie können ein **autorisiertes Projektverzeichnis** bearbeiten und testen, ohne Alter **Full Access** zu benötigen.
+
+| Alter-Workspace-Berechtigung | Typischer Coding-Zugriff |
+|-----------------------------|----------------------------|
+| Read-only | Lesen und planen im autorisierten Ordner |
+| Read/write | Dateien im autorisierten Ordner bearbeiten |
+| Full Access | Dateien bearbeiten und projektbezogene Befehle über den externen Agenten ausführen |
+
+Das ist getrennt von Alters direktem **`workspace_bash`**-Tool, das weiterhin **Full Access** auf dem Workspace erfordert. Bevorzugen Sie Coding-Tools, wenn ein dedizierter Agent Änderungen umsetzen soll; nutzen Sie Workspace-Datei-Tools für leichtere In-Chat-Bearbeitungen.
+
+Wenn Alter zum ersten Mal Zugriff auf einen Ordner benötigt, fordert es Sie auf, den Projektpfad für diese Sitzung zu autorisieren.
+
+## Anbietervergleich
+
+| | **ChatGPT** | **Cursor** | **OpenCode** | **Claude** |
+|---|-------------|------------|--------------|------------|
+| **Läuft über** | ChatGPT-Desktop-App (Codex) | Cursor Agent CLI | OpenCode CLI / Server | Claude Code CLI |
+| **Mid-Turn steuern** | Ja | Ja | Ja | Nein — Turn abwarten, dann fortsetzen |
+| **Stoppen / unterbrechen** | Ja | Ja | Ja | Ja |
+| **Genehmigungen beantworten** | Ja | Ja | Ja | Nicht mid-turn aus Alter |
+| **Terminal-Sitzungen übernehmen** | — | — | Ja | — |
+| **Modell- / Effort-Einstellungen** | Modell + Thinking effort | Modell | Modell + Effort-Variante | Modell + Effort |
+| **Open-Link-Label** | Open in ChatGPT | Open in Agent CLI | Open in OpenCode | Open in terminal |
+
+### ChatGPT (Codex) {#chatgpt-codex}
+
+Am besten, wenn Sie die **ChatGPT-Desktop-App** bereits für agentisches Coding nutzen. Alter spricht mit der Codex-Runtime der App, synchronisiert wo möglich Tasks, die anderswo in ChatGPT gestartet wurden, und kann ChatGPT-Genehmigungsaufforderungen aus dem Hub steuern oder beantworten.
+
+### Cursor {#cursor}
+
+Am besten, wenn Sie in **Cursor** leben und Alter an die **Agent CLI** (`agent`) delegieren soll. Alter kann laufende Turns steuern, Genehmigungsfragen bearbeiten und die Sitzung in Cursors Agent-UI öffnen. Unter **Tools Manager → Cursor** erlaubt **Run without confirmations**, dass Cursor Befehle ohne schrittweise Genehmigung auf beschreibbaren Projekten ausführt (Read-only-Projekte bleiben auf Fragen und Planung beschränkt).
+
+### OpenCode {#opencode}
+
+Am besten für **OpenCode CLI**-Nutzer, die möchten, dass Alter Sitzungen fortsetzt, die in einem Terminal gestartet wurden, oder bestehende OpenCode-Server-Sitzungen übernimmt. OpenCodes Modellvarianten werden pro Lauf auf **effort** abgebildet.
+
+### Claude Code {#claude-code}
+
+Am besten, wenn Sie auf **`claude`** im Terminal standardisieren. Alter startet Print-Mode-Turns mit den Berechtigungen, die Claude benötigt; Sie authentifizieren sich mit `claude auth login`. Claude-Turns **können mid-flight nicht sicher gesteuert werden** — lassen Sie den Turn abschließen und bitten Sie Alter dann, dieselbe Sitzung mit einem Folge-Prompt fortzusetzen.
+
+## Dem Modell verfügbare Tools
+
+Jeder verbundene Anbieter stellt Alter's Modell ein konsistentes Tool-Set bereit:
+
+| Tool-Muster | Zweck |
+|-------------|-------|
+| `*_run_task` | Sitzung starten oder fortsetzen (`prompt`, optional `task_id`, `cwd`, `model`, `effort`) |
+| `*_list_tasks` | Sitzungen auflisten; `conversation_only=true` verwenden, wenn mehrere Tasks in einem Chat existieren |
+| `*_read_task` | Status, Aktivität oder Ausgabe einer Sitzung prüfen |
+| `*_control_task` | Steuern, stoppen, genehmigen, ablehnen oder Fragen beantworten (wo unterstützt) |
+| `*_manage_task` | Sitzungen umbenennen oder archivieren |
+| `*_settings` | Modelle auflisten, Standardwerte lesen oder Modell/Effort für zukünftige oder bestimmte Tasks setzen |
+
+Sie rufen diese selten direkt auf — beschreiben Sie das Ergebnis in natürlicher Sprache und lassen Sie Alter oder **Flow** das richtige Tool wählen.
+
+## Mit Workspaces und Actions verwenden
+
+**Workspaces** — Hängen Sie einen Workspace an, wenn die Aufgabe eine Codebasis betrifft, die Alter referenzieren soll. Coding-Tools respektieren die autorisierten Roots und Berechtigungsstufen des Workspace.
+
+**Actions** — Aktivieren Sie im Action Editor unter **Tools** nur die Coding-Anbieter, die diese Action benötigt. Eine „Ship patch“-Action könnte zum Beispiel **Cursor** und **Flow** aktivieren, aber **ChatGPT** deaktivieren.
+
+**Ask Anything** — Die Standard-Action aktiviert Coding-Tools **nicht** automatisch. Installieren Sie einen [Marketplace-Coding-Agenten](#get-started-from-the-marketplace-recommended), aktivieren Sie Anbieter im **Tools Manager**, oder duplizieren Sie **Ask Anything** und fügen Sie Coding-Tools im Tab **Tools** hinzu.
+
+## Beispiel-Prompts
+
+- „Use Cursor to add unit tests for `UserStore` in `/Users/me/code/myapp`.“
+- „Continue the OpenCode session we started for the auth refactor.“
+- „Ask ChatGPT to fix the TypeScript errors in this workspace and summarize what changed.“
+- „Run Claude Code on the docs folder — update the README install section only.“
+
+## Task-Karten und Inspector
+
+Während eine Sitzung läuft:
+
+- Die Unterhaltung zeigt eine **Coding-Task-Karte** mit Anbieter, Titel, Status und Links
+- Öffnen Sie den **Tool Inspector** (Hub-Inspector-Leiste), um Argumente, Live-Status und **Open in…**-Aktionen zu sehen
+- Benachrichtigungen erscheinen, wenn eine Aufgabe abgeschlossen ist, fehlschlägt oder Eingabe benötigt
+
+Wenn eine Aufgabe Genehmigung oder Antworten benötigt, antworten Sie in **derselben Alter-Unterhaltung** — Alter leitet Ihre Wahl an die laufende Sitzung weiter.
+
+## Fehlersuche
+
+<AccordionGroup>
+  <Accordion icon="store" title="Marketplace-Agent hat Tools beim ersten Lauf nicht aktiviert">
+    Bestätigen Sie, dass Sie im Panel **Werkzeuge einrichten** auf **Aktivieren** geklickt haben, als die Action zum ersten Mal lief. Wenn Sie ein Tool übersprungen haben, öffnen Sie **Tools Manager → Local Tools → Coding** und verbinden Sie den Anbieter manuell, oder führen Sie die Action erneut aus und akzeptieren Sie die Einrichtungsaufforderung.
+  </Accordion>
+
+  <Accordion icon="circle-exclamation" title="Anbieter nicht im Tools Manager gefunden">
+    Installieren Sie die Desktop-App oder CLI für diesen Anbieter und starten Sie Alter neu. Bestätigen Sie, dass die Binary im Terminal ausführbar ist (`agent --version`, `opencode --version`, `claude --version`, oder ChatGPT.app öffnen).
+  </Accordion>
+
+  <Accordion icon="lock" title="Alter fordert Ordnerzugriff an">
+    Genehmigen Sie den Projektpfad, wenn Sie dazu aufgefordert werden. Coding-Tools berühren nur Verzeichnisse, die Sie für diesen Workspace oder diese Aufgabe autorisiert haben.
+  </Accordion>
+
+  <Accordion icon="arrow-path" title="Follow-up hat nicht dieselbe Sitzung fortgesetzt">
+    Beziehen Sie sich in natürlicher Sprache auf die frühere Aufgabe („continue the Cursor task for the API refactor“). Alter verwendet `task_id` erneut, wenn das Thema passt; existieren mehrere Sitzungen in einem Chat, listet es zuerst Tasks, die auf die Unterhaltung beschränkt sind.
+  </Accordion>
+
+  <Accordion icon="hand" title="Claude lässt sich mid-turn nicht steuern">
+    Erwartetes Verhalten. Warten Sie, bis der Claude-Turn abgeschlossen ist, oder stoppen Sie ihn, und senden Sie die nächste Anweisung als Fortsetzung derselben Sitzung.
+  </Accordion>
+
+  <Accordion icon="power" title="Ergebnisse sind nicht angekommen">
+    Bestätigen Sie, dass Alter noch in der Menüleiste läuft und die ursprüngliche Unterhaltung geöffnet ist. Beenden Sie Alter, stoppt unzugestellte Hintergrundarbeit für ChatGPT, OpenCode und Claude; Cursor-Tasks werden beim Beenden ebenfalls gestoppt.
+  </Accordion>
+</AccordionGroup>
+
+## Verwandte Dokumente
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    Live Marketplace-Coding-Agent herunterladen
+  </Card>
+  <Card title="Tools Manager" icon="toolbox" href="/de/how-to/tool-manager-guide">
+    Integrationen verbinden und die Coding-Kategorie verwalten
+  </Card>
+  <Card title="Flow verwenden" icon="wand-magic-sparkles" href="/de/workflows/use-flow-orchestration">
+    Coding-Anfragen leiten, ohne jedes Tool zu laden
+  </Card>
+  <Card title="Alter Actions" icon="play" href="/de/workflows/alter-actions">
+    Coding-Tools pro Action einschränken
+  </Card>
+  <Card title="Workspaces" icon="folder-tree" href="/de/getting-started/workspaces-basics">
+    Codebasen indexieren und Berechtigungsstufen setzen
+  </Card>
+  <Card title="Integrationen-Übersicht" icon="plug" href="/de/apps-tools/integrations-overview#coding-tools">
+    Wie Coding-Tools zu Mac Apps und externen Integrationen passen
+  </Card>
+  <Card title="Tools funktionieren nicht" icon="wrench" href="/de/common-issues/tool-not-working">
+    Allgemeine Integration-Fehlersuche
+  </Card>
+</CardGroup>

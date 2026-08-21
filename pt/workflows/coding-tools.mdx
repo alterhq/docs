@@ -1,0 +1,264 @@
+---
+title: "Coding tools"
+description: "Execute sessões de coding locais a partir do Alter através do ChatGPT, Cursor, OpenCode e Claude Code"
+---
+
+<Info>
+  **Coding tools** permitem ao Alter iniciar e gerir **sessões de coding locais persistentes** no Mac. Peça em linguagem natural a partir do Hub, QuickHub ou de uma action personalizada — o Alter lança a sessão em segundo plano e **devolve o resultado à mesma conversa** quando o turno termina.
+</Info>
+
+O Alter não substitui o seu agente de coding. Orquestra as ferramentas que já utiliza — **ChatGPT** (Codex), **Cursor Agent CLI**, **OpenCode** e **Claude Code** — para planear, delegar, orientar e rever a partir de um único lugar.
+
+## O que pode fazer
+
+- Iniciar uma tarefa de coding numa pasta de projecto ou numa sessão scratch desanexada
+- Continuar a mesma sessão em mensagens de seguimento num único chat do Alter
+- Orientar, parar ou responder a pedidos de aprovação de tarefas em execução (depende do fornecedor)
+- Limitar coding tools por action no Action Editor
+- Encaminhar pedidos de coding através do **Flow** quando tem várias integrações activadas
+
+## Pré-requisitos
+
+Instale e inicie sessão nos fornecedores que pretende utilizar antes de executar um agente de coding.
+
+| Fornecedor | O que o Alter precisa | Início de sessão |
+|----------|------------------|---------|
+| **ChatGPT** | App desktop [ChatGPT](https://chatgpt.com) (`ChatGPT.app` ou `Codex.app`) com o Codex CLI incluído | A sua conta ChatGPT na app |
+| **Cursor** | [Cursor Agent CLI](https://cursor.com) (`agent` no PATH) | Conta Cursor no CLI |
+| **OpenCode** | [OpenCode CLI](https://opencode.ai) (`opencode` no PATH) | Credenciais do fornecedor configuradas no OpenCode |
+| **Claude** | [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) (`claude` no PATH) | Execute `claude auth login` no Terminal |
+
+<Note>
+  O Alter detecta estas ferramentas em localizações de instalação padrão (`/Applications`, `~/.local/bin`, Homebrew e o `PATH` da shell de login). Se um fornecedor estiver em falta, abra a página de detalhes da app correspondente no **Tools Manager** para orientação de instalação.
+</Note>
+
+## Começar pelo Marketplace (recomendado)
+
+O Alter publica **agentes de coding especializados** no [Alter Marketplace](https://alterhq.com/marketplace). Cada agente é uma Alter Action pré-construída limitada a um fornecedor de coding — prompt de sistema, ligações de ferramentas e predefinições incluídas — para não ter de configurar coding tools manualmente.
+
+<Steps>
+  <Step title="Abrir o Marketplace">
+    Prima **⌘⇧T** e seleccione **Browse** em **Marketplace**, ou abra uma listagem em [alterhq.com/marketplace](https://alterhq.com/marketplace).
+  </Step>
+  <Step title="Descarregar o agente">
+    Escolha o agente para a sua ferramenta de coding e clique em **Download**. O Alter importa-o como action activada em **Installed**.
+  </Step>
+  <Step title="Executar uma vez">
+    Clique em **Experimentar agora** ou execute a action a partir do Hub. Na primeira utilização, o Alter abre **Configurar ferramentas** e activa a integração de coding necessária quando confirmar.
+  </Step>
+  <Step title="Começar a programar">
+    Descreva a tarefa — inclua um caminho de projecto quando o Alter ainda não tiver contexto de workspace.
+  </Step>
+</Steps>
+
+### Agentes de coding no Marketplace
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    **Disponível** — Agente de programação para ChatGPT (Codex). Inclui ChatGPT Settings, Run/List/Read/Control/Manage ChatGPT Task.
+  </Card>
+  <Card title="Cursor Agent" icon="terminal" href="https://alterhq.com/marketplace/cursor-agent">
+    **Em breve** — Sessões Cursor Agent CLI a partir do Alter.
+  </Card>
+  <Card title="Claude Agent" icon="code" href="https://alterhq.com/marketplace/claude-agent">
+    **Em breve** — Sessões Claude Code CLI a partir do Alter.
+  </Card>
+  <Card title="OpenCode Agent" icon="server" href="https://alterhq.com/marketplace/opencode-agent">
+    **Em breve** — Sessões OpenCode CLI e de terminal a partir do Alter.
+  </Card>
+</CardGroup>
+
+A listagem em directo **[ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)** está na categoria **Programming**. Inclui estas ferramentas pré-ligadas:
+
+- **ChatGPT Settings** — listar modelos e ler ou definir predefinições
+- **Run ChatGPT Task** — iniciar ou continuar uma sessão Codex
+- **List ChatGPT Tasks** — encontrar sessões nesta conversa ou em todo o ChatGPT
+- **Read ChatGPT Task** — inspeccionar estado, actividade ou output
+- **Control ChatGPT Task** — orientar, parar ou responder a pedidos de aprovação
+- **Manage ChatGPT Task** — renomear ou arquivar sessões
+
+Após a primeira execução bem-sucedida, a integração de coding ChatGPT permanece activada em **Tools Manager → Local Tools → Coding** para outras actions e chats do Hub.
+
+<Tip>
+  Prefere um fluxo personalizado? Duplique um agente do Marketplace no Action Editor, ou active coding tools manualmente abaixo e limite-as por action. Veja [Alter Actions](/pt/workflows/alter-actions).
+</Tip>
+
+## Activar manualmente no Tools Manager
+
+Use este caminho quando quiser coding tools em **Ask Anything**, numa action personalizada ou no **Flow** sem instalar um agente do Marketplace.
+
+<Steps>
+  <Step title="Abrir o Tools Manager">
+    Prima **⌘⇧T** ou escolha **Tools Manager** na barra de menus.
+  </Step>
+  <Step title="Abrir Local Tools">
+    Na barra lateral, seleccione **Local Tools**.
+  </Step>
+  <Step title="Ligar fornecedores">
+    Em **Coding**, ligue **ChatGPT**, **Cursor**, **OpenCode** e/ou **Claude**. Active apenas os fornecedores que utiliza.
+  </Step>
+  <Step title="Testar com um prompt">
+    A partir do Hub, peça algo simples como "List the README headings in this repo" e confirme que o cartão de tarefa aparece.
+  </Step>
+</Steps>
+
+<Tip>
+  O **Flow** pode descobrir fornecedores de coding activados automaticamente. Active o **Flow** em **Local Tools → Alter** se quiser que o Alter escolha a ferramenta de coding certa para pedidos mistos. Veja [Use Flow for Tool Orchestration](/pt/workflows/use-flow-orchestration).
+</Tip>
+
+## Como corre uma tarefa de coding
+
+<Steps>
+  <Step title="Pede no Alter">
+    Descreva a alteração, bug ou revisão que pretende — inclua o caminho do projecto quando o Alter ainda não tiver contexto de workspace.
+  </Step>
+  <Step title="O Alter inicia uma sessão em segundo plano">
+    O fornecedor executa de forma assíncrona no Mac. O Alter mostra um **cartão de tarefa de coding** na conversa com estado, task ID e uma ligação **Open in…** quando disponível.
+  </Step>
+  <Step title="O Alter espera que o turno termine">
+    Não precisa de consultar o ChatGPT, Cursor, OpenCode ou um terminal. Continue a trabalhar no Alter ou noutro sítio no Mac.
+  </Step>
+  <Step title="O resultado regressa a este chat">
+    Quando a sessão termina, falha ou precisa de input, o Alter insere uma mensagem de **external task** na mesma conversa e continua o thread para o modelo resumir ou actuar sobre o output.
+  </Step>
+</Steps>
+
+<Warning>
+  **Mantenha o Alter em execução** enquanto tarefas de coding estiverem activas. Se sair com tarefas ChatGPT ou Cursor ainda a correr, o Alter avisa porque tem de permanecer na barra de menus para entregar resultados e pedidos de aprovação.
+</Warning>
+
+## Permissões de workspace
+
+As coding tools usam um **perfil de permissões restrito** mapeado a partir da permissão activa do workspace. Podem editar e testar um **directório de projecto autorizado** sem exigir **Full Access** do Alter.
+
+| Permissão de workspace Alter | Acesso de coding típico |
+|---------------------------|------------------------|
+| Read-only | Ler e planear na pasta autorizada |
+| Read/write | Editar ficheiros na pasta autorizada |
+| Full Access | Editar ficheiros e executar comandos limitados ao projecto através do agente externo |
+
+Isto é separado da ferramenta directa **`workspace_bash`** do Alter, que ainda exige **Full Access** no workspace. Prefira coding tools quando quiser um agente dedicado para implementar alterações; use ferramentas de ficheiros do workspace para edições mais leves no chat.
+
+Quando o Alter precisa de acesso a uma pasta pela primeira vez, pede-lhe que autorize o caminho do projecto para essa sessão.
+
+## Comparação de fornecedores
+
+| | **ChatGPT** | **Cursor** | **OpenCode** | **Claude** |
+|---|-------------|------------|--------------|------------|
+| **Executa através de** | App desktop ChatGPT (Codex) | Cursor Agent CLI | OpenCode CLI / server | Claude Code CLI |
+| **Orientar a meio do turno** | Sim | Sim | Sim | Não — espere o turno e depois continue |
+| **Parar / interromper** | Sim | Sim | Sim | Sim |
+| **Responder a aprovações** | Sim | Sim | Sim | Não a partir do Alter a meio do turno |
+| **Retomar sessões de terminal** | — | — | Sim | — |
+| **Definições de modelo / effort** | Modelo + thinking effort | Modelo | Modelo + variante de effort | Modelo + effort |
+| **Etiqueta Open link** | Open in ChatGPT | Open in Agent CLI | Open in OpenCode | Open in terminal |
+
+### ChatGPT (Codex) {#chatgpt-codex}
+
+Ideal quando já utiliza a **app desktop ChatGPT** para coding agentico. O Alter comunica com o runtime Codex da app, sincroniza tarefas iniciadas noutro sítio no ChatGPT quando possível, e pode orientar ou responder a pedidos de aprovação do ChatGPT a partir do Hub.
+
+### Cursor {#cursor}
+
+Ideal quando vive no **Cursor** e quer que o Alter delegue ao **Agent CLI** (`agent`). O Alter pode orientar turnos em execução, tratar de perguntas de aprovação e abrir a sessão na UI de agente do Cursor. Em **Tools Manager → Cursor**, **Run without confirmations** permite ao Cursor executar comandos sem aprovação por passo em projectos com escrita (projectos só de leitura permanecem limitados a perguntas e planeamento).
+
+### OpenCode {#opencode}
+
+Ideal para utilizadores de **OpenCode CLI** que querem que o Alter continue sessões iniciadas num terminal ou retome sessões existentes do servidor OpenCode. As variantes de modelo do OpenCode mapeiam para **effort** em cada execução.
+
+### Claude Code {#claude-code}
+
+Ideal quando padroniza em **`claude`** no Terminal. O Alter lança turnos em modo print com as permissões que o Claude precisa; autentique com `claude auth login`. Turnos Claude **não podem ser orientados com segurança a meio do voo** — deixe o turno terminar e peça ao Alter para continuar a mesma sessão com um prompt de seguimento.
+
+## Ferramentas disponíveis para o modelo
+
+Cada fornecedor ligado expõe um conjunto consistente de ferramentas ao modelo do Alter:
+
+| Padrão de ferramenta | Finalidade |
+|--------------|---------|
+| `*_run_task` | Iniciar ou continuar uma sessão (`prompt`, `task_id` opcional, `cwd`, `model`, `effort`) |
+| `*_list_tasks` | Listar sessões; use `conversation_only=true` quando existirem várias tarefas num chat |
+| `*_read_task` | Inspeccionar estado, actividade ou output de uma sessão |
+| `*_control_task` | Orientar, parar, aprovar, negar ou responder a perguntas (quando suportado) |
+| `*_manage_task` | Renomear ou arquivar sessões |
+| `*_settings` | Listar modelos, ler predefinições ou definir modelo/effort para tarefas futuras ou específicas |
+
+Raramente chama estas ferramentas directamente — descreva o resultado em linguagem natural e deixe o Alter ou o **Flow** escolher a ferramenta certa.
+
+## Utilizar com workspaces e actions
+
+**Workspaces** — Anexe um workspace quando a tarefa abrange uma base de código que o Alter deve referenciar. As coding tools respeitam as raízes autorizadas e o nível de permissão do workspace.
+
+**Actions** — No separador **Tools** do Action Editor, active apenas os fornecedores de coding que a action precisa. Por exemplo, uma action "Ship patch" pode activar **Cursor** e **Flow** mas desactivar **ChatGPT**.
+
+**Ask Anything** — A action predefinida **não** activa coding tools automaticamente. Instale um [agente de coding do Marketplace](#get-started-from-the-marketplace-recommended), active fornecedores no **Tools Manager**, ou duplique **Ask Anything** e adicione coding tools ao separador **Tools**.
+
+## Exemplos de prompts
+
+- "Use Cursor to add unit tests for `UserStore` in `/Users/me/code/myapp`."
+- "Continue the OpenCode session we started for the auth refactor."
+- "Ask ChatGPT to fix the TypeScript errors in this workspace and summarize what changed."
+- "Run Claude Code on the docs folder — update the README install section only."
+
+## Cartões de tarefa e inspector
+
+Enquanto uma sessão corre:
+
+- A conversa mostra um **cartão de tarefa de coding** com fornecedor, título, estado e ligações
+- Abra o **Tool Inspector** (rail do inspector do Hub) para ver argumentos, estado em directo e acções **Open in…**
+- Aparecem notificações quando uma tarefa termina, falha ou precisa de input
+
+Quando uma tarefa precisa de aprovação ou respostas, responda na **mesma conversa do Alter** — o Alter reencaminha a sua escolha para a sessão em execução.
+
+## Resolução de problemas
+
+<AccordionGroup>
+  <Accordion icon="store" title="O agente do Marketplace não activou ferramentas na primeira execução">
+    Confirme que clicou em **Ativar** no painel **Configurar ferramentas** quando a action correu pela primeira vez. Se saltou uma ferramenta, abra **Tools Manager → Local Tools → Coding** e ligue o fornecedor manualmente, ou volte a executar a action e aceite o prompt de configuração.
+  </Accordion>
+
+  <Accordion icon="circle-exclamation" title="Fornecedor não encontrado no Tools Manager">
+    Instale a app desktop ou CLI desse fornecedor e reinicie o Alter. Confirme que o binário é executável a partir do Terminal (`agent --version`, `opencode --version`, `claude --version`, ou abra ChatGPT.app).
+  </Accordion>
+
+  <Accordion icon="lock" title="O Alter pede acesso a uma pasta">
+    Aprove o caminho do projecto quando solicitado. As coding tools só tocam em directórios que autorizar para esse workspace ou tarefa.
+  </Accordion>
+
+  <Accordion icon="arrow-path" title="O seguimento não continuou a mesma sessão">
+    Refira a tarefa anterior em linguagem simples ("continue the Cursor task for the API refactor"). O Alter reutiliza `task_id` quando o tópico corresponde; se existirem várias sessões num chat, lista primeiro tarefas limitadas à conversa.
+  </Accordion>
+
+  <Accordion icon="hand" title="Claude não orienta a meio do turno">
+    Comportamento esperado. Espere que o turno Claude termine ou pare-o, depois envie a instrução seguinte como continuação da mesma sessão.
+  </Accordion>
+
+  <Accordion icon="power" title="Os resultados não chegaram">
+    Confirme que o Alter ainda está em execução na barra de menus e que a conversa de origem está aberta. Sair do Alter interrompe trabalho em segundo plano não entregue para ChatGPT, OpenCode e Claude; tarefas Cursor também são paradas ao sair.
+  </Accordion>
+</AccordionGroup>
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    Descarregue o agente de coding do Marketplace em directo
+  </Card>
+  <Card title="Tools Manager" icon="toolbox" href="/pt/how-to/tool-manager-guide">
+    Ligue integrações e gira a categoria Coding
+  </Card>
+  <Card title="Use Flow" icon="wand-magic-sparkles" href="/pt/workflows/use-flow-orchestration">
+    Encaminhe pedidos de coding sem carregar todas as ferramentas
+  </Card>
+  <Card title="Alter Actions" icon="play" href="/pt/workflows/alter-actions">
+    Limite coding tools por action
+  </Card>
+  <Card title="Workspaces" icon="folder-tree" href="/pt/getting-started/workspaces-basics">
+    Indexe bases de código e defina níveis de permissão
+  </Card>
+  <Card title="Integrations overview" icon="plug" href="/pt/apps-tools/integrations-overview#coding-tools">
+    Como as coding tools se integram com Mac Apps e integrações externas
+  </Card>
+  <Card title="Tools not working" icon="wrench" href="/pt/common-issues/tool-not-working">
+    Resolução geral de problemas de integrações
+  </Card>
+</CardGroup>

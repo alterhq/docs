@@ -5,7 +5,7 @@ description: "Entenda ferramentas locais e integrações externas no Alter"
 
 O Alter conecta-se ao seu Mac de duas formas:
 
-- **Mac Apps (ferramentas locais)** — Integrações first-party com Mail, Calendar, Messages, Notes, Reminders, Contacts, Maps, DEVONthink e Computer Use. Executam no Mac com permissões do sistema; sem chaves API de terceiros para apps integradas.
+- **Mac Apps (ferramentas locais)** — Integrações first-party com Mail, Calendar, Messages, Notes, Reminders, Contacts, Maps, DEVONthink, Computer Use e **Coding** (ChatGPT, Cursor, OpenCode, Claude Code). Executam no Mac com permissões do sistema; sem chaves API de terceiros para apps integradas.
 - **Gateways** — Bots Discord e Telegram para conversar com o Alter a partir dessas plataformas enquanto o Alter corre no Mac. Configure em **Definições → Integrations → Gateways**.
 - **Integrações externas** — Servidores MCP, skills e conectores na nuvem (Slack, Notion, GitHub, APIs de pesquisa web, etc.) configurados no **Tools Manager**.
 
@@ -29,17 +29,38 @@ O Alter conecta-se ao seu Mac de duas formas:
 
 ## Ferramentas locais (Mac Apps)
 
-Ferramentas locais executam no seu ambiente e são ideais para uso diário em apps Apple e Computer Use.
+Ferramentas locais executam no seu ambiente e são ideais para uso diário em apps Apple, agentes de coding e Computer Use.
 
 <CardGroup cols={2}>
   <Card title="Navegação Mac Apps" icon="apple" href="/apps-tools/mail">
     Referências por app: Mail, Calendar, Messages, Notes e mais
+  </Card>
+  <Card title="Coding tools" icon="terminal" href="/pt/workflows/coding-tools">
+    ChatGPT, Cursor, OpenCode e Claude Code a partir do Alter
   </Card>
   <Card title="Computer Use" icon="display" href="/apps-tools/computer-use">
     Agente de automação de tela por objetivos
   </Card>
 </CardGroup>
 
+
+
+## Coding tools {#coding-tools}
+
+A categoria **Coding** em **Tools Manager → Local Tools** liga o Alter a agentes de coding locais que já executa no Mac:
+
+- **ChatGPT** — tarefas persistentes através da app desktop ChatGPT (Codex)
+- **Cursor** — sessões através do Cursor Agent CLI
+- **OpenCode** — sessões CLI e de terminal, incluindo trabalho iniciado fora do Alter
+- **Claude** — sessões Claude Code CLI
+
+**Recomendado:** instale um agente especializado no [Alter Marketplace](https://alterhq.com/marketplace) — o [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) em directo está disponível; agentes Cursor, Claude e OpenCode em breve. Na primeira execução, o Alter activa automaticamente a ferramenta de coding necessária.
+
+O Alter inicia estas sessões em segundo plano a partir do Hub ou de uma action e **devolve os resultados à mesma conversa**. As coding tools usam um perfil de permissões restrito mapeado a partir do workspace — não exigem **Full Access** do Alter para pastas de projecto autorizadas.
+
+<Card title="Fluxo de coding tools" icon="code" href="/pt/workflows/coding-tools">
+  Configuração, permissões, comparação de fornecedores e resolução de problemas
+</Card>
 <CardGroup cols={2}>
   <Card title="Grátis" icon="gift">
     Ferramentas locais estão incluídas.

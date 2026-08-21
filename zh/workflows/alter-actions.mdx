@@ -155,6 +155,26 @@ Alter 在 Hub、QuickHub 和 Action Editor 中**按模型**记住 thinking effor
   在 Action Editor 侧边栏使用 **⌘F** 搜索 Action。点击筛选图标可按后台任务、计划、警告、已修改 Action 或 **Folders**（Action 类别）筛选。文件夹筛选包含 **All** 和 **None** 快捷方式。
 </Tip>
 
+### 6. 工具
+
+限定此 Action 可用的工具。
+
+![工具选项卡](/images/tools/action-editor-06-tools.webp)
+
+**工具配置：**
+
+- **禁用工具** — 关闭单个工具以限制功能
+- 为空时：所有工具可用
+- 已配置时：仅所选工具可用
+
+**Ask Anything 默认值（beta100+）：** 内置 **Ask Anything** Action 默认启用 **Flow**、**Computer Use** 和 **Ask User**。如需更窄的工具集，请自定义或复制它。
+
+**Memory：** 当 Action 需要读取已保存的事实或搜索先前的聊天和会议时，链接 **Memory** 工具。Memory 默认不会为每个 Action 启用。参见 [Memory](/zh/workflows/memory) 和 [管理 Memory](/zh/how-to/manage-memory)。
+
+内置 **Memory Catch-Up** Action 已预链接 Memory。这是 Alter 从过去 30 天的聊天和会议引导 Memory 的可信方式 — 首次启用 Memory 或回填近期历史时推荐使用。参见 [Memory Catch-Up](/zh/workflows/memory-catch-up)。
+
+**Coding tools（post-beta106）：** 最快路径是 [Marketplace 编程智能体](/zh/workflows/coding-tools#get-started-from-the-marketplace-recommended) — 从 **Tools Manager → Marketplace → Browse** 下载（例如已上线的 [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)）并运行一次；Alter 会在首次使用时启用所需的编程集成。或者，先在 **Tools Manager** 的 **Local Tools → Coding** 下连接 **ChatGPT**、**Cursor**、**OpenCode** 和/或 **Claude**，然后限定每个 Action 可用的提供商 — 例如发布 Action 可能仅启用 **Cursor**。编程会话异步运行；结果返回原始对话。参见 [Coding tools](/zh/workflows/coding-tools)。
+
 ### 8. Gateways
 
 选择此 Action 是否可通过 **Discord** 和 **Telegram** Gateway 使用。

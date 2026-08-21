@@ -29,16 +29,36 @@ Alter は 2 つの方法で Mac に接続します：
 
 ## ローカルツール（Mac Apps）
 
-ローカルツールは環境内で動作し、Apple アプリと Computer Use の日常利用に最適。
+ローカルツールは環境内で動作し、Apple アプリ、コーディングエージェント、Computer Use の日常利用に最適。
 
 <CardGroup cols={2}>
-  <Card title="Mac Apps ナビ" icon="apple" href="/apps-tools/mail">
+  <Card title="Mac Apps ナビ" icon="apple" href="/ja/apps-tools/mail">
     Mail、Calendar、Messages、Notes などのアプリ別リファレンス
   </Card>
-  <Card title="Computer Use" icon="display" href="/apps-tools/computer-use">
+  <Card title="Coding tools" icon="terminal" href="/ja/workflows/coding-tools">
+    Alter から ChatGPT、Cursor、OpenCode、Claude Code
+  </Card>
+  <Card title="Computer Use" icon="display" href="/ja/apps-tools/computer-use">
     目標ベースの画面自動化エージェント
   </Card>
 </CardGroup>
+
+## Coding tools {#coding-tools}
+
+**Tools Manager → Local Tools** の **Coding** カテゴリは、Mac 上ですでに実行しているローカルコーディングエージェントに Alter を接続します：
+
+- **ChatGPT** — ChatGPT デスクトップアプリ（Codex）経由の永続タスク
+- **Cursor** — Cursor Agent CLI 経由のセッション
+- **OpenCode** — CLI およびターミナルセッション（Alter 外で開始した作業を含む）
+- **Claude** — Claude Code CLI セッション
+
+**推奨:** [Alter Marketplace](https://alterhq.com/marketplace) から専用エージェントをインストール — 公開中の [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) が利用可能；Cursor、Claude、OpenCode エージェントは近日公開。初回実行時、Alter が必要なコーディングツールを自動有効化します。
+
+Alter は Hub または Action からこれらのセッションをバックグラウンドで開始し、**同じ会話に結果を返します**。Coding tools は Workspace からマップされた制約付き権限プロファイルを使用 — 承認済みプロジェクトフォルダに Alter **Full Access** は不要です。
+
+<Card title="Coding tools ワークフロー" icon="code" href="/ja/workflows/coding-tools">
+  セットアップ、権限、プロバイダー比較、トラブルシューティング
+</Card>
 
 <CardGroup cols={2}>
   <Card title="無料" icon="gift">

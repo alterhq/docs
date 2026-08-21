@@ -1,0 +1,264 @@
+---
+title: "Coding tools"
+description: "ChatGPT、Cursor、OpenCode、Claude Code 経由で Alter からローカルコーディングセッションを実行"
+---
+
+<Info>
+  **Coding tools** により、Alter は Mac 上で**永続的なローカルコーディングセッション**を開始・管理できます。Hub、QuickHub、またはカスタム Action から自然言語で依頼すると、Alter がバックグラウンドでセッションを起動し、ターン完了時に**同じ会話に結果を戻します**。
+</Info>
+
+Alter はコーディングエージェントの代わりにはなりません。すでに使っているツール — **ChatGPT**（Codex）、**Cursor Agent CLI**、**OpenCode**、**Claude Code** — をオーケストレーションし、一か所から計画、委任、誘導、レビューができます。
+
+## できること
+
+- プロジェクトフォルダまたは独立した scratch セッションに対してコーディングタスクを開始
+- 1 つの Alter チャットでフォローアップメッセージを通じて同じセッションを継続
+- 実行中タスクの誘導、停止、承認プロンプトへの回答（プロバイダー依存）
+- Action Editor で Action ごとに Coding tools の範囲を限定
+- 複数の統合が有効な場合、**Flow** 経由でコーディングリクエストをルーティング
+
+## 前提条件
+
+コーディングエージェントを実行する前に、必要なプロバイダーをインストールしてサインインしてください。
+
+| プロバイダー | Alter が必要とするもの | サインイン |
+|-------------|------------------------|------------|
+| **ChatGPT** | 同梱 Codex CLI 付き [ChatGPT](https://chatgpt.com) デスクトップアプリ（`ChatGPT.app` または `Codex.app`） | アプリ内の ChatGPT アカウント |
+| **Cursor** | [Cursor Agent CLI](https://cursor.com)（PATH 上の `agent`） | CLI 内の Cursor アカウント |
+| **OpenCode** | [OpenCode CLI](https://opencode.ai)（PATH 上の `opencode`） | OpenCode で設定したプロバイダー認証情報 |
+| **Claude** | [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)（PATH 上の `claude`） | ターミナルで `claude auth login` を実行 |
+
+<Note>
+  Alter は標準インストール場所（`/Applications`、`~/.local/bin`、Homebrew、ログインシェルの `PATH`）からこれらのツールを検出します。プロバイダーが見つからない場合は、**Tools Manager** のアプリ詳細ページでインストール手順を確認してください。
+</Note>
+
+## Marketplace から始める（推奨）
+
+Alter は [Alter Marketplace](https://alterhq.com/marketplace) で**専用コーディングエージェント**を公開しています。各エージェントは 1 つのコーディングプロバイダーにスコープされた事前構築の Alter Action — システムプロンプト、ツールリンク、デフォルト付き — で、Coding tools を自分で配線する必要がありません。
+
+<Steps>
+  <Step title="Marketplace を開く">
+    **⌘⇧T** を押し、**Marketplace** の **Browse** を選択するか、[alterhq.com/marketplace](https://alterhq.com/marketplace) のリストを開きます。
+  </Step>
+  <Step title="エージェントをダウンロード">
+    コーディングツール用のエージェントを選び **Download** をクリックします。Alter は **Installed** 下に有効な Action としてインポートします。
+  </Step>
+  <Step title="一度実行する">
+    **今すぐ試す** をクリックするか、Hub から Action を実行します。初回使用時、Alter は **ツールのセットアップ** を開き、確認すると必要なコーディング統合を有効にします。
+  </Step>
+  <Step title="コーディングを開始">
+    タスクを説明します — Alter に Workspace コンテキストがまだない場合はプロジェクトパスを含めてください。
+  </Step>
+</Steps>
+
+### Marketplace コーディングエージェント
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    **利用可能** — ChatGPT（Codex）向けプログラミングエージェント。ChatGPT Settings、Run/List/Read/Control/Manage ChatGPT Task を含む。
+  </Card>
+  <Card title="Cursor Agent" icon="terminal" href="https://alterhq.com/marketplace/cursor-agent">
+    **近日公開** — Alter から Cursor Agent CLI セッション。
+  </Card>
+  <Card title="Claude Agent" icon="code" href="https://alterhq.com/marketplace/claude-agent">
+    **近日公開** — Alter から Claude Code CLI セッション。
+  </Card>
+  <Card title="OpenCode Agent" icon="server" href="https://alterhq.com/marketplace/opencode-agent">
+    **近日公開** — Alter から OpenCode CLI およびターミナルセッション。
+  </Card>
+</CardGroup>
+
+公開中の **[ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)** リストは **Programming** カテゴリにあります。次のツールが事前リンクされています：
+
+- **ChatGPT Settings** — モデルを一覧し、デフォルトを読み取りまたは設定
+- **Run ChatGPT Task** — Codex セッションを開始または継続
+- **List ChatGPT Tasks** — この会話または ChatGPT 全体でセッションを検索
+- **Read ChatGPT Task** — ステータス、活動、出力を確認
+- **Control ChatGPT Task** — 誘導、停止、承認プロンプトへの回答
+- **Manage ChatGPT Task** — セッションの名前変更またはアーカイブ
+
+初回の成功実行後、ChatGPT コーディング統合は **Tools Manager → Local Tools → Coding** で他の Action や Hub チャット向けに有効のままです。
+
+<Tip>
+  カスタムワークフローを好みますか？Action Editor で Marketplace エージェントを複製するか、下記で Coding tools を手動で有効化し Action ごとにスコープしてください。[Alter Actions](/ja/workflows/alter-actions) を参照。
+</Tip>
+
+## Tools Manager で手動有効化
+
+Marketplace エージェントをインストールせずに **Ask Anything**、カスタム Action、または **Flow** で Coding tools を使う場合はこのパスを使用します。
+
+<Steps>
+  <Step title="Tools Manager を開く">
+    **⌘⇧T** を押すか、メニューバーから **Tools Manager** を選択します。
+  </Step>
+  <Step title="Local Tools を開く">
+    サイドバーで **Local Tools** を選択します。
+  </Step>
+  <Step title="プロバイダーを接続">
+    **Coding** 下で **ChatGPT**、**Cursor**、**OpenCode**、**Claude** を接続します。使うプロバイダーのみオンにします。
+  </Step>
+  <Step title="1 つのプロンプトでテスト">
+    Hub から「List the README headings in this repo」のような小さな依頼をし、タスクカードが表示されることを確認します。
+  </Step>
+</Steps>
+
+<Tip>
+  **Flow** は有効なコーディングプロバイダーを自動検出できます。混合リクエストで Alter に適切なコーディングツールを選ばせる場合は **Local Tools → Alter** で **Flow** を有効にしてください。[Tool オーケストレーションには Flow を使用する](/ja/workflows/use-flow-orchestration) を参照。
+</Tip>
+
+## コーディングタスクの実行フロー
+
+<Steps>
+  <Step title="Alter で依頼">
+    変更、バグ、レビューを説明します — Alter に Workspace コンテキストがまだない場合はプロジェクトパスを含めてください。
+  </Step>
+  <Step title="Alter がバックグラウンドセッションを開始">
+    プロバイダーは Mac 上で非同期実行されます。Alter は会話に**コーディングタスクカード**（ステータス、タスク ID、利用可能なら **Open in…** リンク）を表示します。
+  </Step>
+  <Step title="Alter がターン完了を待つ">
+    ChatGPT、Cursor、OpenCode、ターミナルをポーリングする必要はありません。Alter または Mac 上の他の作業を続けられます。
+  </Step>
+  <Step title="結果がこのチャットに戻る">
+    セッションが完了、失敗、または入力が必要になったとき、Alter は同じ会話に **external task** メッセージを挿入し、モデルが出力を要約または処理できるようスレッドを継続します。
+  </Step>
+</Steps>
+
+<Warning>
+  コーディングタスクがアクティブな間は **Alter を実行したまま** にしてください。ChatGPT または Cursor タスクがまだ実行中に終了すると、Alter は警告します。結果と承認リクエストを届けるにはメニューバーに留まる必要があるためです。
+</Warning>
+
+## Workspace 権限
+
+Coding tools はアクティブな Workspace 権限からマップされた**制約付き権限プロファイル**を使用します。**承認済みプロジェクトディレクトリ**を Alter **Full Access** なしで編集・テストできます。
+
+| Alter Workspace 権限 | 典型的なコーディングアクセス |
+|---------------------|------------------------------|
+| Read-only | 承認フォルダ内の読み取りと計画 |
+| Read/write | 承認フォルダ内のファイル編集 |
+| Full Access | ファイル編集と外部エージェント経由のプロジェクトスコープコマンド実行 |
+
+これは Alter の直接 **`workspace_bash`** ツールとは別で、後者は引き続き Workspace で **Full Access** が必要です。専用エージェントに実装を任せたい場合は Coding tools を、軽いチャット内編集には Workspace ファイルツールを使ってください。
+
+Alter が初めてフォルダへのアクセスを必要とするとき、セッション用のプロジェクトパス承認を求めます。
+
+## プロバイダー比較
+
+| | **ChatGPT** | **Cursor** | **OpenCode** | **Claude** |
+|---|-------------|------------|--------------|------------|
+| **実行経路** | ChatGPT デスクトップアプリ（Codex） | Cursor Agent CLI | OpenCode CLI / サーバー | Claude Code CLI |
+| **ターン途中の誘導** | はい | はい | はい | いいえ — ターン完了後に継続 |
+| **停止 / 中断** | はい | はい | はい | はい |
+| **承認への回答** | はい | はい | はい | Alter からターン途中では不可 |
+| **ターミナルセッションの引き継ぎ** | — | — | はい | — |
+| **モデル / effort 設定** | モデル + thinking effort | モデル | モデル + effort バリアント | モデル + effort |
+| **Open リンクラベル** | Open in ChatGPT | Open in Agent CLI | Open in OpenCode | Open in terminal |
+
+### ChatGPT (Codex) {#chatgpt-codex}
+
+すでに **ChatGPT デスクトップアプリ**でエージェント型コーディングをしている場合に最適。Alter はアプリの Codex ランタイムと通信し、可能な限り ChatGPT 内の他場所で開始したタスクを同期し、Hub から ChatGPT の承認プロンプトを誘導または回答できます。
+
+### Cursor {#cursor}
+
+**Cursor** を主に使い、Alter に **Agent CLI**（`agent`）へ委任したい場合に最適。Alter は実行中ターンの誘導、承認質問の処理、Cursor のエージェント UI でのセッション起動ができます。**Tools Manager → Cursor** の **Run without confirmations** により、書き込み可能プロジェクトではステップごとの承認なしで Cursor がコマンドを実行できます（読み取り専用プロジェクトは質問と計画に限定）。
+
+### OpenCode {#opencode}
+
+**OpenCode CLI** ユーザーで、Alter にターミナルで開始したセッションの継続や既存 OpenCode サーバーセッションの引き継ぎをさせたい場合に最適。OpenCode のモデルバリアントは各実行の **effort** にマップされます。
+
+### Claude Code {#claude-code}
+
+ターミナルで **`claude`** に標準化している場合に最適。Alter は Claude に必要な権限で print モードターンを起動します。`claude auth login` で認証します。Claude ターンは**実行中に安全に誘導できません** — ターン完了を待ち、フォローアッププロンプトで同じセッションを継続するよう Alter に依頼してください。
+
+## モデルが利用できるツール
+
+接続済みプロバイダーは Alter のモデルに一貫したツールセットを公開します：
+
+| ツールパターン | 目的 |
+|----------------|------|
+| `*_run_task` | セッション開始または継続（`prompt`、任意 `task_id`、`cwd`、`model`、`effort`） |
+| `*_list_tasks` | セッション一覧；1 チャットに複数タスクがある場合は `conversation_only=true` |
+| `*_read_task` | セッションのステータス、活動、出力を確認 |
+| `*_control_task` | 誘導、停止、承認、拒否、質問への回答（サポート時） |
+| `*_manage_task` | セッションの名前変更またはアーカイブ |
+| `*_settings` | モデル一覧、デフォルト読み取り、将来または特定タスクのモデル/effort 設定 |
+
+これらを直接呼ぶことはほとんどありません — 自然言語で結果を説明し、Alter または **Flow** に適切なツールを選ばせてください。
+
+## Workspace と Action での使用
+
+**Workspaces** — Alter が参照すべきコードベースにまたがるタスクでは Workspace を添付します。Coding tools は Workspace の承認ルートと権限レベルを尊重します。
+
+**Actions** — Action Editor の **Tools** タブで、その Action に必要なコーディングプロバイダーのみ有効にします。例：「Ship patch」Action は **Cursor** と **Flow** のみ有効にし **ChatGPT** は無効にできます。
+
+**Ask Anything** — デフォルト Action は Coding tools を**自動では**有効にしません。[Marketplace コーディングエージェント](#get-started-from-the-marketplace-recommended)をインストールするか、**Tools Manager** でプロバイダーを有効化するか、**Ask Anything** を複製して **Tools** タブに Coding tools を追加してください。
+
+## プロンプト例
+
+- "Use Cursor to add unit tests for `UserStore` in `/Users/me/code/myapp`."
+- "Continue the OpenCode session we started for the auth refactor."
+- "Ask ChatGPT to fix the TypeScript errors in this workspace and summarize what changed."
+- "Run Claude Code on the docs folder — update the README install section only."
+
+## タスクカードとインスペクター
+
+セッション実行中：
+
+- 会話に**コーディングタスクカード**（プロバイダー、タイトル、ステータス、リンク）が表示されます
+- **Tool Inspector**（Hub インスペクターレール）で引数、ライブステータス、**Open in…** アクションを確認
+- タスク完了、失敗、入力必要時に通知が表示されます
+
+承認や回答が必要なときは**同じ Alter 会話**で応答してください — Alter が選択を実行中セッションに転送します。
+
+## トラブルシューティング
+
+<AccordionGroup>
+  <Accordion icon="store" title="Marketplace エージェントが初回実行でツールを有効にしなかった">
+    Action 初回実行時に **ツールのセットアップ** パネルで **有効にする** をクリックしたか確認してください。ツールをスキップした場合は **Tools Manager → Local Tools → Coding** で手動接続するか、Action を再実行してセットアッププロンプトを受け入れてください。
+  </Accordion>
+
+  <Accordion icon="circle-exclamation" title="Tools Manager にプロバイダーが見つからない">
+    そのプロバイダーのデスクトップアプリまたは CLI をインストールし、Alter を再起動してください。ターミナルからバイナリが実行可能か確認（`agent --version`、`opencode --version`、`claude --version`、または ChatGPT.app を開く）。
+  </Accordion>
+
+  <Accordion icon="lock" title="Alter がフォルダアクセスを求める">
+    プロンプト時にプロジェクトパスを承認してください。Coding tools はその Workspace またはタスクで承認したディレクトリのみ触ります。
+  </Accordion>
+
+  <Accordion icon="arrow-path" title="フォローアップが同じセッションを継続しなかった">
+    自然言語で以前のタスクを参照してください（「continue the Cursor task for the API refactor」）。トピックが一致すれば Alter は `task_id` を再利用します。1 チャットに複数セッションがある場合、会話スコープのタスクを先に一覧します。
+  </Accordion>
+
+  <Accordion icon="hand" title="Claude がターン途中で誘導できない">
+    想定どおりの動作です。Claude ターン完了を待つか停止し、次の指示を同じセッションの継続として送ってください。
+  </Accordion>
+
+  <Accordion icon="power" title="結果が届かなかった">
+    Alter がメニューバーで実行中で、元の会話が開いているか確認してください。Alter を終了すると ChatGPT、OpenCode、Claude の未配信バックグラウンド作業は停止します。Cursor タスクも終了時に停止します。
+  </Accordion>
+</AccordionGroup>
+
+## 関連ドキュメント
+
+<CardGroup cols={2}>
+  <Card title="ChatGPT Agent" icon="message" href="https://alterhq.com/marketplace/chatgpt-agent">
+    公開中の Marketplace コーディングエージェントをダウンロード
+  </Card>
+  <Card title="Tools Manager" icon="toolbox" href="/ja/how-to/tool-manager-guide">
+    統合を接続し Coding カテゴリを管理
+  </Card>
+  <Card title="Flow を使用" icon="wand-magic-sparkles" href="/ja/workflows/use-flow-orchestration">
+    すべてのツールを読み込まずにコーディングリクエストをルーティング
+  </Card>
+  <Card title="Alter Actions" icon="play" href="/ja/workflows/alter-actions">
+    Action ごとに Coding tools をスコープ
+  </Card>
+  <Card title="Workspaces" icon="folder-tree" href="/ja/getting-started/workspaces-basics">
+    コードベースをインデックスし権限レベルを設定
+  </Card>
+  <Card title="統合の概要" icon="plug" href="/ja/apps-tools/integrations-overview#coding-tools">
+    Coding tools が Mac Apps と外部統合にどう適合するか
+  </Card>
+  <Card title="ツールが動作しない" icon="wrench" href="/ja/common-issues/tool-not-working">
+    一般的な統合トラブルシューティング
+  </Card>
+</CardGroup>

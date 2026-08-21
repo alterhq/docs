@@ -158,9 +158,13 @@ Explanation detail: {{ detailLevel }};
 - 空の場合: すべてのツールが使用可能です
 - 構成時:選択されたツールのみが使用可能になります
 
+**Ask Anything のデフォルト（beta100+）:** 組み込み **Ask Anything** Action は **Flow**、**Computer Use**、**Ask User** を標準で有効にします。より狭いツールセットが必要ならカスタマイズまたは複製してください。
+
 **Memory：** アクションが保存された事実を読む、または過去のチャットや会議を検索する必要がある場合は **Memory** ツールをリンクします。Memory はデフォルトですべてのアクションで有効ではありません。[Memory](/ja/workflows/memory) と [Memory を管理](/ja/how-to/manage-memory) を参照してください。
 
 組み込み **Memory Catch-Up** アクションには Memory がすでにリンクされています。過去 30 日間のチャットと会議から Memory をブートストラップする Alter の信頼できる方法です——Memory を初めて有効にする場合や最近の履歴を埋める場合に推奨されます。[Memory Catch-Up](/ja/workflows/memory-catch-up) を参照してください。
+
+**Coding tools（post-beta106）:** 最速の方法は [Marketplace コーディングエージェント](/ja/workflows/coding-tools#get-started-from-the-marketplace-recommended) です — **Tools Manager → Marketplace → Browse** からダウンロード（例：公開中の [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)）して一度実行すると、Alter が初回使用時に必要なコーディング統合を有効にします。または、まず **Tools Manager** の **Local Tools → Coding** で **ChatGPT**、**Cursor**、**OpenCode**、**Claude** を接続し、各 Action が使えるプロバイダーを限定します — 例：リリース Action は **Cursor** のみ有効にできます。コーディングセッションは非同期実行され、結果は元の会話に戻ります。[Coding tools](/ja/workflows/coding-tools) を参照。
 
 **スコープをツールとする理由**
 - AIの意思決定のオーバーヘッドを削減 (関連ツールに注目を)

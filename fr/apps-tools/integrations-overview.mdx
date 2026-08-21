@@ -5,7 +5,7 @@ description: "Comprendre les outils locaux et les intégrations externes dans Al
 
 Alter se connecte à votre Mac de deux façons :
 
-- **Mac Apps (outils locaux)** — Intégrations first-party avec Mail, Calendar, Messages, Notes, Reminders, Contacts, Maps, DEVONthink et Computer Use. Elles s'exécutent sur votre Mac avec les permissions système ; pas de clés API tierces pour les apps intégrées.
+- **Mac Apps (outils locaux)** — Intégrations first-party avec Mail, Calendar, Messages, Notes, Reminders, Contacts, Maps, DEVONthink, Computer Use et **Coding** (ChatGPT, Cursor, OpenCode, Claude Code). Elles s'exécutent sur votre Mac avec les permissions système ; pas de clés API tierces pour les apps intégrées.
 - **Gateways** — Bots Discord et Telegram pour discuter avec Alter depuis ces plateformes pendant qu'Alter tourne sur votre Mac. Configurez dans **Préférences → Intégrations → Gateways**.
 - **Intégrations externes** — Serveurs MCP, skills et connecteurs cloud (Slack, Notion, GitHub, APIs de recherche web, etc.) configurés dans **Tools Manager**.
 
@@ -29,17 +29,38 @@ Alter se connecte à votre Mac de deux façons :
 
 ## Outils locaux (Mac Apps)
 
-Les outils locaux s'exécutent dans votre environnement et conviennent à l'usage quotidien sur les apps Apple et Computer Use.
+Les outils locaux s'exécutent dans votre environnement et conviennent à l'usage quotidien sur les apps Apple, les agents de coding et Computer Use.
 
 <CardGroup cols={2}>
   <Card title="Navigation Mac Apps" icon="apple" href="/fr/apps-tools/mail">
     Références par app : Mail, Calendar, Messages, Notes, etc.
+  </Card>
+  <Card title="Coding tools" icon="terminal" href="/fr/workflows/coding-tools">
+    ChatGPT, Cursor, OpenCode et Claude Code depuis Alter
   </Card>
   <Card title="Computer Use" icon="display" href="/fr/apps-tools/computer-use">
     Agent d'automatisation d'écran par objectifs
   </Card>
 </CardGroup>
 
+
+
+## Coding tools {#coding-tools}
+
+La catégorie **Coding** dans **Tools Manager → Local Tools** connecte Alter aux agents de coding locaux que vous exécutez déjà sur votre Mac :
+
+- **ChatGPT** — tâches persistantes via l'app desktop ChatGPT (Codex)
+- **Cursor** — sessions via Cursor Agent CLI
+- **OpenCode** — sessions CLI et terminal, y compris le travail démarré en dehors d'Alter
+- **Claude** — sessions Claude Code CLI
+
+**Recommandé :** installez un agent spécialisé sur l'[Alter Marketplace](https://alterhq.com/marketplace) — le [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) en ligne est disponible ; agents Cursor, Claude et OpenCode bientôt disponibles. À la première exécution, Alter active automatiquement l'outil de coding requis.
+
+Alter démarre ces sessions en arrière-plan depuis le Hub ou une action et **ramène les résultats dans la même conversation**. Les coding tools utilisent un profil de permissions restreint mappé depuis le workspace — elles n'exigent pas **Full Access** d'Alter pour les dossiers de projet autorisés.
+
+<Card title="Flux de coding tools" icon="code" href="/fr/workflows/coding-tools">
+  Configuration, permissions, comparaison des fournisseurs et dépannage
+</Card>
 <CardGroup cols={2}>
   <Card title="Gratuit" icon="gift">
     Les outils locaux sont inclus.
