@@ -130,7 +130,7 @@ Atajo predeterminado: **⌘⌥N** (**Split Right**). Cerrar con **⌃⌘↓** o 
 
 <CardGroup cols={2}>
   <Card title="Conversation Details" icon="info">
-    Metadatos, opciones de exportación, enlaces para compartir
+    Metadatos, exportación Markdown y enlaces para compartir en la web
   </Card>
   <Card title="Context Management" icon="layers">
     Ver todos los contextos en la conversación actual
@@ -367,30 +367,43 @@ Busque conversaciones que coincidan con varias etiquetas.
   </Step>
 </Steps>
 
-### Exportación de conversaciones
+### Exportar conversaciones del Hub y compartir en la web
 
-Exportar como descuento para documentar o compartir:
+Alter ofrece dos formas de sacar una **conversación Hub** de la app:
+
+| Método | Resultado | Mejor para |
+|--------|--------|----------|
+| **Guardar conversación como Markdown** (**⌘⇧S**) | Archivo `.md` local en su Mac | Documentación, archivo, revisión offline |
+| **Compartir** (barra lateral, menú de pestaña o paleta) | Enlace público de solo lectura en alterhq.com | Compañeros o colaboradores en un navegador |
+
+#### Guardar como Markdown
 
 <Steps>
-  <Step title="Find conversation">
-    Localízalo en la historia.
+  <Step title="Abrir la conversación">
+    Selecciónela en la barra lateral del Hub o en una pestaña abierta
   </Step>
-  <Step title="Right-click">
-    Abrir el menú contextual
+  <Step title="Exportar">
+    Use **Guardar conversación como Markdown** desde el menú Hub o pulse **⌘⇧S** (predeterminado)
   </Step>
-  <Step title="Select Export">
-    Elija la opción Exportar
-  </Step>
-  <Step title="Save">
-    Elija la ubicación y guárdela como archivo .md
+  <Step title="Guardar">
+    Elija una ubicación — Alter escribe un archivo `.md` que conserva localmente
   </Step>
 </Steps>
 
-<Card title="Export Uses" icon="download">
-  - Documentación
-  - Compartir con el equipo
-  - Archivar discusiones importantes
-  - Uso en otras herramientas.
+Personalice **Guardar conversación como Markdown** en **Configuración → Atajos → Hub**.
+
+#### Compartir en la web
+
+Desde la barra lateral del Hub (clic derecho), **menú de pestaña** de conversación o paleta de comandos (**Compartir conversación**):
+
+1. Confirme la advertencia de enlace público
+2. Alter sube la discusión y copia la URL al portapapeles
+3. Use **Copiar enlace**, **Actualizar** o **Eliminar** en el submenú **Compartir** cuando ya exista un enlace
+
+Vea [Compartir conversaciones en la web](/es/workflows/share-conversations) para requisitos, límites, privacidad y solución de problemas.
+
+<Card title="No es lo mismo que Compartir traza" icon="share-nodes">
+  **Compartir traza** está en el **Tool Inspector** tras una ejecución de tarea (Computer Use, Flow y agentes similares). Sube diagnósticos al soporte Alter — **no** publica un enlace público. Para ese flujo, vea [Compartir trazas de tarea](/es/workflows/share-task-traces).
 </Card>
 
 ### Conversaciones de derecha a izquierda

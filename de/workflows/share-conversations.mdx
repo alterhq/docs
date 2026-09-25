@@ -1,0 +1,186 @@
+---
+title: "Unterhaltungen im Web teilen"
+description: "Hub-Chats als öffentliche schreibgeschützte Links auf alterhq.com veröffentlichen, URL kopieren, bei Änderungen aktualisieren oder Freigabe entfernen"
+---
+
+**Unterhaltungsfreigabe** (beta111+) veröffentlicht einen Hub-Chat als **öffentliche schreibgeschützte Webseite**, damit Kolleginnen, Freunde oder Mitwirkende die vollständige Diskussion im Browser lesen können — ohne Alter-Installation.
+
+Das ist getrennt von:
+
+- **[Unterhaltung als Markdown speichern](/references/shortcuts#hub--quickhub-shared)** (**⌘⇧S**) — speichert eine **lokale** `.md`-Datei auf Ihrem Mac
+- **[Trace teilen](/de/workflows/share-task-traces#share-trace)** — lädt einen **Task-Subagenten**-Thread zum Alter-Support für Debugging hoch
+
+## Wann Web-Freigabe nutzen
+
+| Ziel | Nutzen |
+|------|-----|
+| Link senden, den Teammitglieder in jedem Browser öffnen | **Teilen** im Hub |
+| Neueste Nachrichten nach Thread-Änderung veröffentlichen | **Aktualisieren** im Teilen-Untermenü |
+| Private Offline-Kopie auf dem Mac behalten | **Unterhaltung als Markdown speichern** (**⌘⇧S**) |
+
+## Voraussetzungen
+
+- Sie müssen bei Alter **angemeldet** sein. Bei Abmeldung schlägt Teilen mit einem Anmeldefehler fehl.
+- Die Unterhaltung muss ein normaler **Hub-Chat** sein. **Besprechungsdiskussionen** aus **Live Notepad** oder **Meeting Scribe** können nicht im Web geteilt werden.
+- Die Diskussion muss gespeichert sein — unsaved temporäre Chats zeigen keine Freigabesteuerung.
+
+## Was veröffentlicht wird
+
+Alter lädt ein Paket hoch mit:
+
+- **Unterhaltungstitel** und **vollständigem Nachrichten-Thread** (Nutzer, Assistent und externe Nachrichten)
+- **An Nachrichten angehängtem Kontext** — Dateien, Bilder, Textauswahlen, App-Kontext und anderes referenziertes Material, das auf Ihrem Mac noch verfügbar ist
+- **Anhangsdateien**, wenn sie in Größenlimits passen
+
+Empfänger sehen eine **schreibgeschützte Webansicht** dieses Inhalts. Sie können den Chat nicht fortsetzen oder geteilte Inhalte bearbeiten.
+
+<Warning>
+  Teilen erstellt einen **öffentlichen Link**. Jeder mit der URL kann Diskussion und Kontext sehen. Prüfen Sie sensible Prompts, Dateipfade und Anhänge vor der Veröffentlichung.
+</Warning>
+
+### Größenlimits
+
+Alter setzt Upload-Limits beim Paketaufbau:
+
+| Limit | Wert |
+|-------|-------|
+| Einzelner Anhang | 50 MB |
+| Gesamtpaket | 200 MB |
+| Anzahl Anhänge | 100 Dateien |
+
+Zu große oder fehlende Anhänge können in der veröffentlichten Ansicht als **nicht verfügbar** erscheinen, statt die gesamte Freigabe zu blockieren.
+
+## Eine Unterhaltung teilen
+
+<Steps>
+  <Step title="Chat öffnen">
+    Öffnen Sie die Unterhaltung im **Hub** (Seitenleiste, Tab oder QuickHub → **Im Hub öffnen**).
+  </Step>
+  <Step title="Teilen wählen">
+    Nutzen Sie einen der Einstiegspunkte unten und wählen Sie **Teilen**.
+  </Step>
+  <Step title="Bestätigen">
+    Lesen Sie die Bestätigung — *Dadurch wird ein öffentlicher Link zur Diskussion und ihrem zugehörigen Kontext erstellt. Alle Personen mit dem Link können diese Inhalte möglicherweise ansehen.* — und klicken Sie **Teilen**.
+  </Step>
+  <Step title="Kopieren und senden">
+    Bei Erfolg zeigt Alter **Diskussion geteilt** und kopiert die öffentliche URL in die Zwischenablage. Klicken Sie **Link öffnen** für die Browser-Vorschau oder **Fertig** zum Schließen.
+  </Step>
+</Steps>
+
+Während des Uploads zeigt der Dialog **Diskussion wird geteilt…** und deaktiviert die primäre Schaltfläche bis zum Abschluss.
+
+## Wo Teilen zu finden ist
+
+### Hub-Seitenleiste
+
+Rechtsklick auf eine Unterhaltung in der Hub-Verlaufsliste:
+
+- **Teilen** — neuen öffentlichen Link erstellen
+- Untermenü **Teilen** (bereits geteilt):
+  - **Link kopieren**
+  - **Aktualisieren**
+  - **Entfernen**
+
+### Tab-Menü der Unterhaltung
+
+Öffnen Sie das Tab-Aktionsmenü (⋯) für denselben **Teilen**-Eintrag oder Untermenü.
+
+### Befehlspalette
+
+Öffnen Sie die Hub-Befehlspalette (Standard **⌘K** im Hub-Umschalter) bei aktivem Unterhaltungs-Tab. Suchen Sie:
+
+| Befehl | Aktion |
+|---------|--------|
+| **Unterhaltung teilen** | Veröffentlichen und neuen Link kopieren |
+| **Freigabelink kopieren** | Bestehende öffentliche URL kopieren |
+| **Geteilte Unterhaltung aktualisieren** | Neueste Nachrichten und Kontext erneut veröffentlichen |
+| **Geteilte Unterhaltung entfernen** | Link depublizieren |
+
+QuickHub bietet dieselben Freigabebefehle im Umschalter, wenn der aktive Tab eine gespeicherte Unterhaltung ist.
+
+## Bestehende Freigabe verwalten
+
+Nach der ersten erfolgreichen Veröffentlichung merkt sich Alter den Link für diese Unterhaltung auf Ihrem Mac.
+
+### Link kopieren
+
+Nutzen Sie **Link kopieren** in Seitenleiste oder Tab-Untermenü oder **Freigabelink kopieren** in der Palette. Die URL wird ohne erneuten Upload kopiert.
+
+### Aktualisieren
+
+Wenn sich der Thread ändert und Leser die neueste Version sehen sollen, wählen Sie **Aktualisieren** (Untermenü) oder **Geteilte Unterhaltung aktualisieren** (Palette).
+
+**Aktualisieren veröffentlicht sofort erneut** — Alter überspringt den Bestätigungsdialog, lädt den aktuellen Unterhaltungsstand hoch und kopiert den Link erneut.
+
+### Entfernen
+
+Wählen Sie **Entfernen** (Untermenü) oder **Geteilte Unterhaltung entfernen** (Palette). Bestätigen Sie **Freigabe aufheben?** — *Die veröffentlichte Diskussion wird depubliziert.*
+
+Nach dem Entfernen sollte die öffentliche URL nicht mehr funktionieren. Alter löscht den gespeicherten Link für diese Unterhaltung auf Ihrem Mac.
+
+## Öffentliches Linkformat und Hosting
+
+- Links werden auf **alterhq.com** bereitgestellt (z. B. `https://alterhq.com/s/...`).
+- Alter prüft, dass zurückgegebene URLs den vertrauenswürdigen Alter-Front-End-Host verwenden, bevor sie kopiert werden.
+- Die API kann einen **Ablauf**-Zeitstempel für eine Freigabe zurückgeben. Behandeln Sie Links als **widerrufbar, aber nicht geheim** — teilen Sie nur mit vertrauenswürdigen Personen.
+
+Entfernen depubliziert die Diskussion; Ablaufverhalten hängt von der Alter-Serverrichtlinie bei gesetztem `expiresAt` ab.
+
+## Datenschutz und Datenverarbeitung
+
+Unterhaltungsfreigabe ist **Opt-in** und **nicht** dasselbe wie Alter's local-first-Verlauf:
+
+| Thema | Verhalten |
+|-------|----------|
+| Standard-Chat-Speicher | Bleibt auf Ihrem Mac — siehe [Lokale Daten und Datenschutz](/de/references/local-data-and-privacy) |
+| Web-Freigabe | Sie laden das Diskussionspaket explizit auf Alter-Server hoch |
+| Wer kann sehen | Jeder mit der öffentlichen URL (kein Alter-Konto nötig) |
+| Konto zum Veröffentlichen | Sie müssen angemeldet sein — Veröffentlichung ist an Ihr Konto gebunden |
+| Lokale Link-Speicherung | Alter speichert die zuletzt geteilte URL pro Unterhaltung in App-Einstellungen für Kopieren / Aktualisieren / Entfernen |
+
+Teilen Sie keine Unterhaltungen mit Passwörtern, Finanzdaten, vertraulichen Dokumenten oder privaten Besprechungsaufnahmen, es sei denn, Sie wollen dieses Material im Web sichtbar machen.
+
+Cloud-Modellanbieter aus dem ursprünglichen Chat sind getrennt von der Freigabe — es wird hochgeladen, was im Unterhaltungs-Snapshot steht, nicht Ihre gesamte lokale Datenbank.
+
+## Fehlerbehebung
+
+**Teilen fehlt im Menü**
+
+- Besprechungs-**Live Notepad**- und **Meeting Scribe**-Chats können nicht im Web geteilt werden
+- Speichern Sie die Unterhaltung zuerst — temporäre unsaved Chats haben keine Freigabesteuerung
+- Warten Sie, wenn bereits ein Freigabedialog oder Upload läuft
+
+**Teilen schlägt mit Anmeldefehler fehl**
+
+- Melden Sie sich unter **Einstellungen → Profil** oder im Konto-Menü an und versuchen Sie es erneut
+
+**Teilen schlägt fehl, weil Paket zu groß**
+
+- Entfernen Sie große Anhänge aus dem Kontext oder exportieren Sie mit **Unterhaltung als Markdown speichern** und teilen Sie die Datei über eigene Kanäle
+- Limits: 50 MB pro Datei, 200 MB gesamt, 100 Anhänge
+
+**Link kopieren bewirkt nichts**
+
+- Nutzen Sie **Aktualisieren** zum erneuten Veröffentlichen, wenn der Server die Freigabe nicht mehr hat
+- Bestätigen Sie, dass Sie auf demselben Mac kopieren, auf dem Sie ursprünglich geteilt haben (Link-Speicher ist lokal)
+
+**Ich brauche ein Support-Paket, keinen öffentlichen Link**
+
+- Nutzen Sie [Trace teilen](/de/workflows/share-task-traces#share-trace) für Task-Debug-Uploads an den Alter-Support
+
+## Verwandte Docs
+
+<CardGroup cols={2}>
+  <Card title="Fenstertypen — Export" icon="download" href="/getting-started/window-types-notch-hub-panels#export-and-share-conversations">
+    Markdown-Export vs Web-Freigabe
+  </Card>
+  <Card title="Task-Traces teilen" icon="bug" href="/de/workflows/share-task-traces">
+    Debug-Uploads für Computer Use und Flow
+  </Card>
+  <Card title="Lokale Daten und Datenschutz" icon="lock" href="/de/references/local-data-and-privacy">
+    Was standardmäßig auf Ihrem Mac bleibt
+  </Card>
+  <Card title="Shortcuts" icon="keyboard" href="/references/shortcuts#hub--quickhub-shared">
+    ⌘⇧S und Hub-Shortcuts
+  </Card>
+</CardGroup>

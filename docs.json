@@ -69,6 +69,7 @@
                   "workflows/memory",
                   "workflows/memory-catch-up",
                   "workflows/manage-notes-with-alter",
+                  "workflows/share-conversations",
                   "workflows/summarize-x-feed-with-computer-use",
                   "workflows/local-model-privacy"
                 ]
@@ -81,7 +82,6 @@
                   "workflows/workspaces-actions",
                   "workflows/use-flow-orchestration",
                   "workflows/coding-tools",
-                  "workflows/share-task-traces",
                   "workflows/alter-actions",
                   "workflows/url-callbacks"
                 ]
@@ -177,7 +177,8 @@
                   "common-issues/tool-not-working",
                   "common-issues/data-missing-after-reinstall",
                   "common-issues/custom-provider-not-showing",
-                  "common-issues/models-not-listed-in-api-gateway"
+                  "common-issues/models-not-listed-in-api-gateway",
+                  "workflows/share-task-traces"
                 ]
               }
             ]
@@ -298,6 +299,7 @@
                   "pt/workflows/memory",
                   "pt/workflows/memory-catch-up",
                   "pt/workflows/manage-notes-with-alter",
+                  "pt/workflows/share-conversations",
                   "pt/workflows/summarize-x-feed-with-computer-use",
                   "pt/workflows/local-model-privacy"
                 ]
@@ -309,7 +311,6 @@
                   "pt/workflows/workspaces-actions",
                   "pt/workflows/use-flow-orchestration",
                   "pt/workflows/coding-tools",
-                  "pt/workflows/share-task-traces",
                   "pt/workflows/alter-actions",
                   "pt/workflows/url-callbacks"
                 ]
@@ -403,7 +404,8 @@
                   "pt/common-issues/tool-not-working",
                   "pt/common-issues/data-missing-after-reinstall",
                   "pt/common-issues/custom-provider-not-showing",
-                  "pt/common-issues/models-not-listed-in-api-gateway"
+                  "pt/common-issues/models-not-listed-in-api-gateway",
+                  "pt/workflows/share-task-traces"
                 ]
               }
             ]
@@ -524,6 +526,7 @@
                   "fr/workflows/memory",
                   "fr/workflows/memory-catch-up",
                   "fr/workflows/manage-notes-with-alter",
+                  "fr/workflows/share-conversations",
                   "fr/workflows/summarize-x-feed-with-computer-use",
                   "fr/workflows/local-model-privacy"
                 ]
@@ -535,7 +538,6 @@
                   "fr/workflows/workspaces-actions",
                   "fr/workflows/use-flow-orchestration",
                   "fr/workflows/coding-tools",
-                  "fr/workflows/share-task-traces",
                   "fr/workflows/alter-actions",
                   "fr/workflows/url-callbacks"
                 ]
@@ -629,7 +631,8 @@
                   "fr/common-issues/tool-not-working",
                   "fr/common-issues/data-missing-after-reinstall",
                   "fr/common-issues/custom-provider-not-showing",
-                  "fr/common-issues/models-not-listed-in-api-gateway"
+                  "fr/common-issues/models-not-listed-in-api-gateway",
+                  "fr/workflows/share-task-traces"
                 ]
               }
             ]
@@ -750,6 +753,7 @@
                   "es/workflows/memory",
                   "es/workflows/memory-catch-up",
                   "es/workflows/manage-notes-with-alter",
+                  "es/workflows/share-conversations",
                   "es/workflows/summarize-x-feed-with-computer-use",
                   "es/workflows/local-model-privacy"
                 ]
@@ -761,7 +765,6 @@
                   "es/workflows/workspaces-actions",
                   "es/workflows/use-flow-orchestration",
                   "es/workflows/coding-tools",
-                  "es/workflows/share-task-traces",
                   "es/workflows/alter-actions",
                   "es/workflows/url-callbacks"
                 ]
@@ -855,7 +858,8 @@
                   "es/common-issues/tool-not-working",
                   "es/common-issues/data-missing-after-reinstall",
                   "es/common-issues/custom-provider-not-showing",
-                  "es/common-issues/models-not-listed-in-api-gateway"
+                  "es/common-issues/models-not-listed-in-api-gateway",
+                  "es/workflows/share-task-traces"
                 ]
               }
             ]
@@ -976,6 +980,7 @@
                   "de/workflows/memory",
                   "de/workflows/memory-catch-up",
                   "de/workflows/manage-notes-with-alter",
+                  "de/workflows/share-conversations",
                   "de/workflows/summarize-x-feed-with-computer-use",
                   "de/workflows/local-model-privacy"
                 ]
@@ -987,7 +992,6 @@
                   "de/workflows/workspaces-actions",
                   "de/workflows/use-flow-orchestration",
                   "de/workflows/coding-tools",
-                  "de/workflows/share-task-traces",
                   "de/workflows/alter-actions",
                   "de/workflows/url-callbacks"
                 ]
@@ -1081,7 +1085,8 @@
                   "de/common-issues/tool-not-working",
                   "de/common-issues/data-missing-after-reinstall",
                   "de/common-issues/custom-provider-not-showing",
-                  "de/common-issues/models-not-listed-in-api-gateway"
+                  "de/common-issues/models-not-listed-in-api-gateway",
+                  "de/workflows/share-task-traces"
                 ]
               }
             ]
@@ -1202,6 +1207,7 @@
                   "zh/workflows/memory",
                   "zh/workflows/memory-catch-up",
                   "zh/workflows/manage-notes-with-alter",
+                  "zh/workflows/share-conversations",
                   "zh/workflows/summarize-x-feed-with-computer-use",
                   "zh/workflows/local-model-privacy"
                 ]
@@ -1213,7 +1219,6 @@
                   "zh/workflows/workspaces-actions",
                   "zh/workflows/use-flow-orchestration",
                   "zh/workflows/coding-tools",
-                  "zh/workflows/share-task-traces",
                   "zh/workflows/alter-actions",
                   "zh/workflows/url-callbacks"
                 ]
@@ -1307,7 +1312,8 @@
                   "zh/common-issues/tool-not-working",
                   "zh/common-issues/data-missing-after-reinstall",
                   "zh/common-issues/custom-provider-not-showing",
-                  "zh/common-issues/models-not-listed-in-api-gateway"
+                  "zh/common-issues/models-not-listed-in-api-gateway",
+                  "zh/workflows/share-task-traces"
                 ]
               }
             ]
@@ -1428,6 +1434,7 @@
                   "ja/workflows/memory",
                   "ja/workflows/memory-catch-up",
                   "ja/workflows/manage-notes-with-alter",
+                  "ja/workflows/share-conversations",
                   "ja/workflows/summarize-x-feed-with-computer-use",
                   "ja/workflows/local-model-privacy"
                 ]
@@ -1439,7 +1446,6 @@
                   "ja/workflows/workspaces-actions",
                   "ja/workflows/use-flow-orchestration",
                   "ja/workflows/coding-tools",
-                  "ja/workflows/share-task-traces",
                   "ja/workflows/alter-actions",
                   "ja/workflows/url-callbacks"
                 ]
@@ -1533,7 +1539,8 @@
                   "ja/common-issues/tool-not-working",
                   "ja/common-issues/data-missing-after-reinstall",
                   "ja/common-issues/custom-provider-not-showing",
-                  "ja/common-issues/models-not-listed-in-api-gateway"
+                  "ja/common-issues/models-not-listed-in-api-gateway",
+                  "ja/workflows/share-task-traces"
                 ]
               }
             ]

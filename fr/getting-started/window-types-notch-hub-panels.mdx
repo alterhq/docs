@@ -130,7 +130,7 @@ Raccourci par défaut : **⌘⌥N** (**Split Right**). Fermer avec **⌃⌘↓**
 
 <CardGroup cols={2}>
   <Card title="Conversation Details" icon="info">
-    Métadonnées, options d'exportation, liens de partage
+    Métadonnées, export Markdown et liens de partage web
   </Card>
   <Card title="Context Management" icon="layers">
     Voir tous les contextes dans la conversation en cours
@@ -367,30 +367,43 @@ Recherchez des conversations correspondant à plusieurs balises.
   </Step>
 </Steps>
 
-### Exporter des conversations
+### Exporter des conversations Hub et partager sur le web
 
-Exporter sous forme de démarque pour la documentation ou le partage :
+Alter propose deux façons de sortir une **conversation Hub** de l'app :
+
+| Méthode | Résultat | Idéal pour |
+|--------|--------|----------|
+| **Enregistrer la conversation en Markdown** (**⌘⇧S**) | Fichier `.md` local sur votre Mac | Docs, archives, relecture hors ligne |
+| **Partager** (barre latérale, menu d'onglet ou palette) | Lien public en lecture seule sur alterhq.com | Collègues ou collaborateurs dans un navigateur |
+
+#### Enregistrer en Markdown
 
 <Steps>
-  <Step title="Find conversation">
-    Localisez-le dans l'historique
+  <Step title="Ouvrir la conversation">
+    Sélectionnez-la dans la barre latérale Hub ou un onglet ouvert
   </Step>
-  <Step title="Right-click">
-    Ouvrir le menu contextuel
+  <Step title="Exporter">
+    Utilisez **Enregistrer la conversation en Markdown** depuis le menu Hub ou appuyez sur **⌘⇧S** (par défaut)
   </Step>
-  <Step title="Select Export">
-    Choisissez l'option Exporter
-  </Step>
-  <Step title="Save">
-    Choisissez l'emplacement et enregistrez-le sous forme de fichier .md
+  <Step title="Enregistrer">
+    Choisissez un emplacement — Alter écrit un fichier `.md` que vous gardez localement
   </Step>
 </Steps>
 
-<Card title="Export Uses" icon="download">
-  -Documentations
-  - Partage avec l'équipe
-  - Archivage des discussions importantes
-  - Utilisation dans d'autres outils
+Personnalisez **Enregistrer la conversation en Markdown** sous **Paramètres → Raccourcis → Hub**.
+
+#### Partager sur le web
+
+Depuis la barre latérale Hub (clic droit), le **menu d'onglet** de conversation ou la palette (**Partager la conversation**) :
+
+1. Confirmez l'avertissement de lien public
+2. Alter envoie la discussion et copie l'URL dans le presse-papiers
+3. Utilisez **Copier le lien**, **Mettre à jour** ou **Supprimer** dans le sous-menu **Partager** lorsqu'un lien existe déjà
+
+Voir [Partager des conversations sur le Web](/fr/workflows/share-conversations) pour exigences, limites, confidentialité et dépannage.
+
+<Card title="Distinct de Partager la trace" icon="share-nodes">
+  **Partager la trace** se trouve dans le **Tool Inspector** après une exécution de tâche (Computer Use, Flow et agents similaires). Il envoie des diagnostics au support Alter — il **ne** publie **pas** de lien public. Pour ce flux, voir [Partager les traces de tâche](/fr/workflows/share-task-traces).
 </Card>
 
 ### Conversations de droite à gauche

@@ -1,0 +1,186 @@
+---
+title: "Share Conversations on the Web"
+description: "Publish Hub chats as public read-only links on alterhq.com, copy the URL, update when the thread changes, or remove sharing"
+---
+
+**Conversation sharing** (beta111+) publishes a Hub chat as a **public read-only web page** so coworkers, friends, or collaborators can read the full discussion in a browser — no Alter install required.
+
+This is separate from:
+
+- **[Save Conversation as Markdown](/references/shortcuts#hub--quickhub-shared)** (**⌘⇧S**) — saves a **local** `.md` file on your Mac
+- **[Share trace](/workflows/share-task-traces#share-trace)** — uploads a **task subagent** thread to Alter support for debugging
+
+## When to use web sharing
+
+| Goal | Use |
+|------|-----|
+| Send a link teammates can open in any browser | **Share** from the Hub |
+| Publish the latest messages after the thread changes | **Update** from the Share submenu |
+| Keep a private offline copy on your Mac | **Save Conversation as Markdown** (**⌘⇧S**) |
+
+## Requirements
+
+- You must be **signed in** to Alter. If you are logged out, sharing fails with a sign-in error.
+- The conversation must be a normal **Hub chat**. **Meeting discussions** started from **Live Notepad** or **Meeting Scribe** actions cannot be shared on the web.
+- The discussion must be saved — unsaved temporary conversations do not show share controls.
+
+## What gets published
+
+Alter uploads a package that includes:
+
+- **Conversation title** and **full message thread** (user, assistant, and external messages)
+- **Context attached to messages** — files, images, text selections, app context, and other referenced material that is still available on your Mac
+- **Attachment files** bundled when they fit size limits
+
+Recipients see a **read-only web view** of that content. They cannot continue the chat or edit what you shared.
+
+<Warning>
+  Sharing creates a **public link**. Anyone who has the URL may be able to view the discussion and its context. Review sensitive prompts, file paths, and attachments before you publish.
+</Warning>
+
+### Size limits
+
+Alter enforces upload limits when building the package:
+
+| Limit | Value |
+|-------|-------|
+| Single attachment | 50 MB |
+| Total package | 200 MB |
+| Attachment count | 100 files |
+
+Oversized or missing attachments may appear as **unavailable** in the published view instead of blocking the whole share.
+
+## Share a conversation
+
+<Steps>
+  <Step title="Open the chat">
+    Open the conversation in the **Hub** (from the sidebar, a tab, or QuickHub → **Open in Hub**).
+  </Step>
+  <Step title="Choose Share">
+    Use any entry point below and choose **Share**.
+  </Step>
+  <Step title="Confirm">
+    Read the confirmation — *This creates a public link containing the discussion and its associated context. Anyone with the link may be able to view this content.* — then click **Share**.
+  </Step>
+  <Step title="Copy and send">
+    On success, Alter shows **Discussion Shared** and copies the public URL to your clipboard. Click **Open Link** to preview in your browser, or **Done** to close the sheet.
+  </Step>
+</Steps>
+
+While the upload runs, the dialog shows **Sharing discussion…** and disables the primary button until the request completes.
+
+## Where to find Share
+
+### Hub sidebar
+
+Right-click a conversation in the Hub history list:
+
+- **Share** — create a new public link
+- **Share** submenu (when already shared):
+  - **Copy link**
+  - **Update**
+  - **Remove**
+
+### Conversation tab menu
+
+Open the tab action menu (⋯ on the conversation tab) for the same **Share** item or submenu.
+
+### Command palette
+
+Open the Hub command palette (default **⌘K** in the Hub switcher) while a conversation tab is active. Search for:
+
+| Command | Action |
+|---------|--------|
+| **Share Conversation** | Publish and copy a new link |
+| **Copy Share Link** | Copy the existing public URL |
+| **Update Shared Conversation** | Re-publish the latest messages and context |
+| **Remove Shared Conversation** | Unpublish the link |
+
+QuickHub exposes the same share commands through its switcher when the active tab is a saved conversation.
+
+## Manage an existing share
+
+After the first successful publish, Alter remembers the link for that conversation on your Mac.
+
+### Copy link
+
+Use **Copy link** from the sidebar or tab submenu, or **Copy Share Link** in the command palette. The URL is copied to the clipboard without re-uploading.
+
+### Update
+
+When the thread changes and you want viewers on the latest version, choose **Update** (submenu) or **Update Shared Conversation** (palette).
+
+Update **re-publishes immediately** — Alter skips the confirmation dialog and uploads the current conversation state, then copies the link again.
+
+### Remove
+
+Choose **Remove** (submenu) or **Remove Shared Conversation** (palette). Confirm **Remove sharing?** — *The published discussion will be unpublished.*
+
+After removal, the public URL should stop working. Alter clears the stored link for that conversation on your Mac.
+
+## Public link format and hosting
+
+- Links are served on **alterhq.com** (for example `https://alterhq.com/s/...`).
+- Alter validates that returned URLs use the trusted Alter front-end host before copying them.
+- The API may return an **expiration** timestamp for a share. Treat links as **revocable but not secret** — share only with people you trust to see the content.
+
+Removing a share unpublishes the discussion; expiration behavior depends on Alter's server policy when an `expiresAt` value is set.
+
+## Privacy and data handling
+
+Conversation sharing is **opt-in** and **not** the same as Alter's local-first history:
+
+| Topic | Behavior |
+|-------|----------|
+| Default chat storage | Stays on your Mac — see [Local data and privacy](/references/local-data-and-privacy) |
+| Web share | You explicitly upload the discussion package to Alter's servers |
+| Who can view | Anyone with the public URL (no Alter account required) |
+| Account required to publish | You must be signed in to Alter — publishing is tied to your account |
+| Local link memory | Alter stores the last shared URL per conversation in app preferences so menus can offer Copy / Update / Remove |
+
+Do not share conversations that contain passwords, financial data, confidential documents, or private meeting recordings unless you intend for that material to be visible on the web.
+
+Cloud model providers used during the original chat are separate from sharing — sharing uploads what is in the conversation snapshot, not your full local database.
+
+## Troubleshooting
+
+**Share is missing from the menu**
+
+- Meeting **Live Notepad** and **Meeting Scribe** chats cannot be shared on the web
+- Save the conversation first — temporary unsaved chats have no share controls
+- Wait if another share dialog or upload is already in progress
+
+**Share fails with a login error**
+
+- Sign in under **Settings → Profile** or the account menu, then retry
+
+**Share fails because the package is too large**
+
+- Remove large attachments from context, or export with **Save Conversation as Markdown** and share the file through your own channel
+- Limits: 50 MB per file, 200 MB total, 100 attachments
+
+**Copy link does nothing**
+
+- Use **Update** to re-publish if the server no longer has the share
+- Confirm you are copying from the same Mac where you originally shared (link memory is local)
+
+**I need a support bundle, not a public link**
+
+- Use [Share trace](/workflows/share-task-traces#share-trace) for task debugging uploads to Alter support
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Window Types — Export" icon="download" href="/getting-started/window-types-notch-hub-panels#export-and-share-conversations">
+    Markdown export vs web sharing
+  </Card>
+  <Card title="Share task traces" icon="bug" href="/workflows/share-task-traces">
+    Debug uploads for Computer Use and Flow
+  </Card>
+  <Card title="Local data and privacy" icon="lock" href="/references/local-data-and-privacy">
+    What stays on your Mac by default
+  </Card>
+  <Card title="Shortcuts" icon="keyboard" href="/references/shortcuts#hub--quickhub-shared">
+    ⌘⇧S and Hub shortcuts
+  </Card>
+</CardGroup>

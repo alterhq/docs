@@ -64,7 +64,7 @@ The export includes the task title and formatted messages from the subagent conv
 
 ### Requirements
 
-- You must be **signed in** to Alter (a valid account JWT). If you are logged out, sharing fails with an authentication error.
+- You must be **signed in** to Alter. If you are logged out, sharing fails with a sign-in error.
 - A task conversation must exist for the selected tool run — the inspector derives it from the tool result or the live task registry.
 
 ### What is sent
@@ -117,7 +117,8 @@ Customize **Save Conversation as Markdown** in **Settings → Shortcuts → Hub*
 
 **I need a shareable public link**
 
-- **Share trace** uploads to Alter support; it does not copy a public URL to your clipboard. Use **Export Chat** and share the `.md` file through your own channels if you need a link outside Alter.
+- Use [Share conversations on the web](/workflows/share-conversations) to publish the **parent Hub chat** as a read-only alterhq.com link
+- **Share trace** uploads to Alter support only — it does not create a public URL. Use **Export Chat** for a local `.md` file if you need to share a **task sub-thread** through your own channels
 
 ## Related docs
 
@@ -127,6 +128,9 @@ Customize **Save Conversation as Markdown** in **Settings → Shortcuts → Hub*
   </Card>
   <Card title="Background Computer Use" icon="play.rectangle" href="/apps-tools/computer-use-background">
     Watch preview and Edge Bar sessions
+  </Card>
+  <Card title="Share conversations" icon="globe" href="/workflows/share-conversations">
+    Public read-only links for Hub chats
   </Card>
   <Card title="Shortcuts reference" icon="keyboard" href="/references/shortcuts">
     ⌘⇧S and Hub shortcuts

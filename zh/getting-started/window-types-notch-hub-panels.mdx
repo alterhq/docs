@@ -367,30 +367,43 @@ Alter提供了两个与AI交互的主要接口：
   </Step>
 </Steps>
 
-### 导出对话
+### 导出 Hub 对话并在 Web 上分享
 
-导出为 Markdown 提供文档或共享：
+Alter 提供两种方式将 **Hub 对话**移出应用：
+
+| 方法 | 结果 | 最适合 |
+|--------|--------|----------|
+| **将对话保存为 Markdown**（**⌘⇧S**） | Mac 上的本地 `.md` 文件 | 文档、存档、离线审阅 |
+| **分享**（侧边栏、标签菜单或命令面板） | alterhq.com 上的公开只读链接 | 同事或协作者在浏览器中查看 |
+
+#### 保存为 Markdown
 
 <Steps>
-  <Step title="Find conversation">
-    在历史记录中找到它
+  <Step title="打开对话">
+    在 Hub 侧边栏或打开的标签中选择
   </Step>
-  <Step title="Right-click">
-    打开上下文菜单
+  <Step title="导出">
+    从 Hub 菜单使用**将对话保存为 Markdown**，或按 **⌘⇧S**（默认）
   </Step>
-  <Step title="Select Export">
-    选择导出选项
-  </Step>
-  <Step title="Save">
-    选择位置并另存为 .md 文件
+  <Step title="保存">
+    选择位置 — Alter 写入您本地保留的 `.md` 文件
   </Step>
 </Steps>
 
-<Card title="Export Uses" icon="download">
-  - 文档
-  - 与团队分享
-  - 存档重要讨论
-  - 在其他工具中使用
+在**设置 → 快捷键 → Hub** 中自定义**将对话保存为 Markdown**。
+
+#### 在 Web 上分享
+
+从 Hub 侧边栏（右键）、对话**标签菜单**或命令面板（**分享对话**）：
+
+1. 确认公开链接警告
+2. Alter 上传讨论并将 URL 复制到剪贴板
+3. 当链接已存在时，在**分享**子菜单中使用**复制链接**、**更新**或**移除**
+
+参见[在 Web 上分享对话](/zh/workflows/share-conversations)了解要求、大小限制、隐私和故障排除。
+
+<Card title="与共享追踪不同" icon="share-nodes">
+  **共享追踪**位于任务运行后的 **Tool Inspector**（Computer Use、Flow 及类似智能体）。它向 Alter 支持上传诊断信息 — **不会**发布公开链接。该工作流参见[共享任务追踪](/zh/workflows/share-task-traces)。
 </Card>
 
 ### 从右到左的对话

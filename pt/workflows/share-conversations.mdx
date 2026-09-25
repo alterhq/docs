@@ -1,0 +1,186 @@
+---
+title: "Partilhar conversas na Web"
+description: "Publicar chats do Hub como ligações públicas só de leitura em alterhq.com, copiar o URL, atualizar quando o thread muda ou remover a partilha"
+---
+
+**Partilha de conversas** (beta111+) publica um chat do Hub como **página web pública só de leitura** para colegas, amigos ou colaboradores lerem a discussão completa num browser — sem instalar o Alter.
+
+Isto é separado de:
+
+- **[Salvar conversa como Markdown](/references/shortcuts#hub--quickhub-shared)** (**⌘⇧S**) — guarda um ficheiro `.md` **local** no Mac
+- **[Compartilhar rastro](/pt/workflows/share-task-traces#share-trace)** — envia um thread de **subagente de tarefa** ao suporte Alter para depuração
+
+## Quando usar a partilha na web
+
+| Objetivo | Usar |
+|------|-----|
+| Enviar uma ligação que colegas abrem em qualquer browser | **Partilhar** no Hub |
+| Publicar as mensagens mais recentes depois de o thread mudar | **Atualizar** no submenu Partilhar |
+| Manter uma cópia offline privada no Mac | **Salvar conversa como Markdown** (**⌘⇧S**) |
+
+## Requisitos
+
+- Tem de estar **conectado** ao Alter. Se a sessão tiver terminado, a partilha falha com erro de início de sessão.
+- A conversa tem de ser um **chat Hub** normal. **Discussões de reunião** iniciadas a partir de **Live Notepad** ou ações **Meeting Scribe** não podem ser partilhadas na web.
+- A discussão tem de estar guardada — conversas temporárias não guardadas não mostram controlos de partilha.
+
+## O que é publicado
+
+O Alter envia um pacote que inclui:
+
+- **Título da conversa** e **thread completo de mensagens** (utilizador, assistente e mensagens externas)
+- **Contexto anexado às mensagens** — ficheiros, imagens, seleções de texto, contexto de apps e outro material referenciado ainda disponível no Mac
+- **Ficheiros anexos** incluídos quando cabem nos limites de tamanho
+
+Os destinatários veem uma **vista web só de leitura** desse conteúdo. Não podem continuar o chat nem editar o que partilhou.
+
+<Warning>
+  A partilha cria uma **ligação pública**. Qualquer pessoa com o URL pode ver a discussão e o respetivo contexto. Revise prompts sensíveis, caminhos de ficheiros e anexos antes de publicar.
+</Warning>
+
+### Limites de tamanho
+
+O Alter aplica limites de envio ao construir o pacote:
+
+| Limite | Valor |
+|-------|-------|
+| Anexo individual | 50 MB |
+| Pacote total | 200 MB |
+| Número de anexos | 100 ficheiros |
+
+Anexos demasiado grandes ou em falta podem aparecer como **indisponíveis** na vista publicada em vez de bloquear toda a partilha.
+
+## Partilhar uma conversa
+
+<Steps>
+  <Step title="Abrir o chat">
+    Abra a conversa no **Hub** (barra lateral, separador ou QuickHub → **Abrir no Hub**).
+  </Step>
+  <Step title="Escolher Partilhar">
+    Use qualquer ponto de entrada abaixo e escolha **Partilhar**.
+  </Step>
+  <Step title="Confirmar">
+    Leia a confirmação — *Isto cria uma ligação pública que contém a discussão e o contexto associado. Qualquer pessoa com a ligação poderá ver este conteúdo.* — e clique em **Partilhar**.
+  </Step>
+  <Step title="Copiar e enviar">
+    Em caso de sucesso, o Alter mostra **Discussão partilhada** e copia o URL público para a área de transferência. Clique em **Abrir ligação** para pré-visualizar no browser ou **Concluído** para fechar a folha.
+  </Step>
+</Steps>
+
+Enquanto o envio decorre, a caixa de diálogo mostra **A partilhar discussão…** e desativa o botão principal até o pedido terminar.
+
+## Onde encontrar Partilhar
+
+### Barra lateral do Hub
+
+Clique com o botão direito numa conversa na lista de histórico do Hub:
+
+- **Partilhar** — criar uma nova ligação pública
+- Submenu **Partilhar** (quando já partilhada):
+  - **Copiar ligação**
+  - **Atualizar**
+  - **Remover**
+
+### Menu do separador da conversa
+
+Abra o menu de ações do separador (⋯ no separador da conversa) para o mesmo item ou submenu **Partilhar**.
+
+### Paleta de comandos
+
+Abra a paleta de comandos do Hub (predefinição **⌘K** no alternador do Hub) com um separador de conversa ativo. Pesquise:
+
+| Comando | Ação |
+|---------|--------|
+| **Partilhar conversa** | Publicar e copiar uma nova ligação |
+| **Copiar ligação de partilha** | Copiar o URL público existente |
+| **Atualizar conversa partilhada** | Republicar as mensagens e contexto mais recentes |
+| **Remover conversa partilhada** | Anular a publicação da ligação |
+
+O QuickHub expõe os mesmos comandos de partilha no alternador quando o separador ativo é uma conversa guardada.
+
+## Gerir uma partilha existente
+
+Depois da primeira publicação bem-sucedida, o Alter memoriza a ligação dessa conversa no Mac.
+
+### Copiar ligação
+
+Use **Copiar ligação** na barra lateral ou submenu do separador, ou **Copiar ligação de partilha** na paleta. O URL é copiado sem novo envio.
+
+### Atualizar
+
+Quando o thread muda e quer que os leitores vejam a versão mais recente, escolha **Atualizar** (submenu) ou **Atualizar conversa partilhada** (paleta).
+
+**Atualizar republica imediatamente** — o Alter ignora a caixa de confirmação, envia o estado atual da conversa e copia a ligação outra vez.
+
+### Remover
+
+Escolha **Remover** (submenu) ou **Remover conversa partilhada** (paleta). Confirme **Remover a partilha?** — *A discussão publicada deixará de estar publicada.*
+
+Depois de remover, o URL público deixa de funcionar. O Alter limpa a ligação guardada dessa conversa no Mac.
+
+## Formato da ligação pública e alojamento
+
+- As ligações são servidas em **alterhq.com** (por exemplo `https://alterhq.com/s/...`).
+- O Alter valida que os URLs devolvidos usam o host de front-end Alter de confiança antes de os copiar.
+- A API pode devolver um carimbo de **expiração** para uma partilha. Trate as ligações como **revogáveis mas não secretas** — partilhe apenas com quem confia para ver o conteúdo.
+
+Remover uma partilha anula a publicação da discussão; o comportamento de expiração depende da política do servidor Alter quando existe um valor `expiresAt`.
+
+## Privacidade e tratamento de dados
+
+A partilha de conversas é **opt-in** e **não** é o mesmo que o histórico local-first do Alter:
+
+| Tópico | Comportamento |
+|-------|----------|
+| Armazenamento predefinido de chats | Fica no Mac — veja [Dados locais e privacidade](/pt/references/local-data-and-privacy) |
+| Partilha web | Carrega explicitamente o pacote da discussão para os servidores Alter |
+| Quem pode ver | Qualquer pessoa com o URL público (conta Alter não necessária) |
+| Conta necessária para publicar | Tem de estar conectado ao Alter — a publicação está ligada à sua conta |
+| Memória local da ligação | O Alter guarda o último URL partilhado por conversa nas preferências da app para os menus oferecerem Copiar / Atualizar / Remover |
+
+Não partilhe conversas com palavras-passe, dados financeiros, documentos confidenciais ou gravações privadas de reuniões, a menos que pretenda que esse material fique visível na web.
+
+Os fornecedores de modelos cloud usados durante o chat original são separados da partilha — a partilha envia o que está no instantâneo da conversa, não toda a base de dados local.
+
+## Solução de problemas
+
+**Partilhar falta no menu**
+
+- Chats **Live Notepad** e **Meeting Scribe** de reunião não podem ser partilhados na web
+- Guarde a conversa primeiro — chats temporários não guardados não têm controlos de partilha
+- Aguarde se outra caixa de partilha ou envio já estiver em curso
+
+**A partilha falha com erro de login**
+
+- Inicie sessão em **Configurações → Perfil** ou no menu da conta e tente novamente
+
+**A partilha falha porque o pacote é demasiado grande**
+
+- Remova anexos grandes do contexto ou exporte com **Salvar conversa como Markdown** e partilhe o ficheiro pelo seu canal
+- Limites: 50 MB por ficheiro, 200 MB total, 100 anexos
+
+**Copiar ligação não faz nada**
+
+- Use **Atualizar** para republicar se o servidor já não tiver a partilha
+- Confirme que copia no mesmo Mac onde partilhou originalmente (a memória da ligação é local)
+
+**Preciso de um pacote de suporte, não de uma ligação pública**
+
+- Use [Compartilhar rastro](/pt/workflows/share-task-traces#share-trace) para envios de depuração de tarefas ao suporte Alter
+
+## Documentos relacionados
+
+<CardGroup cols={2}>
+  <Card title="Tipos de janela — Exportar" icon="download" href="/getting-started/window-types-notch-hub-panels#export-and-share-conversations">
+    Exportação Markdown vs partilha web
+  </Card>
+  <Card title="Compartilhar rastros de tarefa" icon="bug" href="/pt/workflows/share-task-traces">
+    Envios de depuração para Computer Use e Flow
+  </Card>
+  <Card title="Dados locais e privacidade" icon="lock" href="/pt/references/local-data-and-privacy">
+    O que fica no Mac por predefinição
+  </Card>
+  <Card title="Atalhos" icon="keyboard" href="/references/shortcuts#hub--quickhub-shared">
+    ⌘⇧S e atalhos Hub
+  </Card>
+</CardGroup>

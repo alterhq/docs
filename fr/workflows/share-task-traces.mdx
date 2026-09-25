@@ -56,7 +56,7 @@ Pour des exécutions **Computer Use** encore actives, l'inspecteur peut aussi af
 
 ### Exigences
 
-- Vous devez être **connecté** à Alter (JWT de compte valide).
+- Vous devez être **connecté** à Alter. Si vous êtes déconnecté, le partage échoue avec une erreur de connexion.
 - Une conversation de tâche doit exister pour l'exécution sélectionnée.
 
 ### Ce qui est envoyé
@@ -81,11 +81,19 @@ Les traces sont destinées au **support et au débogage** — pas au partage pub
 
 **Partage échoue (connexion)** — Connectez-vous sous **Paramètres → Profil**.
 
+**J'ai besoin d'un lien public partageable**
+
+- Utilisez [Partager des conversations sur le Web](/fr/workflows/share-conversations) pour publier le **chat Hub parent** comme lien alterhq.com en lecture seule
+- **Partager la trace** envoie uniquement au support Alter — cela ne crée pas d'URL publique. Utilisez **Exporter le chat** pour un fichier `.md` local si vous devez partager un **sous-fil de tâche** via vos propres canaux
+
 ## Docs associées
 
 <CardGroup cols={2}>
   <Card title="Computer Use" icon="cursorarrow.rays" href="/fr/apps-tools/computer-use">
     Agent basé sur des objectifs produisant des conversations de tâche
+  </Card>
+  <Card title="Partager des conversations" icon="globe" href="/fr/workflows/share-conversations">
+    Liens publics en lecture seule pour les chats Hub
   </Card>
   <Card title="Computer Use en arrière-plan" icon="play.rectangle" href="/fr/apps-tools/computer-use-background">
     Watch preview et sessions Edge Bar

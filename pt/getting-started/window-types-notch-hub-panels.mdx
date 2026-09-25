@@ -130,7 +130,7 @@ Atalho padrão: **⌘⌥N** (**Split Right**). Fechar com **⌃⌘↓** ou **×*
 
 <CardGroup cols={2}>
   <Card title="Conversation Details" icon="info">
-    Metadados, opções de exportação, links de compartilhamento
+    Metadados, exportação Markdown e ligações de partilha web
   </Card>
   <Card title="Context Management" icon="layers">
     Veja todos os contextos na conversa atual
@@ -367,30 +367,43 @@ Pesquise conversas que correspondam a várias tags.
   </Step>
 </Steps>
 
-### Exportando conversas
+### Exportar conversas do Hub e partilhar na web
 
-Exporte como redução para documentação ou compartilhamento:
+O Alter oferece duas formas de tirar uma **conversa Hub** da app:
+
+| Método | Resultado | Melhor para |
+|--------|--------|----------|
+| **Salvar conversa como Markdown** (**⌘⇧S**) | Ficheiro `.md` local no Mac | Documentação, arquivo, revisão offline |
+| **Partilhar** (barra lateral, menu do separador ou paleta) | Ligação pública só de leitura em alterhq.com | Colegas ou colaboradores num browser |
+
+#### Guardar como Markdown
 
 <Steps>
-  <Step title="Find conversation">
-    Localize-o na história
+  <Step title="Abrir a conversa">
+    Selecione-a na barra lateral do Hub ou num separador aberto
   </Step>
-  <Step title="Right-click">
-    Abra o menu de contexto
+  <Step title="Exportar">
+    Use **Salvar conversa como Markdown** no menu Hub ou prima **⌘⇧S** (predefinição)
   </Step>
-  <Step title="Select Export">
-    Escolha a opção Exportar
-  </Step>
-  <Step title="Save">
-    Escolha o local e salve como arquivo .md
+  <Step title="Guardar">
+    Escolha um local — o Alter escreve um ficheiro `.md` que fica localmente
   </Step>
 </Steps>
 
-<Card title="Export Uses" icon="download">
-  - Documentação
-  - Compartilhando com a equipe
-  - Arquivando discussões importantes
-  - Usando em outras ferramentas
+Personalize **Salvar conversa como Markdown** em **Configurações → Atalhos → Hub**.
+
+#### Partilhar na web
+
+Na barra lateral do Hub (clique direito), **menu do separador** da conversa ou paleta de comandos (**Partilhar conversa**):
+
+1. Confirme o aviso de ligação pública
+2. O Alter envia a discussão e copia o URL para a área de transferência
+3. Use **Copiar ligação**, **Atualizar** ou **Remover** no submenu **Partilhar** quando já existir ligação
+
+Veja [Partilhar conversas na web](/pt/workflows/share-conversations) para requisitos, limites de tamanho, privacidade e resolução de problemas.
+
+<Card title="Não é o mesmo que Compartilhar rastro" icon="share-nodes">
+  **Compartilhar rastro** fica no **Tool Inspector** após uma execução de tarefa (Computer Use, Flow e agentes semelhantes). Envia diagnósticos ao suporte Alter — **não** publica ligação pública. Para esse fluxo, veja [Compartilhar rastros de tarefa](/pt/workflows/share-task-traces).
 </Card>
 
 ### Conversas da direita para a esquerda

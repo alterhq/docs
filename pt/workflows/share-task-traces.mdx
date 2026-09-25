@@ -64,7 +64,7 @@ A exportação inclui o título da tarefa e mensagens formatadas da conversa do 
 
 ### Requisitos
 
-- Você deve estar **conectado** ao Alter (JWT de conta válido). Sem login, o compartilhamento falha com erro de autenticação.
+- Você deve estar **conectado** ao Alter. Sem login, o compartilhamento falha com erro de início de sessão.
 - Deve existir uma conversa de tarefa para a execução de ferramenta selecionada.
 
 ### O que é enviado
@@ -115,13 +115,17 @@ Personalize em **Configurações → Atalhos → Hub**.
 
 **Preciso de um link público compartilhável**
 
-- **Compartilhar rastro** envia ao suporte Alter; não copia uma URL pública. Use **Exportar chat** e compartilhe o arquivo `.md` pelos seus próprios canais.
+- Use [Partilhar conversas na web](/pt/workflows/share-conversations) para publicar o **chat Hub principal** como ligação alterhq.com só de leitura
+- **Compartilhar rastro** envia apenas ao suporte Alter — não cria URL pública. Use **Exportar chat** para um ficheiro `.md` local se precisar de partilhar um **sub-thread de tarefa** pelos seus canais
 
 ## Documentos relacionados
 
 <CardGroup cols={2}>
   <Card title="Computer Use" icon="cursorarrow.rays" href="/apps-tools/computer-use">
     Agente baseado em objetivos que produz conversas de tarefa
+  </Card>
+  <Card title="Partilhar conversas" icon="globe" href="/pt/workflows/share-conversations">
+    Ligações públicas só de leitura para chats Hub
   </Card>
   <Card title="Computer Use em segundo plano" icon="play.rectangle" href="/apps-tools/computer-use-background">
     Watch preview e sessões Edge Bar

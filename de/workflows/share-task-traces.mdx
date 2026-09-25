@@ -64,7 +64,7 @@ Der Export enthält Task-Titel und formatierte Nachrichten aus der Subagent-Konv
 
 ### Voraussetzungen
 
-- Sie müssen bei Alter **angemeldet** sein (gültiges Account-JWT). Ohne Anmeldung schlägt das Teilen mit Authentifizierungsfehler fehl.
+- Sie müssen bei Alter **angemeldet** sein. Ohne Anmeldung schlägt das Teilen mit einem Anmeldefehler fehl.
 - Eine Task-Konversation muss für den gewählten Tool-Lauf existieren.
 
 ### Was gesendet wird
@@ -122,6 +122,9 @@ Anpassen unter **Einstellungen → Tastenkürzel → Hub**.
 <CardGroup cols={2}>
   <Card title="Computer Use" icon="cursorarrow.rays" href="/de/apps-tools/computer-use">
     Zielbasierter Agent, der Task-Konversationen erzeugt
+  </Card>
+  <Card title="Unterhaltungen teilen" icon="globe" href="/de/workflows/share-conversations">
+    Öffentliche schreibgeschützte Links für Hub-Chats
   </Card>
   <Card title="Computer Use im Hintergrund" icon="play.rectangle" href="/de/apps-tools/computer-use-background">
     Watch preview und Edge-Bar-Sitzungen

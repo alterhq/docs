@@ -138,7 +138,7 @@ Standardtastenkürzel: **⌘⌥N** (**Split Right**). Schließen mit **⌃⌘↓
 
 <CardGroup cols={2}>
   <Card title="Conversation Details" icon="info">
-    Metadaten, Exportoptionen, Freigabelinks
+    Metadaten, Markdown-Export und Web-Freigabelinks
   </Card>
   <Card title="Context Management" icon="layers">
     Alle Kontexte im aktuellen Gespräch anzeigen
@@ -375,30 +375,43 @@ Suchen Sie nach Konversationen, die mehreren Tags entsprechen.
   </Step>
 </Steps>
 
-### Gespräche exportieren
+### Hub-Unterhaltungen exportieren und im Web teilen
 
-Als Markdown zur Dokumentation oder zum Teilen exportieren:
+Alter bietet zwei Wege, eine **Hub-Unterhaltung** aus der App zu holen:
+
+| Methode | Ergebnis | Am besten für |
+|--------|--------|----------|
+| **Unterhaltung als Markdown speichern** (**⌘⇧S**) | Lokale `.md`-Datei auf Ihrem Mac | Docs, Archive, Offline-Review |
+| **Teilen** (Seitenleiste, Tab-Menü oder Palette) | Öffentlicher schreibgeschützter Link auf alterhq.com | Kolleginnen oder Mitwirkende im Browser |
+
+#### Als Markdown speichern
 
 <Steps>
-  <Step title="Find conversation">
-    Suchen Sie es im Verlauf
+  <Step title="Unterhaltung öffnen">
+    Wählen Sie sie in der Hub-Seitenleiste oder einem offenen Tab
   </Step>
-  <Step title="Right-click">
-    Öffnen Sie das Kontextmenü
+  <Step title="Exportieren">
+    Nutzen Sie **Unterhaltung als Markdown speichern** im Hub-Menü oder drücken Sie **⌘⇧S** (Standard)
   </Step>
-  <Step title="Select Export">
-    Wählen Sie die Option Exportieren
-  </Step>
-  <Step title="Save">
-    Wählen Sie einen Speicherort und speichern Sie ihn als .md-Datei
+  <Step title="Speichern">
+    Wählen Sie einen Speicherort — Alter schreibt eine `.md`-Datei, die lokal bleibt
   </Step>
 </Steps>
 
-<Card title="Export Uses" icon="download">
-  - Dokumentation
-  - Teilen mit dem Team
-  - Archivierung wichtiger Diskussionen
-  - Verwendung in anderen Werkzeugen
+Passen Sie **Unterhaltung als Markdown speichern** unter **Einstellungen → Shortcuts → Hub** an.
+
+#### Im Web teilen
+
+Über Hub-Seitenleiste (Rechtsklick), **Tab-Menü** der Unterhaltung oder Befehlspalette (**Unterhaltung teilen**):
+
+1. Öffentlichen Link-Warnhinweis bestätigen
+2. Alter lädt die Diskussion hoch und kopiert die URL in die Zwischenablage
+3. Nutzen Sie **Link kopieren**, **Aktualisieren** oder **Entfernen** im Untermenü **Teilen**, wenn bereits ein Link existiert
+
+Siehe [Unterhaltungen im Web teilen](/de/workflows/share-conversations) für Voraussetzungen, Größenlimits, Datenschutz und Fehlerbehebung.
+
+<Card title="Nicht dasselbe wie Trace teilen" icon="share-nodes">
+  **Trace teilen** befindet sich im **Tool Inspector** nach einem Task-Lauf (Computer Use, Flow und ähnliche Agenten). Es lädt Diagnose an den Alter-Support hoch — es veröffentlicht **keinen** öffentlichen Link. Für diesen Workflow siehe [Task-Traces teilen](/de/workflows/share-task-traces).
 </Card>
 
 ### Unterhaltungen von rechts nach links

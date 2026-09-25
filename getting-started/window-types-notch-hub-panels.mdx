@@ -135,7 +135,7 @@ Default shortcut: **⌘⌥N** (**Split Right**). Close with **⌃⌘↓** or the
 
 <CardGroup cols={2}>
   <Card title="Conversation Details" icon="info">
-    Metadata, export options, sharing links
+    Metadata, markdown export, and web share links
   </Card>
   <Card title="Context Management" icon="layers">
     See all contexts in current conversation
@@ -373,30 +373,43 @@ Search for conversations matching multiple tags.
   </Step>
 </Steps>
 
-### Exporting Conversations
+### Export Hub conversations and share on the web
 
-Export as markdown for documentation or sharing:
+Alter offers two ways to get a **Hub conversation** out of the app:
+
+| Method | Result | Best for |
+|--------|--------|----------|
+| **Save Conversation as Markdown** (**⌘⇧S**) | Local `.md` file on your Mac | Docs, archives, offline review |
+| **Share** (sidebar, tab menu, or command palette) | Public read-only link on alterhq.com | Coworkers or collaborators in a browser |
+
+#### Save as Markdown
 
 <Steps>
-  <Step title="Find conversation">
-    Locate it in the history
+  <Step title="Open the conversation">
+    Select it in the Hub sidebar or an open tab
   </Step>
-  <Step title="Right-click">
-    Open the context menu
-  </Step>
-  <Step title="Select Export">
-    Choose the Export option
+  <Step title="Export">
+    Use **Save Conversation as Markdown** from the Hub menu, or press **⌘⇧S** (default)
   </Step>
   <Step title="Save">
-    Choose location and save as .md file
+    Choose a location — Alter writes a `.md` file you keep locally
   </Step>
 </Steps>
 
-<Card title="Export Uses" icon="download">
-  - Documentation
-  - Sharing with team
-  - Archiving important discussions
-  - Using in other tools
+Customize **Save Conversation as Markdown** in **Settings → Shortcuts → Hub**.
+
+#### Share on the web
+
+From the Hub sidebar (right-click), the conversation **tab menu**, or the command palette (**Share Conversation**):
+
+1. Confirm the public-link warning
+2. Alter uploads the discussion and copies the URL to your clipboard
+3. Use **Copy link**, **Update**, or **Remove** from the **Share** submenu when a link already exists
+
+See [Share conversations on the web](/workflows/share-conversations) for requirements, size limits, privacy, and troubleshooting.
+
+<Card title="Not the same as Share trace" icon="share-nodes">
+  **Share trace** lives in the **Tool Inspector** after a task run (Computer Use, Flow, and similar agents). It uploads diagnostics to Alter support — it does **not** publish a public link. For that workflow, see [Share task traces](/workflows/share-task-traces).
 </Card>
 
 ### Right-to-left conversations
