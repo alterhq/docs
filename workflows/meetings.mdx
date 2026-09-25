@@ -92,13 +92,71 @@ You can also manually control recordings:
 
 ---
 
-## Speaker Identification
+## Speaker identification
 
-Alter uses **Pyannote 4 (Community-1)**, state-of-the-art AI for speaker diarization.
+Meeting transcripts go through three layers: **diarization** (who spoke when), **speaker identity** (saved voices on your Mac), and optional **cloud name matching** (calendar and Contacts hints).
 
-### Speaker name matching (beta93+)
+### Speaker diarization
 
-When cloud transcription is available, enable **Find speakers names (experimental)** in **Settings → Voice → Automation**. Alter can suggest real names instead of generic "Speaker 1" labels:
+Alter uses **Pyannote 4 (Community-1)** for speaker diarization — state-of-the-art AI that separates speakers and labels them as **Speaker 1**, **Speaker 2**, and so on. Diarization runs locally on your Mac.
+
+When the diarization engine is **Nemotron 3**, Alter still derives voiceprints from Pyannote so saved voices stay compatible across engines.
+
+### Speaker identity (saved voices)
+
+Speaker identity remembers voices you have named before and applies those names automatically in future meetings — without sending voice data to the cloud.
+
+<Info>
+  **100% local.** Saved voiceprints live in `~/Library/Application Support/Alter/SpeakerIdentity/`. They are biometric data and stay on your Mac like the rest of Application Support.
+</Info>
+
+#### How matching works
+
+After diarization, Alter compares each speaker's voiceprint against your **saved voices**. When a match is confident, generic labels like **Speaker 1** are replaced with the saved name before the transcript is shown.
+
+If two saved voices could both match the same speaker, Alter opens a **review sheet** instead of guessing. You can listen to a clip of that speaker, pick the right name for this meeting, and optionally update saved voices for the future.
+
+#### How voices get saved
+
+Alter builds saved voices from meeting audio — you never configure them in a separate settings screen.
+
+<Steps>
+  <Step title="Rename a speaker in the transcript">
+    Open a meeting transcript, click a speaker chip, and choose a real name from the picker (or type one). Names with a **waveform** icon already have a saved voice.
+  </Step>
+  <Step title="Choose scope when prompted">
+    **This meeting only** renames the transcript. **Future meetings** also saves or updates the voiceprint so Alter recognizes that person next time.
+  </Step>
+  <Step title="Review ambiguous matches">
+    When Alter is unsure, a review sheet appears after transcription. Listen to the clip, confirm the name, and choose whether to keep, merge, or forget related saved voices.
+  </Step>
+</Steps>
+
+Saved voices can also be created automatically when **Find speakers names (experimental)** resolves a generic label to a real name from calendar or Contacts data.
+
+#### Managing saved voices in a transcript
+
+| Action | Where | What it does |
+|---|---|---|
+| Rename speaker | Speaker chip → name picker | Rename for this meeting and optionally save the voice for future meetings |
+| Review conflict | Sheet after transcription | Resolve ambiguous matches between saved voices |
+| Remove voice data | Right-click speaker chip → **Remove voice data** | Removes voice data for that speaker in **this meeting only** (does not delete a saved voice globally) |
+| Merge or forget | Conflict review sheet → **Future voice recognition** | Combine duplicate saved voices or stop recognizing selected names in future meetings |
+
+<Tip>
+  Updating saved voices affects **future** recognition only. Past transcripts keep the names they had when you saved them.
+</Tip>
+
+#### Limitations
+
+- Requires diarization with usable voice data — if a meeting has no voiceprint for a speaker, you can still rename the transcript but cannot save that voice for the future.
+- Each saved identity keeps up to **five** voice samples; very distinct speaking styles may not fit in one identity.
+- Alter applies a saved name only when the match is confident. Close calls are sent to review instead of auto-renamed.
+- There is no global list of saved voices in Settings yet — manage them from meeting transcripts and conflict review.
+
+### Cloud speaker name matching (beta93+)
+
+When cloud transcription is available, enable **Find speakers names (experimental)** in **Settings → Voice → Automation**. This optional layer suggests real names from your calendar and Contacts when generic labels remain after local voice matching:
 
 - **Calendars for speaker matching** — Choose which Apple calendars to use. Alter matches the recording to calendar events and attendee lists.
 - **Contacts for speaker matching** — Grant Contacts access so attendee emails resolve to display names.
@@ -119,24 +177,26 @@ When cloud transcription is available, enable **Find speakers names (experimenta
   </Step>
 </Steps>
 
+Cloud matching requires login and internet access. Local diarization and speaker identity still run on your Mac first.
+
 <CardGroup cols={3}>
-  <Card title="Perfect ID" icon="check-circle">
-    Industry-leading speaker identification
+  <Card title="Saved voices" icon="waveform">
+    Recognize people you have named before, fully offline
   </Card>
-  <Card title="Search by Speaker" icon="search">
-    Find specific contributions
+  <Card title="Search by speaker" icon="search">
+    Find specific contributions across meetings
   </Card>
-  <Card title="Track Input" icon="activity">
-    See who said what
+  <Card title="Filter speakers" icon="filter">
+    Focus on one participant in a long transcript
   </Card>
-  <Card title="Filter Speakers" icon="filter">
-    Focus on specific participants
+  <Card title="Manual rename" icon="edit">
+    Correct names and teach Alter new voices
   </Card>
-  <Card title="Manual Rename" icon="edit">
-    Customize speaker names
+  <Card title="Calendar hints" icon="calendar">
+    Optional cloud matching from events and Contacts
   </Card>
-  <Card title="100% Offline" icon="shield">
-    All processing on your Mac
+  <Card title="On-device processing" icon="shield">
+    Diarization and voiceprints stay on your Mac
   </Card>
 </CardGroup>
 

@@ -97,30 +97,114 @@ Haga clic en el botón rojo para finalizar.
 
 ---
 
-## Identificación del hablante
+## Identificación de hablantes
 
-Alter utiliza **Pyannote 4 (Comunidad-1)**, IA de última generación para la registro de los oradores.
+Las transcripciones de reuniones pasan por tres capas: **diarización** (quién habló y cuándo), **identidad del hablante** (voces guardadas en tu Mac) y **coincidencia de nombres en la nube** (pistas de calendario y Contactos), opcional.
+
+### Diarización de hablantes
+
+Alter utiliza **Pyannote 4 (Community-1)** para la diarización de hablantes — IA de última generación que separa a los interlocutores y los etiqueta como **Speaker 1**, **Speaker 2**, etc. La diarización se ejecuta localmente en tu Mac.
+
+Cuando el motor de diarización es **Nemotron 3**, Alter sigue derivando huellas vocales mediante Pyannote para que las voces guardadas sigan siendo compatibles entre motores.
+
+### Identidad del hablante (voces guardadas)
+
+La identidad del hablante recuerda voces que ya has nombrado y aplica esos nombres automáticamente en reuniones futuras — sin enviar datos de voz a la nube.
+
+<Info>
+  **100 % local.** Las huellas vocales guardadas están en `~/Library/Application Support/Alter/SpeakerIdentity/`. Son datos biométricos y permanecen en tu Mac como el resto de Application Support.
+</Info>
+
+#### Cómo funciona la coincidencia
+
+Tras la diarización, Alter compara la huella vocal de cada hablante con tus **voces guardadas**. Cuando la coincidencia es fiable, las etiquetas genéricas como **Speaker 1** se sustituyen por el nombre guardado antes de mostrar la transcripción.
+
+Si dos voces guardadas podrían coincidir con el mismo hablante, Alter abre una **hoja de revisión** en lugar de adivinar. Puedes escuchar un clip de ese hablante, elegir el nombre correcto para esta reunión y, opcionalmente, actualizar las voces guardadas para el futuro.
+
+#### Cómo se guardan las voces
+
+Alter crea voces guardadas a partir del audio de las reuniones — nunca las configuras en una pantalla de ajustes aparte.
+
+<Steps>
+  <Step title="Renombrar un hablante en la transcripción">
+    Abre una transcripción de reunión, haz clic en una etiqueta de hablante y elige un nombre real en el selector (o escribe uno). Los nombres con un icono de **forma de onda** ya tienen una voz guardada.
+  </Step>
+  <Step title="Elegir el alcance cuando se solicite">
+    **Solo esta reunión** renombra la transcripción. **Futuras reuniones** también guarda o actualiza la huella vocal para que Alter reconozca a esa persona la próxima vez.
+  </Step>
+  <Step title="Revisar coincidencias ambiguas">
+    Cuando Alter no está seguro, aparece una hoja de revisión tras la transcripción. Escucha el clip, confirma el nombre y elige si conservar, fusionar u olvidar las voces guardadas relacionadas.
+  </Step>
+</Steps>
+
+Las voces guardadas también pueden crearse automáticamente cuando **Encontrar nombres de hablantes (experimental)** resuelve una etiqueta genérica a un nombre real a partir del calendario o Contactos.
+
+#### Gestionar voces guardadas en una transcripción
+
+| Acción | Dónde | Qué hace |
+|---|---|---|
+| Renombrar hablante | Etiqueta de hablante → selector de nombre | Renombrar para esta reunión y, opcionalmente, guardar la voz para reuniones futuras |
+| Revisar conflicto | Hoja tras la transcripción | Resolver coincidencias ambiguas entre voces guardadas |
+| Eliminar datos de voz | Clic derecho en la etiqueta → **Eliminar datos de voz** | Elimina los datos de voz de ese hablante **solo en esta reunión** (no borra una voz guardada globalmente) |
+| Fusionar u olvidar | Hoja de conflicto → **Reconocimiento de voz futuro** | Combinar voces guardadas duplicadas o dejar de reconocer nombres seleccionados en reuniones futuras |
+
+<Tip>
+  Actualizar voces guardadas afecta solo al reconocimiento **futuro**. Las transcripciones pasadas conservan los nombres que tenían cuando las guardaste.
+</Tip>
+
+#### Limitaciones
+
+- Requiere diarización con datos de voz utilizables — si una reunión no tiene huella vocal para un hablante, aún puedes renombrar la transcripción pero no guardar esa voz para el futuro.
+- Cada identidad guardada conserva hasta **cinco** muestras de voz; estilos de habla muy distintos pueden no caber en una sola identidad.
+- Alter aplica un nombre guardado solo cuando la coincidencia es fiable. Los casos dudosos se envían a revisión en lugar de renombrarse automáticamente.
+- Aún no hay una lista global de voces guardadas en Ajustes — gestiónalas desde transcripciones de reuniones y revisión de conflictos.
+
+### Coincidencia de nombres en la nube (beta93+)
+
+Cuando la transcripción en la nube está disponible, activa **Encontrar nombres de hablantes (experimental)** en **Configuración → Voz → Automatización**. Esta capa opcional sugiere nombres reales desde tu calendario y Contactos cuando quedan etiquetas genéricas tras la coincidencia vocal local:
+
+- **Calendarios para identificación de interlocutores** — Elige qué calendarios de Apple usar. Alter relaciona la grabación con eventos del calendario y listas de asistentes.
+- **Contactos para identificación de interlocutores** — Concede acceso a Contactos para que los correos de asistentes se resuelvan en nombres mostrados.
+- **Selección manual de evento de calendario** — Vincula una transcripción a un evento concreto cuando la coincidencia automática es incorrecta.
+
+<Steps>
+  <Step title="Abrir ajustes de Voz">
+    **Configuración → Voz → Automatización**
+  </Step>
+  <Step title="Activar coincidencia de hablantes">
+    Activa **Encontrar nombres de hablantes (experimental)**
+  </Step>
+  <Step title="Seleccionar calendarios">
+    Elige los calendarios con tus reuniones de trabajo (o selecciona todos)
+  </Step>
+  <Step title="Conceder Contactos">
+    Permite Contactos cuando se solicite para resolver nombres de asistentes
+  </Step>
+</Steps>
+
+La coincidencia en la nube requiere inicio de sesión y acceso a Internet. La diarización local y la identidad del hablante siguen ejecutándose primero en tu Mac.
 
 <CardGroup cols={3}>
-  <Card title="Identificación perfecta" icon="check-circle">
-Identificación de oradores líder en la industria
+  <Card title="Voces guardadas" icon="waveform">
+    Reconocer a personas que ya has nombrado, totalmente sin conexión
   </Card>
-  <Card title="Buscar por orador" icon="search">
-Encuentra contribuciones específicas
+  <Card title="Buscar por hablante" icon="search">
+    Encontrar contribuciones concretas en varias reuniones
   </Card>
-  <Card title="Entrada de pista" icon="activity">
-Mira quién dijo qué
+  <Card title="Filtrar hablantes" icon="filter">
+    Centrarse en un participante en una transcripción larga
   </Card>
-  <Card title="Filtrar altavoces" icon="filter">
-Centrarse en participantes específicos
+  <Card title="Renombrado manual" icon="edit">
+    Corregir nombres y enseñar nuevas voces a Alter
   </Card>
-  <Card title="Cambio de nombre manual" icon="edit">
-Personaliza los nombres de los oradores
+  <Card title="Pistas de calendario" icon="calendar">
+    Coincidencia opcional en la nube desde eventos y Contactos
   </Card>
-  <Card title="100% sin conexión" icon="shield">
-Todo el procesamiento en tu Mac
+  <Card title="Procesamiento en el dispositivo" icon="shield">
+    Diarización y huellas vocales permanecen en tu Mac
   </Card>
 </CardGroup>
+
 
 ### Transcripción rápida con Whisper Pro
 

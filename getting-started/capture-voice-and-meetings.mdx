@@ -44,13 +44,15 @@ Alter can capture meetings automatically, not only from files you drop manually.
 - "What decisions were made, and what is still unresolved?"
 - "Give me a follow-up email draft based on this meeting."
 
-## Speaker matching and cloud transcription
+## Speaker names and cloud transcription
 
-**Speaker matching (beta93+):** In **Settings → Voice → Automation**, enable **Find speakers names (experimental)**, then choose **Calendars for speaker matching** and grant **Contacts** access so attendee emails resolve to real names.
+**Speaker identity (saved voices):** After you name a speaker in a meeting transcript, Alter can remember that voice locally and apply the name automatically in future meetings — no cloud required. Rename a speaker chip and choose **Future meetings** to teach Alter a new voice.
+
+**Cloud name matching (beta93+, optional):** In **Settings → Voice → Automation**, enable **Find speakers names (experimental)**, then choose **Calendars for speaker matching** and grant **Contacts** access so attendee emails resolve to real names when generic labels remain.
 
 **Cloud quality (beta96+):** The **Cloud** voice processor uses the **Soniox V5** engine for meeting transcription when you are logged in and eligible for cloud dictation. Local **Whisper Pro** / **Parakeet** paths stay fully on-device.
 
-See the full [Meetings guide](/workflows/meetings) for auto-record, live captions, and transcript management.
+See the full [Meetings guide](/workflows/meetings#speaker-identification) for saved voices, conflict review, auto-record, live captions, and transcript management.
 
 <Tip>
   Dropping audio/video files is still useful for external recordings, but it is not required for normal meeting transcription inside Alter.

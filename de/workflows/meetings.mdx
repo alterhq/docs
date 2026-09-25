@@ -99,45 +99,112 @@ Sie können auch manuell Aufzeichnungen steuern:
 
 ## Sprecheridentifikation
 
-Alter verwendet **Pyannote 4 (Community-1)
+Meeting-Transkripte durchlaufen drei Ebenen: **Diarisierung** (wer wann gesprochen hat), **Sprecheridentität** (gespeicherte Stimmen auf Ihrem Mac) und optionale **Cloud-Namenszuordnung** (Hinweise aus Kalender und Kontakten).
 
-### Sprecherzuordnung (beta93+)
+### Sprecherdiarisierung
 
-Aktivieren Sie **Sprechernamen finden (experimentell)** unter **Einstellungen → Sprache → Automatisierung**. Alter schlägt echte Namen statt „Sprecher 1“ vor:
+Alter verwendet **Pyannote 4 (Community-1)** für die Sprecherdiarisierung — modernste KI, die Sprecher trennt und als **Speaker 1**, **Speaker 2** usw. kennzeichnet. Die Diarisierung läuft lokal auf Ihrem Mac.
 
-- **Kalender für Sprecherzuordnung** — Apple-Kalender auswählen
-- **Kontakte für Sprecherzuordnung** — Kontakte-Zugriff für Anzeigenamen
-- **Manuelle Kalenderauswahl** — Transkript mit Ereignis verknüpfen
+Wenn die Diarisierungs-Engine **Nemotron 3** ist, leitet Alter weiterhin Stimmabdrücke über Pyannote ab, damit gespeicherte Stimmen über Engines hinweg kompatibel bleiben.
+
+### Sprecheridentität (gespeicherte Stimmen)
+
+Die Sprecheridentität merkt sich Stimmen, die Sie zuvor benannt haben, und wendet diese Namen automatisch in künftigen Meetings an — ohne Sprachdaten in die Cloud zu senden.
+
+<Info>
+  **100 % lokal.** Gespeicherte Stimmabdrücke liegen in `~/Library/Application Support/Alter/SpeakerIdentity/`. Es handelt sich um biometrische Daten, die wie der Rest von Application Support auf Ihrem Mac bleiben.
+</Info>
+
+#### So funktioniert der Abgleich
+
+Nach der Diarisierung vergleicht Alter den Stimmabdruck jedes Sprechers mit Ihren **gespeicherten Stimmen**. Bei einer sicheren Übereinstimmung werden generische Bezeichnungen wie **Speaker 1** vor der Anzeige des Transkripts durch den gespeicherten Namen ersetzt.
+
+Wenn zwei gespeicherte Stimmen zum gleichen Sprecher passen könnten, öffnet Alter ein **Überprüfungsblatt** statt zu raten. Sie können einen Ausschnitt anhören, den richtigen Namen für dieses Meeting wählen und optional gespeicherte Stimmen für die Zukunft aktualisieren.
+
+#### So werden Stimmen gespeichert
+
+Alter erstellt gespeicherte Stimmen aus Meeting-Audio — Sie konfigurieren sie nie in einem separaten Einstellungsbildschirm.
 
 <Steps>
-  <Step title="Spracheinstellungen öffnen">**Einstellungen → Sprache → Automatisierung**</Step>
-  <Step title="Sprecherzuordnung aktivieren">**Sprechernamen finden (experimentell)** einschalten</Step>
-  <Step title="Kalender wählen">Arbeitskalender auswählen</Step>
-  <Step title="Kontakte erlauben">Kontakte-Zugriff gewähren</Step>
+  <Step title="Sprecher im Transkript umbenennen">
+    Öffnen Sie ein Meeting-Transkript, klicken Sie auf eine Sprecher-Chip und wählen Sie einen echten Namen im Picker (oder geben Sie einen ein). Namen mit einem **Wellenform**-Symbol haben bereits eine gespeicherte Stimme.
+  </Step>
+  <Step title="Umfang wählen, wenn gefragt">
+    **Nur dieses Meeting** benennt das Transkript um. **Künftige Meetings** speichert oder aktualisiert auch den Stimmabdruck, damit Alter diese Person beim nächsten Mal erkennt.
+  </Step>
+  <Step title="Mehrdeutige Treffer prüfen">
+    Wenn Alter unsicher ist, erscheint nach der Transkription ein Überprüfungsblatt. Hören Sie den Ausschnitt, bestätigen Sie den Namen und wählen Sie, ob zugehörige gespeicherte Stimmen behalten, zusammengeführt oder vergessen werden sollen.
+  </Step>
 </Steps>
 
-**, eine hochmoderne KI zur Sprecherdiarisierung.
+Gespeicherte Stimmen können auch automatisch erstellt werden, wenn **Sprechernamen finden (experimentell)** eine generische Bezeichnung anhand von Kalender- oder Kontaktdaten in einen echten Namen auflöst.
+
+#### Gespeicherte Stimmen in einem Transkript verwalten
+
+| Aktion | Wo | Wirkung |
+|---|---|---|
+| Sprecher umbenennen | Sprecher-Chip → Namenspicker | Für dieses Meeting umbenennen und optional die Stimme für künftige Meetings speichern |
+| Konflikt prüfen | Blatt nach Transkription | Mehrdeutige Treffer zwischen gespeicherten Stimmen auflösen |
+| Stimmdaten entfernen | Rechtsklick auf Sprecher-Chip → **Stimmdaten entfernen** | Entfernt Stimmdaten für diesen Sprecher **nur in diesem Meeting** (löscht keine gespeicherte Stimme global) |
+| Zusammenführen oder vergessen | Konflikt-Überprüfungsblatt → **Künftige Stimmerkennung** | Doppelte gespeicherte Stimmen kombinieren oder ausgewählte Namen in künftigen Meetings nicht mehr erkennen |
+
+<Tip>
+  Aktualisierungen gespeicherter Stimmen wirken sich nur auf die **künftige** Erkennung aus. Vergangene Transkripte behalten die Namen, die sie zum Zeitpunkt der Speicherung hatten.
+</Tip>
+
+#### Einschränkungen
+
+- Erfordert Diarisierung mit nutzbaren Sprachdaten — wenn ein Meeting keinen Stimmabdruck für einen Sprecher hat, können Sie das Transkript weiter umbenennen, aber die Stimme nicht für die Zukunft speichern.
+- Jede gespeicherte Identität behält bis zu **fünf** Sprachproben; sehr unterschiedliche Sprechstile passen möglicherweise nicht in eine Identität.
+- Alter wendet einen gespeicherten Namen nur bei sicherer Übereinstimmung an. Grenzfälle werden zur Überprüfung gesendet statt automatisch umbenannt.
+- Es gibt noch keine globale Liste gespeicherter Stimmen in den Einstellungen — verwalten Sie sie über Meeting-Transkripte und Konfliktüberprüfung.
+
+### Cloud-Namenszuordnung (beta93+)
+
+Wenn Cloud-Transkription verfügbar ist, aktivieren Sie **Sprechernamen finden (experimentell)** unter **Einstellungen → Sprache → Automatisierung**. Diese optionale Ebene schlägt echte Namen aus Ihrem Kalender und Ihren Kontakten vor, wenn nach lokalem Stimmabgleich noch generische Bezeichnungen übrig bleiben:
+
+- **Kalender für Sprecherzuordnung** — Wählen Sie, welche Apple-Kalender verwendet werden. Alter ordnet die Aufnahme Kalenderereignissen und Teilnehmerlisten zu.
+- **Kontakte für Sprecherzuordnung** — Gewähren Sie Kontakte-Zugriff, damit Teilnehmer-E-Mails in Anzeigenamen aufgelöst werden.
+- **Manuelle Kalenderereignis-Auswahl** — Verknüpfen Sie ein Transkript mit einem bestimmten Kalenderereignis, wenn die automatische Zuordnung falsch ist.
+
+<Steps>
+  <Step title="Spracheinstellungen öffnen">
+    **Einstellungen → Sprache → Automatisierung**
+  </Step>
+  <Step title="Sprecherzuordnung aktivieren">
+    Schalten Sie **Sprechernamen finden (experimentell)** ein
+  </Step>
+  <Step title="Kalender auswählen">
+    Wählen Sie die Kalender mit Ihren Arbeitsmeetings (oder alle)
+  </Step>
+  <Step title="Kontakte erlauben">
+    Erlauben Sie Kontakte, wenn Sie zur Namensauflösung der Teilnehmer aufgefordert werden
+  </Step>
+</Steps>
+
+Cloud-Zuordnung erfordert Anmeldung und Internetzugang. Lokale Diarisierung und Sprecheridentität laufen weiterhin zuerst auf Ihrem Mac.
 
 <CardGroup cols={3}>
-  <Card title="Perfekte ID" icon="check-circle">
-    Branchenführende Sprecheridentifikation
+  <Card title="Gespeicherte Stimmen" icon="waveform">
+    Personen erkennen, die Sie zuvor benannt haben — vollständig offline
   </Card>
   <Card title="Nach Sprecher suchen" icon="search">
-    Finden Sie spezifische Beiträge
-  </Card>
-  <Card title="Eingabe verfolgen" icon="activity">
-    Sehen Sie, wer was gesagt hat
+    Bestimmte Beiträge über Meetings hinweg finden
   </Card>
   <Card title="Sprecher filtern" icon="filter">
-    Konzentrieren Sie sich auf spezifische Teilnehmer
+    Auf einen Teilnehmer in einem langen Transkript fokussieren
   </Card>
   <Card title="Manuelle Umbenennung" icon="edit">
-    Passen Sie die Sprechernamen an
+    Namen korrigieren und Alter neue Stimmen beibringen
   </Card>
-  <Card title="100 % Offline" icon="shield">
-    Alle Verarbeitung auf Ihrem Mac
+  <Card title="Kalenderhinweise" icon="calendar">
+    Optionale Cloud-Zuordnung aus Ereignissen und Kontakten
+  </Card>
+  <Card title="Verarbeitung auf dem Gerät" icon="shield">
+    Diarisierung und Stimmabdrücke bleiben auf Ihrem Mac
   </Card>
 </CardGroup>
+
 
 ### Schnelle Transkription mit Whisper Pro
 

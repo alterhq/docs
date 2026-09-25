@@ -96,41 +96,111 @@ Vous pouvez également contrôler manuellement les enregistrements :
 
 ---
 
-## Identification du locuteur
+## Identification des intervenants
 
-Alter utilise **Pyannote 4 (Community-1)
+Les transcriptions de réunion passent par trois couches : **diarisation** (qui a parlé et quand), **identité du locuteur** (voix enregistrées sur votre Mac) et **correspondance de noms dans le cloud** (indices calendrier et Contacts), optionnelle.
 
-### Correspondance des intervenants (beta93+)
+### Diarisation des locuteurs
 
-Activez **Find speakers names (experimental)** dans **Réglages → Voice → Automation** :
+Alter utilise **Pyannote 4 (Community-1)** pour la diarisation des locuteurs — une IA de pointe qui sépare les intervenants et les étiquette **Speaker 1**, **Speaker 2**, etc. La diarisation s'exécute localement sur votre Mac.
+
+Lorsque le moteur de diarisation est **Nemotron 3**, Alter dérive quand même des empreintes vocales via Pyannote pour que les voix enregistrées restent compatibles entre moteurs.
+
+### Identité du locuteur (voix enregistrées)
+
+L'identité du locuteur mémorise les voix que vous avez déjà nommées et applique automatiquement ces noms lors des réunions futures — sans envoyer de données vocales dans le cloud.
+
+<Info>
+  **100 % local.** Les empreintes vocales enregistrées se trouvent dans `~/Library/Application Support/Alter/SpeakerIdentity/`. Ce sont des données biométriques qui restent sur votre Mac, comme le reste d'Application Support.
+</Info>
+
+#### Comment fonctionne la correspondance
+
+Après la diarisation, Alter compare l'empreinte vocale de chaque intervenant à vos **voix enregistrées**. Lorsqu'une correspondance est fiable, les étiquettes génériques comme **Speaker 1** sont remplacées par le nom enregistré avant l'affichage de la transcription.
+
+Si deux voix enregistrées pourraient correspondre au même intervenant, Alter ouvre une **feuille de révision** au lieu de deviner. Vous pouvez écouter un extrait de cet intervenant, choisir le bon nom pour cette réunion et, si vous le souhaitez, mettre à jour les voix enregistrées pour l'avenir.
+
+#### Comment les voix sont enregistrées
+
+Alter construit les voix enregistrées à partir de l'audio des réunions — vous ne les configurez jamais dans un écran de réglages séparé.
 
 <Steps>
-  <Step title="Ouvrir Voice">**Réglages → Voice → Automation**</Step>
-  <Step title="Activer">Activez la correspondance expérimentale</Step>
-  <Step title="Calendriers">Choisissez les calendriers de travail</Step>
-  <Step title="Contacts">Autorisez l'accès aux Contacts</Step>
+  <Step title="Renommer un intervenant dans la transcription">
+    Ouvrez une transcription de réunion, cliquez sur une puce d'intervenant et choisissez un vrai nom dans le sélecteur (ou saisissez-en un). Les noms avec une icône **forme d'onde** ont déjà une voix enregistrée.
+  </Step>
+  <Step title="Choisir la portée lorsque demandé">
+    **Cette réunion uniquement** renomme la transcription. **Réunions futures** enregistre ou met aussi à jour l'empreinte vocale pour qu'Alter reconnaisse cette personne la prochaine fois.
+  </Step>
+  <Step title="Examiner les correspondances ambiguës">
+    Lorsqu'Alter hésite, une feuille de révision apparaît après la transcription. Écoutez l'extrait, confirmez le nom et choisissez de conserver, fusionner ou oublier les voix enregistrées associées.
+  </Step>
 </Steps>
 
-**, une IA de pointe pour la diarisation des locuteurs.
+Les voix enregistrées peuvent aussi être créées automatiquement lorsque **Trouver les noms des intervenants (expérimental)** résout une étiquette générique en nom réel à partir du calendrier ou des Contacts.
+
+#### Gérer les voix enregistrées dans une transcription
+
+| Action | Où | Effet |
+|---|---|---|
+| Renommer l'intervenant | Puce d'intervenant → sélecteur de nom | Renommer pour cette réunion et, si vous le souhaitez, enregistrer la voix pour les réunions futures |
+| Examiner un conflit | Feuille après transcription | Résoudre les correspondances ambiguës entre voix enregistrées |
+| Supprimer les données vocales | Clic droit sur la puce → **Supprimer les données vocales** | Supprime les données vocales de cet intervenant pour **cette réunion uniquement** (ne supprime pas une voix enregistrée globalement) |
+| Fusionner ou oublier | Feuille de conflit → **Reconnaissance vocale à venir** | Combiner des voix enregistrées en double ou cesser de reconnaître certains noms lors des réunions futures |
+
+<Tip>
+  La mise à jour des voix enregistrées n'affecte que la reconnaissance **future**. Les transcriptions passées conservent les noms qu'elles avaient au moment de l'enregistrement.
+</Tip>
+
+#### Limitations
+
+- Nécessite une diarisation avec des données vocales exploitables — si une réunion n'a pas d'empreinte vocale pour un intervenant, vous pouvez toujours renommer la transcription mais ne pouvez pas enregistrer cette voix pour l'avenir.
+- Chaque identité enregistrée conserve jusqu'à **cinq** échantillons vocaux ; des styles de parole très différents peuvent ne pas tenir dans une seule identité.
+- Alter n'applique un nom enregistré que lorsque la correspondance est fiable. Les cas limites sont envoyés en révision au lieu d'être renommés automatiquement.
+- Il n'existe pas encore de liste globale des voix enregistrées dans les Paramètres — gérez-les depuis les transcriptions de réunion et la révision des conflits.
+
+### Correspondance de noms dans le cloud (beta93+)
+
+Lorsque la transcription cloud est disponible, activez **Trouver les noms des intervenants (expérimental)** dans **Paramètres → Voix → Automatisation**. Cette couche optionnelle suggère des noms réels à partir de votre calendrier et de vos Contacts lorsque des étiquettes génériques subsistent après la correspondance vocale locale :
+
+- **Calendriers pour l'identification des intervenants** — Choisissez les calendriers Apple à utiliser. Alter fait correspondre l'enregistrement aux événements du calendrier et aux listes de participants.
+- **Contacts pour l'identification des intervenants** — Accordez l'accès aux Contacts pour que les e-mails des participants se résolvent en noms affichés.
+- **Sélection manuelle d'un événement de calendrier** — Liez une transcription à un événement de calendrier précis lorsque la correspondance automatique est incorrecte.
+
+<Steps>
+  <Step title="Ouvrir les réglages Voix">
+    **Paramètres → Voix → Automatisation**
+  </Step>
+  <Step title="Activer la correspondance des intervenants">
+    Activez **Trouver les noms des intervenants (expérimental)**
+  </Step>
+  <Step title="Sélectionner les calendriers">
+    Choisissez les calendriers qui contiennent vos réunions de travail (ou sélectionnez-les tous)
+  </Step>
+  <Step title="Autoriser Contacts">
+    Autorisez Contacts lorsque vous y êtes invité pour la résolution des noms des participants
+  </Step>
+</Steps>
+
+La correspondance cloud nécessite une connexion et un accès Internet. La diarisation locale et l'identité du locuteur s'exécutent toujours d'abord sur votre Mac.
 
 <CardGroup cols={3}>
-  <Card title="Identification parfaite" icon="check-circle">
-    Identification des enceintes à la pointe du secteur
+  <Card title="Voix enregistrées" icon="waveform">
+    Reconnaître les personnes que vous avez déjà nommées, entièrement hors ligne
   </Card>
-  <Card title="Recherche par orateur" icon="search">
-    Trouver des contributions spécifiques
+  <Card title="Recherche par intervenant" icon="search">
+    Trouver des contributions précises dans les réunions
   </Card>
-  <Card title="Entrée de piste" icon="activity">
-    Voir qui a dit quoi
+  <Card title="Filtrer les intervenants" icon="filter">
+    Se concentrer sur un participant dans une longue transcription
   </Card>
-  <Card title="Filtrer les haut-parleurs" icon="filter">
-    Concentrez-vous sur des participants spécifiques
+  <Card title="Renommage manuel" icon="edit">
+    Corriger les noms et apprendre de nouvelles voix à Alter
   </Card>
-  <Card title="Renommer manuellement" icon="edit">
-    Personnaliser les noms des intervenants
+  <Card title="Indices calendrier" icon="calendar">
+    Correspondance cloud optionnelle à partir des événements et Contacts
   </Card>
-  <Card title="100 % hors ligne" icon="shield">
-    Tout le traitement sur votre Mac
+  <Card title="Traitement sur l'appareil" icon="shield">
+    Diarisation et empreintes vocales restent sur votre Mac
   </Card>
 </CardGroup>
 

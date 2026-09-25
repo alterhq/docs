@@ -97,30 +97,114 @@ Clique no botão vermelho para terminar
 
 ---
 
-## Identificação do Porta-voz
+## Identificação de oradores
 
-Alter usa **Pyannote 4 (Comunidade-1)**, IA de última geração para diarização de falantes.
+As transcrições de reunião passam por três camadas: **diarização** (quem falou e quando), **identidade do orador** (vozes guardadas no seu Mac) e **correspondência de nomes na nuvem** (pistas de calendário e Contactos), opcional.
+
+### Diarização de oradores
+
+O Alter utiliza **Pyannote 4 (Community-1)** para diarização de oradores — IA de ponta que separa interlocutores e os identifica como **Speaker 1**, **Speaker 2**, etc. A diarização corre localmente no seu Mac.
+
+Quando o motor de diarização é **Nemotron 3**, o Alter continua a derivar impressões vocais via Pyannote para que as vozes guardadas permaneçam compatíveis entre motores.
+
+### Identidade do orador (vozes guardadas)
+
+A identidade do orador memoriza vozes que já nomeou e aplica esses nomes automaticamente em reuniões futuras — sem enviar dados de voz para a nuvem.
+
+<Info>
+  **100 % local.** As impressões vocais guardadas ficam em `~/Library/Application Support/Alter/SpeakerIdentity/`. São dados biométricos e permanecem no seu Mac como o resto do Application Support.
+</Info>
+
+#### Como funciona a correspondência
+
+Após a diarização, o Alter compara a impressão vocal de cada orador com as suas **vozes guardadas**. Quando a correspondência é fiável, etiquetas genéricas como **Speaker 1** são substituídas pelo nome guardado antes de mostrar a transcrição.
+
+Se duas vozes guardadas puderem corresponder ao mesmo orador, o Alter abre uma **folha de revisão** em vez de adivinhar. Pode ouvir um clip desse orador, escolher o nome certo para esta reunião e, opcionalmente, atualizar vozes guardadas para o futuro.
+
+#### Como as vozes são guardadas
+
+O Alter constrói vozes guardadas a partir do áudio das reuniões — nunca as configura num ecrã de definições separado.
+
+<Steps>
+  <Step title="Renomear um orador na transcrição">
+    Abra uma transcrição de reunião, clique num chip de orador e escolha um nome real no seletor (ou escreva um). Nomes com um ícone de **forma de onda** já têm uma voz guardada.
+  </Step>
+  <Step title="Escolher o âmbito quando solicitado">
+    **Apenas esta reunião** renomeia a transcrição. **Reuniões futuras** também guarda ou atualiza a impressão vocal para o Alter reconhecer essa pessoa da próxima vez.
+  </Step>
+  <Step title="Rever correspondências ambíguas">
+    Quando o Alter não tem certeza, aparece uma folha de revisão após a transcrição. Ouça o clip, confirme o nome e escolha manter, fundir ou esquecer vozes guardadas relacionadas.
+  </Step>
+</Steps>
+
+As vozes guardadas também podem ser criadas automaticamente quando **Encontre nomes de palestrantes (experimental)** resolve uma etiqueta genérica num nome real a partir do calendário ou Contactos.
+
+#### Gerir vozes guardadas numa transcrição
+
+| Ação | Onde | O que faz |
+|---|---|---|
+| Renomear orador | Chip de orador → seletor de nome | Renomear para esta reunião e, opcionalmente, guardar a voz para reuniões futuras |
+| Rever conflito | Folha após transcrição | Resolver correspondências ambíguas entre vozes guardadas |
+| Remover dados de voz | Clique direito no chip → **Remover dados de voz** | Remove dados de voz desse orador **apenas nesta reunião** (não apaga uma voz guardada globalmente) |
+| Fundir ou esquecer | Folha de conflito → **Reconhecimento de voz futuro** | Combinar vozes guardadas duplicadas ou deixar de reconhecer nomes selecionados em reuniões futuras |
+
+<Tip>
+  Atualizar vozes guardadas afeta apenas o reconhecimento **futuro**. Transcrições passadas mantêm os nomes que tinham quando as guardou.
+</Tip>
+
+#### Limitações
+
+- Requer diarização com dados de voz utilizáveis — se uma reunião não tiver impressão vocal para um orador, ainda pode renomear a transcrição mas não guardar essa voz para o futuro.
+- Cada identidade guardada mantém até **cinco** amostras de voz; estilos de fala muito distintos podem não caber numa única identidade.
+- O Alter aplica um nome guardado apenas quando a correspondência é fiável. Casos limítrofes vão para revisão em vez de renomeação automática.
+- Ainda não existe uma lista global de vozes guardadas nas Definições — gira-as a partir de transcrições de reunião e revisão de conflitos.
+
+### Correspondência de nomes na nuvem (beta93+)
+
+Quando a transcrição na nuvem está disponível, ative **Encontre nomes de palestrantes (experimental)** em **Definições → Voz → Automatização**. Esta camada opcional sugere nomes reais a partir do seu calendário e Contactos quando restam etiquetas genéricas após correspondência vocal local:
+
+- **Calendários para correspondência de oradores** — Escolha que calendários Apple usar. O Alter associa a gravação a eventos de calendário e listas de participantes.
+- **Contactos para correspondência de oradores** — Conceda acesso a Contactos para que e-mails de participantes se resolvam em nomes apresentados.
+- **Seleção manual de evento de calendário** — Associe uma transcrição a um evento específico quando a correspondência automática estiver errada.
+
+<Steps>
+  <Step title="Abrir definições de Voz">
+    **Definições → Voz → Automatização**
+  </Step>
+  <Step title="Ativar correspondência de oradores">
+    Ative **Encontre nomes de palestrantes (experimental)**
+  </Step>
+  <Step title="Selecionar calendários">
+    Escolha os calendários com as suas reuniões de trabalho (ou selecione todos)
+  </Step>
+  <Step title="Conceder Contactos">
+    Permita Contactos quando solicitado para resolver nomes de participantes
+  </Step>
+</Steps>
+
+A correspondência na nuvem requer sessão iniciada e acesso à Internet. A diarização local e a identidade do orador continuam a correr primeiro no seu Mac.
 
 <CardGroup cols={3}>
-  <Card title="ID Perfeito" icon="check-circle">
-Identificação do orador responsável pela indústria
+  <Card title="Vozes guardadas" icon="waveform">
+    Reconhecer pessoas que já nomeou, totalmente offline
   </Card>
-  <Card title="Pesquisa por Palestrante" icon="search">
-Procurar contribuições específicas
+  <Card title="Pesquisar por orador" icon="search">
+    Encontrar contribuições específicas em várias reuniões
   </Card>
-  <Card title="Entrada da Faixa" icon="activity">
-Ver quem disse o quê?
+  <Card title="Filtrar oradores" icon="filter">
+    Focar num participante numa transcrição longa
   </Card>
-  <Card title="Alto-falantes do filtro" icon="filter">
-Foco em participantes específicos
+  <Card title="Renomeação manual" icon="edit">
+    Corrigir nomes e ensinar novas vozes ao Alter
   </Card>
-  <Card title="Renomear Manual" icon="edit">
-Personalizar nomes de colunas
+  <Card title="Pistas de calendário" icon="calendar">
+    Correspondência opcional na nuvem a partir de eventos e Contactos
   </Card>
-  <Card title="100% Desligado" icon="shield">
-Todo o processamento no seu Mac
+  <Card title="Processamento no dispositivo" icon="shield">
+    Diarização e impressões vocais permanecem no seu Mac
   </Card>
 </CardGroup>
+
 
 ### Transcrição rápida com Sussurro Pro
 
