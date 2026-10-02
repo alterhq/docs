@@ -1,61 +1,67 @@
 ---
-title: "工具管理器指南"
-description: "通过清晰的故障排除步骤安全地连接和管理集成"
+title: "管理工具"
+description: "安全地连接和管理集成，并提供清晰的故障排除步骤"
 ---
 
 ## 目标
 
-通过清晰的故障排除步骤安全地连接和管理集成。
+安全地连接和管理集成，并提供清晰的故障排除步骤。
+
+Alter 将工具和操作合并到一个窗口：**工具与操作**（**⌘⇧T**）。用于 Marketplace 代理、活动工具、快速操作、Skills、远程 MCP 和 **我的操作** — 操作列表以及用于构建工作流的编辑器聊天。
+
+<Card title="Alter Actions 指南" icon="square.and.pencil" href="/zh/workflows/alter-actions">
+  我的操作布局、编辑器聊天、操作文档、筛选器和诊断
+</Card>
 
 ## 步骤
 
-1.打开Alter设置并转到集成或工具管理器。
-2.一旦连接一个集成并立即进行测试。
-3. 确认所需的权限和帐户范围。
-4. 创建一个简单的测试提示来验证预期的行为。
-5. 如果发生失败，请检查企业身份验证并重试。
+1. 按 **⌘⇧T** 打开 **工具与操作**，或打开 **设置** 查看集成相关偏好。
+2. 一次连接一个集成并立即测试。
+3. 确认所需权限和账户范围。
+4. 创建简单的测试提示以验证预期行为。
+5. 如果失败，请检查提供商身份验证并重试。
 
 ## 管理多个工具
 
-启用许多工具会增加上下文窗口的使用并影响性能。对于大多数工作流程，请使用 **Flow** - 更改的工具编排器，它会自动为每个请求选择正确的工具。
+启用许多工具会增加上下文窗口使用量并影响性能。对于大多数工作流，请使用 **Flow** — Alter 的工具编排器，它会为每个请求自动选择正确的工具。
 
-<Card title="使用 Flow 进行 Tool 编排" icon="wand-magic-sparkles" href="/workflows/use-flow-orchestration">
-  Flow 通过负载单个工具自动将请求路由到适当的集成来减少上下文使用。
+<Card title="使用 Flow 进行工具编排" icon="wand-magic-sparkles" href="/zh/workflows/use-flow-orchestration">
+  Flow 作为单一工具运行，自动将请求路由到相应的集成，从而减少上下文使用量。
 </Card>
 
-流程不是将所有工具加载到每个请求中：
+Flow 不会在每个请求中加载所有工具，而是：
 - 分析您的请求并选择正确的工具
-- 跨工具处理多步骤编排
-- 减少上下文窗口的使用并提高性能
+- 处理跨工具的多步编排
+- 减少上下文窗口使用量并提高性能
 
-在**本地工具 > 更改**下的工具管理器中启用流程。
+在 **工具与操作** 的 **Local Tools > Alter** 下启用 Flow。
 
 ## Coding tools
 
-**Tools Manager → Local Tools → Coding** 列出四个本地编程集成：
+**工具与操作 → Local Tools → Coding** 列出四个本地 coding 集成：
 
 | 提供商 | 何时连接 |
-|--------|----------|
-| **ChatGPT** | 您使用 ChatGPT 桌面应用进行智能体编程 |
-| **Cursor** | 已安装 Cursor Agent CLI（`agent`） |
-| **OpenCode** | 您使用 OpenCode CLI，包括 Terminal 会话 |
+|----------|--------------|
+| **ChatGPT** | 您使用 ChatGPT 桌面应用进行代理式 coding |
+| **Cursor** | 您已安装 Cursor Agent CLI（`agent`） |
+| **OpenCode** | 您使用 OpenCode CLI，包括终端会话 |
 | **Claude** | 您在 Terminal 中使用 Claude Code（`claude`） |
 
-**最快路径：** 从 **[Marketplace → Browse](https://alterhq.com/marketplace)** 安装专用智能体 — 例如已上线的 [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)。首次运行时，Alter 会提示您启用链接的编程工具。参见 [Coding tools — Marketplace 入门](/zh/workflows/coding-tools#get-started-from-the-marketplace-recommended)。
+**最快路径：** 从 **[Marketplace → Browse](https://alterhq.com/marketplace)** 安装专用代理 — 例如在线 [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)。首次运行时，Alter 会提示您启用链接的 coding 集成。请参阅 [Coding tools — Marketplace](/zh/workflows/coding-tools#get-started-from-the-marketplace-recommended)。
 
-仅连接您需要的提供商。每个提供商在为当前 Action 启用时，会向 Alter 的模型暴露 run、list、control 和 settings 工具。
+仅连接您需要的提供商。每个提供商在当前操作启用时，会向 Alter 的模型公开 run、list、control 和 settings 工具。
 
 <Card title="Coding tools 指南" icon="terminal" href="/zh/workflows/coding-tools">
-  前提条件、Workspace 权限和提供商差异
+  前提条件、工作区权限和提供商差异
 </Card>
 
 ## 故障排除
 
 - 重新验证提供商连接。
 - 确认本地/网络权限。
-- 检查特定于集成的限制和配额。
+- 检查集成特定的限制和配额。
 
 ## 相关文档
 
-- [使用流程进行工具编排](/workflows/use-flow-orchestration)
-- [工具不工作](/common-issues/tool-not-working)
+- [使用 Flow 进行工具编排](/zh/workflows/use-flow-orchestration)
+- [工具无法正常工作](/zh/common-issues/tool-not-working)

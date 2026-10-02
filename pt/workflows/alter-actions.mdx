@@ -1,81 +1,188 @@
 ---
-title: "Alter Acções"
-description: "Crie e configure fluxos de trabalho personalizados de IA com gatilhos de voz e automação"
+title: "Alter Actions"
+description: "Cria e configura fluxos de trabalho de IA personalizados com Minhas ações, o chat do editor e documentos de ação"
 ---
 
 <Info>
-**Alter Actions** são fluxos de trabalho de IA personalizáveis que permitem criar assistentes especializados para tarefas específicas. Combine instruções de IA, gatilhos de voz, Tools e execução condicional para automatizar qualquer coisa no Mac.
+  **Alter Actions** são fluxos de trabalho de IA personalizáveis que te permitem criar assistentes especializados para tarefas específicas. Combina instruções de IA, gatilhos de voz, ferramentas e execução condicional para automatizar qualquer coisa no teu Mac.
 </Info>
 
-## O que é uma Acção Alter?
+## O que é uma Alter Action?
 
-Uma ação **Alter é uma automação avançada que combina:
+Uma **Alter Action** é uma automação avançada que combina:
 
-- **Instruções de AI** - Alertas de sistema que definem como a IA se comporta
-- **Triggers** - Comandos de voz, teclas de atalho ou execução condicional
-- **Contexto** - Acesso a texto, arquivos, aplicativos ativos selecionados
-- **Tools** - Integração configurada com seu Mac e serviços externos 2000+
-- ** Saída** - Como os resultados são exibidos (markdown, código, inserção em linha)
+- **Instruções de IA** — Prompts de sistema que definem como a IA se comporta
+- **Gatilhos** — Comandos de voz, atalhos de teclado ou execução condicional
+- **Contexto** — Acesso a texto selecionado, ficheiros, aplicações activas
+- **Ferramentas** — Integrações configuradas com o teu Mac e mais de 2000 serviços externos
+- **Saída** — Como os resultados são apresentados (markdown, código, inserção inline)
 
-Pense em uma ação Alter como um "assistente de IA especializado" personalizado para uma tarefa específica.
+Pensa numa Alter Action como um «assistente de IA especializado» personalizado para uma tarefa específica.
 
-## Abrindo o Editor de Ação
+## Abrir Minhas ações
 
-### Método 1: Barra de Menus (mais rápido)
-1. Clique no ícone de menu **Alter** na barra de menus (no canto superior direito)
-2. Selecione ** Editor de Ação**
+O Alter gere agora as ações dentro de **Ferramentas e ações**. A secção **Minhas ações** combina uma lista de ações pesquisável, controlos inline e um **chat do editor** que pode criar ou alterar ações por ti.
 
-[Barra de menu](/images/tools/menu-bar-action-editor.webp)
+### Método 1: Atalho de teclado (mais rápido)
 
-### Método 2: Menu Opções
-1. Abrir a janela do Alter
-2. Clique em **** (três pontos) no canto superior direito
-3. Selecione ** Editor de Ação**
+Prime **⌘⇧E** (Command + Shift + E). O Alter abre **Ferramentas e ações** directamente em **Minhas ações**.
 
-![ Menu Opções](/images/tools/options-menu-action-editor.webp)
+### Método 2: Menu Janela
 
-### Método 3: Atalho do Teclado
-Pressione ** ** E** (Comando + E) para abrir o Editor de Ação diretamente
+1. Abre qualquer janela do Alter (Hub, QuickHub ou Ferramentas e ações)
+2. Escolhe **Janela → Minhas ações**
+
+### Método 3: Barra lateral de Ferramentas e ações
+
+1. Prime **⌘⇧T** (Command + Shift + T) para abrir **Ferramentas e ações**
+2. Selecciona **Minhas ações** na barra lateral
+
+O distintivo da barra lateral mostra quantas ações estão activas de momento.
 
 <Tip>
-O atalho do teclado é o método mais rápido depois de memorizado.
+  **⌘⇧E** salta directamente para a gestão de ações. **⌘⇧T** abre a janela completa de Ferramentas e ações, incluindo Marketplace, Tools activos, Ações rápidas, Skills e MCP remoto.
 </Tip>
 
-## Action Editor Walkthrough
-
-O Editor de Ação tem 7 seções principais, cada uma controlando diferentes aspectos de sua ação. Use o painel esquerdo para navegar entre as abas.
-
-### 1. Configurações Gerais
-
-Configurar metadados básicos e contexto de execução.
-
-![ Página Geral](/images/tools/action-editor-01-general.webp)
-
-**Campos:**
-- **Nome** - Nome de ação legível por humanos (por exemplo, "Code Explainer")
-- **Descrição** - O que esta ação faz (opcional)
-- ** Categoria** - Organize ações por tipo (código, produtividade, negócios, etc.)
-- **Workspace** - Atribuir a um Workspace específico (opcional)
-- **Incluir perfil** - Incluir informações de perfil de usuário no contexto de IA
-
-** Opções de visibilidade:**
-- ** Mostrar apenas quando estiver em execução** - A ação só aparece se um aplicativo estiver em execução
-- ** Mostrar apenas quando ativo** - Ação só aparece se um aplicativo tem foco
-- **Workspace context** - Escolha qual Workspace vê esta ação
-
 <Note>
-Cada ação recebe um UUID exclusivo automaticamente.
+  **Minhas ações** e documentos de ação requerem início de sessão. Se estiveres desligado, o Alter mostra uma sobreposição de login em vez do editor.
 </Note>
 
-### 2. Prompt do sistema
+## Layout de Minhas ações
 
-Definir instruções e parâmetros de IA para o modelo.
+Quando **Minhas ações** está seleccionado, a janela tem três áreas de trabalho:
+
+| Área | Função |
+|------|--------|
+| **Esquerda** | Navegação de Ferramentas e ações (Marketplace, Ferramentas locais, Ações rápidas, Skills, MCP remoto, **Minhas ações**) |
+| **Centro** | A tua lista de ações — pastas, pesquisa, filtros e controlos por linha |
+| **Direita** | **Chat do editor** — descreve alterações em linguagem natural e o Alter aplica-as |
+
+![Menu Bar](/images/tools/menu-bar-action-editor.webp)
+
+Na primeira visita, se nada estiver seleccionado, o chat do editor abre no modo **Gerir as minhas ações** para poderes descrever uma nova ação ou perguntar o que alterar na tua biblioteca.
+
+### Lista de ações
+
+As ações estão agrupadas em **pastas** (categorias). Podes:
+
+- **Pesquisar** com **⌘F** — corresponde a nomes de ações e propriedades indexadas de recursos (ferramentas, gateways, Ações rápidas e recursos ligados semelhantes)
+- **Filtrar** com o ícone de filtro — restringir por jobs em segundo plano, horários, avisos, ações modificadas, listagens publicadas, ações desactivadas ou pastas específicas
+- **Colapsar ou expandir** pastas, **renomear** pastas e **arrastar ações** entre pastas
+- **Seleccionar várias ações** para exportação em lote, mover, activar/desactivar ou eliminar
+- **Criar uma pasta** na barra de ferramentas e depois adicionar ações por arrastar e largar ou a partir do menu de contexto da linha
+
+Cada linha mostra o estado rapidamente:
+
+- **Ícone e nome** — faz duplo clique num nome (ou prime **Return** com uma linha seleccionada) para abrir o documento de ação
+- Indicador de **gatilho de voz** quando há frases de voz configuradas
+- Distintivo **Modificado por ti** quando personalizaste uma ação integrada
+- Indicador de **job em segundo plano**
+- Indicador de **Marketplace** quando a ação veio de uma listagem
+- Indicador de **avisos** quando o diagnóstico encontra um problema de configuração
+
+### Controlos inline da linha
+
+Sem abrir o documento completo, cada linha expõe três controlos à direita:
+
+| Controlo | Função |
+|----------|--------|
+| **Modelo** | Escolhe **Predefinido** ou fixa um modelo e esforço de raciocínio para esta ação |
+| **Horário** | Ver, adicionar, editar ou remover horários |
+| **Atalho** | Gravar ou alterar um atalho de teclado global |
+
+Passa o rato sobre uma linha para revelar o controlo de atalho quando ainda não há atalho definido.
+
+### Menu de contexto da linha
+
+Clica com o botão direito numa ou mais ações para **Executar**, **Editar**, **Renomear**, definir um **atalho de teclado**, **Mover para** uma pasta, **Activar** / **Desactivar**, **Duplicar**, **Exportar**, **Publicar no Marketplace** ou **Eliminar** / **Repor**.
+
+**Editar** abre a ação numa janela separada de **documento de ação** para edição campo a campo.
+
+## Chat do editor
+
+A coluna da direita é um chat dedicado para gerir ações. Usa o modelo rápido do Alter com um conjunto fixo de ferramentas de gestão, para poderes descrever o que queres em vez de clicar em cada separador.
+
+### O que podes fazer no chat
+
+Pede ao Alter para:
+
+- **Criar** uma nova ação a partir de uma descrição («Cria uma ação de resumo de standup diário que corre às 9h»)
+- **Editar** os prompts, parâmetros, visibilidade, modelo, ferramentas, horários ou gateways da ação seleccionada
+- **Activar ou definir o âmbito de ferramentas** globalmente ou para uma ação
+- **Configurar Ações rápidas** — o Alter abre formulários revistos para webhooks, AppleScript/JXA, atalhos e configuração semelhante
+- **Ligar Connected Applications** e **servidores MCP** através de folhas de aprovação nativas
+- **Instalar ou activar Skills**
+- **Diagnosticar avisos** numa ação ou analisar toda a biblioteca
+- **Encontrar ações** por nome, descrição ou recursos ligados («Que ações usam o gateway Discord?»)
+- **Copiar URLs de callback** para automação
+
+Quando seleccionas uma ação, o Alter envia um instantâneo das definições actuais com a tua primeira mensagem para o assistente poder editar imediatamente sem reler o ficheiro.
+
+Cada ação mantém o **seu próprio histórico de chat**. Mudar de linha troca as conversas; os rascunhos no campo de entrada são preservados por ação. Usa o botão do lixo no cabeçalho do chat para limpar uma conversa.
+
+<Tip>
+  Combina chat e edição manual: pede ao chat para redigir prompts ou ligar ferramentas e depois abre o **documento de ação** para afinares a redacção, parâmetros ou toggles de gateway tu próprio.
+</Tip>
+
+### Aprovações e configuração sensível
+
+Alterações destrutivas ou privilegiadas requerem a tua confirmação em folhas ou alertas nativos — por exemplo eliminar ações, repor substituições integradas, ligar apps OAuth, configurar servidores MCP, instalar ferramentas ou guardar webhooks e scripts de Ações rápidas.
+
+O Alter explica **bloqueadores de dependência** quando a eliminação falha (por exemplo uma ação ainda ligada a partir de uma Ação rápida ou workspace) e diz-te o que desligar primeiro.
+
+### Contexto de perfil para sugestões
+
+O chat do editor inclui informação do teu **perfil** ao gerar sugestões personalizadas — por exemplo recomendar ferramentas ou redacção que correspondam à tua forma de trabalhar. Desactiva isto por ação em **Geral → Incluir perfil** no documento de ação se preferires não enviar contexto de perfil para esse fluxo de trabalho.
+
+## Documento de ação
+
+Para controlo preciso, abre um **documento de ação** — uma janela dedicada com separadores de secção à esquerda e campos à direita. Usa-o quando quiseres editar prompts directamente, afinar parâmetros ou rever cada toggle.
+
+**Abrir um documento:**
+
+- Faz duplo clique num nome de ação na lista
+- Selecciona uma ação e prime **Return**
+- Clica com o botão direito → **Editar**
+- Noutra janela do Alter, usa **Editar no Editor de ações** quando disponível para a ação actual
+
+O título da janela do documento mostra o nome da ação. Ações integradas que personalizaste aparecem como substituições editáveis; duplica-as primeiro se quiseres uma cópia totalmente separada.
+
+### 1. Geral
+
+Configura metadados básicos, disponibilidade e contexto de execução.
+
+![General Tab](/images/tools/action-editor-01-general.webp)
+
+**Campos:**
+
+- **Activada** — Activa ou desactiva a ação
+- **Modo** — Mostra esta ação como um modo seleccionável na área de entrada do Hub
+- **Incluir perfil** — Inclui informação de perfil do utilizador no contexto de IA
+- **Guardar no History** — Mantém conversas desta ação no History para poderes reabrir e pesquisar mais tarde
+- **Nome**, **Descrição**, **Categoria**, **Ícone**
+- **Workspace** — Adiciona sempre um workspace ao contexto quando esta ação corre
+- **Atalho de teclado global** — Dispara esta ação a partir de qualquer lugar no teu Mac
+- **Gatilhos de voz** — Frases que executam esta ação durante a ditado
+
+**Opções de visibilidade** (também resumidas em **Quando mostrar**):
+
+- **Mostrar apenas quando em execução** — A ação aparece apenas se uma app escolhida estiver a correr
+- **Mostrar apenas quando activa** — A ação aparece apenas se uma app escolhida tiver foco
+- **Contexto de workspace** — Limita que workspace(s) veem esta ação
+
+<Note>
+  Cada ação recebe um UUID único automaticamente. Ações integradas são só de leitura até as duplicares ou guardares uma substituição.
+</Note>
+
+### 2. Prompt de sistema
+
+Define instruções de IA e parâmetros para o modelo.
 
 ![System Prompt Tab](/images/tools/action-editor-02-systemprompt.webp)
 
-**System Prompt** - Instruções de IA principais descrevendo o comportamento e experiência da IA.
+**Prompt de sistema** — Instruções centrais de IA que descrevem o comportamento e a especialidade da IA.
 
-** Exemplo:**
+**Exemplo:**
 ```
 # IDENTITY AND PURPOSE
 You are an expert software engineer who explains code clearly
@@ -92,17 +199,17 @@ and accessibly to developers of all skill levels.
 - Keep language clear and non-technical
 ```
 
-**Parâmetros** - Defina campos de entrada que os usuários podem personalizar antes da execução (inserção de texto, seleções suspensas, etc.).
+**Parâmetros** — Define campos de entrada que os utilizadores podem personalizar antes da execução (entrada de texto, selecções em dropdown, booleanos, números e mais).
 
-### 3. Pedido do Usuário
+### 3. Prompt do utilizador
 
-Modelo para o prompt voltado para o usuário que é enviado para a IA.
+Modelo para o prompt orientado ao utilizador que é enviado à IA.
 
 ![User Prompt Tab](/images/tools/action-editor-03-userprompt.webp)
 
-**Usando Variáveis de Contexto: **
+**Usar variáveis de contexto:**
 
-Quebrar variáveis em `{{ }}` para inserir conteúdo dinâmico:
+Envolve variáveis em `{{ }}` para inserir conteúdo dinâmico:
 
 ```
 Please explain this code:
@@ -112,216 +219,236 @@ Please explain this code:
 Explanation detail: {{ detailLevel }};
 ```
 
-** Variáveis de contexto disponíveis:**
-- `{{ textSelection }}` - Texto atualmente selecionado
-- `{{ filePath }}` - Localização do ficheiro seleccionado
-- `{{ clipboard }}` - Conteúdo da área de transferência
-- Parâmetros personalizados definidos no Prompt do Sistema
+**Variáveis de contexto disponíveis:**
+- `{{ textSelection }}` — Texto actualmente seleccionado
+- `{{ filePath }}` — Caminho para o ficheiro seleccionado
+- `{{ clipboard }}` — Conteúdo da área de transferência
+- Parâmetros personalizados que definiste no Prompt de sistema
 
-### 4. Quando Mostrar
+### 4. Quando mostrar
 
-Controle quando e onde esta ação aparece.
+Controla quando e onde esta ação aparece.
 
-![Quando Mostrar a Página](/images/tools/action-editor-04-whentoshow.webp)
+![When to Show Tab](/images/tools/action-editor-04-whentoshow.webp)
 
-** Condições de visibilidade: **
+**Condições de visibilidade:**
 
-- ** Aplicações Instaladas** - Mostrar ação apenas em aplicativos específicos (VSCOde, Xcode, Safari, etc.)
-- **A aplicação está em execução** - A ação requer que o aplicativo esteja em execução
-- **A aplicação tem foco** - A ação só funciona quando o aplicativo está em primeiro plano
-- ** Página do navegador Web contém** - Mostrar ação ao navegar domínios específicos
-- **Tem conteúdo** - Mostrar ação somente quando o contexto estiver disponível
+- **Aplicações instaladas** — Mostra a ação apenas em apps específicas (VSCode, Xcode, Safari, etc.)
+- **Aplicação em execução** — A ação requer que a app esteja a correr
+- **Aplicação com foco** — A ação só funciona quando a app está em primeiro plano
+- **Separador do browser contém** — Mostra a ação ao navegar em domínios específicos
+- **Tem conteúdo** — Mostra a ação apenas quando há contexto disponível
 
 ### 5. Automação
 
-Configurar o comportamento de execução, agendas e processamento de fundo.
+Configura comportamento de execução, horários e processamento em segundo plano.
 
-![ Página de Automação](/images/tools/action-editor-05-automation.webp)
+![Automation Tab](/images/tools/action-editor-05-automation.webp)
 
 **Campos:**
 
-- **Trabalho de Antecedentes** - Executar ação em segundo plano sem mostrar UI
-- ** Horários** - Executar ação em horários específicos (por exemplo, "Toda segunda-feira às 9h")
-- **Quick Action** - Execute a próxima "Quick Action" automaticamente após esta terminar
+- **Job em segundo plano** — Executa a ação em segundo plano sem mostrar UI
+- **Renderização de markdown em segundo plano** — Renderiza markdown para HTML ao colar em modo de segundo plano
+- **Enviar notificação do sistema** — Notifica pouco depois de um job em segundo plano concluir
+- **Horários** — Executa a ação em horários específicos (por exemplo, «Todas as segundas-feiras às 9h»)
+- **Ação rápida** — Executa uma Ação rápida ligada automaticamente após a primeira resposta do assistente
 
-Use isso para encadeamento de ação: primeira ação → saída → próxima ação executa automaticamente.
+Usa horários e Ações rápidas em conjunto para encadeamento de ações: primeira ação → saída → passo seguinte corre automaticamente.
 
-### 6. Tools
+### 6. Ferramentas
 
-Âmbito de aplicação dos instrumentos disponíveis para esta acção.
+Define o âmbito das ferramentas disponíveis para esta ação.
 
 ![Tools Tab](/images/tools/action-editor-06-tools.webp)
 
-** Configuração do Tool:**
+**Configuração de ferramentas:**
 
-- **Desativar Tools** - Ativar Tools individuais para restringir a funcionalidade
-- Quando vazio: Todas as Tools estão disponíveis
-- Quando configurado: Só estão disponíveis as Tools seleccionadas
+- **Desactivar ferramentas** — Quando desligado, apenas as ferramentas seleccionadas estão disponíveis; quando ligado, o acesso a ferramentas é restrito
+- Quando o acesso a ferramentas está activado com uma selecção vazia: todas as ferramentas activadas globalmente estão disponíveis
+- Quando configurado: apenas as ferramentas seleccionadas estão disponíveis
 
-**Memory:** Ligue a ferramenta **Memory** quando uma acção deve ler factos guardados ou pesquisar chats e reuniões anteriores. Memory não está activada para todas as acções por predefinição. Veja [Memory](/pt/workflows/memory) e [Gerir Memory](/pt/how-to/manage-memory).
+**Predefinições de Perguntar qualquer coisa (beta100+):** A ação integrada **Perguntar qualquer coisa** activa **Flow**, **Computer Use** e **Ask User** de origem. Personaliza ou duplica-a se quiseres um conjunto de ferramentas mais restrito.
 
-A acção integrada **Memory Catch-Up** inclui Memory já ligada. É a forma fiável da Alter para popular Memory a partir dos últimos 30 dias de chats e reuniões — recomendada ao activar Memory pela primeira vez ou preencher histórico recente. Veja [Memory Catch-Up](/pt/workflows/memory-catch-up).
+**Memory:** Liga a ferramenta **Memory** quando uma ação deve ler factos guardados ou pesquisar chats e reuniões anteriores. A Memory não está activada para todas as ações por predefinição. Consulta [Memory](/pt/workflows/memory) e [Gerir Memory](/pt/how-to/manage-memory).
 
-**Coding tools (pós-beta106):** O caminho mais rápido é um [agente de coding do Marketplace](/pt/workflows/coding-tools#get-started-from-the-marketplace-recommended) — descarregue em **Tools Manager → Marketplace → Browse** (por exemplo o [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) em directo) e execute uma vez; o Alter activa a integração de coding necessária na primeira utilização. Em alternativa, em **Local Tools → Coding**, ligue **ChatGPT**, **Cursor**, **OpenCode** e/ou **Claude** no **Tools Manager** primeiro e depois limite os fornecedores de cada action — por exemplo, uma action de release pode activar apenas **Cursor**. As sessões de coding correm de forma assíncrona; os resultados regressam à conversa de origem. Veja [Coding tools](/pt/workflows/coding-tools).
+A ação integrada **Memory Catch-Up** vem com a Memory já ligada. É a forma de confiança do Alter para inicializar a Memory a partir dos últimos 30 dias de chats e reuniões — recomendada quando activas a Memory pela primeira vez ou queres preencher histórico recente. Consulta [Memory Catch-Up](/pt/workflows/memory-catch-up).
 
-** Por que o escopo Tools?**
-- Reduzir as despesas gerais de decisão de IA (foco nas Tools relevantes)
-- Acelerar a execução da acção
-- Melhorar a segurança (limitar o que as ações podem acessar)
+**Ferramentas de coding (pós-beta106):** O caminho mais rápido é um [agente de coding do Marketplace](/pt/workflows/coding-tools#get-started-from-the-marketplace-recommended) — descarrega em **Ferramentas e ações → Marketplace → Browse** (por exemplo o [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) em directo) e executa-o uma vez; o Alter activa a integração de coding necessária na primeira utilização. Alternativamente, em **Ferramentas locais → Coding**, liga **ChatGPT**, **Cursor**, **OpenCode** e/ou **Claude** em **Ferramentas e ações** primeiro e depois define o âmbito de que fornecedores cada ação pode usar — por exemplo uma ação de release pode activar apenas **Cursor**. Sessões de coding correm de forma assíncrona; os resultados regressam à conversa de origem. Consulta [Ferramentas de coding](/pt/workflows/coding-tools).
+
+**Porquê definir o âmbito das ferramentas?**
+- Reduz a sobrecarga de decisão da IA (foco nas ferramentas relevantes)
+- Acelera a execução da ação
+- Melhora a segurança (limita o que as ações podem aceder)
+
+Também podes pedir ao **chat do editor** para anexar ou remover ferramentas sem abrir este separador.
 
 ### 7. Modelo
 
-Selecione o modelo de IA, thinking effort e o nível de criatividade.
+Selecciona modelo de IA, esforço de raciocínio e nível de criatividade.
 
-![Modelo de Página](/images/tools/action-editor-07-model.webp)
+![Model Tab](/images/tools/action-editor-07-model.webp)
 
 **Campos:**
 
-- **Modelo** — Seletor pesquisável agrupado em **Current**, **Favorites** e **Other models**. Deixe vazio para o modelo predefinido do utilizador, ou fixe um modelo para esta action.
-  - Cada linha mostra comprimento de contexto, suporte a visão e favoritos
-  - Quando o modelo suporta, ajuste **Thinking effort** (**Low**, **Balanced**, **Max**) inline
+- **Modelo** — Selector pesquisável agrupado em **Actual**, **Favoritos** e **Outros modelos**. Deixa vazio para usar a definição de modelo predefinido do utilizador ou fixa um modelo específico para esta ação.
+  - Cada linha mostra comprimento de contexto, suporte de visão e favoritos
+  - Quando o modelo o suporta, ajusta **Esforço de raciocínio** (**Baixo**, **Equilibrado**, **Máximo**) inline
 
-- **Temperatura** - Ajustar a criatividade vs. precisão
-  - **0.0** - Determinativo (consistente, previsível)
-  - **0.5** - Saldo (padrão)
-  - **1.0** - Criativo (imprevisível, exploratório)
+- **Temperatura** — Ajusta criatividade vs. precisão
+  - **0.0** — Determinístico (consistente, previsível)
+  - **0.5** — Equilibrado (predefinido)
+  - **1.0** — Criativo (imprevisível, exploratório)
 
-O Alter memoriza thinking effort **por modelo** no Hub, QuickHub e Action Editor.
+O Alter memoriza o esforço de raciocínio **por modelo** no Hub, QuickHub, Minhas ações e documentos de ação.
 
 <Tip>
-  Use **⌘F** na barra lateral do Action Editor para pesquisar actions. Clique no ícone de filtro para restringir por trabalhos em segundo plano, horários, avisos, actions modificadas ou **Folders** (categorias de actions). Filtros de pastas incluem atalhos **All** e **None**.
+  Usa **⌘F** em Minhas ações para pesquisar ações. Clica no ícone de filtro para restringir por jobs em segundo plano, horários, avisos, ações modificadas, listagens publicadas ou **Pastas**. Filtros de pasta incluem atalhos **Todas** e **Nenhuma**.
 </Tip>
 
 ### 8. Gateways
 
-Escolha se esta action está disponível nos Gateways **Discord** e **Telegram**.
+Escolhe as ligações de gateway exactas que podem usar esta ação. Cada gateway Buzz, Discord e Telegram configurado tem o seu próprio toggle, para duas contas na mesma plataforma poderem ter acesso diferente.
 
-**Disponibilidade** — opções de rádio:
+<Info>
+  **Buzz gateway (interno)** — O Buzz aparece apenas em builds internos do Alter para a equipa de desenvolvimento. Consulta [Buzz gateway (interno)](/pt/apps-tools/gateways-buzz).
+</Info>
+
+**Disponibilidade** — Toggles de gateway:
 
 | Definição | Efeito |
-|---------|--------|
-| **Nenhum** | Apenas local (Hub, QuickHub, etc.) |
-| **Discord** | Disponível em gateways Discord |
-| **Telegram** | Disponível em gateways Telegram |
-| **Todos** | Disponível em todos os gateways |
+|-----------|--------|
+| Todos os toggles desligados | Apenas local (Hub, QuickHub, etc.) |
+| Um gateway ligado | Disponível apenas a partir dessa ligação de gateway nomeada |
+| Vários gateways ligados | Disponível exactamente a partir dessas ligações, mesmo entre plataformas |
+| Todos os toggles ligados | Disponível a partir de todos os gateways actualmente configurados |
 
-A action incluída **Ask Anything** tem **Todos** por predefinição. Actions personalizadas começam em **Nenhum** até ativar uma plataforma ou **Todos**. Defina Ask Anything como **Nenhum** se quiser apenas local.
+A ação integrada **Perguntar qualquer coisa** aparece inicialmente em todos os gateways compatíveis. Ações personalizadas começam apenas locais até activares um ou mais toggles de gateway. Alterar qualquer toggle guarda uma lista explícita de ligações de gateway, por isso um gateway adicionado mais tarde não herda essa ação automaticamente.
 
-Nos Gateways, **actions sem parâmetros** (sem campos de entrada) executam de imediato quando escolhidas em **Choose action**; **actions com parâmetros** aguardam a mensagem seguinte do utilizador.
+Em Gateways, **acções sem parâmetros** (sem campos de entrada) correm imediatamente quando escolhidas em **Escolher ação**; **acções parametrizadas** aguardam a mensagem seguinte do utilizador.
 
-**Entrega programada via gateway** — Quando uma action corre num horário, ative **Start scheduled conversations on a gateway**, escolha um gateway **Discord**, **Telegram** ou **Buzz** *(interno)* ativado e depois um **Destination** (canal, chat ou stream Buzz). O Alter publica a resposta inicial da action aí em vez de correr apenas localmente. Gateways Buzz também podem definir **Default scheduled destination** em **Definições → Integrations → Gateways**.
+**Entrega agendada por gateway** — Quando uma ação corre num horário, activa **Iniciar conversas agendadas num gateway**, escolhe um gateway **Discord**, **Telegram** ou **Buzz** *(interno)* activado e depois selecciona um **Destino** (canal, chat ou stream Buzz). O Alter publica a resposta inicial da ação lá em vez de correr apenas localmente. Gateways Buzz também podem definir um **Destino agendado predefinido** em **Definições → Integrações → Gateways**.
 
-Consulte [Gateways](/apps-tools/gateways) para configuração, comandos de chat, entrega programada e definições de gateway.
+Consulta [Gateways](/pt/apps-tools/gateways) para configuração, comandos de chat, entrega agendada e definições de gateway.
 
-## Melhores Práticas
+### Diagnóstico e avisos
+
+Tanto Minhas ações como documentos de ação mostram **avisos** quando algo está mal configurado — Ações rápidas em falta, ícones inválidos, referências de gateway quebradas, problemas de workspace e problemas semelhantes.
+
+- Clica num distintivo de aviso numa linha ou secção para ver detalhes e correcções sugeridas
+- Filtra a lista para **Avisos** para auditar ações que precisam de atenção
+- Pede ao chat do editor para «corrigir avisos nesta ação» ou «analisar todas as ações por problemas»
+
+Os avisos descrevem apenas a configuração guardada; não provam como uma ação se comportou em execuções anteriores.
+
+## Boas práticas
 
 <CardGroup cols={2}>
-  <Card title="Limpar nomes" icon="tag">
-"Code Explainer" descreve o que ele faz. Evite nomes genéricos como "Action 1".
+  <Card title="Nomes claros" icon="tag">
+    «Code Explainer» descreve o que faz. Evita nomes genéricos como «Acção 1».
   </Card>
-  <Card title="Perguntas Específicas" icon="message">
-Seja detalhado com instruções de IA. Prompts genéricos produzem saídas genéricas.
+  <Card title="Prompts específicos" icon="message">
+    Sê detalhado nas instruções de IA. Prompts genéricos produzem saídas genéricas.
   </Card>
-  <Card title="Âmbito de aplicação Tools" icon="tool">
-Ativar apenas as Tools de que necessita. Reduz a sobrecarga e melhora a velocidade.
+  <Card title="Definir âmbito das ferramentas" icon="tool">
+    Activa apenas as ferramentas que a tua ação precisa. Reduz sobrecarga e melhora a velocidade.
   </Card>
-  <Card title="Usar Variáveis de Contexto" icon="brackets">
-`{{ textSelection }}` funciona sempre. Cópia/cola manual é propensa a erros.
+  <Card title="Usar variáveis de contexto" icon="brackets">
+    `{{ textSelection }}` funciona sempre. Copiar/colar manualmente é propenso a erros.
   </Card>
-  <Card title="Visibilidade Condicional" icon="eye">
-"Explicador de Código" apenas em VSCOde + Xcode reduz a desordem do menu.
+  <Card title="Visibilidade condicional" icon="eye">
+    «Code Explainer» apenas em VSCode + Xcode reduz a desordem no menu.
   </Card>
-  <Card title="Testar Antes de Partilhar" icon="check">
-Teste com dados reais antes de implantar para sua equipe.
+  <Card title="Chat mais documento" icon="wand-magic-sparkles">
+    Redige rapidamente no chat do editor e depois abre o documento de ação para polir prompts e parâmetros.
   </Card>
 </CardGroup>
 
-## Exemplos de acções comuns
+## Exemplos comuns de ações
 
-### Exemplo 1: Explicador de Código
+### Exemplo 1: Code Explainer
 
-**Setup:**
-- **Nome:** Explicar o Código
-- ** Categoria:** código
-- ** Aplicativos instalados:** VSCODE, Xcode
-- ** Prompt do Sistema: ** Você é um programador especialista que explica claramente o código
-- ** Prompt do Usuário:** `Please explain this code:\n\n{{ textSelection }}`
-- **Consumidor:** markdown
+**Configuração:**
+- **Nome:** Explain Code
+- **Categoria:** code
+- **Apps instaladas:** VSCode, Xcode
+- **Prompt de sistema:** You are an expert programmer who explains code clearly
+- **Prompt do utilizador:** `Please explain this code:\n\n{{ textSelection }}`
+- **Consumer:** markdown
 - **Temperatura:** 0.5
 
-### Exemplo 2: E-mail Draft Creator
+### Exemplo 2: Criador de rascunho de email
 
-**Setup:**
-- ** Nome:** Rascunho de Email
-- ** Categoria:** produtividade
-- **Quando Mostrar:** Aplicativo de e- mail ativo
-- ** Prompt do Sistema: ** Você é um comunicador profissional de negócios
-- ** Prompt do Usuário:** `Transform this into a professional email:\n\n{{ textSelection }}`
-- **Tools:** Ativar apenas o Email
-- **Consumidor:** no local
-- **Temperatura: ** 0.6
+**Configuração:**
+- **Nome:** Draft Email
+- **Categoria:** productivity
+- **Quando mostrar:** App Mail activa
+- **Prompt de sistema:** You are a professional business communicator
+- **Prompt do utilizador:** `Transform this into a professional email:\n\n{{ textSelection }}`
+- **Ferramentas:** Activa apenas Mail
+- **Consumer:** in-place
+- **Temperatura:** 0.6
 
 ### Exemplo 3: Resumo diário agendado
 
-**Setup:**
+**Configuração:**
 - **Nome:** Daily Brief
-- ** Categoria:** produtividade
-- **Automação:** Horário para 9:00 da manhã diariamente
-- ** Trabalho de Antecedentes:** Activado
-- ** Prompt do Sistema: ** Gerar um resumo diário de prioridades
+- **Categoria:** productivity
+- **Automação:** Horário para 9:00 diariamente
+- **Job em segundo plano:** Activado
+- **Prompt de sistema:** Generate a daily brief of priorities
 
-## Ativadores de Voz
+## Gatilhos de voz
 
-Atribuir teclas de atalho de voz para ativar ações sem mãos:
+Atribui atalhos de voz para disparar ações sem usar as mãos:
 
 <Steps>
-  <Step title="Configuração do Sistema">
-Ir para **Configurações > Ativadores de Voz**
+  <Step title="Definições do sistema">
+    Vai a **Definições > Gatilhos de voz**
   </Step>
   <Step title="Adicionar gatilho">
-Clique em **+ Adicionar gatilho**
+    Clica em **+ Adicionar gatilho**
   </Step>
-  <Step title="Selecionar ação">
-Escolha a ação do dropdown
+  <Step title="Seleccionar ação">
+    Escolhe a ação no dropdown
   </Step>
-  <Step title="Atribuir Frase">
-Digite frase de gatilho (por exemplo, "explicar" para Explicador de Código)
+  <Step title="Atribuir frase">
+    Introduz a frase de gatilho (por exemplo, «explain» para Code Explainer)
   </Step>
-  <Step title="Gravar">
-Clique em Salvar e você está pronto
+  <Step title="Guardar">
+    Clica em Guardar e estás pronto
   </Step>
 </Steps>
 
-** Uso: ** Mantenha a tecla de atalho da voz + dizer frase de gatilho → A ação executa com o contexto atual
+**Utilização:** Mantém o atalho de voz + diz a frase de gatilho → A ação executa com o contexto actual
 
 ## Integração x-callback-url
 
-Ações do gatilho Alter de ** qualquer aplicativo** usando URLs especiais. Isso permite poderosos fluxos de trabalho de automação entre aplicativos.
+Dispara ações do Alter a partir de **qualquer aplicação** usando URLs especiais. Isto permite fluxos de trabalho de automação potentes entre apps.
 
 ### O que é x-callback-url?
 
-x-callback-url é um protocolo de comunicação interaplicativo que permite que aplicativos acionam ações um no outro através de URLs formatadas.
+x-callback-url é um protocolo de comunicação entre apps que permite às aplicações disparar acções umas nas outras através de URLs formatadas.
 
-- **Inbound** - Ações do Trigger Alter de outros aplicativos (Shortcuts, Notes, Safari, etc.)
-- **Outbound** - Criar links em Alter que abrem outros aplicativos (Bear, OmniFocus, Drafts, etc.)
+- **Entrada** — Dispara ações do Alter a partir de outras apps (Shortcuts, Notes, Safari, etc.)
+- **Saída** — Cria ligações no Alter que abrem outras apps (Bear, OmniFocus, Drafts, etc.)
 
-### Obtendo o URL de retorno de sua ação
+### Obter o URL de callback da tua ação
 
 <Steps>
-  <Step title="Abrir o Editor de Ação">
-Imprensa ** ** E
+  <Step title="Abrir Minhas ações">
+    Prime **⌘⇧E**
   </Step>
-  <Step title="Selecionar ação">
-Escolha a ação que deseja expor
+  <Step title="Seleccionar ou perguntar">
+    Selecciona a ação na lista ou pede ao chat do editor o URL de callback
   </Step>
-  <Step title="Ir para Geral">
-Navegar para a página Geral
+  <Step title="Abrir o documento de ação">
+    Faz duplo clique na ação (ou escolhe **Editar** no menu de contexto)
   </Step>
-  <Step title="Encontrar URL Callback">
-Procurar a secção "URL Callback"
+  <Step title="Ir a Geral">
+    Navega para a secção **Geral**
   </Step>
   <Step title="Copiar URL">
-Copiar o URL do `alter://`
+    Copia o URL `alter://` de **URL Callback** ou cola o URL que o chat do editor devolveu
   </Step>
 </Steps>
 
@@ -330,87 +457,124 @@ Copiar o URL do `alter://`
 alter://action/{action-id}?input=VALUE&param2=VALUE
 ```
 
-### Ativando ações Alter de outros aplicativos
+### Disparar ações do Alter a partir de outras apps
 
-**Exemplo 1: Pesquisa Web do Safari**
+**Exemplo 1: Pesquisa web a partir do Safari**
 ```
 alter://action/ask-web?input=What+is+Alter+MacOS
 ```
 
-**Exemplo 2: Explicador de Código com Entrada**
+**Exemplo 2: Code Explainer com entrada**
 ```
 alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 ```
 
-**Exemplo 3: Utilização em Atalhos da Apple**
-1. Criar um Atalho Novo
-2. Adicionar ação de "Abrir URL"
-3. Colar o seu URL `alter://`
-4. Executar o atalho para activar a acção
+**Exemplo 3: Usar no Apple Shortcuts**
+1. Cria um novo Atalho
+2. Adiciona a acção «Open URL»
+3. Cola o teu URL `alter://`
+4. Executa o atalho para disparar a ação
 
-### Casos de Uso
+### Casos de uso
 
 <AccordionGroup>
   <Accordion icon="workflow" title="Automação de fluxo de trabalho">
-Trigger action from Calendar → Gerar notas de reunião → Criar rascunho de email
+    Dispara ação a partir do Calendar → Gera notas de reunião → Cria rascunho de email
   </Accordion>
 
-  <Accordion icon="link-2" title="Integração Multi- App">
-Botão de Noção → Trigger Alter ação → Atualizar status da tarefa
+  <Accordion icon="link-2" title="Integração multi-app">
+    Botão Notion → Dispara ação do Alter → Actualiza estado da tarefa
   </Accordion>
 
-  <Accordion icon="copy" title="Transferência de Informação">
-Copiar texto → Acionar ação com callback → Abrir resultado em aplicativo externo (sem cópia manual necessária)
+  <Accordion icon="copy" title="Transferência de informação">
+    Copia texto → Dispara ação com callback → Abre resultado numa app externa (sem copiar manualmente)
   </Accordion>
 </AccordionGroup>
 
-## Atalhos do Teclado
+## Atalhos de teclado
 
-Atalho
----------------------
-□ Editor de Ação Aberto
-□ Nova acção □ `Cmd + N` (em editor) □
-□ Salvar ação □ `Cmd + S` (no editor)
-Excluir ação (em editor)
-□ Ações de Pesquisa □ `Cmd + F` (no editor)
+### Globais
 
-## Solução de problemas
+| Acção | Atalho |
+|-------|--------|
+| Abrir **Minhas ações** | `⌘⇧E` |
+| Abrir **Ferramentas e ações** | `⌘⇧T` |
+
+### Minhas ações (janela Ferramentas e ações, Minhas ações seleccionado)
+
+| Acção | Atalho |
+|-------|--------|
+| Focar pesquisa de ações | `⌘F` |
+| Nova ação (inicia chat do editor) | `⌘N` |
+| Abrir documento de ação | `Return` (uma linha seleccionada) |
+| Duplicar ação | `⌘D` |
+| Exportar ação | `⌘E` |
+| Importar ação | `⌘O` |
+| Eliminar / repor ação | `⌘Delete` |
+
+### Janela de documento de ação
+
+| Acção | Atalho |
+|-------|--------|
+| Secção anterior | `⌘[` |
+| Secção seguinte | `⌘]` |
+| Fechar janela | `⌘W` |
+
+Comandos do menu Ficheiro em Minhas ações e documentos de ação seguem qualquer janela do Alter que esteja activa.
+
+Consulta [Atalhos](/pt/references/shortcuts) para a lista completa.
+
+## Resolução de problemas
 
 <AccordionGroup>
   <Accordion icon="circle-exclamation" title="A ação não aparece no menu">
-    - Verificar ** Quando Mostrar** configurações
-    - Verificar a aplicação está em execução/activa (se configurada)
-    - Garantir que a ação é ** habilitado**
+    - Verifica as definições de **Quando mostrar** no documento de ação
+    - Confirma que a app está a correr/activa (se configurado)
+    - Garante que a ação está **activada**
   </Accordion>
 
-  <Accordion icon="triangle-exclamation" title="A ação é executada mas produz um resultado ruim">
-    - Revisão **Prompt do sistema** — ser mais específico
-    - Ajuste **Temperatura ** (menor para precisão, maior para criatividade)
-    - Verificar **Prompt do usuário** — garantir que as variáveis estão corretas
+  <Accordion icon="triangle-exclamation" title="A ação corre mas produz saída fraca">
+    - Revê o **Prompt de sistema** — sê mais específico
+    - Ajusta a **Temperatura** (mais baixa para precisão, mais alta para criatividade)
+    - Verifica o **Prompt do utilizador** — garante que as variáveis estão correctas
   </Accordion>
 
-  <Accordion icon="microphone" title="O gatilho de voz não está funcionando">
-    - Verificar a tecla de atalho está configurada na Configuração
-    - Verificar as permissões do microfone
-    - Teste com gatilho manual primeiro
+  <Accordion icon="microphone" title="Gatilho de voz não funciona">
+    - Verifica se o atalho está configurado nas Definições
+    - Verifica permissões do microfone
+    - Testa primeiro com disparo manual
   </Accordion>
 
-  <Accordion icon="lock" title="Tools não está disponível em acção">
-    - Ir para a página **Tools**
-    - Verificar as Tools não estão desactivadas
-    - Verificar as permissões do sistema para a Tool
+  <Accordion icon="lock" title="Ferramentas não disponíveis na ação">
+    - Abre o documento de ação → secção **Ferramentas**
+    - Verifica se as ferramentas não estão desactivadas e se as ferramentas certas estão seleccionadas
+    - Confirma que a ferramenta está activada em **Ferramentas e ações → Tools activos**
+    - Pede ao chat do editor para inspeccionar o acesso a ferramentas se tiveres dúvidas
+  </Accordion>
+
+  <Accordion icon="stethoscope" title="Avisos numa ação">
+    - Clica no distintivo de aviso para detalhes
+    - Abre a secção ligada (Ferramentas, Gateways, Ação rápida, etc.) e corrige a referência
+    - Pede ao chat do editor para diagnosticar e reparar a ação seleccionada
+  </Accordion>
+
+  <Accordion icon="trash" title="Não consigo eliminar uma ação">
+    - Lê a mensagem de dependência — outra Ação rápida, ação ou workspace pode ainda referenciá-la
+    - Remove essas ligações primeiro e depois tenta eliminar novamente a partir do menu de contexto ou chat do editor
   </Accordion>
 </AccordionGroup>
 
 ## Guias relacionados
 
-- [Tools & Integrations](/apps-tools/integrations-overview) — Tools disponíveis para as suas acções
-- [URL Callbacks](/workflows/url-callbacks) — Mergulho profundo na automação x-callback-url
-- [Voz & Ditação](/workflows/dictation) — Configurar gatilhos de voz
-- [Configurações](/how-to/settings-guide) — Configurar o modelo global e as configurações de voz
+- [Criar ações reutilizáveis](/pt/getting-started/actions-basics) — Primeira ação em minutos
+- [Gerir ferramentas](/pt/how-to/tool-manager-guide) — Ligar integrações usadas pelas tuas ações
+- [Ferramentas e integrações](/pt/apps-tools/integrations-overview) — Ferramentas disponíveis para as tuas ações
+- [URL Callbacks](/pt/workflows/url-callbacks) — Aprofundamento em automação x-callback-url
+- [Voz e ditado](/pt/workflows/dictation) — Configurar gatilhos de voz
+- [Definições](/pt/how-to/settings-guide) — Configurar modelo global e definições de voz
 
 ---
 
-** Pronto para construir?** Abra Alter, pressione `⌘⇧E` e comece a criar sua primeira ação!
+**Pronto para construir?** Prime **⌘⇧E**, descreve a ação que queres no chat do editor ou faz duplo clique em qualquer ação para abrir o seu documento.
 
-**Quer automatizar todos os aplicativos?** Use x-callback-urls para ativar ações do Safari, Atalhos, Notas ou qualquer aplicativo que suporte esquemas de URL.
+**Queres automatizar entre apps?** Usa x-callback-urls para disparar ações a partir do Safari, Shortcuts, Notes ou qualquer app que suporte esquemas de URL.

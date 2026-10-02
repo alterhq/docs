@@ -1,79 +1,186 @@
 ---
-title: "改变行动"
-description: "通过语音触发和自动化创建和配置自定义AI工作流程"
+title: "Alter Actions"
+description: "通过「我的操作」、编辑器聊天和操作文档创建并配置自定义 AI 工作流"
 ---
 
 <Info>
-  **改变操作**是可自定义的人工智能工作流程，可以让您为特定任务创建专门的助手。结合AI指令、语音触发、工具和条件执行，以自动化Mac上的任何操作。
+  **Alter Actions** 是可自定义的 AI 工作流，让你为特定任务创建专用助手。结合 AI 指令、语音触发、工具和条件执行，在 Mac 上自动化任何操作。
 </Info>
 
-## 什么是更改操作？
+## 什么是 Alter Action？
 
-**更改操作**是一种高级自动化，它结合了：
+**Alter Action** 是一种高级自动化，它结合了：
 
-- **AI指令** - 系统提示定义AI的行为方式
-- **执行** - 语音命令、热键或条件执行
-- **上下文** - 访问选定的文本、文件、活动应用程序
-- **工具** - 配置与您的 Mac 和 2000 多个外部服务的集成
-- **输出** - 结果如何展示（降价、代码、内联插入）
+- **AI 指令** — 定义 AI 行为方式的系统提示词
+- **触发器** — 语音命令、热键或条件执行
+- **上下文** — 访问选中文本、文件、活动应用
+- **工具** — 与 Mac 及 2000+ 外部服务的集成配置
+- **输出** — 结果的展示方式（Markdown、代码、内联插入）
 
-将Alter Action视为针对特定任务定制的“专业人工智能助手”。
+可以把 Alter Action 理解为针对特定任务定制的「专用 AI 助手」。
 
-## 打开动作编辑器
+## 打开「我的操作」
 
-### 方法1：菜单栏（最快）
-1. 单击菜单栏中的 **更改菜单图标**（右上角）
-2. 选择**动作编辑器**
+Alter 现在在 **工具与操作** 中管理操作。**我的操作** 部分整合了可搜索的操作列表、内联控件，以及可以为你创建或修改操作的 **编辑器聊天**。
+
+### 方法 1：键盘快捷键（最快）
+
+按 **⌘⇧E**（Command + Shift + E）。Alter 会直接打开 **工具与操作** 并进入 **我的操作**。
+
+### 方法 2：窗口菜单
+
+1. 打开任意 Alter 窗口（Hub、QuickHub 或工具与操作）
+2. 选择 **窗口 → 我的操作**
+
+### 方法 3：工具与操作侧边栏
+
+1. 按 **⌘⇧T**（Command + Shift + T）打开 **工具与操作**
+2. 在侧边栏中选择 **我的操作**
+
+侧边栏徽章显示当前启用的操作数量。
+
+<Tip>
+  **⌘⇧E** 直接进入操作管理。**⌘⇧T** 打开完整的工具与操作窗口，包括 Marketplace、活动工具、快速操作、Skills 和远程 MCP。
+</Tip>
+
+<Note>
+  **我的操作** 和操作文档需要登录。如果已登出，Alter 会显示登录覆盖层，而不是编辑器。
+</Note>
+
+## 「我的操作」布局
+
+选中 **我的操作** 时，窗口分为三个工作区域：
+
+| 区域 | 作用 |
+|------|------|
+| **左侧** | 工具与操作导航（Marketplace、本地工具、快速操作、Skills、远程 MCP、**我的操作**） |
+| **中间** | 操作列表 — 文件夹、搜索、筛选器和每行控件 |
+| **右侧** | **编辑器聊天** — 用自然语言描述更改，Alter 会替你应用 |
 
 ![菜单栏](/images/tools/menu-bar-action-editor.webp)
 
-### 方法 2：选项菜单
-1. 打开更改窗口
-2.点击右上角的********（三个点）
-3. 选择**动作编辑器**
+首次访问时，如果未选中任何操作，编辑器聊天会以 **管理我的操作** 模式打开，方便你描述新操作或询问如何修改整个库。
 
-![选项菜单](/images/tools/options-menu-action-editor.webp)
+### 操作列表
 
-###方法3：键盘快捷键
-按 **⌘⇧E** (Command + E) 直接打开动作编辑器
+操作按 **文件夹**（类别）分组。你可以：
+
+- **搜索**（**⌘F**）— 匹配操作名称及已索引的资源属性（工具、Gateways、快速操作及类似关联资源）
+- **筛选**（筛选图标）— 按后台任务、计划、警告、已修改操作、已发布列表、已禁用操作或特定文件夹缩小范围
+- **折叠或展开** 文件夹、**重命名** 文件夹，以及 **拖拽操作** 在文件夹间移动
+- **多选操作** 进行批量导出、移动、启用/禁用或删除
+- 从工具栏 **创建文件夹**，然后通过拖放或行上下文菜单添加操作
+
+每行可快速查看状态：
+
+- **图标和名称** — 双击名称（或选中一行后按 **Return**）打开操作文档
+- **语音触发** 指示器（已配置语音短语时显示）
+- **由你修改** 徽章（自定义了内置操作时显示）
+- **后台任务** 指示器
+- **Marketplace** 指示器（操作来自列表时显示）
+- **警告** 指示器（诊断发现配置问题时显示）
+
+### 内联行控件
+
+无需打开完整文档，每行右侧有三个控件：
+
+| 控件 | 作用 |
+|------|------|
+| **模型** | 选择 **默认**，或为该操作固定模型和思考力度 |
+| **计划** | 查看、添加、编辑或删除计划 |
+| **快捷键** | 录制或更改全局键盘快捷键 |
+
+若尚未设置快捷键，悬停行即可显示快捷键控件。
+
+### 行上下文菜单
+
+右键单击一个或多个操作，可 **运行**、**编辑**、**重命名**、设置 **键盘快捷键**、**移动到** 文件夹、**启用** / **禁用**、**复制**、**导出**、**发布到 Marketplace** 或 **删除** / **重置**。
+
+**编辑** 会在单独的 **操作文档** 窗口中打开该操作，便于逐字段编辑。
+
+## 编辑器聊天
+
+右侧栏是用于管理操作的专用聊天。它使用 Alter 的快速模型和固定的管理工具集，让你用描述代替逐个点击标签页。
+
+### 在聊天中可以做什么
+
+请 Alter：
+
+- **创建** 新操作（例如：「做一个每天早上 9 点运行的每日站会摘要操作」）
+- **编辑** 所选操作的提示词、参数、可见性、模型、工具、计划或 Gateways
+- **启用或限定工具** 范围（全局或针对单个操作）
+- **配置快速操作** — Alter 会打开经过审核的表单，用于 Webhook、AppleScript/JXA、快捷指令及类似设置
+- 通过原生批准表单 **连接 Connected Applications** 和 **MCP 服务器**
+- **安装或启用 Skills**
+- **诊断警告**（单个操作或扫描整个库）
+- **查找操作**（按名称、描述或关联资源，例如：「哪些操作使用了 Discord Gateway？」）
+- **复制回调 URL** 用于自动化
+
+选中操作后，Alter 会在你的第一条消息中附带当前设置的快照，助手可以立即编辑，无需重新读取文件。
+
+每个操作保留 **各自的聊天历史**。切换行会切换对话；输入框中的草稿按操作分别保留。使用聊天标题栏中的垃圾桶按钮清除对话。
 
 <Tip>
-  一旦您记住了键盘快捷键，它就是最快的方法。
+  结合聊天与手动编辑：让聊天起草提示词或连接工具，然后打开 **操作文档** 自行微调措辞、参数或 Gateway 开关。
 </Tip>
 
-## 动作编辑器演练
+### 批准与敏感设置
 
-动作编辑器有 7 个主要部分，每个部分控制动作的不同方面。使用左侧面板在选项卡之间导航。
+破坏性或有权限的更改需要在原生表单或警告中确认 — 例如删除操作、重置内置覆盖、连接 OAuth 应用、配置 MCP 服务器、安装工具，或保存快速操作 Webhook 和脚本。
 
-### 1. 常规设置
+删除失败时，Alter 会说明 **依赖阻塞**（例如操作仍被快速操作或 workspace 关联），并告诉你应先取消哪些链接。
 
-配置基本元数据和执行上下文。
+### 用于建议的个人资料上下文
 
-![常规选项卡](/images/tools/action-editor-01-general.webp)
+编辑器聊天在生成定制建议时会包含你的 **个人资料** 信息 — 例如推荐符合你工作方式的工具或措辞。若不希望该工作流发送个人资料上下文，可在操作文档的 **常规 → 包含个人资料** 中关闭。
 
-** 字段：**
-- **名称** - 可执行的操作名称（例如“人类代码解释器”）
-- **描述** - 此操作的作用（任选）
-- **类别** - 选择类型（代码、生产力、业务等）组织操作
-- **工作空间** - 分配特定的工作空间（任选）
-- **包含个人数据** - 在AI上下文中包含用户个人数据信息
+## 操作文档
 
-**可见性选项：**
-- **仅在运行时显示** - 仅当应用程序正在运行时才会显示操作
-- **仅在活动时显示** - 仅当应用程序具有焦点时才显示操作
-- **工作空间上下文** - 选择哪些工作空间可以看到此操作
+如需精确控制，打开 **操作文档** — 一个专用窗口，左侧为分区标签，右侧为字段。适合直接编辑提示词、调整参数或查看每个开关。
+
+**打开文档：**
+
+- 在列表中双击操作名称
+- 选中一个操作并按 **Return**
+- 右键 → **编辑**
+- 从其他 Alter 窗口，在当前操作可用时选择 **在操作编辑器中编辑**
+
+文档窗口标题显示操作名称。你自定义过的内置操作会显示为可编辑覆盖；如需完全独立的副本，请先复制。
+
+### 1. 常规
+
+配置基本元数据、可用性和执行上下文。
+
+![常规标签](/images/tools/action-editor-01-general.webp)
+
+**字段：**
+
+- **已启用** — 开启或关闭操作
+- **模式** — 在 Hub 输入区域将此操作显示为可选模式
+- **包含个人资料** — 在 AI 上下文中包含用户个人资料信息
+- **保存到历史记录** — 保留此操作的对话到历史记录，便于稍后重新打开和搜索
+- **名称**、**描述**、**类别**、**图标**
+- **Workspace** — 运行此操作时始终将 workspace 加入上下文
+- **全局键盘快捷键** — 在 Mac 任意位置触发此操作
+- **语音触发** — 听写期间运行此操作的短语
+
+**可见性选项**（也在 **显示时机** 下汇总）：
+
+- **仅在运行时显示** — 仅当所选应用正在运行时才显示操作
+- **仅在活跃时显示** — 仅当所选应用获得焦点时才显示操作
+- **Workspace 上下文** — 限制哪些 workspace 能看到此操作
 
 <Note>
-  每个操作都会自动获得一个唯一的UUID。
+  每个操作会自动获得唯一 UUID。内置操作在复制或保存覆盖之前为只读。
 </Note>
 
-### 2.系统提示
+### 2. 系统提示词
 
-定义模型的AI指令和参数。
+定义模型的 AI 指令和参数。
 
-![系统提示选项卡](/images/tools/action-editor-02-systemprompt.webp)
+![系统提示词标签](/images/tools/action-editor-02-systemprompt.webp)
 
-**系统提示** - 描述AI行为和专业知识的核心AI指令。
+**系统提示词** — 描述 AI 行为和专长的核心 AI 指令。
 
 **示例：**
 ```
@@ -92,17 +199,17 @@ and accessibly to developers of all skill levels.
 - Keep language clear and non-technical
 ```
 
-**参数** - 定义用户可以在执行前自定义的输入字段（文本输入、下拉选择等）。
+**参数** — 定义用户可在执行前自定义的输入字段（文本输入、下拉选择、布尔值、数字等）。
 
-### 3. 用户提示
+### 3. 用户提示词
 
-发送到 AI 的用户的提示模板。
+面向用户的提示词模板，会发送给 AI。
 
-![用户提示选项卡](/images/tools/action-editor-03-userprompt.webp)
+![用户提示词标签](/images/tools/action-editor-03-userprompt.webp)
 
 **使用上下文变量：**
 
-将变量包装在 `{{ }}` 中以插入动态内容：
+用 `{{ }}` 包裹变量以插入动态内容：
 
 ```
 Please explain this code:
@@ -112,110 +219,147 @@ Please explain this code:
 Explanation detail: {{ detailLevel }};
 ```
 
-**可用的上下文变量：**
-- `{{ textSelection }}` - 当前选择的文本
-- `{{ filePath }}` - 所选文件的路径
-- `{{ clipboard }}` - 剪贴板内容
-- 您在系统提示中定义的自定义参数
+**可用上下文变量：**
+- `{{ textSelection }}` — 当前选中的文本
+- `{{ filePath }}` — 所选文件的路径
+- `{{ clipboard }}` — 剪贴板内容
+- 在系统提示词中定义的自定义参数
 
-### 4. 何时展示
+### 4. 显示时机
 
-控制此操作出现的时间和位置。
+控制此操作何时何地出现。
 
-![何时显示选项卡](/images/tools/action-editor-04-whentoshow.webp)
+![显示时机标签](/images/tools/action-editor-04-whentoshow.webp)
 
-**能见度条件：**
+**可见性条件：**
 
-- **已安装的应用程序** - 仅在特定应用程序（VSCode、Xcode、Safari 等）中显示操作
-- **应用程序正在运行** - 操作要求应用程序正在运行
-- **具有程序焦点的应用程序** - 只有当应用程序位于前台时操作才有效
-- **Web浏览器选项卡包含** - 浏览特定域时显示操作
-- **有内容** - 只有当上下文可用时才显示操作
+- **已安装应用** — 仅在特定应用中显示操作（VSCode、Xcode、Safari 等）
+- **应用正在运行** — 操作要求应用正在运行
+- **应用获得焦点** — 仅当应用在前台时才可用
+- **Web 浏览器标签页包含** — 浏览特定域名时显示操作
+- **有内容** — 仅当有可用上下文时才显示操作
 
 ### 5. 自动化
 
 配置执行行为、计划和后台处理。
 
-![自动化选项卡](/images/tools/action-editor-05-automation.webp)
+![自动化标签](/images/tools/action-editor-05-automation.webp)
 
 **字段：**
 
-- **模型** — 可搜索选择器，分为 **Current**、**Favorites** 和 **Other models**。留空则使用用户默认模型，或为该 Action 固定特定模型。
-  - 每行显示上下文长度、Vision 支持和收藏
-  - 当模型支持时，内联调整 **Thinking effort**（**Low**、**Balanced**、**Max**）
+- **后台任务** — 在后台运行操作，不显示 UI
+- **后台 Markdown 渲染** — 后台模式下粘贴时将 Markdown 渲染为 HTML
+- **发送系统通知** — 后台任务完成后不久发送通知
+- **计划** — 在特定时间执行操作（例如「每周一上午 9 点」）
+- **快速操作** — 在首次助手回复后自动执行关联的快速操作
 
-- **温度** - 调整创造力与精度
-  - **0.0** - 确定性（一致、可预测）
-  - **0.5** - 平衡（默认）
-  - **1.0** - 创意（不可预测，探索性）
-
-Alter 在 Hub、QuickHub 和 Action Editor 中**按模型**记住 thinking effort。
-
-<Tip>
-  在 Action Editor 侧边栏使用 **⌘F** 搜索 Action。点击筛选图标可按后台任务、计划、警告、已修改 Action 或 **Folders**（Action 类别）筛选。文件夹筛选包含 **All** 和 **None** 快捷方式。
-</Tip>
+将计划与快速操作结合可实现操作链：第一个操作 → 输出 → 下一步自动运行。
 
 ### 6. 工具
 
-限定此 Action 可用的工具。
+限定此操作可用的工具。
 
-![工具选项卡](/images/tools/action-editor-06-tools.webp)
+![工具标签](/images/tools/action-editor-06-tools.webp)
 
 **工具配置：**
 
-- **禁用工具** — 关闭单个工具以限制功能
-- 为空时：所有工具可用
+- **禁用工具** — 关闭时，仅所选工具可用；开启时，工具访问受限
+- 启用工具访问且选择为空时：所有全局激活的工具均可用
 - 已配置时：仅所选工具可用
 
-**Ask Anything 默认值（beta100+）：** 内置 **Ask Anything** Action 默认启用 **Flow**、**Computer Use** 和 **Ask User**。如需更窄的工具集，请自定义或复制它。
+**随便问默认值（beta100+）：** 内置 **随便问** 操作默认启用 **Flow**、**Computer Use** 和 **Ask User**。如需更窄的工具集，可自定义或复制该操作。
 
-**Memory：** 当 Action 需要读取已保存的事实或搜索先前的聊天和会议时，链接 **Memory** 工具。Memory 默认不会为每个 Action 启用。参见 [Memory](/zh/workflows/memory) 和 [管理 Memory](/zh/how-to/manage-memory)。
+**Memory：** 当操作需要读取已保存事实或搜索过往聊天和会议时，关联 **Memory** 工具。Memory 并非默认对所有操作启用。参见 [Memory](/zh/workflows/memory) 和 [管理 Memory](/zh/how-to/manage-memory)。
 
-内置 **Memory Catch-Up** Action 已预链接 Memory。这是 Alter 从过去 30 天的聊天和会议引导 Memory 的可信方式 — 首次启用 Memory 或回填近期历史时推荐使用。参见 [Memory Catch-Up](/zh/workflows/memory-catch-up)。
+内置 **Memory Catch-Up** 操作已关联 Memory。这是 Alter 从过去 30 天聊天和会议引导 Memory 的推荐方式 — 首次启用 Memory 或需要回填近期历史时建议使用。参见 [Memory Catch-Up](/zh/workflows/memory-catch-up)。
 
-**Coding tools（post-beta106）：** 最快路径是 [Marketplace 编程智能体](/zh/workflows/coding-tools#get-started-from-the-marketplace-recommended) — 从 **Tools Manager → Marketplace → Browse** 下载（例如已上线的 [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)）并运行一次；Alter 会在首次使用时启用所需的编程集成。或者，先在 **Tools Manager** 的 **Local Tools → Coding** 下连接 **ChatGPT**、**Cursor**、**OpenCode** 和/或 **Claude**，然后限定每个 Action 可用的提供商 — 例如发布 Action 可能仅启用 **Cursor**。编程会话异步运行；结果返回原始对话。参见 [Coding tools](/zh/workflows/coding-tools)。
+**Coding tools（beta106 之后）：** 最快路径是 [Marketplace 编程智能体](/zh/workflows/coding-tools#get-started-from-the-marketplace-recommended) — 从 **工具与操作 → Marketplace → Browse** 下载（例如已上线的 [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)）并运行一次；Alter 会在首次使用时启用所需的编程集成。或者，先在 **工具与操作** 的 **本地工具 → Coding** 下连接 **ChatGPT**、**Cursor**、**OpenCode** 和/或 **Claude**，再限定每个操作可用的提供商 — 例如发布操作可能仅启用 **Cursor**。编程会话异步运行；结果返回到发起对话。参见 [Coding tools](/zh/workflows/coding-tools)。
+
+**为何限定工具？**
+- 减少 AI 决策开销（聚焦相关工具）
+- 加快操作执行
+- 提升安全性（限制操作可访问的内容）
+
+你也可以让 **编辑器聊天** 附加或移除工具，无需打开此标签。
+
+### 7. 模型
+
+选择 AI 模型、思考力度和创意程度。
+
+![模型标签](/images/tools/action-editor-07-model.webp)
+
+**字段：**
+
+- **模型** — 可搜索的选择器，分组为 **当前**、**收藏** 和 **其他模型**。留空则使用用户的默认模型设置，或为该操作固定特定模型。
+  - 每行显示上下文长度、视觉支持和收藏状态
+  - 模型支持时，可内联调整 **思考力度**（**低**、**平衡**、**最大**）
+
+- **Temperature** — 调整创意与精确度
+  - **0.0** — 确定性（一致、可预测）
+  - **0.5** — 平衡（默认）
+  - **1.0** — 创意（不可预测、探索性）
+
+Alter 会在 Hub、QuickHub、我的操作和操作文档中 **按模型** 记住思考力度。
+
+<Tip>
+  在「我的操作」中使用 **⌘F** 搜索操作。点击筛选图标可按后台任务、计划、警告、已修改操作、已发布列表或 **文件夹** 缩小范围。文件夹筛选包含 **全部** 和 **无** 快捷方式。
+</Tip>
 
 ### 8. Gateways
 
-选择此 Action 是否可通过 **Discord** 和 **Telegram** Gateway 使用。
+选择可使用此操作的具体 Gateway 连接。每个已配置的 Buzz、Discord 和 Telegram Gateway 都有独立开关，同一平台的两个账户可以有不同的访问权限。
 
-**可用性** — 单选选项：
+<Info>
+  **Buzz Gateway（内部）** — Buzz 仅出现在 Alter 内部构建版本中，供开发团队使用。参见 [Buzz Gateway（内部）](/zh/apps-tools/gateways-buzz)。
+</Info>
+
+**可用性** — Gateway 开关：
 
 | 设置 | 效果 |
-|---------|--------|
-| **无** | 仅本地（Hub、QuickHub 等） |
-| **Discord** | 可通过 Discord Gateway 使用 |
-| **Telegram** | 可通过 Telegram Gateway 使用 |
-| **全部** | 可通过所有 Gateway 使用 |
+|------|------|
+| 全部关闭 | 仅本地（Hub、QuickHub 等） |
+| 开启一个 Gateway | 仅在该命名的 Gateway 连接上可用 |
+| 开启多个 Gateway | 恰好从这些连接可用，可跨平台 |
+| 全部开启 | 从所有当前已配置的 Gateway 可用 |
 
-内置 **Ask Anything** Action 默认为 **全部**。自定义 Action 默认 **无**，直到启用某平台或 **全部**。若只要本地使用，将 Ask Anything 设为 **无**。
+捆绑的 **随便问** 操作最初会出现在所有兼容的 Gateway 上。自定义操作默认为仅本地，直到你启用一个或多个 Gateway 开关。更改任意开关会保存明确的 Gateway 连接列表，因此之后添加的 Gateway 不会自动继承该操作。
 
-在 Gateway 上，**无参数 Action**（无输入字段）从 **Choose action** 选择后会立即运行；**有参数 Action** 会等待用户下一条消息。
+在 Gateways 上，**无参数操作**（无输入字段）从 **选择操作** 选中后立即运行；**带参数操作** 等待用户的下一条消息。
 
-**计划 gateway 投递** — 当 Action 按计划运行时，启用 **Start scheduled conversations on a gateway**，选择已启用的 **Discord**、**Telegram** 或 **Buzz** *(内部)* gateway，然后选择 **Destination**（频道、聊天或 Buzz 流）。Alter 将 Action 的开场响应发布到该处，而不仅本地运行。Buzz gateway 还可在 **设置 → Integrations → Gateways** 设置 **Default scheduled destination**。
+**计划 Gateway 投递** — 当操作按计划运行时，启用 **在 Gateway 上启动计划对话**，选择已启用的 **Discord**、**Telegram** 或 **Buzz** *（内部）* Gateway，然后选择 **目标**（频道、聊天或 Buzz 流）。Alter 会将操作的开场回复发布到该处，而不仅是在本地运行。Buzz Gateway 还可在 **设置 → 集成 → Gateways** 中设置 **默认计划目标**。
 
-参见 [Gateways](/apps-tools/gateways) 了解设置、聊天命令、计划投递和 Gateway 设置。
+参见 [Gateways](/zh/apps-tools/gateways) 了解设置、聊天命令、计划投递和 Gateway 设置。
+
+### 诊断与警告
+
+「我的操作」和操作文档都会在配置有误时显示 **警告** — 缺少快速操作、无效图标、损坏的 Gateway 引用、workspace 问题及类似问题。
+
+- 点击行或分区上的警告徽章查看详情和建议修复
+- 将列表筛选为 **警告** 以审计需要关注的操作
+- 让编辑器聊天「修复此操作的警告」或「扫描所有操作的问题」
+
+警告仅描述已保存的配置；不能证明操作在过去运行中的实际行为。
 
 ## 最佳实践
 
 <CardGroup cols={2}>
-  <Card title="清晰的名字" icon="tag">
-    “代码解释器”描述了它的作用。使用“Action 1”等通用名称。
+  <Card title="清晰的名称" icon="tag">
+    「代码解释器」说明了它的作用。避免「操作 1」这类通用名称。
   </Card>
-  <Card title="具体提示" icon="message">
-    详细的AI指令。通用提示产生通用输出。
+  <Card title="具体的提示词" icon="message">
+    AI 指令要详细。泛泛的提示词只会产生泛泛的输出。
   </Card>
-  <Card title="范围Tools" icon="tool">
-    只需启用您的操作所需的工具。减少所需时间并提高速度。
+  <Card title="限定工具" icon="tool">
+    仅启用操作需要的工具。减少开销并提升速度。
   </Card>
   <Card title="使用上下文变量" icon="brackets">
-    `{{ textSelection }}`总是有效的。手动复制/粘贴很容易出错。
+    `{{ textSelection }}` 始终可用。手动复制/粘贴容易出错。
   </Card>
-  <Card title="有条件的可见性" icon="eye">
-    只需在 VSCode + Xcode 中的“代码解释器”即可减少菜单混乱。
+  <Card title="条件可见性" icon="eye">
+    「代码解释器」仅在 VSCode + Xcode 中显示，可减少菜单杂乱。
   </Card>
-  <Card title="分享前测试" icon="check">
-    在部署到您的团队之前使用真实数据进行测试。
+  <Card title="聊天加文档" icon="wand-magic-sparkles">
+    在编辑器聊天中快速起草，然后打开操作文档润色提示词和参数。
   </Card>
 </CardGroup>
 
@@ -225,86 +369,86 @@ Alter 在 Hub、QuickHub 和 Action Editor 中**按模型**记住 thinking effor
 
 **设置：**
 - **名称：** 解释代码
-- **类别：**代码
-- **安装的应用程序：** VSCode、Xcode
-- **系统提示：**您是一位代码讲解的专家开发人员
-- **用户提示：** `Please explain this code:\n\n{{ textSelection }}`
-- **消费者：**降价
-- **温度：** 0.5
+- **类别：** code
+- **已安装应用：** VSCode、Xcode
+- **系统提示词：** 你是一位能清晰解释代码的专家程序员
+- **用户提示词：** `Please explain this code:\n\n{{ textSelection }}`
+- **Consumer：** markdown
+- **Temperature：** 0.5
 
-### 示例 2：电子邮件草稿创建器
-
-**设置：**
-- **姓名：** 电子邮件草稿
-- **类别：**生产力
-- **何时显示：** 邮件应用程序处于活动状态
-- **系统提示：** 您是专业的商务沟通者
-- **用户提示：** `Transform this into a professional email:\n\n{{ textSelection }}`
-- **工具：** 仅启用邮件
-- **消费者：**就地
-- **温度：** 0.6
-
-### 示例 3：预定每日简报
+### 示例 2：邮件草稿创建器
 
 **设置：**
-- **名称：**每日简报
-- **类别：**生产力
-- **自动化：** 每天上午 9:00 的时间表
-- **后台作业：**已启用
-- **系统提示：** 生成每日优先事项简介
+- **名称：** 起草邮件
+- **类别：** productivity
+- **显示时机：** Mail 应用活跃
+- **系统提示词：** 你是一位专业的商务沟通者
+- **用户提示词：** `Transform this into a professional email:\n\n{{ textSelection }}`
+- **工具：** 仅启用 Mail
+- **Consumer：** in-place
+- **Temperature：** 0.6
 
-## 语音触发器
+### 示例 3：计划每日简报
 
-分配语音热键以免提触发操作：
+**设置：**
+- **名称：** 每日简报
+- **类别：** productivity
+- **自动化：** 计划每天上午 9:00
+- **后台任务：** 已启用
+- **系统提示词：** 生成每日优先级简报
+
+## 语音触发
+
+分配语音热键，免提触发操作：
 
 <Steps>
   <Step title="系统设置">
-    转到 **设置 > 语音触发器**
+    前往 **设置 > 语音触发**
   </Step>
-  <Step title="添加触发器">
-    单击 **+ 添加触发器**
+  <Step title="添加触发">
+    点击 **+ 添加触发**
   </Step>
   <Step title="选择操作">
-    从下拉列表中选择操作
+    从下拉菜单中选择操作
   </Step>
-  <Step title="指定短语">
-    输入触发短语（例如，代码解释器的“解释”）
+  <Step title="分配短语">
+    输入触发短语（例如代码解释器用「explain」）
   </Step>
-  <Step title="节省">
-    单击“保存”即可
+  <Step title="保存">
+    点击保存即可使用
   </Step>
 </Steps>
 
-**用法：** 按住语音热键 + 说出触发短语 → 操作在当前上下文中执行
+**用法：** 按住语音热键 + 说出触发短语 → 操作以当前上下文执行
 
 ## x-callback-url 集成
 
-使用特殊的 URL 从**任何应用程序**触发更改操作。这实现了强大的跨应用程序自动化工作流程。
+通过特殊 URL 从 **任意应用** 触发 Alter 操作。可实现强大的跨应用自动化工作流。
 
-### x-callback-url 是什么？
+### 什么是 x-callback-url？
 
-x-callback-url 是一种应用程序间通信协议，允许应用程序通过一个 URL 相互触发操作。
+x-callback-url 是一种应用间通信协议，应用通过格式化的 URL 相互触发操作。
 
-- **入站** - 从其他应用程序（快捷方式、注释、Safari等）触发更改操作
-- **出站** - 在Alter中创建可打开其他应用程序（Bear、OmniFocus、Drafts等）的链接
+- **入站** — 从其他应用触发 Alter 操作（快捷指令、备忘录、Safari 等）
+- **出站** — 在 Alter 中创建打开其他应用的链接（Bear、OmniFocus、Drafts 等）
 
-### 获取操作的回调URL
+### 获取操作的回调 URL
 
 <Steps>
-  <Step title="打开动作编辑器">
+  <Step title="打开「我的操作」">
     按 **⌘⇧E**
   </Step>
-  <Step title="选择操作">
-    选择您要公开的操作
+  <Step title="选择或询问">
+    在列表中选择操作，或向编辑器聊天询问回调 URL
   </Step>
-  <Step title="转到常规">
-    导航到“常规”选项卡
+  <Step title="打开操作文档">
+    双击操作（或从上下文菜单选择 **编辑**）
   </Step>
-  <Step title="找到 URL Callback">
-    找到“URL回调”部分
+  <Step title="前往常规">
+    导航到 **常规** 分区
   </Step>
-  <Step title="复制网址">
-    复制`alter://` URL
+  <Step title="复制 URL">
+    从 **URL Callback** 复制 `alter://` URL，或粘贴编辑器聊天返回的 URL
   </Step>
 </Steps>
 
@@ -313,9 +457,9 @@ x-callback-url 是一种应用程序间通信协议，允许应用程序通过�
 alter://action/{action-id}?input=VALUE&param2=VALUE
 ```
 
-### 从其他应用程序触发更改操作
+### 从其他应用触发 Alter 操作
 
-**示例 1：从 Safari 进行网络搜索**
+**示例 1：从 Safari 进行 Web 搜索**
 ```
 alter://action/ask-web?input=What+is+Alter+MacOS
 ```
@@ -325,75 +469,112 @@ alter://action/ask-web?input=What+is+Alter+MacOS
 alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 ```
 
-**示例 3：在 Apple 快捷方式中使用**
-1.创建一个新的便捷方式
-2.添加“打开URL”动作
-3. 粘贴您的`alter://` URL
-4.运行快捷方式来触发操作
+**示例 3：在 Apple 快捷指令中使用**
+1. 创建新快捷指令
+2. 添加「打开 URL」操作
+3. 粘贴你的 `alter://` URL
+4. 运行快捷指令以触发操作
 
-### 用例
+### 使用场景
 
 <AccordionGroup>
-  <Accordion icon="workflow" title="工作流程自动化">
-    从日历触发操作 → 生成会议记录 → 创建电子邮件草稿
+  <Accordion icon="workflow" title="工作流自动化">
+    从日历触发操作 → 生成会议笔记 → 创建邮件草稿
   </Accordion>
 
-<Accordion icon="link-2" title="多应用集成">
-    概念按钮→触发更改操作→更新任务状态
+  <Accordion icon="link-2" title="多应用集成">
+    Notion 按钮 → 触发 Alter 操作 → 更新任务状态
   </Accordion>
 
-<Accordion icon="copy" title="信息传递">
-    复制文本 → 通过回调触发操作 → 在外部应用程序中打开结果（无需手动复制）
+  <Accordion icon="copy" title="信息传递">
+    复制文本 → 用回调触发操作 → 在外部应用中打开结果（无需手动复制）
   </Accordion>
 </AccordionGroup>
 
 ## 键盘快捷键
 
-|行动|快捷方式 |
+### 全局
+
+| 操作 | 快捷键 |
 |--------|----------|
-|打开动作编辑器 | `⌘⇧E` |
-|新行动| `Cmd + N`（在编辑器中）|
-|保存操作 | `Cmd + S`（在编辑器中）|
-|删除操作 | `Cmd + Delete`（在编辑器中）|
-|搜索操作 | `Cmd + F`（在编辑器中）|
+| 打开 **我的操作** | `⌘⇧E` |
+| 打开 **工具与操作** | `⌘⇧T` |
+
+### 「我的操作」（工具与操作窗口，已选中「我的操作」）
+
+| 操作 | 快捷键 |
+|--------|----------|
+| 聚焦操作搜索 | `⌘F` |
+| 新建操作（启动编辑器聊天） | `⌘N` |
+| 打开操作文档 | `Return`（选中一行） |
+| 复制操作 | `⌘D` |
+| 导出操作 | `⌘E` |
+| 导入操作 | `⌘O` |
+| 删除 / 重置操作 | `⌘Delete` |
+
+### 操作文档窗口
+
+| 操作 | 快捷键 |
+|--------|----------|
+| 上一分区 | `⌘[` |
+| 下一分区 | `⌘]` |
+| 关闭窗口 | `⌘W` |
+
+「我的操作」和操作文档中的文件菜单命令跟随当前活动的 Alter 窗口。
+
+参见 [快捷键](/zh/references/shortcuts) 查看完整列表。
 
 ## 故障排除
 
 <AccordionGroup>
   <Accordion icon="circle-exclamation" title="操作未出现在菜单中">
-    - 检查**何时显示**设置
-    - 验证应用程序正在运行/活动（如果已配置）
-    - 确保操作已**启用**
+    - 检查操作文档中的 **显示时机** 设置
+    - 确认应用正在运行/活跃（如已配置）
+    - 确保操作已 **启用**
   </Accordion>
 
-<Accordion icon="triangle-exclamation" title="动作运行但输出较差">
-    - 查看**系统提示** — 更具体
-    - 调整**温度**（降低精度，提高创造力）
-    - 检查**用户提示** — 确保变量正确
+  <Accordion icon="triangle-exclamation" title="操作运行但输出质量差">
+    - 检查 **系统提示词** — 要更具体
+    - 调整 **Temperature**（更低更精确，更高更有创意）
+    - 检查 **用户提示词** — 确保变量正确
   </Accordion>
 
-<Accordion icon="microphone" title="语音触发不起作用">
-    - 验证热键是否在“设置”中配置
+  <Accordion icon="microphone" title="语音触发不工作">
+    - 确认设置中已配置热键
     - 检查麦克风权限
-    - 首先使用手动触发器进行测试
+    - 先用手动触发测试
   </Accordion>
 
-<Accordion icon="lock" title="Tools 在操作中不可用">
-    - 转到**工具**选项卡
-    - 验证工具没有被禁用
-    - 检查该工具的系统权限
+  <Accordion icon="lock" title="操作中工具不可用">
+    - 打开操作文档 → **工具** 分区
+    - 确认工具未被禁用且已选择正确工具
+    - 确认工具已在 **工具与操作 → 活动工具** 中激活
+    - 不确定时让编辑器聊天检查工具访问
+  </Accordion>
+
+  <Accordion icon="stethoscope" title="操作上的警告">
+    - 点击警告徽章查看详情
+    - 打开关联分区（工具、Gateways、快速操作等）并修复引用
+    - 让编辑器聊天诊断并修复所选操作
+  </Accordion>
+
+  <Accordion icon="trash" title="无法删除操作">
+    - 阅读依赖消息 — 其他快速操作、操作或 workspace 可能仍引用它
+    - 先移除这些链接，然后从上下文菜单或编辑器聊天重试删除
   </Accordion>
 </AccordionGroup>
 
 ## 相关指南
 
-- [工具与集成](/apps-tools/integrations-overview) — 用于您的操作的可用工具
-- [URL Callbacks](/workflows/url-callbacks) — 深入研究 x-callback-url 自动化
-- [语音和听写](/workflows/dictation) — 设置语音烧
-- [设置](/how-to/settings-guide) — 配置全局模型和语音设置
+- [创建可复用操作](/zh/getting-started/actions-basics) — 几分钟内完成第一个操作
+- [管理工具](/zh/how-to/tool-manager-guide) — 连接操作使用的集成
+- [工具与集成](/zh/apps-tools/integrations-overview) — 操作可用的工具
+- [URL 回调](/zh/workflows/url-callbacks) — 深入 x-callback-url 自动化
+- [语音与听写](/zh/workflows/dictation) — 设置语音触发
+- [设置](/zh/how-to/settings-guide) — 配置全局模型和语音设置
 
 ---
 
-**准备好构建了吗？**打开Alter，按`⌘⇧E`，然后开始创建您的第一个操作！
+**准备好开始了吗？** 按 **⌘⇧E**，在编辑器聊天中描述你想要的操作，或双击任意操作打开其文档。
 
-**想要跨应用程序实现自动化？**使用 x-callback-urls 触发来自 Safari、快捷方式、注释或任何支持 URL 方案的应用程序的操作。
+**想跨应用自动化？** 使用 x-callback-url 从 Safari、快捷指令、备忘录或任何支持 URL scheme 的应用触发操作。

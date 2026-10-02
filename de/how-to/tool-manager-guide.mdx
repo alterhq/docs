@@ -1,61 +1,67 @@
 ---
-title: "Anleitung zum Tool Manager"
-description: "Sichere Verbindung und Verwaltung von Integrationen mit klaren Fehlersuche-Schritten"
+title: "Tools verwalten"
+description: "Verbinden und verwalten Sie Integrationen sicher mit klaren Schritten zur Fehlerbehebung"
 ---
 
 ## Ziel
 
-Sichere Verbindung und Verwaltung von Integrationen mit klaren Fehlersuche-Schritten.
+Verbinden und verwalten Sie Integrationen sicher mit klaren Schritten zur Fehlerbehebung.
+
+Alter fasst Tools und Aktionen in einem Fenster zusammen: **Tools & Aktionen** (**⌘⇧T**). Nutzen Sie es für Marketplace-Agenten, Aktive Tools, Quick Actions, Skills, Remote MCP und **Meine Aktionen** — die Aktionsliste und den Editor-Chat zum Erstellen von Workflows.
+
+<Card title="Alter Actions-Leitfaden" icon="square.and.pencil" href="/de/workflows/alter-actions">
+  Layout von Meine Aktionen, Editor-Chat, Aktionsdokumente, Filter und Diagnose
+</Card>
 
 ## Schritte
 
-1. Öffnen Sie die Alter-Einstellungen und gehen Sie zu Integrationen oder Tool-Manager.
+1. Drücken Sie **⌘⇧T**, um **Tools & Aktionen** zu öffnen, oder öffnen Sie **Einstellungen** für integrationsbezogene Voreinstellungen.
 2. Verbinden Sie jeweils eine Integration und testen Sie sofort.
-3. Bestätigen Sie die erforderlichen Berechtigungen und Kontobereich.
-4. Erstellen Sie ein einfaches Testprompt, um das erwartete Verhalten zu überprüfen.
-5. Wenn Fehler auftreten, überprüfen Sie die Authentifizierung des Anbieters und versuchen Sie es erneut.
+3. Bestätigen Sie erforderliche Berechtigungen und Kontobereiche.
+4. Erstellen Sie eine einfache Testaufforderung, um das erwartete Verhalten zu überprüfen.
+5. Bei Fehlern prüfen Sie die Anbieterauthentifizierung und versuchen Sie es erneut.
 
-## Verwaltung vieler Tools
+## Viele Tools verwalten
 
-Die Aktivierung vieler Tools erhöht die Nutzung des Kontextfensters und wirkt sich auf die Leistung aus. Für die meisten Workflows verwenden Sie **Flow** - Alters Tool-Orchestrator, der automatisch das richtige Tool für jede Anfrage auswählt.
+Das Aktivieren vieler Tools erhöht die Nutzung des Kontextfensters und beeinträchtigt die Leistung. Für die meisten Workflows verwenden Sie **Flow** – Alters Tool-Orchestrator, der automatisch das richtige Tool für jede Anfrage auswählt.
 
-<Card title="Flow für die Tool-Orchestrierung verwenden" icon="wand-magic-sparkles" href="/de/workflows/use-flow-orchestration">
-  Flow reduziert die Kontextnutzung, indem es als einzelnes Tool fungiert, das Anfragen automatisch an die entsprechende Integration weiterleitet.
+<Card title="Flow für Tool-Orchestrierung nutzen" icon="wand-magic-sparkles" href="/de/workflows/use-flow-orchestration">
+  Flow reduziert die Kontextnutzung, indem es als einzelnes Tool fungiert, das Anfragen automatisch an die passende Integration weiterleitet.
 </Card>
 
-Anstatt alle Tools in jede Anfrage zu laden, macht Flow:
-- Analysiert Ihre Anfrage und wählt das richtige Tool aus
-- Behandelt die mehrstufige Orchestrierung über Tools hinweg
-- Reduziert die Nutzung des Kontextfensters und verbessert die Leistung
+Anstatt alle Tools in jede Anfrage zu laden, analysiert Flow:
+- Ihre Anfrage und wählt das richtige Tool
+- Mehrstufige Orchestrierung über Tools hinweg
+- Reduzierte Kontextfensternutzung und bessere Leistung
 
-Aktivieren Sie Flow im Tool Manager unter **Local Tools > Alter**.
+Aktivieren Sie Flow in **Tools & Aktionen** unter **Local Tools > Alter**.
 
-## Coding-Tools
+## Coding tools
 
-**Tools Manager → Local Tools → Coding** listet vier lokale Coding-Integrationen:
+**Tools & Aktionen → Local Tools → Coding** listet vier lokale Coding-Integrationen:
 
 | Anbieter | Verbinden, wenn |
-|----------|-----------------|
+|----------|--------------|
 | **ChatGPT** | Sie die ChatGPT-Desktop-App für agentisches Coding nutzen |
-| **Cursor** | Sie die Cursor Agent CLI (`agent`) installiert haben |
-| **OpenCode** | Sie die OpenCode CLI nutzen, einschließlich Terminal-Sitzungen |
+| **Cursor** | Sie Cursor Agent CLI (`agent`) installiert haben |
+| **OpenCode** | Sie OpenCode CLI nutzen, einschließlich Terminal-Sitzungen |
 | **Claude** | Sie Claude Code (`claude`) im Terminal nutzen |
 
-**Schnellster Weg:** Installieren Sie einen spezialisierten Agenten über **[Marketplace → Browse](https://alterhq.com/marketplace)** — z. B. den live [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent). Bei der ersten Ausführung fordert Alter Sie auf, das verknüpfte Coding-Tool zu aktivieren. Siehe [Coding-Tools — Marketplace-Onboarding](/de/workflows/coding-tools#get-started-from-the-marketplace-recommended).
+**Schnellster Weg:** Installieren Sie einen spezialisierten Agenten von **[Marketplace → Browse](https://alterhq.com/marketplace)** — zum Beispiel den live [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent). Beim ersten Lauf fordert Alter Sie auf, die verknüpfte Coding-Integration zu aktivieren. Siehe [Coding tools — Marketplace-Onboarding](/de/workflows/coding-tools#get-started-from-the-marketplace-recommended).
 
-Verbinden Sie nur die Anbieter, die Sie benötigen. Jeder stellt run-, list-, control- und settings-Tools für Alters Modell bereit, wenn er für die aktuelle Action aktiviert ist.
+Verbinden Sie nur die Anbieter, die Sie benötigen. Jeder stellt run-, list-, control- und settings-Tools für Alters Modell bereit, wenn er für die aktuelle Aktion aktiviert ist.
 
-<Card title="Coding-Tools-Anleitung" icon="terminal" href="/de/workflows/coding-tools">
+<Card title="Coding-tools-Leitfaden" icon="terminal" href="/de/workflows/coding-tools">
   Voraussetzungen, Workspace-Berechtigungen und Anbieterunterschiede
 </Card>
 
-## Fehlersuche
+## Fehlerbehebung
 
 - Authentifizieren Sie die Anbieterverbindung erneut.
-- Bestätigen Sie die lokalen/Netzwerkberechtigungen.
-- Überprüfen Sie die spezifischen Grenzen und Quoten der Integration.
+- Bestätigen Sie lokale/Netzwerkberechtigungen.
+- Prüfen Sie integrationsspezifische Limits und Kontingente.
 
-## Verwandte Dokumente
+## Verwandte Dokumentation
 
-- [Flow für die Tool-Orchestrierung verwenden](/de/workflows/use-flow-orchestration)
+- [Flow für Tool-Orchestrierung nutzen](/de/workflows/use-flow-orchestration)
 - [Tools funktionieren nicht](/de/common-issues/tool-not-working)

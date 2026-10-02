@@ -1,61 +1,67 @@
 ---
-title: "Tool マネージャー ガイド"
-description: "明確なトラブルシューティング手順により、統合を安全に接続および管理します"
+title: "ツールを管理"
+description: "明確なトラブルシューティング手順で、連携を安全に接続・管理します"
 ---
 
-## ゴール
+## 目的
 
-明確なトラブルシューティング手順により、統合を安全に接続および管理します。
+明確なトラブルシューティング手順で、連携を安全に接続・管理します。
 
-## ステップ
+Alter はツールとアクションを 1 つのウィンドウにまとめます：**ツールとアクション**（**⌘⇧T**）。Marketplace エージェント、アクティブツール、クイックアクション、Skills、リモート MCP、**マイアクション** — アクション一覧とワークフロー構築用のエディタチャット — に使用します。
 
-1. Alter 設定を開き、統合またはTools Managerに移動します。
-2. 一度に 1 つの統合を接続し、すぐにテストします。
-3. 必要な権限とアカウントのスコープを確認します。
-4. 簡単なテスト プロンプトを作成して、予想される動作を確認します。
-5. 失敗した場合は、プロバイダー認証を確認して再試行してください。
-
-## 多数の Tools の管理
-
-多くのツールを有効にすると、コンテキスト ウィンドウの使用量が増加し、パフォーマンスに影響します。ほとんどのワークフローでは、リクエストごとに適切なツールを自動的に選択する **Flow** - Alter のツール オーケストレーターを使用します。
-
-<Card title="Tool オーケストレーションには Flow を使用する" icon="wand-magic-sparkles" href="/workflows/use-flow-orchestration">
-  Flow は、リクエストを適切な統合に自動的にルーティングする単一のツールとして機能することで、コンテキストの使用量を削減します。
+<Card title="Alter Actions ガイド" icon="square.and.pencil" href="/ja/workflows/alter-actions">
+  マイアクションのレイアウト、エディタチャット、アクションドキュメント、フィルター、診断
 </Card>
 
-すべてのツールをすべてのリクエストにロードするのではなく、Flow:
-- リクエストを分析し、適切なツールを選択します
-- 複数のツールにわたるマルチステップのオーケストレーションを処理します
-- コンテキスト ウィンドウの使用量を減らし、パフォーマンスを向上させます。
+## 手順
 
-**Local Tools > Alter** の Tool マネージャーで Flow を有効にします。
+1. **⌘⇧T** を押して **ツールとアクション** を開くか、連携関連の設定は **設定** を開きます。
+2. 一度に 1 つの連携を接続し、すぐにテストします。
+3. 必要な権限とアカウントスコープを確認します。
+4. 期待どおりの動作を確認する簡単なテストプロンプトを作成します。
+5. 失敗した場合は、プロバイダーの認証を確認して再試行します。
+
+## 多数のツールを管理する
+
+多くのツールを有効にすると、コンテキストウィンドウの使用量が増え、パフォーマンスに影響します。ほとんどのワークフローでは **Flow** — 各リクエストに適したツールを自動選択する Alter のツール オーケストレーター — を使用してください。
+
+<Card title="Flow によるツール オーケストレーション" icon="wand-magic-sparkles" href="/ja/workflows/use-flow-orchestration">
+  Flow は単一のツールとして動作し、リクエストを適切な連携に自動ルーティングすることでコンテキスト使用量を削減します。
+</Card>
+
+すべてのツールを毎回のリクエストに読み込む代わりに、Flow は次のことを行います。
+- リクエストを分析して適切なツールを選択
+- ツール間の多段オーケストレーションを処理
+- コンテキストウィンドウの使用量を削減し、パフォーマンスを向上
+
+**ツールとアクション** の **Local Tools > Alter** で Flow を有効にします。
 
 ## Coding tools
 
-**Tools Manager → Local Tools → Coding** には 4 つのローカルコーディング統合が一覧表示されます：
+**ツールとアクション → Local Tools → Coding** には 4 つのローカル coding 連携が一覧表示されます。
 
 | プロバイダー | 接続する場合 |
-|-------------|--------------|
-| **ChatGPT** | ChatGPT デスクトップアプリでエージェント型コーディングを使う |
+|----------|--------------|
+| **ChatGPT** | ChatGPT デスクトップアプリでエージェント型 coding を使用する |
 | **Cursor** | Cursor Agent CLI（`agent`）をインストール済み |
-| **OpenCode** | OpenCode CLI（ターミナルセッション含む）を使う |
-| **Claude** | ターミナルで Claude Code（`claude`）を使う |
+| **OpenCode** | OpenCode CLI（ターミナルセッション含む）を使用する |
+| **Claude** | Terminal で Claude Code（`claude`）を使用する |
 
-**最速の方法:** **[Marketplace → Browse](https://alterhq.com/marketplace)** から専用エージェントをインストール — 例：公開中の [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)。初回実行時、Alter がリンクされたコーディングツールの有効化を促します。[Coding tools — Marketplace オンボーディング](/ja/workflows/coding-tools#get-started-from-the-marketplace-recommended) を参照。
+**最速の方法：** **[Marketplace → Browse](https://alterhq.com/marketplace)** から専用エージェントをインストール — 例：ライブ [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)。初回実行時、Alter はリンクされた coding 連携の有効化を促します。[Coding tools — Marketplace](/ja/workflows/coding-tools#get-started-from-the-marketplace-recommended) を参照。
 
-必要なプロバイダーのみ接続してください。各プロバイダーは現在の Action で有効な場合、Alter のモデルに run、list、control、settings ツールを公開します。
+必要なプロバイダーのみ接続してください。各プロバイダーは、現在のアクションで有効な場合、Alter のモデルに run、list、control、settings ツールを公開します。
 
 <Card title="Coding tools ガイド" icon="terminal" href="/ja/workflows/coding-tools">
-  前提条件、Workspace 権限、プロバイダー差異
+  前提条件、ワークスペース権限、プロバイダー間の違い
 </Card>
 
 ## トラブルシューティング
 
-- プロバイダ接続を再認証します。
-- ローカル/ネットワークの権限を確認します。
-- 統合固有の制限とクォータを確認します。
+- プロバイダー接続を再認証します。
+- ローカル/ネットワーク権限を確認します。
+- 連携固有の制限とクォータを確認します。
 
 ## 関連ドキュメント
 
-- [Tool オーケストレーションには Flow を使用する](/workflows/use-flow-orchestration)
-- [Tools 機能しない](/common-issues/tool-not-working)
+- [Flow によるツール オーケストレーション](/ja/workflows/use-flow-orchestration)
+- [ツールが動作しない](/ja/common-issues/tool-not-working)

@@ -1,70 +1,177 @@
 ---
 title: "Alter Actions"
-description: "Créez et configurez des flux de travail d'IA personnalisés avec des déclencheurs vocaux et l'automatisation"
+description: "Créez et configurez des flux de travail d'IA personnalisés avec Mes actions, le chat de l'éditeur et les documents d'action"
 ---
 
 <Info>
-  Les **Alter Actions** sont des workflows d'IA personnalisables qui vous permettent de créer des assistants spécialisés pour des tâches spécifiques. Combinez les instructions de l'IA, les déclencheurs vocaux, les Tools et l'exécution conditionnelle pour automatiser tout sur votre Mac.
+  Les **Alter Actions** sont des flux de travail d'IA personnalisables qui vous permettent de créer des assistants spécialisés pour des tâches précises. Combinez instructions IA, déclencheurs vocaux, outils et exécution conditionnelle pour automatiser tout sur votre Mac.
 </Info>
 
 ## Qu'est-ce qu'une Alter Action ?
 
 Une **Alter Action** est une automatisation avancée qui combine :
 
-- **Instructions IA** — Invites système définissant le comportement de l'IA
+- **Instructions IA** — System Prompts définissant le comportement de l'IA
 - **Déclencheurs** — Commandes vocales, raccourcis clavier ou exécution conditionnelle
 - **Contexte** — Accès au texte sélectionné, aux fichiers et aux applications actives
-- **Tools** — Intégrations configurées avec votre Mac et plus de 2 000 services externes
+- **Outils** — Intégrations configurées avec votre Mac et plus de 2 000 services externes
 - **Sortie** — Affichage des résultats (markdown, code, insertion en ligne)
 
 Considérez une Alter Action comme un « assistant IA spécialisé » personnalisé pour une tâche précise.
 
-## Ouvrir l'Action Editor
+## Ouvrir Mes actions
 
-### Méthode 1 : barre de menus (la plus rapide)
-1. Cliquez sur l'**icône Alter** dans la barre de menus (en haut à droite)
-2. Sélectionnez **Action Editor**
+Alter gère désormais les actions dans **Outils et actions**. La section **Mes actions** combine une liste d'actions consultable, des contrôles en ligne et un **chat de l'éditeur** capable de créer ou modifier des actions pour vous.
+
+### Méthode 1 : raccourci clavier (le plus rapide)
+
+Appuyez sur **⌘⇧E** (Commande + Maj + E). Alter ouvre **Outils et actions** directement sur **Mes actions**.
+
+### Méthode 2 : menu Fenêtre
+
+1. Ouvrez une fenêtre Alter (Hub, QuickHub ou Outils et actions)
+2. Choisissez **Fenêtre → Mes actions**
+
+### Méthode 3 : barre latérale Outils et actions
+
+1. Appuyez sur **⌘⇧T** (Commande + Maj + T) pour ouvrir **Outils et actions**
+2. Sélectionnez **Mes actions** dans la barre latérale
+
+Le badge de la barre latérale indique combien d'actions sont actuellement activées.
+
+<Tip>
+  **⌘⇧E** accède directement à la gestion des actions. **⌘⇧T** ouvre la fenêtre complète Outils et actions, y compris Marketplace, Outils Actifs, Actions rapides, Skills et MCP distant.
+</Tip>
+
+<Note>
+  **Mes actions** et les documents d'action nécessitent une connexion. Si vous êtes déconnecté, Alter affiche une superposition de connexion à la place de l'éditeur.
+</Note>
+
+## Disposition de Mes actions
+
+Lorsque **Mes actions** est sélectionné, la fenêtre comporte trois zones de travail :
+
+| Zone | Rôle |
+|------|------|
+| **Gauche** | Navigation Outils et actions (Marketplace, Outils locaux, Actions rapides, Skills, MCP distant, **Mes actions**) |
+| **Centre** | Votre liste d'actions — dossiers, recherche, filtres et contrôles par ligne |
+| **Droite** | **Chat de l'éditeur** — décrivez les modifications en langage courant et Alter les applique |
 
 ![Barre de menus](/images/tools/menu-bar-action-editor.webp)
 
-### Méthode 2 : menu Options
-1. Ouvrez la fenêtre Alter
-2. Cliquez sur **⋯** (trois points) en haut à droite
-3. Sélectionnez **Action Editor**
+Lors de la première visite, si rien n'est sélectionné, le chat de l'éditeur s'ouvre en mode **Gérer mes actions** pour que vous puissiez décrire une nouvelle action ou demander quoi modifier dans votre bibliothèque.
 
-![Menu d'options](/images/tools/options-menu-action-editor.webp)
+### Liste d'actions
 
-### Méthode 3 : raccourci clavier
-Appuyez sur **⌘⇧E** (Commande + Maj + E) pour ouvrir directement l'Action Editor
+Les actions sont regroupées en **dossiers** (catégories). Vous pouvez :
+
+- **Rechercher** avec **⌘F** — correspond aux noms d'actions et aux propriétés de ressources indexées (outils, gateways, Actions rapides et ressources liées similaires)
+- **Filtrer** avec l'icône de filtre — restreindre par tâches en arrière-plan, planifications, avertissements, actions modifiées, annonces publiées, actions désactivées ou dossiers spécifiques
+- **Réduire ou développer** les dossiers, **renommer** les dossiers et **glisser des actions** entre dossiers
+- **Sélectionner plusieurs actions** pour export, déplacement, activation/désactivation ou suppression en lot
+- **Créer un dossier** depuis la barre d'outils, puis ajouter des actions par glisser-déposer ou depuis le menu contextuel de la ligne
+
+Chaque ligne affiche un statut rapide :
+
+- **Icône et nom** — double-cliquez un nom (ou appuyez sur **Return** avec une ligne sélectionnée) pour ouvrir le document d'action
+- Indicateur de **déclencheur vocal** lorsque des phrases vocales sont configurées
+- Badge **Modifié par vous** lorsque vous avez personnalisé une action intégrée
+- Indicateur de **tâche en arrière-plan**
+- Indicateur **Marketplace** lorsque l'action provient d'une annonce
+- Indicateur **Avertissements** lorsque les diagnostics détectent un problème de configuration
+
+### Contrôles en ligne
+
+Sans ouvrir le document complet, chaque ligne expose trois contrôles à droite :
+
+| Contrôle | Rôle |
+|---------|------|
+| **Modèle** | Choisir **Par défaut** ou épingler un modèle et un niveau de réflexion pour cette action |
+| **Planification** | Afficher, ajouter, modifier ou supprimer des planifications |
+| **Raccourci** | Enregistrer ou modifier un raccourci clavier global |
+
+Survolez une ligne pour révéler le contrôle de raccourci lorsqu'aucun raccourci n'est encore défini.
+
+### Menu contextuel de la ligne
+
+Cliquez avec le bouton droit sur une ou plusieurs actions pour **Exécuter**, **Modifier**, **Renommer**, définir un **raccourci clavier**, **Déplacer vers** un dossier, **Activer** / **Désactiver**, **Dupliquer**, **Exporter**, **Publier sur Marketplace** ou **Supprimer** / **Réinitialiser**.
+
+**Modifier** ouvre l'action dans une fenêtre **document d'action** séparée pour une édition champ par champ.
+
+## Chat de l'éditeur
+
+La colonne de droite est un chat dédié à la gestion des actions. Il utilise le modèle rapide d'Alter avec un ensemble fixe d'outils de gestion, pour que vous puissiez décrire ce que vous voulez au lieu de cliquer dans chaque onglet.
+
+### Ce que vous pouvez faire dans le chat
+
+Demandez à Alter de :
+
+- **Créer** une nouvelle action à partir d'une description (« Crée une action de résumé de stand-up quotidien qui s'exécute à 9 h »)
+- **Modifier** les prompts, paramètres, visibilité, modèle, outils, planifications ou gateways de l'action sélectionnée
+- **Activer ou limiter des outils** globalement ou pour une action
+- **Configurer des Actions rapides** — Alter ouvre des formulaires révisés pour webhooks, AppleScript/JXA, raccourcis et configurations similaires
+- **Connecter des applications connectées** et des **serveurs MCP** via des feuilles d'approbation natives
+- **Installer ou activer des Skills**
+- **Diagnostiquer les avertissements** sur une action ou analyser toute votre bibliothèque
+- **Trouver des actions** par nom, description ou ressources liées (« Quelles actions utilisent la gateway Discord ? »)
+- **Copier les URL de callback** pour l'automatisation
+
+Lorsque vous sélectionnez une action, Alter envoie un instantané de ses paramètres actuels avec votre premier message, pour que l'assistant puisse modifier immédiatement sans relire le fichier.
+
+Chaque action conserve **son propre historique de chat**. Changer de ligne change de conversation ; les brouillons dans le champ de saisie sont conservés par action. Utilisez le bouton corbeille dans l'en-tête du chat pour effacer une conversation.
 
 <Tip>
-  Le raccourci clavier est la méthode la plus rapide une fois mémorisé.
+  Combinez chat et édition manuelle : demandez au chat de rédiger des prompts ou connecter des outils, puis ouvrez le **document d'action** pour affiner vous-même la formulation, les paramètres ou les bascules de gateway.
 </Tip>
 
-## Parcours de l'Action Editor
+### Approbations et configuration sensible
 
-L'Action Editor comporte 8 sections principales, chacune contrôlant un aspect différent de votre action. Utilisez le panneau de gauche pour naviguer entre les onglets.
+Les modifications destructives ou privilégiées nécessitent votre confirmation dans des feuilles ou alertes natives — par exemple supprimer des actions, réinitialiser des remplacements intégrés, connecter des apps OAuth, configurer des serveurs MCP, installer des outils ou enregistrer des webhooks et scripts d'Actions rapides.
 
-### 1. Paramètres généraux
+Alter explique les **bloqueurs de dépendance** lorsque la suppression échoue (par exemple une action encore liée depuis une Action rapide ou un workspace) et indique quoi délier en premier.
 
-Configurez les métadonnées de base et le contexte d'exécution.
+### Contexte de profil pour les suggestions
+
+Le chat de l'éditeur inclut les informations de votre **profil** lors de la génération de suggestions personnalisées — par exemple recommander des outils ou une formulation adaptés à votre façon de travailler. Désactivez ceci par action sous **Général → Inclure le profil** dans le document d'action si vous préférez ne pas envoyer le contexte de profil pour ce flux de travail.
+
+## Document d'action
+
+Pour un contrôle précis, ouvrez un **document d'action** — une fenêtre dédiée avec des onglets de section à gauche et des champs à droite. Utilisez-le lorsque vous voulez modifier les prompts directement, ajuster les paramètres ou examiner chaque bascule.
+
+**Ouvrir un document :**
+
+- Double-cliquez un nom d'action dans la liste
+- Sélectionnez une action et appuyez sur **Return**
+- Clic droit → **Modifier**
+- Depuis une autre fenêtre Alter, utilisez **Modifier dans l'éditeur d'actions** lorsque proposé pour l'action en cours
+
+Le titre de la fenêtre du document affiche le nom de l'action. Les actions intégrées que vous avez personnalisées apparaissent comme des remplacements modifiables ; dupliquez-les d'abord si vous voulez une copie entièrement séparée.
+
+### 1. Général
+
+Configurez les métadonnées de base, la disponibilité et le contexte d'exécution.
 
 ![Onglet Général](/images/tools/action-editor-01-general.webp)
 
 **Champs :**
-- **Nom** — Nom lisible de l'action (par ex. « Code Explainer »)
-- **Description** — Ce que fait cette action (facultatif)
-- **Catégorie** — Organisez les actions par type (code, productivité, métier, etc.)
-- **Workspace** — Attribuez à un Workspace spécifique (facultatif)
-- **Inclure le profil** — Inclure les informations de profil utilisateur dans le contexte de l'IA
 
-**Options de visibilité :**
-- **Show only when running** — L'action n'apparaît que si une application est en cours d'exécution
-- **Show only when active** — L'action n'apparaît que si une application a le focus
-- **Workspace context** — Choisissez quel(s) Workspace(s) voient cette action
+- **Activé** — Activer ou désactiver l'action
+- **Mode** — Afficher cette action comme mode sélectionnable dans la zone de saisie du Hub
+- **Inclure le profil** — Inclure les informations de profil utilisateur dans le contexte IA
+- **Enregistrer dans l'historique** — Conserver les conversations de cette action dans l'Historique pour les rouvrir et les rechercher plus tard
+- **Nom**, **Description**, **Catégorie**, **Icône**
+- **Workspace** — Toujours ajouter un workspace au contexte lorsque cette action s'exécute
+- **Raccourci clavier global** — Déclencher cette action depuis n'importe où sur votre Mac
+- **Déclencheurs vocaux** — Phrases qui exécutent cette action pendant la dictée
+
+**Options de visibilité** (également résumées sous **Quand afficher**) :
+
+- **Afficher uniquement lors de l'exécution** — L'action n'apparaît que si une application choisie est en cours d'exécution
+- **Afficher uniquement lorsqu'active** — L'action n'apparaît que si une application choisie a le focus
+- **Contexte de workspace** — Limiter quel(s) workspace(s) voient cette action
 
 <Note>
-  Chaque action reçoit automatiquement un UUID unique.
+  Chaque action reçoit automatiquement un UUID unique. Les actions intégrées sont en lecture seule jusqu'à ce que vous les dupliquiez ou enregistriez un remplacement.
 </Note>
 
 ### 2. System Prompt
@@ -73,7 +180,7 @@ Définissez les instructions IA et les paramètres pour le modèle.
 
 ![Onglet System Prompt](/images/tools/action-editor-02-systemprompt.webp)
 
-**System Prompt** — Instructions principales décrivant le comportement et l'expertise de l'IA.
+**System Prompt** — Instructions IA principales décrivant le comportement et l'expertise de l'IA.
 
 **Exemple :**
 ```
@@ -92,17 +199,17 @@ and accessibly to developers of all skill levels.
 - Keep language clear and non-technical
 ```
 
-**Parameters** — Définissez les champs de saisie que les utilisateurs peuvent personnaliser avant l'exécution (texte, listes déroulantes, etc.).
+**Paramètres** — Définissez les champs de saisie que les utilisateurs peuvent personnaliser avant l'exécution (saisie texte, listes déroulantes, booléens, nombres, etc.).
 
 ### 3. User Prompt
 
-Modèle de l'invite utilisateur envoyée à l'IA.
+Modèle pour le prompt utilisateur envoyé à l'IA.
 
 ![Onglet User Prompt](/images/tools/action-editor-03-userprompt.webp)
 
 **Utilisation des variables de contexte :**
 
-Encadrez les variables avec `{{ }}` pour insérer du contenu dynamique :
+Entourez les variables de `{{ }}` pour insérer du contenu dynamique :
 
 ```
 Please explain this code:
@@ -113,9 +220,9 @@ Explanation detail: {{ detailLevel }};
 ```
 
 **Variables de contexte disponibles :**
-- `{{ textSelection }}` — Texte actuellement sélectionné
-- `{{ filePath }}` — Chemin du fichier sélectionné
-- `{{ clipboard }}` — Contenu du presse-papiers
+- `{{ textSelection }}` - Texte actuellement sélectionné
+- `{{ filePath }}` - Chemin vers le fichier sélectionné
+- `{{ clipboard }}` - Contenu du presse-papiers
 - Paramètres personnalisés définis dans System Prompt
 
 ### 4. Quand afficher
@@ -126,110 +233,124 @@ Contrôlez quand et où cette action apparaît.
 
 **Conditions de visibilité :**
 
-- **Installed Applications** — Afficher l'action uniquement dans certaines apps (VSCode, Xcode, Safari, etc.)
-- **Application is running** — L'action exige que l'app soit en cours d'exécution
-- **Application has focus** — L'action ne fonctionne que lorsque l'app est au premier plan
-- **Web browser tab contains** — Afficher l'action lors de la navigation sur certains domaines
-- **Has content** — Afficher l'action uniquement lorsque le contexte est disponible
+- **Applications installées** - Afficher l'action uniquement dans des apps spécifiques (VSCode, Xcode, Safari, etc.)
+- **Application en cours d'exécution** - L'action nécessite que l'app soit lancée
+- **Application au premier plan** - L'action ne fonctionne que lorsque l'app est active
+- **Onglet de navigateur contient** - Afficher l'action lors de la navigation sur des domaines spécifiques
+- **Contient du contenu** - Afficher l'action uniquement lorsque le contexte est disponible
 
-### 5. Automation
+### 5. Automatisation
 
 Configurez le comportement d'exécution, les planifications et le traitement en arrière-plan.
 
-![Onglet Automation](/images/tools/action-editor-05-automation.webp)
+![Onglet Automatisation](/images/tools/action-editor-05-automation.webp)
 
 **Champs :**
 
-- **Background Job** — Exécuter l'action en arrière-plan sans afficher l'interface
-- **Schedules** — Exécuter l'action à des moments précis (par ex. « Chaque lundi à 9 h »)
-- **Quick Action** — Exécuter automatiquement la prochaine « Quick Action » une fois celle-ci terminée
+- **Tâche en arrière-plan** - Exécuter l'action en arrière-plan sans afficher l'interface
+- **Rendu markdown en arrière-plan** - Convertir le markdown en HTML lors du collage en mode arrière-plan
+- **Envoyer une notification système** - Notifier peu après la fin d'une tâche en arrière-plan
+- **Planifications** - Exécuter l'action à des heures précises (par ex. « Chaque lundi à 9 h »)
+- **Action rapide** - Exécuter automatiquement une Action rapide liée après la première réponse de l'assistant
 
-Utilisez ceci pour enchaîner les actions : première action → sortie → la suivante s'exécute automatiquement.
+Utilisez planifications et Actions rapides ensemble pour enchaîner des actions : première action → sortie → étape suivante s'exécute automatiquement.
 
-### 6. Tools
+### 6. Outils
 
-Limitez les Tools disponibles pour cette action.
+Limitez quels outils sont disponibles pour cette action.
 
-![Onglet Tools](/images/tools/action-editor-06-tools.webp)
+![Onglet Outils](/images/tools/action-editor-06-tools.webp)
 
-**Configuration des Tools :**
+**Configuration des outils :**
 
-- **Disable Tools** — Désactivez des Tools individuelles pour restreindre les fonctionnalités
-- Lorsque vide : toutes les Tools sont disponibles
-- Lorsque configuré : seules les Tools sélectionnées sont disponibles
+- **Désactiver les outils** - Désactivé : seuls les outils sélectionnés sont disponibles ; activé : l'accès aux outils est restreint
+- Lorsque l'accès aux outils est activé avec une sélection vide : tous les outils activés globalement sont disponibles
+- Lorsqu'il est configuré : seuls les outils sélectionnés sont disponibles
 
-**Ask Anything par défaut (beta100+) :** L'action intégrée **Ask Anything** active **Flow**, **Computer Use** et **Ask User** dès le départ. Personnalisez-la ou dupliquez-la si vous souhaitez un ensemble de Tools plus restreint.
+**Paramètres par défaut de Demander n'importe quoi (beta100+) :** L'action intégrée **Demander n'importe quoi** active **Flow**, **Computer Use** et **Ask User** dès le départ. Personnalisez-la ou dupliquez-la si vous voulez un ensemble d'outils plus restreint.
 
-**Memory :** Liez le Tool **Memory** lorsqu'une action doit lire des faits enregistrés ou rechercher des chats et réunions antérieurs. Memory n'est pas activée pour toutes les actions par défaut. Voir [Memory](/fr/workflows/memory) et [Gérer Memory](/fr/how-to/manage-memory).
+**Memory :** Liez l'outil **Memory** lorsqu'une action doit lire des faits enregistrés ou rechercher des chats et réunions antérieurs. Memory n'est pas activée pour chaque action par défaut. Voir [Memory](/fr/workflows/memory) et [Gérer Memory](/fr/how-to/manage-memory).
 
-L'action intégrée **Memory Catch-Up** inclut Memory déjà liée. C'est le moyen fiable d'Alter pour amorcer Memory à partir des 30 derniers jours de chats et réunions — recommandé lorsque vous activez Memory pour la première fois ou souhaitez compléter l'historique récent. Voir [Memory Catch-Up](/fr/workflows/memory-catch-up).
+L'action intégrée **Memory Catch-Up** est livrée avec Memory déjà liée. C'est le moyen fiable d'Alter pour amorcer Memory à partir des 30 derniers jours de chats et réunions — recommandé lorsque vous activez Memory pour la première fois ou voulez compléter l'historique récent. Voir [Memory Catch-Up](/fr/workflows/memory-catch-up).
 
-**Coding tools (post-beta106) :** Le chemin le plus rapide est un [agent de coding Marketplace](/fr/workflows/coding-tools#get-started-from-the-marketplace-recommended) — téléchargez depuis **Tools Manager → Marketplace → Browse** (par exemple le [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) en ligne) et exécutez-le une fois ; Alter active l'intégration de coding requise à la première utilisation. En alternative, sous **Local Tools → Coding**, connectez **ChatGPT**, **Cursor**, **OpenCode** et/ou **Claude** dans **Tools Manager** d'abord, puis limitez les fournisseurs que chaque action peut utiliser — par exemple une action de release peut activer **Cursor** uniquement. Les sessions de coding s'exécutent de façon asynchrone ; les résultats reviennent dans la conversation d'origine. Voir [Coding tools](/fr/workflows/coding-tools).
+**Outils de codage (post-beta106) :** Le chemin le plus rapide est un [agent de codage Marketplace](/fr/workflows/coding-tools#get-started-from-the-marketplace-recommended) — téléchargez depuis **Outils et actions → Marketplace → Parcourir** (par exemple le [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) en direct) et exécutez-le une fois ; Alter active l'intégration de codage requise à la première utilisation. Alternativement, sous **Outils locaux → Codage**, connectez **ChatGPT**, **Cursor**, **OpenCode** et/ou **Claude** dans **Outils et actions** d'abord, puis limitez quels fournisseurs chaque action peut utiliser — par exemple une action de release pourrait n'activer que **Cursor**. Les sessions de codage s'exécutent de façon asynchrone ; les résultats reviennent dans la conversation d'origine. Voir [Outils de codage](/fr/workflows/coding-tools).
 
-**Pourquoi limiter les Tools ?**
-- Réduire la charge de décision de l'IA (se concentrer sur les Tools pertinentes)
+**Pourquoi limiter les outils ?**
+- Réduire la charge de décision de l'IA (se concentrer sur les outils pertinents)
 - Accélérer l'exécution de l'action
-- Renforcer la sécurité (limiter ce à quoi les actions peuvent accéder)
+- Améliorer la sécurité (limiter ce que les actions peuvent accéder)
 
-### 7. Model
+Vous pouvez aussi demander au **chat de l'éditeur** d'attacher ou retirer des outils sans ouvrir cet onglet.
 
-Sélectionnez le modèle IA, le niveau de réflexion et le degré de créativité.
+### 7. Modèle
 
-![Onglet Model](/images/tools/action-editor-07-model.webp)
+Sélectionnez le modèle IA, le niveau de réflexion et le niveau de créativité.
+
+![Onglet Modèle](/images/tools/action-editor-07-model.webp)
 
 **Champs :**
 
-- **Model** — Sélecteur recherchable regroupé en **Current**, **Favorites** et **Other models**. Laissez vide pour utiliser le modèle par défaut de l'utilisateur, ou épinglez un modèle spécifique pour cette action.
-  - Chaque ligne affiche la longueur de contexte, la prise en charge de la vision et les favoris
-  - Lorsque le modèle le permet, ajustez **Thinking effort** (**Low**, **Balanced**, **Max**) en ligne
+- **Modèle** — Sélecteur consultable regroupé en **Actuels**, **Favoris** et **Autres modèles**. Laissez vide pour utiliser le modèle par défaut de l'utilisateur, ou épinglez un modèle spécifique pour cette action.
+  - Chaque ligne affiche la longueur de contexte, le support vision et les favoris
+  - Lorsque le modèle le supporte, ajustez **Niveau de réflexion** (**Faible**, **Équilibré**, **Max**) en ligne
 
-- **Temperature** — Ajustez la créativité par rapport à la précision
-  - **0,0** — Déterministe (cohérent, prévisible)
-  - **0,5** — Équilibré (par défaut)
-  - **1,0** — Créatif (imprévisible, exploratoire)
+- **Température** - Ajuster créativité vs. précision
+  - **0,0** - Déterministe (cohérent, prévisible)
+  - **0,5** - Équilibré (par défaut)
+  - **1,0** - Créatif (imprévisible, exploratoire)
 
-Alter mémorise le thinking effort **par modèle** dans le Hub, QuickHub et l'Action Editor.
+Alter mémorise le niveau de réflexion **par modèle** dans Hub, QuickHub, Mes actions et les documents d'action.
 
 <Tip>
-  Utilisez **⌘F** dans la barre latérale de l'Action Editor pour rechercher des actions. Cliquez sur l'icône de filtre pour restreindre par tâches d'arrière-plan, planifications, avertissements, actions modifiées ou **Folders** (catégories d'actions). Les filtres de dossiers incluent les raccourcis **All** et **None**.
+  Utilisez **⌘F** dans Mes actions pour rechercher des actions. Cliquez sur l'icône de filtre pour restreindre par tâches en arrière-plan, planifications, avertissements, actions modifiées, annonces publiées ou **Dossiers**. Les filtres de dossier incluent les raccourcis **Tous** et **Aucun**.
 </Tip>
 
 ### 8. Gateways
 
-Choisissez les connexions Gateway exactes qui peuvent utiliser cette action. Chaque Gateway Buzz, Discord et Telegram configuré a son propre interrupteur, de sorte que deux comptes sur la même plateforme peuvent avoir des accès différents.
+Choisissez les connexions gateway exactes qui peuvent utiliser cette action. Chaque gateway Buzz, Discord et Telegram configurée a sa propre bascule, de sorte que deux comptes sur la même plateforme peuvent avoir des accès différents.
 
 <Info>
-  **Buzz gateway (internal)** — Buzz n'apparaît que dans les builds Alter internes pour l'équipe de développement. Voir [Buzz gateway (internal)](/apps-tools/gateways-buzz).
+  **Gateway Buzz (interne)** — Buzz n'apparaît que dans les builds internes d'Alter pour l'équipe de développement. Voir [Gateway Buzz (interne)](/fr/apps-tools/gateways-buzz).
 </Info>
 
-**Disponibilité** — Interrupteurs Gateway :
+**Disponibilité** — Bascules gateway :
 
-| Réglage | Effet |
+| Paramètre | Effet |
 |---------|--------|
-| Tous les interrupteurs désactivés | Local uniquement (Hub, QuickHub, etc.) |
-| Un Gateway activé | Disponible uniquement depuis cette connexion Gateway nommée |
-| Plusieurs Gateways activés | Disponible depuis exactement ces connexions, même sur plusieurs plateformes |
-| Tous les interrupteurs activés | Disponible depuis chaque Gateway actuellement configuré |
+| Toutes les bascules désactivées | Local uniquement (Hub, QuickHub, etc.) |
+| Une gateway activée | Disponible uniquement depuis cette connexion gateway nommée |
+| Plusieurs gateways activées | Disponible depuis exactement ces connexions, même entre plateformes |
+| Toutes les bascules activées | Disponible depuis chaque gateway actuellement configurée |
 
-L'action intégrée **Ask Anything** apparaît initialement sur tous les Gateways compatibles. Les actions personnalisées restent locales jusqu'à ce que vous activiez un ou plusieurs interrupteurs Gateway. Modifier un interrupteur enregistre une liste explicite de connexions Gateway, de sorte qu'un Gateway ajouté ultérieurement n'hérite pas automatiquement de cette action.
+L'action intégrée **Demander n'importe quoi** apparaît initialement sur toutes les gateways compatibles. Les actions personnalisées démarrent en local uniquement jusqu'à ce que vous activiez une ou plusieurs bascules gateway. Modifier une bascule enregistre une liste explicite de connexions gateway, de sorte qu'une gateway ajoutée plus tard n'hérite pas automatiquement de cette action.
 
-Sur les Gateways, les **actions sans paramètres** (sans champs de saisie) s'exécutent immédiatement lorsqu'elles sont choisies dans **Choose action** ; les **actions paramétrées** attendent le message suivant de l'utilisateur.
+Sur Gateways, les **actions sans paramètres** (sans champs de saisie) s'exécutent immédiatement lorsqu'elles sont choisies dans **Choisir une action** ; les **actions paramétrées** attendent le message suivant de l'utilisateur.
 
-**Livraison programmée via Gateway** — Lorsqu'une action s'exécute selon un planning, activez **Démarrer les conversations planifiées sur un Gateway**, choisissez un Gateway **Discord**, **Telegram** ou **Buzz** *(interne)* activé, puis sélectionnez une **Destination** (canal, chat ou stream Buzz). Alter y publie la réponse d'ouverture de l'action au lieu de l'exécuter uniquement en local. Les Gateways Buzz peuvent aussi définir une **Default scheduled destination** dans **Préférences → Integrations → Gateways**.
+**Livraison planifiée via gateway** — Lorsqu'une action s'exécute selon une planification, activez **Démarrer les conversations planifiées sur une gateway**, choisissez une gateway **Discord**, **Telegram** ou **Buzz** *(interne)* activée, puis sélectionnez une **Destination** (canal, chat ou flux Buzz). Alter y publie la réponse d'ouverture de l'action au lieu de l'exécuter uniquement en local. Les gateways Buzz peuvent aussi définir une **Destination planifiée par défaut** dans **Réglages → Intégrations → Gateways**.
 
-Voir [Gateways](/fr/apps-tools/gateways) pour la configuration, les commandes de chat, la livraison programmée et les réglages Gateway.
+Voir [Gateways](/fr/apps-tools/gateways) pour la configuration, les commandes de chat, la livraison planifiée et les paramètres gateway.
 
-## Meilleures pratiques
+### Diagnostics et avertissements
+
+Mes actions et les documents d'action affichent des **avertissements** lorsque quelque chose est mal configuré — Actions rapides manquantes, icônes invalides, références gateway cassées, problèmes de workspace et problèmes similaires.
+
+- Cliquez sur un badge d'avertissement sur une ligne ou une section pour voir les détails et les corrections suggérées
+- Filtrez la liste sur **Avertissements** pour auditer les actions nécessitant une attention
+- Demandez au chat de l'éditeur de « corriger les avertissements sur cette action » ou « analyser toutes les actions pour des problèmes »
+
+Les avertissements décrivent uniquement la configuration enregistrée ; ils ne prouvent pas comment une action s'est comportée lors d'exécutions passées.
+
+## Bonnes pratiques
 
 <CardGroup cols={2}>
-  <Card title="Noms explicites" icon="tag">
+  <Card title="Noms clairs" icon="tag">
     « Code Explainer » décrit ce qu'elle fait. Évitez les noms génériques comme « Action 1 ».
   </Card>
-  <Card title="Invites précises" icon="message">
-    Soyez détaillé dans les instructions IA. Des invites génériques produisent des sorties génériques.
+  <Card title="Prompts précis" icon="message">
+    Soyez détaillé avec les instructions IA. Les prompts génériques produisent des sorties génériques.
   </Card>
-  <Card title="Limiter les Tools" icon="tool">
-    Activez uniquement les Tools dont votre action a besoin. Cela réduit la charge et améliore la vitesse.
+  <Card title="Limiter les outils" icon="tool">
+    Activez uniquement les outils dont votre action a besoin. Réduit la charge et améliore la vitesse.
   </Card>
   <Card title="Utiliser les variables de contexte" icon="brackets">
     `{{ textSelection }}` fonctionne toujours. Le copier-coller manuel est source d'erreurs.
@@ -237,8 +358,8 @@ Voir [Gateways](/fr/apps-tools/gateways) pour la configuration, les commandes de
   <Card title="Visibilité conditionnelle" icon="eye">
     « Code Explainer » uniquement dans VSCode + Xcode réduit l'encombrement du menu.
   </Card>
-  <Card title="Tester avant de partager" icon="check">
-    Testez avec des données réelles avant de déployer dans votre équipe.
+  <Card title="Chat plus document" icon="wand-magic-sparkles">
+    Rédigez rapidement dans le chat de l'éditeur, puis ouvrez le document d'action pour peaufiner prompts et paramètres.
   </Card>
 </CardGroup>
 
@@ -249,43 +370,43 @@ Voir [Gateways](/fr/apps-tools/gateways) pour la configuration, les commandes de
 **Configuration :**
 - **Nom :** Explain Code
 - **Catégorie :** code
-- **Installed Apps :** VSCode, Xcode
+- **Apps installées :** VSCode, Xcode
 - **System Prompt :** You are an expert programmer who explains code clearly
 - **User Prompt :** `Please explain this code:\n\n{{ textSelection }}`
 - **Consumer :** markdown
-- **Temperature :** 0,5
+- **Température :** 0,5
 
 ### Exemple 2 : Créateur de brouillon d'e-mail
 
 **Configuration :**
 - **Nom :** Draft Email
 - **Catégorie :** productivity
-- **Quand afficher :** Application Mail active
+- **Quand afficher :** App Mail active
 - **System Prompt :** You are a professional business communicator
 - **User Prompt :** `Transform this into a professional email:\n\n{{ textSelection }}`
-- **Tools :** Activer uniquement Mail
+- **Outils :** Activer uniquement Mail
 - **Consumer :** in-place
-- **Temperature :** 0,6
+- **Température :** 0,6
 
-### Exemple 3 : Brief quotidien programmé
+### Exemple 3 : Brief quotidien planifié
 
 **Configuration :**
 - **Nom :** Daily Brief
 - **Catégorie :** productivity
-- **Automation :** Planification quotidienne à 9 h 00
-- **Background Job :** Activé
+- **Automatisation :** Planification à 9 h 00 chaque jour
+- **Tâche en arrière-plan :** Activée
 - **System Prompt :** Generate a daily brief of priorities
 
 ## Déclencheurs vocaux
 
-Attribuez des raccourcis vocaux pour déclencher des actions en mains libres :
+Attribuez des raccourcis vocaux pour déclencher des actions mains libres :
 
 <Steps>
-  <Step title="Paramètres">
-    Allez dans **Préférences > Déclencheurs vocaux**
+  <Step title="Réglages système">
+    Allez dans **Réglages > Déclencheurs vocaux**
   </Step>
   <Step title="Ajouter un déclencheur">
-    Cliquez sur **+ Add Trigger**
+    Cliquez sur **+ Ajouter un déclencheur**
   </Step>
   <Step title="Sélectionner une action">
     Choisissez l'action dans la liste déroulante
@@ -294,40 +415,40 @@ Attribuez des raccourcis vocaux pour déclencher des actions en mains libres :
     Saisissez la phrase de déclenchement (par ex. « explain » pour Code Explainer)
   </Step>
   <Step title="Enregistrer">
-    Cliquez sur Save et vous êtes prêt
+    Cliquez sur Enregistrer et vous êtes prêt
   </Step>
 </Steps>
 
-**Utilisation :** Maintenez le raccourci vocal + prononcez la phrase de déclenchement → l'action s'exécute avec le contexte actuel
+**Utilisation :** Maintenez le raccourci vocal + dites la phrase de déclenchement → L'action s'exécute avec le contexte actuel
 
 ## Intégration x-callback-url
 
-Déclenchez des Alter Actions depuis **n'importe quelle application** à l'aide d'URL spéciales. Cela permet de puissants workflows d'automatisation inter-applications.
+Déclenchez des Alter Actions depuis **n'importe quelle application** à l'aide d'URL spéciales. Cela permet des flux d'automatisation inter-apps puissants.
 
 ### Qu'est-ce que x-callback-url ?
 
-x-callback-url est un protocole de communication inter-applications qui permet aux applications de déclencher des actions les unes dans les autres via des URL formatées.
+x-callback-url est un protocole de communication inter-apps qui permet aux applications de déclencher des actions les unes dans les autres via des URL formatées.
 
-- **Entrant** — Déclenchez des Alter Actions depuis d'autres apps (Raccourcis, Notes, Safari, etc.)
-- **Sortant** — Créez des liens dans Alter qui ouvrent d'autres apps (Bear, OmniFocus, Drafts, etc.)
+- **Entrant** - Déclencher des Alter Actions depuis d'autres apps (Raccourcis, Notes, Safari, etc.)
+- **Sortant** - Créer des liens dans Alter qui ouvrent d'autres apps (Bear, OmniFocus, Drafts, etc.)
 
-### Obtenir l'URL Callback de votre action
+### Obtenir l'URL de callback de votre action
 
 <Steps>
-  <Step title="Ouvrir l'Action Editor">
+  <Step title="Ouvrir Mes actions">
     Appuyez sur **⌘⇧E**
   </Step>
-  <Step title="Sélectionner une action">
-    Choisissez l'action que vous souhaitez exposer
+  <Step title="Sélectionner ou demander">
+    Sélectionnez l'action dans la liste, ou demandez l'URL de callback au chat de l'éditeur
   </Step>
-  <Step title="Aller à General">
-    Accédez à l'onglet General
+  <Step title="Ouvrir le document d'action">
+    Double-cliquez l'action (ou choisissez **Modifier** dans le menu contextuel)
   </Step>
-  <Step title="Trouver URL Callback">
-    Recherchez la section « URL Callback »
+  <Step title="Aller à Général">
+    Accédez à la section **Général**
   </Step>
   <Step title="Copier l'URL">
-    Copiez l'URL `alter://`
+    Copiez l'URL `alter://` depuis **URL Callback**, ou collez l'URL que le chat de l'éditeur a renvoyée
   </Step>
 </Steps>
 
@@ -338,26 +459,26 @@ alter://action/{action-id}?input=VALUE&param2=VALUE
 
 ### Déclencher des Alter Actions depuis d'autres apps
 
-**Exemple 1 : recherche Web depuis Safari**
+**Exemple 1 : Recherche web depuis Safari**
 ```
 alter://action/ask-web?input=What+is+Alter+MacOS
 ```
 
-**Exemple 2 : Code Explainer avec entrée**
+**Exemple 2 : Code Explainer avec saisie**
 ```
 alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 ```
 
-**Exemple 3 : utilisation dans Raccourcis Apple**
-1. Créez un nouveau raccourci
+**Exemple 3 : Utilisation dans Raccourcis Apple**
+1. Créez un nouveau Raccourci
 2. Ajoutez l'action « Ouvrir l'URL »
 3. Collez votre URL `alter://`
 4. Exécutez le raccourci pour déclencher l'action
 
-### Cas d'utilisation
+### Cas d'usage
 
 <AccordionGroup>
-  <Accordion icon="workflow" title="Automatisation de workflow">
+  <Accordion icon="workflow" title="Automatisation de flux de travail">
     Déclencher une action depuis Calendrier → Générer des notes de réunion → Créer un brouillon d'e-mail
   </Accordion>
 
@@ -365,58 +486,95 @@ alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
     Bouton Notion → Déclencher une Alter Action → Mettre à jour le statut de la tâche
   </Accordion>
 
-  <Accordion icon="copy" title="Transfert d'informations">
+  <Accordion icon="copy" title="Transfert d'information">
     Copier du texte → Déclencher une action avec callback → Ouvrir le résultat dans une app externe (sans copier-coller manuel)
   </Accordion>
 </AccordionGroup>
 
 ## Raccourcis clavier
 
+### Globaux
+
 | Action | Raccourci |
 |--------|----------|
-| Ouvrir l'Action Editor | `⌘⇧E` |
-| Nouvelle action | `Cmd + N` (dans l'éditeur) |
-| Enregistrer l'action | `Cmd + S` (dans l'éditeur) |
-| Supprimer l'action | `Cmd + Delete` (dans l'éditeur) |
-| Rechercher des actions | `Cmd + F` (dans l'éditeur) |
+| Ouvrir **Mes actions** | `⌘⇧E` |
+| Ouvrir **Outils et actions** | `⌘⇧T` |
+
+### Mes actions (fenêtre Outils et actions, Mes actions sélectionné)
+
+| Action | Raccourci |
+|--------|----------|
+| Focus recherche d'actions | `⌘F` |
+| Nouvelle action (démarre le chat de l'éditeur) | `⌘N` |
+| Ouvrir le document d'action | `Return` (une ligne sélectionnée) |
+| Dupliquer l'action | `⌘D` |
+| Exporter l'action | `⌘E` |
+| Importer une action | `⌘O` |
+| Supprimer / réinitialiser l'action | `⌘Delete` |
+
+### Fenêtre document d'action
+
+| Action | Raccourci |
+|--------|----------|
+| Section précédente | `⌘[` |
+| Section suivante | `⌘]` |
+| Fermer la fenêtre | `⌘W` |
+
+Les commandes du menu Fichier dans Mes actions et les documents d'action suivent la fenêtre Alter active.
+
+Voir [Raccourcis](/fr/references/shortcuts) pour la liste complète.
 
 ## Dépannage
 
 <AccordionGroup>
   <Accordion icon="circle-exclamation" title="L'action n'apparaît pas dans le menu">
-    - Vérifiez les paramètres **Quand afficher**
-    - Confirmez que l'app est en cours d'exécution/active (si configuré)
+    - Vérifiez les paramètres **Quand afficher** dans le document d'action
+    - Vérifiez que l'app est lancée/active (si configuré)
     - Assurez-vous que l'action est **activée**
   </Accordion>
 
-  <Accordion icon="triangle-exclamation" title="L'action s'exécute mais produit un résultat médiocre">
+  <Accordion icon="triangle-exclamation" title="L'action s'exécute mais produit une sortie médiocre">
     - Revoyez le **System Prompt** — soyez plus précis
-    - Ajustez la **Temperature** (plus basse pour la précision, plus élevée pour la créativité)
+    - Ajustez la **Température** (plus basse pour la précision, plus haute pour la créativité)
     - Vérifiez le **User Prompt** — assurez-vous que les variables sont correctes
   </Accordion>
 
   <Accordion icon="microphone" title="Le déclencheur vocal ne fonctionne pas">
-    - Vérifiez que le raccourci est configuré dans les Préférences
-    - Contrôlez les autorisations du microphone
+    - Vérifiez que le raccourci est configuré dans Réglages
+    - Vérifiez les autorisations du microphone
     - Testez d'abord avec un déclenchement manuel
   </Accordion>
 
-  <Accordion icon="lock" title="Tools indisponibles dans l'action">
-    - Allez dans l'onglet **Tools**
-    - Vérifiez que les Tools ne sont pas désactivées
-    - Contrôlez les autorisations système pour le Tool
+  <Accordion icon="lock" title="Outils indisponibles dans l'action">
+    - Ouvrez le document d'action → section **Outils**
+    - Vérifiez que les outils ne sont pas désactivés et que les bons outils sont sélectionnés
+    - Confirmez que l'outil est activé sous **Outils et actions → Outils Actifs**
+    - Demandez au chat de l'éditeur d'inspecter l'accès aux outils si vous n'êtes pas sûr
+  </Accordion>
+
+  <Accordion icon="stethoscope" title="Avertissements sur une action">
+    - Cliquez sur le badge d'avertissement pour les détails
+    - Ouvrez la section liée (Outils, Gateways, Action rapide, etc.) et corrigez la référence
+    - Demandez au chat de l'éditeur de diagnostiquer et réparer l'action sélectionnée
+  </Accordion>
+
+  <Accordion icon="trash" title="Impossible de supprimer une action">
+    - Lisez le message de dépendance — une autre Action rapide, action ou workspace peut encore la référencer
+    - Supprimez ces liens d'abord, puis réessayez la suppression depuis le menu contextuel ou le chat de l'éditeur
   </Accordion>
 </AccordionGroup>
 
-## Guides connexes
+## Guides associés
 
-- [Tools et intégrations](/fr/apps-tools/integrations-overview) — Tools disponibles pour vos actions
-- [URL Callbacks](/fr/workflows/url-callbacks) — Plongée dans l'automatisation x-callback-url
+- [Créer des actions réutilisables](/fr/getting-started/actions-basics) — Première action en quelques minutes
+- [Gérer les outils](/fr/how-to/tool-manager-guide) — Connecter les intégrations utilisées par vos actions
+- [Outils et intégrations](/fr/apps-tools/integrations-overview) — Outils disponibles pour vos actions
+- [URL Callbacks](/fr/workflows/url-callbacks) — Plongée approfondie dans l'automatisation x-callback-url
 - [Voix et dictée](/fr/workflows/dictation) — Configurer les déclencheurs vocaux
-- [Paramètres](/fr/how-to/settings-guide) — Configurer le modèle global et les paramètres vocaux
+- [Réglages](/fr/how-to/settings-guide) — Configurer le modèle global et les paramètres vocaux
 
 ---
 
-**Prêt à créer ?** Ouvrez Alter, appuyez sur **⌘⇧E** et commencez à créer votre première action !
+**Prêt à construire ?** Appuyez sur **⌘⇧E**, décrivez l'action souhaitée dans le chat de l'éditeur, ou double-cliquez une action pour ouvrir son document.
 
-**Vous voulez automatiser entre les apps ?** Utilisez les x-callback-urls pour déclencher des actions depuis Safari, Raccourcis, Notes ou toute app prenant en charge les schémas d'URL.
+**Vous voulez automatiser entre apps ?** Utilisez les x-callback-urls pour déclencher des actions depuis Safari, Raccourcis, Notes ou toute app supportant les schémas d'URL.

@@ -1,5 +1,5 @@
 ---
-title: "Tool Guía del administrador"
+title: "Gestionar herramientas"
 description: "Conecte y administre integraciones de forma segura con pasos claros para la solución de problemas"
 ---
 
@@ -7,43 +7,49 @@ description: "Conecte y administre integraciones de forma segura con pasos claro
 
 Conecte y administre integraciones de forma segura con pasos claros para la solución de problemas.
 
+Alter agrupa herramientas y acciones en una sola ventana: **Herramientas y acciones** (**⌘⇧T**). Úsela para agentes del Marketplace, Herramientas activas, Acciones rápidas, Skills, MCP remoto y **Mis acciones** — la lista de acciones y el chat del editor para crear flujos de trabajo.
+
+<Card title="Guía de Alter Actions" icon="square.and.pencil" href="/es/workflows/alter-actions">
+  Diseño de Mis acciones, chat del editor, documentos de acción, filtros y diagnósticos
+</Card>
+
 ## Pasos
 
-1. Abra la configuración de Alter y vaya al administrador de integraciones o Tools.
+1. Pulse **⌘⇧T** para abrir **Herramientas y acciones**, o abra **Ajustes** para preferencias relacionadas con integraciones.
 2. Conecte una integración a la vez y pruébela inmediatamente.
 3. Confirme los permisos requeridos y los alcances de la cuenta.
 4. Cree un mensaje de prueba simple para verificar el comportamiento esperado.
 5. Si se producen fallas, revise la autenticación del proveedor y vuelva a intentarlo.
 
-## Administrar muchos Tools
+## Administrar muchas herramientas
 
-Habilitar muchas Tools aumenta el uso de la ventana de contexto y afecta el rendimiento. Para la mayoría de los flujos de trabajo, utilice **Flow**: el orquestador de Tools de Alter que selecciona automáticamente la Tool adecuada para cada solicitud.
+Habilitar muchas herramientas aumenta el uso de la ventana de contexto y afecta el rendimiento. Para la mayoría de los flujos de trabajo, utilice **Flow**: el orquestador de herramientas de Alter que selecciona automáticamente la herramienta adecuada para cada solicitud.
 
-<Card title="Utilice Flow para la orquestación Tool" icon="wand-magic-sparkles" href="/workflows/use-flow-orchestration">
-Flow reduce el uso del contexto al actuar como una única Tool que enruta las solicitudes a la integración adecuada automáticamente.
+<Card title="Usar Flow para la orquestación de herramientas" icon="wand-magic-sparkles" href="/es/workflows/use-flow-orchestration">
+  Flow reduce el uso del contexto al actuar como una sola herramienta que enruta las solicitudes a la integración apropiada automáticamente.
 </Card>
 
-En lugar de cargar todas las Tools en cada solicitud, Flow:
-- Analiza su solicitud y selecciona la Tool adecuada
-- Maneja la orquestación de varios pasos en todas las Tools.
-- Reduce el uso de la ventana de contexto y mejora el rendimiento.
+En lugar de cargar todas las herramientas en cada solicitud, Flow:
+- Analiza su solicitud y selecciona la herramienta adecuada
+- Gestiona la orquestación en varios pasos entre herramientas
+- Reduce el uso de la ventana de contexto y mejora el rendimiento
 
-Habilite Flow en Tool Manager en **Local Tools > Alter**.
+Active Flow en **Herramientas y acciones** bajo **Local Tools > Alter**.
 
 ## Coding tools
 
-**Tools Manager → Local Tools → Coding** enumera cuatro integraciones locales de coding:
+**Herramientas y acciones → Local Tools → Coding** enumera cuatro integraciones de coding locales:
 
 | Proveedor | Conectar cuando |
 |----------|--------------|
-| **ChatGPT** | Usa la app de escritorio ChatGPT para coding agentico |
-| **Cursor** | Tiene instalado Cursor Agent CLI (`agent`) |
-| **OpenCode** | Usa OpenCode CLI, incluidas sesiones de terminal |
-| **Claude** | Usa Claude Code (`claude`) en Terminal |
+| **ChatGPT** | Usa la app de escritorio ChatGPT para coding agéntico |
+| **Cursor** | Tienes instalado Cursor Agent CLI (`agent`) |
+| **OpenCode** | Usas OpenCode CLI, incluidas sesiones de terminal |
+| **Claude** | Usas Claude Code (`claude`) en Terminal |
 
-**Camino más rápido:** instale un agente especializado en **[Marketplace → Browse](https://alterhq.com/marketplace)** — por ejemplo el [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) en vivo. En la primera ejecución, Alter le pide habilitar la herramienta de coding vinculada. Vea [Coding tools — onboarding Marketplace](/es/workflows/coding-tools#get-started-from-the-marketplace-recommended).
+**Ruta más rápida:** instale un agente especializado desde **[Marketplace → Browse](https://alterhq.com/marketplace)** — por ejemplo el [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent) en vivo. En la primera ejecución, Alter le pide que habilite la integración de coding vinculada. Vea [Coding tools — Marketplace](/es/workflows/coding-tools#get-started-from-the-marketplace-recommended).
 
-Conecte solo los proveedores que necesita. Cada uno expone herramientas run, list, control y settings al modelo de Alter cuando está habilitado para la action actual.
+Conecte solo los proveedores que necesite. Cada uno expone herramientas run, list, control y settings al modelo de Alter cuando está habilitado para la acción actual.
 
 <Card title="Guía de coding tools" icon="terminal" href="/es/workflows/coding-tools">
   Requisitos previos, permisos de workspace y diferencias entre proveedores
@@ -52,10 +58,10 @@ Conecte solo los proveedores que necesita. Cada uno expone herramientas run, lis
 ## Solución de problemas
 
 - Vuelva a autenticar la conexión del proveedor.
-- Confirme los permisos locales/de red.
-- Verifique los límites y cuotas específicos de la integración.
+- Confirme permisos locales/de red.
+- Compruebe límites y cuotas específicos de la integración.
 
-## Documentos relacionados
+## Documentación relacionada
 
-- [Utilice Flow para Tool Orquestación](/workflows/use-flow-orchestration)
-- [Tools No funciona](/common-issues/tool-not-working)
+- [Usar Flow para la orquestación de herramientas](/es/workflows/use-flow-orchestration)
+- [Las herramientas no funcionan](/es/common-issues/tool-not-working)

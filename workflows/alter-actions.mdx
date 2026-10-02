@@ -1,6 +1,6 @@
 ---
 title: "Alter Actions"
-description: "Create and configure custom AI workflows with voice triggers and automation"
+description: "Create and configure custom AI workflows with My Actions, the editor chat, and action documents"
 ---
 
 <Info>
@@ -19,52 +19,159 @@ An **Alter Action** is an advanced automation that combines:
 
 Think of an Alter Action as a "specialized AI assistant" customized for a specific task.
 
-## Opening the Action Editor
+## Opening My Actions
 
-### Method 1: Menu Bar (Fastest)
-1. Click the **Alter menu icon** in the menu bar (top right)
-2. Select **Action Editor**
+Alter now manages actions inside **Tools & Actions**. The **My Actions** section combines a searchable action list, inline controls, and an **editor chat** that can create or change actions for you.
+
+### Method 1: Keyboard shortcut (fastest)
+
+Press **⌘⇧E** (Command + Shift + E). Alter opens **Tools & Actions** directly on **My Actions**.
+
+### Method 2: Window menu
+
+1. Open any Alter window (Hub, QuickHub, or Tools & Actions)
+2. Choose **Window → My Actions**
+
+### Method 3: Tools & Actions sidebar
+
+1. Press **⌘⇧T** (Command + Shift + T) to open **Tools & Actions**
+2. Select **My Actions** in the sidebar
+
+The sidebar badge shows how many actions are currently enabled.
+
+<Tip>
+  **⌘⇧E** jumps straight to action management. **⌘⇧T** opens the full Tools & Actions window, including Marketplace, Active Tools, Quick Actions, Skills, and Remote MCP.
+</Tip>
+
+<Note>
+  **My Actions** and action documents require sign-in. If you are logged out, Alter shows a login overlay instead of the editor.
+</Note>
+
+## My Actions layout
+
+When **My Actions** is selected, the window has three working areas:
+
+| Area | What it does |
+|------|----------------|
+| **Left** | Tools & Actions navigation (Marketplace, Local Tools, Quick Actions, Skills, Remote MCP, **My Actions**) |
+| **Center** | Your action list — folders, search, filters, and per-row controls |
+| **Right** | **Editor chat** — describe changes in plain language and Alter applies them |
 
 ![Menu Bar](/images/tools/menu-bar-action-editor.webp)
 
-### Method 2: Options Menu
-1. Open Alter window
-2. Click **⋯** (three dots) in top right
-3. Select **Action Editor**
+On first visit, if nothing is selected, the editor chat opens in **Manage my Actions** mode so you can describe a new action or ask what to change across your library.
 
-![Options Menu](/images/tools/options-menu-action-editor.webp)
+### Action list
 
-### Method 3: Keyboard Shortcut
-Press **⌘⇧E** (Command + Shift + E) to open the Action Editor directly
+Actions are grouped into **folders** (categories). You can:
+
+- **Search** with **⌘F** — matches action names and indexed resource properties (tools, gateways, Quick Actions, and similar linked resources)
+- **Filter** with the filter icon — narrow by background jobs, schedules, warnings, modified actions, published listings, disabled actions, or specific folders
+- **Collapse or expand** folders, **rename** folders, and **drag actions** between folders
+- **Select multiple actions** for batch export, move, enable/disable, or delete
+- **Create a folder** from the toolbar, then add actions by drag-and-drop or from the row context menu
+
+Each row shows quick status at a glance:
+
+- **Icon and name** — double-click a name (or press **Return** with one row selected) to open the action document
+- **Voice trigger** indicator when voice phrases are configured
+- **Modified by you** badge when you customized a built-in action
+- **Background job** indicator
+- **Marketplace** indicator when the action came from a listing
+- **Warnings** indicator when diagnostics find a configuration issue
+
+### Inline row controls
+
+Without opening the full document, each row exposes three controls on the right:
+
+| Control | What it does |
+|---------|----------------|
+| **Model** | Pick **Default** or pin a model and thinking effort for this action |
+| **Schedule** | View, add, edit, or remove schedules |
+| **Shortcut** | Record or change a global keyboard shortcut |
+
+Hover a row to reveal the shortcut control when no shortcut is set yet.
+
+### Row context menu
+
+Right-click one or more actions to **Run**, **Edit**, **Rename**, set a **keyboard shortcut**, **Move To** a folder, **Enable** / **Disable**, **Duplicate**, **Export**, **Publish to Marketplace**, or **Delete** / **Reset**.
+
+**Edit** opens the action in a separate **action document** window for field-by-field editing.
+
+## Editor chat
+
+The right column is a dedicated chat for managing actions. It uses Alter's fast model with a fixed set of management tools, so you can describe what you want instead of clicking through every tab.
+
+### What you can do in chat
+
+Ask Alter to:
+
+- **Create** a new action from a description ("Make a daily standup summary action that runs at 9 AM")
+- **Edit** the selected action's prompts, parameters, visibility, model, tools, schedules, or gateways
+- **Enable or scope tools** globally or for one action
+- **Configure Quick Actions** — Alter opens reviewed forms for webhooks, AppleScript/JXA, shortcuts, and similar setup
+- **Connect Connected Applications** and **MCP servers** through native approval sheets
+- **Install or enable Skills**
+- **Diagnose warnings** on one action or scan your whole library
+- **Find actions** by name, description, or linked resources ("Which actions use the Discord gateway?")
+- **Copy callback URLs** for automation
+
+When you select an action, Alter sends a snapshot of its current settings with your first message so the assistant can edit immediately without re-reading the file.
+
+Each action keeps its **own chat history**. Switching rows swaps conversations; drafts in the input field are preserved per action. Use the trash button in the chat header to clear a conversation.
 
 <Tip>
-  The keyboard shortcut is the fastest method once you've memorized it.
+  Combine chat and manual editing: ask the chat to draft prompts or wire up tools, then open the **action document** to fine-tune wording, parameters, or gateway toggles yourself.
 </Tip>
 
-## Action Editor Walkthrough
+### Approvals and sensitive setup
 
-The Action Editor has 7 main sections, each controlling different aspects of your action. Use the left panel to navigate between tabs.
+Destructive or privileged changes require your confirmation in native sheets or alerts — for example deleting actions, resetting built-in overrides, connecting OAuth apps, configuring MCP servers, installing tools, or saving Quick Action webhooks and scripts.
 
-### 1. General Settings
+Alter explains **dependency blockers** when deletion fails (for example an action still linked from a Quick Action or workspace) and tells you what to unlink first.
 
-Configure basic metadata and execution context.
+### Profile context for suggestions
+
+The editor chat includes your **profile** information when generating tailored suggestions — for example recommending tools or wording that match how you work. Turn this off per action under **General → Include Profile** in the action document if you prefer not to send profile context for that workflow.
+
+## Action document
+
+For precise control, open an **action document** — a dedicated window with section tabs on the left and fields on the right. Use it when you want to edit prompts directly, tune parameters, or review every toggle.
+
+**Open a document:**
+
+- Double-click an action name in the list
+- Select one action and press **Return**
+- Right-click → **Edit**
+- From another Alter window, use **Edit in Action Editor** when offered for the current action
+
+The document window title shows the action name. Built-in actions you customized show as editable overrides; duplicate them first if you want a fully separate copy.
+
+### 1. General
+
+Configure basic metadata, availability, and execution context.
 
 ![General Tab](/images/tools/action-editor-01-general.webp)
 
 **Fields:**
-- **Name** - Human-readable action name (e.g., "Code Explainer")
-- **Description** - What this action does (optional)
-- **Category** - Organize actions by type (code, productivity, business, etc.)
-- **Workspace** - Assign to a specific workspace (optional)
-- **Include Profile** - Include user profile information in AI context
 
-**Visibility Options:**
-- **Show only when running** - Action only appears if an app is running
-- **Show only when active** - Action only appears if an app has focus
-- **Workspace context** - Choose which workspace(s) see this action
+- **Enabled** — Turn the action on or off
+- **Mode** — Show this action as a selectable mode in the Hub input area
+- **Include Profile** — Include user profile information in AI context
+- **Save to History** — Keep conversations from this action in History so you can reopen and search them later
+- **Name**, **Description**, **Category**, **Icon**
+- **Workspace** — Always add a workspace to context when this action runs
+- **Global Keyboard Shortcut** — Trigger this action from anywhere on your Mac
+- **Voice Triggers** — Phrases that run this action during dictation
+
+**Visibility options** (also summarized under **When to Show**):
+
+- **Show only when running** — Action appears only if a chosen app is running
+- **Show only when active** — Action appears only if a chosen app has focus
+- **Workspace context** — Limit which workspace(s) see this action
 
 <Note>
-  Each action gets a unique UUID automatically.
+  Each action gets a unique UUID automatically. Built-in actions are read-only until you duplicate them or save an override.
 </Note>
 
 ### 2. System Prompt
@@ -73,7 +180,7 @@ Define AI instructions and parameters for the model.
 
 ![System Prompt Tab](/images/tools/action-editor-02-systemprompt.webp)
 
-**System Prompt** - Core AI instructions describing the AI's behavior and expertise.
+**System Prompt** — Core AI instructions describing the AI's behavior and expertise.
 
 **Example:**
 ```
@@ -92,7 +199,7 @@ and accessibly to developers of all skill levels.
 - Keep language clear and non-technical
 ```
 
-**Parameters** - Define input fields users can customize before execution (text input, dropdown selections, etc.).
+**Parameters** — Define input fields users can customize before execution (text input, dropdown selections, booleans, numbers, and more).
 
 ### 3. User Prompt
 
@@ -141,10 +248,12 @@ Configure execution behavior, schedules, and background processing.
 **Fields:**
 
 - **Background Job** - Run action in background without showing UI
+- **Background markdown rendering** - Render markdown to HTML when pasting in background mode
+- **Send a system notification** - Notify shortly after a background job completes
 - **Schedules** - Execute action at specific times (e.g., "Every Monday at 9 AM")
-- **Quick Action** - Execute the next "Quick Action" automatically after this completes
+- **Quick Action** - Execute a linked Quick Action automatically after the first assistant response
 
-Use this for action chaining: first action → output → next action executes automatically.
+Use schedules and Quick Actions together for action chaining: first action → output → next step runs automatically.
 
 ### 6. Tools
 
@@ -154,9 +263,9 @@ Scope which tools are available for this action.
 
 **Tool Configuration:**
 
-- **Disable Tools** - Toggle off individual tools to restrict functionality
-- When empty: All tools are available
-- When configured: Only selected tools are available
+- **Disable Tools** - When off, only selected tools are available; when on, tool access is restricted
+- When tool access is enabled with an empty selection: all globally activated tools are available
+- When configured: only selected tools are available
 
 **Ask Anything defaults (beta100+):** The built-in **Ask Anything** action enables **Flow**, **Computer Use**, and **Ask User** out of the box. Customize or duplicate it if you want a narrower tool set.
 
@@ -164,12 +273,14 @@ Scope which tools are available for this action.
 
 The built-in **Memory Catch-Up** action ships with Memory already linked. It is Alter's trusted way to bootstrap Memory from the last 30 days of chats and meetings—recommended when you first enable Memory or want to backfill recent history. See [Memory Catch-Up](/workflows/memory-catch-up).
 
-**Coding tools (post-beta106):** The fastest path is a [Marketplace coding agent](/workflows/coding-tools#get-started-from-the-marketplace-recommended) — download from **Tools Manager → Marketplace → Browse** (for example the live [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)) and run it once; Alter enables the required coding integration on first use. Alternatively, under **Local Tools → Coding**, connect **ChatGPT**, **Cursor**, **OpenCode**, and/or **Claude** in **Tools Manager** first, then scope which providers each action may use — for example a release action might enable **Cursor** only. Coding sessions run asynchronously; results return to the originating conversation. See [Coding tools](/workflows/coding-tools).
+**Coding tools (post-beta106):** The fastest path is a [Marketplace coding agent](/workflows/coding-tools#get-started-from-the-marketplace-recommended) — download from **Tools & Actions → Marketplace → Browse** (for example the live [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)) and run it once; Alter enables the required coding integration on first use. Alternatively, under **Local Tools → Coding**, connect **ChatGPT**, **Cursor**, **OpenCode**, and/or **Claude** in **Tools & Actions** first, then scope which providers each action may use — for example a release action might enable **Cursor** only. Coding sessions run asynchronously; results return to the originating conversation. See [Coding tools](/workflows/coding-tools).
 
 **Why Scope Tools?**
 - Reduce AI decision overhead (focus on relevant tools)
 - Speed up action execution
 - Improve security (limit what actions can access)
+
+You can also ask the **editor chat** to attach or remove tools without opening this tab.
 
 ### 7. Model
 
@@ -188,10 +299,10 @@ Select AI model, thinking effort, and creativity level.
   - **0.5** - Balanced (default)
   - **1.0** - Creative (unpredictable, exploratory)
 
-Alter remembers thinking effort **per model** across Hub, QuickHub, and the Action Editor.
+Alter remembers thinking effort **per model** across Hub, QuickHub, My Actions, and action documents.
 
 <Tip>
-  Use **⌘F** in the Action Editor sidebar to search actions. Click the filter icon to narrow by background jobs, schedules, warnings, modified actions, or **Folders** (action categories). Folder filters include **All** and **None** shortcuts.
+  Use **⌘F** in My Actions to search actions. Click the filter icon to narrow by background jobs, schedules, warnings, modified actions, published listings, or **Folders**. Folder filters include **All** and **None** shortcuts.
 </Tip>
 
 ### 8. Gateways
@@ -219,6 +330,16 @@ On Gateways, **parameterless actions** (no input fields) run immediately when pi
 
 See [Gateways](/apps-tools/gateways) for setup, chat commands, scheduled delivery, and gateway settings.
 
+### Diagnostics and warnings
+
+Both My Actions and action documents surface **warnings** when something is misconfigured — missing Quick Actions, invalid icons, broken gateway references, workspace issues, and similar problems.
+
+- Click a warning badge on a row or section to see details and suggested fixes
+- Filter the list to **Warnings** to audit actions that need attention
+- Ask the editor chat to "fix warnings on this action" or "scan all actions for problems"
+
+Warnings describe saved configuration only; they do not prove how an action behaved in past runs.
+
 ## Best Practices
 
 <CardGroup cols={2}>
@@ -237,8 +358,8 @@ See [Gateways](/apps-tools/gateways) for setup, chat commands, scheduled deliver
   <Card title="Conditional Visibility" icon="eye">
     "Code Explainer" only in VSCode + Xcode reduces menu clutter.
   </Card>
-  <Card title="Test Before Sharing" icon="check">
-    Test with real data before deploying to your team.
+  <Card title="Chat plus document" icon="wand-magic-sparkles">
+    Draft quickly in editor chat, then open the action document to polish prompts and parameters.
   </Card>
 </CardGroup>
 
@@ -314,20 +435,20 @@ x-callback-url is an inter-app communication protocol that lets applications tri
 ### Getting Your Action's Callback URL
 
 <Steps>
-  <Step title="Open Action Editor">
+  <Step title="Open My Actions">
     Press **⌘⇧E**
   </Step>
-  <Step title="Select Action">
-    Choose the action you want to expose
+  <Step title="Select or ask">
+    Select the action in the list, or ask the editor chat for the callback URL
+  </Step>
+  <Step title="Open the action document">
+    Double-click the action (or choose **Edit** from the context menu)
   </Step>
   <Step title="Go to General">
-    Navigate to General tab
-  </Step>
-  <Step title="Find URL Callback">
-    Look for "URL Callback" section
+    Navigate to the **General** section
   </Step>
   <Step title="Copy URL">
-    Copy the `alter://` URL
+    Copy the `alter://` URL from **URL Callback**, or paste the URL the editor chat returned
   </Step>
 </Steps>
 
@@ -372,19 +493,42 @@ alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 
 ## Keyboard Shortcuts
 
+### Global
+
 | Action | Shortcut |
 |--------|----------|
-| Open Action Editor | `⌘⇧E` |
-| New Action | `Cmd + N` (in editor) |
-| Save Action | `Cmd + S` (in editor) |
-| Delete Action | `Cmd + Delete` (in editor) |
-| Search Actions | `Cmd + F` (in editor) |
+| Open **My Actions** | `⌘⇧E` |
+| Open **Tools & Actions** | `⌘⇧T` |
+
+### My Actions (Tools & Actions window, My Actions selected)
+
+| Action | Shortcut |
+|--------|----------|
+| Focus action search | `⌘F` |
+| New action (starts editor chat) | `⌘N` |
+| Open action document | `Return` (one row selected) |
+| Duplicate action | `⌘D` |
+| Export action | `⌘E` |
+| Import action | `⌘O` |
+| Delete / reset action | `⌘Delete` |
+
+### Action document window
+
+| Action | Shortcut |
+|--------|----------|
+| Previous section | `⌘[` |
+| Next section | `⌘]` |
+| Close window | `⌘W` |
+
+File menu commands in My Actions and action documents follow whichever Alter window is active.
+
+See [Shortcuts](/references/shortcuts) for the full list.
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion icon="circle-exclamation" title="Action doesn't appear in menu">
-    - Check **When to Show** settings
+    - Check **When to Show** settings in the action document
     - Verify app is running/active (if configured)
     - Ensure action is **enabled**
   </Accordion>
@@ -402,14 +546,28 @@ alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
   </Accordion>
 
   <Accordion icon="lock" title="Tools not available in action">
-    - Go to **Tools** tab
-    - Verify tools aren't disabled
-    - Check system permissions for the tool
+    - Open the action document → **Tools** section
+    - Verify tools aren't disabled and the right tools are selected
+    - Confirm the tool is activated under **Tools & Actions → Active Tools**
+    - Ask editor chat to inspect tool access if unsure
+  </Accordion>
+
+  <Accordion icon="stethoscope" title="Warnings on an action">
+    - Click the warning badge for details
+    - Open the linked section (Tools, Gateways, Quick Action, etc.) and fix the reference
+    - Ask editor chat to diagnose and repair the selected action
+  </Accordion>
+
+  <Accordion icon="trash" title="Cannot delete an action">
+    - Read the dependency message — another Quick Action, action, or workspace may still reference it
+    - Remove those links first, then retry deletion from the context menu or editor chat
   </Accordion>
 </AccordionGroup>
 
 ## Related Guides
 
+- [Create reusable actions](/getting-started/actions-basics) — First action in minutes
+- [Manage tools](/how-to/tool-manager-guide) — Connect integrations used by your actions
 - [Tools & Integrations](/apps-tools/integrations-overview) — Available tools for your actions
 - [URL Callbacks](/workflows/url-callbacks) — Deep dive into x-callback-url automation
 - [Voice & Dictation](/workflows/dictation) — Set up voice triggers
@@ -417,6 +575,6 @@ alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 
 ---
 
-**Ready to build?** Open Alter, press **⌘⇧E**, and start creating your first action!
+**Ready to build?** Press **⌘⇧E**, describe the action you want in the editor chat, or double-click any action to open its document.
 
 **Want to automate across apps?** Use x-callback-urls to trigger actions from Safari, Shortcuts, Notes, or any app that supports URL schemes.

@@ -1,11 +1,11 @@
 ---
-title: "创建可重复使用的动作"
+title: "创建可重复使用的操作"
 description: "通过模型和工具控制将重复的提示转变为可靠的工作流程"
 ---
 
 当您重复相同的任务模式并想要一致的输出质量时，请使用操作。
 
-## 一个动作会给你带来什么
+## 一个操作会给你带来什么
 
 <CardGroup cols={3}>
   <Card title="Reusable prompts" icon="repeat">
@@ -19,20 +19,20 @@ description: "通过模型和工具控制将重复的提示转变为可靠的工
   </Card>
 </CardGroup>
 
-## 创建你的第一个动作
+## 创建你的第一个操作
 
 <Steps>
-  <Step title="Open Action Editor">
-    打开更改窗口菜单并选择 **动作编辑器**。
+  <Step title="打开我的操作">
+    按 **⌘⇧E**，或打开 **工具与操作**（**⌘⇧T**）并选择 **我的操作**。
   </Step>
   <Step title="Create or duplicate">
-    创建新操作，或在自定义之前复制内置操作。
+    在 **编辑器聊天** 中描述新操作，点击工具栏中的 **+**，或在自定义之前复制内置操作。
   </Step>
   <Step title="Set clear instructions">
-    定义一项具体结果，例如每周摘要、发行说明或收件箱分类。
+    定义一项具体结果，例如每周摘要、发行说明或收件箱分类 — 在聊天中或在操作文档中。
   </Step>
   <Step title="Save and run">
-    Test with one real input and refine wording if needed.
+    使用一个真实输入进行测试，并在需要时调整措辞。
   </Step>
 </Steps>
 
@@ -42,7 +42,7 @@ description: "通过模型和工具控制将重复的提示转变为可靠的工
 
 ## 选择每个操作的模型和工具
 
-在操作中使用**高级**设置来分配模型和工具访问权限。
+使用 **操作文档** 中的 **Model** 和 **Tools** 部分、**我的操作** 中的内联行控件或 **编辑器聊天** 来分配模型和工具访问权限。
 
 - 为敏感任务选择本地模型。
 - 为自动化繁重的任务选择更快的模型。
@@ -50,14 +50,14 @@ description: "通过模型和工具控制将重复的提示转变为可靠的工
 
 ## Ask Anything — 默认操作
 
-不选择其他操作时，Alter 运行 **Ask Anything**。**2.0.0-beta100** 起默认包含 **Flow**、**Computer Use** 和 **Ask User**。
+在不选择其他操作的情况下于提示框中输入时，Alter 运行 **Ask Anything**。**2.0.0-beta100** 起默认包含 **Flow**、**Computer Use** 和 **Ask User**，以便日常提示可以编排工具、自动化屏幕或提出澄清问题。
 
-自定义：**Action Editor**（**⌘⇧E**）→ **Ask Anything** → **Tools**。
+自定义：按 **⌘⇧E** → 选择 **Ask Anything** → 打开其文档（**Edit** 或双击）→ **Tools**。如需变体而不更改内置默认值，请复制 Ask Anything。
 
-见 [Flow 编排](/workflows/use-flow-orchestration#ask-anything-defaults-beta100)。
+请参阅 [使用 Flow 进行工具编排](/zh/workflows/use-flow-orchestration#ask-anything-defaults-beta100) 了解 Flow 如何融入默认设置。
 
 ## 相关页面
 
 - [使用工作区执行更大的任务](/getting-started/workspaces-basics)
-- [工作区和操作自动化](/getting-started/automate-with-workspaces-and-actions)
-- [使用工具管理器](/how-to/tool-manager-guide)
+- [使用工作区和操作实现自动化](/getting-started/automate-with-workspaces-and-actions)
+- [管理工具](/zh/how-to/tool-manager-guide)

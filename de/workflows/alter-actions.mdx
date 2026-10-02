@@ -1,279 +1,405 @@
 ---
-title: "Alter Aktionen"
-description: "Erstellen und konfigurieren Sie benutzerdefinierte AI-Workflows mit Sprachauslösern und Automatisierung"
+title: "Alter Actions"
+description: "Erstellen und konfigurieren Sie benutzerdefinierte KI-Workflows mit Meine Aktionen, dem Editor-Chat und Aktionsdokumenten"
 ---
 
 <Info>
-  **Alter Aktionen** sind anpassbare AI-Workflows, mit denen Sie spezialisierte Assistenten für bestimmte Aufgaben erstellen können. Kombinieren Sie AI-Anweisungen, Sprachauslöser, Tools und bedingte Ausführung, um alles auf Ihrem Mac zu automatisieren.
+  **Alter Actions** sind anpassbare KI-Workflows, mit denen Sie spezialisierte Assistenten für bestimmte Aufgaben erstellen können. Kombinieren Sie KI-Anweisungen, Sprachauslöser, Werkzeuge und bedingte Ausführung, um alles auf Ihrem Mac zu automatisieren.
 </Info>
 
-## Was ist eine Alter Aktion?
+## Was ist eine Alter Action?
 
-Eine **Alter Aktion** ist eine fortgeschrittene Automatisierung, die Folgendes kombiniert:
+Eine **Alter Action** ist eine erweiterte Automatisierung, die Folgendes kombiniert:
 
-- **AI-Anweisungen** - Systemaufforderungen, die definieren, wie die AI sich verhält
-- **Auslöser** - Sprachbefehle, Tastenkombinationen oder bedingte Ausführung
-- **Kontext** - Zugriff auf ausgewählten Text, Dateien, aktive Anwendungen
-- **Tools** - Konfigurierte Integrationen mit Ihrem Mac und über 2000 externen Diensten
-- **Ausgabe** - Wie Ergebnisse angezeigt werden (Markdown, Code, inline Einfügung)
+- **KI-Anweisungen** – Systemaufforderungen, die das Verhalten der KI definieren
+- **Auslöser** – Sprachbefehle, Tastenkürzel oder bedingte Ausführung
+- **Kontext** – Zugriff auf ausgewählten Text, Dateien, aktive Anwendungen
+- **Werkzeuge** – Konfigurierte Integrationen mit Ihrem Mac und über 2000 externen Diensten
+- **Ausgabe** – Wie Ergebnisse angezeigt werden (Markdown, Code, Inline-Einfügung)
 
-Denken Sie an eine Alter Aktion als einen "spezialisierten AI-Assistenten", der für eine bestimmte Aufgabe angepasst ist.
+Stellen Sie sich eine Alter Action als „spezialisierten KI-Assistenten“ vor, der für eine bestimmte Aufgabe angepasst ist.
 
-## Öffnen des Aktionseditors
+## Meine Aktionen öffnen
 
-### Methode 1: Menüleiste (Schnellste)
-1. Klicken Sie auf das **Alter-Menüsymbol** in der Menüleiste (oben rechts)
-2. Wählen Sie **Aktionseditor**
+Alter verwaltet Aktionen jetzt in **Tools & Aktionen**. Der Bereich **Meine Aktionen** kombiniert eine durchsuchbare Aktionsliste, Inline-Steuerelemente und einen **Editor-Chat**, der Aktionen für Sie erstellen oder ändern kann.
 
-![Menüleiste](/images/tools/menu-bar-action-editor.webp)
+### Methode 1: Tastenkürzel (am schnellsten)
 
-### Methode 2: Optionenmenü
-1. Öffnen Sie das Alter-Fenster
-2. Klicken Sie auf **⋯** (drei Punkte) oben rechts
-3. Wählen Sie **Aktionseditor**
+Drücken Sie **⌘⇧E** (Befehl + Umschalt + E). Alter öffnet **Tools & Aktionen** direkt bei **Meine Aktionen**.
 
-![Optionenmenü](/images/tools/options-menu-action-editor.webp)
+### Methode 2: Fenstermenü
 
-### Methode 3: Tastenkombination
-Drücken Sie **⌘⇧E** (Befehl + E), um den Aktionseditor direkt zu öffnen
+1. Öffnen Sie ein beliebiges Alter-Fenster (Hub, QuickHub oder Tools & Aktionen)
+2. Wählen Sie **Fenster → Meine Aktionen**
+
+### Methode 3: Tools-&-Aktionen-Seitenleiste
+
+1. Drücken Sie **⌘⇧T** (Befehl + Umschalt + T), um **Tools & Aktionen** zu öffnen
+2. Wählen Sie **Meine Aktionen** in der Seitenleiste
+
+Das Badge in der Seitenleiste zeigt an, wie viele Aktionen derzeit aktiviert sind.
 
 <Tip>
-  Die Tastenkombination ist die schnellste Methode, sobald Sie sie sich eingeprägt haben.
+  **⌘⇧E** springt direkt zur Aktionsverwaltung. **⌘⇧T** öffnet das vollständige Fenster Tools & Aktionen, einschließlich Marketplace, Aktive Werkzeuge, Schnellaktionen, Skills und Remote-MCP.
 </Tip>
 
-## Aktionseditor-Tutorial
+<Note>
+  **Meine Aktionen** und Aktionsdokumente erfordern eine Anmeldung. Wenn Sie abgemeldet sind, zeigt Alter statt des Editors eine Anmelde-Overlay an.
+</Note>
 
-Der Aktionseditor hat 7 Hauptbereiche, von denen jeder verschiedene Aspekte Ihrer Aktion steuert. Nutzen Sie das linke Panel, um zwischen den Tabs zu navigieren.
+## Layout von Meine Aktionen
 
-### 1. Allgemeine Einstellungen
+Wenn **Meine Aktionen** ausgewählt ist, hat das Fenster drei Arbeitsbereiche:
 
-Konfigurieren Sie grundlegende Metadaten und Ausführungskontext.
+| Bereich | Funktion |
+|------|----------------|
+| **Links** | Tools-&-Aktionen-Navigation (Marketplace, Lokale Werkzeuge, Schnellaktionen, Skills, Remote-MCP, **Meine Aktionen**) |
+| **Mitte** | Ihre Aktionsliste — Ordner, Suche, Filter und Steuerelemente pro Zeile |
+| **Rechts** | **Editor-Chat** — beschreiben Sie Änderungen in natürlicher Sprache, und Alter wendet sie an |
 
-![Allgemeiner Tab](/images/tools/action-editor-01-general.webp)
+![Menu Bar](/images/tools/menu-bar-action-editor.webp)
+
+Beim ersten Besuch, wenn nichts ausgewählt ist, öffnet sich der Editor-Chat im Modus **Meine Aktionen verwalten**, damit Sie eine neue Aktion beschreiben oder fragen können, was Sie in Ihrer Bibliothek ändern möchten.
+
+### Aktionsliste
+
+Aktionen sind in **Ordner** (Kategorien) gruppiert. Sie können:
+
+- **Suchen** mit **⌘F** — findet Aktionsnamen und indizierte Ressourceneigenschaften (Werkzeuge, Gateways, Schnellaktionen und ähnliche verknüpfte Ressourcen)
+- **Filtern** mit dem Filter-Symbol — eingrenzen nach Hintergrundjobs, Zeitplänen, Warnungen, geänderten Aktionen, veröffentlichten Einträgen, deaktivierten Aktionen oder bestimmten Ordnern
+- **Ordner einklappen oder ausklappen**, **Ordner umbenennen** und **Aktionen per Drag-and-drop** zwischen Ordnern verschieben
+- **Mehrere Aktionen auswählen** für Stapel-Export, Verschieben, Aktivieren/Deaktivieren oder Löschen
+- **Einen Ordner** aus der Symbolleiste erstellen und Aktionen per Drag-and-drop oder über das Kontextmenü der Zeile hinzufügen
+
+Jede Zeile zeigt den Status auf einen Blick:
+
+- **Symbol und Name** — Doppelklick auf einen Namen (oder **Return** drücken, wenn eine Zeile ausgewählt ist), um das Aktionsdokument zu öffnen
+- **Sprachauslöser**-Indikator, wenn Sprachphrasen konfiguriert sind
+- **Von Ihnen geändert**-Badge, wenn Sie eine integrierte Aktion angepasst haben
+- **Hintergrundjob**-Indikator
+- **Marketplace**-Indikator, wenn die Aktion aus einem Eintrag stammt
+- **Warnungen**-Indikator, wenn die Diagnose ein Konfigurationsproblem findet
+
+### Inline-Zeilensteuerelemente
+
+Ohne das vollständige Dokument zu öffnen, bietet jede Zeile rechts drei Steuerelemente:
+
+| Steuerelement | Funktion |
+|---------|----------------|
+| **Modell** | **Standard** wählen oder ein Modell und Denkaufwand für diese Aktion festlegen |
+| **Zeitplan** | Zeitpläne anzeigen, hinzufügen, bearbeiten oder entfernen |
+| **Tastenkürzel** | Ein globales Tastenkürzel aufzeichnen oder ändern |
+
+Bewegen Sie den Mauszeiger über eine Zeile, um das Tastenkürzel-Steuerelement anzuzeigen, wenn noch keines festgelegt ist.
+
+### Zeilen-Kontextmenü
+
+Rechtsklicken Sie auf eine oder mehrere Aktionen, um **Ausführen**, **Bearbeiten**, **Umbenennen**, ein **Tastenkürzel** festzulegen, **Verschieben nach** einem Ordner, **Aktivieren** / **Deaktivieren**, **Duplizieren**, **Exportieren**, **Im Marketplace veröffentlichen** oder **Löschen** / **Zurücksetzen**.
+
+**Bearbeiten** öffnet die Aktion in einem separaten **Aktionsdokument**-Fenster für die Bearbeitung Feld für Feld.
+
+## Editor-Chat
+
+Die rechte Spalte ist ein dedizierter Chat zur Verwaltung von Aktionen. Er verwendet Alters schnelles Modell mit einem festen Satz von Verwaltungswerkzeugen, sodass Sie beschreiben können, was Sie möchten, anstatt durch jeden Tab zu klicken.
+
+### Was Sie im Chat tun können
+
+Bitten Sie Alter:
+
+- **Erstellen** Sie eine neue Aktion aus einer Beschreibung („Erstelle eine tägliche Standup-Zusammenfassungsaktion, die um 9 Uhr läuft“)
+- **Bearbeiten** Sie die Systemaufforderungen, Parameter, Sichtbarkeit, Modell, Werkzeuge, Zeitpläne oder Gateways der ausgewählten Aktion
+- **Werkzeuge aktivieren oder einschränken** global oder für eine Aktion
+- **Schnellaktionen konfigurieren** — Alter öffnet geprüfte Formulare für Webhooks, AppleScript/JXA, Shortcuts und ähnliche Einrichtungen
+- **Verbundene Anwendungen** und **MCP-Server** über native Genehmigungsdialoge verbinden
+- **Skills installieren oder aktivieren**
+- **Warnungen diagnostizieren** für eine Aktion oder Ihre gesamte Bibliothek scannen
+- **Aktionen finden** nach Name, Beschreibung oder verknüpften Ressourcen („Welche Aktionen nutzen das Discord-Gateway?“)
+- **Callback-URLs kopieren** für Automatisierung
+
+Wenn Sie eine Aktion auswählen, sendet Alter mit Ihrer ersten Nachricht eine Momentaufnahme der aktuellen Einstellungen, damit der Assistent sofort bearbeiten kann, ohne die Datei erneut zu lesen.
+
+Jede Aktion behält **eigenen Chat-Verlauf**. Beim Wechseln der Zeilen werden die Unterhaltungen getauscht; Entwürfe im Eingabefeld werden pro Aktion gespeichert. Verwenden Sie die Papierkorb-Schaltfläche in der Chat-Kopfzeile, um eine Unterhaltung zu löschen.
+
+<Tip>
+  Kombinieren Sie Chat und manuelle Bearbeitung: Bitten Sie den Chat, Systemaufforderungen zu entwerfen oder Werkzeuge anzubinden, und öffnen Sie dann das **Aktionsdokument**, um Formulierungen, Parameter oder Gateway-Schalter selbst fein abzustimmen.
+</Tip>
+
+### Genehmigungen und sensible Einrichtung
+
+Destruktive oder privilegierte Änderungen erfordern Ihre Bestätigung in nativen Dialogen oder Warnungen — zum Beispiel beim Löschen von Aktionen, Zurücksetzen integrierter Überschreibungen, Verbinden von OAuth-Apps, Konfigurieren von MCP-Servern, Installieren von Werkzeugen oder Speichern von Schnellaktions-Webhooks und -Skripten.
+
+Alter erklärt **Abhängigkeitsblocker**, wenn das Löschen fehlschlägt (z. B. wenn eine Aktion noch von einer Schnellaktion oder einem Workspace verknüpft ist), und sagt Ihnen, was Sie zuerst trennen müssen.
+
+### Profilkontext für Vorschläge
+
+Der Editor-Chat enthält Ihre **Profil**-Informationen bei der Generierung maßgeschneiderter Vorschläge — zum Beispiel Empfehlungen für Werkzeuge oder Formulierungen, die zu Ihrer Arbeitsweise passen. Deaktivieren Sie dies pro Aktion unter **Allgemein → Profil einbeziehen** im Aktionsdokument, wenn Sie keinen Profilkontext für diesen Workflow senden möchten.
+
+## Aktionsdokument
+
+Für präzise Kontrolle öffnen Sie ein **Aktionsdokument** — ein dediziertes Fenster mit Abschnitts-Tabs links und Feldern rechts. Verwenden Sie es, wenn Sie Systemaufforderungen direkt bearbeiten, Parameter abstimmen oder jeden Schalter prüfen möchten.
+
+**Ein Dokument öffnen:**
+
+- Doppelklick auf einen Aktionsnamen in der Liste
+- Eine Aktion auswählen und **Return** drücken
+- Rechtsklick → **Bearbeiten**
+- Aus einem anderen Alter-Fenster **Im Aktionseditor bearbeiten** verwenden, wenn es für die aktuelle Aktion angeboten wird
+
+Der Fenstertitel des Dokuments zeigt den Aktionsnamen. Integrierte Aktionen, die Sie angepasst haben, erscheinen als bearbeitbare Überschreibungen; duplizieren Sie sie zuerst, wenn Sie eine vollständig separate Kopie möchten.
+
+### 1. Allgemein
+
+Grundlegende Metadaten, Verfügbarkeit und Ausführungskontext konfigurieren.
+
+![General Tab](/images/tools/action-editor-01-general.webp)
 
 **Felder:**
-- **Name** - Menschlich lesbarer Aktionsname (z. B. "Code Erklärer")
-- **Beschreibung** - Was diese Aktion tut (optional)
-- **Kategorie** - Organisieren Sie Aktionen nach Typ (Code, Produktivität, Geschäft usw.)
-- **Workspace** - Speziellen Workspace zuweisen (optional)
-- **Profil einbeziehen** - Benutzerprofilinformationen im AI-Kontext einbeziehen
 
-**Sichtbarkeitsoptionen:**
-- **Nur im Betrieb anzeigen** - Aktion erscheint nur, wenn eine App läuft
-- **Nur im aktiven Zustand anzeigen** - Aktion erscheint nur, wenn eine App den Fokus hat
-- **Workspace-Kontext** - Wählen Sie aus, welcher Workspace diese Aktion sieht
+- **Aktiviert** — Aktion ein- oder ausschalten
+- **Modus** — Diese Aktion als wählbaren Modus im Hub-Eingabebereich anzeigen
+- **Profil einbeziehen** — Benutzerprofilinformationen in den KI-Kontext einbeziehen
+- **In Verlauf speichern** — Unterhaltungen dieser Aktion im Verlauf behalten, damit Sie sie später erneut öffnen und durchsuchen können
+- **Name**, **Beschreibung**, **Kategorie**, **Symbol**
+- **Workspace** — Beim Ausführen dieser Aktion immer einen Workspace zum Kontext hinzufügen
+- **Globales Tastenkürzel** — Diese Aktion von überall auf Ihrem Mac auslösen
+- **Sprachauslöser** — Phrasen, die diese Aktion während der Diktat ausführen
+
+**Sichtbarkeitsoptionen** (auch unter **Wann anzeigen** zusammengefasst):
+
+- **Nur anzeigen, wenn ausgeführt** — Aktion erscheint nur, wenn eine gewählte App läuft
+- **Nur anzeigen, wenn aktiv** — Aktion erscheint nur, wenn eine gewählte App im Fokus ist
+- **Workspace-Kontext** — Einschränken, welche Workspace(s) diese Aktion sehen
 
 <Note>
-  Jede Aktion erhält automatisch eine eindeutige UUID.
+  Jede Aktion erhält automatisch eine eindeutige UUID. Integrierte Aktionen sind schreibgeschützt, bis Sie sie duplizieren oder eine Überschreibung speichern.
 </Note>
 
 ### 2. Systemaufforderung
 
-Definieren Sie AI-Anweisungen und Parameter für das Modell.
+KI-Anweisungen und Parameter für das Modell definieren.
 
-![Systemaufforderung Tab](/images/tools/action-editor-02-systemprompt.webp)
+![System Prompt Tab](/images/tools/action-editor-02-systemprompt.webp)
 
-**Systemaufforderung** - Kern-AI-Anweisungen, die das Verhalten und die Expertise der AI beschreiben.
+**Systemaufforderung** — Kern-KI-Anweisungen, die das Verhalten und die Expertise der KI beschreiben.
 
 **Beispiel:**
 ```
-# IDENTITÄT UND ZWECK
-Sie sind ein Experte Softwareentwickler, der Code klar und verständlich für Entwickler aller Fähigkeiten erklärt.
+# IDENTITY AND PURPOSE
+You are an expert software engineer who explains code clearly
+and accessibly to developers of all skill levels.
 
-# SCHRITTE
-1. Analysieren Sie den bereitgestellten Code
-2. Bestimmen Sie seinen Zweck und zentrale Komponenten
-3. Erklären Sie jeden Abschnitt in einfachen Begriffen
+# STEPS
+1. Analyze the provided code
+2. Identify its purpose and key components
+3. Explain each section in simple terms
 
-# AUSGABEANWEISUNGEN
-- Verwenden Sie Markdown-Formatierung
-- Fügen Sie Codebeispiele hinzu, wo hilfreich
-- Halten Sie die Sprache klar und nicht-technisch
+# OUTPUT INSTRUCTIONS
+- Use markdown formatting
+- Include code examples where helpful
+- Keep language clear and non-technical
 ```
 
-**Parameter** - Definieren Sie Eingabefelder, die Benutzer vor der Ausführung anpassen können (Textfeld, Dropdown-Auswahlen usw.).
+**Parameter** — Eingabefelder definieren, die Benutzer vor der Ausführung anpassen können (Texteingabe, Dropdown-Auswahl, Booleans, Zahlen und mehr).
 
 ### 3. Benutzeraufforderung
 
-Vorlage für die benutzerseitige Aufforderung, die an die AI gesendet wird.
+Vorlage für die benutzerseitige Aufforderung, die an die KI gesendet wird.
 
-![Benutzeraufforderung Tab](/images/tools/action-editor-03-userprompt.webp)
+![User Prompt Tab](/images/tools/action-editor-03-userprompt.webp)
 
-**Verwenden von Kontextvariablen:**
+**Kontextvariablen verwenden:**
 
-Umwickeln Sie Variablen mit `{{ }}`, um dynamische Inhalte einzufügen:
+Variablen in `{{ }}` einschließen, um dynamischen Inhalt einzufügen:
 
 ```
-Bitte erklären Sie diesen Code:
+Please explain this code:
 
 {{ textSelection }}
 
-Erläuterungsdetail: {{ detailLevel }};
+Explanation detail: {{ detailLevel }};
 ```
 
 **Verfügbare Kontextvariablen:**
-- `{{ textSelection }}` - Derzeit ausgewählter Text
+- `{{ textSelection }}` - Aktuell ausgewählter Text
 - `{{ filePath }}` - Pfad zur ausgewählten Datei
-- `{{ clipboard }}` - Inhalte der Zwischenablage
+- `{{ clipboard }}` - Inhalt der Zwischenablage
 - Benutzerdefinierte Parameter, die Sie in der Systemaufforderung definiert haben
 
 ### 4. Wann anzeigen
 
-Steuern Sie, wann und wo diese Aktion erscheint.
+Steuern, wann und wo diese Aktion erscheint.
 
-![Wann anzeigen Tab](/images/tools/action-editor-04-whentoshow.webp)
+![When to Show Tab](/images/tools/action-editor-04-whentoshow.webp)
 
 **Sichtbarkeitsbedingungen:**
 
 - **Installierte Anwendungen** - Aktion nur in bestimmten Apps anzeigen (VSCode, Xcode, Safari usw.)
-- **Anwendung läuft** - Aktion erfordert, dass die App läuft
-- **Anwendung hat den Fokus** - Aktion funktioniert nur, wenn die App im Vordergrund ist
-- **Webbrowser-Tab enthält** - Aktion beim Browsen bestimmter Domains anzeigen
+- **Anwendung wird ausgeführt** - Aktion erfordert, dass die App läuft
+- **Anwendung hat Fokus** - Aktion funktioniert nur, wenn die App im Vordergrund ist
+- **Webbrowser-Tab enthält** - Aktion anzeigen beim Surfen auf bestimmten Domains
 - **Hat Inhalt** - Aktion nur anzeigen, wenn Kontext verfügbar ist
 
 ### 5. Automatisierung
 
-Konfigurieren Sie das Ausführungsverhalten, Zeitpläne und Hintergrundverarbeitung.
+Ausführungsverhalten, Zeitpläne und Hintergrundverarbeitung konfigurieren.
 
-![Automatisierung Tab](/images/tools/action-editor-05-automation.webp)
+![Automation Tab](/images/tools/action-editor-05-automation.webp)
 
 **Felder:**
 
-- **Hintergrundjob** - Aktion im Hintergrund ausführen, ohne die Benutzeroberfläche anzuzeigen
-- **Zeitpläne** - Aktion zu bestimmten Zeiten ausführen (z. B. "Jeden Montag um 9 Uhr")
-- **Schnellaktion** - Führen Sie die nächste "Schnellaktion" automatisch aus, nachdem diese abgeschlossen ist
+- **Hintergrundjob** - Aktion im Hintergrund ausführen, ohne UI anzuzeigen
+- **Markdown-Rendering im Hintergrund** - Markdown in HTML rendern beim Einfügen im Hintergrundmodus
+- **Systembenachrichtigung senden** - Kurz nach Abschluss eines Hintergrundjobs benachrichtigen
+- **Zeitpläne** - Aktion zu bestimmten Zeiten ausführen (z. B. „Jeden Montag um 9 Uhr“)
+- **Schnellaktion** - Eine verknüpfte Schnellaktion automatisch nach der ersten Assistentenantwort ausführen
 
-Verwenden Sie dies für Aktionsverknüpfungen: erste Aktion → Ausgabe → nächste Aktion wird automatisch ausgeführt.
+Verwenden Sie Zeitpläne und Schnellaktionen zusammen für Aktionsverkettung: erste Aktion → Ausgabe → nächster Schritt läuft automatisch.
 
-### 6. Tools
+### 6. Werkzeuge
 
-Bestimmen Sie, welche Tools für diese Aktion verfügbar sind.
+Festlegen, welche Werkzeuge für diese Aktion verfügbar sind.
 
 ![Tools Tab](/images/tools/action-editor-06-tools.webp)
 
-**Tool-Konfiguration:**
+**Werkzeugkonfiguration:**
 
-- **Tools deaktivieren** - Einzelne Tools ausschalten, um die Funktionalität einzuschränken
-- Wenn leer: Alle Tools sind verfügbar
-- Wenn konfiguriert: Nur ausgewählte Tools sind verfügbar
+- **Werkzeuge deaktivieren** - Wenn aus: nur ausgewählte Werkzeuge sind verfügbar; wenn ein: Werkzeugzugriff ist eingeschränkt
+- Wenn Werkzeugzugriff aktiviert ist mit leerer Auswahl: alle global aktivierten Werkzeuge sind verfügbar
+- Wenn konfiguriert: nur ausgewählte Werkzeuge sind verfügbar
 
-**Ask Anything-Standards (beta100+):** Die integrierte **Ask Anything**-Action aktiviert standardmäßig **Flow**, **Computer Use** und **Ask User**. Passen Sie sie an oder duplizieren Sie sie, wenn Sie ein schmaleres Tool-Set möchten.
+**Alles fragen-Standards (beta100+):** Die integrierte **Alles fragen**-Aktion aktiviert **Flow**, **Computer Use** und **Ask User** standardmäßig. Passen Sie sie an oder duplizieren Sie sie, wenn Sie eine engere Werkzeugauswahl möchten.
 
-**Memory:** Verknüpfen Sie das **Memory**-Tool, wenn eine Action gespeicherte Fakten lesen oder frühere Chats und Meetings durchsuchen soll. Memory ist nicht standardmäßig für jede Action aktiviert. Siehe [Memory](/de/workflows/memory) und [Memory verwalten](/de/how-to/manage-memory).
+**Memory:** Verknüpfen Sie das **Memory**-Werkzeug, wenn eine Aktion gespeicherte Fakten lesen oder frühere Chats und Meetings durchsuchen soll. Memory ist nicht standardmäßig für jede Aktion aktiviert. Siehe [Memory](/de/workflows/memory) und [Memory verwalten](/de/how-to/manage-memory).
 
-Die integrierte **Memory Catch-Up**-Action bringt Memory bereits verknüpft mit. Das ist Alter's vertrauenswürdiger Weg, Memory aus den letzten 30 Tagen von Chats und Meetings zu befüllen — empfohlen, wenn Sie Memory zum ersten Mal aktivieren oder kürzliche Historie nachfüllen möchten. Siehe [Memory Catch-Up](/de/workflows/memory-catch-up).
+Die integrierte **Memory Catch-Up**-Aktion wird mit bereits verknüpftem Memory ausgeliefert. Sie ist Alters vertrauenswürdiger Weg, Memory aus den letzten 30 Tagen von Chats und Meetings zu bootstrappen — empfohlen, wenn Sie Memory zum ersten Mal aktivieren oder kürzliche Historie nachfüllen möchten. Siehe [Memory Catch-Up](/de/workflows/memory-catch-up).
 
-**Coding-Tools (post-beta106):** Der schnellste Weg ist ein [Marketplace-Coding-Agent](/de/workflows/coding-tools#get-started-from-the-marketplace-recommended) — laden Sie ihn unter **Tools Manager → Marketplace → Browse** herunter (z. B. den live [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)) und führen Sie ihn einmal aus; Alter aktiviert die erforderliche Coding-Integration bei der ersten Nutzung. Alternativ verbinden Sie unter **Local Tools → Coding** zuerst **ChatGPT**, **Cursor**, **OpenCode** und/oder **Claude** im **Tools Manager** und schränken Sie dann ein, welche Anbieter jede Action nutzen darf — z. B. könnte eine Release-Action nur **Cursor** aktivieren. Coding-Sitzungen laufen asynchron; Ergebnisse kehren zur ursprünglichen Unterhaltung zurück. Siehe [Coding-Tools](/de/workflows/coding-tools).
+**Coding-Tools (post-beta106):** Der schnellste Weg ist ein [Marketplace-Coding-Agent](/de/workflows/coding-tools#get-started-from-the-marketplace-recommended) — herunterladen unter **Tools & Aktionen → Marketplace → Durchsuchen** (z. B. den live [ChatGPT Agent](https://alterhq.com/marketplace/chatgpt-agent)) und einmal ausführen; Alter aktiviert die erforderliche Coding-Integration beim ersten Gebrauch. Alternativ unter **Lokale Werkzeuge → Coding** zuerst **ChatGPT**, **Cursor**, **OpenCode** und/oder **Claude** in **Tools & Aktionen** verbinden, dann festlegen, welche Anbieter jede Aktion nutzen darf — zum Beispiel könnte eine Release-Aktion nur **Cursor** aktivieren. Coding-Sitzungen laufen asynchron; Ergebnisse kehren zur ursprünglichen Unterhaltung zurück. Siehe [Coding-Tools](/de/workflows/coding-tools).
 
-**Warum Tools einschränken?**
-- Reduzieren Sie den Entscheidungsaufwand der AI (konzentrieren Sie sich auf relevante Tools)
-- Beschleunigen Sie die Ausführung von Aktionen
-- Verbessern Sie die Sicherheit (einschränken, auf welche Aktionen zugreifen können)
+**Warum Werkzeuge einschränken?**
+- KI-Entscheidungsaufwand reduzieren (Fokus auf relevante Werkzeuge)
+- Aktionsausführung beschleunigen
+- Sicherheit verbessern (einschränken, worauf Aktionen zugreifen können)
+
+Sie können auch den **Editor-Chat** bitten, Werkzeuge anzubinden oder zu entfernen, ohne diesen Tab zu öffnen.
 
 ### 7. Modell
 
-Wählen Sie das AI-Modell, Thinking effort und das Kreativitätsniveau.
+KI-Modell, Denkaufwand und Kreativitätsstufe auswählen.
 
-![Modell Tab](/images/tools/action-editor-07-model.webp)
+![Model Tab](/images/tools/action-editor-07-model.webp)
 
 **Felder:**
 
-- **Modell** — Durchsuchbare Auswahl gruppiert in **Current**, **Favorites** und **Other models**. Leer lassen für das Standardmodell des Nutzers oder ein bestimmtes Modell für diese Action anheften.
+- **Modell** — Durchsuchbare Auswahl gruppiert in **Aktuell**, **Favoriten** und **Andere Modelle**. Leer lassen, um die Standard-Modelleinstellung des Benutzers zu verwenden, oder ein bestimmtes Modell für diese Aktion festlegen.
   - Jede Zeile zeigt Kontextlänge, Vision-Unterstützung und Favoriten
-  - Wenn das Modell es unterstützt, **Thinking effort** (**Low**, **Balanced**, **Max**) inline anpassen
+  - Wenn das Modell es unterstützt, **Denkaufwand** (**Niedrig**, **Ausgewogen**, **Max**) inline anpassen
 
-- **Temperatur** - Kreativität im Vergleich zur Präzision anpassen
+- **Temperatur** - Kreativität vs. Präzision anpassen
   - **0.0** - Deterministisch (konsistent, vorhersehbar)
   - **0.5** - Ausgewogen (Standard)
-  - **1.0** - Kreativ (unvorhersehbar, erkundend)
+  - **1.0** - Kreativ (unvorhersehbar, explorativ)
 
-Alter merkt sich Thinking effort **pro Modell** in Hub, QuickHub und Action Editor.
+Alter merkt sich Denkaufwand **pro Modell** über Hub, QuickHub, Meine Aktionen und Aktionsdokumente hinweg.
 
 <Tip>
-  Nutzen Sie **⌘F** in der Action-Editor-Seitenleiste zum Suchen von Actions. Klicken Sie auf das Filtersymbol, um nach Hintergrundjobs, Zeitplänen, Warnungen, geänderten Actions oder **Folders** (Action-Kategorien) zu filtern. Ordnerfilter bieten **All**- und **None**-Kurzbefehle.
+  Verwenden Sie **⌘F** in Meine Aktionen, um Aktionen zu suchen. Klicken Sie auf das Filter-Symbol, um nach Hintergrundjobs, Zeitplänen, Warnungen, geänderten Aktionen, veröffentlichten Einträgen oder **Ordnern** einzugrenzen. Ordnerfilter enthalten **Alle** und **Keine** als Shortcuts.
 </Tip>
 
 ### 8. Gateways
 
-Wählen Sie, ob diese Aktion über **Discord**- und **Telegram**-Gateways verfügbar ist.
+Wählen Sie die genauen Gateway-Verbindungen, die diese Aktion nutzen dürfen. Jedes konfigurierte Buzz-, Discord- und Telegram-Gateway hat einen eigenen Schalter, sodass zwei Konten auf derselben Plattform unterschiedlichen Zugriff haben können.
 
-**Verfügbarkeit** — Radiooptionen:
+<Info>
+  **Buzz-Gateway (intern)** — Buzz erscheint nur in internen Alter-Builds für das Entwicklungsteam. Siehe [Buzz-Gateway (intern)](/de/apps-tools/gateways-buzz).
+</Info>
+
+**Verfügbarkeit** — Gateway-Schalter:
 
 | Einstellung | Wirkung |
 |---------|--------|
-| **Keine** | Nur lokal (Hub, QuickHub usw.) |
-| **Discord** | Verfügbar über Discord-Gateways |
-| **Telegram** | Verfügbar über Telegram-Gateways |
-| **Alle** | Verfügbar über jedes Gateway |
+| Alle Schalter aus | Nur lokal (Hub, QuickHub usw.) |
+| Ein Gateway an | Verfügbar nur über diese benannte Gateway-Verbindung |
+| Mehrere Gateways an | Verfügbar über genau diese Verbindungen, auch plattformübergreifend |
+| Alle Schalter an | Verfügbar über jedes derzeit konfigurierte Gateway |
 
-Die mitgelieferte **Ask Anything**-Aktion ist standardmäßig auf **Alle**. Benutzerdefinierte Aktionen starten auf **Keine**, bis Sie eine Plattform oder **Alle** aktivieren. Setzen Sie Ask Anything auf **Keine**, wenn sie nur lokal sein soll.
+Die gebündelte **Alles fragen**-Aktion erscheint zunächst auf allen kompatiblen Gateways. Benutzerdefinierte Aktionen starten nur lokal, bis Sie einen oder mehrere Gateway-Schalter aktivieren. Das Ändern eines Schalters speichert eine explizite Liste von Gateway-Verbindungen, sodass ein später hinzugefügtes Gateway diese Aktion nicht automatisch erbt.
 
-Auf Gateways starten **parameterlose Aktionen** (ohne Eingabefelder) sofort über **Choose action**; **parametrisierte Aktionen** warten auf die nächste Nachricht des Nutzers.
+Auf Gateways werden **parameterlose Aktionen** (ohne Eingabefelder) sofort ausgeführt, wenn sie unter **Aktion wählen** ausgewählt werden; **Aktionen mit Parametern** warten auf die nächste Nachricht des Benutzers.
 
-**Geplante Gateway-Zustellung** — Läuft eine Action nach Zeitplan, aktivieren Sie **Start scheduled conversations on a gateway**, wählen Sie ein aktiviertes **Discord**-, **Telegram**- oder **Buzz**-Gateway *(intern)* und dann ein **Destination** (Kanal, Chat oder Buzz-Stream). Alter postet die Eröffnungsantwort der Action dort, statt nur lokal zu laufen. Buzz-Gateways können auch ein **Default scheduled destination** unter **Einstellungen → Integrations → Gateways** setzen.
+**Geplante Gateway-Zustellung** — Wenn eine Aktion nach Zeitplan läuft, aktivieren Sie **Geplante Unterhaltungen auf einem Gateway starten**, wählen Sie ein aktiviertes **Discord**-, **Telegram**- oder **Buzz**-Gateway *(intern)* und wählen Sie ein **Ziel** (Kanal, Chat oder Buzz-Stream). Alter postet die Eröffnungsantwort der Aktion dort, anstatt sie nur lokal auszuführen. Buzz-Gateways können auch ein **Standard-Ziel für geplante Ausführungen** unter **Einstellungen → Integrationen → Gateways** festlegen.
 
-Siehe [Gateways](/apps-tools/gateways) für Einrichtung, Chat-Befehle, geplante Zustellung und Gateway-Einstellungen.
+Siehe [Gateways](/de/apps-tools/gateways) für Einrichtung, Chat-Befehle, geplante Zustellung und Gateway-Einstellungen.
+
+### Diagnose und Warnungen
+
+Sowohl Meine Aktionen als auch Aktionsdokumente zeigen **Warnungen**, wenn etwas falsch konfiguriert ist — fehlende Schnellaktionen, ungültige Symbole, defekte Gateway-Referenzen, Workspace-Probleme und ähnliche Probleme.
+
+- Klicken Sie auf ein Warnungs-Badge in einer Zeile oder einem Abschnitt, um Details und vorgeschlagene Korrekturen zu sehen
+- Filtern Sie die Liste nach **Warnungen**, um Aktionen zu prüfen, die Aufmerksamkeit benötigen
+- Bitten Sie den Editor-Chat, „Warnungen bei dieser Aktion zu beheben“ oder „alle Aktionen auf Probleme zu scannen“
+
+Warnungen beschreiben nur die gespeicherte Konfiguration; sie beweisen nicht, wie sich eine Aktion in früheren Ausführungen verhalten hat.
 
 ## Best Practices
 
 <CardGroup cols={2}>
   <Card title="Klare Namen" icon="tag">
-    "Code Erklärer" beschreibt, was es tut. Vermeiden Sie generische Namen wie "Aktion 1".
+    „Code-Erklärer“ beschreibt, was die Aktion tut. Vermeiden Sie generische Namen wie „Aktion 1“.
   </Card>
   <Card title="Spezifische Aufforderungen" icon="message">
-    Seien Sie detailliert mit den AI-Anweisungen. Generische Aufforderungen produzieren generische Ausgaben.
+    Seien Sie detailliert bei KI-Anweisungen. Generische Aufforderungen erzeugen generische Ausgaben.
   </Card>
-  <Card title="Tools einschränken" icon="tool">
-    Aktivieren Sie nur die Tools, die Ihre Aktion benötigt. Reduziert den Overhead und verbessert die Geschwindigkeit.
+  <Card title="Werkzeuge einschränken" icon="tool">
+    Aktivieren Sie nur die Werkzeuge, die Ihre Aktion benötigt. Reduziert Aufwand und verbessert die Geschwindigkeit.
   </Card>
-  <Card title="Verwenden Sie Kontextvariablen" icon="brackets">
+  <Card title="Kontextvariablen nutzen" icon="brackets">
     `{{ textSelection }}` funktioniert immer. Manuelles Kopieren/Einfügen ist fehleranfällig.
   </Card>
   <Card title="Bedingte Sichtbarkeit" icon="eye">
-    "Code Erklärer" nur in VSCode + Xcode reduziert das Menüchaos.
+    „Code-Erklärer“ nur in VSCode + Xcode reduziert Menü-Unordnung.
   </Card>
-  <Card title="Testen, bevor Sie teilen" icon="check">
-    Testen Sie mit echten Daten, bevor Sie es an Ihr Team weitergeben.
+  <Card title="Chat plus Dokument" icon="wand-magic-sparkles">
+    Schnell im Editor-Chat entwerfen, dann das Aktionsdokument öffnen, um Aufforderungen und Parameter zu verfeinern.
   </Card>
 </CardGroup>
 
-## Häufige Beispiele für Aktionen
+## Häufige Aktionsbeispiele
 
-### Beispiel 1: Code Erklärer
+### Beispiel 1: Code-Erklärer
 
-**Setup:**
-- **Name:** Code Erklären
+**Einrichtung:**
+- **Name:** Code erklären
 - **Kategorie:** code
 - **Installierte Apps:** VSCode, Xcode
-- **Systemaufforderung:** Sie sind ein Experte Programmierer, der Code klar erklärt
-- **Benutzeraufforderung:** `Bitte erklären Sie diesen Code:\n\n{{ textSelection }}`
-- **Verbraucher:** markdown
+- **Systemaufforderung:** Sie sind ein erfahrener Programmierer, der Code klar erklärt
+- **Benutzeraufforderung:** `Please explain this code:\n\n{{ textSelection }}`
+- **Consumer:** markdown
 - **Temperatur:** 0.5
 
-### Beispiel 2: E-Mail-Entwurfsersteller
+### Beispiel 2: E-Mail-Entwurf erstellen
 
-**Setup:**
-- **Name:** E-Mail Entwurf
-- **Kategorie:** produktivität
+**Einrichtung:**
+- **Name:** E-Mail entwerfen
+- **Kategorie:** productivity
 - **Wann anzeigen:** Mail-App aktiv
-- **Systemaufforderung:** Sie sind ein professioneller Geschäftskommunikator
-- **Benutzeraufforderung:** `Verwandeln Sie dies in eine professionelle E-Mail:\n\n{{ textSelection }}`
-- **Tools:** Nur Mail aktivieren
-- **Verbraucher:** inline
+- **Systemaufforderung:** Sie sind ein professioneller Business-Kommunikator
+- **Benutzeraufforderung:** `Transform this into a professional email:\n\n{{ textSelection }}`
+- **Werkzeuge:** Nur Mail aktivieren
+- **Consumer:** in-place
 - **Temperatur:** 0.6
 
-### Beispiel 3: Geplanter täglicher Bericht
+### Beispiel 3: Geplanter Tagesüberblick
 
-**Setup:**
-- **Name:** Täglicher Bericht
-- **Kategorie:** produktivität
-- **Automatisierung:** Geplant für 9:00 Uhr täglich
+**Einrichtung:**
+- **Name:** Tagesüberblick
+- **Kategorie:** productivity
+- **Automatisierung:** Zeitplan täglich um 9:00 Uhr
 - **Hintergrundjob:** Aktiviert
-- **Systemaufforderung:** Generieren Sie einen täglichen Bericht über Prioritäten
+- **Systemaufforderung:** Erstellen Sie einen Tagesüberblick der Prioritäten
 
 ## Sprachauslöser
 
-Weisen Sie Sprach-Tastenkombinationen zu, um Aktionen freihändig auszulösen:
+Weisen Sie Sprach-Hotkeys zu, um Aktionen freihändig auszulösen:
 
 <Steps>
   <Step title="Systemeinstellungen">
@@ -283,46 +409,46 @@ Weisen Sie Sprach-Tastenkombinationen zu, um Aktionen freihändig auszulösen:
     Klicken Sie auf **+ Auslöser hinzufügen**
   </Step>
   <Step title="Aktion auswählen">
-    Wählen Sie eine Aktion aus dem Dropdown-Menü
+    Aktion aus dem Dropdown wählen
   </Step>
   <Step title="Phrase zuweisen">
-    Geben Sie die Auslöserphrase ein (z. B. "erklären" für den Code-Erklärer)
+    Auslöserphrase eingeben (z. B. „explain“ für Code-Erklärer)
   </Step>
   <Step title="Speichern">
-    Klicken Sie auf Speichern und Sie sind bereit
+    Auf Speichern klicken — fertig
   </Step>
 </Steps>
 
-**Verwendung:** Halten Sie die Sprach-Tastenkombination + sagen Sie die Auslöserphrase → Aktion wird mit dem aktuellen Kontext ausgeführt
+**Verwendung:** Sprach-Hotkey halten + Auslöserphrase sagen → Aktion wird mit aktuellem Kontext ausgeführt
 
-## x-callback-url Integration
+## x-callback-url-Integration
 
-Lösen Sie Alter-Aktionen aus **jedem Anwendung** über spezielle URLs aus. Dies ermöglicht leistungsstarke Automatisierungs-Workflows über Apps hinweg.
+Alter-Aktionen aus **jeder Anwendung** mit speziellen URLs auslösen. Das ermöglicht leistungsstarke plattformübergreifende Automatisierungs-Workflows.
 
 ### Was ist x-callback-url?
 
-x-callback-url ist ein Inter-App-Kommunikationsprotokoll, das es Anwendungen ermöglicht, Aktionen in einander durch formatierte URLs auszulösen.
+x-callback-url ist ein Inter-App-Kommunikationsprotokoll, mit dem Anwendungen Aktionen in anderen Apps über formatierte URLs auslösen können.
 
-- **Eingehend** - Lösen Sie Alter-Aktionen von anderen Apps aus (Kurzbefehle, Notizen, Safari usw.)
-- **Ausgehend** - Erstellen Sie Links in Alter, die andere Apps öffnen (Bear, OmniFocus, Drafts usw.)
+- **Eingehend** - Alter-Aktionen aus anderen Apps auslösen (Shortcuts, Notes, Safari usw.)
+- **Ausgehend** - Links in Alter erstellen, die andere Apps öffnen (Bear, OmniFocus, Drafts usw.)
 
-### Abrufen der Callback-URL Ihrer Aktion
+### Callback-URL Ihrer Aktion abrufen
 
 <Steps>
-  <Step title="Öffnen Sie den Aktionseditor">
-    Drücken Sie **⌘⇧E**
+  <Step title="Meine Aktionen öffnen">
+    **⌘⇧E** drücken
   </Step>
-  <Step title="Aktion auswählen">
-    Wählen Sie die Aktion aus, die Sie exponieren möchten
+  <Step title="Auswählen oder fragen">
+    Aktion in der Liste auswählen oder den Editor-Chat nach der Callback-URL fragen
   </Step>
-  <Step title="Gehen Sie zu Allgemein">
-    Navigieren Sie zum allgemeinen Tab
+  <Step title="Aktionsdokument öffnen">
+    Doppelklick auf die Aktion (oder **Bearbeiten** aus dem Kontextmenü wählen)
   </Step>
-  <Step title="URL Callback finden">
-    Suchen Sie den Abschnitt "URL Callback"
+  <Step title="Zu Allgemein gehen">
+    Zum Abschnitt **Allgemein** navigieren
   </Step>
   <Step title="URL kopieren">
-    Kopieren Sie die `alter://` URL
+    Die `alter://`-URL aus **URL-Callback** kopieren oder die URL einfügen, die der Editor-Chat zurückgegeben hat
   </Step>
 </Steps>
 
@@ -331,11 +457,11 @@ x-callback-url ist ein Inter-App-Kommunikationsprotokoll, das es Anwendungen erm
 alter://action/{action-id}?input=VALUE&param2=VALUE
 ```
 
-### Auslösen von Alter-Aktionen aus anderen Apps
+### Alter-Aktionen aus anderen Apps auslösen
 
 **Beispiel 1: Websuche aus Safari**
 ```
-alter://action/ask-web?input=Was+ist+Alter+MacOS
+alter://action/ask-web?input=What+is+Alter+MacOS
 ```
 
 **Beispiel 2: Code-Erklärer mit Eingabe**
@@ -343,75 +469,112 @@ alter://action/ask-web?input=Was+ist+Alter+MacOS
 alter://action/explain-code?input=const+hello+%3D+%28%29+%3D%3E+%7B%7D
 ```
 
-**Beispiel 3: Verwendung in Apple Kurzbefehlen**
-1. Erstellen Sie einen neuen Kurzbefehl
-2. Fügen Sie die Aktion "URL öffnen" hinzu
-3. Fügen Sie Ihre `alter://` URL ein
-4. Führen Sie den Kurzbefehl aus, um die Aktion auszulösen
+**Beispiel 3: Verwendung in Apple Shortcuts**
+1. Neuen Shortcut erstellen
+2. Aktion „URL öffnen“ hinzufügen
+3. Ihre `alter://`-URL einfügen
+4. Shortcut ausführen, um die Aktion auszulösen
 
 ### Anwendungsfälle
 
 <AccordionGroup>
   <Accordion icon="workflow" title="Workflow-Automatisierung">
-    Aktion aus dem Kalenders → Generieren von Besprechungsnotizen → E-Mail-Entwurf erstellen
+    Aktion aus Kalender auslösen → Besprechungsnotizen generieren → E-Mail-Entwurf erstellen
   </Accordion>
 
   <Accordion icon="link-2" title="Multi-App-Integration">
-    Notion-Button → Alter-Aktion auslösen → Aktualisieren des Aufgabenstatus
+    Notion-Button → Alter-Aktion auslösen → Aufgabenstatus aktualisieren
   </Accordion>
 
   <Accordion icon="copy" title="Informationsübertragung">
-    Text kopieren → Aktion mit Callback auslösen → Ergebnis in externer App öffnen (keine manuelle Kopie erforderlich)
+    Text kopieren → Aktion mit Callback auslösen → Ergebnis in externer App öffnen (kein manuelles Kopieren nötig)
   </Accordion>
 </AccordionGroup>
 
-## Tastenkombinationen
+## Tastenkürzel
 
-| Aktion | Tastenkombination |
-|--------|-------------------|
-| Aktionseditor öffnen | `⌘⇧E` |
-| Neue Aktion | `Cmd + N` (im Editor) |
-| Aktion speichern | `Cmd + S` (im Editor) |
-| Aktion löschen | `Cmd + Delete` (im Editor) |
-| Aktionen suchen | `Cmd + F` (im Editor) |
+### Global
+
+| Aktion | Tastenkürzel |
+|--------|----------|
+| **Meine Aktionen** öffnen | `⌘⇧E` |
+| **Tools & Aktionen** öffnen | `⌘⇧T` |
+
+### Meine Aktionen (Fenster Tools & Aktionen, Meine Aktionen ausgewählt)
+
+| Aktion | Tastenkürzel |
+|--------|----------|
+| Aktions-Suche fokussieren | `⌘F` |
+| Neue Aktion (startet Editor-Chat) | `⌘N` |
+| Aktionsdokument öffnen | `Return` (eine Zeile ausgewählt) |
+| Aktion duplizieren | `⌘D` |
+| Aktion exportieren | `⌘E` |
+| Aktion importieren | `⌘O` |
+| Aktion löschen / zurücksetzen | `⌘Delete` |
+
+### Aktionsdokument-Fenster
+
+| Aktion | Tastenkürzel |
+|--------|----------|
+| Vorheriger Abschnitt | `⌘[` |
+| Nächster Abschnitt | `⌘]` |
+| Fenster schließen | `⌘W` |
+
+Dateimenü-Befehle in Meine Aktionen und Aktionsdokumenten folgen dem jeweils aktiven Alter-Fenster.
+
+Siehe [Tastenkürzel](/de/references/shortcuts) für die vollständige Liste.
 
 ## Fehlerbehebung
 
 <AccordionGroup>
   <Accordion icon="circle-exclamation" title="Aktion erscheint nicht im Menü">
-    - Überprüfen Sie die Einstellungen **Wann anzeigen**
-    - Stellen Sie sicher, dass die App läuft/aktiv ist (falls konfiguriert)
-    - Stellen Sie sicher, dass die Aktion **aktiviert** ist
+    - **Wann anzeigen**-Einstellungen im Aktionsdokument prüfen
+    - Prüfen, ob die App läuft/aktiv ist (falls konfiguriert)
+    - Sicherstellen, dass die Aktion **aktiviert** ist
   </Accordion>
 
-  <Accordion icon="triangle-exclamation" title="Aktion wird ausgeführt, produziert aber schlechte Ausgaben">
-    - Überprüfen Sie die **Systemaufforderung** — seien Sie spezifischer
-    - Passen Sie die **Temperatur** an (niedriger für Präzision, höher für Kreativität)
-    - Überprüfen Sie die **Benutzeraufforderung** — stellen Sie sicher, dass die Variablen korrekt sind
+  <Accordion icon="triangle-exclamation" title="Aktion läuft, liefert aber schlechte Ausgabe">
+    - **Systemaufforderung** prüfen — spezifischer formulieren
+    - **Temperatur** anpassen (niedriger für Präzision, höher für Kreativität)
+    - **Benutzeraufforderung** prüfen — sicherstellen, dass Variablen korrekt sind
   </Accordion>
 
   <Accordion icon="microphone" title="Sprachauslöser funktioniert nicht">
-    - Überprüfen Sie, ob die Tastenkombination in den Einstellungen konfiguriert ist
-    - Überprüfen Sie die Mikrofonberechtigungen
-    - Testen Sie zuerst mit manuellem Auslösen
+    - Prüfen, ob Hotkey in den Einstellungen konfiguriert ist
+    - Mikrofonberechtigungen prüfen
+    - Zuerst mit manuellem Auslöser testen
   </Accordion>
 
-  <Accordion icon="lock" title="Tools sind in Aktion nicht verfügbar">
-    - Gehen Sie zum Tab **Tools**
-    - Überprüfen Sie, ob Tools nicht deaktiviert sind
-    - Überprüfen Sie die Systemberechtigungen für das Tool
+  <Accordion icon="lock" title="Werkzeuge in Aktion nicht verfügbar">
+    - Aktionsdokument öffnen → Abschnitt **Werkzeuge**
+    - Prüfen, ob Werkzeuge nicht deaktiviert sind und die richtigen Werkzeuge ausgewählt sind
+    - Bestätigen, dass das Werkzeug unter **Tools & Aktionen → Aktive Werkzeuge** aktiviert ist
+    - Editor-Chat bitten, Werkzeugzugriff zu prüfen, wenn unsicher
+  </Accordion>
+
+  <Accordion icon="stethoscope" title="Warnungen bei einer Aktion">
+    - Auf das Warnungs-Badge klicken für Details
+    - Verknüpften Abschnitt öffnen (Werkzeuge, Gateways, Schnellaktion usw.) und Referenz korrigieren
+    - Editor-Chat bitten, die ausgewählte Aktion zu diagnostizieren und zu reparieren
+  </Accordion>
+
+  <Accordion icon="trash" title="Aktion kann nicht gelöscht werden">
+    - Abhängigkeitsmeldung lesen — eine andere Schnellaktion, Aktion oder ein Workspace verweist möglicherweise noch darauf
+    - Diese Verknüpfungen zuerst entfernen, dann Löschen über Kontextmenü oder Editor-Chat erneut versuchen
   </Accordion>
 </AccordionGroup>
 
 ## Verwandte Anleitungen
 
-- [Tools & Integrationen](/de/apps-tools/integrations-overview) — Verfügbare Tools für Ihre Aktionen
-- [URL Callbacks](/de/workflows/url-callbacks) — Detaillierte Untersuchung der x-callback-url-Automatisierung
-- [Sprache & Diktat](/de/workflows/dictation) — Sprachtrigger einrichten
+- [Wiederverwendbare Aktionen erstellen](/de/getting-started/actions-basics) — Erste Aktion in Minuten
+- [Werkzeuge verwalten](/de/how-to/tool-manager-guide) — Integrationen verbinden, die Ihre Aktionen nutzen
+- [Tools & Integrationen](/de/apps-tools/integrations-overview) — Verfügbare Werkzeuge für Ihre Aktionen
+- [URL-Callbacks](/de/workflows/url-callbacks) — Vertiefung in x-callback-url-Automatisierung
+- [Sprache & Diktat](/de/workflows/dictation) — Sprachauslöser einrichten
 - [Einstellungen](/de/how-to/settings-guide) — Globale Modell- und Spracheinstellungen konfigurieren
 
 ---
 
-**Bereit zum Erstellen?** Öffnen Sie Alter, drücken Sie `⌘⇧E` und beginnen Sie, Ihre erste Aktion zu erstellen!
+**Bereit zum Erstellen?** Drücken Sie **⌘⇧E**, beschreiben Sie die gewünschte Aktion im Editor-Chat, oder doppelklicken Sie eine beliebige Aktion, um ihr Dokument zu öffnen.
 
-**Möchten Sie über Apps hinweg automatisieren?** Verwenden Sie x-callback-urls, um Aktionen aus Safari, Kurzbefehlen, Notizen oder jeder App, die URL-Schemata unterstützt, auszulösen.
+**Automatisierung über Apps hinweg?** Verwenden Sie x-callback-urls, um Aktionen aus Safari, Shortcuts, Notes oder jeder App auszulösen, die URL-Schemes unterstützt.

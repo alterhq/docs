@@ -1,463 +1,118 @@
 ---
 title: "コア機能"
-description: "AppSense、フォローモード、ワークスペース、アクション、および Alter をユニークなものにするその他の強力な機能について学びます"
+description: "アプリ コンテキスト、ファイル、ワークスペース、アクションの概要と、焦点を絞ったはじめにページへのリンク"
 ---
 
-<Info>
-  **Alter のスーパーパワーを発見してください。** これらの機能は、Mac での作業方法を変革します。
-</Info>
+このページは機能マップです。セットアップと実践的な手順については、リンクされたはじめにページを使用してください。
 
 ## アプリとの対話
 
 ### AppSense - Mac を理解する
 
-従来の画面キャプチャ方法とは異なり、AppSense は macOS アプリケーションから実際のデータを直接書き出すため、Alter は画面に表示されている以外の情報にアクセスできます。
-
-<CardGroup cols={2}>
-  <Card title="深い統合" icon="plug">
-    スクリーンショットだけでなくアプリデータにもアクセス
-  </Card>
-  <Card title="コンテキスト認識" icon="brain">
-    作業内容を自動的に理解する
-  </Card>
-</CardGroup>
-
-#### 現在のアプリケーション
-
-Alter は、アクティブなウィンドウをコンテキストとして使用することを自動的に提案します。
-
-<Steps>
-  <Step title="提案を探してください">
-    プロンプトボックスの下にある [**最新のアプリケーション**] をクリックします。
-  </Step>
-  <Step title="またはキーボードを使用する">
-    `↓` を押してから `Enter` を押して選択します
-  </Step>
-</Steps>
-
----
-
-## フォローモード
-
-フォローモードは、チャットセッション中にアクティブなアプリケーション、ドキュメント、ファイルからのデータの一時同期を可能にするAlter の中核機能です。
-
-### 仕組み
-
-<AccordionGroup>
-  <Accordion icon="refresh-cw" title="リアルタイム監視">
-    フォローモードは、作業中のアプリケーションとファイルの状態を継続的に監視し、会話の各段階で最新のワークフローに関するようなコンテキストをAlter に提供します。
-  </Accordion>
-  
-<Accordion icon="lightbulb" title="実践例">
-    ランディング ページのコピーを作成中ですか? あなたが変更を加えて、Alter をマーケティング コーチとして任命している間、Alter はあなたが何を思って説明しなくても、あなたが行った変更を確認します。
-  </Accordion>
-</AccordionGroup>
-
-### フォローモードの使用
-
-<Steps>
-  <Step title="コンテキストを追加する">
-    含めたいアプリケーションまたはドキュメントをコンテキスト リストに追加します。
-  </Step>
-  <Step title="チャットを開始する">
-    Alter は、選択したアプリケーションの状態を自動的に追跡します
-  </Step>
-  <Step title="質問する">
-    現在画面に表示されていない場合でも、コンテンツについて質問する
-  </Step>
-  <Step title="働き続けてください">
-    チャット中に選択したアプリを操作しました、ドキュメントを更新できます
-  </Step>
-</Steps>
-
-<Tip>
-  **プロのヒント:** フォローモードは、長い形式のコンテンツの作成に最適です。ドキュメントをコンテキストに一度追加すると、Alter が勝手にフィードバックを提供する間、書き込みを続けられます。
-</Tip>
-
----
-
-## ファイルとフォルダーの操作
-
-### ドラッグアンドドロップのサポート
-
-ファイルまたは設定をハブまたは Alter のノッチに追加アンドドロップするか、**右クリック > Alter に追加** を使用します。
-
-### サポートされているファイルの種類
-
-<CardGroup cols={2}>
-  <Card title="書類" icon="file-text">
-    `.xlsx`、`.docx`、`.pdf`、`.txt`、`.md`、`.org`、`.rtf`
-  </Card>
-  <Card title="画像" icon="image">
-    `.jpg`、`.png`、`.heic`、`.gif`、`.tiff`、`.svg`
-  </Card>
-  <Card title="ウェブコンテンツ" icon="globe">
-    `.html`、URL、記録されたテキスト
-  </Card>
-  <Card title="メール" icon="mail">
-    `.eml`、アップルメールメッセージ
-  </Card>
-  <Card title="オーディオ" icon="music">
-    `.mp3`、`.wav`、`.m4a`、`.aac`、`.flac`
-  </Card>
-  <Card title="コード" icon="code">
-    すべてのプログラミング言語、構成ファイル、スクリプト
-  </Card>
-</CardGroup>
-
-<Note>
-  **特別な機能:** ディレクトリのドロップ、画像と PDF の OCR、自動テキスト エンシード検出。
-</Note>
-
-<Warning>
-  画像ファイルを落とすときは、必ずビジョン機能を備えたモデル(GPT-4OやGeminiなど)を使用してください。
-</Warning>
-
-### ビデオ: ファイルとチャットする
-
-<Frame>
-  <div className="embed-container">
-    <iframe width="560" height="315" src="@@TOK25@@" title="YouTubeビデオプレーヤー" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</Frame>
-
----
-
-## 自動文字起こし
-
-オーディオ ファイルまたはビデオ ファイルを追加すると、Alter が自動的に文字起こしします。
-
-<Frame>
-  <div className="embed-container" style={{marginBottom: '10px'}}>
-    <iframe width="560" height="315" src="@@TOK26@@" title="YouTubeビデオプレーヤー" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</Frame>
-
-### 特徴
-
-<CardGroup cols={2}>
-  <Card title="即時処理" icon="zap">
-    オーディオ ファイルとビデオ ファイルは変更に応じて自動的に文字起こしされます。
-  </Card>
-  <Card title="バッチ処理" icon="layers">
-    複数のファイルを同時にドロップして並行転送します
-  </Card>
-  <Card title="インタラクティブコンテンツ" icon="message-square">
-    文字に起こした内容について質問する
-  </Card>
-  <Card title="スマート検出" icon="search">
-    音声ファイルは自動的に会議コンテンツとして扱われます
-  </Card>
-</CardGroup>
-
-### 使用方法
-
-<Steps>
-  <Step title="ファイルをドロップする">
-    オーディオ ファイルまたはビデオ ファイルを Hub または Alter のノッチにアンド ドロップします。
-  </Step>
-  <Step title="転写を待つ">
-    文字起こしは自動的に開始されます - 手動操作は必要ありません
-  </Step>
-  <Step title="トランスクリプトを表示する">
-    コンテキスト内でファイルをクリックすると、文字起こしが表示されます
-  </Step>
-  <Step title="質問する">
-    「スティーブはスピーチで何言ったのですか?」または「要点を要約する」
-  </Step>
-</Steps>
-
----
-
-## __期間_6__
-
-ワークスペースは、効率的な AI 支援ワークのために設定、ファイル、アプリのコレクションを保存、整理、自動的に更新できる強力な機能です。
-
-<CardGroup cols={3}>
-  <Card title="より速い応答" icon="zap">
-    作成に関連するファイルのみを取得する
-  </Card>
-  <Card title="コスト効率が高い" icon="credit-card">
-    インテリジェントなインデックス作成により処理コストを削減
-  </Card>
-  <Card title="大規模プロジェクトを処理します" icon="folder-open">
-    大規模な設定とコードベースを効率的に運用する
-  </Card>
-</CardGroup>
-
-### ワークスペースの仕組み
-
-ワークスペースを選択したリソースのインデックス付きマップを作成します。ファイルは自動的に変換されます。
-
-|ファイルの種類 |変換 |
-|----------|----------|
-| **PDF** |ページマーカーを使用したマークダウン |
-| **DOCX** |マークダウン形式 |
-| **XLSX** |マークダウン/CSV形式 |
-| **画像** | OCR テキスト抽出 |
-| **ディレクトリ** |再帰処理 |
-
-<Note>
-  オーディオおよびビデオ ファイルはWorkspaceではまだサポートされていません。まず、Alterにドロップして転記します。
-</Note>
-
-### ワークスペースでのファイルの編集
-
-<Tabs>
-  <Tab title="単一編集">
-    自然言語を使用して個々のファイルを編集または作成します。
-    - コードを変更する
-    - ドキュメントを更新する
-    - 関数のリファクタリング
-    - 新しいファイルを最初から作成する
-  </Tab>
-  
-<Tab title="マルチエディット">
-    複数のファイルを同時に編集します。
-    - リファクタリングに最適
-    - ファイル全体でインポートを更新する
-    -コードベース全体で一貫した変更を行う
-  </Tab>
-  
-<Tab title="バッシュ Tool">
-    高度な操作のために bash コマンドを実行します。
-    - スクリプトを実行する
-    - バッチ操作
-    - 複雑なワークフローの自動化
-  </Tab>
-</Tabs>
-
-<Info>
-  **セキュリティ第一:** すべての編集操作は、安全に実行するためのセキュリティチェックを準備したシートベルトポリシーを使用してサンドボックス化されます。
-</Info>
-
-### ワークスペースの作成
-
-<Steps>
-  <Step title="ハブを開く">
-    `Shift + Cmd + H`を押すか、メニューバーから選択します
-  </Step>
-  <Step title="Workspaces に移動します">
-    サイドバーでワークスペースセクションを見つけます
-  </Step>
-  <Step title="新規作成">
-    Workspaceピッカーの**+**ボタンをクリックします
-  </Step>
-  <Step title="ファイルを追加する">
-    「ファイルの追加」ボタンを使用して設定とファイルを選択します
-  </Step>
-</Steps>
-
-### ワークスペースストレージ
-
-ワークスペースはローカルの次の場所に保存されます。
-```
-~/Library/Application Support/Alter/Workspaces/
-```
-
-各ワークスペースには次のものが含まれます。
-- ワークスペース定義 (`.alterworkspace`)
-- ファイルと設定
-- 変換されたファイルをキャッシュして高速アクセス
-
-### ビデオチュートリアル
-
-<Frame>
-  <div className="embed-container">
-    <iframe width="560" height="315" src="@@TOK27@@" title="YouTubeビデオプレーヤー" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</Frame>
-
----
-
-## YouTubeビデオとの対話
-
-YouTube ビデオ ページにアクセスする場合:
-- 変更は、要約するオプションを通知します。
-- ビデオのトランスクリプトがコンテキストに自動的に追加されます
-
-<Warning>
-  これは、YouTube ビデオで利用可能なトランスクリプトがある場合にのみ機能します (一部の場合は可能ですが、すべてではありません)。
-</Warning>
-
-### ビデオチュートリアル
-
-<Frame>
-  <div className="embed-container">
-    <iframe width="560" height="315" src="@@TOK28@@" title="YouTubeビデオプレーヤー" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-</Frame>
-
----
-
-## アクション変更 - ワークフロー
-
-アルターアクションは、トリガーと指示で構成された高度なプロンプトです。
-
-### アクションの作成
-
-<CardGroup cols={2}>
-  <Card title="アクションエディター" icon="edit">
-    メニューバーからアクセスして完全なコントロールが可能
-  </Card>
-  <Card title="クイック作成" icon="plus">
-    プロンプトボックスに「作成 > アクションの変更」と入力します。
-  </Card>
-</CardGroup>
-
-<Note>
-  組み込みは編集アクションはできませんが、コピーしたりカスタマイズしたりすることはできます。
-</Note>
-
-### 特注モデルの選択
-
-特定のAIモデルを個々のアクションに割り当てて、正確な制御を実現します。
-
-#### 異なるモデルを使用する理由
-
-<AccordionGroup>
-  <Accordion icon="shield" title="プライバシー最優先のワークフロー">
-    一般的な発言にはクラウドモデルを維持しながら、機密性の高いタスクにはローカルモデルを使用します
-  </Accordion>
-  
-<Accordion icon="gauge" title="特化したパフォーマンス">
-    Qwen3 などの高速でツールに最適化されたモデルを自動化に割り当て、クリエイティブなモデルを作成に使用します
-  </Accordion>
-  
-<Accordion icon="piggy-bank" title="コストの最適化">
-    単純なタスクには軽量のローカルモデルを使用し、複雑な操作には強力なモデルを予約しておきます。
-  </Accordion>
-</AccordionGroup>
-
-#### セットアップ
-
-<Steps>
-  <Step title="アクションエディタを開く">
-    ウィンドウの変更の 3 つのポイントをクリックします。
-  </Step>
-  <Step title="アクションの選択">
-    カスタマイズする Alter アクションを選択してください
-  </Step>
-  <Step title="詳細に移動">
-    「詳細」セクションを見つけます
-  </Step>
-  <Step title="モデルを選択してください">
-    この特定のアクションのモデルを選択してください
-  </Step>
-  <Step title="保存">
-    アクションは選択したモデルを使用するようになりました
-  </Step>
-</Steps>
-
-### アクションレベルツールのカスタマイズ
-
-各アクションで使用できるツールを正確に選択してください。
-
-#### 利点
-
-<CardGroup cols={2}>
-  <Card title="より迅速な実行" icon="zap">
-    ツールに必要なもののみ制限する
-  </Card>
-  <Card title="精度の向上" icon="target">
-    AIが無関係なツールを選択するのを防ぐ
-  </Card>
-  <Card title="コンテキストアウェア" icon="brain">
-    アクションごとに特化したワークフローを作成する
-  </Card>
-  <Card title="コスト効率が高い" icon="credit-card">
-    社内の使用量を削減する
-  </Card>
-</CardGroup>
-
-#### 構成
-
-<Steps>
-  <Step title="アクションエディタを開く">
-    ３ポイントクリック→「アクションエディター」
-  </Step>
-  <Step title="アクションの選択">
-    変更アクションを選択してください
-  </Step>
-  <Step title="Tools セクションを見つけます">
-    「詳細設定」の下をご覧ください
-  </Step>
-  <Step title="ツールを選択する">
-    特定のツールを選択するか、すべてを有効にする
-  </Step>
-</Steps>
-
-#### ツール戦略を立てる
-
-- **まさか:** 集中的なアクションのための 1 つまたは 2 つのツール
-- **グループ化:** 特定のワークフローの関連ツール
-- **フルアクセス:** 汎用アクションのためのすべてのツール
-- **いいえツール:** クリエイティブまたは分析タスクの場合
-
-<Tip>
-  **プロのヒント:** 新しいアクションに対してすべてのツールを有効にしてから始めて、必要なものだけを追加します。これにより、最適なパフォーマンスが確保され、予期しないツールの使用が防止されます。
-</Tip>
-
----
+AppSense は macOS アプリから直接データを読み取り、Alter が画面上に見えるもの以外も扱えるようにします。
+
+この焦点を絞ったガイドを使用してください：
+
+- [現在のアプリとフォロー モードを使用する](/ja/getting-started/use-current-app-and-follow-mode)
+
+## フォロー モード
+
+フォロー モードは作業を続けながらコンテキストを同期し、フォローアップの回答が根拠を保つようにします。
+
+この焦点を絞ったガイドを使用してください：
+
+- [現在のアプリとフォロー モードを使用する](/ja/getting-started/use-current-app-and-follow-mode)
+
+## ファイルとフォルダとの対話
+
+ファイルやフォルダを Alter にドラッグし、アプリからコンテンツを追加し、その資料について根拠のある質問ができます。
+
+この焦点を絞ったガイドを使用してください：
+
+- [ファイル、フォルダ、メディアを追加する](/ja/getting-started/add-files-and-media)
+
+## ワークスペース
+
+ワークスペースはより大きなコンテキストをインデックス化して準備し、より大きなファイル セットで反復可能なタスクを実行できます。
+
+この焦点を絞ったガイドを使用してください：
+
+- [より大きなタスクにワークスペースを使用する](/ja/getting-started/workspaces-basics)
+
+## Alter Actions - ワークフロー
+
+アクションでは、モデルとツール制御付きで価値の高いプロンプト ワークフローを保存して再利用できます。**マイアクション** には、検索可能なライブラリ、インラインのモデル/スケジュール/ショートカット操作、自然言語での変更用 **エディタチャット**、フィールドごとの編集用 **アクションドキュメント** が統合されています。
+
+これらの焦点を絞ったガイドを使用してください：
+
+- [再利用可能なアクションを作成する](/ja/getting-started/actions-basics)
+- [Alter Actions — マイアクションとエディタチャット](/ja/workflows/alter-actions)
 
 ## Gateways
 
-Gateways は Alter を **Discord** と **Telegram** に接続し、Alter が Mac 上にある間、それらのチャットアプリから Action を実行できます。
+Gateways は Alter を **Discord** と **Telegram** に接続し、Alter が Mac 上に留まっている間にそれらのチャット アプリからアクションを実行できます。
 
-専用ガイド：
+これらの焦点を絞ったガイドを使用してください：
 
 - [Gateways overview](/apps-tools/gateways)
-- [Discord を設定](/apps-tools/gateways-discord)
-- [Telegram を設定](/apps-tools/gateways-telegram)
+- [Discord をセットアップ](/apps-tools/gateways-discord)
+- [Telegram をセットアップ](/apps-tools/gateways-telegram)
 
 ## Split Panel
 
-Split Panel は Hub を 2 つの会話ペインに分割し、一方で調査しながら他方で執筆できます。コンテキスト ブリッジ — 会話、ファイル、スニペット、添付 — がコピー＆ペーストなしでペイン間を流れます。
+Split Panel は Hub を 2 つの会話ペインに分割し、一方で調査しながらもう一方で執筆できます。コンテキスト ブリッジ — 会話、ファイル、スニペット、添付 — はコピー&ペーストなしでペイン間を流れます。
 
-専用ガイド：
+この焦点を絞ったガイドを使用してください：
 
-- [Split Panel](/getting-started/split-panel)
+- [Split Panel](/ja/getting-started/split-panel)
 
 ## Web で会話を共有
 
-Hub チャットを alterhq.com 上の**公開読み取り専用リンク**として公開し、他の人がブラウザでスレッド全体を読めるようにします — Alter のインストールは不要です。URL をコピーし、ディスカッションが変わったら**更新**、公開を止めるには**削除**します。
+Hub チャットを alterhq.com 上の **公開読み取り専用リンク** として公開し、Alter のインストールなしでブラウザでスレッド全体を読めます。URL をコピーし、議論が変わったら **更新**、非公開にするには **削除** します。
 
-サインインが必要です。ミーティングの **Live Notepad** や **Meeting Scribe** ディスカッションは利用できません。ローカルの **会話を Markdown として保存**（**⌘⇧S**）やサポート向けの[トレースを共有](/ja/workflows/share-task-traces)とは別です。
+サインインが必要です。ミーティングの **Live Notepad** または **Meeting Scribe** ディスカッションでは利用できません。ローカルの **会話を Markdown として保存**（**⌘⇧S**）およびサポート アップロード用の [トレースを共有](/ja/workflows/share-task-traces) とは別です。
 
-専用ガイド：
+この焦点を絞ったガイドを使用してください：
 
 - [Web で会話を共有](/ja/workflows/share-conversations)
 
-
 ## Coding tools
 
-同一の Alter 会話から **ChatGPT**、**Cursor**、**OpenCode**、**Claude Code** へ実装作業を委任できます。Alter はローカルでセッションを実行し、タスクカードで進捗を表示し、ターン完了時に結果を届けます。
+同じ Alter 会話から **ChatGPT**、**Cursor**、**OpenCode**、**Claude Code** に実装作業を委任します。Alter はローカルでセッションを実行し、タスク カードで進捗を表示し、ターン完了時に結果を返します。
 
-最速の開始方法は **Marketplace コーディングエージェント** です — [alterhq.com/marketplace](https://alterhq.com/marketplace) からダウンロードして一度実行すると、Alter が初回使用時にリンクされたコーディングツールを有効にします。
+最速の開始方法は **Marketplace coding エージェント** — [alterhq.com/marketplace](https://alterhq.com/marketplace) からダウンロードして一度実行；初回使用時に Alter がリンクされた coding ツールを有効にします。
 
-関連ガイド：
+この焦点を絞ったガイドを使用してください：
 
 - [Coding tools](/ja/workflows/coding-tools)
 
 ## 検索、フィルター、Thinking effort
 
-**検索とフィルター** — 開いている会話内のテキストを検索（**⌘F**）、Hub 履歴全体を検索（**⇧⌘F**）、サイドバーを会話タイプ、Workspace、Action、タグで絞り込み、turn index で長い Hub スレッドを移動します。
+**検索とフィルター** — 開いている会話内のテキストを検索（**⌘F**）、Hub 履歴全体を検索（**⇧⌘F**）、サイドバーを会話タイプ、ワークスペース、アクション、タグでフィルターし、長い Hub スレッドをターン インデックスで移動。
 
-**Thinking effort** — 対応モデルでは、モデル切り替えまたは Action Editor から **Low**、**Balanced**、**Max** を選択できます。Alter はモデルごとに選択を記憶し、フォローアップ ターン間で推論コンテキストを保持します。
+**Thinking effort** — サポートされるモデルでは、モデル スイッチャーまたはアクションエディタから **Low**、**Balanced**、**Max** を選択。Alter はモデルごとに選択を記憶し、フォローアップ ターン間で推論コンテキストを保持します。
 
-関連ガイド：
+これらの焦点を絞ったガイドを使用してください：
 
-- [ウィンドウタイプ — 会話の検索とフィルター](/ja/getting-started/window-types-notch-hub-panels#search-and-filter-conversations)
-- [生成モデルの選択 — Thinking effort](/ja/how-to/choose-generative-model#thinking-effort)
+- [ウィンドウ タイプ — 会話の検索とフィルター](/ja/getting-started/window-types-notch-hub-panels#search-and-filter-conversations)
+- [生成モデルを選ぶ — Thinking effort](/ja/how-to/choose-generative-model#thinking-effort)
 
 ## Memory
 
-Memory はチャット、Workspace、会議をまたいで簡潔な事実を保存し、新しい会話で最も関連性の高いものをリコールします。
+Memory はチャット、ワークスペース、ミーティング間で簡潔な事実を保存し、新しい会話で最も関連性の高いものを思い出します。
 
-**Memory は初めて？** [Memory Catch-Up](/ja/workflows/memory-catch-up) から始めましょう。新しい Hub チャットで **Memory に先行スタートを与える** を選び、過去 30 日間のチャットと会議を確認して Memory を一括で投入します——日常学習を待つよりはるかに速いです。
+**Memory は初めて？** [Memory Catch-Up](/ja/workflows/memory-catch-up) から始めてください。新しい Hub チャットで **Give Memory a head start** を選び、過去 30 日間のチャットとミーティングをレビューして Memory を一括で初期化 — 日常の学習を待つよりはるかに速いです。
 
-焦点を絞ったガイド：
+これらの焦点を絞ったガイドを使用してください：
 
-- [Memory Catch-Up](/ja/workflows/memory-catch-up) — 履歴から Memory を投入する推奨の第一歩
+- [Memory Catch-Up](/ja/workflows/memory-catch-up) — 履歴から Memory を供給する推奨の第一歩
 - [Memory](/ja/workflows/memory) — リコール、学習、Memory ツール
-- [Memory を管理](/ja/how-to/manage-memory) — 確認、忘却、設定調整
+- [Memory を管理](/ja/how-to/manage-memory) — レビュー、忘却、設定の調整
+
+## 推奨学習パス
+
+1. [Alter を開く](/ja/getting-started/open-alter)
+2. [現在のアプリとフォロー モードを使用する](/ja/getting-started/use-current-app-and-follow-mode)
+3. [ファイル、フォルダ、メディアを追加する](/ja/getting-started/add-files-and-media)
+4. [より大きなタスクにワークスペースを使用する](/ja/getting-started/workspaces-basics)
+5. [再利用可能なアクションを作成する](/ja/getting-started/actions-basics)

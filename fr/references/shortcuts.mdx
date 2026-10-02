@@ -8,8 +8,8 @@ description: "Liste complète des raccourcis clavier d'Alter"
 Available across windows (unless the target window is already active).
 
 - **Shift + Cmd + H**: Open Alter Hub
-- **Shift + Cmd + E**: Open Action Editor
-- **Shift + Cmd + T**: Open Tools Manager
+- **Shift + Cmd + E**: Open **Mes actions** (Outils et actions, actions section)
+- **Shift + Cmd + T**: Open **Outils et actions**
 - **Cmd + Shift + Space** (default): Open QuickHub — configurable in **Settings → Shortcuts → Global** as **Open QuickHub** (or **Open notch** when QuickHub Mode is off)
 - **Option + Space** (default): New Hub Chat — configurable in **Settings → Shortcuts → Global**
 - **Speech-to-text hotkey**: Start voice input — configurable in **Settings → Voice → Shortcuts** (default: Fn key)
@@ -95,19 +95,19 @@ Lorsqu'un onglet de conversation est actif dans le Hub ou QuickHub :
 
 Tool-specific shortcuts are **not** in `AppShortcuts.swift` — they are configured per enabled tool:
 
-1. Open **Tools Manager** (**⌘⇧T**)
+1. Open **Outils et actions** (**⌘⇧T**)
 2. Select a tool with shortcut support
 3. Assign or edit its shortcut
 
-View and search all tool shortcuts in **Settings → Shortcuts → Tools**. Read-only entries link back to Tools Manager for editing. Quick Actions shortcuts are edited from Tools Manager → **Quick Actions** (also reachable via **Open Tools Manager** in the Shortcuts tab).
+View and search all tool shortcuts in **Settings → Shortcuts → Tools**. Read-only entries link back to Outils et actions for editing. Quick Actions shortcuts are edited from **Outils et actions → Quick Actions** (also reachable via **Ouvrir le gestionnaire d'outils** in the Shortcuts tab).
 
 Common window shortcuts from **Settings → Shortcuts → Windows**:
 
 | Shortcut | Action |
 |----------|--------|
 | **⌘⇧H** | Alter Hub |
-| **⌘⇧E** | Action Editor |
-| **⌘⇧T** | Tools Manager |
+| **⌘⇧E** | Mes actions |
+| **⌘⇧T** | Outils et actions |
 | **⌘ ,** | Settings |
 
 ### Context Section
@@ -161,25 +161,33 @@ No default shortcuts; these can be set via macOS System Settings:
 - Start/Stop sandbox container
 - Open terminal in sandbox
 
-### Action Editor Window
+### Mes actions (Outils et actions window)
 
-- **Cmd + F**: Focus search
-- **Cmd + N**: New action
+When **Mes actions** is selected:
+
+- **Cmd + F**: Focus action search
+- **Cmd + N**: New action (chat de l'éditeur)
+- **Return**: Open document d'action (one row selected)
 - **Cmd + D**: Duplicate action (requires selected action)
 - **Cmd + E**: Export action (requires selected action)
 - **Cmd + O**: Import action
 - **Cmd + Delete**: Delete action (requires selected action)
+
+### Action document window
+
 - **Cmd + W**: Close window
 - **Cmd + [**: Previous section
 - **Cmd + ]**: Next section
 
-### Tools Manager Window
+### Outils et actions window (other sections)
 
 - **Cmd + W**: Close window
-- **Cmd + F**: Focus search
+- **Cmd + F**: Focus search (where available)
 - **When "Skills" is selected**: Cmd + O (Import skill), Cmd + R (Refresh list)
 - **When "Remote MCP Servers" is selected**: Cmd + N (Add server), Cmd + R (Refresh list)
 - **When "Quick Actions" is selected**: Cmd + N (New quick action), Delete (Delete quick action, requires selection)
+
+See [Flux Alter Actions](/fr/workflows/alter-actions) for the full Mes actions and chat de l'éditeur workflow.
 
 ### Live Meetings Panels
 

@@ -22,14 +22,14 @@ description: "モデルとツールの制御により、繰り返されるプロ
 ## 最初のアクションを作成します
 
 <Steps>
-  <Step title="Open Action Editor">
-    [変更] ウィンドウ メニューを開き、[**アクション エディタ**] を選択します。
+  <Step title="マイアクションを開く">
+    **⌘⇧E** を押すか、**ツールとアクション**（**⌘⇧T**）を開いて **マイアクション** を選択します。
   </Step>
   <Step title="Create or duplicate">
-    新しいアクションを作成するか、組み込みアクションをカスタマイズする前に複製します。
+    **エディタチャット**で新しいアクションを説明するか、ツールバーの **+** をクリックするか、組み込みアクションを複製してからカスタマイズします。
   </Step>
   <Step title="Set clear instructions">
-    週ごとの概要、リリースノート、受信箱の優先順位付けなど、具体的な結果を 1 つ定義します。
+    週次サマリー、リリースノート、受信箱のトリアージなど、具体的な成果を 1 つ定義します — チャットまたはアクションドキュメントで。
   </Step>
   <Step title="Save and run">
     1 つの実際の入力でテストし、必要に応じて表現を修正します。
@@ -42,7 +42,7 @@ description: "モデルとツールの制御により、繰り返されるプロ
 
 ## アクションごとにモデルとツールを選択します
 
-アクションで **詳細** 設定を使用して、モデルとツールのアクセス権を割り当てます。
+**アクションドキュメント**の **Model** と **Tools** セクション、**マイアクション**のインライン行コントロール、または **エディタチャット**を使用して、モデルとツールアクセスを割り当てます。
 
 - 機密性の高いタスクにはローカル モデルを選択します。
 - 自動化が重要なタスクには、より高速なモデルを選択してください。
@@ -50,14 +50,14 @@ description: "モデルとツールの制御により、繰り返されるプロ
 
 ## Ask Anything — デフォルトアクション
 
-他のアクションを選ばずに入力すると **Ask Anything** が実行されます。**2.0.0-beta100** 以降、デフォルトで **Flow**、**Computer Use**、**Ask User** を含みます。
+別のアクションを選ばずにプロンプトボックスに入力すると、Alter は **Ask Anything** を実行します。**2.0.0-beta100** 以降、**Flow**、**Computer Use**、**Ask User** がデフォルトで含まれ、日常的なプロンプトでツールのオーケストレーション、画面の自動化、確認質問が可能になります。
 
-カスタマイズ: **Action Editor**（**⌘⇧E**）→ **Ask Anything** → **Tools**。
+カスタマイズ: **⌘⇧E** → **Ask Anything** を選択 → ドキュメントを開く（**Edit** またはダブルクリック）→ **Tools**。組み込みのデフォルトを変更せずにバリアントが必要な場合は Ask Anything を複製します。
 
-[Flow オーケストレーション](/workflows/use-flow-orchestration#ask-anything-defaults-beta100) を参照。
+Flow がデフォルト設定にどう組み込まれるかは [Flow によるツール オーケストレーション](/ja/workflows/use-flow-orchestration#ask-anything-defaults-beta100) を参照してください。
 
 ## 関連ページ
 
 - [より大きなタスクにはワークスペースを使用する](/getting-started/workspaces-basics)
 - [ワークスペースとアクションで自動化する](/getting-started/automate-with-workspaces-and-actions)
-- [ツールマネージャーを使用](/how-to/tool-manager-guide)
+- [ツールを管理](/ja/how-to/tool-manager-guide)
